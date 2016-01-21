@@ -1,0 +1,14 @@
+{
+	"activities": {
+		"1": ["s1", "Sleep", "at night", "this is what you do with your eyes shut"],
+		"2": ["e1", "Cry", "alone", "this is what you do with your eyes shut"],
+		"27": ["s1", "Weep", "for love", "this is what you do with your eyes shut"],
+		"99": ["h0", "Gnash", "for fear", "this is what you do with your eyes shut"]
+	},
+	"screens": {
+		"h0": [ [1, 2, 27, 99], "What are you doing now?", "I mean right now!" ],
+		"h0_": [ [1, 2, 27, 99], "What were you doing at {$time}?", "Do you remember?" ],
+		"s1": [ [91, 5211, 927, 99], "What where you dreaming?", "I can't help you!" ],
+		"s2": [ [92, 5213, 930, 95], "What where you dreaming?", "I can't help you!" ]
+	}
+}
