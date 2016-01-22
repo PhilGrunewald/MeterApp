@@ -39,31 +39,7 @@ var app = {
             app.activities = data.activities;
             app.screens = data.screens;
             
-            var screen = app.screens["h0"];
-            var title = screen[1];
-            
-            $("#title").html(title);
-            
-            var _activities = screen[0];
-            var counter = 1;
-            _activities.forEach( function(_activity) {
-                                
-                var _button = app.activities[_activity+""];
-                var _button_nextscreen = _button[0];
-                var _button_name       = _button[1];
-                var _button_description= _button[2];
-                var _button_help       = _button[3];
-                
-                console.log("button "+counter+" name is "+_button_name)
-                
-                var button = $("#button"+counter);
-                button.html(_button_name);
-                button.attr("onclick", "alert('next is "+_button_nextscreen+"')")
-                
-                counter++;
-            })
-            
-            
+            app.navigateTo("h0");
             
         })
     },
@@ -77,6 +53,36 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    
+    navigateTo: function(screen_id) {
+        
+        console.log("switching to " + screen_id);
+        
+        var screen = app.screens[screen_id];
+        var title = screen[1];
+        
+        $("#title").html(title);
+        
+        var _activities = screen[0];
+        var counter = 1;
+        _activities.forEach( function(_activity) {
+                            
+            var _button = app.activities[_activity+""];
+            var _button_nextscreen = _button[0];
+            var _button_name       = _button[1];
+            var _button_description= _button[2];
+            var _button_help       = _button[3];
+            
+            console.log("button "+counter+" name is "+_button_name)
+            
+            var button = $("#button"+counter);
+            button.html(_button_name);
+            button.attr("onclick", "app.navigateTo('"+_button_nextscreen+"')")
+            
+            counter++;
+        })
+
     }
 };
 
