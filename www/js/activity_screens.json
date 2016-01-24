@@ -1,14 +1,80 @@
 {
 	"activities": {
-		"1": ["s1", "Sleep", "at night", "this is what you do with your eyes shut"],
+		"1000": ["s1", "Deep Sleep", "at night", "this is what you do with your eyes shut"],
 		"2": ["h0_", "Cry", "alone", "this is what you do with your eyes shut"],
 		"27": ["s1", "Weep", "for love", "this is what you do with your eyes shut"],
-		"99": ["h0", "Gnash", "for fear", "this is what you do with your eyes shut"]
+		"99": ["h0", "Gnash", "for fear", "this is what you do with your eyes shut"],
+		"0":	 ["0",	"Care for you / others",	"caption",	"help"],
+		"11":	 ["11",	"Work / Housework",	"caption",	"help"],
+		"998":	 ["998",	"Leisure",	"caption",	"help"],
+		"21":	 ["21",	"Food",	"caption",	"help"],
+		"9":	 ["9",	"Travel",	"caption",	"help"],
+		"1":	 ["0_1",	"Sleep",	"caption",	"help"],
+		"39":	 ["0_39",	"Getting ready",	"caption",	"help"],
+		"38":	 ["0_38",	"Looking after children",	"caption",	"help"],
+		"390":	 ["0_39",	"Looking after others",	"caption",	"help"],
+		"3900":	 ["other",	"Other",	"caption",	"help"],
+		"31":	 ["home",	"Getting dressed",	"caption",	"help"],
+		"3101":	 ["0_39_31",	"Washing",	"caption",	"help"],
+		"3":	 ["0_39_3",	"Care / beauty",	"caption",	"help"],
+		"3902":	 ["home",	"Finding things",	"caption",	"help"],
+		"3903":	 ["other",	"Other",	"caption",	"help"],
+		"31001":	["home",	"Shower",	"caption",	"help"],
+		"31002":	["home",	"Bath",	"caption",	"help"],
+		"31003":	["home",	"Hair dryer",	"caption",	"help"],
+		"31004":	["home",	"Hair curler/straightener",	"caption",	"help"],
+		"31005":	["home",	"Other",	"caption",	"help"]
+	},
+	"questions": {
+			"home":		{
+				"question": "xxxWhat are you doing?",
+				"help":		"at this moment",
+				"b1":		"0",
+				"b2":		"11",
+				"b3":		"998",
+				"b4":		"21",
+				"b5":		"9",
+				"b6":		"1"
+			},
+			"0":		{
+				"question": "Any particular care? ",
+				"help":		"at this moment",
+				"b1":		"1",
+				"b2":		"39",
+				"b3":		"38",
+				"b4":		"390",
+				"b5":		"3900",
+				"b6":		"1"
+			},
+			"0_39":		{
+				"question": "You are getting ready:",
+				"help":		"at this moment",
+				"b1":		"31",
+				"b2":		"11",
+				"b3":		"998",
+				"b4":		"21",
+				"b5":		"9",
+				"b6":		"1"
+			},
+			"0_39_31":		{
+				"question": "You are washing:",
+				"help":		"at this moment",
+				"b1":		"0",
+				"b2":		"11",
+				"b3":		"998",
+				"b4":		"21",
+				"b5":		"9",
+				"b6":		"1"
+			}
 	},
 	"screens": {
-		"h0": [ [1, 2, 27, 99], "What are you doing now?", "I mean right now!" ],
-		"h0_": [ [1, 2, 27, 99], "What were you doing at {$time}?", "Do you remember?" ],
-		"s1": [ [91, 5211, 927, 99], "What where you dreaming?", "I can't help you!" ],
+			"home":		[ [ 0,  11, 998,  21,   9 ], "What are you doing now?", "I mean right now!" ],
+			"0":	 	[ [  1,  39,  38, 390,3900], "Describe the type of care", "I mean right now!" ],
+			"0_39": 	[ [  31,3101,  3,3902,3903], "How are you getting ready?", "I mean right now!" ],
+			"0_39_31": 	[ [31001,31002,31003,31004,31005], "How did you wash?", "I mean right now!" ],
+		"h0": [ [1, 2, 27, 99], "Hey What are you doing now?", "I mean right now!" ],
+		"h00": [ [1, 2, 27, 99], "What were you doing at {$time}?", "Do you remember?" ],
+		"s1": [ [91, 5211, 927, 99], "What were you dreaming?", "I can't help you!" ],
 		"s2": [ [92, 5213, 930, 95], "Why are you crying?", "I can't help you!" ]
 	}
 }

@@ -38,8 +38,9 @@ var app = {
         $.getJSON('js/activity_screens.json', function(data) {
             app.activities = data.activities;
             app.screens = data.screens;
+            app.questions = data.questions;
             
-            app.navigateTo("h0");
+            app.navigateTo("home");
             
         })
     },
@@ -59,30 +60,24 @@ var app = {
         
         console.log("switching to " + screen_id);
         
-        var screen = app.screens[screen_id];
-        var title = screen[1];
+        var question = app.questions[screen_id];
+        var title = question['question'];
         
         $("#title").html(title);
-        
-        var _activities = screen[0];
-        var counter = 1;
-        _activities.forEach( function(_activity) {
-                            
-            var _button = app.activities[_activity+""];
+       
+		for (i = 1; i < 7; i++) {
+			console.log("test "+ app.activities[question['b'+i]])
+            var _button = app.activities[question['b'+i]];
+			console.log("no 0 " + _button[0])
             var _button_nextscreen = _button[0];
             var _button_name       = _button[1];
             var _button_description= _button[2];
             var _button_help       = _button[3];
-            
-            console.log("button "+counter+" name is "+_button_name)
-            
-            var button = $("#button"+counter);
+
+            var button = $("#button"+i);
             button.html(_button_name);
             button.attr("onclick", "app.navigateTo('"+_button_nextscreen+"')")
-            
-            counter++;
-        })
-
+		}
     }
 };
 
