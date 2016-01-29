@@ -1,0 +1,1971 @@
+{
+	"activities": {
+		"Unspecified personal care": {
+			"title": "Unspecified personal care",
+			"caption": "Personal care ",
+			"help": "Unspecified personal care",
+			"tuc": 0,
+			"next": "home"
+		},
+		"Unspecified Sleep": {
+			"title": "Unspecified Sleep",
+			"caption": "Personal care ",
+			"help": "Unspecified Sleep",
+			"tuc": 10,
+			"next": "home"
+		},
+		"Sleep": {
+			"title": "Sleep",
+			"caption": "Personal care ",
+			"help": "Sleep",
+			"tuc": 110,
+			"next": "home"
+		},
+		"In bed, not asleep": {
+			"title": "In bed, not asleep",
+			"caption": "Personal care ",
+			"help": "In bed, not asleep",
+			"tuc": 111,
+			"next": "home"
+		},
+		"Sick in bed": {
+			"title": "Sick in bed",
+			"caption": "Personal care ",
+			"help": "Sick in bed",
+			"tuc": 120,
+			"next": "home"
+		},
+		"Eating": {
+			"title": "Eating",
+			"caption": " Eating ",
+			"help": "Eating",
+			"tuc": 210,
+			"next": "home"
+		},
+		"Unspecified other personal care": {
+			"title": "Unspecified other personal care",
+			"caption": "Personal care",
+			"help": "Unspecified other personal care",
+			"tuc": 300,
+			"next": "home"
+		},
+		"Wash and dress": {
+			"title": "Wash and dress",
+			"caption": "Personal care",
+			"help": "Wash and dress",
+			"tuc": 310,
+			"next": "home"
+		},
+		"Other specified personal care": {
+			"title": "Other specified personal care",
+			"caption": "Personal care",
+			"help": "Other specified personal care",
+			"tuc": 390,
+			"next": "home"
+		},
+		"Unspecified household and family care": {
+			"title": "Unspecified household and family care",
+			"caption": "Household & Family care",
+			"help": "Unspecified household and family care",
+			"tuc": 3000,
+			"next": "home"
+		},
+		"Unspecified food management ": {
+			"title": "Unspecified food management ",
+			"caption": "Household & Family care",
+			"help": "Unspecified food management ",
+			"tuc": 3100,
+			"next": "home"
+		},
+		"Food preparation": {
+			"title": "Food preparation",
+			"caption": "Food management/preparation",
+			"help": "Food preparation",
+			"tuc": 3110,
+			"next": "home"
+		},
+		"Baking": {
+			"title": "Baking",
+			"caption": "Food management/preparation",
+			"help": "Baking",
+			"tuc": 3120,
+			"next": "home"
+		},
+		"Dish washing": {
+			"title": "Dish washing",
+			"caption": "Food management/preparation",
+			"help": "Dish washing",
+			"tuc": 3130,
+			"next": "home"
+		},
+		"Preserving": {
+			"title": "Preserving",
+			"caption": "Food management/preparation",
+			"help": "Preserving",
+			"tuc": 3140,
+			"next": "home"
+		},
+		"Other specified food management": {
+			"title": "Other specified food management",
+			"caption": "Food management/preparation",
+			"help": "Other specified food management",
+			"tuc": 3190,
+			"next": "home"
+		},
+		"Unspecified household upkeep": {
+			"title": "Unspecified household upkeep",
+			"caption": "House keeping",
+			"help": "Unspecified household upkeep",
+			"tuc": 3200,
+			"next": "home"
+		},
+		"Cleaning dwelling": {
+			"title": "Cleaning dwelling",
+			"caption": "House keeping",
+			"help": "Cleaning dwelling",
+			"tuc": 3210,
+			"next": "home"
+		},
+		"Cleaning yard": {
+			"title": "Cleaning yard",
+			"caption": "House keeping",
+			"help": "Cleaning yard",
+			"tuc": 3220,
+			"next": "home"
+		},
+		"Heating and water": {
+			"title": "Heating and water",
+			"caption": "House keeping",
+			"help": "Heating and water",
+			"tuc": 3230,
+			"next": "home"
+		},
+		"Arranging household goods and materials": {
+			"title": "Arranging household goods and materials",
+			"caption": "House keeping",
+			"help": "Arranging household goods and materials",
+			"tuc": 3240,
+			"next": "home"
+		},
+		"Disposal of Waste": {
+			"title": "Disposal of Waste",
+			"caption": "House keeping",
+			"help": "Disposal of Waste",
+			"tuc": 3250,
+			"next": "home"
+		},
+		"Other or unspecified household upkeep": {
+			"title": "Other or unspecified household upkeep",
+			"caption": "House keeping",
+			"help": "Other or unspecified household upkeep",
+			"tuc": 3290,
+			"next": "home"
+		},
+		"Unspecified making and care for textiles": {
+			"title": "Unspecified making and care for textiles",
+			"caption": "House keeping",
+			"help": "Unspecified making and care for textiles",
+			"tuc": 3300,
+			"next": "home"
+		},
+		"Laundry": {
+			"title": "Laundry",
+			"caption": "House keeping",
+			"help": "Laundry",
+			"tuc": 3310,
+			"next": "home"
+		},
+		"Ironing": {
+			"title": "Ironing",
+			"caption": "House keeping",
+			"help": "Ironing",
+			"tuc": 3320,
+			"next": "home"
+		},
+		"Handicraft and producing textiles": {
+			"title": "Handicraft and producing textiles",
+			"caption": "House keeping",
+			"help": "Handicraft and producing textiles",
+			"tuc": 3330,
+			"next": "home"
+		},
+		"Other specified making and care for textiles": {
+			"title": "Other specified making and care for textiles",
+			"caption": "House keeping",
+			"help": "Other specified making and care for textiles",
+			"tuc": 3390,
+			"next": "home"
+		},
+		"Household management not using the internet": {
+			"title": "Household management not using the internet",
+			"caption": "Activities with internet use",
+			"help": "Household management not using the internet",
+			"tuc": 3710,
+			"next": "home"
+		},
+		"Unspecified household management using the internet": {
+			"title": "Unspecified household management using the internet",
+			"caption": "Activities with internet use",
+			"help": "Unspecified household management using the internet",
+			"tuc": 3720,
+			"next": "home"
+		},
+		"Shopping for&ordring unspec gds&srvs via internet": {
+			"title": "Shopping for&ordring unspec gds&srvs via internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring unspec gds&srvs via internet",
+			"tuc": 3721,
+			"next": "home"
+		},
+		"Shopping for&ordring food via the internet": {
+			"title": "Shopping for&ordring food via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring food via the internet",
+			"tuc": 3722,
+			"next": "home"
+		},
+		"Shopping for&ordring clothing via the internet": {
+			"title": "Shopping for&ordring clothing via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring clothing via the internet",
+			"tuc": 3723,
+			"next": "home"
+		},
+		"Shopping for&ordring gds&srv related to acc via internet": {
+			"title": "Shopping for&ordring gds&srv related to acc via internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring gds&srv related to acc via internet",
+			"tuc": 3724,
+			"next": "home"
+		},
+		"Shopping for&ordring mass media via the internet": {
+			"title": "Shopping for&ordring mass media via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring mass media via the internet",
+			"tuc": 3725,
+			"next": "home"
+		},
+		"Shopping for&ordring entertainment via the internet": {
+			"title": "Shopping for&ordring entertainment via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring entertainment via the internet",
+			"tuc": 3726,
+			"next": "home"
+		},
+		"Banking and bill paying via the internet": {
+			"title": "Banking and bill paying via the internet",
+			"caption": "Activities with internet use",
+			"help": "Banking and bill paying via the internet",
+			"tuc": 3727,
+			"next": "home"
+		},
+		"Other specified household management using the internet": {
+			"title": "Other specified household management using the internet",
+			"caption": "Activities with internet use",
+			"help": "Other specified household management using the internet",
+			"tuc": 3729,
+			"next": "home"
+		},
+		"Unspecified childcare": {
+			"title": "Unspecified childcare",
+			"caption": "Taking care of family or others",
+			"help": "Unspecified childcare",
+			"tuc": 3800,
+			"next": "home"
+		},
+		"Unspecified physical care & supervision of a child": {
+			"title": "Unspecified physical care & supervision of a child",
+			"caption": "Taking care of family or others",
+			"help": "Unspecified physical care & supervision of a child",
+			"tuc": 3810,
+			"next": "home"
+		},
+		"Feeding the child": {
+			"title": "Feeding the child",
+			"caption": "Taking care of family or others",
+			"help": "Feeding the child",
+			"tuc": 3811,
+			"next": "home"
+		},
+		"Other specified physical care & supervision of a child": {
+			"title": "Other specified physical care & supervision of a child",
+			"caption": "Taking care of family or others",
+			"help": "Other specified physical care & supervision of a child",
+			"tuc": 3819,
+			"next": "home"
+		},
+		"Teaching the child": {
+			"title": "Teaching the child",
+			"caption": "Taking care of family or others",
+			"help": "Teaching the child",
+			"tuc": 3820,
+			"next": "home"
+		},
+		"Reading, playing and talking with child": {
+			"title": "Reading, playing and talking with child",
+			"caption": "Taking care of family or others",
+			"help": "Reading, playing and talking with child",
+			"tuc": 3830,
+			"next": "home"
+		},
+		"Accompanying child": {
+			"title": "Accompanying child",
+			"caption": "Taking care of family or others",
+			"help": "Accompanying child",
+			"tuc": 3840,
+			"next": "home"
+		},
+		"Other specified childcare": {
+			"title": "Other specified childcare",
+			"caption": "Taking care of family or others",
+			"help": "Other specified childcare",
+			"tuc": 3890,
+			"next": "home"
+		},
+		"Unspecified help to an adult household member": {
+			"title": "Unspecified help to an adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Unspecified help to an adult household member",
+			"tuc": 3910,
+			"next": "home"
+		},
+		"Physical care & supervision of an adult household member": {
+			"title": "Physical care & supervision of an adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Physical care & supervision of an adult household member",
+			"tuc": 3911,
+			"next": "home"
+		},
+		"Accompanying an adult household member": {
+			"title": "Accompanying an adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Accompanying an adult household member",
+			"tuc": 3914,
+			"next": "home"
+		},
+		"Other specified help to an adult household member": {
+			"title": "Other specified help to an adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Other specified help to an adult household member",
+			"tuc": 3919,
+			"next": "home"
+		},
+		"Unspecified help to a dependent adult household member": {
+			"title": "Unspecified help to a dependent adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Unspecified help to a dependent adult household member",
+			"tuc": 3920,
+			"next": "home"
+		},
+		"Physical care of a dependent adult household member (eg Alzheimic parent)": {
+			"title": "Physical care of a dependent adult household member (eg Alzheimic parent)",
+			"caption": "Taking care of family or others",
+			"help": "Physical care of a dependent adult household member (eg Alzheimic parent)",
+			"tuc": 3921,
+			"next": "home"
+		},
+		"Accompanying a dependent adult household member (eg Alzheimic)": {
+			"title": "Accompanying a dependent adult household member (eg Alzheimic)",
+			"caption": "Taking care of family or others",
+			"help": "Accompanying a dependent adult household member (eg Alzheimic)",
+			"tuc": 3924,
+			"next": "home"
+		},
+		"Other specified help to a dependent adult household member": {
+			"title": "Other specified help to a dependent adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Other specified help to a dependent adult household member",
+			"tuc": 3929,
+			"next": "home"
+		},
+		"Unspecified participatory activities": {
+			"title": "Unspecified participatory activities",
+			"caption": "Taking care of family or others",
+			"help": "Unspecified participatory activities",
+			"tuc": 4300,
+			"next": "home"
+		},
+		"Meetings": {
+			"title": "Meetings",
+			"caption": "Socialising",
+			"help": "Meetings",
+			"tuc": 4310,
+			"next": "home"
+		},
+		"Religious activities": {
+			"title": "Religious activities",
+			"caption": "Socialising",
+			"help": "Religious activities",
+			"tuc": 4320,
+			"next": "home"
+		},
+		"Other specified participatory activities": {
+			"title": "Other specified participatory activities",
+			"caption": "Socialising",
+			"help": "Other specified participatory activities",
+			"tuc": 4390,
+			"next": "home"
+		},
+		"Unspecified social life and entertainment": {
+			"title": "Unspecified social life and entertainment",
+			"caption": "Socialising",
+			"help": "Unspecified social life and entertainment",
+			"tuc": 5000,
+			"next": "home"
+		},
+		"Unspecified social life": {
+			"title": "Unspecified social life",
+			"caption": "Socialising",
+			"help": "Unspecified social life",
+			"tuc": 5100,
+			"next": "home"
+		},
+		"Socialising with family": {
+			"title": "Socialising with family",
+			"caption": "Socialising",
+			"help": "Socialising with family",
+			"tuc": 5110,
+			"next": "home"
+		},
+		"Visiting and receiving visitors": {
+			"title": "Visiting and receiving visitors",
+			"caption": "Socialising",
+			"help": "Visiting and receiving visitors",
+			"tuc": 5120,
+			"next": "home"
+		},
+		"Celebrations": {
+			"title": "Celebrations",
+			"caption": "Socialising",
+			"help": "Celebrations",
+			"tuc": 5130,
+			"next": "home"
+		},
+		"Telephone conversation": {
+			"title": "Telephone conversation",
+			"caption": "Socialising",
+			"help": "Telephone conversation",
+			"tuc": 5140,
+			"next": "home"
+		},
+		"Other specified social life": {
+			"title": "Other specified social life",
+			"caption": "Socialising",
+			"help": "Other specified social life",
+			"tuc": 5190,
+			"next": "home"
+		},
+		"Indoor pairs or doubles games": {
+			"title": "Indoor pairs or doubles games",
+			"caption": "Leisure involving computer",
+			"help": "Indoor pairs or doubles games",
+			"tuc": 6141,
+			"next": "home"
+		},
+		"Indoor team games": {
+			"title": "Indoor team games",
+			"caption": "Leisure involving computer",
+			"help": "Indoor team games",
+			"tuc": 6142,
+			"next": "home"
+		},
+		"Computing - programming": {
+			"title": "Computing - programming",
+			"caption": "Leisure involving computer",
+			"help": "Computing - programming",
+			"tuc": 7220,
+			"next": "home"
+		},
+		"Unspecified information by computing": {
+			"title": "Unspecified information by computing",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified information by computing",
+			"tuc": 7230,
+			"next": "home"
+		},
+		"Information searching on the internet": {
+			"title": "Information searching on the internet",
+			"caption": "Leisure involving computer",
+			"help": "Information searching on the internet",
+			"tuc": 7231,
+			"next": "home"
+		},
+		"Other specified information by computing": {
+			"title": "Other specified information by computing",
+			"caption": "Leisure involving computer",
+			"help": "Other specified information by computing",
+			"tuc": 7239,
+			"next": "home"
+		},
+		"Unspecified communication by computer": {
+			"title": "Unspecified communication by computer",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified communication by computer",
+			"tuc": 7240,
+			"next": "home"
+		},
+		"Communication on the internet": {
+			"title": "Communication on the internet",
+			"caption": "Leisure involving computer",
+			"help": "Communication on the internet",
+			"tuc": 7241,
+			"next": "home"
+		},
+		"Other specified communication by computing": {
+			"title": "Other specified communication by computing",
+			"caption": "Leisure involving computer",
+			"help": "Other specified communication by computing",
+			"tuc": 7249,
+			"next": "home"
+		},
+		"Unspecified other computing": {
+			"title": "Unspecified other computing",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified other computing",
+			"tuc": 7250,
+			"next": "home"
+		},
+		"Skype or other video call": {
+			"title": "Skype or other video call",
+			"caption": "Leisure involving computer",
+			"help": "Skype or other video call",
+			"tuc": 7251,
+			"next": "home"
+		},
+		"Other specified computing": {
+			"title": "Other specified computing",
+			"caption": "Leisure involving computer",
+			"help": "Other specified computing",
+			"tuc": 7259,
+			"next": "home"
+		},
+		"Unspecified games": {
+			"title": "Unspecified games",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified games",
+			"tuc": 7300,
+			"next": "home"
+		},
+		"Solo games and play": {
+			"title": "Solo games and play",
+			"caption": "Leisure involving computer",
+			"help": "Solo games and play",
+			"tuc": 7310,
+			"next": "home"
+		},
+		"Unspecified games and play with others": {
+			"title": "Unspecified games and play with others",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified games and play with others",
+			"tuc": 7320,
+			"next": "home"
+		},
+		"Billiards, pool, snooker or petanque": {
+			"title": "Billiards, pool, snooker or petanque",
+			"caption": "Leisure involving computer",
+			"help": "Billiards, pool, snooker or petanque",
+			"tuc": 7321,
+			"next": "home"
+		},
+		"Chess and bridge": {
+			"title": "Chess and bridge",
+			"caption": "Leisure involving computer",
+			"help": "Chess and bridge",
+			"tuc": 7322,
+			"next": "home"
+		},
+		"Other specified parlour games and play": {
+			"title": "Other specified parlour games and play",
+			"caption": "Leisure involving computer",
+			"help": "Other specified parlour games and play",
+			"tuc": 7329,
+			"next": "home"
+		},
+		"Computer games": {
+			"title": "Computer games",
+			"caption": "Leisure involving computer",
+			"help": "Computer games",
+			"tuc": 7330,
+			"next": "home"
+		},
+		"Gambling": {
+			"title": "Gambling",
+			"caption": "Leisure",
+			"help": "Gambling",
+			"tuc": 7340,
+			"next": "home"
+		},
+		"Other specified games ": {
+			"title": "Other specified games ",
+			"caption": "Leisure",
+			"help": "Other specified games ",
+			"tuc": 7390,
+			"next": "home"
+		},
+		"Unspecified mass media": {
+			"title": "Unspecified mass media",
+			"caption": "Leisure",
+			"help": "Unspecified mass media",
+			"tuc": 8000,
+			"next": "home"
+		},
+		"Unspecified reading": {
+			"title": "Unspecified reading",
+			"caption": "Leisure",
+			"help": "Unspecified reading",
+			"tuc": 8100,
+			"next": "home"
+		},
+		"Reading periodicals": {
+			"title": "Reading periodicals",
+			"caption": "Leisure",
+			"help": "Reading periodicals",
+			"tuc": 8110,
+			"next": "home"
+		},
+		"Reading books": {
+			"title": "Reading books",
+			"caption": "Leisure",
+			"help": "Reading books",
+			"tuc": 8120,
+			"next": "home"
+		},
+		"Other specified reading": {
+			"title": "Other specified reading",
+			"caption": "Leisure",
+			"help": "Other specified reading",
+			"tuc": 8190,
+			"next": "home"
+		},
+		"Unspecified tv, video or dvd watching": {
+			"title": "Unspecified tv, video or dvd watching",
+			"caption": "Leisure",
+			"help": "Unspecified tv, video or dvd watching",
+			"tuc": 8210,
+			"next": "home"
+		},
+		"Watching a film on TV": {
+			"title": "Watching a film on TV",
+			"caption": "Leisure",
+			"help": "Watching a film on TV",
+			"tuc": 8211,
+			"next": "home"
+		},
+		"Watching sport on TV ": {
+			"title": "Watching sport on TV ",
+			"caption": "Leisure",
+			"help": "Watching sport on TV ",
+			"tuc": 8212,
+			"next": "home"
+		},
+		"Other specified TV watching": {
+			"title": "Other specified TV watching",
+			"caption": "Leisure",
+			"help": "Other specified TV watching",
+			"tuc": 8219,
+			"next": "home"
+		},
+		"Unspecified video watching": {
+			"title": "Unspecified video watching",
+			"caption": "Leisure",
+			"help": "Unspecified video watching",
+			"tuc": 8220,
+			"next": "home"
+		},
+		"Watching a film on video": {
+			"title": "Watching a film on video",
+			"caption": "Leisure",
+			"help": "Watching a film on video",
+			"tuc": 8221,
+			"next": "home"
+		},
+		"Watching sport on video": {
+			"title": "Watching sport on video",
+			"caption": "Leisure",
+			"help": "Watching sport on video",
+			"tuc": 8222,
+			"next": "home"
+		},
+		"Other specified video watching": {
+			"title": "Other specified video watching",
+			"caption": "Leisure",
+			"help": "Other specified video watching",
+			"tuc": 8229,
+			"next": "home"
+		},
+		"Unspecified listening to radio and music": {
+			"title": "Unspecified listening to radio and music",
+			"caption": "Leisure",
+			"help": "Unspecified listening to radio and music",
+			"tuc": 8300,
+			"next": "home"
+		},
+		"Unspecified radio listening": {
+			"title": "Unspecified radio listening",
+			"caption": "Leisure",
+			"help": "Unspecified radio listening",
+			"tuc": 8310,
+			"next": "home"
+		},
+		"Listening to music on the radio": {
+			"title": "Listening to music on the radio",
+			"caption": "Leisure",
+			"help": "Listening to music on the radio",
+			"tuc": 8311,
+			"next": "home"
+		},
+		"Listening to sport on the radio": {
+			"title": "Listening to sport on the radio",
+			"caption": "Leisure",
+			"help": "Listening to sport on the radio",
+			"tuc": 8312,
+			"next": "home"
+		},
+		"Other specified radio listening": {
+			"title": "Other specified radio listening",
+			"caption": "Leisure",
+			"help": "Other specified radio listening",
+			"tuc": 8319,
+			"next": "home"
+		},
+		"Listening to recordings ": {
+			"title": "Listening to recordings ",
+			"caption": "Leisure",
+			"help": "Listening to recordings ",
+			"tuc": 8320,
+			"next": "home"
+		},
+		"Unspecified employment": {
+			"title": "Unspecified employment",
+			"caption": "Work",
+			"help": "Unspecified employment",
+			"tuc": 1000,
+			"next": "home"
+		},
+		"Unspecified main job": {
+			"title": "Unspecified main job",
+			"caption": "Work",
+			"help": "Unspecified main job",
+			"tuc": 1100,
+			"next": "home"
+		},
+		"Working time in main job": {
+			"title": "Working time in main job",
+			"caption": "Work",
+			"help": "Working time in main job",
+			"tuc": 1110,
+			"next": "home"
+		},
+		"Coffee and other breaks in main job": {
+			"title": "Coffee and other breaks in main job",
+			"caption": "Work",
+			"help": "Coffee and other breaks in main job",
+			"tuc": 1120,
+			"next": "home"
+		},
+		"Unspecified second job": {
+			"title": "Unspecified second job",
+			"caption": "Work",
+			"help": "Unspecified second job",
+			"tuc": 1200,
+			"next": "home"
+		},
+		"Working time in second job": {
+			"title": "Working time in second job",
+			"caption": "Work",
+			"help": "Working time in second job",
+			"tuc": 1210,
+			"next": "home"
+		},
+		"Coffee and other breaks in second job": {
+			"title": "Coffee and other breaks in second job",
+			"caption": "Work",
+			"help": "Coffee and other breaks in second job",
+			"tuc": 1220,
+			"next": "home"
+		},
+		"Unspecified activities related to employment": {
+			"title": "Unspecified activities related to employment",
+			"caption": "Work",
+			"help": "Unspecified activities related to employment",
+			"tuc": 1300,
+			"next": "home"
+		},
+		"Lunch break": {
+			"title": "Lunch break",
+			"caption": "Work",
+			"help": "Lunch break",
+			"tuc": 1310,
+			"next": "home"
+		},
+		"Other specified activities related to employment": {
+			"title": "Other specified activities related to employment",
+			"caption": "Work",
+			"help": "Other specified activities related to employment",
+			"tuc": 1390,
+			"next": "home"
+		},
+		"Activities related to job seeking": {
+			"title": "Activities related to job seeking",
+			"caption": "Work",
+			"help": "Activities related to job seeking",
+			"tuc": 1391,
+			"next": "home"
+		},
+		"Other specified activities related to employment": {
+			"title": "Other specified activities related to employment",
+			"caption": "Work",
+			"help": "Other specified activities related to employment",
+			"tuc": 1399,
+			"next": "home"
+		},
+		"Unspecified study": {
+			"title": "Unspecified study",
+			"caption": "Work",
+			"help": "Unspecified study",
+			"tuc": 2000,
+			"next": "home"
+		},
+		"Unspecified activities related to school or university": {
+			"title": "Unspecified activities related to school or university",
+			"caption": "Study",
+			"help": "Unspecified activities related to school or university",
+			"tuc": 2100,
+			"next": "home"
+		},
+		"Classes and lectures": {
+			"title": "Classes and lectures",
+			"caption": "Study",
+			"help": "Classes and lectures",
+			"tuc": 2110,
+			"next": "home"
+		},
+		"Homework": {
+			"title": "Homework",
+			"caption": "Study",
+			"help": "Homework",
+			"tuc": 2120,
+			"next": "home"
+		},
+		"Other specified activities related to school or university ": {
+			"title": "Other specified activities related to school or university ",
+			"caption": "Study",
+			"help": "Other specified activities related to school or university ",
+			"tuc": 2190,
+			"next": "home"
+		},
+		"Free Time Study": {
+			"title": "Free Time Study",
+			"caption": "Study",
+			"help": "Free Time Study",
+			"tuc": 2210,
+			"next": "home"
+		},
+		"Gardening": {
+			"title": "Gardening",
+			"caption": "Unspecified gardening and pet care",
+			"help": "Gardening",
+			"tuc": 3410,
+			"next": "home"
+		},
+		"Tending domestic animals": {
+			"title": "Tending domestic animals",
+			"caption": "Unspecified gardening and pet care",
+			"help": "Tending domestic animals",
+			"tuc": 3420,
+			"next": "home"
+		},
+		"Caring for pets": {
+			"title": "Caring for pets",
+			"caption": "Unspecified gardening and pet care",
+			"help": "Caring for pets",
+			"tuc": 3430,
+			"next": "home"
+		},
+		"Walking the dog": {
+			"title": "Walking the dog",
+			"caption": "Unspecified gardening and pet care",
+			"help": "Walking the dog",
+			"tuc": 3440,
+			"next": "home"
+		},
+		"Other specified gardening and pet care": {
+			"title": "Other specified gardening and pet care",
+			"caption": "Unspecified gardening and pet care",
+			"help": "Other specified gardening and pet care",
+			"tuc": 3490,
+			"next": "home"
+		},
+		"Unspecified construction and repairs": {
+			"title": "Unspecified construction and repairs",
+			"caption": "Construction and repairs",
+			"help": "Unspecified construction and repairs",
+			"tuc": 3500,
+			"next": "home"
+		},
+		"House construction and renovation": {
+			"title": "House construction and renovation",
+			"caption": "Construction and repairs",
+			"help": "House construction and renovation",
+			"tuc": 3510,
+			"next": "home"
+		},
+		"Repairs of dwelling": {
+			"title": "Repairs of dwelling",
+			"caption": "Construction and repairs",
+			"help": "Repairs of dwelling",
+			"tuc": 3520,
+			"next": "home"
+		},
+		"Unspecified making, repairing and maintaining equipment": {
+			"title": "Unspecified making, repairing and maintaining equipment",
+			"caption": "Construction and repairs",
+			"help": "Unspecified making, repairing and maintaining equipment",
+			"tuc": 3530,
+			"next": "home"
+		},
+		"Woodcraft, metal craft, sculpture and pottery": {
+			"title": "Woodcraft, metal craft, sculpture and pottery",
+			"caption": "Construction and repairs",
+			"help": "Woodcraft, metal craft, sculpture and pottery",
+			"tuc": 3531,
+			"next": "home"
+		},
+		"Other specified making, repairing and maintaining equipment": {
+			"title": "Other specified making, repairing and maintaining equipment",
+			"caption": "Construction and repairs",
+			"help": "Other specified making, repairing and maintaining equipment",
+			"tuc": 3539,
+			"next": "home"
+		},
+		"Vehicle maintenance": {
+			"title": "Vehicle maintenance",
+			"caption": "Construction and repairs",
+			"help": "Vehicle maintenance",
+			"tuc": 3540,
+			"next": "home"
+		},
+		"Other specified construction and repairs": {
+			"title": "Other specified construction and repairs",
+			"caption": "Construction and repairs",
+			"help": "Other specified construction and repairs",
+			"tuc": 3590,
+			"next": "home"
+		},
+		"Unspecified shopping and services": {
+			"title": "Unspecified shopping and services",
+			"caption": "Shoppimg",
+			"help": "Unspecified shopping and services",
+			"tuc": 3600,
+			"next": "home"
+		},
+		"Unspecified shopping": {
+			"title": "Unspecified shopping",
+			"caption": "Shoppimg",
+			"help": "Unspecified shopping",
+			"tuc": 3610,
+			"next": "home"
+		},
+		"Shopping mainly for food": {
+			"title": "Shopping mainly for food",
+			"caption": "Shoppimg",
+			"help": "Shopping mainly for food",
+			"tuc": 3611,
+			"next": "home"
+		},
+		"Shopping mainly for clothing": {
+			"title": "Shopping mainly for clothing",
+			"caption": "Shoppimg",
+			"help": "Shopping mainly for clothing",
+			"tuc": 3612,
+			"next": "home"
+		},
+		"Shopping mainly related to accommodation": {
+			"title": "Shopping mainly related to accommodation",
+			"caption": "Shoppimg",
+			"help": "Shopping mainly related to accommodation",
+			"tuc": 3613,
+			"next": "home"
+		},
+		"Shopping or browsing at car boot sales or antique fairs": {
+			"title": "Shopping or browsing at car boot sales or antique fairs",
+			"caption": "Shoppimg",
+			"help": "Shopping or browsing at car boot sales or antique fairs",
+			"tuc": 3614,
+			"next": "home"
+		},
+		"Window shopping or other shopping as leisure": {
+			"title": "Window shopping or other shopping as leisure",
+			"caption": "Shoppimg",
+			"help": "Window shopping or other shopping as leisure",
+			"tuc": 3615,
+			"next": "home"
+		},
+		"Other specified shopping": {
+			"title": "Other specified shopping",
+			"caption": "Shoppimg",
+			"help": "Other specified shopping",
+			"tuc": 3619,
+			"next": "home"
+		},
+		"Commercial and administrative services": {
+			"title": "Commercial and administrative services",
+			"caption": "Services ",
+			"help": "Commercial and administrative services",
+			"tuc": 3620,
+			"next": "home"
+		},
+		"Personal services": {
+			"title": "Personal services",
+			"caption": "Services ",
+			"help": "Personal services",
+			"tuc": 3630,
+			"next": "home"
+		},
+		"Other specified shopping and services": {
+			"title": "Other specified shopping and services",
+			"caption": "Services ",
+			"help": "Other specified shopping and services",
+			"tuc": 3690,
+			"next": "home"
+		},
+		"Unspecified volunteer work and meetings": {
+			"title": "Unspecified volunteer work and meetings",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Unspecified volunteer work and meetings",
+			"tuc": 4000,
+			"next": "home"
+		},
+		"Unspecified organisational work": {
+			"title": "Unspecified organisational work",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Unspecified organisational work",
+			"tuc": 4100,
+			"next": "home"
+		},
+		"Work for an organisation": {
+			"title": "Work for an organisation",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Work for an organisation",
+			"tuc": 4110,
+			"next": "home"
+		},
+		"Volunteer work through an organisation": {
+			"title": "Volunteer work through an organisation",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Volunteer work through an organisation",
+			"tuc": 4120,
+			"next": "home"
+		},
+		"Other specified organisational work": {
+			"title": "Other specified organisational work",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Other specified organisational work",
+			"tuc": 4190,
+			"next": "home"
+		},
+		"Unspecified informal help to other households": {
+			"title": "Unspecified informal help to other households",
+			"caption": "Asistance/Help",
+			"help": "Unspecified informal help to other households",
+			"tuc": 4200,
+			"next": "home"
+		},
+		"Food management as help to other households": {
+			"title": "Food management as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Food management as help to other households",
+			"tuc": 4210,
+			"next": "home"
+		},
+		"Household upkeep as help to other households": {
+			"title": "Household upkeep as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Household upkeep as help to other households",
+			"tuc": 4220,
+			"next": "home"
+		},
+		"Gardening and pet care as help to other households": {
+			"title": "Gardening and pet care as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Gardening and pet care as help to other households",
+			"tuc": 4230,
+			"next": "home"
+		},
+		"Construction and repairs as help to other households": {
+			"title": "Construction and repairs as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Construction and repairs as help to other households",
+			"tuc": 4240,
+			"next": "home"
+		},
+		"Shopping and services as help to other households": {
+			"title": "Shopping and services as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Shopping and services as help to other households",
+			"tuc": 4250,
+			"next": "home"
+		},
+		"Help to other households in employment and farming": {
+			"title": "Help to other households in employment and farming",
+			"caption": "Asistance/Help",
+			"help": "Help to other households in employment and farming",
+			"tuc": 4260,
+			"next": "home"
+		},
+		"Unspecified childcare as help to other households": {
+			"title": "Unspecified childcare as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Unspecified childcare as help to other households",
+			"tuc": 4270,
+			"next": "home"
+		},
+		"Physical care and supervision of child as help to other household": {
+			"title": "Physical care and supervision of child as help to other household",
+			"caption": "Asistance/Help",
+			"help": "Physical care and supervision of child as help to other household",
+			"tuc": 4271,
+			"next": "home"
+		},
+		"Teaching the child as help": {
+			"title": "Teaching the child as help",
+			"caption": "Asistance/Help",
+			"help": "Teaching the child as help",
+			"tuc": 4272,
+			"next": "home"
+		},
+		"Reading, playing & talking to the child as help": {
+			"title": "Reading, playing & talking to the child as help",
+			"caption": "Asistance/Help",
+			"help": "Reading, playing & talking to the child as help",
+			"tuc": 4273,
+			"next": "home"
+		},
+		"Accompanying the child as help": {
+			"title": "Accompanying the child as help",
+			"caption": "Asistance/Help",
+			"help": "Accompanying the child as help",
+			"tuc": 4274,
+			"next": "home"
+		},
+		"Physical care and supervision of own child as help to other household": {
+			"title": "Physical care and supervision of own child as help to other household",
+			"caption": "Asistance/Help",
+			"help": "Physical care and supervision of own child as help to other household",
+			"tuc": 4275,
+			"next": "home"
+		},
+		"Teaching own non-coresident child": {
+			"title": "Teaching own non-coresident child",
+			"caption": "Asistance/Help",
+			"help": "Teaching own non-coresident child",
+			"tuc": 4276,
+			"next": "home"
+		},
+		"Reading, playing & talking to own non-coresident child": {
+			"title": "Reading, playing & talking to own non-coresident child",
+			"caption": "Asistance/Help",
+			"help": "Reading, playing & talking to own non-coresident child",
+			"tuc": 4277,
+			"next": "home"
+		},
+		"Accompanying own non-coresident child": {
+			"title": "Accompanying own non-coresident child",
+			"caption": "Asistance/Help",
+			"help": "Accompanying own non-coresident child",
+			"tuc": 4278,
+			"next": "home"
+		},
+		"Other specified childcare as help": {
+			"title": "Other specified childcare as help",
+			"caption": "Asistance/Help",
+			"help": "Other specified childcare as help",
+			"tuc": 4279,
+			"next": "home"
+		},
+		"Unspecified help to an adult member of another household": {
+			"title": "Unspecified help to an adult member of another household",
+			"caption": "Asistance/Help",
+			"help": "Unspecified help to an adult member of another household",
+			"tuc": 4280,
+			"next": "home"
+		},
+		"Physical care and supervision of an adult as help to another household": {
+			"title": "Physical care and supervision of an adult as help to another household",
+			"caption": "Asistance/Help",
+			"help": "Physical care and supervision of an adult as help to another household",
+			"tuc": 4281,
+			"next": "home"
+		},
+		"Accompanying an adult as help to another household": {
+			"title": "Accompanying an adult as help to another household",
+			"caption": "Asistance/Help",
+			"help": "Accompanying an adult as help to another household",
+			"tuc": 4282,
+			"next": "home"
+		},
+		"Other specified help to an adult member of another household": {
+			"title": "Other specified help to an adult member of another household",
+			"caption": "Asistance/Help",
+			"help": "Other specified help to an adult member of another household",
+			"tuc": 4283,
+			"next": "home"
+		},
+		"Accompanying an adult as help": {
+			"title": "Accompanying an adult as help",
+			"caption": "Asistance/Help",
+			"help": "Accompanying an adult as help",
+			"tuc": 4284,
+			"next": "home"
+		},
+		"Other specified help to an adult member of another household": {
+			"title": "Other specified help to an adult member of another household",
+			"caption": "Asistance/Help",
+			"help": "Other specified help to an adult member of another household",
+			"tuc": 4289,
+			"next": "home"
+		},
+		"Other specified informal help": {
+			"title": "Other specified informal help",
+			"caption": "Asistance/Help",
+			"help": "Other specified informal help",
+			"tuc": 4290,
+			"next": "home"
+		},
+		"Unspecified entertainment and culture": {
+			"title": "Unspecified entertainment and culture",
+			"caption": "Entertainment/ Leisure",
+			"help": "Unspecified entertainment and culture",
+			"tuc": 5200,
+			"next": "home"
+		},
+		"Cinema": {
+			"title": "Cinema",
+			"caption": "Entertainment/ Leisure",
+			"help": "Cinema",
+			"tuc": 5210,
+			"next": "home"
+		},
+		"Unspecified theatre or concerts": {
+			"title": "Unspecified theatre or concerts",
+			"caption": "Entertainment/ Leisure",
+			"help": "Unspecified theatre or concerts",
+			"tuc": 5220,
+			"next": "home"
+		},
+		"Plays, musicals or pantomimes": {
+			"title": "Plays, musicals or pantomimes",
+			"caption": "Entertainment/ Leisure",
+			"help": "Plays, musicals or pantomimes",
+			"tuc": 5221,
+			"next": "home"
+		},
+		"Opera, operetta or light opera": {
+			"title": "Opera, operetta or light opera",
+			"caption": "Entertainment/ Leisure",
+			"help": "Opera, operetta or light opera",
+			"tuc": 5222,
+			"next": "home"
+		},
+		"Concerts or other performances of classical music": {
+			"title": "Concerts or other performances of classical music",
+			"caption": "Entertainment/ Leisure",
+			"help": "Concerts or other performances of classical music",
+			"tuc": 5223,
+			"next": "home"
+		},
+		"Live music other than classical concerts, opera and musicals": {
+			"title": "Live music other than classical concerts, opera and musicals",
+			"caption": "Entertainment/ Leisure",
+			"help": "Live music other than classical concerts, opera and musicals",
+			"tuc": 5224,
+			"next": "home"
+		},
+		"Dance performances": {
+			"title": "Dance performances",
+			"caption": "Entertainment/ Leisure",
+			"help": "Dance performances",
+			"tuc": 5225,
+			"next": "home"
+		},
+		"Other specified theatre or concerts": {
+			"title": "Other specified theatre or concerts",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified theatre or concerts",
+			"tuc": 5229,
+			"next": "home"
+		},
+		"Art exhibitions and museums": {
+			"title": "Art exhibitions and museums",
+			"caption": "Entertainment/ Leisure",
+			"help": "Art exhibitions and museums",
+			"tuc": 5230,
+			"next": "home"
+		},
+		"Unspecified library": {
+			"title": "Unspecified library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Unspecified library",
+			"tuc": 5240,
+			"next": "home"
+		},
+		"Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library": {
+			"title": "Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library",
+			"tuc": 5241,
+			"next": "home"
+		},
+		"Reference to bks and other library materials within library": {
+			"title": "Reference to bks and other library materials within library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Reference to bks and other library materials within library",
+			"tuc": 5242,
+			"next": "home"
+		},
+		"Using internet in the library": {
+			"title": "Using internet in the library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Using internet in the library",
+			"tuc": 5243,
+			"next": "home"
+		},
+		"Using computers in the library other than internet use": {
+			"title": "Using computers in the library other than internet use",
+			"caption": "Entertainment/ Leisure",
+			"help": "Using computers in the library other than internet use",
+			"tuc": 5244,
+			"next": "home"
+		},
+		"Reading newspapers in a library": {
+			"title": "Reading newspapers in a library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Reading newspapers in a library",
+			"tuc": 5245,
+			"next": "home"
+		},
+		"Listening to music in a library": {
+			"title": "Listening to music in a library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Listening to music in a library",
+			"tuc": 5246,
+			"next": "home"
+		},
+		"Other specified library activities": {
+			"title": "Other specified library activities",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified library activities",
+			"tuc": 5249,
+			"next": "home"
+		},
+		"Sports events": {
+			"title": "Sports events",
+			"caption": "Entertainment/ Leisure",
+			"help": "Sports events",
+			"tuc": 5250,
+			"next": "home"
+		},
+		"Other specified entertainment and culture": {
+			"title": "Other specified entertainment and culture",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified entertainment and culture",
+			"tuc": 5290,
+			"next": "home"
+		},
+		"Visiting a historical site": {
+			"title": "Visiting a historical site",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a historical site",
+			"tuc": 5291,
+			"next": "home"
+		},
+		"Visiting a wildlife site": {
+			"title": "Visiting a wildlife site",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a wildlife site",
+			"tuc": 5292,
+			"next": "home"
+		},
+		"Visiting a botanical site": {
+			"title": "Visiting a botanical site",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a botanical site",
+			"tuc": 5293,
+			"next": "home"
+		},
+		"Visiting a leisure park": {
+			"title": "Visiting a leisure park",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a leisure park",
+			"tuc": 5294,
+			"next": "home"
+		},
+		"Visiting an urban park, playground or designated play area": {
+			"title": "Visiting an urban park, playground or designated play area",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting an urban park, playground or designated play area",
+			"tuc": 5295,
+			"next": "home"
+		},
+		"Other specified entertainment or culture": {
+			"title": "Other specified entertainment or culture",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified entertainment or culture",
+			"tuc": 5299,
+			"next": "home"
+		},
+		"Resting - Time out": {
+			"title": "Resting - Time out",
+			"caption": "Entertainment/ Leisure",
+			"help": "Resting - Time out",
+			"tuc": 5310,
+			"next": "home"
+		},
+		"Unspecified sports and outdoor activities": {
+			"title": "Unspecified sports and outdoor activities",
+			"caption": "Sports ",
+			"help": "Unspecified sports and outdoor activities",
+			"tuc": 6000,
+			"next": "home"
+		},
+		"Unspecified physical exercise": {
+			"title": "Unspecified physical exercise",
+			"caption": "Sports ",
+			"help": "Unspecified physical exercise",
+			"tuc": 6100,
+			"next": "home"
+		},
+		"Walking and hiking": {
+			"title": "Walking and hiking",
+			"caption": "Sports ",
+			"help": "Walking and hiking",
+			"tuc": 6110,
+			"next": "home"
+		},
+		"Taking a walk or hike that lasts at least 2 miles or 1 hour": {
+			"title": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
+			"caption": "Sports ",
+			"help": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
+			"tuc": 6111,
+			"next": "home"
+		},
+		"Other walk or hike": {
+			"title": "Other walk or hike",
+			"caption": "Sports ",
+			"help": "Other walk or hike",
+			"tuc": 6119,
+			"next": "home"
+		},
+		"Jogging and running": {
+			"title": "Jogging and running",
+			"caption": "Sports ",
+			"help": "Jogging and running",
+			"tuc": 6120,
+			"next": "home"
+		},
+		"Biking, skiing and skating": {
+			"title": "Biking, skiing and skating",
+			"caption": "Sports ",
+			"help": "Biking, skiing and skating",
+			"tuc": 6130,
+			"next": "home"
+		},
+		"Biking": {
+			"title": "Biking",
+			"caption": "Sports ",
+			"help": "Biking",
+			"tuc": 6131,
+			"next": "home"
+		},
+		"Skiing or skating": {
+			"title": "Skiing or skating",
+			"caption": "Sports ",
+			"help": "Skiing or skating",
+			"tuc": 6132,
+			"next": "home"
+		},
+		"Unspecified ball games": {
+			"title": "Unspecified ball games",
+			"caption": "Sports ",
+			"help": "Unspecified ball games",
+			"tuc": 6140,
+			"next": "home"
+		},
+		"Outdoor pairs or doubles games": {
+			"title": "Outdoor pairs or doubles games",
+			"caption": "Sports ",
+			"help": "Outdoor pairs or doubles games",
+			"tuc": 6143,
+			"next": "home"
+		},
+		"Outdoor team games": {
+			"title": "Outdoor team games",
+			"caption": "Sports ",
+			"help": "Outdoor team games",
+			"tuc": 6144,
+			"next": "home"
+		},
+		"Other specified ball games": {
+			"title": "Other specified ball games",
+			"caption": "Sports ",
+			"help": "Other specified ball games",
+			"tuc": 6149,
+			"next": "home"
+		},
+		"Gymnastics": {
+			"title": "Gymnastics",
+			"caption": "Sports ",
+			"help": "Gymnastics",
+			"tuc": 6150,
+			"next": "home"
+		},
+		"Fitness": {
+			"title": "Fitness",
+			"caption": "Sports ",
+			"help": "Fitness",
+			"tuc": 6160,
+			"next": "home"
+		},
+		"Unspecified water sports": {
+			"title": "Unspecified water sports",
+			"caption": "Sports ",
+			"help": "Unspecified water sports",
+			"tuc": 6170,
+			"next": "home"
+		},
+		"Swimming": {
+			"title": "Swimming",
+			"caption": "Sports ",
+			"help": "Swimming",
+			"tuc": 6171,
+			"next": "home"
+		},
+		"Other specified water sports": {
+			"title": "Other specified water sports",
+			"caption": "Sports ",
+			"help": "Other specified water sports",
+			"tuc": 6179,
+			"next": "home"
+		},
+		"Other specified physical exercise": {
+			"title": "Other specified physical exercise",
+			"caption": "Sports ",
+			"help": "Other specified physical exercise",
+			"tuc": 6190,
+			"next": "home"
+		},
+		"Unspecified productive exercise": {
+			"title": "Unspecified productive exercise",
+			"caption": "Sports ",
+			"help": "Unspecified productive exercise",
+			"tuc": 6200,
+			"next": "home"
+		},
+		"Hunting and fishing": {
+			"title": "Hunting and fishing",
+			"caption": "Sports ",
+			"help": "Hunting and fishing",
+			"tuc": 6210,
+			"next": "home"
+		},
+		"Picking berries, mushroom and herbs": {
+			"title": "Picking berries, mushroom and herbs",
+			"caption": "Sports ",
+			"help": "Picking berries, mushroom and herbs",
+			"tuc": 6220,
+			"next": "home"
+		},
+		"Other specified productive exercise": {
+			"title": "Other specified productive exercise",
+			"caption": "Sports ",
+			"help": "Other specified productive exercise",
+			"tuc": 6290,
+			"next": "home"
+		},
+		"Unspecified sports related activities": {
+			"title": "Unspecified sports related activities",
+			"caption": "Sports ",
+			"help": "Unspecified sports related activities",
+			"tuc": 6310,
+			"next": "home"
+		},
+		"Activities related to sports": {
+			"title": "Activities related to sports",
+			"caption": "Sports ",
+			"help": "Activities related to sports",
+			"tuc": 6311,
+			"next": "home"
+		},
+		"Activities related to productive exercise": {
+			"title": "Activities related to productive exercise",
+			"caption": "Sports ",
+			"help": "Activities related to productive exercise",
+			"tuc": 6312,
+			"next": "home"
+		},
+		"Unspecified hobbies, games and computing": {
+			"title": "Unspecified hobbies, games and computing",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified hobbies, games and computing",
+			"tuc": 7000,
+			"next": "home"
+		},
+		"Unspecified arts": {
+			"title": "Unspecified arts",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified arts",
+			"tuc": 7100,
+			"next": "home"
+		},
+		"Unspecified visual arts": {
+			"title": "Unspecified visual arts",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified visual arts",
+			"tuc": 7110,
+			"next": "home"
+		},
+		"Painting, drawing or other graphic arts": {
+			"title": "Painting, drawing or other graphic arts",
+			"caption": "Hobbies/leisure",
+			"help": "Painting, drawing or other graphic arts",
+			"tuc": 7111,
+			"next": "home"
+		},
+		"Making videos, taking photos or related activities": {
+			"title": "Making videos, taking photos or related activities",
+			"caption": "Hobbies/leisure",
+			"help": "Making videos, taking photos or related activities",
+			"tuc": 7112,
+			"next": "home"
+		},
+		"Other specified visual arts": {
+			"title": "Other specified visual arts",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified visual arts",
+			"tuc": 7119,
+			"next": "home"
+		},
+		"Unspecified performing arts": {
+			"title": "Unspecified performing arts",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified performing arts",
+			"tuc": 7120,
+			"next": "home"
+		},
+		"Singing or other musical activities": {
+			"title": "Singing or other musical activities",
+			"caption": "Hobbies/leisure",
+			"help": "Singing or other musical activities",
+			"tuc": 7121,
+			"next": "home"
+		},
+		"Other specified performing arts": {
+			"title": "Other specified performing arts",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified performing arts",
+			"tuc": 7129,
+			"next": "home"
+		},
+		"Literary arts": {
+			"title": "Literary arts",
+			"caption": "Hobbies/leisure",
+			"help": "Literary arts",
+			"tuc": 7130,
+			"next": "home"
+		},
+		"Other specified arts": {
+			"title": "Other specified arts",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified arts",
+			"tuc": 7140,
+			"next": "home"
+		},
+		"Unspecified hobbies": {
+			"title": "Unspecified hobbies",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified hobbies",
+			"tuc": 7150,
+			"next": "home"
+		},
+		"Collecting": {
+			"title": "Collecting",
+			"caption": "Hobbies/leisure",
+			"help": "Collecting",
+			"tuc": 7160,
+			"next": "home"
+		},
+		"Correspondence": {
+			"title": "Correspondence",
+			"caption": "Hobbies/leisure",
+			"help": "Correspondence",
+			"tuc": 7170,
+			"next": "home"
+		},
+		"Other specified or unspecied arts and hobbies": {
+			"title": "Other specified or unspecied arts and hobbies",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified or unspecied arts and hobbies",
+			"tuc": 7190,
+			"next": "home"
+		},
+		"Travel related to unspecified time use": {
+			"title": "Travel related to unspecified time use",
+			"caption": "Travel activities",
+			"help": "Travel related to unspecified time use",
+			"tuc": 9000,
+			"next": "home"
+		},
+		"Travel related to personal business": {
+			"title": "Travel related to personal business",
+			"caption": "Travel activities",
+			"help": "Travel related to personal business",
+			"tuc": 9010,
+			"next": "home"
+		},
+		"Travel to/from work": {
+			"title": "Travel to/from work",
+			"caption": "Travel activities",
+			"help": "Travel to/from work",
+			"tuc": 9100,
+			"next": "home"
+		},
+		"Travel in the course of work": {
+			"title": "Travel in the course of work",
+			"caption": "Travel activities",
+			"help": "Travel in the course of work",
+			"tuc": 9110,
+			"next": "home"
+		},
+		"Travel to work from home and back only": {
+			"title": "Travel to work from home and back only",
+			"caption": "Travel activities",
+			"help": "Travel to work from home and back only",
+			"tuc": 9120,
+			"next": "home"
+		},
+		"Travel to work from a place other than home": {
+			"title": "Travel to work from a place other than home",
+			"caption": "Travel activities",
+			"help": "Travel to work from a place other than home",
+			"tuc": 9130,
+			"next": "home"
+		},
+		"Travel related to education": {
+			"title": "Travel related to education",
+			"caption": "Travel activities",
+			"help": "Travel related to education",
+			"tuc": 9210,
+			"next": "home"
+		},
+		"Travel escorting to/ from education": {
+			"title": "Travel escorting to/ from education",
+			"caption": "Travel activities",
+			"help": "Travel escorting to/ from education",
+			"tuc": 9230,
+			"next": "home"
+		},
+		"Travel related to household care": {
+			"title": "Travel related to household care",
+			"caption": "Travel activities",
+			"help": "Travel related to household care",
+			"tuc": 9310,
+			"next": "home"
+		},
+		"Travel related to shopping": {
+			"title": "Travel related to shopping",
+			"caption": "Travel activities",
+			"help": "Travel related to shopping",
+			"tuc": 9360,
+			"next": "home"
+		},
+		"Travel related to services": {
+			"title": "Travel related to services",
+			"caption": "Travel activities",
+			"help": "Travel related to services",
+			"tuc": 9370,
+			"next": "home"
+		},
+		"Travel escorting a child (other than education)": {
+			"title": "Travel escorting a child (other than education)",
+			"caption": "Travel activities",
+			"help": "Travel escorting a child (other than education)",
+			"tuc": 9380,
+			"next": "home"
+		},
+		"Travel escorting an adult (other than education)": {
+			"title": "Travel escorting an adult (other than education)",
+			"caption": "Travel activities",
+			"help": "Travel escorting an adult (other than education)",
+			"tuc": 9390,
+			"next": "home"
+		},
+		"Travel related to organisational work": {
+			"title": "Travel related to organisational work",
+			"caption": "Travel activities",
+			"help": "Travel related to organisational work",
+			"tuc": 9400,
+			"next": "home"
+		},
+		"Travel related to voluntary work and meetings": {
+			"title": "Travel related to voluntary work and meetings",
+			"caption": "Travel activities",
+			"help": "Travel related to voluntary work and meetings",
+			"tuc": 9410,
+			"next": "home"
+		},
+		"Travel related to informal help to other households": {
+			"title": "Travel related to informal help to other households",
+			"caption": "Travel activities",
+			"help": "Travel related to informal help to other households",
+			"tuc": 9420,
+			"next": "home"
+		},
+		"Travel related to religious activities": {
+			"title": "Travel related to religious activities",
+			"caption": "Travel activities",
+			"help": "Travel related to religious activities",
+			"tuc": 9430,
+			"next": "home"
+		},
+		"Travel related to participatory activities other than religious activities": {
+			"title": "Travel related to participatory activities other than religious activities",
+			"caption": "Travel activities",
+			"help": "Travel related to participatory activities other than religious activities",
+			"tuc": 9440,
+			"next": "home"
+		},
+		"Travel to visit friends/ relatives in their homes (not respondent's household)": {
+			"title": "Travel to visit friends/ relatives in their homes (not respondent's household)",
+			"caption": "Travel activities",
+			"help": "Travel to visit friends/ relatives in their homes (not respondent's household)",
+			"tuc": 9500,
+			"next": "home"
+		},
+		"Travel related to other social activities": {
+			"title": "Travel related to other social activities",
+			"caption": "Travel activities",
+			"help": "Travel related to other social activities",
+			"tuc": 9510,
+			"next": "home"
+		},
+		"Travel related to entertainment and culture": {
+			"title": "Travel related to entertainment and culture",
+			"caption": "Travel activities",
+			"help": "Travel related to entertainment and culture",
+			"tuc": 9520,
+			"next": "home"
+		},
+		"Travel related to other leisure": {
+			"title": "Travel related to other leisure",
+			"caption": "Travel activities",
+			"help": "Travel related to other leisure",
+			"tuc": 9600,
+			"next": "home"
+		},
+		"Travel related to physical exercise": {
+			"title": "Travel related to physical exercise",
+			"caption": "Travel activities",
+			"help": "Travel related to physical exercise",
+			"tuc": 9610,
+			"next": "home"
+		},
+		"Travel related to hunting & fishing": {
+			"title": "Travel related to hunting & fishing",
+			"caption": "Travel activities",
+			"help": "Travel related to hunting & fishing",
+			"tuc": 9620,
+			"next": "home"
+		},
+		"Travel related to productive excs expt hunting & fishing": {
+			"title": "Travel related to productive excs expt hunting & fishing",
+			"caption": "Travel activities",
+			"help": "Travel related to productive excs expt hunting & fishing",
+			"tuc": 9630,
+			"next": "home"
+		},
+		"Travel related to gambling": {
+			"title": "Travel related to gambling",
+			"caption": "Travel activities",
+			"help": "Travel related to gambling",
+			"tuc": 9710,
+			"next": "home"
+		},
+		"Travel related to hobbies other than gambling": {
+			"title": "Travel related to hobbies other than gambling",
+			"caption": "Travel activities",
+			"help": "Travel related to hobbies other than gambling",
+			"tuc": 9720,
+			"next": "home"
+		},
+		"Travel related to changing locality": {
+			"title": "Travel related to changing locality",
+			"caption": "Travel activities",
+			"help": "Travel related to changing locality",
+			"tuc": 9800,
+			"next": "home"
+		},
+		"Travel to holiday base": {
+			"title": "Travel to holiday base",
+			"caption": "Travel activities",
+			"help": "Travel to holiday base",
+			"tuc": 9810,
+			"next": "home"
+		},
+		"Travel for day trip/ just walk": {
+			"title": "Travel for day trip/ just walk",
+			"caption": "Travel activities",
+			"help": "Travel for day trip/ just walk",
+			"tuc": 9820,
+			"next": "home"
+		},
+		"Other specified travel": {
+			"title": "Other specified travel",
+			"caption": "Travel activities",
+			"help": "Other specified travel",
+			"tuc": 9890,
+			"next": "home"
+		},
+		"Punctuating activity": {
+			"title": "Punctuating activity",
+			"caption": "Other activities",
+			"help": "Punctuating activity",
+			"tuc": 9940,
+			"next": "home"
+		},
+		"Filling in the time use diary": {
+			"title": "Filling in the time use diary",
+			"caption": "Other activities",
+			"help": "Filling in the time use diary",
+			"tuc": 9950,
+			"next": "home"
+		},
+		"No main activity, no idea what it might be": {
+			"title": "No main activity, no idea what it might be",
+			"caption": "Other activities",
+			"help": "No main activity, no idea what it might be",
+			"tuc": 9960,
+			"next": "home"
+		},
+		"No main activity, some idea what it might be": {
+			"title": "No main activity, some idea what it might be",
+			"caption": "Other activities",
+			"help": "No main activity, some idea what it might be",
+			"tuc": 9970,
+			"next": "home"
+		},
+		"Illegible activity": {
+			"title": "Illegible activity",
+			"caption": "Other activities",
+			"help": "Illegible activity",
+			"tuc": 9980,
+			"next": "home"
+		},
+		"Unspecified time use": {
+			"title": "Unspecified time use",
+			"caption": "Other activities",
+			"help": "Unspecified time use",
+			"tuc": 9990,
+			"next": "home"
+		}
+	}
+}
