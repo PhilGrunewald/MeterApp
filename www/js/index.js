@@ -35,15 +35,22 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         
-        $.getJSON('js/activity_screens.json', function(data) {
+        app.actionButtons = $('.btn-activity')
+        
+        $.getJSON('js/activities.json', function(data) {
+            
             app.activities = data.activities;
-            //app.screens = data.screens;
-            app.questions = data.questions;
             
-            app.actionButtons = $('.btn-activity')
+            $.getJSON('js/screens.json', function(screen_data) {
+                
+                app.screens = screen_data.screens;
+                
+                app.navigateTo("home");
+            })    
             
-            app.navigateTo("home");
         })
+        
+        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -57,22 +64,26 @@ var app = {
         console.log('Received Event: ' + id);
     },
     
-    navigateTo: function(question_id) {
+    navigateTo: function(screen_id) {
         
-        console.log("switching to " + question_id);
+        console.log("switching to " + screen_id);
         
-        var question = app.questions[question_id];
-        console.log("question title: "+question.title)
+        var screen_ = app.screens[screen_id];
+        console.log("screen title: "+screen_.title)
         
-        $("#title").html(question.title);
+        $("#title").html(screen_.title);
         
-		for (i = 0; i < question.activities.length; i++) {
+		for (i = 0; i < screen_.activities.length; i++) {
             
-            var activity = app.activities[question.activities[i]]
+            var activity = app.activities[screen_.activities[i]]
             var button   = $(app.actionButtons[i])
             
-            button.html(activity.title);
-            button.attr("onclick", "app.navigateTo('"+activity.next+"')")
+            if (activity === undefined) {
+                button.html(screen_.activities[i] + "<br>undefined");
+            } else {
+                button.html(activity.caption);
+                button.attr("onclick", "app.navigateTo('"+activity.next+"')")
+            }
             
 		}
     }
