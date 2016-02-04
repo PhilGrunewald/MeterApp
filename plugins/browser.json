@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "uk.ac.ox.energy.meter"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "uk.ac.ox.energy.meter"
         }
     },
     "dependent_plugins": {}

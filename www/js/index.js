@@ -17,6 +17,9 @@
  * under the License.
  */
 var app = {
+    
+    logOb: null,
+    
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -33,9 +36,24 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+
         app.receivedEvent('deviceready');
+                
+        window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function(dir) {
+            console.log("got main dir",dir);
+            dir.getFile("tuc_log.txt", {create:true}, function(file) {
+                console.log("got the file", file);
+                app.logOb = file;
+                app.writeLog("App started");          
+            }, function(err) {
+                console.log(err);
+            });
+        });
         
-        app.actionButtons = $('.btn-activity')
+        
+        app.actionButtons = $('.btn-activity');
+        
+        
         
         $.getJSON('js/activities.json', function(data) {
             
@@ -67,6 +85,7 @@ var app = {
     navigateTo: function(screen_id) {
         
         console.log("switching to " + screen_id);
+        app.writeLog("switching to " + screen_id);
         
         var screen_ = app.screens[screen_id];
         console.log("screen title: "+screen_.title)
@@ -80,13 +99,31 @@ var app = {
             
             if (activity === undefined) {
                 button.html(screen_.activities[i] + "<br>undefined");
+                button.attr("onclick", "")
             } else {
                 button.html(activity.caption);
                 button.attr("onclick", "app.navigateTo('"+activity.next+"')")
             }
             
 		}
+    },
+    
+    writeLog: function(str) {
+        if(!app.logOb) return;
+        var log = "[" + (new Date()) + "] " + str + "\n";
+        
+        app.logOb.createWriter(function(fileWriter) {
+            
+            fileWriter.seek(fileWriter.length);
+            
+            var blob = new Blob([log], {type:'text/plain'});
+            fileWriter.write(blob);
+            
+        }, function(err) {
+            console.log(err)
+        });
     }
+    
 };
 
 app.initialize();

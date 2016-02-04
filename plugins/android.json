@@ -11,6 +11,20 @@
                         {
                             "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -19,6 +33,9 @@
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "uk.ac.ox.energy.meter"
+        },
+        "cordova-plugin-file": {
             "PACKAGE_NAME": "uk.ac.ox.energy.meter"
         }
     },
