@@ -1,11 +1,137 @@
 {
 	"activities": {
-		"Unspecified personal care": {
+		"at home": {
+			"title": "meter: location home",
+			"caption": "Home",
+			"help": "I enjoyed this time very much.",
+			"tuc": 30011,
+			"next": "enjoyment"
+		},
+		"travelling": {
+			"title": "meter: location travelling",
+			"caption": "Travelling",
+			"help": "By car, foot, bus, train, bike, jogging...",
+			"tuc": 30030,
+			"next": "travelling"
+		},
+		"at work": {
+			"title": "meter: location work",
+			"caption": "Workplace",
+			"help": "I am at my place of work or school",
+			"tuc": 30013,
+			"next": "enjoyment"
+		},
+		"at friends": {
+			"title": "meter: location friends",
+			"caption": "With friends or others",
+			"help": "At a friends or other peoples house",
+			"tuc": 30014,
+			"next": "enjoyment"
+		},
+		"outdoors": {
+			"title": "meter: location outdoors",
+			"caption": "Outdoors",
+			"help": "Park, road, public places, sports field",
+			"tuc": 30018,
+			"next": "enjoyment"
+		},
+		"travel foot": {
+			"title": "meter: travel foot",
+			"caption": "By foot",
+			"help": "Walking, ambling, pottering",
+			"tuc": 30031,
+			"next": "enjoyment"
+		},
+		"travel car": {
+			"title": "meter: travel car",
+			"caption": "By car",
+			"help": "Car, van, motorbike or count",
+			"tuc": 30036,
+			"next": "enjoyment"
+		},
+		"travel bike": {
+			"title": "meter: travel bike",
+			"caption": "By bike",
+			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
+			"tuc": 30032,
+			"next": "enjoyment"
+		},
+		"travel public": {
+			"title": "meter: travel public",
+			"caption": "By public",
+			"help": "Bus, coach, train, plane, boat",
+			"tuc": 30040,
+			"next": "enjoyment"
+		},
+		"travel exercise": {
+			"title": "meter: travel sport",
+			"caption": "Exercise",
+			"help": "Running, cycling, swimming...",
+			"tuc": 9610,
+			"next": "enjoyment"
+		},
+		"travel other": {
+			"title": "meter: travel other",
+			"caption": "Other",
+			"help": "Anything not listed here",
+			"tuc": 30031,
+			"next": "enjoyment"
+		},
+		"other location": {
+			"title": "meter: location other",
+			"caption": "Other location",
+			"help": "I enjoyed this time very much.",
+			"tuc": 30010,
+			"next": "enjoyment"
+		},
+		"skip": {
+			"title": "meter: enjoyment skip",
+			"caption": "Skip",
+			"help": "I enjoyed this time very much.",
+			"tuc": 20000,
+			"next": "home"
+		},
+		"not at all": {
+			"title": "meter: enjoyment 1",
+			"caption": "Not at all",
+			"help": "I enjoyed this time not at all",
+			"tuc": 20001,
+			"next": "home"
+		},
+		"not very much": {
+			"title": "meter: enjoyment 2",
+			"caption": "Not very much",
+			"help": "I enjoyed this time not very much.",
+			"tuc": 20002,
+			"next": "home"
+		},
+		"neutral": {
+			"title": "meter: enjoyment 3",
+			"caption": "Very much",
+			"help": "I enjoyed this time somewhat",
+			"tuc": 20003,
+			"next": "home"
+		},
+		"somewhat": {
+			"title": "meter: enjoyment 4",
+			"caption": "Somewhat",
+			"help": "I enjoyed this time",
+			"tuc": 20004,
+			"next": "home"
+		},
+		"very much": {
+			"title": "meter: enjoyment 5",
+			"caption": "Very much",
+			"help": "I enjoyed this time very much.",
+			"tuc": 20005,
+			"next": "home"
+		},
+		"care": {
 			"title": "Unspecified personal care",
 			"caption": "Personal care ",
 			"help": "Unspecified personal care",
 			"tuc": 0,
-			"next": "home"
+			"next": "care"
 		},
 		"Unspecified Sleep": {
 			"title": "Unspecified Sleep",
@@ -14,16 +140,16 @@
 			"tuc": 10,
 			"next": "home"
 		},
-		"Sleep": {
+		"sleep": {
 			"title": "Sleep",
-			"caption": "Personal care ",
+			"caption": "Sleep",
 			"help": "Sleep",
 			"tuc": 110,
 			"next": "home"
 		},
 		"In bed, not asleep": {
 			"title": "In bed, not asleep",
-			"caption": "Personal care ",
+			"caption": "Not sleeping",
 			"help": "In bed, not asleep",
 			"tuc": 111,
 			"next": "home"
@@ -42,17 +168,17 @@
 			"tuc": 210,
 			"next": "home"
 		},
-		"Unspecified other personal care": {
+		"care personal": {
 			"title": "Unspecified other personal care",
-			"caption": "Personal care",
+			"caption": "Myself",
 			"help": "Unspecified other personal care",
 			"tuc": 300,
 			"next": "home"
 		},
-		"Wash and dress": {
+		"care wash": {
 			"title": "Wash and dress",
-			"caption": "Personal care",
-			"help": "Wash and dress",
+			"caption": "Wash or get dressed",
+			"help": "Shower, bath, changing clothes, beauty",
 			"tuc": 310,
 			"next": "home"
 		},
@@ -70,12 +196,12 @@
 			"tuc": 3000,
 			"next": "home"
 		},
-		"Unspecified food management ": {
+		"food": {
 			"title": "Unspecified food management ",
-			"caption": "Household & Family care",
-			"help": "Unspecified food management ",
+			"caption": "Food",
+			"help": "Eating, preparing, cooking, clearing food",
 			"tuc": 3100,
-			"next": "home"
+			"next": "food"
 		},
 		"Food preparation": {
 			"title": "Food preparation",
@@ -266,58 +392,58 @@
 			"tuc": 3729,
 			"next": "home"
 		},
-		"Unspecified childcare": {
+		"care child": {
 			"title": "Unspecified childcare",
-			"caption": "Taking care of family or others",
+			"caption": "Looking after children",
 			"help": "Unspecified childcare",
 			"tuc": 3800,
-			"next": "home"
+			"next": "care child"
 		},
-		"Unspecified physical care & supervision of a child": {
+		"care child other": {
 			"title": "Unspecified physical care & supervision of a child",
-			"caption": "Taking care of family or others",
+			"caption": "Other",
 			"help": "Unspecified physical care & supervision of a child",
 			"tuc": 3810,
 			"next": "home"
 		},
-		"Feeding the child": {
+		"care child feed": {
 			"title": "Feeding the child",
 			"caption": "Taking care of family or others",
 			"help": "Feeding the child",
 			"tuc": 3811,
 			"next": "home"
 		},
-		"Other specified physical care & supervision of a child": {
+		"care child physical": {
 			"title": "Other specified physical care & supervision of a child",
 			"caption": "Taking care of family or others",
 			"help": "Other specified physical care & supervision of a child",
 			"tuc": 3819,
 			"next": "home"
 		},
-		"Teaching the child": {
+		"care child teach": {
 			"title": "Teaching the child",
 			"caption": "Taking care of family or others",
 			"help": "Teaching the child",
 			"tuc": 3820,
 			"next": "home"
 		},
-		"Reading, playing and talking with child": {
+		"care child play": {
 			"title": "Reading, playing and talking with child",
 			"caption": "Taking care of family or others",
 			"help": "Reading, playing and talking with child",
 			"tuc": 3830,
 			"next": "home"
 		},
-		"Accompanying child": {
+		"care child company": {
 			"title": "Accompanying child",
-			"caption": "Taking care of family or others",
+			"caption": "Accompanying child",
 			"help": "Accompanying child",
 			"tuc": 3840,
 			"next": "home"
 		},
-		"Other specified childcare": {
+		"care child supervise": {
 			"title": "Other specified childcare",
-			"caption": "Taking care of family or others",
+			"caption": "Supervising",
 			"help": "Other specified childcare",
 			"tuc": 3890,
 			"next": "home"
@@ -406,12 +532,12 @@
 			"tuc": 4390,
 			"next": "home"
 		},
-		"Unspecified social life and entertainment": {
+		"leisure": {
 			"title": "Unspecified social life and entertainment",
-			"caption": "Socialising",
-			"help": "Unspecified social life and entertainment",
+			"caption": "Leisure",
+			"help": "Resting, fun, social",
 			"tuc": 5000,
-			"next": "home"
+			"next": "leisure"
 		},
 		"Unspecified social life": {
 			"title": "Unspecified social life",
@@ -742,6 +868,13 @@
 			"tuc": 1000,
 			"next": "home"
 		},
+		"work": {
+			"title": "meter: generic work",
+			"caption": "Work",
+			"help": "Housework, Homework, Job, Volunteering",
+			"tuc": 11100,
+			"next": "work"
+		},
 		"Unspecified main job": {
 			"title": "Unspecified main job",
 			"caption": "Work",
@@ -749,12 +882,12 @@
 			"tuc": 1100,
 			"next": "home"
 		},
-		"Working time in main job": {
+		"Main job": {
 			"title": "Working time in main job",
-			"caption": "Work",
+			"caption": "Main job",
 			"help": "Working time in main job",
 			"tuc": 1110,
-			"next": "home"
+			"next": "location"
 		},
 		"Coffee and other breaks in main job": {
 			"title": "Coffee and other breaks in main job",
@@ -1414,7 +1547,7 @@
 			"tuc": 5299,
 			"next": "home"
 		},
-		"Resting - Time out": {
+		"care rest": {
 			"title": "Resting - Time out",
 			"caption": "Entertainment/ Leisure",
 			"help": "Resting - Time out",

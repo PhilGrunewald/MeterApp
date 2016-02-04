@@ -1,0 +1,135 @@
+	"questions": {
+		"home": {
+			"title": "What are you doing?",
+			"help": "at this moment",
+			"activities": [
+				"care",
+				"work",
+				"leisure",
+				"food",
+				"travel",
+				"other"
+			]
+		},
+		"care": {
+			"title": "Describe the care for you or others:",
+			"help": "at this moment",
+			"activities": [
+				"care personal",
+				"care wash",
+				"care rest",
+				"care child",
+				"care others",
+				"care other"
+			]
+		},
+		"care child": {
+			"title": "Describe the child care:",
+			"help": "at this moment",
+			"activities": [
+				"care child feed",
+				"care child play",
+				"care child teach",
+				"care child company",
+				"care child supervise",
+				"care child physical",
+				"care child other"
+			]
+		},
+		"traveling": {
+			"title": "Any particular travel? ",
+			"help": "at this moment",
+			"activities": [
+				"travel foot",
+				"travel car",
+				"travel bike",
+				"travel public",
+				"travel exercise",
+				"travel other"
+			]
+		},
+		"leisure": {
+			"title": "Any particular leisure? ",
+			"help": "at this moment",
+			"activities": [
+				"leisure",
+				"food",
+				"care",
+				"travel",
+				"other",
+				"work"
+			]
+		},
+		"food": {
+			"title": "Any particular food? ",
+			"help": "at this moment",
+			"activities": [
+				"food eat",
+				"food prepare",
+				"food cook",
+				"food snack",
+				"food clear",
+				"food other"
+			]
+		},
+		"other": {
+			"title": "Any particular other? ",
+			"help": "at this moment",
+			"activities": [
+				"leisure",
+				"food",
+				"work",
+				"travel",
+				"other",
+				"sleep"
+			]
+		},
+		"work": {
+			"title": "Any particular work? ",
+			"help": "at this moment",
+			"activities": [
+				"Main job",
+				"Other paid work",
+				"Volunteering",
+				"Housework",
+				"Homework",
+				"Other work"
+			]
+		},
+		"enjoyment": {
+			"title": "How much do you enjoy this?",
+			"help": "Think how this made you feel.",
+			"activities": [
+				"very much",
+				"somewhat",
+				"neutral",
+				"not very much",
+				"not at all",
+				"skip"
+			]
+		},
+		"location": {
+			"title": "Where are you doing this?",
+			"help": "Your location.",
+			"activities": [
+				"at home",
+				"travelling",
+				"at work",
+				"at friend",
+				"outdoors",
+				"other location"
+			]
+		},
+		"sleep": {
+			"title": "Any particular sleep? ",
+			"help": "at this moment",
+			"activities": [
+				"leisure",
+				"work",
+				"other",
+				"home",
+				"travel",
+				"food"
+			]
+		}
+	}
