@@ -2093,7 +2093,7 @@
 			"tuc": 9980,
 			"next": "home"
 		},
-		"Unspecified time use": {
+		"other": {
 			"title": "Unspecified time use",
 			"caption": "Other activities",
 			"help": "Unspecified time use",
