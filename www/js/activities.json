@@ -128,14 +128,14 @@
 		},
 		"care": {
 			"title": "Unspecified personal care",
-			"caption": "Personal care ",
+			"caption": "Personal care",
 			"help": "Unspecified personal care",
 			"tuc": 0,
 			"next": "care"
 		},
 		"Unspecified Sleep": {
 			"title": "Unspecified Sleep",
-			"caption": "Personal care ",
+			"caption": "Personal care",
 			"help": "Unspecified Sleep",
 			"tuc": 10,
 			"next": "home"
@@ -156,14 +156,14 @@
 		},
 		"Sick in bed": {
 			"title": "Sick in bed",
-			"caption": "Personal care ",
+			"caption": "Personal care",
 			"help": "Sick in bed",
 			"tuc": 120,
 			"next": "home"
 		},
 		"Eating": {
 			"title": "Eating",
-			"caption": " Eating ",
+			"caption": " Eating",
 			"help": "Eating",
 			"tuc": 210,
 			"next": "home"
@@ -197,7 +197,7 @@
 			"next": "home"
 		},
 		"food": {
-			"title": "Unspecified food management ",
+			"title": "Unspecified food management",
 			"caption": "Food",
 			"help": "Eating, preparing, cooking, clearing food",
 			"tuc": 3100,
@@ -722,9 +722,9 @@
 			"next": "home"
 		},
 		"Other specified games ": {
-			"title": "Other specified games ",
+			"title": "Other specified games",
 			"caption": "Leisure",
-			"help": "Other specified games ",
+			"help": "Other specified games",
 			"tuc": 7390,
 			"next": "home"
 		},
@@ -778,9 +778,9 @@
 			"next": "home"
 		},
 		"Watching sport on TV ": {
-			"title": "Watching sport on TV ",
+			"title": "Watching sport on TV",
 			"caption": "Leisure",
-			"help": "Watching sport on TV ",
+			"help": "Watching sport on TV",
 			"tuc": 8212,
 			"next": "home"
 		},
@@ -855,9 +855,9 @@
 			"next": "home"
 		},
 		"Listening to recordings ": {
-			"title": "Listening to recordings ",
+			"title": "Listening to recordings",
 			"caption": "Leisure",
-			"help": "Listening to recordings ",
+			"help": "Listening to recordings",
 			"tuc": 8320,
 			"next": "home"
 		},
@@ -981,9 +981,9 @@
 			"next": "home"
 		},
 		"Other specified activities related to school or university ": {
-			"title": "Other specified activities related to school or university ",
+			"title": "Other specified activities related to school or university",
 			"caption": "Study",
-			"help": "Other specified activities related to school or university ",
+			"help": "Other specified activities related to school or university",
 			"tuc": 2190,
 			"next": "home"
 		},
@@ -1143,21 +1143,21 @@
 		},
 		"Commercial and administrative services": {
 			"title": "Commercial and administrative services",
-			"caption": "Services ",
+			"caption": "Services",
 			"help": "Commercial and administrative services",
 			"tuc": 3620,
 			"next": "home"
 		},
 		"Personal services": {
 			"title": "Personal services",
-			"caption": "Services ",
+			"caption": "Services",
 			"help": "Personal services",
 			"tuc": 3630,
 			"next": "home"
 		},
 		"Other specified shopping and services": {
 			"title": "Other specified shopping and services",
-			"caption": "Services ",
+			"caption": "Services",
 			"help": "Other specified shopping and services",
 			"tuc": 3690,
 			"next": "home"
@@ -1552,81 +1552,81 @@
 			"caption": "Entertainment/ Leisure",
 			"help": "Resting - Time out",
 			"tuc": 5310,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified sports and outdoor activities": {
 			"title": "Unspecified sports and outdoor activities",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Unspecified sports and outdoor activities",
 			"tuc": 6000,
 			"next": "home"
 		},
 		"Unspecified physical exercise": {
 			"title": "Unspecified physical exercise",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Unspecified physical exercise",
 			"tuc": 6100,
 			"next": "home"
 		},
 		"Walking and hiking": {
 			"title": "Walking and hiking",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Walking and hiking",
 			"tuc": 6110,
 			"next": "home"
 		},
 		"Taking a walk or hike that lasts at least 2 miles or 1 hour": {
 			"title": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
 			"tuc": 6111,
 			"next": "home"
 		},
 		"Other walk or hike": {
 			"title": "Other walk or hike",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Other walk or hike",
 			"tuc": 6119,
 			"next": "home"
 		},
 		"Jogging and running": {
 			"title": "Jogging and running",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Jogging and running",
 			"tuc": 6120,
 			"next": "home"
 		},
 		"Biking, skiing and skating": {
 			"title": "Biking, skiing and skating",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Biking, skiing and skating",
 			"tuc": 6130,
 			"next": "home"
 		},
 		"Biking": {
 			"title": "Biking",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Biking",
 			"tuc": 6131,
 			"next": "home"
 		},
 		"Skiing or skating": {
 			"title": "Skiing or skating",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Skiing or skating",
 			"tuc": 6132,
 			"next": "home"
 		},
 		"Unspecified ball games": {
 			"title": "Unspecified ball games",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Unspecified ball games",
 			"tuc": 6140,
 			"next": "home"
 		},
 		"Outdoor pairs or doubles games": {
 			"title": "Outdoor pairs or doubles games",
-			"caption": "Sports ",
+			"caption": "Sports",
 			"help": "Outdoor pairs or doubles games",
 			"tuc": 6143,
 			"next": "home"
