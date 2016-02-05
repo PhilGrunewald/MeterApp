@@ -1,0 +1,13 @@
+[Thu Feb 04 2016 17:58:52 GMT+0000 (GMT)] switching to care
+[Thu Feb 04 2016 17:58:52 GMT+0000 (GMT)] switching to home
+[Thu Feb 04 2016 17:58:52 GMT+0000 (GMT)] switching to leisure
+[Thu Feb 04 2016 17:58:53 GMT+0000 (GMT)] switching to home
+[Thu Feb 04 2016 17:58:53 GMT+0000 (GMT)] switching to leisure
+[Thu Feb 04 2016 17:58:54 GMT+0000 (GMT)] switching to leisure
+[Thu Feb 04 2016 17:58:55 GMT+0000 (GMT)] switching to food
+[Thu Feb 04 2016 17:58:57 GMT+0000 (GMT)] switching to home
+[Thu Feb 04 2016 17:58:57 GMT+0000 (GMT)] switching to care
+[Thu Feb 04 2016 17:58:59 GMT+0000 (GMT)] switching to enjoyment
+[Thu Feb 04 2016 17:59:00 GMT+0000 (GMT)] switching to home
+[Thu Feb 04 2016 17:59:01 GMT+0000 (GMT)] switching to work
+[Thu Feb 04 2016 17:59:03 GMT+0000 (GMT)] switching to location

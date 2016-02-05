@@ -1,5 +1,5 @@
 {
-	"questions": {
+	"screens": {
 		"survey gender": {
 			"title": "What gender are you?",
 			"help": "at this moment",
@@ -88,7 +88,7 @@
 				"work",
 				"leisure",
 				"food",
-				"travel",
+				"travelling",
 				"other"
 			]
 		},
