@@ -1,5 +1,241 @@
 {
 	"activities": {
+		"female": {
+			"title": "survey: gender",
+			"caption": "Female",
+			"help": "You would describe yourself as female",
+			"tuc": 90011,
+			"next": "survey age"
+		},
+		"male": {
+			"title": "survey: gender",
+			"caption": "Male",
+			"help": "You would describe yourself as male",
+			"tuc": 90012,
+			"next": "survey age"
+		},
+		"survey gender other": {
+			"title": "survey: gender",
+			"caption": "Other",
+			"help": "You would describe your gender as neither male nor female",
+			"tuc": 90013,
+			"next": "survey age"
+		},
+		"survey gender sip": {
+			"title": "survey: gender",
+			"caption": "Skip",
+			"help": "You don't want to answer this question",
+			"tuc": 90014,
+			"next": "survey age"
+		},
+		"age 1": {
+			"title": "survey: age",
+			"caption": "8 - 18",
+			"help": "Your age is between 8 and 18",
+			"tuc": 90021,
+			"next": "survey occupation"
+		},
+		"age 2": {
+			"title": "survey: age",
+			"caption": "19 - 34",
+			"help": "Your age is between 19 and 34",
+			"tuc": 90022,
+			"next": "survey occupation"
+		},
+		"age 3": {
+			"title": "survey: age",
+			"caption": "35 - 50",
+			"help": "Your age is between 35 and 50",
+			"tuc": 90023,
+			"next": "survey occupation"
+		},
+		"age 4": {
+			"title": "survey: age",
+			"caption": "51 - 70",
+			"help": "Your age is between 51 and 70",
+			"tuc": 90024,
+			"next": "survey occupation"
+		},
+		"age 5": {
+			"title": "survey: age",
+			"caption": "Over 70",
+			"help": "Your age is over 70",
+			"tuc": 90025,
+			"next": "survey occupation"
+		},
+		"age 6": {
+			"title": "survey: age",
+			"caption": "Skip",
+			"help": "You don't want to say",
+			"tuc": 90026,
+			"next": "survey occupation"
+		},
+		"occupation student": {
+			"title": "survey: occupation",
+			"caption": "Student",
+			"help": "You go to school, university or any other form of unpaid training",
+			"tuc": 90031,
+			"next": "survey working hours"
+		},
+		"occupation employed": {
+			"title": "survey: occupation",
+			"caption": "Employed",
+			"help": "You are in paid employment",
+			"tuc": 90032,
+			"next": "survey working hours"
+		},
+		"occupation self employed": {
+			"title": "survey: occupation",
+			"caption": "Self employed",
+			"help": "You are self employed",
+			"tuc": 90033,
+			"next": "survey working hours"
+		},
+		"occupation unpaid work": {
+			"title": "survey: occupation",
+			"caption": "Volunteer / unpaid work",
+			"help": "You work in a voluntary or unpaid capacity",
+			"tuc": 90034,
+			"next": "survey working hours"
+		},
+		"occupation unemployed": {
+			"title": "survey: occupation",
+			"caption": "Unemployed / retired",
+			"help": "You do not work, are retired or unemployed",
+			"tuc": 90035,
+			"next": "survey bills"
+		},
+		"occupation other": {
+			"title": "survey: occupation",
+			"caption": "Other",
+			"help": "Your occupation is different or you don't want to say",
+			"tuc": 90036,
+			"next": "survey working hours"
+		},
+		"working hours 1": {
+			"title": "survey: working hours",
+			"caption": "Less than 10",
+			"help": "Most weeks you work less than 10 hours",
+			"tuc": 90041,
+			"next": "survey working regularity"
+		},
+		"working hours 2": {
+			"title": "survey: working hours",
+			"caption": "10 - 20",
+			"help": "Most weeks you work between 10 and 20 hours",
+			"tuc": 90042,
+			"next": "survey working regularity"
+		},
+		"working hours 3": {
+			"title": "survey: working hours",
+			"caption": "20 - 30",
+			"help": "Most weeks you work between 20 and 30 hours",
+			"tuc": 90043,
+			"next": "survey working regularity"
+		},
+		"working hours 4": {
+			"title": "survey: working hours",
+			"caption": "30 - 40",
+			"help": "Most weeks you work between 30 and 40 hours",
+			"tuc": 90044,
+			"next": "survey working regularity"
+		},
+		"working hours 5": {
+			"title": "survey: working hours",
+			"caption": "40 - 50",
+			"help": "Most weeks you work between 10 and 20 hours",
+			"tuc": 90045,
+			"next": "survey working regularity"
+		},
+		"working hours 6": {
+			"title": "survey: working hours",
+			"caption": "More than 50",
+			"help": "Most weeks you work more than 50 hours",
+			"tuc": 90046,
+			"next": "survey working regularity"
+		},
+
+
+		"working hours change 1": {
+			"title": "survey: working hour regularity",
+			"caption": "The same every day",
+			"help": "You have standard hours (e.g. 9am to 5pm)",
+			"tuc": 90051,
+			"next": "survey working home"
+		},
+		"working hours change 2": {
+			"title": "survey: working hour regularity",
+			"caption": "The same most days",
+			"help": "You have standard hours, but they can vary",
+			"tuc": 90052,
+			"next": "survey working home"
+		},
+		"working hours change 3": {
+			"title": "survey: working hour regularity",
+			"caption": "Changing with demand",
+			"help": "My hours are variable",
+			"tuc": 90053,
+			"next": "survey working home"
+		},
+		"working hours change 4": {
+			"title": "survey: working hour regularity",
+			"caption": "I choose my own hours",
+			"help": "I am in control of my working hours to some extent",
+			"tuc": 90054,
+			"next": "survey working home"
+		},
+
+
+
+		"working home 1": {
+			"title": "survey: working home",
+			"caption": "Never",
+			"help": "I never work from home",
+			"tuc": 90061,
+			"next": "survey bills"
+		},
+		"working home 2": {
+			"title": "survey: working home",
+			"caption": "Rarely",
+			"help": "I work from home less than once per month",
+			"tuc": 90062,
+			"next": "survey bills"
+		},
+		"working home 3": {
+			"title": "survey: working home",
+			"caption": "Sometimes",
+			"help": "I work from home up to 5 times per month",
+			"tuc": 90061,
+			"next": "survey bills"
+		},
+		"working home 4": {
+			"title": "survey: working home",
+			"caption": "Up to half the time",
+			"help": "6 times or more",
+			"tuc": 90061,
+			"next": "survey bills"
+		},
+		"working home 5": {
+			"title": "survey: working home",
+			"caption": "Mostly",
+			"help": "More than half the time",
+			"tuc": 90061,
+			"next": "survey bills"
+		},
+		"working home 6": {
+			"title": "survey: working home",
+			"caption": "Most or all the time",
+			"help": "Home is my main place of work",
+			"tuc": 90061,
+			"next": "survey bills"
+		},
+
+
+
+
+
+
+
 		"at home": {
 			"title": "meter: location home",
 			"caption": "Home",

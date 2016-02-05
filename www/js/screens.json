@@ -1,5 +1,85 @@
 {
 	"questions": {
+		"survey gender": {
+			"title": "What gender are you?",
+			"help": "at this moment",
+			"activities": [
+				"female",
+				"male",
+				"survey gender other",
+				"survey gender skip"
+			]
+		},
+		"survey age": {
+			"title": "What age group are you?",
+			"help": "tap the button your age falls into",
+			"activities": [
+				"age 1",
+				"age 2",
+				"age 3",
+				"age 4",
+				"age 5",
+				"age 6"
+			]
+		},
+		"survey occupation": {
+			"title": "What is your occupation?",
+			"help": "tap the one that fits best",
+			"activities": [
+				"occupation student",
+				"occupation employed",
+				"occupation self employed",
+				"occupation unpaid work",
+				"occupation unemployed",
+				"occupation other"
+			]
+		},
+		"survey working hours": {
+			"title": "How many hours do you typically work per week?",
+			"help": "These are the hours from all your occupations combined (if you have more than one)",
+			"activities": [
+				"working hours 1",
+				"working hours 2",
+				"working hours 3",
+				"working hours 4",
+				"working hours 5",
+				"working hours 6"
+			]
+		},
+		"survey working regularity": {
+			"title": "Are these hours always the same?",
+			"help": "tap the one that fits best",
+			"activities": [
+				"working hours change 1",
+				"working hours change 2",
+				"working hours change 3",
+				"working hours change 4",
+				"working hours change 5",
+				"working hours change 6"
+			]
+		},
+		"survey working home": {
+			"title": "How often do you work from home per month?",
+			"help": "tap the one that fits best",
+			"activities": [
+				"working home 1",
+				"working home 2",
+				"working home 3",
+				"working home 4",
+				"working home 5",
+				"working home 6"
+			]
+		},
+		"survey bills": {
+			"title": "Do you pay the electricity bills?",
+			"help": "tap the one that fits best",
+			"activities": [
+				"bills yes",
+				"bills contribute",
+				"bills yes",
+				"bills other"
+			]
+		},
 		"home": {
 			"title": "What are you doing?",
 			"help": "at this moment",
