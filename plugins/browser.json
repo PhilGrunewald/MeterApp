@@ -4,13 +4,27 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {}
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"browser-package\" value=\"Device\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "uk.ac.ox.energy.meter"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "uk.ac.ox.energy.meter"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "uk.ac.ox.energy.meter"
         }
     },
