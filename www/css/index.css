@@ -86,3 +86,32 @@ h1 {
     width: 50%;
     height: 33%;
 }
+
+/**
+ * CATEGORIES
+ */
+
+.care_self {
+    background-color: #66c2a5;
+}
+.care_other {
+    background-color: #8da0cb;
+}
+.care_house {
+    background-color: #e5c494;
+}
+.recreation {
+    background-color: #e78ac3;
+}
+.travel {
+    background-color: #ffd92f;
+}
+.food {
+    background-color: #a6d854;
+}
+.work {
+    background-color: #fc8d62;
+}
+.other_category {
+    background-color: #ededed;
+}

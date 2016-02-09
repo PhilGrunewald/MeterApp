@@ -102,6 +102,7 @@ var app = {
                 button.attr("onclick", "")
             } else {
                 button.html(activity.caption);
+                //button.addClass(activity.category || "other_category")
                 button.attr("onclick", "app.navigateTo('"+activity.next+"')")
             }
             
