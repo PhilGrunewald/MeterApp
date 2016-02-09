@@ -15,6 +15,10 @@
                         {
                             "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -36,6 +40,9 @@
             "PACKAGE_NAME": "uk.ac.ox.energy.meter"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "uk.ac.ox.energy.meter"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "uk.ac.ox.energy.meter"
         }
     },

@@ -16,6 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+CATEGORIES = ["care_self","care_other","care_house","recreation", "travel",
+              "food", "work", "other_category"]
+
 var app = {
     
     logOb: null,
@@ -38,17 +42,19 @@ var app = {
     onDeviceReady: function() {
 
         app.receivedEvent('deviceready');
-                
-        window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function(dir) {
-            console.log("got main dir",dir);
-            dir.getFile("tuc_log.txt", {create:true}, function(file) {
-                console.log("got the file", file);
-                app.logOb = file;
-                app.writeLog("App started");          
-            }, function(err) {
-                console.log(err);
+        
+        if (device.platform != "browser") {        
+            window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function(dir) {
+                console.log("got main dir",dir);
+                dir.getFile("tuc_log.txt", {create:true}, function(file) {
+                    console.log("got the file", file);
+                    app.logOb = file;
+                    app.writeLog("App started");          
+                }, function(err) {
+                    console.log(err);
+                });
             });
-        });
+        }
         
         
         app.actionButtons = $('.btn-activity');
@@ -94,15 +100,22 @@ var app = {
         
 		for (i = 0; i < screen_.activities.length; i++) {
             
-            var activity = app.activities[screen_.activities[i]]
-            var button   = $(app.actionButtons[i])
+            var activity    = app.activities[screen_.activities[i]]
+            var button      = $(app.actionButtons[i])
+            var btn_title   = button.find(".btn-title")
+            var btn_caption = button.find(".btn-caption")
+            
+            CATEGORIES.forEach(function (cat) {
+                button.removeClass(cat)
+            })
             
             if (activity === undefined) {
-                button.html(screen_.activities[i] + "<br>undefined");
+                btn_title.html(screen_.activities[i] + "<br>undefined");
                 button.attr("onclick", "")
             } else {
-                button.html(activity.caption);
-                //button.addClass(activity.category || "other_category")
+                btn_title.html(activity.caption);
+                btn_caption.html(activity.help);
+                button.addClass(activity.category || "other_category")
                 button.attr("onclick", "app.navigateTo('"+activity.next+"')")
             }
             
@@ -110,8 +123,15 @@ var app = {
     },
     
     writeLog: function(str) {
-        if(!app.logOb) return;
+        
         var log = "[" + (new Date()) + "] " + str + "\n";
+        
+        if (device.platform == "browser") {
+            console.log(log);
+            return;
+        }
+        
+        if(!app.logOb) return;
         
         app.logOb.createWriter(function(fileWriter) {
             
@@ -123,6 +143,11 @@ var app = {
         }, function(err) {
             console.log(err)
         });
+    },
+    
+    toggleCaption: function() {
+        
+        $(".btn-caption").toggle();
     }
     
 };

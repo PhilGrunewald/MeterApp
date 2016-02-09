@@ -38,7 +38,16 @@
     <body>
         <div class="app">
           
+          <div class="navbar">
+            <div class="row">
+              <div id="nav-home"    class="col-4">Home</div>
+              <div id="nav-aboutme" class="col-4">About me</div>
+              <div id="nav-help"    class="col-4" onclick="app.toggleCaption();">Help</div>
+            </div>
+          </div>
+          
           <div class="header">
+            
             <h1 onclick="app.navigateTo('home')">Meter</h1>
             
             <h3 id="title">&lt;placeholder&gt;</h3>
@@ -47,17 +56,73 @@
           <div class="contents">
           
             <div class="choices">
+              
               <div class="row">
-                <div id="button1" class="btn-activity col">Care / You and Yours</div>
-                <div id="button2" class="btn-activity col">Care / You and Yours</div>
+                
+                <div id="button1" class="btn-activity col">
+                  <div id="title1" class="btn-title">
+                    &lt;title&gt;
+                  </div>
+                  <div id="caption1" class="btn-caption">
+                    &lt;caption&gt;
+                  </div>
+                </div>
+                
+                <div id="button2" class="btn-activity col">
+                  <div id="title2" class="btn-title">
+                    &lt;title&gt;
+                  </div>
+                  <div id="caption2" class="btn-caption">
+                    &lt;caption&gt;
+                  </div>
+                </div>
+                
+              </div> <!-- end of row -->
+
+              <div class="row">
+                
+                <div id="button3" class="btn-activity col">
+                  <div id="title3" class="btn-title">
+                    &lt;title&gt;
+                  </div>
+                  <div id="caption3" class="btn-caption">
+                    &lt;caption&gt;
+                  </div>
+                </div>
+                
+                <div id="button4" class="btn-activity col">
+                  <div id="title4" class="btn-title">
+                    &lt;title&gt;
+                  </div>
+                  <div id="caption4" class="btn-caption">
+                    &lt;caption&gt;
+                  </div>
+                </div>
+                
               </div>
+              
               <div class="row">
-                <div id="button3" class="btn-activity col">Care / You and Yours</div>
-                <div id="button4" class="btn-activity col">Care / You and Yours</div>
-              </div>
-              <div class="row">
-                <div id="button5" class="btn-activity col">Care / You and Yours</div>
-                <div id="button6" class="btn-activity col">Care / You and Yours</div>
+                
+                <div id="button5" class="btn-activity col">
+                  
+                  <div id="title5" class="btn-title">
+                    &lt;title&gt;
+                  </div>
+                  <div id="caption5" class="btn-caption">
+                    &lt;caption&gt;
+                  </div>
+                  
+                </div>
+                <div id="button6" class="btn-activity col">
+                  
+                  <div id="title6" class="btn-title">
+                    &lt;title&gt;
+                  </div>
+                  <div id="caption6" class="btn-caption">
+                    &lt;caption&gt;
+                  </div>
+                  
+                </div>
               </div>
             </div>
           

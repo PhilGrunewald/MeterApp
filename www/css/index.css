@@ -54,11 +54,15 @@ body {
 }
 
 .header {
-    height: 30vh;
+    height: 20vh;
 }
 
 .contents {
     height: 70vh;
+}
+
+.navbar {
+    height: 10vh;
 }
 
 h1 {
@@ -73,9 +77,17 @@ h1 {
     border-spacing: 1px;
 }
 
+.navbar {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+
 .row {
     display: table-row;
     padding: 5px 0;
+    width: 100%;
 }
 
 .col {
@@ -85,6 +97,21 @@ h1 {
     vertical-align: middle;
     width: 50%;
     height: 33%;
+}
+
+.col-4 {
+    display: table-cell;
+    padding: 5px;
+    background: #ededed;
+    vertical-align: middle;
+    width: 33%;
+    height: 100%;
+}
+
+.btn-caption {
+    display: none;
+    font-size: 70%;
+    color: #232323;
 }
 
 /**
