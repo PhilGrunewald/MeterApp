@@ -304,6 +304,7 @@
 			"caption": "Travelling",
 			"help": "By car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
+			"category": "travel",
 			"next": "travelling"
 		},
 		"at work": {
@@ -332,6 +333,7 @@
 			"caption": "By foot",
 			"help": "Walking, ambling, pottering",
 			"ID": 30031,
+			"category": "travel",
 			"next": "enjoyment"
 		},
 		"travel car": {
@@ -339,6 +341,7 @@
 			"caption": "By car",
 			"help": "Car, van, motorbike or count",
 			"ID": 30036,
+			"category": "travel",
 			"next": "enjoyment"
 		},
 		"travel bike": {
@@ -346,6 +349,7 @@
 			"caption": "By bike",
 			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
 			"ID": 30032,
+			"category": "travel",
 			"next": "enjoyment"
 		},
 		"travel public": {
@@ -353,6 +357,7 @@
 			"caption": "By public",
 			"help": "Bus, coach, train, plane, boat",
 			"ID": 30040,
+			"category": "travel",
 			"next": "enjoyment"
 		},
 		"travel exercise": {
@@ -360,6 +365,7 @@
 			"caption": "Exercise",
 			"help": "Running, cycling, swimming...",
 			"ID": 9610,
+			"category": "travel",
 			"next": "enjoyment"
 		},
 		"travel other": {
@@ -367,6 +373,7 @@
 			"caption": "Other",
 			"help": "Anything not listed here",
 			"ID": 30031,
+			"category": "travel",
 			"next": "enjoyment"
 		},
 		"other location": {
@@ -418,11 +425,24 @@
 			"ID": 20005,
 			"next": "home"
 		},
+
+
+
+
+
+
+
+
+
+
+
+
 		"care": {
 			"title": "Unspecified personal care",
-			"caption": "Personal care",
-			"help": "Unspecified personal care",
+			"caption": "Care for you / others",
+			"help": "Wash, dress, rest, care for child/friend/relative",
 			"ID": 0,
+			"category": "care_self",
 			"next": "care"
 		},
 		"Unspecified Sleep": {
@@ -430,6 +450,7 @@
 			"caption": "Personal care",
 			"help": "Unspecified Sleep",
 			"ID": 10,
+			"category": "care_self",
 			"next": "home"
 		},
 		"sleep": {
@@ -437,6 +458,7 @@
 			"caption": "Sleep",
 			"help": "Sleep",
 			"ID": 110,
+			"category": "care_self",
 			"next": "home"
 		},
 		"In bed, not asleep": {
@@ -444,6 +466,7 @@
 			"caption": "Not sleeping",
 			"help": "In bed, not asleep",
 			"ID": 111,
+			"category": "care_self",
 			"next": "home"
 		},
 		"Sick in bed": {
@@ -451,6 +474,7 @@
 			"caption": "Personal care",
 			"help": "Sick in bed",
 			"ID": 120,
+			"category": "care_self",
 			"next": "home"
 		},
 		"Eating": {
@@ -458,13 +482,7 @@
 			"caption": " Eating",
 			"help": "Eating",
 			"ID": 210,
-			"next": "home"
-		},
-		"care personal": {
-			"title": "Unspecified other personal care",
-			"caption": "Myself",
-			"help": "Unspecified other personal care",
-			"ID": 300,
+			"category": "care_self",
 			"next": "home"
 		},
 		"care wash": {
@@ -472,13 +490,37 @@
 			"caption": "Wash or get dressed",
 			"help": "Shower, bath, changing clothes, beauty",
 			"ID": 310,
+			"category": "care_self",
 			"next": "care wash"
 		},
+		"care child": {
+			"title": "Unspecified childcare",
+			"caption": "Looking after children",
+			"help": "Unspecified childcare",
+			"ID": 3800,
+			"category": "care_other",
+			"next": "care child"
+		},
+
+		"care others": {
+			"title": "Unspecified help to an adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Any help to an adult household member",
+			"ID": 3910,
+			"category": "care_other",
+			"next": "location"
+		},
+
+
+
+
+
 		"care wash shower": {
 			"title": "meter: Wash and dress",
 			"caption": "Shower",
 			"help": "Being in the shower with or without the water on",
 			"ID": 311,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
 		"care wash bath": {
@@ -486,6 +528,7 @@
 			"caption": "Bath",
 			"help": "Being in the bath",
 			"ID": 312,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
 		"care wash sink": {
@@ -493,6 +536,7 @@
 			"caption": "Sink or flannel",
 			"help": "Washing by a sink or with a flannel",
 			"ID": 313,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
 		"care wash dress": {
@@ -500,6 +544,7 @@
 			"caption": "Getting dressed",
 			"help": "Changing clothes, dressing",
 			"ID": 314,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
 		"care wash hygiene": {
@@ -507,6 +552,7 @@
 			"caption": "Hygiene / Beauty",
 			"help": "Teeth brushing, make-up, shaving",
 			"ID": 315,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
 		"care wash other": {
@@ -514,13 +560,31 @@
 			"caption": "Other",
 			"help": "Teeth brushing, make-up, shaving",
 			"ID": 316,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
+
+
+
+
+		"care personal": {
+			"title": "Unspecified other personal care",
+			"caption": "Me time",
+			"help": "Unspecified other personal care",
+			"ID": 300,
+			"category": "care_self",
+			"next": "enjoyment"
+		},
+
+
+
+
 		"Other specified personal care": {
 			"title": "Other specified personal care",
 			"caption": "Personal care",
 			"help": "Other specified personal care",
 			"ID": 390,
+			"category": "care_self",
 			"next": "home"
 		},
 		"Unspecified household and family care": {
@@ -528,6 +592,7 @@
 			"caption": "Household & Family care",
 			"help": "Unspecified household and family care",
 			"ID": 3000,
+			"category": "care_other",
 			"next": "home"
 		},
 		"food": {
@@ -535,6 +600,7 @@
 			"caption": "Food",
 			"help": "Eating, preparing, cooking, clearing food",
 			"ID": 3100,
+			"category": "food",
 			"next": "food"
 		},
 		"Food preparation": {
@@ -542,6 +608,7 @@
 			"caption": "Food management/preparation",
 			"help": "Food preparation",
 			"ID": 3110,
+			"category": "food",
 			"next": "home"
 		},
 		"Baking": {
@@ -549,6 +616,7 @@
 			"caption": "Food management/preparation",
 			"help": "Baking",
 			"ID": 3120,
+			"category": "food",
 			"next": "home"
 		},
 		"Dish washing": {
@@ -556,6 +624,7 @@
 			"caption": "Food management/preparation",
 			"help": "Dish washing",
 			"ID": 3130,
+			"category": "food",
 			"next": "home"
 		},
 		"Preserving": {
@@ -563,6 +632,7 @@
 			"caption": "Food management/preparation",
 			"help": "Preserving",
 			"ID": 3140,
+			"category": "food",
 			"next": "home"
 		},
 		"Other specified food management": {
@@ -570,6 +640,7 @@
 			"caption": "Food management/preparation",
 			"help": "Other specified food management",
 			"ID": 3190,
+			"category": "food",
 			"next": "home"
 		},
 		"Unspecified household upkeep": {
@@ -577,6 +648,7 @@
 			"caption": "House keeping",
 			"help": "Unspecified household upkeep",
 			"ID": 3200,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Cleaning dwelling": {
@@ -584,6 +656,7 @@
 			"caption": "House keeping",
 			"help": "Cleaning dwelling",
 			"ID": 3210,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Cleaning yard": {
@@ -591,6 +664,7 @@
 			"caption": "House keeping",
 			"help": "Cleaning yard",
 			"ID": 3220,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Heating and water": {
@@ -598,6 +672,7 @@
 			"caption": "House keeping",
 			"help": "Heating and water",
 			"ID": 3230,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Arranging household goods and materials": {
@@ -605,6 +680,7 @@
 			"caption": "House keeping",
 			"help": "Arranging household goods and materials",
 			"ID": 3240,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Disposal of Waste": {
@@ -612,6 +688,7 @@
 			"caption": "House keeping",
 			"help": "Disposal of Waste",
 			"ID": 3250,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Other or unspecified household upkeep": {
@@ -619,6 +696,7 @@
 			"caption": "House keeping",
 			"help": "Other or unspecified household upkeep",
 			"ID": 3290,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Unspecified making and care for textiles": {
@@ -626,6 +704,7 @@
 			"caption": "House keeping",
 			"help": "Unspecified making and care for textiles",
 			"ID": 3300,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Laundry": {
@@ -633,6 +712,7 @@
 			"caption": "House keeping",
 			"help": "Laundry",
 			"ID": 3310,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Ironing": {
@@ -640,6 +720,7 @@
 			"caption": "House keeping",
 			"help": "Ironing",
 			"ID": 3320,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Handicraft and producing textiles": {
@@ -647,6 +728,7 @@
 			"caption": "House keeping",
 			"help": "Handicraft and producing textiles",
 			"ID": 3330,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Other specified making and care for textiles": {
@@ -654,6 +736,7 @@
 			"caption": "House keeping",
 			"help": "Other specified making and care for textiles",
 			"ID": 3390,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Household management not using the internet": {
@@ -661,6 +744,7 @@
 			"caption": "Activities with internet use",
 			"help": "Household management not using the internet",
 			"ID": 3710,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Unspecified household management using the internet": {
@@ -668,6 +752,7 @@
 			"caption": "Activities with internet use",
 			"help": "Unspecified household management using the internet",
 			"ID": 3720,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Shopping for&ordring unspec gds&srvs via internet": {
@@ -675,6 +760,7 @@
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring unspec gds&srvs via internet",
 			"ID": 3721,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Shopping for&ordring food via the internet": {
@@ -682,6 +768,7 @@
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring food via the internet",
 			"ID": 3722,
+			"category": "food",
 			"next": "home"
 		},
 		"Shopping for&ordring clothing via the internet": {
@@ -726,13 +813,6 @@
 			"ID": 3729,
 			"next": "home"
 		},
-		"care child": {
-			"title": "Unspecified childcare",
-			"caption": "Looking after children",
-			"help": "Unspecified childcare",
-			"ID": 3800,
-			"next": "care child"
-		},
 		"care child other": {
 			"title": "Unspecified physical care & supervision of a child",
 			"caption": "Other",
@@ -743,7 +823,7 @@
 		"care child feed": {
 			"title": "Feeding the child",
 			"caption": "Taking care of family or others",
-			"help": "Feeding the child",
+			"help": "Feeding a child",
 			"ID": 3811,
 			"next": "enjoyment"
 		},
@@ -781,13 +861,6 @@
 			"help": "Other specified childcare",
 			"ID": 3890,
 			"next": "location"
-		},
-		"Unspecified help to an adult household member": {
-			"title": "Unspecified help to an adult household member",
-			"caption": "Taking care of family or others",
-			"help": "Unspecified help to an adult household member",
-			"ID": 3910,
-			"next": "home"
 		},
 		"Physical care & supervision of an adult household member": {
 			"title": "Physical care & supervision of an adult household member",
@@ -871,6 +944,7 @@
 			"caption": "Leisure",
 			"help": "Resting, fun, social",
 			"ID": 5000,
+			"category": "recreation",
 			"next": "leisure"
 		},
 		"Unspecified social life": {
@@ -1097,7 +1171,7 @@
 			"ID": 8190,
 			"next": "home"
 		},
-		"Unspecified tv, video or dvd watching": {
+		"leisure TV": {
 			"title": "Unspecified tv, video or dvd watching",
 			"caption": "Leisure",
 			"help": "Unspecified tv, video or dvd watching",
@@ -1207,6 +1281,7 @@
 			"caption": "Work",
 			"help": "Housework, Homework, Job, Volunteering",
 			"ID": 11100,
+			"category": "work",
 			"next": "work"
 		},
 		"Unspecified main job": {
@@ -1375,6 +1450,7 @@
 			"caption": "Construction and repairs",
 			"help": "House construction and renovation",
 			"ID": 3510,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Repairs of dwelling": {
@@ -1382,6 +1458,7 @@
 			"caption": "Construction and repairs",
 			"help": "Repairs of dwelling",
 			"ID": 3520,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Unspecified making, repairing and maintaining equipment": {
@@ -1389,6 +1466,7 @@
 			"caption": "Construction and repairs",
 			"help": "Unspecified making, repairing and maintaining equipment",
 			"ID": 3530,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Woodcraft, metal craft, sculpture and pottery": {
@@ -1396,6 +1474,7 @@
 			"caption": "Construction and repairs",
 			"help": "Woodcraft, metal craft, sculpture and pottery",
 			"ID": 3531,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Other specified making, repairing and maintaining equipment": {
@@ -1424,6 +1503,7 @@
 			"caption": "Shoppimg",
 			"help": "Unspecified shopping and services",
 			"ID": 3600,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Unspecified shopping": {
@@ -1431,6 +1511,7 @@
 			"caption": "Shoppimg",
 			"help": "Unspecified shopping",
 			"ID": 3610,
+			"category": "care_house",
 			"next": "home"
 		},
 		"Shopping mainly for food": {
@@ -1438,6 +1519,7 @@
 			"caption": "Shoppimg",
 			"help": "Shopping mainly for food",
 			"ID": 3611,
+			"category": "food",
 			"next": "home"
 		},
 		"Shopping mainly for clothing": {
@@ -1883,11 +1965,14 @@
 		},
 		"care rest": {
 			"title": "Resting - Time out",
-			"caption": "Entertainment/ Leisure",
-			"help": "Resting - Time out",
+			"caption": "Resting - time out",
+			"help": "Doing nothing, just sitting, reflecting, relaxing, resting, waiting, meditating, smoking, sun bathing, thinking, talking to /scratching a cat or dog etc",
 			"ID": 5310,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
+
+
 		"Unspecified sports and outdoor activities": {
 			"title": "Unspecified sports and outdoor activities",
 			"caption": "Sports",
@@ -1895,12 +1980,13 @@
 			"ID": 6000,
 			"next": "home"
 		},
-		"Unspecified physical exercise": {
+		"exercise": {
 			"title": "Unspecified physical exercise",
 			"caption": "Sports",
-			"help": "Unspecified physical exercise",
+			"help": "Sport / physical exercise",
 			"ID": 6100,
-			"next": "home"
+			"category": "care_self",
+			"next": "location"
 		},
 		"Walking and hiking": {
 			"title": "Walking and hiking",
@@ -2180,6 +2266,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to unspecified time use",
 			"ID": 9000,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to personal business": {
@@ -2187,6 +2274,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to personal business",
 			"ID": 9010,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel to/from work": {
@@ -2194,6 +2282,7 @@
 			"caption": "Travel activities",
 			"help": "Travel to/from work",
 			"ID": 9100,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel in the course of work": {
@@ -2201,6 +2290,7 @@
 			"caption": "Travel activities",
 			"help": "Travel in the course of work",
 			"ID": 9110,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel to work from home and back only": {
@@ -2208,6 +2298,7 @@
 			"caption": "Travel activities",
 			"help": "Travel to work from home and back only",
 			"ID": 9120,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel to work from a place other than home": {
@@ -2215,6 +2306,7 @@
 			"caption": "Travel activities",
 			"help": "Travel to work from a place other than home",
 			"ID": 9130,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to education": {
@@ -2222,6 +2314,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to education",
 			"ID": 9210,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel escorting to/ from education": {
@@ -2229,6 +2322,7 @@
 			"caption": "Travel activities",
 			"help": "Travel escorting to/ from education",
 			"ID": 9230,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to household care": {
@@ -2236,6 +2330,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to household care",
 			"ID": 9310,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to shopping": {
@@ -2243,6 +2338,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to shopping",
 			"ID": 9360,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to services": {
@@ -2250,6 +2346,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to services",
 			"ID": 9370,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel escorting a child (other than education)": {
@@ -2257,6 +2354,7 @@
 			"caption": "Travel activities",
 			"help": "Travel escorting a child (other than education)",
 			"ID": 9380,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel escorting an adult (other than education)": {
@@ -2264,6 +2362,7 @@
 			"caption": "Travel activities",
 			"help": "Travel escorting an adult (other than education)",
 			"ID": 9390,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to organisational work": {
@@ -2271,6 +2370,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to organisational work",
 			"ID": 9400,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to voluntary work and meetings": {
@@ -2278,6 +2378,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to voluntary work and meetings",
 			"ID": 9410,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to informal help to other households": {
@@ -2285,6 +2386,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to informal help to other households",
 			"ID": 9420,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to religious activities": {
@@ -2292,6 +2394,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to religious activities",
 			"ID": 9430,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to participatory activities other than religious activities": {
@@ -2299,6 +2402,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to participatory activities other than religious activities",
 			"ID": 9440,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel to visit friends/ relatives in their homes (not respondent's household)": {
@@ -2306,6 +2410,7 @@
 			"caption": "Travel activities",
 			"help": "Travel to visit friends/ relatives in their homes (not respondent's household)",
 			"ID": 9500,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to other social activities": {
@@ -2313,6 +2418,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to other social activities",
 			"ID": 9510,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to entertainment and culture": {
@@ -2320,6 +2426,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to entertainment and culture",
 			"ID": 9520,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to other leisure": {
@@ -2327,6 +2434,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to other leisure",
 			"ID": 9600,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to physical exercise": {
@@ -2334,6 +2442,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to physical exercise",
 			"ID": 9610,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to hunting & fishing": {
@@ -2341,6 +2450,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to hunting & fishing",
 			"ID": 9620,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to productive excs expt hunting & fishing": {
@@ -2348,6 +2458,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to productive excs expt hunting & fishing",
 			"ID": 9630,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to gambling": {
@@ -2355,6 +2466,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to gambling",
 			"ID": 9710,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to hobbies other than gambling": {
@@ -2362,6 +2474,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to hobbies other than gambling",
 			"ID": 9720,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel related to changing locality": {
@@ -2369,6 +2482,7 @@
 			"caption": "Travel activities",
 			"help": "Travel related to changing locality",
 			"ID": 9800,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel to holiday base": {
@@ -2376,6 +2490,7 @@
 			"caption": "Travel activities",
 			"help": "Travel to holiday base",
 			"ID": 9810,
+			"category": "travel",
 			"next": "home"
 		},
 		"Travel for day trip/ just walk": {
@@ -2383,6 +2498,7 @@
 			"caption": "Travel activities",
 			"help": "Travel for day trip/ just walk",
 			"ID": 9820,
+			"category": "travel",
 			"next": "home"
 		},
 		"Other specified travel": {
@@ -2390,6 +2506,7 @@
 			"caption": "Travel activities",
 			"help": "Other specified travel",
 			"ID": 9890,
+			"category": "travel",
 			"next": "home"
 		},
 		"Punctuating activity": {
@@ -2433,6 +2550,15 @@
 			"help": "Unspecified time use",
 			"ID": 9990,
 			"next": "home"
+		},
+
+		"more recent": {
+			"title": "quick list",
+			"caption": "More / pick recent activities",
+			"help": "Wash, dress, rest, care for child/friend/relative",
+			"ID": 0,
+			"category": "care_self",
+			"next": "care"
 		}
 	}
 }

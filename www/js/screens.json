@@ -107,19 +107,19 @@
 				"leisure",
 				"food",
 				"travelling",
-				"other"
+				"more recent"
 			]
 		},
 		"care": {
 			"title": "Describe the care for you or others:",
 			"help": "at this moment",
 			"activities": [
-				"care personal",
 				"care wash",
 				"care rest",
 				"care child",
+				"care personal",
 				"care others",
-				"care other"
+				"care other XXX"
 			]
 		},
 		"care wash": {
@@ -162,9 +162,9 @@
 			"title": "Any particular leisure? ",
 			"help": "at this moment",
 			"activities": [
-				"leisure",
-				"food",
-				"care",
+				"care rest",
+				"leisure TV",
+				"exercise",
 				"travel",
 				"other",
 				"work"
