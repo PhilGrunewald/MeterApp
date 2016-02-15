@@ -127,6 +127,20 @@ h1 {
     color: #232323;
 }
 
+ul#activity_list {
+    list-style-type: none;
+    padding: 0;
+}
+
+li.activity_list {
+    width: 100%;
+    background: #ededed;
+    margin: 2px 0;
+    padding: 1ex 0;
+}
+
+
+
 /**
  * CATEGORIES
  */

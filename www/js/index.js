@@ -66,7 +66,7 @@ var app = {
         
         
         app.actionButtons = $('.btn-activity');
-        app.activity_ul   = $('#activity-list');
+        app.activity_ul   = $('#activity_list');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         
@@ -104,8 +104,12 @@ var app = {
         console.log("screen ID: " + screen_id)
         console.log("prev acti: " + prev_activity)
         
-        if (prev_activity && prev_activity < TIMEUSE_CUTOFF) {
+        if (prev_activity !== undefined && app.activities[prev_activity].ID < TIMEUSE_CUTOFF) {
+            "saving current activity: "+ prev_activity;
             app.save(CURR_ACTIVITY, prev_activity);
+        }
+        else {
+            console.log("IT'S UNDEFINED")
         }
         
         console.log("switching to " + screen_id);
@@ -122,23 +126,24 @@ var app = {
         
 		for (i = 0; i < screen_.activities.length; i++) {
             
-            var activity    = app.activities[screen_.activities[i]]
+            var activity_id = screen_.activities[i]
+            var activity    = app.activities[activity_id]
             var button      = $(app.actionButtons[i])
             var btn_title   = button.find(".btn-title")
             var btn_caption = button.find(".btn-caption")
-            
+                    
             CATEGORIES.forEach(function (cat) {
                 button.removeClass(cat)
             })
             
             if (activity === undefined) {
-                btn_title.html(screen_.activities[i] + "<br>undefined");
+                btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
                 button.attr("onclick", "")
             } else {
                 btn_title.html(activity.caption);
                 btn_caption.html(activity.help);
                 button.addClass(activity.category || "other_category")
-                button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity.ID+"')")
+                button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')")
             }
             
 		}
@@ -153,16 +158,20 @@ var app = {
         
         if (activity_list.length > 0) {
             
+            console.log("ACTIVITIES: " + activity_list)
+            
             var ul_ = ""
             activity_list.forEach(function (item) {
                 
-                ul_ += "<li>" + app.activities[item].caption +"</li>\n"
+                ul_ += "<li class='activity_list'>" + app.activities[item].caption +"</li>\n"
                 
             })
             
         } else {
             
-            ul_ = "<li><i>No activities yet</i></li>"
+            console.log("REALLY NO ACTIVITIES")
+            
+            ul_ = "<li class='activity_list'><i>No activities yet</i></li>"
             
         }
         
@@ -175,8 +184,10 @@ var app = {
     
     addActivityToList: function() {
         
-        activity_list = app.getList(ACTIVITY_LIST)
+
+        activity_list = app.getList(ACTIVITY_LIST) || []
         
+        console.log("ADDING TO CURRENT ACTIVITY: "+app.get(CURR_ACTIVITY))
         activity_list.push(app.get(CURR_ACTIVITY))
         
         app.saveList(ACTIVITY_LIST, activity_list)
