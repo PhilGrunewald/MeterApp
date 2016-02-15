@@ -17,8 +17,16 @@
  * under the License.
  */
 
+// Storage keys
+CURR_ACTIVITY = "current_activity"
+ACTIVITY_LIST = "activity_list"
+
+
 CATEGORIES = ["care_self","care_other","care_house","recreation", "travel",
               "food", "work", "other_category"]
+
+TIMEUSE_CUTOFF = 20000
+
 
 var app = {
     
@@ -58,7 +66,9 @@ var app = {
         
         
         app.actionButtons = $('.btn-activity');
-        
+        app.activity_ul   = $('#activity-list');
+        app.activityListPane = $('#activity_list_pane');
+        app.choicesPane      = $('#choices_pane');
         
         
         $.getJSON('js/activities.json', function(data) {
@@ -69,7 +79,8 @@ var app = {
                 
                 app.screens = screen_data.screens;
                 
-                app.navigateTo("home");
+                //app.navigateTo("home");
+                app.showActivityList();
             })    
             
         })
@@ -87,14 +98,25 @@ var app = {
 
         console.log('Received Event: ' + id);
     },
-    
-    navigateTo: function(screen_id) {
+        
+    navigateTo: function(screen_id, prev_activity) {
+        
+        console.log("screen ID: " + screen_id)
+        console.log("prev acti: " + prev_activity)
+        
+        if (prev_activity && prev_activity < TIMEUSE_CUTOFF) {
+            app.save(CURR_ACTIVITY, prev_activity);
+        }
         
         console.log("switching to " + screen_id);
         app.writeLog("switching to " + screen_id);
         
         var screen_ = app.screens[screen_id];
         console.log("screen title: "+screen_.title)
+        
+        if (screen_id == "enjoyment" ) {
+            app.addActivityToList()
+        }
         
         $("#title").html(screen_.title);
         
@@ -116,10 +138,73 @@ var app = {
                 btn_title.html(activity.caption);
                 btn_caption.html(activity.help);
                 button.addClass(activity.category || "other_category")
-                button.attr("onclick", "app.navigateTo('"+activity.next+"')")
+                button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity.ID+"')")
             }
             
 		}
+        
+        app.activityListPane.hide();
+        app.choicesPane.show();
+    },
+    
+    showActivityList: function() {
+        
+        var activity_list = app.getList(ACTIVITY_LIST) || []
+        
+        if (activity_list.length > 0) {
+            
+            var ul_ = ""
+            activity_list.forEach(function (item) {
+                
+                ul_ += "<li>" + app.activities[item].caption +"</li>\n"
+                
+            })
+            
+        } else {
+            
+            ul_ = "<li><i>No activities yet</i></li>"
+            
+        }
+        
+        app.activity_ul.html(ul_)
+        
+        app.choicesPane.hide();
+        app.activityListPane.show();
+        
+    },
+    
+    addActivityToList: function() {
+        
+        activity_list = app.getList(ACTIVITY_LIST)
+        
+        activity_list.push(app.get(CURR_ACTIVITY))
+        
+        app.saveList(ACTIVITY_LIST, activity_list)
+        
+    },
+    
+    save: function(key, val) {
+        
+        localStorage.setItem(key, val);
+        
+    },
+    
+    get: function(key) {
+        
+        return localStorage.getItem(key);
+        
+    },
+    
+    saveList: function(key, val) {
+        
+        localStorage.setItem(key, JSON.stringify(val));
+        
+    },
+    
+    getList: function(key) {
+        
+        return JSON.parse(localStorage.getItem(key));
+        
     },
     
     writeLog: function(str) {

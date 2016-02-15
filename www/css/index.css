@@ -69,6 +69,19 @@ h1 {
     text-transform: uppercase;
 }
 
+
+#list_activity_pane {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#choices_pane {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
 .choices {
     display: table;
     width: 100%;
@@ -142,3 +155,4 @@ h1 {
 .other_category {
     background-color: #ededed;
 }
+
