@@ -1,5 +1,19 @@
 {
 	"screens": {
+		"root": {
+			"title": "You have the following options: ",
+			"help": "at this moment",
+			"activities": [
+				"survey",
+				"blank",
+				"activities",
+				"blank",
+				"help",
+				"blank"
+			]
+		},
+
+
 		"survey gender": {
 			"title": "What gender are you?",
 			"help": "at this moment",
@@ -76,10 +90,14 @@
 			"activities": [
 				"bills yes",
 				"bills contribute",
-				"bills yes",
+				"bills no",
 				"bills other"
 			]
 		},
+
+
+
+
 		"home": {
 			"title": "What are you doing?",
 			"help": "at this moment",
@@ -104,6 +122,18 @@
 				"care other"
 			]
 		},
+		"care wash": {
+			"title": "Specify if you like",
+			"help": "at this moment",
+			"activities": [
+				"care wash shower",
+				"care wash bath",
+				"care wash sink",
+				"care wash dress",
+				"care wash hygiene",
+				"care wash other"
+			]
+		},
 		"care child": {
 			"title": "Describe the child care:",
 			"help": "at this moment",
@@ -111,13 +141,12 @@
 				"care child feed",
 				"care child play",
 				"care child teach",
-				"care child company",
 				"care child supervise",
 				"care child physical",
 				"care child other"
 			]
 		},
-		"traveling": {
+		"travelling": {
 			"title": "Any particular travel? ",
 			"help": "at this moment",
 			"activities": [

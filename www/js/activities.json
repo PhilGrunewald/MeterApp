@@ -1,5 +1,30 @@
 {
 	"activities": {
+		"survey": {
+			"title": "root: survey",
+			"caption": "Complete the survey",
+			"help": "Answer a few questions about yourself",
+			"tuc": 90000,
+			"next": "survey gender"
+		},
+		"activities": {
+			"title": "root: activities",
+			"caption": "Add activity",
+			"help": "Tell us what you do",
+			"tuc": 10000,
+			"next": "home"
+		},
+		"help": {
+			"title": "root: help",
+			"caption": "Help",
+			"help": "Learn how to use this app",
+			"tuc": 10000,
+			"next": "help"
+		},
+
+
+
+
 		"female": {
 			"title": "survey: gender",
 			"caption": "Female",
@@ -112,6 +137,9 @@
 			"tuc": 90036,
 			"next": "survey working hours"
 		},
+
+
+		
 		"working hours 1": {
 			"title": "survey: working hours",
 			"caption": "Less than 10",
@@ -205,33 +233,61 @@
 			"title": "survey: working home",
 			"caption": "Sometimes",
 			"help": "I work from home up to 5 times per month",
-			"tuc": 90061,
+			"tuc": 90063,
 			"next": "survey bills"
 		},
 		"working home 4": {
 			"title": "survey: working home",
 			"caption": "Up to half the time",
 			"help": "6 times or more",
-			"tuc": 90061,
+			"tuc": 90064,
 			"next": "survey bills"
 		},
 		"working home 5": {
 			"title": "survey: working home",
 			"caption": "Mostly",
 			"help": "More than half the time",
-			"tuc": 90061,
+			"tuc": 90065,
 			"next": "survey bills"
 		},
 		"working home 6": {
 			"title": "survey: working home",
 			"caption": "Most or all the time",
 			"help": "Home is my main place of work",
-			"tuc": 90061,
+			"tuc": 90066,
 			"next": "survey bills"
 		},
 
 
 
+		"bills yes": {
+			"title": "survey: bills",
+			"caption": "Yes, I do",
+			"help": "I take responsibility for the bills",
+			"tuc": 90071,
+			"next": "root"
+		},
+		"bills contribute": {
+			"title": "survey: bills",
+			"caption": "I contribute",
+			"help": "Others also contribute or deal with bills",
+			"tuc": 90072,
+			"next": "root"
+		},
+		"bills no": {
+			"title": "survey: bills",
+			"caption": "I don't",
+			"help": "Others pay or I don't have to",
+			"tuc": 90073,
+			"next": "root"
+		},
+		"bills other": {
+			"title": "survey: bills",
+			"caption": "Other",
+			"help": "I have a different arrangement or don't want to say",
+			"tuc": 90074,
+			"next": "root"
+		},
 
 
 
@@ -416,7 +472,49 @@
 			"caption": "Wash or get dressed",
 			"help": "Shower, bath, changing clothes, beauty",
 			"tuc": 310,
-			"next": "home"
+			"next": "care wash"
+		},
+		"care wash shower": {
+			"title": "meter: Wash and dress",
+			"caption": "Shower",
+			"help": "Being in the shower with or without the water on",
+			"tuc": 311,
+			"next": "enjoyment"
+		},
+		"care wash bath": {
+			"title": "meter: Wash and dress",
+			"caption": "Bath",
+			"help": "Being in the bath",
+			"tuc": 312,
+			"next": "enjoyment"
+		},
+		"care wash sink": {
+			"title": "meter: Wash and dress",
+			"caption": "Sink or flannel",
+			"help": "Washing by a sink or with a flannel",
+			"tuc": 313,
+			"next": "enjoyment"
+		},
+		"care wash dress": {
+			"title": "meter: Wash and dress",
+			"caption": "Getting dressed",
+			"help": "Changing clothes, dressing",
+			"tuc": 314,
+			"next": "enjoyment"
+		},
+		"care wash hygiene": {
+			"title": "meter: Wash and dress",
+			"caption": "Hygiene / Beauty",
+			"help": "Teeth brushing, make-up, shaving",
+			"tuc": 315,
+			"next": "enjoyment"
+		},
+		"care wash other": {
+			"title": "meter: Wash and dress",
+			"caption": "Other",
+			"help": "Teeth brushing, make-up, shaving",
+			"tuc": 316,
+			"next": "enjoyment"
 		},
 		"Other specified personal care": {
 			"title": "Other specified personal care",
@@ -640,38 +738,38 @@
 			"caption": "Other",
 			"help": "Unspecified physical care & supervision of a child",
 			"tuc": 3810,
-			"next": "home"
+			"next": "location"
 		},
 		"care child feed": {
 			"title": "Feeding the child",
 			"caption": "Taking care of family or others",
 			"help": "Feeding the child",
 			"tuc": 3811,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"care child physical": {
 			"title": "Other specified physical care & supervision of a child",
-			"caption": "Taking care of family or others",
-			"help": "Other specified physical care & supervision of a child",
+			"caption": "Physical",
+			"help": "Physical care & supervision of a child",
 			"tuc": 3819,
-			"next": "home"
+			"next": "location"
 		},
 		"care child teach": {
 			"title": "Teaching the child",
-			"caption": "Taking care of family or others",
-			"help": "Teaching the child",
+			"caption": "Teaching",
+			"help": "Teaching or learning with child / homework",
 			"tuc": 3820,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"care child play": {
 			"title": "Reading, playing and talking with child",
-			"caption": "Taking care of family or others",
+			"caption": "Play / engage",
 			"help": "Reading, playing and talking with child",
 			"tuc": 3830,
-			"next": "home"
+			"next": "location"
 		},
 		"care child company": {
-			"title": "Accompanying child",
+			"title": "not used - Accompanying child",
 			"caption": "Accompanying child",
 			"help": "Accompanying child",
 			"tuc": 3840,
@@ -682,7 +780,7 @@
 			"caption": "Supervising",
 			"help": "Other specified childcare",
 			"tuc": 3890,
-			"next": "home"
+			"next": "location"
 		},
 		"Unspecified help to an adult household member": {
 			"title": "Unspecified help to an adult household member",
