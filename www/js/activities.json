@@ -1,9 +1,9 @@
 {
 	"activities": {
 		"survey": {
-			"title": "root: survey",
-			"caption": "Complete the survey",
-			"help": "Answer a few questions about yourself",
+				"title": "root: survey",
+				"caption": "Complete the survey",
+				"help": "Answer a few questions about yourself",
 			"ID": 90000,
 			"next": "survey gender"
 		},
