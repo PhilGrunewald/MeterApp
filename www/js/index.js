@@ -22,8 +22,14 @@ var CURR_ACTIVITY = "current_activity";
 var ACTIVITY_LIST = "activity_list";
 
 
-var CATEGORIES = ["care_self","care_other","care_house","recreation", "travel",
-              "food", "work", "other_category"];
+var CATEGORIES = ["care_self",
+                  "care_other",
+                  "care_house",
+                  "recreation",
+                  "travel",
+                  "food",
+                  "work",
+                  "other_category"];
 
 var TIMEUSE_CUTOFF = 20000;
 
