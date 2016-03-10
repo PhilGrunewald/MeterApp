@@ -18,14 +18,14 @@
  */
 
 // Storage keys
-CURR_ACTIVITY = "current_activity"
-ACTIVITY_LIST = "activity_list"
+var CURR_ACTIVITY = "current_activity";
+var ACTIVITY_LIST = "activity_list";
 
 
-CATEGORIES = ["care_self","care_other","care_house","recreation", "travel",
-              "food", "work", "other_category"]
+var CATEGORIES = ["care_self","care_other","care_house","recreation", "travel",
+              "food", "work", "other_category"];
 
-TIMEUSE_CUTOFF = 20000
+var TIMEUSE_CUTOFF = 20000;
 
 
 var app = {
@@ -81,9 +81,9 @@ var app = {
                 
                 //app.navigateTo("home");
                 app.showActivityList();
-            })    
+            });    
             
-        })
+        });
         
         
     },
@@ -101,49 +101,49 @@ var app = {
         
     navigateTo: function(screen_id, prev_activity) {
         
-        console.log("screen ID: " + screen_id)
-        console.log("prev acti: " + prev_activity)
+        console.log("screen ID: " + screen_id);
+        console.log("prev acti: " + prev_activity);
         
         if (prev_activity !== undefined && app.activities[prev_activity].ID < TIMEUSE_CUTOFF) {
             "saving current activity: "+ prev_activity;
             app.save(CURR_ACTIVITY, prev_activity);
         }
         else {
-            console.log("IT'S UNDEFINED")
+            console.log("IT'S UNDEFINED");
         }
         
         console.log("switching to " + screen_id);
         app.writeLog("switching to " + screen_id);
         
         var screen_ = app.screens[screen_id];
-        console.log("screen title: "+screen_.title)
+        console.log("screen title: "+screen_.title);
         
         if (screen_id == "enjoyment" ) {
-            app.addActivityToList()
+            app.addActivityToList();
         }
         
         $("#title").html(screen_.title);
         
 		for (i = 0; i < screen_.activities.length; i++) {
             
-            var activity_id = screen_.activities[i]
-            var activity    = app.activities[activity_id]
-            var button      = $(app.actionButtons[i])
-            var btn_title   = button.find(".btn-title")
-            var btn_caption = button.find(".btn-caption")
+            var activity_id = screen_.activities[i];
+            var activity    = app.activities[activity_id];
+            var button      = $(app.actionButtons[i]);
+            var btn_title   = button.find(".btn-title");
+            var btn_caption = button.find(".btn-caption");
                     
             CATEGORIES.forEach(function (cat) {
-                button.removeClass(cat)
-            })
+                button.removeClass(cat);
+            });
             
             if (activity === undefined) {
                 btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
-                button.attr("onclick", "")
+                button.attr("onclick", "");
             } else {
                 btn_title.html(activity.caption);
                 btn_caption.html(activity.help);
-                button.addClass(activity.category || "other_category")
-                button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')")
+                button.addClass(activity.category || "other_category");
+                button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
             }
             
 		}
