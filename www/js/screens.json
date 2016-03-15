@@ -115,11 +115,22 @@
 			"help": "at this moment",
 			"activities": [
 				"care wash",
-				"care rest",
+				"Care rest sleep",
 				"care child",
 				"care personal",
 				"care others",
-				"care other XXX"
+				"Unspecified household and family care"
+			]
+		},
+		"care rest sleep": {
+			"title": "What kind or rest is this?",
+			"help": "Give detail if you like",
+			"activities": [
+				"care rest",
+				"sleep",
+				"Sick in bed",
+				"In bed, not asleep",
+				"other"
 			]
 		},
 		"care wash": {
@@ -165,21 +176,31 @@
 				"care rest",
 				"leisure TV",
 				"exercise",
-				"travel",
-				"other",
-				"work"
+				"Travel related to other leisure",
+				"Unspecified information by computing",
+				"other"
 			]
 		},
 		"food": {
 			"title": "Any particular food? ",
 			"help": "at this moment",
 			"activities": [
-				"food eat",
-				"food prepare",
-				"food cook",
+				"Eating",
+				"Food preparation",
+				"Baking",
 				"food snack",
 				"food clear",
-				"food other"
+				"Other specified food management"
+			]
+		},
+		"dish washing": {
+			"title": "How do you wash up? ",
+			"help": "at this moment",
+			"activities": [
+				"dishes hand",
+				"dishes machine",
+				"dishes both",
+				"dishes other"
 			]
 		},
 		"other": {
@@ -195,15 +216,49 @@
 			]
 		},
 		"work": {
-			"title": "Any particular work? ",
+			"title": "You are working on:",
 			"help": "at this moment",
 			"activities": [
 				"Main job",
-				"Other paid work",
-				"Volunteering",
-				"Housework",
-				"Homework",
-				"Other work"
+				"Working time in second job",
+				"Unspecified volunteer work and meetings",
+				"Unspecified household upkeep",
+				"Other specified activities related to school or university",
+				"Unspecified activities related to employment"
+			]
+		},
+		"work house": {
+			"title": "What house work do you do:",
+			"help": "at this moment",
+			"activities": [
+				"Cleaning dwelling",
+				"Laundry",
+				"Arranging household goods and materials",
+				"Other specified food management",
+				"Disposal of Waste",
+				"Work house other"
+			]
+		},
+		"laundry": {
+			"title": "You are doing laundry",
+			"help": "at this moment",
+			"activities": [
+				"Washing machine",
+				"Washing sort",
+				"Washing dry machine",
+				"Washing dry line",
+				"Ironing",
+				"Unspecified making and care for textiles"
+			]
+		},
+		"work house clean": {
+			"title": "How are you cleaning",
+			"help": "at this moment",
+			"activities": [
+				"Cleaning dusting",
+				"Cleaning vacuum",
+				"Cleaning floors",
+				"Cleaning other"
 			]
 		},
 		"enjoyment": {
@@ -225,7 +280,7 @@
 				"at home",
 				"travelling",
 				"at work",
-				"at friend",
+				"at friends",
 				"outdoors",
 				"other location"
 			]

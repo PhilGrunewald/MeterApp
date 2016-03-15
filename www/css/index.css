@@ -57,6 +57,10 @@ body {
 
 .header {
     height: 15vh;
+	background-image: url("/img/meter.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: right;
 }
 
 .footer {

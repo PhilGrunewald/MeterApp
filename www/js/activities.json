@@ -294,8 +294,8 @@
 
 		"at home": {
 			"title": "meter: location home",
-			"caption": "Home",
-			"help": "I enjoyed this time very much.",
+			"caption": "At home",
+			"help": "In or around your home / garden",
 			"ID": 30011,
 			"next": "enjoyment"
 		},
@@ -309,14 +309,14 @@
 		},
 		"at work": {
 			"title": "meter: location work",
-			"caption": "Workplace",
+			"caption": "At work",
 			"help": "I am at my place of work or school",
 			"ID": 30013,
 			"next": "enjoyment"
 		},
 		"at friends": {
 			"title": "meter: location friends",
-			"caption": "With friends or others",
+			"caption": "At a friend's",
 			"help": "At a friends or other peoples house",
 			"ID": 30014,
 			"next": "enjoyment"
@@ -328,6 +328,7 @@
 			"ID": 30018,
 			"next": "enjoyment"
 		},
+
 		"travel foot": {
 			"title": "meter: travel foot",
 			"caption": "By foot",
@@ -378,8 +379,8 @@
 		},
 		"other location": {
 			"title": "meter: location other",
-			"caption": "Other location",
-			"help": "I enjoyed this time very much.",
+			"caption": "Somewhere else",
+			"help": "None of the above",
 			"ID": 30010,
 			"next": "enjoyment"
 		},
@@ -388,42 +389,42 @@
 			"caption": "Skip",
 			"help": "I enjoyed this time very much.",
 			"ID": 20000,
-			"next": "home"
+			"next": "root"
 		},
 		"not at all": {
 			"title": "meter: enjoyment 1",
 			"caption": "Not at all",
 			"help": "I enjoyed this time not at all",
 			"ID": 20001,
-			"next": "home"
+			"next": "root"
 		},
 		"not very much": {
 			"title": "meter: enjoyment 2",
 			"caption": "Not very much",
 			"help": "I enjoyed this time not very much.",
 			"ID": 20002,
-			"next": "home"
+			"next": "root"
 		},
 		"neutral": {
 			"title": "meter: enjoyment 3",
 			"caption": "Very much",
 			"help": "I enjoyed this time somewhat",
 			"ID": 20003,
-			"next": "home"
+			"next": "root"
 		},
 		"somewhat": {
 			"title": "meter: enjoyment 4",
 			"caption": "Somewhat",
 			"help": "I enjoyed this time",
 			"ID": 20004,
-			"next": "home"
+			"next": "root"
 		},
 		"very much": {
 			"title": "meter: enjoyment 5",
 			"caption": "Very much",
 			"help": "I enjoyed this time very much.",
 			"ID": 20005,
-			"next": "home"
+			"next": "root"
 		},
 
 
@@ -447,11 +448,11 @@
 		},
 		"Unspecified Sleep": {
 			"title": "Unspecified Sleep",
-			"caption": "Personal care",
+			"caption": "Rest or sleep",
 			"help": "Unspecified Sleep",
 			"ID": 10,
 			"category": "care_self",
-			"next": "home"
+			"next": "care rest sleep"
 		},
 		"sleep": {
 			"title": "Sleep",
@@ -459,15 +460,15 @@
 			"help": "Sleep",
 			"ID": 110,
 			"category": "care_self",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"In bed, not asleep": {
 			"title": "In bed, not asleep",
-			"caption": "Not sleeping",
-			"help": "In bed, not asleep",
+			"caption": "In bed",
+			"help": "not asleep",
 			"ID": 111,
 			"category": "care_self",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Sick in bed": {
 			"title": "Sick in bed",
@@ -479,11 +480,11 @@
 		},
 		"Eating": {
 			"title": "Eating",
-			"caption": " Eating",
+			"caption": "Eating",
 			"help": "Eating",
 			"ID": 210,
 			"category": "care_self",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"care wash": {
 			"title": "Wash and dress",
@@ -512,6 +513,14 @@
 		},
 
 
+		"care other": {
+			"title": "Unspecified help to an adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Any help to an adult household member",
+			"ID": 3912,
+			"category": "care_other",
+			"next": "location"
+		},
 
 
 
@@ -589,11 +598,11 @@
 		},
 		"Unspecified household and family care": {
 			"title": "Unspecified household and family care",
-			"caption": "Household & Family care",
+			"caption": "Other",
 			"help": "Unspecified household and family care",
 			"ID": 3000,
 			"category": "care_other",
-			"next": "home"
+			"next": "location"
 		},
 		"food": {
 			"title": "Unspecified food management",
@@ -605,11 +614,11 @@
 		},
 		"Food preparation": {
 			"title": "Food preparation",
-			"caption": "Food management/preparation",
-			"help": "Food preparation",
+			"caption": "Food preparation",
+			"help": "Cooking, serving, arranging...",
 			"ID": 3110,
 			"category": "food",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Baking": {
 			"title": "Baking",
@@ -617,15 +626,55 @@
 			"help": "Baking",
 			"ID": 3120,
 			"category": "food",
-			"next": "home"
+			"next": "enjoyment"
+		},
+		"food clear": {
+			"title": "meter: food clear",
+			"caption": "Clear table",
+			"help": "Clear up after a meal",
+			"ID": 3131,
+			"category": "food",
+			"next": "enjoyment"
 		},
 		"Dish washing": {
-			"title": "Dish washing",
-			"caption": "Food management/preparation",
-			"help": "Dish washing",
+			"title": "Food management/preparation",
+			"caption": "Dish washing",
+			"help": "Washing up pots, dishes, glasses, cutlery",
 			"ID": 3130,
 			"category": "food",
-			"next": "home"
+			"next": "dish washing"
+		},
+		"dishes hand": {
+			"title": "meter: dishes hand",
+			"caption": "By hand",
+			"help": "in a sink or tub",
+			"ID": 3132,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"dishes machine": {
+			"title": "meter: dishes machine",
+			"caption": "Dish washer",
+			"help": "I load / unload a dish washer",
+			"ID": 3133,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"dishes both": {
+			"title": "meter: dishes both",
+			"caption": "Both",
+			"help": "by hand and with machine",
+			"ID": 3134,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"dishes other": {
+			"title": "meter: dishes other",
+			"caption": "Other",
+			"help": "anything other than by hand or machine",
+			"ID": 3135,
+			"category": "food",
+			"next": "enjoyment"
 		},
 		"Preserving": {
 			"title": "Preserving",
@@ -633,31 +682,79 @@
 			"help": "Preserving",
 			"ID": 3140,
 			"category": "food",
-			"next": "home"
+			"next": "enjoyment"
+		},
+		"food snack": {
+			"title": "meter: food snack",
+			"caption": "Snack",
+			"help": "A quick meal",
+			"ID": 3191,
+			"category": "food",
+			"next": "enjoyment"
 		},
 		"Other specified food management": {
 			"title": "Other specified food management",
-			"caption": "Food management/preparation",
-			"help": "Other specified food management",
+			"caption": "Prepare food",
+			"help": "Cook, cut, arrange food",
 			"ID": 3190,
 			"category": "food",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified household upkeep": {
 			"title": "Unspecified household upkeep",
 			"caption": "House keeping",
-			"help": "Unspecified household upkeep",
+			"help": "Cleaning, tidying, cooking, shopping",
 			"ID": 3200,
 			"category": "care_house",
-			"next": "home"
+			"next": "work house"
+		},
+		"Work house other": {
+			"title": "meter: Unspecified household upkeep",
+			"caption": "Other",
+			"help": "Not listed here",
+			"ID": 3200,
+			"category": "care_house",
+			"next": "enjoyment"
 		},
 		"Cleaning dwelling": {
 			"title": "Cleaning dwelling",
-			"caption": "House keeping",
+			"caption": "Cleaning",
 			"help": "Cleaning dwelling",
 			"ID": 3210,
 			"category": "care_house",
-			"next": "home"
+			"next": "work house clean"
+		},
+		"Cleaning dusting": {
+			"title": "meter: Cleaning dwelling dusting",
+			"caption": "Cleaning / dusting",
+			"help": "wiping surfaces",
+			"ID": 3211,
+			"category": "care_house",
+			"next": "enjoyment"
+		},
+		"Cleaning vacuum": {
+			"title": "meter: Cleaning dwelling vacuum",
+			"caption": "Vacuum cleaning",
+			"help": "Using a hoover or other",
+			"ID": 3212,
+			"category": "care_house",
+			"next": "enjoyment"
+		},
+		"Cleaning floors": {
+			"title": "meter: Cleaning dwelling floors",
+			"caption": "Cleaning floors",
+			"help": "Wiping, mopping",
+			"ID": 3213,
+			"category": "care_house",
+			"next": "enjoyment"
+		},
+		"Cleaning other": {
+			"title": "meter: Cleaning dwelling other",
+			"caption": "Other",
+			"help": "Not listed here",
+			"ID": 3214,
+			"category": "care_house",
+			"next": "enjoyment"
 		},
 		"Cleaning yard": {
 			"title": "Cleaning yard",
@@ -677,19 +774,19 @@
 		},
 		"Arranging household goods and materials": {
 			"title": "Arranging household goods and materials",
-			"caption": "House keeping",
+			"caption": "Sort / tidy / arrange",
 			"help": "Arranging household goods and materials",
 			"ID": 3240,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Disposal of Waste": {
 			"title": "Disposal of Waste",
-			"caption": "House keeping",
-			"help": "Disposal of Waste",
+			"caption": "Clearing / waste",
+			"help": "Arranging, disposal of waste",
 			"ID": 3250,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other or unspecified household upkeep": {
 			"title": "Other or unspecified household upkeep",
@@ -701,19 +798,51 @@
 		},
 		"Unspecified making and care for textiles": {
 			"title": "Unspecified making and care for textiles",
-			"caption": "House keeping",
-			"help": "Unspecified making and care for textiles",
+			"caption": "Other",
+			"help": "Handling or other work on textiles",
 			"ID": 3300,
 			"category": "care_house",
 			"next": "home"
 		},
 		"Laundry": {
 			"title": "Laundry",
-			"caption": "House keeping",
-			"help": "Laundry",
+			"caption": "Laundry",
+			"help": "Washing, sorting, caring for textiles",
 			"ID": 3310,
 			"category": "care_house",
-			"next": "home"
+			"next": "laundry"
+		},
+		"Washing machine": {
+			"title": "meter: Laundry machine",
+			"caption": "Washing machine",
+			"help": "Loading, running, unloading",
+			"ID": 3311,
+			"category": "care_house",
+			"next": "enjoyment"
+		},
+		"Washing sort": {
+			"title": "meter: Laundry sort",
+			"caption": "Sorting",
+			"help": "Gathering, putting away",
+			"ID": 3312,
+			"category": "care_house",
+			"next": "enjoyment"
+		},
+		"Washing dry line": {
+			"title": "meter: Laundry machine",
+			"caption": "Hanging out laundry",
+			"help": "On a line, airer or radiator",
+			"ID": 3313,
+			"category": "care_house",
+			"next": "enjoyment"
+		},
+		"Washing dry machine": {
+			"title": "meter: Laundry machine",
+			"caption": "Tumble dryer",
+			"help": "Loading, running, unloading",
+			"ID": 3314,
+			"category": "care_house",
+			"next": "enjoyment"
 		},
 		"Ironing": {
 			"title": "Ironing",
@@ -721,7 +850,7 @@
 			"help": "Ironing",
 			"ID": 3320,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Handicraft and producing textiles": {
 			"title": "Handicraft and producing textiles",
@@ -1008,14 +1137,14 @@
 			"caption": "Leisure involving computer",
 			"help": "Computing - programming",
 			"ID": 7220,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified information by computing": {
 			"title": "Unspecified information by computing",
 			"caption": "Leisure involving computer",
 			"help": "Unspecified information by computing",
 			"ID": 7230,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Information searching on the internet": {
 			"title": "Information searching on the internet",
@@ -1310,14 +1439,14 @@
 			"caption": "Work",
 			"help": "Unspecified second job",
 			"ID": 1200,
-			"next": "home"
+			"next": "location"
 		},
 		"Working time in second job": {
 			"title": "Working time in second job",
-			"caption": "Work",
-			"help": "Working time in second job",
+			"caption": "Other job",
+			"help": "Working in second or other job",
 			"ID": 1210,
-			"next": "home"
+			"next": "location"
 		},
 		"Coffee and other breaks in second job": {
 			"title": "Coffee and other breaks in second job",
@@ -1328,8 +1457,8 @@
 		},
 		"Unspecified activities related to employment": {
 			"title": "Unspecified activities related to employment",
-			"caption": "Work",
-			"help": "Unspecified activities related to employment",
+			"caption": "Other",
+			"help": "None of the above kinds of work",
 			"ID": 1300,
 			"next": "home"
 		},
@@ -1387,14 +1516,14 @@
 			"caption": "Study",
 			"help": "Homework",
 			"ID": 2120,
-			"next": "home"
+			"next": "enjoyment"
 		},
-		"Other specified activities related to school or university ": {
+		"Other specified activities related to school or university": {
 			"title": "Other specified activities related to school or university",
 			"caption": "Study",
-			"help": "Other specified activities related to school or university",
+			"help": "School, university or further education work",
 			"ID": 2190,
-			"next": "home"
+			"next": "location"
 		},
 		"Free Time Study": {
 			"title": "Free Time Study",
@@ -1580,17 +1709,17 @@
 		},
 		"Unspecified volunteer work and meetings": {
 			"title": "Unspecified volunteer work and meetings",
-			"caption": "VOLUNTARY WORK AND MEETINGS",
-			"help": "Unspecified volunteer work and meetings",
+			"caption": "Volunteering",
+			"help": "Unpaid work or activity",
 			"ID": 4000,
-			"next": "home"
+			"next": "location"
 		},
 		"Unspecified organisational work": {
 			"title": "Unspecified organisational work",
 			"caption": "VOLUNTARY WORK AND MEETINGS",
 			"help": "Unspecified organisational work",
 			"ID": 4100,
-			"next": "home"
+			"next": "location"
 		},
 		"Work for an organisation": {
 			"title": "Work for an organisation",
@@ -1601,10 +1730,10 @@
 		},
 		"Volunteer work through an organisation": {
 			"title": "Volunteer work through an organisation",
-			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"caption": "Voluntary work",
 			"help": "Volunteer work through an organisation",
 			"ID": 4120,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified organisational work": {
 			"title": "Other specified organisational work",
@@ -1962,6 +2091,14 @@
 			"help": "Other specified entertainment or culture",
 			"ID": 5299,
 			"next": "home"
+		},
+		"Care rest sleep": {
+			"title": "meter: rest or sleep",
+			"caption": "Rest or sleep",
+			"help": "Sleeping, resting, having a break",
+			"ID": 5311,
+			"category": "care_self",
+			"next": "care rest sleep"
 		},
 		"care rest": {
 			"title": "Resting - Time out",
@@ -2435,7 +2572,7 @@
 			"help": "Travel related to other leisure",
 			"ID": 9600,
 			"category": "travel",
-			"next": "home"
+			"next": "travelling"
 		},
 		"Travel related to physical exercise": {
 			"title": "Travel related to physical exercise",
@@ -2549,7 +2686,7 @@
 			"caption": "Other activities",
 			"help": "Unspecified time use",
 			"ID": 9990,
-			"next": "home"
+			"next": "location"
 		},
 
 		"more recent": {
