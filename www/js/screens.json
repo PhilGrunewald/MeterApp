@@ -1,20 +1,7 @@
 {
 	"screens": {
-		"root": {
-			"title": "You have the following options: ",
-			"help": "at this moment",
-			"activities": [
-				"survey",
-				"blank",
-				"activities",
-				"blank",
-				"help",
-				"blank"
-			]
-		},
 
-
-		"survey gender": {
+		"survey root": {
 			"title": "What gender are you?",
 			"help": "at this moment",
 			"activities": [ "female", "male", "survey gender other", "survey gender skip", "blank", "blank" ]
@@ -80,8 +67,20 @@
 			"activities": [ "app 5 1", "app 5 2", "app 5 3", "app 5 4", "app 5 5", "app 5 6" ]
 		},
 
+		"activity time": {
+			"title": "When was this?",
+			"help": "How long ago or the time",
+			"activities": [
+				"time 1",
+				"time 2",
+				"time 3",
+				"time 4",
+				"time 5",
+				"time 6"
+			]
+		},
 
-		"home": {
+		"activity root": {
 			"title": "What are you doing?",
 			"help": "at this moment",
 			"activities": [
