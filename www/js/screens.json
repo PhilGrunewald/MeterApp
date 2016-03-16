@@ -79,6 +79,18 @@
 				"time 6"
 			]
 		},
+		"activity time 2": {
+			"title": "When was this?",
+			"help": "How long ago or the time",
+			"activities": [
+				"time 7",
+				"time 8",
+				"time 9",
+				"time 10",
+				"time 11",
+				"time 12"
+			]
+		},
 
 		"activity root": {
 			"title": "What are you doing?",
