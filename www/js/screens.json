@@ -21,7 +21,9 @@
 				"female",
 				"male",
 				"survey gender other",
-				"survey gender skip"
+				"survey gender skip",
+				"blank",
+				"blank"
 			]
 		},
 		"survey age": {
@@ -49,7 +51,7 @@
 			]
 		},
 		"survey working hours": {
-			"title": "How many hours do you typically work per week?",
+			"title": "Working hours<br> How many hours do you typically work per week?",
 			"help": "These are the hours from all your occupations combined (if you have more than one)",
 			"activities": [
 				"working hours 1",
@@ -68,8 +70,8 @@
 				"working hours change 2",
 				"working hours change 3",
 				"working hours change 4",
-				"working hours change 5",
-				"working hours change 6"
+				"blank",
+				"blank"
 			]
 		},
 		"survey working home": {
@@ -94,8 +96,85 @@
 				"bills other"
 			]
 		},
+		"survey income": {
+			"title": "Income<br>Roughly, what is your yearly income?",
+			"help": "Before deduction of of tax and national insurance.",
+			"activities": [
+				"income 1",
+				"income 2",
+				"income 3",
+				"income 4",
+				"income 5",
+				"income 6"
+			]
+		},
+
+		"survey appliances 1": {
+			"title": "In the past week, many times did <i>you</i> use a<br>Dishwasher?",
+			"help": "Think of the last 7 days.",
+			"activities": [
+				"app 1 1",
+				"app 1 2",
+				"app 1 3",
+				"app 1 4",
+				"app 1 5",
+				"app 1 6"
+			]
+		},
+
+		"survey appliances 2": {
+			"title": "In the past week, many times did <i>you</i> use a<br>Washing Machine?",
+			"help": "Think of the last 7 days.",
+			"activities": [
+				"app 2 1",
+				"app 2 2",
+				"app 2 3",
+				"app 2 4",
+				"app 2 5",
+				"app 2 6"
+			]
+		},
+
+		"survey appliances 3": {
+			"title": "In the past week, many times did <i>you</i> use a<br>Tumble Dryer?",
+			"help": "Think of the last 7 days.",
+			"activities": [
+				"app 3 1",
+				"app 3 2",
+				"app 3 3",
+				"app 3 4",
+				"app 3 5",
+				"app 3 6"
+			]
+		},
 
 
+		"survey appliances 4": {
+			"title": "In the past week, many times did <i>you</i> use a<br>Shower?",
+			"help": "Think of the last 7 days.",
+			"activities": [
+				"app 4 1",
+				"app 4 2",
+				"app 4 3",
+				"app 4 4",
+				"app 4 5",
+				"app 4 6"
+			]
+		},
+
+
+		"survey appliances 5": {
+			"title": "In the past week, many times did <i>you</i> use a<br>Vacuum Cleaner?",
+			"help": "Think of the last 7 days.",
+			"activities": [
+				"app 5 1",
+				"app 5 2",
+				"app 5 3",
+				"app 5 4",
+				"app 5 5",
+				"app 5 6"
+			]
+		},
 
 
 		"home": {

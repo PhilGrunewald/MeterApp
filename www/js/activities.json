@@ -1,5 +1,12 @@
 {
 	"activities": {
+		"blank": {
+				"title": "root: blank",
+				"caption": "",
+				"help": "",
+			"ID": -1,
+			"next": "root"
+		},
 		"survey": {
 				"title": "root: survey",
 				"caption": "Complete the survey",
@@ -46,7 +53,7 @@
 			"ID": 90013,
 			"next": "survey age"
 		},
-		"survey gender sip": {
+		"survey gender skip": {
 			"title": "survey: gender",
 			"caption": "Skip",
 			"help": "You don't want to answer this question",
@@ -265,32 +272,150 @@
 			"caption": "Yes, I do",
 			"help": "I take responsibility for the bills",
 			"ID": 90071,
-			"next": "root"
+			"next": "survey income"
 		},
 		"bills contribute": {
 			"title": "survey: bills",
 			"caption": "I contribute",
 			"help": "Others also contribute or deal with bills",
 			"ID": 90072,
-			"next": "root"
+			"next": "survey income"
 		},
 		"bills no": {
 			"title": "survey: bills",
 			"caption": "I don't",
 			"help": "Others pay or I don't have to",
 			"ID": 90073,
-			"next": "root"
+			"next": "survey income"
 		},
 		"bills other": {
 			"title": "survey: bills",
 			"caption": "Other",
 			"help": "I have a different arrangement or don't want to say",
 			"ID": 90074,
-			"next": "root"
+			"next": "survey income"
 		},
 
 
+		"income 1": {
+			"title": "survey: income",
+			"caption": "£0 - <br>£10,000",
+			"help": "I earn less than £10,000 per year.",
+			"ID": 90080,
+			"next": "survey appliances 1"
+		},
 
+		"income 2": {
+			"title": "survey: income",
+			"caption": "£10,000 - <br>£20,000",
+			"help": "I earn up to £20,000 per year.",
+			"ID": 90081,
+			"next": "survey appliances 1"
+		},
+
+		"income 3": {
+			"title": "survey: income",
+			"caption": "£20,000 - <br>£30,000",
+			"help": "I earn up to £30,000 per year.",
+			"ID": 90082,
+			"next": "survey appliances 1"
+		},
+		"income 4": {
+			"title": "survey: income",
+			"caption": "£30,000 - <br>£40,000",
+			"help": "I earn up to £40,000 per year.",
+			"ID": 90083,
+			"next": "survey appliances 1"
+		},
+		"income 5": {
+			"title": "survey: income",
+			"caption": "£40,000 - <br>£55,000",
+			"help": "I earn up to £55,000 per year.",
+			"ID": 90084,
+			"next": "survey appliances 1"
+		},
+		"income 6": {
+			"title": "survey: income",
+			"caption": "More than<br>£55,000",
+			"help": "I earn more than £55,000 per year.",
+			"ID": 90085,
+			"next": "survey appliances 1"
+		},
+
+
+		"app 1 1": {
+			"title": "survey: app 1",
+			"caption": "I didn't",
+			"help": "use a dishwasher",
+			"ID": 90101,
+			"next": "survey appliances 2"
+		},
+		"app 1 2": {
+			"title": "survey: app 1",
+			"caption": "Once",
+			"help": "used a dishwasher",
+			"ID": 90102,
+			"next": "survey appliances 2"
+		},
+		"app 1 3": {
+			"title": "survey: app 1",
+			"caption": "Twice",
+			"help": "used a dishwasher",
+			"ID": 90103,
+			"next": "survey appliances 2"
+		},
+		"app 1 4": {
+			"title": "survey: app 1",
+			"caption": "3 - 4<br>times",
+			"help": "I used a dishwasher 3 or 4 times",
+			"ID": 90104,
+			"next": "survey appliances 2"
+		},
+		"app 1 5": {
+			"title": "survey: app 1",
+			"caption": "5 - 7 times",
+			"help": "I used a dishwasher 5-7 times",
+			"ID": 90105,
+			"next": "survey appliances 2"
+		},
+		"app 1 6": {
+			"title": "survey: app 1",
+			"caption": "8<br>or more",
+			"help": "I used a dishwasher over eight times",
+			"ID": 90106,
+			"next": "survey appliances 2"
+		},
+
+		"app 2 1": { "title": "survey: app 2", "caption": "I didn't", "help": "use a washing machine", "ID": 90201, "next": "survey appliances 3" },
+		"app 2 3": { "title": "survey: app 2", "caption": "Once", "help": "used a washing machine", "ID": 90202, "next": "survey appliances 3" },
+		"app 2 3": { "title": "survey: app 2", "caption": "Twice", "help": "used a washing machine", "ID": 90203, "next": "survey appliances 3" },
+		"app 2 4": { "title": "survey: app 2", "caption": "3 - 4<br>times", "help": "I used a washing machine 3 or 4 times", "ID": 90204, "next": "survey appliances 3" },
+		"app 2 5": { "title": "survey: app 2", "caption": "5 - 7 times", "help": "I used a washing machine 5-7 times", "ID": 90205, "next": "survey appliances 3" },
+		"app 2 6": { "title": "survey: app 2", "caption": "8<br>or more", "help": "I used a washing machine over eight times", "ID": 90206, "next": "survey appliances 3" },
+
+
+		"app 3 1": { "title": "survey: app 3", "caption": "I didn't", "help": "use a tumble dryer", "ID": 90301, "next": "survey appliances 4" },
+		"app 3 3": { "title": "survey: app 3", "caption": "Once", "help": "used a tumble dryer", "ID": 90302, "next": "survey appliances 4" },
+		"app 3 3": { "title": "survey: app 3", "caption": "Twice", "help": "used a tumble dryer", "ID": 90303, "next": "survey appliances 4" },
+		"app 3 4": { "title": "survey: app 3", "caption": "3 - 4<br>times", "help": "I used a tumble dryer 3 or 4 times", "ID": 90304, "next": "survey appliances 4" },
+		"app 3 5": { "title": "survey: app 3", "caption": "5 - 7 times", "help": "I used a tumble dryer 5-7 times", "ID": 90305, "next": "survey appliances 4" },
+		"app 3 6": { "title": "survey: app 3", "caption": "8<br>or more", "help": "I used a tumble dryer over eight times", "ID": 90306, "next": "survey appliances 4" },
+
+
+		"app 4 1": { "title": "survey: app 4", "caption": "I didn't", "help": "use a shower", "ID": 90401, "next": "survey appliances 5" },
+		"app 4 3": { "title": "survey: app 4", "caption": "Once", "help": "used a shower", "ID": 90402, "next": "survey appliances 5" },
+		"app 4 3": { "title": "survey: app 4", "caption": "Twice", "help": "used a shower", "ID": 90403, "next": "survey appliances 5" },
+		"app 4 4": { "title": "survey: app 4", "caption": "3 - 4<br>times", "help": "I used a shower 3 or 4 times", "ID": 90404, "next": "survey appliances 5" },
+		"app 4 5": { "title": "survey: app 4", "caption": "5 - 7 times", "help": "I used a shower 5-7 times", "ID": 90405, "next": "survey appliances 5" },
+		"app 4 6": { "title": "survey: app 4", "caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90406, "next": "survey appliances 5" },
+
+
+		"app 5 1": { "title": "survey: app 5", "caption": "I didn't", "help": "use a shower", "ID": 90501, "next": "root" },
+		"app 5 3": { "title": "survey: app 5", "caption": "Once", "help": "used a shower", "ID": 90502, "next": "root" },
+		"app 5 3": { "title": "survey: app 5", "caption": "Twice", "help": "used a shower", "ID": 90503, "next": "root" },
+		"app 5 4": { "title": "survey: app 5", "caption": "3 - 4<br>times", "help": "I used a shower 3 or 4 times", "ID": 90504, "next": "root" },
+		"app 5 5": { "title": "survey: app 5", "caption": "5 - 7 times", "help": "I used a shower 5-7 times", "ID": 90505, "next": "root" },
+		"app 5 6": { "title": "survey: app 5", "caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90506, "next": "root" },
 
 		"at home": {
 			"title": "meter: location home",
