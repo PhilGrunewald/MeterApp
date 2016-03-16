@@ -41,7 +41,7 @@
           <div class="navbar">
             <div class="row">
               <div id="nav-home"    class="col-4" onclick="app.showActivityList();">Home</div>
-              <div id="nav-aboutme" class="col-4" onclick="app.navigateTo('survey gender')">About me</div>
+              <div id="nav-aboutme" class="col-4" onclick="app.navigateTo('survey root')">About me</div>
               <div id="nav-help"    class="col-4" onclick="app.toggleCaption();">Help</div>
             </div>
           </div>
@@ -55,8 +55,18 @@
             
             <div id="activity_list_pane">
               
-              <div class="btn-addnew" onclick="app.navigateTo('home')">
+              
+              <div class="btn-addnew">
                 + Add new
+                
+                <div class="row">
+                    <div class="col" onclick="app.navigateTo('home')">
+                        Now
+                    </div>
+                    <div class="col" onclick="app.pickTime()">
+                        Pick time
+                    </div>
+                </div>
               </div>
               
                 

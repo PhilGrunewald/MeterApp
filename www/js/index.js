@@ -71,10 +71,11 @@ var app = {
         }
         
         
-        app.actionButtons = $('.btn-activity');
-        app.activity_ul   = $('#activity_list');
+        app.actionButtons    = $('.btn-activity');
+        app.activity_ul      = $('#activity_list');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
+        app.title            = $("#title");
         
         
         $.getJSON('js/activities.json', function(data) {
@@ -181,6 +182,7 @@ var app = {
             
         }
         
+        app.title.html("Activities")
         app.activity_ul.html(ul_)
         
         app.choicesPane.hide();
