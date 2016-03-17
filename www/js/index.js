@@ -17,11 +17,12 @@
  * under the License.
  */
 
-// Storage keys
+// Storage keys // PG 17 Mar 2016: I think these values are not assigned - for SURVEY_STATUS I did the assignment in "OnDeviceReady"
 var CURR_ACTIVITY = "current_activity";
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
 var ACTIVITY_LIST = "activity_list";
+var SURVEY_STATUS;			// stores how far they got in the survey
 
 var CATEGORIES = ["care_self",
                   "care_other",
@@ -84,6 +85,7 @@ var app = {
             });
         }
         
+		app.save(SURVEY_STATUS, "survey root");
         app.actionButtons    = $('.btn-activity');
         app.activity_ul      = $('#activity_list');
         app.activityListPane = $('#activity_list_pane');
@@ -130,6 +132,8 @@ var app = {
             }
             // within the code range of 'survey'
             else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
+				// save the survey screen_id, such that we can return here via screen_id = 'survey'
+            	app.save(SURVEY_STATUS, screen_id);
                 app.writeSurvey(prev_activity);          
                 console.log("survey entry: " + prev_activity);
             }
@@ -148,6 +152,11 @@ var app = {
             app.activityListPane.show();
         }
         else {
+			if (screen_id == "survey") {
+				// SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
+				screen_id = app.get(SURVEY_STATUS);
+        		console.log("Survey ID" + screen_id);
+			}
             // populate buttons XXX move to 'if not home'?
             var screen_ = app.screens[screen_id];
             $("#title").html(screen_.title);
