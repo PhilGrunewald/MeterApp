@@ -37,7 +37,6 @@
     </head>
     <body>
         <div class="app">
-          
           <div class="navbar">
             <div class="row">
               <div id="nav-home"    class="col-4" onclick="app.showActivityList();">Home</div>
@@ -47,44 +46,31 @@
           </div>
           
           <div class="header">
-            
             <h3 id="title">&lt;placeholder&gt;</h3>
           </div>
           
           <div class="contents">
-            
             <div id="activity_list_pane">
-              
-              
               <div class="btn-addnew container">
-                + Add new
+                + Add activity
                 
                 <div class="row">
                     <div class="col" onclick="app.navigateTo('activity root')">
-                        Now
+                        <h3>Now</h3>
                     </div>
                     <div class="col" onclick="app.navigateTo('activity time')">
-                        Pick time
+                        <h3>Recent</h3>
                     </div>
                 </div>
               </div>
-              
-                
               <ul id="activity_list">
-                
                 <li><i>No activity yet</i></li>
-                
               </ul>
-              
             </div>
-            
-            <div id="choices_pane">
-                
 
+            <div id="choices_pane">
              <div class="choices">
-               
                <div class="row">
-                 
                  <div id="button1" class="btn-activity col">
                    <div id="title1" class="btn-title">
                      &lt;title&gt;

@@ -5,7 +5,7 @@
 				"caption": "",
 				"help": "",
 			"ID": -1,
-			"next": "root"
+			"next": "home"
 		},
 		"survey": {
 				"title": "root: survey",
@@ -19,7 +19,7 @@
 			"caption": "Add activity",
 			"help": "Tell us what you do",
 			"ID": 10000,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"help": {
 			"title": "root: help",
@@ -110,12 +110,12 @@
 		"app 4 5": { "title": "survey: app 4", "caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90405, "next": "survey appliances 5" },
 		"app 4 6": { "title": "survey: app 4", "caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90406, "next": "survey appliances 5" },
 
-		"app 5 1": { "title": "survey: app 5", "caption": "I didn't", "help": "use a shower", "ID": 90501, "next": "root" },
-		"app 5 2": { "title": "survey: app 5", "caption": "Once", "help": "used a shower", "ID": 90502, "next": "root" },
-		"app 5 3": { "title": "survey: app 5", "caption": "Twice", "help": "used a shower", "ID": 90503, "next": "root" },
-		"app 5 4": { "title": "survey: app 5", "caption": "3 - 4<br>times", "help": "I used a shower 3 or 4 times", "ID": 90504, "next": "root" },
-		"app 5 5": { "title": "survey: app 5", "caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90505, "next": "root" },
-		"app 5 6": { "title": "survey: app 5", "caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90506, "next": "root" },
+		"app 5 1": { "title": "survey: app 5", "caption": "I didn't", "help": "use a shower", "ID": 90501, "next": "home" },
+		"app 5 2": { "title": "survey: app 5", "caption": "Once", "help": "used a shower", "ID": 90502, "next": "home" },
+		"app 5 3": { "title": "survey: app 5", "caption": "Twice", "help": "used a shower", "ID": 90503, "next": "home" },
+		"app 5 4": { "title": "survey: app 5", "caption": "3 - 4<br>times", "help": "I used a shower 3 or 4 times", "ID": 90504, "next": "home" },
+		"app 5 5": { "title": "survey: app 5", "caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90505, "next": "home" },
+		"app 5 6": { "title": "survey: app 5", "caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90506, "next": "home" },
 
 		"at home": {
 			"title": "meter: location home",
@@ -213,62 +213,62 @@
 			"title": "meter: enjoyment skip",
 			"caption": "Skip",
 			"help": "I enjoyed this time very much.",
-			"ID": 20000,
-			"next": "root"
+			"ID": 20001,
+			"next": "home"
 		},
 		"not at all": {
 			"title": "meter: enjoyment 1",
 			"caption": "Not at all",
 			"help": "I enjoyed this time not at all",
-			"ID": 20001,
-			"next": "root"
+			"ID": 20002,
+			"next": "home"
 		},
 		"not very much": {
 			"title": "meter: enjoyment 2",
 			"caption": "Not very much",
 			"help": "I enjoyed this time not very much.",
-			"ID": 20002,
-			"next": "root"
+			"ID": 20003,
+			"next": "home"
 		},
 		"neutral": {
 			"title": "meter: enjoyment 3",
-			"caption": "Very much",
+			"caption": "Neutral",
 			"help": "I enjoyed this time somewhat",
-			"ID": 20003,
-			"next": "root"
+			"ID": 20004,
+			"next": "home"
 		},
 		"somewhat": {
 			"title": "meter: enjoyment 4",
 			"caption": "Somewhat",
 			"help": "I enjoyed this time",
-			"ID": 20004,
-			"next": "root"
+			"ID": 20005,
+			"next": "home"
 		},
 		"very much": {
 			"title": "meter: enjoyment 5",
 			"caption": "Very much",
 			"help": "I enjoyed this time very much.",
-			"ID": 20005,
-			"next": "root"
+			"ID": 20006,
+			"next": "home"
 		},
 
 
 
 
 
-		"time 1": { "title": "activity time", "caption": "Now", "help": "$time", "ID": 10001, "next": "activity root" },
-		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "$time - 5", "ID": 10002, "next": "activity root" },
-		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "$time - 5", "ID": 10003, "next": "activity root" },
-		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "$time - 5", "ID": 10004, "next": "activity root" },
-		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "$time - 5", "ID": 10005, "next": "activity root" },
+		"time 1": { "title": "activity time", "caption": "Now", "help": "$time", "ID": 10001, "next": "home" },
+		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "$time - 5", "ID": 10002, "next": "home" },
+		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "$time - 5", "ID": 10003, "next": "home" },
+		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "$time - 5", "ID": 10004, "next": "home" },
+		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "$time - 5", "ID": 10005, "next": "home" },
 		"time 6": { "title": "activity time", "caption": "longer ago", "help": "$time - 5", "ID": 10006, "next": "activity time 2" },
 
-		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "$time", "ID": 10007, "next": "activity root" },
-		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "$time - 5", "ID": 10008, "next": "activity root" },
-		"time 9": { "title": "activity time", "caption": "4 hours ago", "help": "$time - 5", "ID": 10009, "next": "activity root" },
-		"time 10": { "title": "activity time", "caption": "5 hours ago", "help": "$time - 5", "ID": 10010, "next": "activity root" },
-		"time 11": { "title": "activity time", "caption": "6 hours ago", "help": "$time - 5", "ID": 10011, "next": "activity root" },
-		"time 12": { "title": "activity time", "caption": "more than 6 hours ago", "help": "$time - 5", "ID": 10012, "next": "activity root" },
+		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "$time", "ID": 10007, "next": "home" },
+		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "$time - 5", "ID": 10008, "next": "home" },
+		"time 9": { "title": "activity time", "caption": "4 hours ago", "help": "$time - 5", "ID": 10009, "next": "home" },
+		"time 10": { "title": "activity time", "caption": "5 hours ago", "help": "$time - 5", "ID": 10010, "next": "home" },
+		"time 11": { "title": "activity time", "caption": "6 hours ago", "help": "$time - 5", "ID": 10011, "next": "home" },
+		"time 12": { "title": "activity time", "caption": "more than 6 hours ago", "help": "$time - 5", "ID": 10012, "next": "home" },
 
 
 
@@ -314,7 +314,7 @@
 			"help": "Sick in bed",
 			"ID": 120,
 			"category": "care_self",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Eating": {
 			"title": "Eating",
@@ -432,7 +432,7 @@
 			"help": "Other specified personal care",
 			"ID": 390,
 			"category": "care_self",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified household and family care": {
 			"title": "Unspecified household and family care",
@@ -600,7 +600,7 @@
 			"help": "Cleaning yard",
 			"ID": 3220,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Heating and water": {
 			"title": "Heating and water",
@@ -608,7 +608,7 @@
 			"help": "Heating and water",
 			"ID": 3230,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Arranging household goods and materials": {
 			"title": "Arranging household goods and materials",
@@ -632,7 +632,7 @@
 			"help": "Other or unspecified household upkeep",
 			"ID": 3290,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified making and care for textiles": {
 			"title": "Unspecified making and care for textiles",
@@ -640,7 +640,7 @@
 			"help": "Handling or other work on textiles",
 			"ID": 3300,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Laundry": {
 			"title": "Laundry",
@@ -696,7 +696,7 @@
 			"help": "Handicraft and producing textiles",
 			"ID": 3330,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified making and care for textiles": {
 			"title": "Other specified making and care for textiles",
@@ -704,7 +704,7 @@
 			"help": "Other specified making and care for textiles",
 			"ID": 3390,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Household management not using the internet": {
 			"title": "Household management not using the internet",
@@ -712,7 +712,7 @@
 			"help": "Household management not using the internet",
 			"ID": 3710,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified household management using the internet": {
 			"title": "Unspecified household management using the internet",
@@ -720,7 +720,7 @@
 			"help": "Unspecified household management using the internet",
 			"ID": 3720,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping for&ordring unspec gds&srvs via internet": {
 			"title": "Shopping for&ordring unspec gds&srvs via internet",
@@ -728,7 +728,7 @@
 			"help": "Shopping for&ordring unspec gds&srvs via internet",
 			"ID": 3721,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping for&ordring food via the internet": {
 			"title": "Shopping for&ordring food via the internet",
@@ -736,49 +736,49 @@
 			"help": "Shopping for&ordring food via the internet",
 			"ID": 3722,
 			"category": "food",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping for&ordring clothing via the internet": {
 			"title": "Shopping for&ordring clothing via the internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring clothing via the internet",
 			"ID": 3723,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping for&ordring gds&srv related to acc via internet": {
 			"title": "Shopping for&ordring gds&srv related to acc via internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring gds&srv related to acc via internet",
 			"ID": 3724,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping for&ordring mass media via the internet": {
 			"title": "Shopping for&ordring mass media via the internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring mass media via the internet",
 			"ID": 3725,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping for&ordring entertainment via the internet": {
 			"title": "Shopping for&ordring entertainment via the internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring entertainment via the internet",
 			"ID": 3726,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Banking and bill paying via the internet": {
 			"title": "Banking and bill paying via the internet",
 			"caption": "Activities with internet use",
 			"help": "Banking and bill paying via the internet",
 			"ID": 3727,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified household management using the internet": {
 			"title": "Other specified household management using the internet",
 			"caption": "Activities with internet use",
 			"help": "Other specified household management using the internet",
 			"ID": 3729,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"care child other": {
 			"title": "Unspecified physical care & supervision of a child",
@@ -820,7 +820,7 @@
 			"caption": "Accompanying child",
 			"help": "Accompanying child",
 			"ID": 3840,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"care child supervise": {
 			"title": "Other specified childcare",
@@ -834,77 +834,77 @@
 			"caption": "Taking care of family or others",
 			"help": "Physical care & supervision of an adult household member",
 			"ID": 3911,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Accompanying an adult household member": {
 			"title": "Accompanying an adult household member",
 			"caption": "Taking care of family or others",
 			"help": "Accompanying an adult household member",
 			"ID": 3914,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified help to an adult household member": {
 			"title": "Other specified help to an adult household member",
 			"caption": "Taking care of family or others",
 			"help": "Other specified help to an adult household member",
 			"ID": 3919,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified help to a dependent adult household member": {
 			"title": "Unspecified help to a dependent adult household member",
 			"caption": "Taking care of family or others",
 			"help": "Unspecified help to a dependent adult household member",
 			"ID": 3920,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Physical care of a dependent adult household member (eg Alzheimic parent)": {
 			"title": "Physical care of a dependent adult household member (eg Alzheimic parent)",
 			"caption": "Taking care of family or others",
 			"help": "Physical care of a dependent adult household member (eg Alzheimic parent)",
 			"ID": 3921,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Accompanying a dependent adult household member (eg Alzheimic)": {
 			"title": "Accompanying a dependent adult household member (eg Alzheimic)",
 			"caption": "Taking care of family or others",
 			"help": "Accompanying a dependent adult household member (eg Alzheimic)",
 			"ID": 3924,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified help to a dependent adult household member": {
 			"title": "Other specified help to a dependent adult household member",
 			"caption": "Taking care of family or others",
 			"help": "Other specified help to a dependent adult household member",
 			"ID": 3929,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified participatory activities": {
 			"title": "Unspecified participatory activities",
 			"caption": "Taking care of family or others",
 			"help": "Unspecified participatory activities",
 			"ID": 4300,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Meetings": {
 			"title": "Meetings",
 			"caption": "Socialising",
 			"help": "Meetings",
 			"ID": 4310,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Religious activities": {
 			"title": "Religious activities",
 			"caption": "Socialising",
 			"help": "Religious activities",
 			"ID": 4320,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified participatory activities": {
 			"title": "Other specified participatory activities",
 			"caption": "Socialising",
 			"help": "Other specified participatory activities",
 			"ID": 4390,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"leisure": {
 			"title": "Unspecified social life and entertainment",
@@ -919,56 +919,56 @@
 			"caption": "Socialising",
 			"help": "Unspecified social life",
 			"ID": 5100,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Socialising with family": {
 			"title": "Socialising with family",
 			"caption": "Socialising",
 			"help": "Socialising with family",
 			"ID": 5110,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Visiting and receiving visitors": {
 			"title": "Visiting and receiving visitors",
 			"caption": "Socialising",
 			"help": "Visiting and receiving visitors",
 			"ID": 5120,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Celebrations": {
 			"title": "Celebrations",
 			"caption": "Socialising",
 			"help": "Celebrations",
 			"ID": 5130,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Telephone conversation": {
 			"title": "Telephone conversation",
 			"caption": "Socialising",
 			"help": "Telephone conversation",
 			"ID": 5140,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified social life": {
 			"title": "Other specified social life",
 			"caption": "Socialising",
 			"help": "Other specified social life",
 			"ID": 5190,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Indoor pairs or doubles games": {
 			"title": "Indoor pairs or doubles games",
 			"caption": "Leisure involving computer",
 			"help": "Indoor pairs or doubles games",
 			"ID": 6141,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Indoor team games": {
 			"title": "Indoor team games",
 			"caption": "Leisure involving computer",
 			"help": "Indoor team games",
 			"ID": 6142,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Computing - programming": {
 			"title": "Computing - programming",
@@ -989,259 +989,259 @@
 			"caption": "Leisure involving computer",
 			"help": "Information searching on the internet",
 			"ID": 7231,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified information by computing": {
 			"title": "Other specified information by computing",
 			"caption": "Leisure involving computer",
 			"help": "Other specified information by computing",
 			"ID": 7239,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified communication by computer": {
 			"title": "Unspecified communication by computer",
 			"caption": "Leisure involving computer",
 			"help": "Unspecified communication by computer",
 			"ID": 7240,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Communication on the internet": {
 			"title": "Communication on the internet",
 			"caption": "Leisure involving computer",
 			"help": "Communication on the internet",
 			"ID": 7241,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified communication by computing": {
 			"title": "Other specified communication by computing",
 			"caption": "Leisure involving computer",
 			"help": "Other specified communication by computing",
 			"ID": 7249,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified other computing": {
 			"title": "Unspecified other computing",
 			"caption": "Leisure involving computer",
 			"help": "Unspecified other computing",
 			"ID": 7250,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Skype or other video call": {
 			"title": "Skype or other video call",
 			"caption": "Leisure involving computer",
 			"help": "Skype or other video call",
 			"ID": 7251,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified computing": {
 			"title": "Other specified computing",
 			"caption": "Leisure involving computer",
 			"help": "Other specified computing",
 			"ID": 7259,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified games": {
 			"title": "Unspecified games",
 			"caption": "Leisure involving computer",
 			"help": "Unspecified games",
 			"ID": 7300,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Solo games and play": {
 			"title": "Solo games and play",
 			"caption": "Leisure involving computer",
 			"help": "Solo games and play",
 			"ID": 7310,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified games and play with others": {
 			"title": "Unspecified games and play with others",
 			"caption": "Leisure involving computer",
 			"help": "Unspecified games and play with others",
 			"ID": 7320,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Billiards, pool, snooker or petanque": {
 			"title": "Billiards, pool, snooker or petanque",
 			"caption": "Leisure involving computer",
 			"help": "Billiards, pool, snooker or petanque",
 			"ID": 7321,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Chess and bridge": {
 			"title": "Chess and bridge",
 			"caption": "Leisure involving computer",
 			"help": "Chess and bridge",
 			"ID": 7322,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified parlour games and play": {
 			"title": "Other specified parlour games and play",
 			"caption": "Leisure involving computer",
 			"help": "Other specified parlour games and play",
 			"ID": 7329,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Computer games": {
 			"title": "Computer games",
 			"caption": "Leisure involving computer",
 			"help": "Computer games",
 			"ID": 7330,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Gambling": {
 			"title": "Gambling",
 			"caption": "Leisure",
 			"help": "Gambling",
 			"ID": 7340,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified games ": {
 			"title": "Other specified games",
 			"caption": "Leisure",
 			"help": "Other specified games",
 			"ID": 7390,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified mass media": {
 			"title": "Unspecified mass media",
 			"caption": "Leisure",
 			"help": "Unspecified mass media",
 			"ID": 8000,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified reading": {
 			"title": "Unspecified reading",
 			"caption": "Leisure",
 			"help": "Unspecified reading",
 			"ID": 8100,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Reading periodicals": {
 			"title": "Reading periodicals",
 			"caption": "Leisure",
 			"help": "Reading periodicals",
 			"ID": 8110,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Reading books": {
 			"title": "Reading books",
 			"caption": "Leisure",
 			"help": "Reading books",
 			"ID": 8120,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified reading": {
 			"title": "Other specified reading",
 			"caption": "Leisure",
 			"help": "Other specified reading",
 			"ID": 8190,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"leisure TV": {
 			"title": "Unspecified tv, video or dvd watching",
 			"caption": "Leisure",
 			"help": "Unspecified tv, video or dvd watching",
 			"ID": 8210,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Watching a film on TV": {
 			"title": "Watching a film on TV",
 			"caption": "Leisure",
 			"help": "Watching a film on TV",
 			"ID": 8211,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Watching sport on TV ": {
 			"title": "Watching sport on TV",
 			"caption": "Leisure",
 			"help": "Watching sport on TV",
 			"ID": 8212,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified TV watching": {
 			"title": "Other specified TV watching",
 			"caption": "Leisure",
 			"help": "Other specified TV watching",
 			"ID": 8219,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified video watching": {
 			"title": "Unspecified video watching",
 			"caption": "Leisure",
 			"help": "Unspecified video watching",
 			"ID": 8220,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Watching a film on video": {
 			"title": "Watching a film on video",
 			"caption": "Leisure",
 			"help": "Watching a film on video",
 			"ID": 8221,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Watching sport on video": {
 			"title": "Watching sport on video",
 			"caption": "Leisure",
 			"help": "Watching sport on video",
 			"ID": 8222,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified video watching": {
 			"title": "Other specified video watching",
 			"caption": "Leisure",
 			"help": "Other specified video watching",
 			"ID": 8229,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified listening to radio and music": {
 			"title": "Unspecified listening to radio and music",
 			"caption": "Leisure",
 			"help": "Unspecified listening to radio and music",
 			"ID": 8300,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified radio listening": {
 			"title": "Unspecified radio listening",
 			"caption": "Leisure",
 			"help": "Unspecified radio listening",
 			"ID": 8310,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Listening to music on the radio": {
 			"title": "Listening to music on the radio",
 			"caption": "Leisure",
 			"help": "Listening to music on the radio",
 			"ID": 8311,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Listening to sport on the radio": {
 			"title": "Listening to sport on the radio",
 			"caption": "Leisure",
 			"help": "Listening to sport on the radio",
 			"ID": 8312,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified radio listening": {
 			"title": "Other specified radio listening",
 			"caption": "Leisure",
 			"help": "Other specified radio listening",
 			"ID": 8319,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Listening to recordings ": {
 			"title": "Listening to recordings",
 			"caption": "Leisure",
 			"help": "Listening to recordings",
 			"ID": 8320,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified employment": {
 			"title": "Unspecified employment",
 			"caption": "Work",
 			"help": "Unspecified employment",
 			"ID": 1000,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"work": {
 			"title": "meter: generic work",
@@ -1256,7 +1256,7 @@
 			"caption": "Work",
 			"help": "Unspecified main job",
 			"ID": 1100,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Main job": {
 			"title": "Working time in main job",
@@ -1270,7 +1270,7 @@
 			"caption": "Work",
 			"help": "Coffee and other breaks in main job",
 			"ID": 1120,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified second job": {
 			"title": "Unspecified second job",
@@ -1291,63 +1291,63 @@
 			"caption": "Work",
 			"help": "Coffee and other breaks in second job",
 			"ID": 1220,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified activities related to employment": {
 			"title": "Unspecified activities related to employment",
 			"caption": "Other",
 			"help": "None of the above kinds of work",
 			"ID": 1300,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Lunch break": {
 			"title": "Lunch break",
 			"caption": "Work",
 			"help": "Lunch break",
 			"ID": 1310,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified activities related to employment": {
 			"title": "Other specified activities related to employment",
 			"caption": "Work",
 			"help": "Other specified activities related to employment",
 			"ID": 1390,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Activities related to job seeking": {
 			"title": "Activities related to job seeking",
 			"caption": "Work",
 			"help": "Activities related to job seeking",
 			"ID": 1391,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified activities related to employment": {
 			"title": "Other specified activities related to employment",
 			"caption": "Work",
 			"help": "Other specified activities related to employment",
 			"ID": 1399,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified study": {
 			"title": "Unspecified study",
 			"caption": "Work",
 			"help": "Unspecified study",
 			"ID": 2000,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified activities related to school or university": {
 			"title": "Unspecified activities related to school or university",
 			"caption": "Study",
 			"help": "Unspecified activities related to school or university",
 			"ID": 2100,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Classes and lectures": {
 			"title": "Classes and lectures",
 			"caption": "Study",
 			"help": "Classes and lectures",
 			"ID": 2110,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Homework": {
 			"title": "Homework",
@@ -1368,49 +1368,49 @@
 			"caption": "Study",
 			"help": "Free Time Study",
 			"ID": 2210,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Gardening": {
 			"title": "Gardening",
 			"caption": "Unspecified gardening and pet care",
 			"help": "Gardening",
 			"ID": 3410,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Tending domestic animals": {
 			"title": "Tending domestic animals",
 			"caption": "Unspecified gardening and pet care",
 			"help": "Tending domestic animals",
 			"ID": 3420,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Caring for pets": {
 			"title": "Caring for pets",
 			"caption": "Unspecified gardening and pet care",
 			"help": "Caring for pets",
 			"ID": 3430,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Walking the dog": {
 			"title": "Walking the dog",
 			"caption": "Unspecified gardening and pet care",
 			"help": "Walking the dog",
 			"ID": 3440,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified gardening and pet care": {
 			"title": "Other specified gardening and pet care",
 			"caption": "Unspecified gardening and pet care",
 			"help": "Other specified gardening and pet care",
 			"ID": 3490,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified construction and repairs": {
 			"title": "Unspecified construction and repairs",
 			"caption": "Construction and repairs",
 			"help": "Unspecified construction and repairs",
 			"ID": 3500,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"House construction and renovation": {
 			"title": "House construction and renovation",
@@ -1418,7 +1418,7 @@
 			"help": "House construction and renovation",
 			"ID": 3510,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Repairs of dwelling": {
 			"title": "Repairs of dwelling",
@@ -1426,7 +1426,7 @@
 			"help": "Repairs of dwelling",
 			"ID": 3520,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified making, repairing and maintaining equipment": {
 			"title": "Unspecified making, repairing and maintaining equipment",
@@ -1434,7 +1434,7 @@
 			"help": "Unspecified making, repairing and maintaining equipment",
 			"ID": 3530,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Woodcraft, metal craft, sculpture and pottery": {
 			"title": "Woodcraft, metal craft, sculpture and pottery",
@@ -1442,28 +1442,28 @@
 			"help": "Woodcraft, metal craft, sculpture and pottery",
 			"ID": 3531,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified making, repairing and maintaining equipment": {
 			"title": "Other specified making, repairing and maintaining equipment",
 			"caption": "Construction and repairs",
 			"help": "Other specified making, repairing and maintaining equipment",
 			"ID": 3539,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Vehicle maintenance": {
 			"title": "Vehicle maintenance",
 			"caption": "Construction and repairs",
 			"help": "Vehicle maintenance",
 			"ID": 3540,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified construction and repairs": {
 			"title": "Other specified construction and repairs",
 			"caption": "Construction and repairs",
 			"help": "Other specified construction and repairs",
 			"ID": 3590,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified shopping and services": {
 			"title": "Unspecified shopping and services",
@@ -1471,7 +1471,7 @@
 			"help": "Unspecified shopping and services",
 			"ID": 3600,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified shopping": {
 			"title": "Unspecified shopping",
@@ -1479,7 +1479,7 @@
 			"help": "Unspecified shopping",
 			"ID": 3610,
 			"category": "care_house",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping mainly for food": {
 			"title": "Shopping mainly for food",
@@ -1487,63 +1487,63 @@
 			"help": "Shopping mainly for food",
 			"ID": 3611,
 			"category": "food",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping mainly for clothing": {
 			"title": "Shopping mainly for clothing",
 			"caption": "Shoppimg",
 			"help": "Shopping mainly for clothing",
 			"ID": 3612,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping mainly related to accommodation": {
 			"title": "Shopping mainly related to accommodation",
 			"caption": "Shoppimg",
 			"help": "Shopping mainly related to accommodation",
 			"ID": 3613,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping or browsing at car boot sales or antique fairs": {
 			"title": "Shopping or browsing at car boot sales or antique fairs",
 			"caption": "Shoppimg",
 			"help": "Shopping or browsing at car boot sales or antique fairs",
 			"ID": 3614,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Window shopping or other shopping as leisure": {
 			"title": "Window shopping or other shopping as leisure",
 			"caption": "Shoppimg",
 			"help": "Window shopping or other shopping as leisure",
 			"ID": 3615,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified shopping": {
 			"title": "Other specified shopping",
 			"caption": "Shoppimg",
 			"help": "Other specified shopping",
 			"ID": 3619,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Commercial and administrative services": {
 			"title": "Commercial and administrative services",
 			"caption": "Services",
 			"help": "Commercial and administrative services",
 			"ID": 3620,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Personal services": {
 			"title": "Personal services",
 			"caption": "Services",
 			"help": "Personal services",
 			"ID": 3630,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified shopping and services": {
 			"title": "Other specified shopping and services",
 			"caption": "Services",
 			"help": "Other specified shopping and services",
 			"ID": 3690,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified volunteer work and meetings": {
 			"title": "Unspecified volunteer work and meetings",
@@ -1564,7 +1564,7 @@
 			"caption": "VOLUNTARY WORK AND MEETINGS",
 			"help": "Work for an organisation",
 			"ID": 4110,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Volunteer work through an organisation": {
 			"title": "Volunteer work through an organisation",
@@ -1578,357 +1578,357 @@
 			"caption": "VOLUNTARY WORK AND MEETINGS",
 			"help": "Other specified organisational work",
 			"ID": 4190,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified informal help to other households": {
 			"title": "Unspecified informal help to other households",
 			"caption": "Asistance/Help",
 			"help": "Unspecified informal help to other households",
 			"ID": 4200,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Food management as help to other households": {
 			"title": "Food management as help to other households",
 			"caption": "Asistance/Help",
 			"help": "Food management as help to other households",
 			"ID": 4210,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Household upkeep as help to other households": {
 			"title": "Household upkeep as help to other households",
 			"caption": "Asistance/Help",
 			"help": "Household upkeep as help to other households",
 			"ID": 4220,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Gardening and pet care as help to other households": {
 			"title": "Gardening and pet care as help to other households",
 			"caption": "Asistance/Help",
 			"help": "Gardening and pet care as help to other households",
 			"ID": 4230,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Construction and repairs as help to other households": {
 			"title": "Construction and repairs as help to other households",
 			"caption": "Asistance/Help",
 			"help": "Construction and repairs as help to other households",
 			"ID": 4240,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Shopping and services as help to other households": {
 			"title": "Shopping and services as help to other households",
 			"caption": "Asistance/Help",
 			"help": "Shopping and services as help to other households",
 			"ID": 4250,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Help to other households in employment and farming": {
 			"title": "Help to other households in employment and farming",
 			"caption": "Asistance/Help",
 			"help": "Help to other households in employment and farming",
 			"ID": 4260,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified childcare as help to other households": {
 			"title": "Unspecified childcare as help to other households",
 			"caption": "Asistance/Help",
 			"help": "Unspecified childcare as help to other households",
 			"ID": 4270,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Physical care and supervision of child as help to other household": {
 			"title": "Physical care and supervision of child as help to other household",
 			"caption": "Asistance/Help",
 			"help": "Physical care and supervision of child as help to other household",
 			"ID": 4271,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Teaching the child as help": {
 			"title": "Teaching the child as help",
 			"caption": "Asistance/Help",
 			"help": "Teaching the child as help",
 			"ID": 4272,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Reading, playing & talking to the child as help": {
 			"title": "Reading, playing & talking to the child as help",
 			"caption": "Asistance/Help",
 			"help": "Reading, playing & talking to the child as help",
 			"ID": 4273,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Accompanying the child as help": {
 			"title": "Accompanying the child as help",
 			"caption": "Asistance/Help",
 			"help": "Accompanying the child as help",
 			"ID": 4274,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Physical care and supervision of own child as help to other household": {
 			"title": "Physical care and supervision of own child as help to other household",
 			"caption": "Asistance/Help",
 			"help": "Physical care and supervision of own child as help to other household",
 			"ID": 4275,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Teaching own non-coresident child": {
 			"title": "Teaching own non-coresident child",
 			"caption": "Asistance/Help",
 			"help": "Teaching own non-coresident child",
 			"ID": 4276,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Reading, playing & talking to own non-coresident child": {
 			"title": "Reading, playing & talking to own non-coresident child",
 			"caption": "Asistance/Help",
 			"help": "Reading, playing & talking to own non-coresident child",
 			"ID": 4277,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Accompanying own non-coresident child": {
 			"title": "Accompanying own non-coresident child",
 			"caption": "Asistance/Help",
 			"help": "Accompanying own non-coresident child",
 			"ID": 4278,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified childcare as help": {
 			"title": "Other specified childcare as help",
 			"caption": "Asistance/Help",
 			"help": "Other specified childcare as help",
 			"ID": 4279,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified help to an adult member of another household": {
 			"title": "Unspecified help to an adult member of another household",
 			"caption": "Asistance/Help",
 			"help": "Unspecified help to an adult member of another household",
 			"ID": 4280,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Physical care and supervision of an adult as help to another household": {
 			"title": "Physical care and supervision of an adult as help to another household",
 			"caption": "Asistance/Help",
 			"help": "Physical care and supervision of an adult as help to another household",
 			"ID": 4281,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Accompanying an adult as help to another household": {
 			"title": "Accompanying an adult as help to another household",
 			"caption": "Asistance/Help",
 			"help": "Accompanying an adult as help to another household",
 			"ID": 4282,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified help to an adult member of another household": {
 			"title": "Other specified help to an adult member of another household",
 			"caption": "Asistance/Help",
 			"help": "Other specified help to an adult member of another household",
 			"ID": 4283,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Accompanying an adult as help": {
 			"title": "Accompanying an adult as help",
 			"caption": "Asistance/Help",
 			"help": "Accompanying an adult as help",
 			"ID": 4284,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified help to an adult member of another household": {
 			"title": "Other specified help to an adult member of another household",
 			"caption": "Asistance/Help",
 			"help": "Other specified help to an adult member of another household",
 			"ID": 4289,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified informal help": {
 			"title": "Other specified informal help",
 			"caption": "Asistance/Help",
 			"help": "Other specified informal help",
 			"ID": 4290,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified entertainment and culture": {
 			"title": "Unspecified entertainment and culture",
 			"caption": "Entertainment/ Leisure",
 			"help": "Unspecified entertainment and culture",
 			"ID": 5200,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Cinema": {
 			"title": "Cinema",
 			"caption": "Entertainment/ Leisure",
 			"help": "Cinema",
 			"ID": 5210,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified theatre or concerts": {
 			"title": "Unspecified theatre or concerts",
 			"caption": "Entertainment/ Leisure",
 			"help": "Unspecified theatre or concerts",
 			"ID": 5220,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Plays, musicals or pantomimes": {
 			"title": "Plays, musicals or pantomimes",
 			"caption": "Entertainment/ Leisure",
 			"help": "Plays, musicals or pantomimes",
 			"ID": 5221,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Opera, operetta or light opera": {
 			"title": "Opera, operetta or light opera",
 			"caption": "Entertainment/ Leisure",
 			"help": "Opera, operetta or light opera",
 			"ID": 5222,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Concerts or other performances of classical music": {
 			"title": "Concerts or other performances of classical music",
 			"caption": "Entertainment/ Leisure",
 			"help": "Concerts or other performances of classical music",
 			"ID": 5223,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Live music other than classical concerts, opera and musicals": {
 			"title": "Live music other than classical concerts, opera and musicals",
 			"caption": "Entertainment/ Leisure",
 			"help": "Live music other than classical concerts, opera and musicals",
 			"ID": 5224,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Dance performances": {
 			"title": "Dance performances",
 			"caption": "Entertainment/ Leisure",
 			"help": "Dance performances",
 			"ID": 5225,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified theatre or concerts": {
 			"title": "Other specified theatre or concerts",
 			"caption": "Entertainment/ Leisure",
 			"help": "Other specified theatre or concerts",
 			"ID": 5229,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Art exhibitions and museums": {
 			"title": "Art exhibitions and museums",
 			"caption": "Entertainment/ Leisure",
 			"help": "Art exhibitions and museums",
 			"ID": 5230,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified library": {
 			"title": "Unspecified library",
 			"caption": "Entertainment/ Leisure",
 			"help": "Unspecified library",
 			"ID": 5240,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library": {
 			"title": "Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library",
 			"caption": "Entertainment/ Leisure",
 			"help": "Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library",
 			"ID": 5241,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Reference to bks and other library materials within library": {
 			"title": "Reference to bks and other library materials within library",
 			"caption": "Entertainment/ Leisure",
 			"help": "Reference to bks and other library materials within library",
 			"ID": 5242,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Using internet in the library": {
 			"title": "Using internet in the library",
 			"caption": "Entertainment/ Leisure",
 			"help": "Using internet in the library",
 			"ID": 5243,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Using computers in the library other than internet use": {
 			"title": "Using computers in the library other than internet use",
 			"caption": "Entertainment/ Leisure",
 			"help": "Using computers in the library other than internet use",
 			"ID": 5244,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Reading newspapers in a library": {
 			"title": "Reading newspapers in a library",
 			"caption": "Entertainment/ Leisure",
 			"help": "Reading newspapers in a library",
 			"ID": 5245,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Listening to music in a library": {
 			"title": "Listening to music in a library",
 			"caption": "Entertainment/ Leisure",
 			"help": "Listening to music in a library",
 			"ID": 5246,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified library activities": {
 			"title": "Other specified library activities",
 			"caption": "Entertainment/ Leisure",
 			"help": "Other specified library activities",
 			"ID": 5249,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Sports events": {
 			"title": "Sports events",
 			"caption": "Entertainment/ Leisure",
 			"help": "Sports events",
 			"ID": 5250,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified entertainment and culture": {
 			"title": "Other specified entertainment and culture",
 			"caption": "Entertainment/ Leisure",
 			"help": "Other specified entertainment and culture",
 			"ID": 5290,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Visiting a historical site": {
 			"title": "Visiting a historical site",
 			"caption": "Entertainment/ Leisure",
 			"help": "Visiting a historical site",
 			"ID": 5291,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Visiting a wildlife site": {
 			"title": "Visiting a wildlife site",
 			"caption": "Entertainment/ Leisure",
 			"help": "Visiting a wildlife site",
 			"ID": 5292,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Visiting a botanical site": {
 			"title": "Visiting a botanical site",
 			"caption": "Entertainment/ Leisure",
 			"help": "Visiting a botanical site",
 			"ID": 5293,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Visiting a leisure park": {
 			"title": "Visiting a leisure park",
 			"caption": "Entertainment/ Leisure",
 			"help": "Visiting a leisure park",
 			"ID": 5294,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Visiting an urban park, playground or designated play area": {
 			"title": "Visiting an urban park, playground or designated play area",
 			"caption": "Entertainment/ Leisure",
 			"help": "Visiting an urban park, playground or designated play area",
 			"ID": 5295,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified entertainment or culture": {
 			"title": "Other specified entertainment or culture",
 			"caption": "Entertainment/ Leisure",
 			"help": "Other specified entertainment or culture",
 			"ID": 5299,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Care rest sleep": {
 			"title": "meter: rest or sleep",
@@ -1953,7 +1953,7 @@
 			"caption": "Sports",
 			"help": "Unspecified sports and outdoor activities",
 			"ID": 6000,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"exercise": {
 			"title": "Unspecified physical exercise",
@@ -1968,273 +1968,273 @@
 			"caption": "Sports",
 			"help": "Walking and hiking",
 			"ID": 6110,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Taking a walk or hike that lasts at least 2 miles or 1 hour": {
 			"title": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
 			"caption": "Sports",
 			"help": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
 			"ID": 6111,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other walk or hike": {
 			"title": "Other walk or hike",
 			"caption": "Sports",
 			"help": "Other walk or hike",
 			"ID": 6119,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Jogging and running": {
 			"title": "Jogging and running",
 			"caption": "Sports",
 			"help": "Jogging and running",
 			"ID": 6120,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Biking, skiing and skating": {
 			"title": "Biking, skiing and skating",
 			"caption": "Sports",
 			"help": "Biking, skiing and skating",
 			"ID": 6130,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Biking": {
 			"title": "Biking",
 			"caption": "Sports",
 			"help": "Biking",
 			"ID": 6131,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Skiing or skating": {
 			"title": "Skiing or skating",
 			"caption": "Sports",
 			"help": "Skiing or skating",
 			"ID": 6132,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified ball games": {
 			"title": "Unspecified ball games",
 			"caption": "Sports",
 			"help": "Unspecified ball games",
 			"ID": 6140,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Outdoor pairs or doubles games": {
 			"title": "Outdoor pairs or doubles games",
 			"caption": "Sports",
 			"help": "Outdoor pairs or doubles games",
 			"ID": 6143,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Outdoor team games": {
 			"title": "Outdoor team games",
 			"caption": "Sports ",
 			"help": "Outdoor team games",
 			"ID": 6144,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified ball games": {
 			"title": "Other specified ball games",
 			"caption": "Sports ",
 			"help": "Other specified ball games",
 			"ID": 6149,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Gymnastics": {
 			"title": "Gymnastics",
 			"caption": "Sports ",
 			"help": "Gymnastics",
 			"ID": 6150,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Fitness": {
 			"title": "Fitness",
 			"caption": "Sports ",
 			"help": "Fitness",
 			"ID": 6160,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified water sports": {
 			"title": "Unspecified water sports",
 			"caption": "Sports ",
 			"help": "Unspecified water sports",
 			"ID": 6170,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Swimming": {
 			"title": "Swimming",
 			"caption": "Sports ",
 			"help": "Swimming",
 			"ID": 6171,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified water sports": {
 			"title": "Other specified water sports",
 			"caption": "Sports ",
 			"help": "Other specified water sports",
 			"ID": 6179,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified physical exercise": {
 			"title": "Other specified physical exercise",
 			"caption": "Sports ",
 			"help": "Other specified physical exercise",
 			"ID": 6190,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified productive exercise": {
 			"title": "Unspecified productive exercise",
 			"caption": "Sports ",
 			"help": "Unspecified productive exercise",
 			"ID": 6200,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Hunting and fishing": {
 			"title": "Hunting and fishing",
 			"caption": "Sports ",
 			"help": "Hunting and fishing",
 			"ID": 6210,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Picking berries, mushroom and herbs": {
 			"title": "Picking berries, mushroom and herbs",
 			"caption": "Sports ",
 			"help": "Picking berries, mushroom and herbs",
 			"ID": 6220,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified productive exercise": {
 			"title": "Other specified productive exercise",
 			"caption": "Sports ",
 			"help": "Other specified productive exercise",
 			"ID": 6290,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified sports related activities": {
 			"title": "Unspecified sports related activities",
 			"caption": "Sports ",
 			"help": "Unspecified sports related activities",
 			"ID": 6310,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Activities related to sports": {
 			"title": "Activities related to sports",
 			"caption": "Sports ",
 			"help": "Activities related to sports",
 			"ID": 6311,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Activities related to productive exercise": {
 			"title": "Activities related to productive exercise",
 			"caption": "Sports ",
 			"help": "Activities related to productive exercise",
 			"ID": 6312,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified hobbies, games and computing": {
 			"title": "Unspecified hobbies, games and computing",
 			"caption": "Hobbies/leisure",
 			"help": "Unspecified hobbies, games and computing",
 			"ID": 7000,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified arts": {
 			"title": "Unspecified arts",
 			"caption": "Hobbies/leisure",
 			"help": "Unspecified arts",
 			"ID": 7100,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified visual arts": {
 			"title": "Unspecified visual arts",
 			"caption": "Hobbies/leisure",
 			"help": "Unspecified visual arts",
 			"ID": 7110,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Painting, drawing or other graphic arts": {
 			"title": "Painting, drawing or other graphic arts",
 			"caption": "Hobbies/leisure",
 			"help": "Painting, drawing or other graphic arts",
 			"ID": 7111,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Making videos, taking photos or related activities": {
 			"title": "Making videos, taking photos or related activities",
 			"caption": "Hobbies/leisure",
 			"help": "Making videos, taking photos or related activities",
 			"ID": 7112,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified visual arts": {
 			"title": "Other specified visual arts",
 			"caption": "Hobbies/leisure",
 			"help": "Other specified visual arts",
 			"ID": 7119,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified performing arts": {
 			"title": "Unspecified performing arts",
 			"caption": "Hobbies/leisure",
 			"help": "Unspecified performing arts",
 			"ID": 7120,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Singing or other musical activities": {
 			"title": "Singing or other musical activities",
 			"caption": "Hobbies/leisure",
 			"help": "Singing or other musical activities",
 			"ID": 7121,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified performing arts": {
 			"title": "Other specified performing arts",
 			"caption": "Hobbies/leisure",
 			"help": "Other specified performing arts",
 			"ID": 7129,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Literary arts": {
 			"title": "Literary arts",
 			"caption": "Hobbies/leisure",
 			"help": "Literary arts",
 			"ID": 7130,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified arts": {
 			"title": "Other specified arts",
 			"caption": "Hobbies/leisure",
 			"help": "Other specified arts",
 			"ID": 7140,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Unspecified hobbies": {
 			"title": "Unspecified hobbies",
 			"caption": "Hobbies/leisure",
 			"help": "Unspecified hobbies",
 			"ID": 7150,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Collecting": {
 			"title": "Collecting",
 			"caption": "Hobbies/leisure",
 			"help": "Collecting",
 			"ID": 7160,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Correspondence": {
 			"title": "Correspondence",
 			"caption": "Hobbies/leisure",
 			"help": "Correspondence",
 			"ID": 7170,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified or unspecied arts and hobbies": {
 			"title": "Other specified or unspecied arts and hobbies",
 			"caption": "Hobbies/leisure",
 			"help": "Other specified or unspecied arts and hobbies",
 			"ID": 7190,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to unspecified time use": {
 			"title": "Travel related to unspecified time use",
@@ -2242,7 +2242,7 @@
 			"help": "Travel related to unspecified time use",
 			"ID": 9000,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to personal business": {
 			"title": "Travel related to personal business",
@@ -2250,7 +2250,7 @@
 			"help": "Travel related to personal business",
 			"ID": 9010,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel to/from work": {
 			"title": "Travel to/from work",
@@ -2258,7 +2258,7 @@
 			"help": "Travel to/from work",
 			"ID": 9100,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel in the course of work": {
 			"title": "Travel in the course of work",
@@ -2266,7 +2266,7 @@
 			"help": "Travel in the course of work",
 			"ID": 9110,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel to work from home and back only": {
 			"title": "Travel to work from home and back only",
@@ -2274,7 +2274,7 @@
 			"help": "Travel to work from home and back only",
 			"ID": 9120,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel to work from a place other than home": {
 			"title": "Travel to work from a place other than home",
@@ -2282,7 +2282,7 @@
 			"help": "Travel to work from a place other than home",
 			"ID": 9130,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to education": {
 			"title": "Travel related to education",
@@ -2290,7 +2290,7 @@
 			"help": "Travel related to education",
 			"ID": 9210,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel escorting to/ from education": {
 			"title": "Travel escorting to/ from education",
@@ -2298,7 +2298,7 @@
 			"help": "Travel escorting to/ from education",
 			"ID": 9230,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to household care": {
 			"title": "Travel related to household care",
@@ -2306,7 +2306,7 @@
 			"help": "Travel related to household care",
 			"ID": 9310,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to shopping": {
 			"title": "Travel related to shopping",
@@ -2314,7 +2314,7 @@
 			"help": "Travel related to shopping",
 			"ID": 9360,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to services": {
 			"title": "Travel related to services",
@@ -2322,7 +2322,7 @@
 			"help": "Travel related to services",
 			"ID": 9370,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel escorting a child (other than education)": {
 			"title": "Travel escorting a child (other than education)",
@@ -2330,7 +2330,7 @@
 			"help": "Travel escorting a child (other than education)",
 			"ID": 9380,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel escorting an adult (other than education)": {
 			"title": "Travel escorting an adult (other than education)",
@@ -2338,7 +2338,7 @@
 			"help": "Travel escorting an adult (other than education)",
 			"ID": 9390,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to organisational work": {
 			"title": "Travel related to organisational work",
@@ -2346,7 +2346,7 @@
 			"help": "Travel related to organisational work",
 			"ID": 9400,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to voluntary work and meetings": {
 			"title": "Travel related to voluntary work and meetings",
@@ -2354,7 +2354,7 @@
 			"help": "Travel related to voluntary work and meetings",
 			"ID": 9410,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to informal help to other households": {
 			"title": "Travel related to informal help to other households",
@@ -2362,7 +2362,7 @@
 			"help": "Travel related to informal help to other households",
 			"ID": 9420,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to religious activities": {
 			"title": "Travel related to religious activities",
@@ -2370,7 +2370,7 @@
 			"help": "Travel related to religious activities",
 			"ID": 9430,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to participatory activities other than religious activities": {
 			"title": "Travel related to participatory activities other than religious activities",
@@ -2378,7 +2378,7 @@
 			"help": "Travel related to participatory activities other than religious activities",
 			"ID": 9440,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel to visit friends/ relatives in their homes (not respondent's household)": {
 			"title": "Travel to visit friends/ relatives in their homes (not respondent's household)",
@@ -2386,7 +2386,7 @@
 			"help": "Travel to visit friends/ relatives in their homes (not respondent's household)",
 			"ID": 9500,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to other social activities": {
 			"title": "Travel related to other social activities",
@@ -2394,7 +2394,7 @@
 			"help": "Travel related to other social activities",
 			"ID": 9510,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to entertainment and culture": {
 			"title": "Travel related to entertainment and culture",
@@ -2402,7 +2402,7 @@
 			"help": "Travel related to entertainment and culture",
 			"ID": 9520,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to other leisure": {
 			"title": "Travel related to other leisure",
@@ -2418,7 +2418,7 @@
 			"help": "Travel related to physical exercise",
 			"ID": 9610,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to hunting & fishing": {
 			"title": "Travel related to hunting & fishing",
@@ -2426,7 +2426,7 @@
 			"help": "Travel related to hunting & fishing",
 			"ID": 9620,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to productive excs expt hunting & fishing": {
 			"title": "Travel related to productive excs expt hunting & fishing",
@@ -2434,7 +2434,7 @@
 			"help": "Travel related to productive excs expt hunting & fishing",
 			"ID": 9630,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to gambling": {
 			"title": "Travel related to gambling",
@@ -2442,7 +2442,7 @@
 			"help": "Travel related to gambling",
 			"ID": 9710,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to hobbies other than gambling": {
 			"title": "Travel related to hobbies other than gambling",
@@ -2450,7 +2450,7 @@
 			"help": "Travel related to hobbies other than gambling",
 			"ID": 9720,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel related to changing locality": {
 			"title": "Travel related to changing locality",
@@ -2458,7 +2458,7 @@
 			"help": "Travel related to changing locality",
 			"ID": 9800,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel to holiday base": {
 			"title": "Travel to holiday base",
@@ -2466,7 +2466,7 @@
 			"help": "Travel to holiday base",
 			"ID": 9810,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Travel for day trip/ just walk": {
 			"title": "Travel for day trip/ just walk",
@@ -2474,7 +2474,7 @@
 			"help": "Travel for day trip/ just walk",
 			"ID": 9820,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Other specified travel": {
 			"title": "Other specified travel",
@@ -2482,42 +2482,42 @@
 			"help": "Other specified travel",
 			"ID": 9890,
 			"category": "travel",
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Punctuating activity": {
 			"title": "Punctuating activity",
 			"caption": "Other activities",
 			"help": "Punctuating activity",
 			"ID": 9940,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Filling in the time use diary": {
 			"title": "Filling in the time use diary",
 			"caption": "Other activities",
 			"help": "Filling in the time use diary",
 			"ID": 9950,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"No main activity, no idea what it might be": {
 			"title": "No main activity, no idea what it might be",
 			"caption": "Other activities",
 			"help": "No main activity, no idea what it might be",
 			"ID": 9960,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"No main activity, some idea what it might be": {
 			"title": "No main activity, some idea what it might be",
 			"caption": "Other activities",
 			"help": "No main activity, some idea what it might be",
 			"ID": 9970,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"Illegible activity": {
 			"title": "Illegible activity",
 			"caption": "Other activities",
 			"help": "Illegible activity",
 			"ID": 9980,
-			"next": "home"
+			"next": "enjoyment"
 		},
 		"other": {
 			"title": "Unspecified time use",

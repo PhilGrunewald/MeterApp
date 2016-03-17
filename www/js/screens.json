@@ -1,6 +1,10 @@
 {
 	"screens": {
 
+		"home": {
+			"title": "Your activities",
+			"help": "What you have reported"
+		},
 		"survey root": {
 			"title": "What gender are you?",
 			"help": "at this moment",
@@ -67,30 +71,8 @@
 			"activities": [ "app 5 1", "app 5 2", "app 5 3", "app 5 4", "app 5 5", "app 5 6" ]
 		},
 
-		"activity time": {
-			"title": "When was this?",
-			"help": "How long ago or the time",
-			"activities": [
-				"time 1",
-				"time 2",
-				"time 3",
-				"time 4",
-				"time 5",
-				"time 6"
-			]
-		},
-		"activity time 2": {
-			"title": "When was this?",
-			"help": "How long ago or the time",
-			"activities": [
-				"time 7",
-				"time 8",
-				"time 9",
-				"time 10",
-				"time 11",
-				"time 12"
-			]
-		},
+		"activity time": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "time 1", "time 2", "time 3", "time 4", "time 5", "time 6" ] },
+		"activity time 2": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "time 7", "time 8", "time 9", "time 10", "time 11", "time 12" ] },
 
 		"activity root": {
 			"title": "What are you doing?",
@@ -286,7 +268,7 @@
 				"leisure",
 				"work",
 				"other",
-				"home",
+				"at home",
 				"travel",
 				"food"
 			]
