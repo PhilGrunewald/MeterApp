@@ -1,16 +1,16 @@
 {
 	"activities": {
 		"blank": {
-				"title": "root: blank",
-				"caption": "",
-				"help": "",
+			"title": "root: blank",
+			"caption": "",
+			"help": "",
 			"ID": -1,
 			"next": "home"
 		},
 		"survey": {
-				"title": "root: survey",
-				"caption": "Complete the survey",
-				"help": "Answer a few questions about yourself",
+			"title": "root: survey",
+			"caption": "Complete the survey",
+			"help": "Answer a few questions about yourself",
 			"ID": 90000,
 			"next": "survey gender"
 		},
@@ -1402,6 +1402,7 @@
 			"title": "Other specified gardening and pet care",
 			"caption": "Unspecified gardening and pet care",
 			"help": "Other specified gardening and pet care",
+			"category": "care_house",
 			"ID": 3490,
 			"next": "enjoyment"
 		},
