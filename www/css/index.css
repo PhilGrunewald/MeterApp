@@ -63,12 +63,8 @@ body {
 	background-position: right;
 }
 
-.footer {
-    height: 10vh; 
-}
-
 .contents {
-    height: 65vh;
+    height: 75vh;
 }
 
 .navbar {
@@ -100,7 +96,15 @@ h1 {
 .choices {
     display: table;
     width: 100%;
-    height: 100%;
+    height: 80%;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+
+.footer-nav {
+    display: table;
+    width: 100%;
+    height: 18%;
     border-collapse: separate;
     border-spacing: 1px;
 }
@@ -124,6 +128,9 @@ h1 {
     background: #ededed;
     vertical-align: middle;
     width: 50%;
+}
+
+.col-choices {
     height: 33%;
 }
 

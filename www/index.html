@@ -18,8 +18,8 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
+<head>
+<!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -28,135 +28,117 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' https://ajax.googleapis.com/ajax/libs/ ">-->
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Meter</title>
-    </head>
-    <body>
-        <div class="app">
-          <div class="navbar">
-            <div class="row">
-              <div id="nav-home"    class="col-4" onclick="app.showActivityList();">Home</div>
-              <div id="nav-aboutme" class="col-4" onclick="app.navigateTo('survey')">About me</div>
-              <div id="nav-help"    class="col-4" onclick="app.toggleCaption();">Help</div>
-            </div>
-          </div>
-          
-          <div class="header">
-            <h3 id="title">&lt;placeholder&gt;</h3>
-          </div>
-          
-          <div class="contents">
-            <div id="activity_list_pane">
-              <div class="btn-addnew container">
-                + Add activity
-                
-                <div class="row">
-                    <div class="col" onclick="app.navigateTo('activity root')">
-                        <h3>Now</h3>
-                    </div>
-                    <div class="col" onclick="app.navigateTo('activity time')">
-                        <h3>Recent</h3>
-                    </div>
-                </div>
-              </div>
-              <ul id="activity_list">
-                <li><i>No activity yet</i></li>
-              </ul>
-            </div>
+<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' https://ajax.googleapis.com/ajax/libs/ ">-->
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>Meter</title>
+</head>
+<body>
+	<div class="app">
+		<div class="navbar">
+			<div class="row">
+				<div id="nav-home" class="col-4" onclick="app.showActivityList();">Home</div>
+				<div id="nav-aboutme" class="col-4"
+					onclick="app.navigateTo('survey')">About me</div>
+				<div id="nav-help" class="col-4" onclick="app.toggleCaption();">Help</div>
+			</div>
+		</div>
 
-            <div id="choices_pane">
-             <div class="choices">
-               <div class="row">
-                 <div id="button1" class="btn-activity col">
-                   <div id="title1" class="btn-title">
-                     &lt;title&gt;
-                   </div>
-                   <div id="caption1" class="btn-caption">
-                     &lt;caption&gt;
-                   </div>
-                 </div>
-                 
-                 <div id="button2" class="btn-activity col">
-                   <div id="title2" class="btn-title">
-                     &lt;title&gt;
-                   </div>
-                   <div id="caption2" class="btn-caption">
-                     &lt;caption&gt;
-                   </div>
-                 </div>
-                 
-               </div> <!-- end of row -->
- 
-               <div class="row">
-                 
-                 <div id="button3" class="btn-activity col">
-                   <div id="title3" class="btn-title">
-                     &lt;title&gt;
-                   </div>
-                   <div id="caption3" class="btn-caption">
-                     &lt;caption&gt;
-                   </div>
-                 </div>
-                 
-                 <div id="button4" class="btn-activity col">
-                   <div id="title4" class="btn-title">
-                     &lt;title&gt;
-                   </div>
-                   <div id="caption4" class="btn-caption">
-                     &lt;caption&gt;
-                   </div>
-                 </div>
-                 
-               </div>
-               
-               <div class="row">
-                 
-                 <div id="button5" class="btn-activity col">
-                   
-                   <div id="title5" class="btn-title">
-                     &lt;title&gt;
-                   </div>
-                   <div id="caption5" class="btn-caption">
-                     &lt;caption&gt;
-                   </div>
-                   
-                 </div>
-                 <div id="button6" class="btn-activity col">
-                   
-                   <div id="title6" class="btn-title">
-                     &lt;title&gt;
-                   </div>
-                   <div id="caption6" class="btn-caption">
-                     &lt;caption&gt;
-                   </div>
-                   
-                 </div>
-               </div>
-               
-               <div class="row">
-                 <div id="button-back" class="col">Back</div>
-                 <div id="button-done" class="col">Done</div>
-               </div>
-               
-             </div>
-           
-           </div>
-          </div>
-           
-           
-         </div>
-        
-            <div id="deviceready" class="blink">
-                <p class="event listening"></p>
-                <p class="event received"></p>
-            </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
-        <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
-    </body>
+		<div class="header">
+			<h3 id="title">&lt;placeholder&gt;</h3>
+		</div>
+
+		<div class="contents">
+			<div id="activity_list_pane">
+				<div class="btn-addnew container">
+					+ Add activity
+
+					<div class="row">
+						<div class="col" onclick="app.navigateTo('activity root')">
+							<h3>Now</h3>
+						</div>
+						<div class="col" onclick="app.navigateTo('activity time')">
+							<h3>Recent</h3>
+						</div>
+					</div>
+				</div>
+				<ul id="activity_list">
+					<li><i>No activity yet</i></li>
+				</ul>
+			</div>
+
+			<div id="choices_pane">
+				<div class="choices">
+					<div class="row">
+						<div id="button1" class="btn-activity col">
+							<div id="title1" class="btn-title">&lt;title&gt;</div>
+							<div id="caption1" class="btn-caption">&lt;caption&gt;</div>
+						</div>
+
+						<div id="button2" class="btn-activity col">
+							<div id="title2" class="btn-title">&lt;title&gt;</div>
+							<div id="caption2" class="btn-caption">&lt;caption&gt;</div>
+						</div>
+
+					</div>
+					<!-- end of row -->
+
+					<div class="row">
+
+						<div id="button3" class="btn-activity col">
+							<div id="title3" class="btn-title">&lt;title&gt;</div>
+							<div id="caption3" class="btn-caption">&lt;caption&gt;</div>
+						</div>
+
+						<div id="button4" class="btn-activity col">
+							<div id="title4" class="btn-title">&lt;title&gt;</div>
+							<div id="caption4" class="btn-caption">&lt;caption&gt;</div>
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div id="button5" class="btn-activity col">
+
+							<div id="title5" class="btn-title">&lt;title&gt;</div>
+							<div id="caption5" class="btn-caption">&lt;caption&gt;</div>
+
+						</div>
+						<div id="button6" class="btn-activity col">
+
+							<div id="title6" class="btn-title">&lt;title&gt;</div>
+							<div id="caption6" class="btn-caption">&lt;caption&gt;</div>
+
+						</div>
+					</div>
+
+
+				</div>
+
+				<div class="footer-nav">
+					<div class="row">
+						<div id="button-back" class="col btn-activity">Back</div>
+						<div id="button-done" class="col btn-activity">Done</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+
+	<div id="deviceready" class="blink">
+		<p class="event listening"></p>
+		<p class="event received"></p>
+	</div>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+	<script type="text/javascript" src="js/jquery-2.2.1.js"></script>
+</body>
 </html>
