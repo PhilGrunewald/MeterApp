@@ -162,8 +162,8 @@ var app = {
         } else {
         	
             CATEGORIES.forEach(function (cat) {
-                app.actionButtons.forEach(function (button) {
-                	button.removeClass(cat);
+                app.actionButtons.each(function (button) {
+                	$(button).removeClass(cat);
                 });
             });
             
