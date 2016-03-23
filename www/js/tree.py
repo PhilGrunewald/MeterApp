@@ -11,11 +11,11 @@ def recursive(node,level):
             caption = acts['activities'][branch]['caption']
             # print '.'*level + node + ' > ' + branch + ' > ' + nextNode
             print '.   '*level + caption
-            if not ((nextNode == 'xlocation') or (nextNode == 'home') or (nextNode == 'enjoyment')):
+            if not ((nextNode == 'location') or (nextNode == 'home') or (nextNode == 'enjoyment')):
                 try:
                     recursive(nextNode,level)
                 except KeyError:
                     print 'ERROR at: ' + node + ' > ' + branch + ' > ' + nextNode
 
-recursive('home',-1)
+recursive('activity root',-1)
     

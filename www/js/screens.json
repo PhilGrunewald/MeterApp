@@ -80,7 +80,7 @@
 			"activities": [
 				"care",
 				"work",
-				"leisure",
+				"Leisure",
 				"food",
 				"travelling",
 				"more recent"
@@ -93,16 +93,29 @@
 				"care wash",
 				"Care rest sleep",
 				"care child",
-				"care personal",
+				"Care personal",
 				"care others",
 				"Unspecified household and family care"
+			]
+		},
+		"care personal": {
+			"title": "How are you spending this time?",
+			"help": "at this moment",
+			"activities": [
+				"Food drink hot",
+				"Food drink cold",
+				"Reading books",
+				"Leisure TV",
+                                "Social media",
+				"Care rest"
 			]
 		},
 		"care rest sleep": {
 			"title": "What kind or rest is this?",
 			"help": "Give detail if you like",
 			"activities": [
-				"care rest",
+				"Food drink hot",
+				"Care rest",
 				"sleep",
 				"Sick in bed",
 				"In bed, not asleep",
@@ -149,11 +162,11 @@
 			"title": "Any particular leisure? ",
 			"help": "at this moment",
 			"activities": [
-				"care rest",
-				"leisure TV",
+				"Care rest",
+				"Leisure TV",
+				"Unspecified information by computing",
 				"exercise",
 				"Travel related to other leisure",
-				"Unspecified information by computing",
 				"other"
 			]
 		},
@@ -161,29 +174,66 @@
 			"title": "Any particular food? ",
 			"help": "at this moment",
 			"activities": [
-				"Eating",
 				"Food preparation",
-				"Baking",
-				"food snack",
-				"food clear",
+				"Eating",
+				"Food eat snack",
+				"Food clear",
+				"Food drink hot",
 				"Other specified food management"
 			]
 		},
-		"dish washing": {
+		"food preparation": {
+			"title": "How did you prepare food? ",
+			"help": "at this moment",
+			"activities": [
+				"Food preparation cold",
+				"Food preparation hot",
+				"Baking",
+				"Food eat snack",
+				"Food clear",
+				"Other specified food management"
+			]
+		},
+		"food preparation hot": {
+			"title": "Did you use any of these appliances?",
+			"help": "Might they have been running at the time?",
+			"activities": [
+				"Oven",
+				"Microwave",
+				"Kettle",
+				"Blender",
+				"Bread maker",
+				"Other specify"
+			]
+		},
+		"food clear": {
 			"title": "How do you wash up? ",
 			"help": "at this moment",
 			"activities": [
-				"dishes hand",
-				"dishes machine",
-				"dishes both",
-				"dishes other"
+				"Dishes clear",
+				"Dishes hand",
+				"Dishes machine",
+				"Dishes both",
+				"Dishes other"
+			]
+		},
+		"food eat": {
+			"title": "What kind of meal was this?",
+			"help": "",
+			"activities": [
+				"Food eat hot",
+				"Food eat cold",
+				"Food eat snack",
+				"blank",
+				"blank",
+				"Other specify"
 			]
 		},
 		"other": {
-			"title": "Any particular other? ",
+			"title": "XXX Any particular other? ",
 			"help": "at this moment",
 			"activities": [
-				"leisure",
+				"Leisure",
 				"food",
 				"work",
 				"travel",
@@ -265,7 +315,7 @@
 			"title": "Any particular sleep? ",
 			"help": "at this moment",
 			"activities": [
-				"leisure",
+				"Leisure",
 				"work",
 				"other",
 				"at home",

@@ -256,19 +256,19 @@
 
 
 
-		"time 1": { "title": "activity time", "caption": "Now", "help": "$time", "ID": 10001, "next": "home" },
-		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "$time - 5", "ID": 10002, "next": "home" },
-		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "$time - 5", "ID": 10003, "next": "home" },
-		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "$time - 5", "ID": 10004, "next": "home" },
-		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "$time - 5", "ID": 10005, "next": "home" },
+		"time 1": { "title": "activity time", "caption": "Now", "help": "$time", "ID": 10001, "next": "activity root" },
+		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "$time - 5", "ID": 10002, "next": "activity root" },
+		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "$time - 5", "ID": 10003, "next": "activity root" },
+		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "$time - 5", "ID": 10004, "next": "activity root" },
+		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "$time - 5", "ID": 10005, "next": "activity root" },
 		"time 6": { "title": "activity time", "caption": "longer ago", "help": "$time - 5", "ID": 10006, "next": "activity time 2" },
 
-		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "$time", "ID": 10007, "next": "home" },
-		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "$time - 5", "ID": 10008, "next": "home" },
-		"time 9": { "title": "activity time", "caption": "4 hours ago", "help": "$time - 5", "ID": 10009, "next": "home" },
-		"time 10": { "title": "activity time", "caption": "5 hours ago", "help": "$time - 5", "ID": 10010, "next": "home" },
-		"time 11": { "title": "activity time", "caption": "6 hours ago", "help": "$time - 5", "ID": 10011, "next": "home" },
-		"time 12": { "title": "activity time", "caption": "more than 6 hours ago", "help": "$time - 5", "ID": 10012, "next": "home" },
+		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "$time", "ID": 10007, "next": "activity root" },
+		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "$time - 5", "ID": 10008, "next": "activity root" },
+		"time 9": { "title": "activity time", "caption": "4 hours ago", "help": "$time - 5", "ID": 10009, "next": "activity root" },
+		"time 10": { "title": "activity time", "caption": "5 hours ago", "help": "$time - 5", "ID": 10010, "next": "activity root" },
+		"time 11": { "title": "activity time", "caption": "6 hours ago", "help": "$time - 5", "ID": 10011, "next": "activity root" },
+		"time 12": { "title": "activity time", "caption": "more than 6 hours ago", "help": "$time - 5", "ID": 10012, "next": "activity root" },
 
 
 
@@ -321,7 +321,47 @@
 			"caption": "Eating",
 			"help": "Eating",
 			"ID": 210,
-			"category": "care_self",
+			"category": "food",
+			"next": "food eat"
+		},
+		"Food eat cold": {
+			"title": "meter: Eating Cold",
+			"caption": "Cold meal",
+			"help": "Cold or uncooked food",
+			"ID": 211,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Food eat hot": {
+			"title": "meter: Eating hot",
+			"caption": "Hot meal",
+			"help": "Cooked or heated food",
+			"ID": 212,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Food eat snack": {
+			"title": "meter: food snack",
+			"caption": "Snack",
+			"help": "A quick meal",
+			"ID": 213,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Food drink hot": {
+			"title": "meter: food snack",
+			"caption": "Tea or coffee",
+			"help": "any hot drink",
+			"ID": 214,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Food drink cold": {
+			"title": "meter: food snack",
+			"caption": "Drink",
+			"help": "Alcoholic or non-alcoholic",
+			"ID": 215,
+			"category": "food",
 			"next": "enjoyment"
 		},
 		"care wash": {
@@ -414,13 +454,13 @@
 
 
 
-		"care personal": {
+		"Care personal": {
 			"title": "Unspecified other personal care",
 			"caption": "Me time",
 			"help": "Unspecified other personal care",
 			"ID": 300,
 			"category": "care_self",
-			"next": "enjoyment"
+			"next": "care personal"
 		},
 
 
@@ -456,7 +496,23 @@
 			"help": "Cooking, serving, arranging...",
 			"ID": 3110,
 			"category": "food",
+			"next": "food preparation"
+		},
+		"Food preparation cold": {
+			"title": "Food preparation",
+			"caption": "Cold meal",
+			"help": "e.g. Salad, Sandwich...",
+			"ID": 3111,
+			"category": "food",
 			"next": "enjoyment"
+		},
+		"Food preparation hot": {
+			"title": "Food preparation",
+			"caption": "Hot / cooked meal",
+			"help": "e.g. Salad, Sandwich...",
+			"ID": 3112,
+			"category": "food",
+			"next": "food preparation hot"
 		},
 		"Baking": {
 			"title": "Baking",
@@ -464,25 +520,65 @@
 			"help": "Baking",
 			"ID": 3120,
 			"category": "food",
+			"next": "food preparation hot"
+		},
+		"Oven": {
+			"title": "meter: Oven",
+			"caption": "Oven",
+			"help": "For baking or cooking",
+			"ID": 3121,
+			"category": "food",
 			"next": "enjoyment"
 		},
-		"food clear": {
+		"Microwave": {
+			"title": "meter: Microwave",
+			"caption": "Microwave",
+			"help": "For baking or cooking",
+			"ID": 3122,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Kettle": {
+			"title": "meter: Kettle",
+			"caption": "Electric kettle",
+			"help": "For boiling water",
+			"ID": 3123,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Blender": {
+			"title": "meter: Blender",
+			"caption": "Blender or Kitchen appliance",
+			"help": "Electric aid",
+			"ID": 3124,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Bread maker": {
+			"title": "meter: Bread maker",
+			"caption": "Bread maker",
+			"help": "Electric kneader / baker",
+			"ID": 3125,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Food clear": {
 			"title": "meter: food clear",
 			"caption": "Clear table",
 			"help": "Clear up after a meal",
-			"ID": 3131,
+			"ID": 3130,
 			"category": "food",
-			"next": "enjoyment"
+			"next": "food clear"
 		},
 		"Dish washing": {
 			"title": "Food management/preparation",
 			"caption": "Dish washing",
 			"help": "Washing up pots, dishes, glasses, cutlery",
-			"ID": 3130,
+			"ID": 3131,
 			"category": "food",
 			"next": "dish washing"
 		},
-		"dishes hand": {
+		"Dishes hand": {
 			"title": "meter: dishes hand",
 			"caption": "By hand",
 			"help": "in a sink or tub",
@@ -490,27 +586,35 @@
 			"category": "food",
 			"next": "enjoyment"
 		},
-		"dishes machine": {
+		"Dishes machine": {
 			"title": "meter: dishes machine",
 			"caption": "Dish washer",
-			"help": "I load / unload a dish washer",
+			"help": "I load / unload / run a dish washer",
 			"ID": 3133,
 			"category": "food",
 			"next": "enjoyment"
 		},
-		"dishes both": {
+		"Dishes both": {
 			"title": "meter: dishes both",
-			"caption": "Both",
+			"caption": "Dishwasher and by hand",
 			"help": "by hand and with machine",
 			"ID": 3134,
 			"category": "food",
 			"next": "enjoyment"
 		},
-		"dishes other": {
+		"Dishes clear": {
+			"title": "meter: dishes clear",
+			"caption": "Laying / Clearing up",
+			"help": "before or after meal",
+			"ID": 3135,
+			"category": "food",
+			"next": "enjoyment"
+		},
+		"Dishes other": {
 			"title": "meter: dishes other",
 			"caption": "Other",
 			"help": "anything other than by hand or machine",
-			"ID": 3135,
+			"ID": 3136,
 			"category": "food",
 			"next": "enjoyment"
 		},
@@ -522,17 +626,9 @@
 			"category": "food",
 			"next": "enjoyment"
 		},
-		"food snack": {
-			"title": "meter: food snack",
-			"caption": "Snack",
-			"help": "A quick meal",
-			"ID": 3191,
-			"category": "food",
-			"next": "enjoyment"
-		},
 		"Other specified food management": {
 			"title": "Other specified food management",
-			"caption": "Prepare food",
+			"caption": "Other",
 			"help": "Cook, cut, arrange food",
 			"ID": 3190,
 			"category": "food",
@@ -906,9 +1002,9 @@
 			"ID": 4390,
 			"next": "enjoyment"
 		},
-		"leisure": {
+		"Leisure": {
 			"title": "Unspecified social life and entertainment",
-			"caption": "Leisure",
+			"caption": "Leisure /<br>free time",
 			"help": "Resting, fun, social",
 			"ID": 5000,
 			"category": "recreation",
@@ -979,7 +1075,7 @@
 		},
 		"Unspecified information by computing": {
 			"title": "Unspecified information by computing",
-			"caption": "Leisure involving computer",
+			"caption": "Computer or mobile device",
 			"help": "Unspecified information by computing",
 			"ID": 7230,
 			"next": "enjoyment"
@@ -1105,16 +1201,25 @@
 		},
 		"Unspecified mass media": {
 			"title": "Unspecified mass media",
-			"caption": "Leisure",
+			"caption": "Social media",
 			"help": "Unspecified mass media",
 			"ID": 8000,
 			"next": "enjoyment"
 		},
+		"Social media": {
+			"title": "meter: Social media",
+			"caption": "Social media",
+			"help": "Online activities",
+			"ID": 8001,
+			"category": "care_self",
+			"next": "enjoyment"
+                },
 		"Unspecified reading": {
 			"title": "Unspecified reading",
 			"caption": "Leisure",
 			"help": "Unspecified reading",
 			"ID": 8100,
+			"category": "care_house",
 			"next": "enjoyment"
 		},
 		"Reading periodicals": {
@@ -1126,9 +1231,10 @@
 		},
 		"Reading books": {
 			"title": "Reading books",
-			"caption": "Leisure",
+			"caption": "Reading a book",
 			"help": "Reading books",
 			"ID": 8120,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
 		"Other specified reading": {
@@ -1136,13 +1242,15 @@
 			"caption": "Leisure",
 			"help": "Other specified reading",
 			"ID": 8190,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
-		"leisure TV": {
+		"Leisure TV": {
 			"title": "Unspecified tv, video or dvd watching",
-			"caption": "Leisure",
+			"caption": "Watching TV / video",
 			"help": "Unspecified tv, video or dvd watching",
 			"ID": 8210,
+			"category": "care_self",
 			"next": "enjoyment"
 		},
 		"Watching a film on TV": {
@@ -1245,7 +1353,7 @@
 		},
 		"work": {
 			"title": "meter: generic work",
-			"caption": "Work",
+			"caption": "Work /<br>Housework",
 			"help": "Housework, Homework, Job, Volunteering",
 			"ID": 11100,
 			"category": "work",
@@ -1933,13 +2041,13 @@
 		},
 		"Care rest sleep": {
 			"title": "meter: rest or sleep",
-			"caption": "Rest or sleep",
+			"caption": "Break, Rest or sleep",
 			"help": "Sleeping, resting, having a break",
 			"ID": 5311,
 			"category": "care_self",
 			"next": "care rest sleep"
 		},
-		"care rest": {
+		"Care rest": {
 			"title": "Resting - Time out",
 			"caption": "Resting - time out",
 			"help": "Doing nothing, just sitting, reflecting, relaxing, resting, waiting, meditating, smoking, sun bathing, thinking, talking to /scratching a cat or dog etc",
@@ -2519,6 +2627,13 @@
 			"help": "Illegible activity",
 			"ID": 9980,
 			"next": "enjoyment"
+		},
+		"Other specify": {
+			"title": "Unspecified time use",
+			"caption": "XXX Provide option to enter text XXX",
+			"help": "Unspecified time use",
+			"ID": 9990,
+			"next": "location"
 		},
 		"other": {
 			"title": "Unspecified time use",
