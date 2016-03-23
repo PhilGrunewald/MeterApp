@@ -187,7 +187,7 @@ var app = {
                     button.attr("onclick", "");
                 } else {
                     btn_title.html(activity.caption);
-                    btn_caption.html(activity.help);
+                    btn_caption.html(app.format(activity.help));
                     button.addClass(activity.category || "other_category");
                     button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
                 }
@@ -303,7 +303,63 @@ var app = {
     toggleCaption: function() {
         
         $(".btn-caption").toggle();
-    }
+    },
+    
+    format: function(str) {
+    	
+    	console.log("formatting: " + str);
+    	
+    	if (str === undefined || str == "") {
+    		return str;
+    	}
+    	
+    	var intime_arr = str.match(/\$.*\}/)
+    	console.log("intime arr: "+ intime_arr)
+    	
+    	if (!intime_arr) {
+    		return str;
+    	}
+    	
+    	/* return value is an array. Check it's not empty */
+    	var intime;
+    	if (intime_arr.length > 0){
+    		intime_var = intime_arr[0];
+    	} else {
+    		return str;
+    	}
+    	
+    	/* keep the contents of the variable */
+    	intime = intime_var.substring(2, intime_var.length-1);
+    	
+    	elems = intime.split(" ");
+    	console.log(elems);
+    	
+    	var res;
+    	
+    	if (elems[0] == "time") {
+    		var time_ = Date.now();
+    		
+    		if (elems.length > 2) {
+    			
+    			if (elems[1] == "-"){
+    				var mins = parseInt(elems[2]) * 60000;
+    				res = new Date(time_-mins);
+    			} else {
+    				return str; // no other operation implemented;
+    			}
+    		} else {
+    			res = new Date(time_);
+    		}
+    		
+    		return str.replace(intime_var, res.toTimeString().substring(0, 5))
+    	} else {
+    		return str; // no other function implemented
+    	}
+    	
+    	// should never get here
+    	return str;
+    	
+    } 
     
 };
 

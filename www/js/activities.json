@@ -256,19 +256,19 @@
 
 
 
-		"time 1": { "title": "activity time", "caption": "Now", "help": "$time", "ID": 10001, "next": "activity root" },
-		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "$time - 5", "ID": 10002, "next": "activity root" },
-		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "$time - 5", "ID": 10003, "next": "activity root" },
-		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "$time - 5", "ID": 10004, "next": "activity root" },
-		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "$time - 5", "ID": 10005, "next": "activity root" },
-		"time 6": { "title": "activity time", "caption": "longer ago", "help": "$time - 5", "ID": 10006, "next": "activity time 2" },
+		"time 1": { "title": "activity time", "caption": "Now", "help": "${time}", "ID": 10001, "next": "activity root" },
+		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "${time - 5}", "ID": 10002, "next": "activity root" },
+		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "next": "activity root" },
+		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "next": "activity root" },
+		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "next": "activity root" },
+		"time 6": { "title": "activity time", "caption": "longer ago", "help": "More options", "ID": 10006, "next": "activity time 2" },
 
-		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "$time", "ID": 10007, "next": "activity root" },
-		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "$time - 5", "ID": 10008, "next": "activity root" },
-		"time 9": { "title": "activity time", "caption": "4 hours ago", "help": "$time - 5", "ID": 10009, "next": "activity root" },
-		"time 10": { "title": "activity time", "caption": "5 hours ago", "help": "$time - 5", "ID": 10010, "next": "activity root" },
-		"time 11": { "title": "activity time", "caption": "6 hours ago", "help": "$time - 5", "ID": 10011, "next": "activity root" },
-		"time 12": { "title": "activity time", "caption": "more than 6 hours ago", "help": "$time - 5", "ID": 10012, "next": "activity root" },
+		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "${time - 120}", "ID": 10007, "next": "activity root" },
+		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "${time - 180}", "ID": 10008, "next": "activity root" },
+		"time 9": { "title": "activity time", "caption": "4 hours ago", "help": "${time - 240}", "ID": 10009, "next": "activity root" },
+		"time 10": { "title": "activity time", "caption": "5 hours ago", "help": "${time - 300}", "ID": 10010, "next": "activity root" },
+		"time 11": { "title": "activity time", "caption": "6 hours ago", "help": "${time - 360}", "ID": 10011, "next": "activity root" },
+		"time 12": { "title": "activity time", "caption": "more than 6 hours ago", "help": "Long time ago", "ID": 10012, "next": "activity root" },
 
 
 
