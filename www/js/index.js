@@ -202,11 +202,13 @@ var app = {
         app.writeLog("3 showActivityList" + activity_list);          
         var activity_list = app.getList(ACTIVITY_LIST) || []
 
-        if (activity_list.length > 0) {
+        if (Object.keys(activity_list).length > 0) {
             console.log("ACTIVITIES: " + activity_list)
             var ul_ = ""
-            activity_list.forEach(function (item) {
-				ul_ += "<li class='activity_list'><div onCLick='app.remove(" + item + ")'> XXX </div>" + app.activities[item].caption +"</li>\n"
+            Object.keys(activity_list).forEach( function(key, index) {
+            	var item = activity_list[key];
+            	console.log("ITEM is:", item)
+				ul_ += "<li class='activity_list'><div onClick='app.removeActivity(\"" + key + "\")'> XXX </div>" + app.activities[item].caption +"</li>\n"
         		//app.writeLog("rm ...");          
 				//app.remove(item)
             })
@@ -223,13 +225,40 @@ var app = {
     },
     
     addActivityToList: function() {
-        activity_list = app.getList(ACTIVITY_LIST) || []
+        activity_list = app.getList(ACTIVITY_LIST) || {};
         console.log("ADDING TO CURRENT ACTIVITY: "+app.get(CURR_ACTIVITY))
-        activity_list.push(app.get(CURR_ACTIVITY))
+        
+        var uuid = app.uuid()
+        activity_list[uuid] = app.get(CURR_ACTIVITY)
+        
+        // TODO: clear current activity
+        
+        console.log("NEW AL: "+ activity_list)
+        
         app.saveList(ACTIVITY_LIST, activity_list)
         console.log("XXX Current List "+app.getList(ACTIVITY_LIST))
         app.writeLog("2 addActivityToList");          
         app.writeActivity(" \"" + app.get(CURR_ACTIVITY) + "\", " + app.get(CURR_LOCATION) + ", " + app.get(CURR_ENJOYMENT));          
+    },
+    
+    removeActivity: function (uuid) {
+    	    	
+    	if (uuid) {
+    		
+        	activity_list = app.getList(ACTIVITY_LIST) || {};
+        	
+        	if (uuid in activity_list) {
+        		delete activity_list[uuid];
+            	
+            	app.saveList(ACTIVITY_LIST, activity_list)
+                console.log("XXX Current List "+app.getList(ACTIVITY_LIST))
+                app.writeLog("2 addActivityToList");
+            	
+            	app.showActivityList();
+        	}
+    			
+    	}
+    	
     },
     
     save: function(key, val) {
@@ -355,8 +384,21 @@ var app = {
     	// should never get here
     	return str;
     	
-    } 
+    }, 
     
+    uuid : function() {
+	    var d = new Date().getTime();
+	    if(window.performance && typeof window.performance.now === "function"){
+	        d += performance.now(); //use high-precision timer if available
+	    }
+	    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+	        var r = (d + Math.random()*16)%16 | 0;
+	        d = Math.floor(d/16);
+	        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+	    });
+	    return uuid;
+	}
+
 };
 
 app.initialize();
