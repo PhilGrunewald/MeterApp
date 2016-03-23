@@ -159,8 +159,14 @@ var app = {
             app.choicesPane.hide();
             app.writeLog("4 home");          
             app.activityListPane.show();
-        }
-        else {
+        } else {
+        	
+            CATEGORIES.forEach(function (cat) {
+                app.actionButtons.forEach(function (button) {
+                	button.removeClass(cat);
+                });
+            });
+            
             // an entry is still in the middle of completion
             if (screen_id == "survey") {
                 // "survey" is where the top navigation button points to
@@ -179,9 +185,6 @@ var app = {
                 var btn_title   = button.find(".btn-title");
                 var btn_caption = button.find(".btn-caption");
 
-                CATEGORIES.forEach(function (cat) {
-                    button.removeClass(cat);
-                });
                 if (activity === undefined) {
                     btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
                     button.attr("onclick", "");
