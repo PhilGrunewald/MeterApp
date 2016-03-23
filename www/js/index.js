@@ -59,23 +59,25 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         if (device.platform != "browser") {        
-            window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory, function(dir) {
+            window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
                 console.log("got main dir",dir);
-                dir.getFile("survey.csv", {create:true}, function(file) {
+				// the existence of folder METER is assumed
+				// in this folder is also id.txt to identify the user
+                dir.getFile("METER/survey.csv", {create:true}, function(file) {
                     console.log("got survey file", file);
                     app.logSurvey = file;
                     app.writeSurvey("New session");          
                 }, function(err) {
                     console.log(err);
                 });
-                dir.getFile("activities.csv", {create:true}, function(file) {
+                dir.getFile("METER/activities.csv", {create:true}, function(file) {
                     console.log("got activities file", file);
                     app.logAct = file;
                     app.writeActivity("New session");          
                 }, function(err) {
                     console.log(err);
                 });
-                dir.getFile("debug.csv", {create:true}, function(file) {
+                dir.getFile("METER/debug.csv", {create:true}, function(file) {
                     console.log("got debug file", file);
                     app.logOb = file;
                     app.writeLog("App started");          
