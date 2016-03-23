@@ -99,7 +99,9 @@ var app = {
             $.getJSON('js/screens.json', function(screen_data) {
                 app.screens = screen_data.screens;
                 //app.navigateTo("home");
+            	app.writeLog("001...");          
                 app.showActivityList();
+            	app.writeLog("002...");          
             });    
         });
         
@@ -148,17 +150,25 @@ var app = {
         app.writeLog("switching to " + screen_id);
 
         if (screen_id == "home" ) {
+            // an entry has been completed
+            app.writeLog("1 home");          
             app.addActivityToList();
+            app.writeLog("2 home");          
             app.showActivityList();
+            app.writeLog("3 home");          
             app.choicesPane.hide();
+            app.writeLog("4 home");          
             app.activityListPane.show();
         }
         else {
-			if (screen_id == "survey") {
-				// SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
-				screen_id = app.get(SURVEY_STATUS);
-        		console.log("Survey ID" + screen_id);
-			}
+            // an entry is still in the middle of completion
+            if (screen_id == "survey") {
+                // "survey" is where the top navigation button points to
+                // here it gets redirected to the latest survey screen
+                // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
+                screen_id = app.get(SURVEY_STATUS);
+                console.log("Survey ID" + screen_id);
+            }
             // populate buttons XXX move to 'if not home'?
             var screen_ = app.screens[screen_id];
             $("#title").html(screen_.title);
@@ -188,18 +198,24 @@ var app = {
     },
     
     showActivityList: function() {
+		// localStorage.clear();
+        app.writeLog("3 showActivityList" + activity_list);          
         var activity_list = app.getList(ACTIVITY_LIST) || []
+
         if (activity_list.length > 0) {
             console.log("ACTIVITIES: " + activity_list)
             var ul_ = ""
             activity_list.forEach(function (item) {
-                ul_ += "<li class='activity_list'>" + app.activities[item].caption +"</li>\n"
+				ul_ += "<li class='activity_list'><div onCLick='app.remove(" + item + ")'> XXX </div>" + app.activities[item].caption +"</li>\n"
+        		//app.writeLog("rm ...");          
+				//app.remove(item)
             })
         } else {
             console.log("REALLY NO ACTIVITIES")
             ul_ = "<li class='activity_list'><i>No activities yet</i></li>"
         }
         
+        app.writeLog("4 showActivityList");          
         app.title.html("Activities")
         app.activity_ul.html(ul_)
         app.choicesPane.hide();
@@ -212,6 +228,7 @@ var app = {
         activity_list.push(app.get(CURR_ACTIVITY))
         app.saveList(ACTIVITY_LIST, activity_list)
         console.log("XXX Current List "+app.getList(ACTIVITY_LIST))
+        app.writeLog("2 addActivityToList");          
         app.writeActivity(" \"" + app.get(CURR_ACTIVITY) + "\", " + app.get(CURR_LOCATION) + ", " + app.get(CURR_ENJOYMENT));          
     },
     
@@ -223,6 +240,10 @@ var app = {
         return localStorage.getItem(key);
     },
     
+	remove: function(key) {
+		localStorage.removeItem(key);
+	},
+
     saveList: function(key, val) {
         localStorage.setItem(key, JSON.stringify(val));
     },
