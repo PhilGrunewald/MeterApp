@@ -307,14 +307,11 @@ var app = {
     
     format: function(str) {
     	
-    	console.log("formatting: " + str);
-    	
     	if (str === undefined || str == "") {
     		return str;
     	}
     	
     	var intime_arr = str.match(/\$.*\}/)
-    	console.log("intime arr: "+ intime_arr)
     	
     	if (!intime_arr) {
     		return str;
@@ -332,7 +329,6 @@ var app = {
     	intime = intime_var.substring(2, intime_var.length-1);
     	
     	elems = intime.split(" ");
-    	console.log(elems);
     	
     	var res;
     	
