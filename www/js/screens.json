@@ -170,7 +170,7 @@
 				"care child other"
 			]
 		},
-		"travelling": {
+		"travel": {
 			"title": "Any particular travel? ",
 			"help": "at this moment",
 			"activities": [

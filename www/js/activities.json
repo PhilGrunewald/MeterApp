@@ -231,7 +231,7 @@
 		},
 		"Travel public": {
 			"title": "meter: travel public",
-			"caption": "By public",
+			"caption": "Public transport",
 			"help": "Bus, coach, train, plane, boat",
 			"ID": 30040,
 			"category": "travel",
@@ -479,7 +479,7 @@
 			"help": "Any help to an adult household member",
 			"ID": 3910,
 			"category": "care_other",
-			"next": "location"
+			"next": "enjoyment"
 		},
 
 
@@ -489,7 +489,7 @@
 			"help": "Any help to an adult household member",
 			"ID": 3912,
 			"category": "care_other",
-			"next": "location"
+			"next": "enjoyment"
 		},
 
 
@@ -572,7 +572,7 @@
 			"help": "Unspecified household and family care",
 			"ID": 3000,
 			"category": "care_other",
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"food": {
 			"title": "Unspecified food management",
@@ -973,7 +973,7 @@
 			"caption": "Other",
 			"help": "Unspecified physical care & supervision of a child",
 			"ID": 3810,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"care child feed": {
 			"title": "Feeding the child",
@@ -987,7 +987,7 @@
 			"caption": "Physical",
 			"help": "Physical care & supervision of a child",
 			"ID": 3819,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"care child teach": {
 			"title": "Teaching the child",
@@ -1001,7 +1001,7 @@
 			"caption": "Play / engage",
 			"help": "Reading, playing and talking with child",
 			"ID": 3830,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"care child company": {
 			"title": "not used - Accompanying child",
@@ -1015,7 +1015,7 @@
 			"caption": "Supervising",
 			"help": "Other specified childcare",
 			"ID": 3890,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Physical care & supervision of an adult household member": {
 			"title": "Physical care & supervision of an adult household member",
@@ -1463,7 +1463,7 @@
 			"caption": "Main job",
 			"help": "Working time in main job",
 			"ID": 1110,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Coffee and other breaks in main job": {
 			"title": "Coffee and other breaks in main job",
@@ -1477,14 +1477,14 @@
 			"caption": "Work",
 			"help": "Unspecified second job",
 			"ID": 1200,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Working time in second job": {
 			"title": "Working time in second job",
 			"caption": "Other job",
 			"help": "Working in second or other job",
 			"ID": 1210,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Coffee and other breaks in second job": {
 			"title": "Coffee and other breaks in second job",
@@ -1561,7 +1561,7 @@
 			"caption": "Study",
 			"help": "School, university or further education work",
 			"ID": 2190,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Free Time Study": {
 			"title": "Free Time Study",
@@ -1751,14 +1751,14 @@
 			"caption": "Volunteering",
 			"help": "Unpaid work or activity",
 			"ID": 4000,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Unspecified organisational work": {
 			"title": "Unspecified organisational work",
 			"caption": "VOLUNTARY WORK AND MEETINGS",
 			"help": "Unspecified organisational work",
 			"ID": 4100,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Work for an organisation": {
 			"title": "Work for an organisation",
@@ -2162,7 +2162,7 @@
 			"help": "Sport / physical exercise",
 			"ID": 6100,
 			"category": "care_self",
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Walking and hiking": {
 			"title": "Walking and hiking",
@@ -2623,8 +2623,8 @@
 		},
 		"Travel purpose exercise": {
 			"title": "Travel related to physical exercise",
-			"caption": "Travel activities",
-			"help": "Travel related to physical exercise",
+			"caption": "Exercise / wellbeing",
+			"help": "Moving for health and fitness",
 			"ID": 9610,
 			"category": "travel",
 			"next": "enjoyment"
@@ -2733,14 +2733,14 @@
 			"caption": "XXX Provide option to enter text XXX",
 			"help": "Unspecified time use",
 			"ID": 9990,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"other": {
 			"title": "Unspecified time use",
 			"caption": "Other activities",
 			"help": "Unspecified time use",
 			"ID": 9990,
-			"next": "location"
+			"next": "enjoyment"
 		},
 
 		"more recent": {
