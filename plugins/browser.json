@@ -26,6 +26,9 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "uk.ac.ox.energy.meter"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "uk.ac.ox.energy.meter"
         }
     },
     "dependent_plugins": {}
