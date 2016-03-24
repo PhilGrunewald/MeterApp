@@ -117,6 +117,50 @@
 		"app 5 5": { "title": "survey: app 5", "caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90505, "next": "home" },
 		"app 5 6": { "title": "survey: app 5", "caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90506, "next": "home" },
 
+		"Loc home": {
+			"title": "meter: location home",
+			"caption": "At home",
+			"help": "In or around your home / garden",
+			"ID": 30011,
+			"next": "activity main"
+		},
+		"Loc travelling": {
+			"title": "meter: location travelling",
+			"caption": "Travelling",
+			"help": "By car, foot, bus, train, bike, jogging...",
+			"ID": 30030,
+			"category": "travel",
+			"next": "travel"
+		},
+		"Loc work": {
+			"title": "meter: location work",
+			"caption": "At work",
+			"help": "I am at my place of work or school",
+			"ID": 30013,
+			"next": "activity main"
+		},
+		"Loc friends": {
+			"title": "meter: location friends",
+			"caption": "At a friend's",
+			"help": "At a friends or other peoples house",
+			"ID": 30014,
+			"next": "activity main"
+		},
+		"Loc outdoors": {
+			"title": "meter: location outdoors",
+			"caption": "Outdoors",
+			"help": "Park, road, public places, sports field",
+			"ID": 30018,
+			"next": "activity main"
+		},
+		"Loc other location": {
+			"title": "meter: location other",
+			"caption": "Somewhere else",
+			"help": "None of the above",
+			"ID": 30010,
+			"next": "activity main"
+		},
+
 		"at home": {
 			"title": "meter: location home",
 			"caption": "At home",
@@ -130,7 +174,7 @@
 			"help": "By car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
 			"category": "travel",
-			"next": "travelling"
+			"next": "travel"
 		},
 		"at work": {
 			"title": "meter: location work",
@@ -153,7 +197,62 @@
 			"ID": 30018,
 			"next": "enjoyment"
 		},
+		"other location": {
+			"title": "meter: location other",
+			"caption": "Somewhere else",
+			"help": "None of the above",
+			"ID": 30010,
+			"next": "enjoyment"
+		},
 
+		"Travel foot": {
+			"title": "meter: travel foot",
+			"caption": "By foot",
+			"help": "Walking, ambling, pottering",
+			"ID": 30031,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel car": {
+			"title": "meter: travel car",
+			"caption": "By car",
+			"help": "Car, van, motorbike or count",
+			"ID": 30036,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel bike": {
+			"title": "meter: travel bike",
+			"caption": "By bike",
+			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
+			"ID": 30032,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel public": {
+			"title": "meter: travel public",
+			"caption": "By public",
+			"help": "Bus, coach, train, plane, boat",
+			"ID": 30040,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel exercise": {
+			"title": "meter: travel sport",
+			"caption": "Exercise",
+			"help": "Running, cycling, swimming...",
+			"ID": 9610,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel other": {
+			"title": "meter: travel other",
+			"caption": "Other",
+			"help": "Anything not listed here",
+			"ID": 30031,
+			"category": "travel",
+			"next": "travel purpose"
+		},
 		"travel foot": {
 			"title": "meter: travel foot",
 			"caption": "By foot",
@@ -200,13 +299,6 @@
 			"help": "Anything not listed here",
 			"ID": 30031,
 			"category": "travel",
-			"next": "enjoyment"
-		},
-		"other location": {
-			"title": "meter: location other",
-			"caption": "Somewhere else",
-			"help": "None of the above",
-			"ID": 30010,
 			"next": "enjoyment"
 		},
 		"skip": {
@@ -2066,7 +2158,7 @@
 		},
 		"exercise": {
 			"title": "Unspecified physical exercise",
-			"caption": "Sports",
+			"caption": "Exercise / sport",
 			"help": "Sport / physical exercise",
 			"ID": 6100,
 			"category": "care_self",
@@ -2345,9 +2437,17 @@
 			"ID": 7190,
 			"next": "enjoyment"
 		},
-		"Travel related to unspecified time use": {
+		"Travel purpose 2": {
+			"title": "meter: navigation",
+			"caption": "Show more options",
+			"help": "Travel related to unspecified time use",
+			"ID": 9000,
+			"category": "travel",
+			"next": "travel purpose 2"
+		},
+		"Travel purpose other": {
 			"title": "Travel related to unspecified time use",
-			"caption": "Travel activities",
+			"caption": "Other",
 			"help": "Travel related to unspecified time use",
 			"ID": 9000,
 			"category": "travel",
@@ -2361,17 +2461,17 @@
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel to/from work": {
+		"Travel purpose commute": {
 			"title": "Travel to/from work",
-			"caption": "Travel activities",
+			"caption": "To/from work",
 			"help": "Travel to/from work",
 			"ID": 9100,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel in the course of work": {
+		"Travel purpose work": {
 			"title": "Travel in the course of work",
-			"caption": "Travel activities",
+			"caption": "For work",
 			"help": "Travel in the course of work",
 			"ID": 9110,
 			"category": "travel",
@@ -2401,25 +2501,25 @@
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel escorting to/ from education": {
+		"Travel purpose school": {
 			"title": "Travel escorting to/ from education",
-			"caption": "Travel activities",
-			"help": "Travel escorting to/ from education",
+			"caption": "School / Uni",
+			"help": "Going (or taking someone) to school",
 			"ID": 9230,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to household care": {
+		"Travel purpose household": {
 			"title": "Travel related to household care",
-			"caption": "Travel activities",
-			"help": "Travel related to household care",
+			"caption": "Household",
+			"help": "Related to household care",
 			"ID": 9310,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to shopping": {
+		"Travel purpose shopping": {
 			"title": "Travel related to shopping",
-			"caption": "Travel activities",
+			"caption": "Shopping",
 			"help": "Travel related to shopping",
 			"ID": 9360,
 			"category": "travel",
@@ -2489,39 +2589,39 @@
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel to visit friends/ relatives in their homes (not respondent's household)": {
+		"Travel purpose friend": {
 			"title": "Travel to visit friends/ relatives in their homes (not respondent's household)",
-			"caption": "Travel activities",
-			"help": "Travel to visit friends/ relatives in their homes (not respondent's household)",
+			"caption": "Visit friend / relative",
+			"help": "Travel to visit friends/ relatives in their homes",
 			"ID": 9500,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to other social activities": {
+		"Travel purpose social": {
 			"title": "Travel related to other social activities",
-			"caption": "Travel activities",
+			"caption": "Help / social",
 			"help": "Travel related to other social activities",
 			"ID": 9510,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to entertainment and culture": {
+		"Travel purpose entertainment": {
 			"title": "Travel related to entertainment and culture",
-			"caption": "Travel activities",
+			"caption": "Entertainment",
 			"help": "Travel related to entertainment and culture",
 			"ID": 9520,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to other leisure": {
+		"Travel purpose leisure": {
 			"title": "Travel related to other leisure",
-			"caption": "Travel activities",
+			"caption": "Leisure",
 			"help": "Travel related to other leisure",
 			"ID": 9600,
 			"category": "travel",
-			"next": "travelling"
+			"next": "enjoyment"
 		},
-		"Travel related to physical exercise": {
+		"Travel purpose exercise": {
 			"title": "Travel related to physical exercise",
 			"caption": "Travel activities",
 			"help": "Travel related to physical exercise",

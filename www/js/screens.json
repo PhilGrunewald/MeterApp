@@ -75,6 +75,30 @@
 		"activity time 2": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "time 7", "time 8", "time 9", "time 10", "time 11", "time 12" ] },
 
 		"activity root": {
+			"title": "Where are you at $time?",
+			"help": "Your location.",
+			"activities": [
+				"Loc home",
+				"Loc work",
+				"Loc travelling",
+				"Loc friends",
+				"Loc outdoors",
+				"Loc other location"
+			]
+		},
+		"activity main": {
+			"title": "What are you doing?",
+			"help": "at this moment",
+			"activities": [
+				"care",
+				"work",
+				"Leisure",
+				"food",
+				"other",
+				"more recent"
+			]
+		},
+		"activity root 1": {
 			"title": "What are you doing?",
 			"help": "at this moment",
 			"activities": [
@@ -150,12 +174,36 @@
 			"title": "Any particular travel? ",
 			"help": "at this moment",
 			"activities": [
-				"travel foot",
-				"travel car",
-				"travel bike",
-				"travel public",
-				"travel exercise",
-				"travel other"
+				"Travel foot",
+				"Travel car",
+				"Travel bike",
+				"Travel public",
+				"Travel exercise",
+				"Travel other"
+			]
+		},
+		"travel purpose": {
+			"title": "Purpose of travel:",
+			"help": "Why did you do this journey?",
+			"activities": [
+				"Travel purpose commute",
+				"Travel purpose school",
+				"Travel purpose work",
+				"Travel purpose shopping",
+				"Travel purpose leisure",
+				"Travel purpose 2"
+			]
+		},
+		"travel purpose 2": {
+			"title": "Purpose of travel:",
+			"help": "Why did you do this journey?",
+			"activities": [
+				"Travel purpose exercise",
+				"Travel purpose friend",
+				"Travel purpose entertainment",
+				"Travel purpose household",
+				"Travel purpose social",
+				"Travel purpose other"
 			]
 		},
 		"leisure": {
@@ -166,7 +214,7 @@
 				"Leisure TV",
 				"Unspecified information by computing",
 				"exercise",
-				"Travel related to other leisure",
+				"Travel purpose leisure",
 				"other"
 			]
 		},
@@ -300,12 +348,12 @@
 			]
 		},
 		"location": {
-			"title": "Where are you doing this?",
+			"title": "Where are you at $time?",
 			"help": "Your location.",
 			"activities": [
 				"at home",
-				"travelling",
 				"at work",
+				"travelling",
 				"at friends",
 				"outdoors",
 				"other location"
