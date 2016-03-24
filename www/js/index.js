@@ -41,6 +41,16 @@ var LOCATION_MAX  = 30100;
 var SURVEY_MIN    = 90000;
 var SURVEY_MAX    = 91000;
 
+String.prototype.format = String.prototype.f = function() {
+    var s = this,
+        i = arguments.length;
+
+    while (i--) {
+        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+    }
+    return s;
+};
+
 var app = {
     logOb: null,
     logAct: null,
@@ -89,7 +99,7 @@ var app = {
         
 		app.save(SURVEY_STATUS, "survey root");
         app.actionButtons    = $('.btn-activity');
-        app.activity_ul      = $('#activity_list');
+        app.activity_list_div= $('#activity-list');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
@@ -202,43 +212,66 @@ var app = {
     
     showActivityList: function() {
 		// localStorage.clear();
-        app.writeLog("3 showActivityList" + activity_list);          
-        var activity_list = app.getList(ACTIVITY_LIST) || []
+        app.writeLog("3 showActivityList" + activityList);          
+        var activityList = app.getList(ACTIVITY_LIST) || []
+	    	
+	    var curr_acts = "";
+        
+        var row = ''+
+        '<div class="row activity-row">' + 
+	    '	<div class="activity-cell btn-time">{0}</div>' + 
+	    '	<div class="activity-cell activity-item">{1}</div>' + 
+	    '	<div class="activity-cell btn-terminate" onclick="{2}">{3}</div>' + 
+	    '</div>';
 
-        if (Object.keys(activity_list).length > 0) {
-            console.log("ACTIVITIES: " + activity_list)
-            var ul_ = ""
-            Object.keys(activity_list).forEach( function(key, index) {
-            	var item = activity_list[key];
+        if (Object.keys(activityList).length > 0) {
+        	
+        	row = row.format( '<span class="bordered">{0}</span>', 
+        				'{1}', 
+        				'{2}',
+        				'<span class="bordered">{3}</span>')
+            
+            console.log("ACTIVITIES: " + JSON.stringify(activityList))
+            
+		    	
+            Object.keys(activityList).forEach( function(key, index) {
+            	var item = activityList[key];
             	console.log("ITEM is:", item)
-				ul_ += "<li class='activity_list'><div onClick='app.removeActivity(\"" + key + "\")'> XXX </div>" + app.activities[item].caption +"</li>\n"
+				curr_acts += row.format(app.format_time(item.time), 
+										app.activities[item.name].caption,
+										'app.removeActivity(\'' + key + '\')',
+										"done")					
         		//app.writeLog("rm ...");          
 				//app.remove(item)
             })
         } else {
+            
             console.log("REALLY NO ACTIVITIES")
-            ul_ = "<li class='activity_list'><i>No activities yet</i></li>"
+            curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
         
         app.writeLog("4 showActivityList");          
         app.title.html("Activities")
-        app.activity_ul.html(ul_)
+        app.activity_list_div.html(curr_acts)
         app.choicesPane.hide();
         app.activityListPane.show();
     },
     
     addActivityToList: function() {
-        activity_list = app.getList(ACTIVITY_LIST) || {};
+        activityList = app.getList(ACTIVITY_LIST) || {};
         console.log("ADDING TO CURRENT ACTIVITY: "+app.get(CURR_ACTIVITY))
         
         var uuid = app.uuid()
-        activity_list[uuid] = app.get(CURR_ACTIVITY)
+        activityList[uuid] = {
+        	"name" : app.get(CURR_ACTIVITY),
+        	"time" : Date.now()
+        }
         
         // TODO: clear current activity
         
-        console.log("NEW AL: "+ activity_list)
+        console.log("NEW AL: "+ activityList)
         
-        app.saveList(ACTIVITY_LIST, activity_list)
+        app.saveList(ACTIVITY_LIST, activityList)
         console.log("XXX Current List "+app.getList(ACTIVITY_LIST))
         app.writeLog("2 addActivityToList");          
         app.writeActivity(" \"" + app.get(CURR_ACTIVITY) + "\", " + app.get(CURR_LOCATION) + ", " + app.get(CURR_ENJOYMENT));          
@@ -248,12 +281,12 @@ var app = {
     	    	
     	if (uuid) {
     		
-        	activity_list = app.getList(ACTIVITY_LIST) || {};
+        	activityList = app.getList(ACTIVITY_LIST) || {};
         	
-        	if (uuid in activity_list) {
-        		delete activity_list[uuid];
+        	if (uuid in activityList) {
+        		delete activityList[uuid];
             	
-            	app.saveList(ACTIVITY_LIST, activity_list)
+            	app.saveList(ACTIVITY_LIST, activityList)
                 console.log("XXX Current List "+app.getList(ACTIVITY_LIST))
                 app.writeLog("2 addActivityToList");
             	
@@ -400,7 +433,11 @@ var app = {
 	        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
 	    });
 	    return uuid;
-	}
+	},
+    
+    format_time : function(str) {
+    	return new Date(str).toTimeString().substring(0, 5)
+    }
 
 };
 

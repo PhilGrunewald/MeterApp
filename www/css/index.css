@@ -149,16 +149,47 @@ h1 {
     color: #232323;
 }
 
-ul#activity_list {
-    list-style-type: none;
-    padding: 0;
+div#activity-list {
+    width: 100%;
+    margin: 2px 0;
+    display: table;
+    table-layout: fixed;
 }
 
-li.activity_list {
-    width: 100%;
+div.activity-row {
+	margin: 2px 0;
+}
+
+div.activity-cell {
+	border-bottom: 2px white solid; 
+	padding: 20px 0;
+}
+
+div.btn-time {
+    display: table-cell;
     background: #ededed;
-    margin: 2px 0;
-    padding: 1ex 0;
+    vertical-align: middle;
+    width: 20%;
+}
+
+div.btn-terminate {
+    display: table-cell;
+    background: #ededed;
+    vertical-align: middle;
+    width: 20%;
+}
+
+div.activity-item {
+    display: table-cell;
+    background: #ededed;
+    vertical-align: middle;
+    width: 60%;
+}
+
+span.bordered {
+	border: 1px solid #555;
+	border-radius: 3px;
+	padding: 2px;
 }
 
 
