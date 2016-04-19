@@ -42,8 +42,6 @@ var SURVEY_MIN    = 90000;
 var SURVEY_MAX    = 91000;
 
 var app = {
-    logOb: null,
-    logAct: null,
     
     // Application Constructor
     initialize: function() {
@@ -58,38 +56,11 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        if (device.platform != "browser") {        
-            window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
-                console.log("got main dir",dir);
-				// the existence of folder METER is assumed
-				// in this folder is also id.txt to identify the user
-                dir.getFile("METER/survey.csv", {create:true}, function(file) {
-                    console.log("got survey file", file);
-                    app.logSurvey = file;
-                    app.writeSurvey("New session");          
-                }, function(err) {
-                    console.log(err);
-                });
-                dir.getFile("METER/activities.csv", {create:true}, function(file) {
-                    console.log("got activities file", file);
-                    app.logAct = file;
-                    app.writeActivity("New session");          
-                }, function(err) {
-                    console.log(err);
-                });
-                dir.getFile("METER/debug.csv", {create:true}, function(file) {
-                    console.log("got debug file", file);
-                    app.logOb = file;
-                    app.writeLog("App started");          
-                }, function(err) {
-                    console.log(err);
-                });
-            });
-        }
+        log.init();
         
-		app.save(SURVEY_STATUS, "survey root");
+		utils.save(SURVEY_STATUS, "survey root");
         app.actionButtons    = $('.btn-activity');
-        app.activity_ul      = $('#activity_list');
+        app.activity_list_div= $('#activity-list');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
@@ -99,9 +70,9 @@ var app = {
             $.getJSON('js/screens.json', function(screen_data) {
                 app.screens = screen_data.screens;
                 //app.navigateTo("home");
-            	app.writeLog("001...");          
+            	log.writeLog("001...");          
                 app.showActivityList();
-            	app.writeLog("002...");          
+            	log.writeLog("002...");          
             });    
         });
         
@@ -122,23 +93,23 @@ var app = {
         if (prev_activity !== undefined) {
             // within the code range of 'activity codes'
             if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
-            app.save(CURR_ACTIVITY, prev_activity);
+            utils.save(CURR_ACTIVITY, prev_activity);
             }
             // within the code range of 'locations'
             // NOTE not all branches ask for location - so we ASSUME location doesn't change if not explicitly reported
             // On the 'home' view, the activity edit option could allow them to change 'offending' wrong locations
             else if (app.activities[prev_activity].ID > LOCATION_MIN && app.activities[prev_activity].ID < LOCATION_MAX) {
-            app.save(CURR_LOCATION, prev_activity);
+            utils.save(CURR_LOCATION, prev_activity);
             }
             // within the code range of 'enjoyments'
             else if (app.activities[prev_activity].ID > ENJOYMENT_MIN && app.activities[prev_activity].ID < ENJOYMENT_MAX) {
-            app.save(CURR_ENJOYMENT, prev_activity);
+            utils.save(CURR_ENJOYMENT, prev_activity);
             }
             // within the code range of 'survey'
             else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
 				// save the survey screen_id, such that we can return here via screen_id = 'survey'
-            	app.save(SURVEY_STATUS, screen_id);
-                app.writeSurvey(prev_activity);          
+            	utils.save(SURVEY_STATUS, screen_id);
+                log.writeSurvey(prev_activity);          
                 console.log("survey entry: " + prev_activity);
             }
         }
@@ -147,17 +118,17 @@ var app = {
         }
         
         console.log("switching to " + screen_id);
-        app.writeLog("switching to " + screen_id);
+        log.writeLog("switching to " + screen_id);
 
         if (screen_id == "home" ) {
             // an entry has been completed
-            app.writeLog("1 home");          
+            log.writeLog("1 home");          
             app.addActivityToList();
-            app.writeLog("2 home");          
+            log.writeLog("2 home");          
             app.showActivityList();
-            app.writeLog("3 home");          
+            log.writeLog("3 home");          
             app.choicesPane.hide();
-            app.writeLog("4 home");          
+            log.writeLog("4 home");          
             app.activityListPane.show();
         } else {
         	
@@ -172,7 +143,7 @@ var app = {
                 // "survey" is where the top navigation button points to
                 // here it gets redirected to the latest survey screen
                 // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
-                screen_id = app.get(SURVEY_STATUS);
+                screen_id = utils.get(SURVEY_STATUS);
                 console.log("Survey ID" + screen_id);
             }
             // populate buttons XXX move to 'if not home'?
@@ -190,7 +161,7 @@ var app = {
                     button.attr("onclick", "");
                 } else {
                     btn_title.html(activity.caption);
-                    btn_caption.html(app.format(activity.help));
+                    btn_caption.html(utils.format(activity.help));
                     button.addClass(activity.category || "other_category");
                     button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
                 }
@@ -202,60 +173,84 @@ var app = {
     
     showActivityList: function() {
 		// localStorage.clear();
-        app.writeLog("3 showActivityList" + activity_list);          
-        var activity_list = app.getList(ACTIVITY_LIST) || []
+        log.writeLog("3 showActivityList" + activityList);          
+        var activityList = utils.getList(ACTIVITY_LIST) || []
+	    	
+	    var curr_acts = "";
+        
+        var row = ''+
+        '<div class="row activity-row">' + 
+	    '	<div class="activity-cell btn-time">{0}</div>' + 
+	    '	<div class="activity-cell activity-item">{1}</div>' + 
+	    '	<div class="activity-cell btn-terminate" onclick="{2}">{3}</div>' + 
+	    '</div>';
 
-        if (Object.keys(activity_list).length > 0) {
-            console.log("ACTIVITIES: " + activity_list)
-            var ul_ = ""
-            Object.keys(activity_list).forEach( function(key, index) {
-            	var item = activity_list[key];
+        if (Object.keys(activityList).length > 0) {
+        	
+        	row = row.format( '<span class="bordered">{0}</span>', 
+        				'{1}', 
+        				'{2}',
+        				'<span class="bordered">{3}</span>')
+            
+            console.log("ACTIVITIES: " + JSON.stringify(activityList))
+            
+		    	
+            Object.keys(activityList).forEach( function(key, index) {
+            	var item = activityList[key];
             	console.log("ITEM is:", item)
-				ul_ += "<li class='activity_list'><div onClick='app.removeActivity(\"" + key + "\")'> XXX </div>" + app.activities[item].caption +"</li>\n"
-        		//app.writeLog("rm ...");          
+				curr_acts += row.format(utils.format_time(item.time), 
+										app.activities[item.name].caption,
+										'app.removeActivity(\'' + key + '\')',
+										"done")					
+        		//log.writeLog("rm ...");          
 				//app.remove(item)
             })
         } else {
+            
             console.log("REALLY NO ACTIVITIES")
-            ul_ = "<li class='activity_list'><i>No activities yet</i></li>"
+            curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
         
-        app.writeLog("4 showActivityList");          
+        log.writeLog("4 showActivityList");          
         app.title.html("Activities")
-        app.activity_ul.html(ul_)
+        app.activity_list_div.html(curr_acts)
         app.choicesPane.hide();
         app.activityListPane.show();
     },
     
     addActivityToList: function() {
-        activity_list = app.getList(ACTIVITY_LIST) || {};
-        console.log("ADDING TO CURRENT ACTIVITY: "+app.get(CURR_ACTIVITY))
+        activityList = utils.getList(ACTIVITY_LIST) || {};
+        console.log("ADDING TO CURRENT ACTIVITY: "+utils.get(CURR_ACTIVITY))
         
-        var uuid = app.uuid()
-        activity_list[uuid] = app.get(CURR_ACTIVITY)
+        var uuid = utils.uuid()
+        activityList[uuid] = {
+        	"name" : utils.get(CURR_ACTIVITY),
+        	"time" : Date.now()
+        }
         
         // TODO: clear current activity
         
-        console.log("NEW AL: "+ activity_list)
+        console.log("NEW AL: "+ activityList)
         
-        app.saveList(ACTIVITY_LIST, activity_list)
-        console.log("XXX Current List "+app.getList(ACTIVITY_LIST))
-        app.writeLog("2 addActivityToList");          
-        app.writeActivity(" \"" + app.get(CURR_ACTIVITY) + "\", " + app.get(CURR_LOCATION) + ", " + app.get(CURR_ENJOYMENT));          
+        utils.saveList(ACTIVITY_LIST, activityList)
+        console.log("XXX Current List "+utils.getList(ACTIVITY_LIST))
+        log.writeLog("2 addActivityToList");          
+        log.writeActivity(" \"" + utils.get(CURR_ACTIVITY) + "\", " + 
+        		utils.get(CURR_LOCATION) + ", " + utils.get(CURR_ENJOYMENT));          
     },
     
     removeActivity: function (uuid) {
     	    	
     	if (uuid) {
     		
-        	activity_list = app.getList(ACTIVITY_LIST) || {};
+        	activityList = utils.getList(ACTIVITY_LIST) || {};
         	
-        	if (uuid in activity_list) {
-        		delete activity_list[uuid];
+        	if (uuid in activityList) {
+        		delete activityList[uuid];
             	
-            	app.saveList(ACTIVITY_LIST, activity_list)
-                console.log("XXX Current List "+app.getList(ACTIVITY_LIST))
-                app.writeLog("2 addActivityToList");
+            	utils.saveList(ACTIVITY_LIST, activityList)
+                console.log("XXX Current List "+utils.getList(ACTIVITY_LIST))
+                log.writeLog("2 addActivityToList");
             	
             	app.showActivityList();
         	}
@@ -264,143 +259,11 @@ var app = {
     	
     },
     
-    save: function(key, val) {
-        localStorage.setItem(key, val);
-    },
-    
-    get: function(key) {
-        return localStorage.getItem(key);
-    },
-    
-	remove: function(key) {
-		localStorage.removeItem(key);
-	},
-
-    saveList: function(key, val) {
-        localStorage.setItem(key, JSON.stringify(val));
-    },
-    
-    getList: function(key) {
-        return JSON.parse(localStorage.getItem(key));
-    },
-    
-    writeLog: function(str) {
-        var log = "[" + (new Date()) + "] " + str + "\n";
-        if (device.platform == "browser") {
-            console.log(log);
-            return;
-        }
-        if(!app.logOb) return;
-        app.logOb.createWriter(function(fileWriter) {
-            fileWriter.seek(fileWriter.length);
-            var blob = new Blob([log], {type:'text/plain'});
-            fileWriter.write(blob);
-        }, function(err) {
-            console.log(err)
-        });
-    },
-
-    writeSurvey: function(str) {
-        var log = (new Date()) + ", " + str + "\n";
-        if (device.platform == "browser") {
-            console.log(log);
-            return;
-        }
-        if(!app.logAct) return;
-        app.logSurvey.createWriter(function(fileWriter) {
-            fileWriter.seek(fileWriter.length);
-            var blob = new Blob([log], {type:'text/plain'});
-            fileWriter.write(blob);
-        }, function(err) {
-            console.log(err)
-        });
-    },
-
-    writeActivity: function(str) {
-        var log = "[" + (new Date()) + "] " + str + "\n";
-        if (device.platform == "browser") {
-            console.log(log);
-            return;
-        }
-        if(!app.logAct) return;
-        app.logAct.createWriter(function(fileWriter) {
-            fileWriter.seek(fileWriter.length);
-            var blob = new Blob([log], {type:'text/plain'});
-            fileWriter.write(blob);
-        }, function(err) {
-            console.log(err)
-        });
-    },
-    
     toggleCaption: function() {
         
         $(".btn-caption").toggle();
     },
     
-    format: function(str) {
-    	
-    	if (str === undefined || str == "") {
-    		return str;
-    	}
-    	
-    	var intime_arr = str.match(/\$.*\}/)
-    	
-    	if (!intime_arr) {
-    		return str;
-    	}
-    	
-    	/* return value is an array. Check it's not empty */
-    	var intime;
-    	if (intime_arr.length > 0){
-    		intime_var = intime_arr[0];
-    	} else {
-    		return str;
-    	}
-    	
-    	/* keep the contents of the variable */
-    	intime = intime_var.substring(2, intime_var.length-1);
-    	
-    	elems = intime.split(" ");
-    	
-    	var res;
-    	
-    	if (elems[0] == "time") {
-    		var time_ = Date.now();
-    		
-    		if (elems.length > 2) {
-    			
-    			if (elems[1] == "-"){
-    				var mins = parseInt(elems[2]) * 60000;
-    				res = new Date(time_-mins);
-    			} else {
-    				return str; // no other operation implemented;
-    			}
-    		} else {
-    			res = new Date(time_);
-    		}
-    		
-    		return str.replace(intime_var, res.toTimeString().substring(0, 5))
-    	} else {
-    		return str; // no other function implemented
-    	}
-    	
-    	// should never get here
-    	return str;
-    	
-    }, 
-    
-    uuid : function() {
-	    var d = new Date().getTime();
-	    if(window.performance && typeof window.performance.now === "function"){
-	        d += performance.now(); //use high-precision timer if available
-	    }
-	    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-	        var r = (d + Math.random()*16)%16 | 0;
-	        d = Math.floor(d/16);
-	        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
-	    });
-	    return uuid;
-	}
 
 };
 
