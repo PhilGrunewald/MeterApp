@@ -304,41 +304,41 @@
 		"skip": {
 			"title": "meter: enjoyment skip",
 			"caption": "Skip",
-			"help": "I enjoyed this time very much.",
+			"help": "Don't want to say",
 			"ID": 20001,
 			"next": "home"
 		},
 		"not at all": {
 			"title": "meter: enjoyment 1",
-			"caption": "Not at all",
+			"caption": "<img src=\"../img/smiley_1.png\">",
 			"help": "I enjoyed this time not at all",
 			"ID": 20002,
 			"next": "home"
 		},
 		"not very much": {
 			"title": "meter: enjoyment 2",
-			"caption": "Not very much",
+			"caption": "<img src=\"../img/smiley_2.png\">",
 			"help": "I enjoyed this time not very much.",
 			"ID": 20003,
 			"next": "home"
 		},
 		"neutral": {
 			"title": "meter: enjoyment 3",
-			"caption": "Neutral",
+			"caption": "<img src=\"../img/smiley_3.png\">",
 			"help": "I enjoyed this time somewhat",
 			"ID": 20004,
 			"next": "home"
 		},
 		"somewhat": {
 			"title": "meter: enjoyment 4",
-			"caption": "Somewhat",
+			"caption": "<img src=\"../img/smiley_4.png\">",
 			"help": "I enjoyed this time",
 			"ID": 20005,
 			"next": "home"
 		},
 		"very much": {
 			"title": "meter: enjoyment 5",
-			"caption": "Very much",
+			"caption": "<img src=\"../img/smiley_5.png\">",
 			"help": "I enjoyed this time very much.",
 			"ID": 20006,
 			"next": "home"
