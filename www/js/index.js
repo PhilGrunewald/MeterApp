@@ -65,6 +65,8 @@ var app = {
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
         
+		localStorage.clear(); // on restart browser failed to load localStorage
+
         $.getJSON('js/activities.json', function(data) {
             app.activities = data.activities;
             $.getJSON('js/screens.json', function(screen_data) {
