@@ -119,38 +119,42 @@
 
 		"Loc home": {
 			"title": "meter: location home",
-			"caption": "At home",
+			"caption": "<img src=\"../img/home.png\" width=\"150px\"><br>Home",
 			"help": "In or around your home / garden",
 			"ID": 30011,
+			"category": "care_self",
 			"next": "activity main"
 		},
 		"Loc travelling": {
 			"title": "meter: location travelling",
-			"caption": "Travelling",
-			"help": "By car, foot, bus, train, bike, jogging...",
+			"caption": "<img src=\"../img/travel.png\" width=\"150px\">",
+			"help": "Travel by car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
 			"category": "travel",
 			"next": "travel"
 		},
 		"Loc work": {
 			"title": "meter: location work",
-			"caption": "At work",
-			"help": "I am at my place of work or school",
+			"caption": "<img src=\"../img/work.png\" width=\"150px\">",
+			"help": "At work place or school",
 			"ID": 30013,
+			"category": "care_other",
 			"next": "activity main"
 		},
 		"Loc friends": {
 			"title": "meter: location friends",
-			"caption": "At a friend's",
+			"caption": "<img src=\"../img/publicPlace.png\" width=\"150px\">",
 			"help": "At a friends or other peoples house",
 			"ID": 30014,
+			"category": "care_other",
 			"next": "activity main"
 		},
 		"Loc outdoors": {
 			"title": "meter: location outdoors",
-			"caption": "Outdoors",
+			"caption": "<img src=\"../img/outdoors.png\" width=\"150px\">",
 			"help": "Park, road, public places, sports field",
 			"ID": 30018,
+			"category": "travel",
 			"next": "activity main"
 		},
 		"Loc other location": {
