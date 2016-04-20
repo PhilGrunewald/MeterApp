@@ -119,7 +119,8 @@
 
 		"Loc home": {
 			"title": "meter: location home",
-			"caption": "<img src=\"../img/home.png\" width=\"150px\"><br>Home",
+			"icon": "home",
+			"caption": "Home",
 			"help": "In or around your home / garden",
 			"ID": 30011,
 			"category": "care_self",
@@ -127,7 +128,8 @@
 		},
 		"Loc travelling": {
 			"title": "meter: location travelling",
-			"caption": "<img src=\"../img/travel.png\" width=\"150px\">",
+			"icon": "travel",
+			"caption": "Travel",
 			"help": "Travel by car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
 			"category": "travel",
@@ -135,7 +137,8 @@
 		},
 		"Loc work": {
 			"title": "meter: location work",
-			"caption": "<img src=\"../img/work.png\" width=\"150px\">",
+			"icon": "work",
+			"caption": "Work",
 			"help": "At work place or school",
 			"ID": 30013,
 			"category": "care_other",
@@ -143,15 +146,17 @@
 		},
 		"Loc friends": {
 			"title": "meter: location friends",
-			"caption": "<img src=\"../img/publicPlace.png\" width=\"150px\">",
-			"help": "At a friends or other peoples house",
+			"icon": "publicPlace",
+			"caption": "Public place",
+			"help": "Shop, public building",
 			"ID": 30014,
 			"category": "care_other",
 			"next": "activity main"
 		},
 		"Loc outdoors": {
 			"title": "meter: location outdoors",
-			"caption": "<img src=\"../img/outdoors.png\" width=\"150px\">",
+			"icon": "outdoors",
+			"caption": "Outdoors",
 			"help": "Park, road, public places, sports field",
 			"ID": 30018,
 			"category": "travel",
@@ -314,35 +319,40 @@
 		},
 		"not at all": {
 			"title": "meter: enjoyment 1",
-			"caption": "<img src=\"../img/smiley_1.png\">",
+			"icon": "smiley_1",
+			"caption": "Not at all",
 			"help": "I enjoyed this time not at all",
 			"ID": 20002,
 			"next": "home"
 		},
 		"not very much": {
 			"title": "meter: enjoyment 2",
-			"caption": "<img src=\"../img/smiley_2.png\">",
+			"icon": "smiley_2",
+			"caption": "Not very much",
 			"help": "I enjoyed this time not very much.",
 			"ID": 20003,
 			"next": "home"
 		},
 		"neutral": {
 			"title": "meter: enjoyment 3",
-			"caption": "<img src=\"../img/smiley_3.png\">",
+			"icon": "smiley_3",
+			"caption": "Neutral",
 			"help": "I enjoyed this time somewhat",
 			"ID": 20004,
 			"next": "home"
 		},
 		"somewhat": {
 			"title": "meter: enjoyment 4",
-			"caption": "<img src=\"../img/smiley_4.png\">",
+			"icon": "smiley_4",
+			"caption": "Somewhat",
 			"help": "I enjoyed this time",
 			"ID": 20005,
 			"next": "home"
 		},
 		"very much": {
 			"title": "meter: enjoyment 5",
-			"caption": "<img src=\"../img/smiley_5.png\">",
+			"icon": "smiley_5",
+			"caption": "Very much",
 			"help": "I enjoyed this time very much.",
 			"ID": 20006,
 			"next": "home"
@@ -353,7 +363,7 @@
 
 
 		"time 1": { "title": "activity time", "caption": "Now", "help": "${time}", "ID": 10001, "next": "activity root" },
-		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "${time - 5}", "ID": 10002, "next": "activity root" },
+		"time 2": { "icon": "home", "title": "activity time", "caption": "5 min ago", "help": "${time - 5}", "ID": 10002, "next": "activity root" },
 		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "next": "activity root" },
 		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "next": "activity root" },
 		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "next": "activity root" },

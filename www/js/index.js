@@ -157,11 +157,15 @@ var app = {
                 var button      = $(app.actionButtons[i]);
                 var btn_title   = button.find(".btn-title");
                 var btn_caption = button.find(".btn-caption");
+                var btn_button  = button.find(".btn-activity");
+				var number = i+1;
+				var buttonNo    = "button"+ number;
 
                 if (activity === undefined) {
                     btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
                     button.attr("onclick", "");
                 } else {
+					document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
                     btn_title.html(activity.caption);
                     btn_caption.html(utils.format(activity.help));
                     button.addClass(activity.category || "other_category");
