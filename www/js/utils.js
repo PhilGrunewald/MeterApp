@@ -77,7 +77,7 @@ var utils = {
 		});
 		return uuid;
 	},
-
+	
 	format_time : function(str) {
 		return new Date(str).toTimeString().substring(0, 5)
 	},
