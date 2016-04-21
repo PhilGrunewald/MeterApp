@@ -124,13 +124,9 @@ var app = {
 
         if (screen_id == "home" ) {
             // an entry has been completed
-            log.writeLog("1 home");          
             app.addActivityToList();
-            log.writeLog("2 home");          
             app.showActivityList();
-            log.writeLog("3 home");          
             app.choicesPane.hide();
-            log.writeLog("4 home");          
             app.activityListPane.show();
         } else {
         	
@@ -150,7 +146,7 @@ var app = {
             }
             // populate buttons XXX move to 'if not home'?
             var screen_ = app.screens[screen_id];
-            $("#title").html(screen_.title);
+			$("#title").html(utils.format(screen_.title));
             for (i = 0; i < screen_.activities.length; i++) {
                 var activity_id = screen_.activities[i];
                 var activity    = app.activities[activity_id];

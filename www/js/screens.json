@@ -75,7 +75,7 @@
 		"activity time 2": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "time 7", "time 8", "time 9", "time 10", "time 11", "time 12" ] },
 
 		"activity root": {
-			"title": "Where are you at $time?",
+			"title": "Where are you at ${time}?",
 			"help": "Your location.",
 			"activities": [
 				"Loc home",
