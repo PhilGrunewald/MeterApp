@@ -117,6 +117,59 @@
 		"app 5 5": { "title": "survey: app 5", "caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90505, "next": "home" },
 		"app 5 6": { "title": "survey: app 5", "caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90506, "next": "home" },
 
+		"Loc home": {
+			"title": "meter: location home",
+			"icon": "home",
+			"caption": "Home",
+			"help": "In or around your home / garden",
+			"ID": 30011,
+			"category": "care_self",
+			"next": "activity main"
+		},
+		"Loc travelling": {
+			"title": "meter: location travelling",
+			"icon": "travel",
+			"caption": "Travel",
+			"help": "Travel by car, foot, bus, train, bike, jogging...",
+			"ID": 30030,
+			"category": "travel",
+			"next": "travel"
+		},
+		"Loc work": {
+			"title": "meter: location work",
+			"icon": "work",
+			"caption": "Work",
+			"help": "At work place or school",
+			"ID": 30013,
+			"category": "care_other",
+			"next": "activity main"
+		},
+		"Loc friends": {
+			"title": "meter: location friends",
+			"icon": "publicPlace",
+			"caption": "Public place",
+			"help": "Shop, public building",
+			"ID": 30014,
+			"category": "care_other",
+			"next": "activity main"
+		},
+		"Loc outdoors": {
+			"title": "meter: location outdoors",
+			"icon": "outdoors",
+			"caption": "Outdoors",
+			"help": "Park, road, public places, sports field",
+			"ID": 30018,
+			"category": "travel",
+			"next": "activity main"
+		},
+		"Loc other location": {
+			"title": "meter: location other",
+			"caption": "Somewhere else",
+			"help": "None of the above",
+			"ID": 30010,
+			"next": "activity main"
+		},
+
 		"at home": {
 			"title": "meter: location home",
 			"caption": "At home",
@@ -130,7 +183,7 @@
 			"help": "By car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
 			"category": "travel",
-			"next": "travelling"
+			"next": "travel"
 		},
 		"at work": {
 			"title": "meter: location work",
@@ -153,7 +206,62 @@
 			"ID": 30018,
 			"next": "enjoyment"
 		},
+		"other location": {
+			"title": "meter: location other",
+			"caption": "Somewhere else",
+			"help": "None of the above",
+			"ID": 30010,
+			"next": "enjoyment"
+		},
 
+		"Travel foot": {
+			"title": "meter: travel foot",
+			"caption": "By foot",
+			"help": "Walking, ambling, pottering",
+			"ID": 30031,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel car": {
+			"title": "meter: travel car",
+			"caption": "By car",
+			"help": "Car, van, motorbike or count",
+			"ID": 30036,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel bike": {
+			"title": "meter: travel bike",
+			"caption": "By bike",
+			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
+			"ID": 30032,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel public": {
+			"title": "meter: travel public",
+			"caption": "Public transport",
+			"help": "Bus, coach, train, plane, boat",
+			"ID": 30040,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel exercise": {
+			"title": "meter: travel sport",
+			"caption": "Exercise",
+			"help": "Running, cycling, swimming...",
+			"ID": 9610,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel other": {
+			"title": "meter: travel other",
+			"caption": "Other",
+			"help": "Anything not listed here",
+			"ID": 30031,
+			"category": "travel",
+			"next": "travel purpose"
+		},
 		"travel foot": {
 			"title": "meter: travel foot",
 			"caption": "By foot",
@@ -202,22 +310,16 @@
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"other location": {
-			"title": "meter: location other",
-			"caption": "Somewhere else",
-			"help": "None of the above",
-			"ID": 30010,
-			"next": "enjoyment"
-		},
 		"skip": {
 			"title": "meter: enjoyment skip",
 			"caption": "Skip",
-			"help": "I enjoyed this time very much.",
+			"help": "Don't want to say",
 			"ID": 20001,
 			"next": "home"
 		},
 		"not at all": {
 			"title": "meter: enjoyment 1",
+			"icon": "smiley_1",
 			"caption": "Not at all",
 			"help": "I enjoyed this time not at all",
 			"ID": 20002,
@@ -225,6 +327,7 @@
 		},
 		"not very much": {
 			"title": "meter: enjoyment 2",
+			"icon": "smiley_2",
 			"caption": "Not very much",
 			"help": "I enjoyed this time not very much.",
 			"ID": 20003,
@@ -232,6 +335,7 @@
 		},
 		"neutral": {
 			"title": "meter: enjoyment 3",
+			"icon": "smiley_3",
 			"caption": "Neutral",
 			"help": "I enjoyed this time somewhat",
 			"ID": 20004,
@@ -239,6 +343,7 @@
 		},
 		"somewhat": {
 			"title": "meter: enjoyment 4",
+			"icon": "smiley_4",
 			"caption": "Somewhat",
 			"help": "I enjoyed this time",
 			"ID": 20005,
@@ -246,6 +351,7 @@
 		},
 		"very much": {
 			"title": "meter: enjoyment 5",
+			"icon": "smiley_5",
 			"caption": "Very much",
 			"help": "I enjoyed this time very much.",
 			"ID": 20006,
@@ -257,7 +363,7 @@
 
 
 		"time 1": { "title": "activity time", "caption": "Now", "help": "${time}", "ID": 10001, "next": "activity root" },
-		"time 2": { "title": "activity time", "caption": "5 min ago", "help": "${time - 5}", "ID": 10002, "next": "activity root" },
+		"time 2": { "icon": "home", "title": "activity time", "caption": "5 min ago", "help": "${time - 5}", "ID": 10002, "next": "activity root" },
 		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "next": "activity root" },
 		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "next": "activity root" },
 		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "next": "activity root" },
@@ -387,7 +493,7 @@
 			"help": "Any help to an adult household member",
 			"ID": 3910,
 			"category": "care_other",
-			"next": "location"
+			"next": "enjoyment"
 		},
 
 
@@ -397,7 +503,7 @@
 			"help": "Any help to an adult household member",
 			"ID": 3912,
 			"category": "care_other",
-			"next": "location"
+			"next": "enjoyment"
 		},
 
 
@@ -480,7 +586,7 @@
 			"help": "Unspecified household and family care",
 			"ID": 3000,
 			"category": "care_other",
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"food": {
 			"title": "Unspecified food management",
@@ -881,7 +987,7 @@
 			"caption": "Other",
 			"help": "Unspecified physical care & supervision of a child",
 			"ID": 3810,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"care child feed": {
 			"title": "Feeding the child",
@@ -895,7 +1001,7 @@
 			"caption": "Physical",
 			"help": "Physical care & supervision of a child",
 			"ID": 3819,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"care child teach": {
 			"title": "Teaching the child",
@@ -909,7 +1015,7 @@
 			"caption": "Play / engage",
 			"help": "Reading, playing and talking with child",
 			"ID": 3830,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"care child company": {
 			"title": "not used - Accompanying child",
@@ -923,7 +1029,7 @@
 			"caption": "Supervising",
 			"help": "Other specified childcare",
 			"ID": 3890,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Physical care & supervision of an adult household member": {
 			"title": "Physical care & supervision of an adult household member",
@@ -1371,7 +1477,7 @@
 			"caption": "Main job",
 			"help": "Working time in main job",
 			"ID": 1110,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Coffee and other breaks in main job": {
 			"title": "Coffee and other breaks in main job",
@@ -1385,14 +1491,14 @@
 			"caption": "Work",
 			"help": "Unspecified second job",
 			"ID": 1200,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Working time in second job": {
 			"title": "Working time in second job",
 			"caption": "Other job",
 			"help": "Working in second or other job",
 			"ID": 1210,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Coffee and other breaks in second job": {
 			"title": "Coffee and other breaks in second job",
@@ -1469,7 +1575,7 @@
 			"caption": "Study",
 			"help": "School, university or further education work",
 			"ID": 2190,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Free Time Study": {
 			"title": "Free Time Study",
@@ -1659,14 +1765,14 @@
 			"caption": "Volunteering",
 			"help": "Unpaid work or activity",
 			"ID": 4000,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Unspecified organisational work": {
 			"title": "Unspecified organisational work",
 			"caption": "VOLUNTARY WORK AND MEETINGS",
 			"help": "Unspecified organisational work",
 			"ID": 4100,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Work for an organisation": {
 			"title": "Work for an organisation",
@@ -2066,11 +2172,11 @@
 		},
 		"exercise": {
 			"title": "Unspecified physical exercise",
-			"caption": "Sports",
+			"caption": "Exercise / sport",
 			"help": "Sport / physical exercise",
 			"ID": 6100,
 			"category": "care_self",
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"Walking and hiking": {
 			"title": "Walking and hiking",
@@ -2345,9 +2451,17 @@
 			"ID": 7190,
 			"next": "enjoyment"
 		},
-		"Travel related to unspecified time use": {
+		"Travel purpose 2": {
+			"title": "meter: navigation",
+			"caption": "Show more options",
+			"help": "Travel related to unspecified time use",
+			"ID": 9000,
+			"category": "travel",
+			"next": "travel purpose 2"
+		},
+		"Travel purpose other": {
 			"title": "Travel related to unspecified time use",
-			"caption": "Travel activities",
+			"caption": "Other",
 			"help": "Travel related to unspecified time use",
 			"ID": 9000,
 			"category": "travel",
@@ -2361,17 +2475,17 @@
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel to/from work": {
+		"Travel purpose commute": {
 			"title": "Travel to/from work",
-			"caption": "Travel activities",
+			"caption": "To/from work",
 			"help": "Travel to/from work",
 			"ID": 9100,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel in the course of work": {
+		"Travel purpose work": {
 			"title": "Travel in the course of work",
-			"caption": "Travel activities",
+			"caption": "For work",
 			"help": "Travel in the course of work",
 			"ID": 9110,
 			"category": "travel",
@@ -2401,25 +2515,25 @@
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel escorting to/ from education": {
+		"Travel purpose school": {
 			"title": "Travel escorting to/ from education",
-			"caption": "Travel activities",
-			"help": "Travel escorting to/ from education",
+			"caption": "School / Uni",
+			"help": "Going (or taking someone) to school",
 			"ID": 9230,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to household care": {
+		"Travel purpose household": {
 			"title": "Travel related to household care",
-			"caption": "Travel activities",
-			"help": "Travel related to household care",
+			"caption": "Household",
+			"help": "Related to household care",
 			"ID": 9310,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to shopping": {
+		"Travel purpose shopping": {
 			"title": "Travel related to shopping",
-			"caption": "Travel activities",
+			"caption": "Shopping",
 			"help": "Travel related to shopping",
 			"ID": 9360,
 			"category": "travel",
@@ -2489,42 +2603,42 @@
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel to visit friends/ relatives in their homes (not respondent's household)": {
+		"Travel purpose friend": {
 			"title": "Travel to visit friends/ relatives in their homes (not respondent's household)",
-			"caption": "Travel activities",
-			"help": "Travel to visit friends/ relatives in their homes (not respondent's household)",
+			"caption": "Visit friend / relative",
+			"help": "Travel to visit friends/ relatives in their homes",
 			"ID": 9500,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to other social activities": {
+		"Travel purpose social": {
 			"title": "Travel related to other social activities",
-			"caption": "Travel activities",
+			"caption": "Help / social",
 			"help": "Travel related to other social activities",
 			"ID": 9510,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to entertainment and culture": {
+		"Travel purpose entertainment": {
 			"title": "Travel related to entertainment and culture",
-			"caption": "Travel activities",
+			"caption": "Entertainment",
 			"help": "Travel related to entertainment and culture",
 			"ID": 9520,
 			"category": "travel",
 			"next": "enjoyment"
 		},
-		"Travel related to other leisure": {
+		"Travel purpose leisure": {
 			"title": "Travel related to other leisure",
-			"caption": "Travel activities",
+			"caption": "Leisure",
 			"help": "Travel related to other leisure",
 			"ID": 9600,
 			"category": "travel",
-			"next": "travelling"
+			"next": "enjoyment"
 		},
-		"Travel related to physical exercise": {
+		"Travel purpose exercise": {
 			"title": "Travel related to physical exercise",
-			"caption": "Travel activities",
-			"help": "Travel related to physical exercise",
+			"caption": "Exercise / wellbeing",
+			"help": "Moving for health and fitness",
 			"ID": 9610,
 			"category": "travel",
 			"next": "enjoyment"
@@ -2633,14 +2747,14 @@
 			"caption": "XXX Provide option to enter text XXX",
 			"help": "Unspecified time use",
 			"ID": 9990,
-			"next": "location"
+			"next": "enjoyment"
 		},
 		"other": {
 			"title": "Unspecified time use",
 			"caption": "Other activities",
 			"help": "Unspecified time use",
 			"ID": 9990,
-			"next": "location"
+			"next": "enjoyment"
 		},
 
 		"more recent": {

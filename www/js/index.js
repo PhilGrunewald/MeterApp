@@ -65,6 +65,8 @@ var app = {
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
         
+		localStorage.clear(); // on restart browser failed to load localStorage
+
         $.getJSON('js/activities.json', function(data) {
             app.activities = data.activities;
             $.getJSON('js/screens.json', function(screen_data) {
@@ -122,13 +124,9 @@ var app = {
 
         if (screen_id == "home" ) {
             // an entry has been completed
-            log.writeLog("1 home");          
             app.addActivityToList();
-            log.writeLog("2 home");          
             app.showActivityList();
-            log.writeLog("3 home");          
             app.choicesPane.hide();
-            log.writeLog("4 home");          
             app.activityListPane.show();
         } else {
         	
@@ -148,18 +146,22 @@ var app = {
             }
             // populate buttons XXX move to 'if not home'?
             var screen_ = app.screens[screen_id];
-            $("#title").html(screen_.title);
+			$("#title").html(utils.format(screen_.title));
             for (i = 0; i < screen_.activities.length; i++) {
                 var activity_id = screen_.activities[i];
                 var activity    = app.activities[activity_id];
                 var button      = $(app.actionButtons[i]);
                 var btn_title   = button.find(".btn-title");
                 var btn_caption = button.find(".btn-caption");
+                var btn_button  = button.find(".btn-activity");
+				var number = i+1;
+				var buttonNo    = "button"+ number;
 
                 if (activity === undefined) {
                     btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
                     button.attr("onclick", "");
                 } else {
+					document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
                     btn_title.html(activity.caption);
                     btn_caption.html(utils.format(activity.help));
                     button.addClass(activity.category || "other_category");
