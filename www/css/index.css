@@ -125,7 +125,7 @@ h1 {
 .col {
 	background-position: center;
     background-repeat:no-repeat;
-    background-size:contain;
+    background-size: auto 60%;
     display: table-cell;
     padding: 5px;
     /*background: #ededed;*/
