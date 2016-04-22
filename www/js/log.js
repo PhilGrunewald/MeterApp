@@ -6,6 +6,8 @@ var log = {
 
 	    logOb: null,
 	    logAct: null,
+	    logDebug: null,
+	    logSurvey: null,
 	    
 	    init: function() {
 	        if (device.platform != "browser") {        
@@ -23,7 +25,7 @@ var log = {
 	                dir.getFile("METER/activities.csv", {create:true}, function(file) {
 	                    console.log("got activities file", file);
 	                    log.logAct = file;
-	                    log.writeActivity("New session");          
+	                    log.writeActivity("Brand new session");          
 	                }, function(err) {
 	                    console.log(err);
 	                });
@@ -57,26 +59,36 @@ var log = {
 	        	console.log("Activity log undefined.");
 	        	return;
 	        }
+	        console.log("about to write log", logobj);
 	        log.writeToFile(logobj, str);
 	    },
 
 	    writeDebug: function(str) {
 	        var str = "[" + (new Date().toISOString()) + "] " + str + "\n";
+	        console.log("about to write debug log");
 	        log.writeLog(log.logDebug, str)
 	    },
 
 	    writeSurvey: function(str) {
 	    	var dt_recorded = new Date().toISOString();
 	    	var logstr = [dt_recorded, str].join() + "\n";
-
+	        console.log("about to write survey log");
 	        log.writeLog(log.logSurvey, str)
 	    },
 
-	    writeActivity: function(activity, dt_activity, location, enjoyment) {
-	    	
+	    writeActivity: function() {
 	    	var dt_recorded = new Date().toISOString();
-	    	var str = [dt_recorded, dt_activity, activity, location, enjoyment].join() + "\n";
-	    	
+			var dt_act;
+			if (utils.get(ACTIVITY_TIME) == "same") {
+				dt_act = dt_recorded;
+			} else {
+				dt_act = utils.get(ACTIVITY_TIME);
+			} 
+			var act = "\"" + utils.get(CURR_ACTIVITY) + "\"";
+			var loc =  utils.get(CURR_LOCATION) ;
+			var enj =  utils.get(CURR_ENJOYMENT);          
+
+	    	var str = [dt_recorded, dt_act, act , loc, enj].join() + "\n";
 	    	log.writeLog(log.logAct, str)
 	    }
 }

@@ -362,12 +362,12 @@
 
 
 
-		"time 1": { "title": "activity time", "caption": "Now", "help": "${time}", "ID": 10001, "next": "activity root" },
-		"time 2": { "icon": "home", "title": "activity time", "caption": "5 min ago", "help": "${time - 5}", "ID": 10002, "next": "activity root" },
-		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "next": "activity root" },
-		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "next": "activity root" },
-		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "next": "activity root" },
-		"time 6": { "title": "activity time", "caption": "longer ago", "help": "More options", "ID": 10006, "next": "activity time 2" },
+		"time 1": { "title": "activity time", "caption": "Now",        "help": "${time}",      "ID": 10001, "offset": 0, "next": "activity root" },
+		"time 2": { "title": "activity time", "caption": "5 min ago",  "help": "${time - 5}",  "ID": 10002, "offset": 5, "next": "activity root" },
+		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "offset": 15, "next": "activity root" },
+		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "offset": 30, "next": "activity root" },
+		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "offset": 60, "next": "activity root" },
+		"time 6": { "title": "activity time", "caption": "longer ago", "help": "More options", "ID": 10006, "offset": 0, "next": "activity time 2" },
 
 		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "${time - 120}", "ID": 10007, "next": "activity root" },
 		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "${time - 180}", "ID": 10008, "next": "activity root" },

@@ -19,6 +19,7 @@
 
 // Storage keys // PG 17 Mar 2016: I think these values are not assigned - for SURVEY_STATUS I did the assignment in "OnDeviceReady"
 var CURR_ACTIVITY = "current_activity";
+var ACTIVITY_TIME = "same";  // default - meaning activity time = reported time
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
 var ACTIVITY_LIST = "activity_list";
@@ -33,7 +34,10 @@ var CATEGORIES = ["care_self",
                   "work",
                   "other_category"];
 
-var TIMEUSE_MAX   = 20000;
+var TIMEUSE_MAX   		= 10000;
+var ACTIVITY_TIME_MIN 	= 10000;
+var ACTIVITY_TIME_MAX 	= 10100;
+
 var ENJOYMENT_MIN = 20000;
 var ENJOYMENT_MAX = 20010;
 var LOCATION_MIN  = 30000;
@@ -58,6 +62,7 @@ var app = {
         app.receivedEvent('deviceready');
         log.init();
         
+        utils.save(ACTIVITY_TIME, "same");
 		utils.save(SURVEY_STATUS, "survey root");
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
@@ -72,9 +77,9 @@ var app = {
             $.getJSON('js/screens.json', function(screen_data) {
                 app.screens = screen_data.screens;
                 //app.navigateTo("home");
-            	log.writeLog("001...");          
+            	log.writeDebug("001...");          
                 app.showActivityList();
-            	log.writeLog("002...");          
+            	log.writeDebug("002...");          
             });    
         });
         
@@ -97,6 +102,15 @@ var app = {
             if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
             utils.save(CURR_ACTIVITY, prev_activity);
             }
+			// if going via "Recent" > prompted for time offset 
+			// apply offset to current time
+            else if (app.activities[prev_activity].ID > ACTIVITY_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_TIME_MAX) {
+				var offset = app.activities[prev_activity].offset * 60000;
+        		console.log('apply offset: ' + offset);
+				var dt_ = Date.now();
+				var dt_activity = new Date(dt_-offset).toISOString();
+					utils.save(ACTIVITY_TIME, dt_activity);
+				}
             // within the code range of 'locations'
             // NOTE not all branches ask for location - so we ASSUME location doesn't change if not explicitly reported
             // On the 'home' view, the activity edit option could allow them to change 'offending' wrong locations
@@ -120,7 +134,7 @@ var app = {
         }
         
         console.log("switching to " + screen_id);
-        log.writeLog("switching to " + screen_id);
+        log.writeDebug("switching to " + screen_id);
 
         if (screen_id == "home" ) {
             // an entry has been completed
@@ -173,9 +187,10 @@ var app = {
         }
     },
     
+		
     showActivityList: function() {
 		// localStorage.clear();
-        log.writeLog("3 showActivityList" + activityList);          
+        log.writeDebug("3 showActivityList" + activityList);          
         var activityList = utils.getList(ACTIVITY_LIST) || []
 	    	
 	    var curr_acts = "";
@@ -204,7 +219,7 @@ var app = {
 										app.activities[item.name].caption,
 										'app.removeActivity(\'' + key + '\')',
 										"done")					
-        		//log.writeLog("rm ...");          
+        		//log.writeDebug("rm ...");          
 				//app.remove(item)
             })
         } else {
@@ -213,7 +228,7 @@ var app = {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
         
-        log.writeLog("4 showActivityList");          
+        log.writeDebug("4 showActivityList");          
         app.title.html("Activities")
         app.activity_list_div.html(curr_acts)
         app.choicesPane.hide();
@@ -223,22 +238,28 @@ var app = {
     addActivityToList: function() {
         activityList = utils.getList(ACTIVITY_LIST) || {};
         console.log("ADDING TO CURRENT ACTIVITY: "+utils.get(CURR_ACTIVITY))
-        
+
+		var dt_act;
+		if (utils.get(ACTIVITY_TIME) == "same") {
+			dt_act = Date.now();
+		} else {
+			dt_act = utils.get(ACTIVITY_TIME);
+		} 
         var uuid = utils.uuid()
         activityList[uuid] = {
         	"name" : utils.get(CURR_ACTIVITY),
-        	"time" : Date.now()
+        	"time" : dt_act
         }
         
         // TODO: clear current activity
         
-        console.log("NEW AL: "+ activityList)
-        
         utils.saveList(ACTIVITY_LIST, activityList)
-        console.log("XXX Current List "+utils.getList(ACTIVITY_LIST))
-        log.writeLog("2 addActivityToList");          
-        log.writeActivity(" \"" + utils.get(CURR_ACTIVITY) + "\", " + 
-        		utils.get(CURR_LOCATION) + ", " + utils.get(CURR_ENJOYMENT));          
+        log.writeDebug("2 addActivityToList");          
+        console.log("DDD"+ utils.get(CURR_ACTIVITY) )
+		log.writeActivity();          
+		//
+		// "same" means 'not different from current time' - writeActivity replaces "same" with current time
+        utils.save(ACTIVITY_TIME, "same");
     },
     
     removeActivity: function (uuid) {
@@ -252,7 +273,7 @@ var app = {
             	
             	utils.saveList(ACTIVITY_LIST, activityList)
                 console.log("XXX Current List "+utils.getList(ACTIVITY_LIST))
-                log.writeLog("2 addActivityToList");
+                log.writeDebug("2 addActivityToList");
             	
             	app.showActivityList();
         	}
