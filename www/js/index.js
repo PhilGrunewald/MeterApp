@@ -19,7 +19,10 @@
 
 // Storage keys // PG 17 Mar 2016: I think these values are not assigned - for SURVEY_STATUS I did the assignment in "OnDeviceReady"
 var CURR_ACTIVITY = "current_activity";
-var ACTIVITY_TIME = "same";  // default - meaning activity time = reported time
+var CURR_ACTIVITY_ID = "0";  // the time use code
+
+var ACTIVITY_DATETIME = "same";  // default - meaning activity time = reported time
+
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
 var ACTIVITY_LIST = "activity_list";
@@ -35,13 +38,17 @@ var CATEGORIES = ["care_self",
                   "other_category"];
 
 var TIMEUSE_MAX   		= 10000;
-var ACTIVITY_TIME_MIN 	= 10000;
+
+var ACTIVITY_TIME_MIN 	= 10000;	// provide time as a relative offset
 var ACTIVITY_TIME_MAX 	= 10100;
+
+var ACTIVITY_SET_TIME_MIN 	= 10100; // provide time in hours and minutes
+var ACTIVITY_SET_TIME_MAX 	= 11000;
 
 var ENJOYMENT_MIN = 20000;
 var ENJOYMENT_MAX = 20010;
 var LOCATION_MIN  = 30000;
-var LOCATION_MAX  = 30100;
+var LOCATION_MAX  = 30031;
 var SURVEY_MIN    = 90000;
 var SURVEY_MAX    = 91000;
 
@@ -62,7 +69,7 @@ var app = {
         app.receivedEvent('deviceready');
         log.init();
         
-        utils.save(ACTIVITY_TIME, "same");
+        utils.save(ACTIVITY_DATETIME, "same");
 		utils.save(SURVEY_STATUS, "survey root");
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
@@ -101,21 +108,34 @@ var app = {
             // within the code range of 'activity codes'
             if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
             utils.save(CURR_ACTIVITY, prev_activity);
+            utils.save(CURR_ACTIVITY_ID, app.activities[prev_activity].ID);
             }
 			// if going via "Recent" > prompted for time offset 
 			// apply offset to current time
             else if (app.activities[prev_activity].ID > ACTIVITY_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_TIME_MAX) {
-				var offset = app.activities[prev_activity].offset * 60000;
+				var offset = app.activities[prev_activity].value * 60000;
         		console.log('apply offset: ' + offset);
 				var dt_ = Date.now();
 				var dt_activity = new Date(dt_-offset).toISOString();
-					utils.save(ACTIVITY_TIME, dt_activity);
+					utils.save(ACTIVITY_DATETIME, dt_activity);
 				}
+
+
+			// Set specific time in hours and minutes
+            else if (app.activities[prev_activity].ID > ACTIVITY_SET_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_SET_TIME_MAX) {
+				var dt_activity = utils.get(ACTIVITY_DATETIME);
+				var addition = app.activities[prev_activity].value * 60000;
+				dt_activity = new Date(dt_activity);
+				dt_activity = new Date(dt_activity.getTime() + addition).toISOString();
+				utils.save(ACTIVITY_DATETIME, dt_activity);
+				console.log('dt_activity : ' + dt_activity);
+				}
+
             // within the code range of 'locations'
             // NOTE not all branches ask for location - so we ASSUME location doesn't change if not explicitly reported
             // On the 'home' view, the activity edit option could allow them to change 'offending' wrong locations
             else if (app.activities[prev_activity].ID > LOCATION_MIN && app.activities[prev_activity].ID < LOCATION_MAX) {
-            utils.save(CURR_LOCATION, prev_activity);
+            utils.save(CURR_LOCATION, app.activities[prev_activity].value);
             }
             // within the code range of 'enjoyments'
             else if (app.activities[prev_activity].ID > ENJOYMENT_MIN && app.activities[prev_activity].ID < ENJOYMENT_MAX) {
@@ -150,6 +170,15 @@ var app = {
                 });
             });
             
+            if (screen_id == "activity time") {
+				// user sets own time
+				// XXX TODO pull this date from ini file or allow user to set it once
+				var date_activity = new Date(2016, 1, 22);
+                utils.save(ACTIVITY_DATETIME, date_activity);
+                console.log("RESET");
+			}
+			//
+			//
             // an entry is still in the middle of completion
             if (screen_id == "survey") {
                 // "survey" is where the top navigation button points to
@@ -240,10 +269,10 @@ var app = {
         console.log("ADDING TO CURRENT ACTIVITY: "+utils.get(CURR_ACTIVITY))
 
 		var dt_act;
-		if (utils.get(ACTIVITY_TIME) == "same") {
+		if (utils.get(ACTIVITY_DATETIME) == "same") {
 			dt_act = Date.now();
 		} else {
-			dt_act = utils.get(ACTIVITY_TIME);
+			dt_act = utils.get(ACTIVITY_DATETIME);
 		} 
         var uuid = utils.uuid()
         activityList[uuid] = {
@@ -258,8 +287,6 @@ var app = {
         console.log("DDD"+ utils.get(CURR_ACTIVITY) )
 		log.writeActivity();          
 		//
-		// "same" means 'not different from current time' - writeActivity replaces "same" with current time
-        utils.save(ACTIVITY_TIME, "same");
     },
     
     removeActivity: function (uuid) {

@@ -71,8 +71,24 @@
 			"activities": [ "app 5 1", "app 5 2", "app 5 3", "app 5 4", "app 5 5", "app 5 6" ]
 		},
 
-		"activity time": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "time 1", "time 2", "time 3", "time 4", "time 5", "time 6" ] },
-		"activity time 2": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "time 7", "time 8", "time 9", "time 10", "time 11", "time 12" ] },
+		"xactivity time": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "Time 1", "Time 2", "Time 3", "Time 4", "Time 5", "Time 6" ] },
+		"activity time 2": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "Time 7", "Time 8", "Time 9", "Time 10", "Time 11", "Time 12" ] },
+
+
+		"activity time": { "title": "Choose the period", "help": "How long ago or the Hour range", "activities": [ "Hour range 1", "Hour range 2", "Hour range 3", "Hour range 4", "Hour range 5", "Hour range 6" ] },
+
+
+		"hours 1": { "title": "Select hour", "help": "What hour of the day?", "activities": [ "Hours 1", "Hours 2", "Hours 3", "Hours 4", "Hours 5", "Hours 6" ] },
+		"hours 2": { "title": "Select hour", "help": "What hour of the day?", "activities": [ "Hours 7", "Hours 8", "Hours 9", "Hours 10", "Hours 11", "Hours 12" ] },
+		"hours 3": { "title": "Select hour", "help": "What hour of the day?", "activities": [ "Hours 13", "Hours 14", "Hours 15", "Hours 16", "Hours 17", "Hours 18" ] },
+		"hours 4": { "title": "Select hour", "help": "What hour of the day?", "activities": [ "Hours 19", "Hours 20", "Hours 21", "Hours 22", "Hours 23", "Hours 24" ] },
+		"hours 5": { "title": "Select hour", "help": "What hour of the day?", "activities": [ "Hours 25", "Hours 26", "Hours 27", "Hours 28", "Hours 29", "Hours 30" ] },
+
+
+		"minutes": { "title": "Select 10s of min", "help": "narrow down on next screen", "activities": [ "Minutes 1", "Minutes 2", "Minutes 3", "Minutes 4", "Minutes 5", "Minutes 6" ] },
+
+		"minutes 2": { "title": "Select min", "help": "within your 10 min band", "activities": [ "Minutes 7", "Minutes 8", "Minutes 9", "Minutes 10", "Minutes 11", "Minutes 12" ] },
+
 
 		"activity root": {
 			"title": "Where are you at ${time}?",
@@ -347,7 +363,7 @@
 				"skip"
 			]
 		},
-		"location": {
+		"xxxlocation": {
 			"title": "Where are you at $time?",
 			"help": "Your location.",
 			"activities": [

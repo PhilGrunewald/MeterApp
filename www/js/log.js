@@ -79,16 +79,20 @@ var log = {
 	    writeActivity: function() {
 	    	var dt_recorded = new Date().toISOString();
 			var dt_act;
-			if (utils.get(ACTIVITY_TIME) == "same") {
+			if (utils.get(ACTIVITY_DATETIME) == "same") {
 				dt_act = dt_recorded;
 			} else {
-				dt_act = utils.get(ACTIVITY_TIME);
+				dt_act = utils.get(ACTIVITY_DATETIME);
 			} 
 			var act = "\"" + utils.get(CURR_ACTIVITY) + "\"";
+			var tuc =  utils.get(CURR_ACTIVITY_ID) ;
 			var loc =  utils.get(CURR_LOCATION) ;
 			var enj =  utils.get(CURR_ENJOYMENT);          
 
-	    	var str = [dt_recorded, dt_act, act , loc, enj].join() + "\n";
+	    	var str = [dt_recorded, dt_act, act, tuc, loc, enj].join() + "\n";
 	    	log.writeLog(log.logAct, str)
+
+			// "same" means 'not different from current time' - writeActivity replaces "same" with current time
+        	utils.save(ACTIVITY_DATETIME, "same");
 	    }
 }

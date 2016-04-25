@@ -123,6 +123,7 @@
 			"caption": "Home",
 			"help": "In or around your home / garden",
 			"ID": 30011,
+			"value": 1,
 			"category": "care_self",
 			"next": "activity main"
 		},
@@ -132,6 +133,7 @@
 			"caption": "Travel",
 			"help": "Travel by car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
+			"value": 2,
 			"category": "travel",
 			"next": "travel"
 		},
@@ -141,6 +143,7 @@
 			"caption": "Work",
 			"help": "At work place or school",
 			"ID": 30013,
+			"value": 3,
 			"category": "care_other",
 			"next": "activity main"
 		},
@@ -150,6 +153,7 @@
 			"caption": "Public place",
 			"help": "Shop, public building",
 			"ID": 30014,
+			"value": 4,
 			"category": "care_other",
 			"next": "activity main"
 		},
@@ -159,6 +163,7 @@
 			"caption": "Outdoors",
 			"help": "Park, road, public places, sports field",
 			"ID": 30018,
+			"value": 5,
 			"category": "travel",
 			"next": "activity main"
 		},
@@ -167,17 +172,18 @@
 			"caption": "Somewhere else",
 			"help": "None of the above",
 			"ID": 30010,
+			"value": 6,
 			"next": "activity main"
 		},
 
-		"at home": {
+		"xxxat home": {
 			"title": "meter: location home",
 			"caption": "At home",
 			"help": "In or around your home / garden",
 			"ID": 30011,
 			"next": "enjoyment"
 		},
-		"travelling": {
+		"xxxtravelling": {
 			"title": "meter: location travelling",
 			"caption": "Travelling",
 			"help": "By car, foot, bus, train, bike, jogging...",
@@ -185,28 +191,28 @@
 			"category": "travel",
 			"next": "travel"
 		},
-		"at work": {
+		"xxxat work": {
 			"title": "meter: location work",
 			"caption": "At work",
 			"help": "I am at my place of work or school",
 			"ID": 30013,
 			"next": "enjoyment"
 		},
-		"at friends": {
+		"xxxat friends": {
 			"title": "meter: location friends",
 			"caption": "At a friend's",
 			"help": "At a friends or other peoples house",
 			"ID": 30014,
 			"next": "enjoyment"
 		},
-		"outdoors": {
+		"xxxoutdoors": {
 			"title": "meter: location outdoors",
 			"caption": "Outdoors",
 			"help": "Park, road, public places, sports field",
 			"ID": 30018,
 			"next": "enjoyment"
 		},
-		"other location": {
+		"xxxother location": {
 			"title": "meter: location other",
 			"caption": "Somewhere else",
 			"help": "None of the above",
@@ -362,25 +368,76 @@
 
 
 
-		"time 1": { "title": "activity time", "caption": "Now",        "help": "${time}",      "ID": 10001, "offset": 0, "next": "activity root" },
-		"time 2": { "title": "activity time", "caption": "5 min ago",  "help": "${time - 5}",  "ID": 10002, "offset": 5, "next": "activity root" },
-		"time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "offset": 15, "next": "activity root" },
-		"time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "offset": 30, "next": "activity root" },
-		"time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "offset": 60, "next": "activity root" },
-		"time 6": { "title": "activity time", "caption": "longer ago", "help": "More options", "ID": 10006, "offset": 0, "next": "activity time 2" },
+		"Time 1": { "title": "activity time", "caption": "Now",        "help": "${time}",      "ID": 10001, "value": 0, "next": "activity root" },
+		"Time 2": { "title": "activity time", "caption": "5 min ago",  "help": "${time - 5}",  "ID": 10002, "value": 5, "next": "activity root" },
+		"Time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "value": 15, "next": "activity root" },
+		"Time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "value": 30, "next": "activity root" },
+		"Time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "value": 60, "next": "activity root" },
+		"Time 6": { "title": "activity time", "caption": "longer ago", "help": "More options", "ID": 10006, "value": 0, "next": "activity time 2" },
 
-		"time 7": { "title": "activity time", "caption": "2 hours ago", "help": "${time - 120}", "ID": 10007, "next": "activity root" },
-		"time 8": { "title": "activity time", "caption": "3 hours ago", "help": "${time - 180}", "ID": 10008, "next": "activity root" },
-		"time 9": { "title": "activity time", "caption": "4 hours ago", "help": "${time - 240}", "ID": 10009, "next": "activity root" },
-		"time 10": { "title": "activity time", "caption": "5 hours ago", "help": "${time - 300}", "ID": 10010, "next": "activity root" },
-		"time 11": { "title": "activity time", "caption": "6 hours ago", "help": "${time - 360}", "ID": 10011, "next": "activity root" },
-		"time 12": { "title": "activity time", "caption": "more than 6 hours ago", "help": "Long time ago", "ID": 10012, "next": "activity root" },
-
-
+		"Time 7":  { "title": "activity time", "caption": "2 hours ago</br>${time - 120}", "help": "roughly",  "ID": 10007, "value": 120, "next": "activity root" },
+		"Time 8":  { "title": "activity time", "caption": "3 hours ago</br>${time - 180}", "help": "roughly",  "ID": 10008, "value": 180, "next": "activity root" },
+		"Time 9":  { "title": "activity time", "caption": "4 hours ago</br>${time - 240}", "help": "roughly",  "ID": 10009, "value": 240, "next": "activity root" },
+		"Time 10": { "title": "activity time", "caption": "5 hours ago</br>${time - 300}", "help": "roughly",  "ID": 10010, "value": 300, "next": "activity root" },
+		"Time 11": { "title": "activity time", "caption": "6 hours ago</br>${time - 360}", "help": "roughly",  "ID": 10011, "value": 360, "next": "activity root" },
+		"Time 12": { "title": "activity time", "caption": "Before ${time - 180}",          "help": "Long ago", "ID": 10012, "value": 0,   "next": "activity root" },
 
 
+		"Hour range 1": { "title": "activity time", "caption": "Day 1<br>5pm - 11pm", "help": "", "ID": 10101, "value": 0, "next": "hours 1" },
+		"Hour range 2": { "title": "activity time", "caption": "11pm - 5am",          "help": "", "ID": 10102, "value": 0, "next": "hours 2" },
+		"Hour range 3": { "title": "activity time", "caption": "5am - 11am",          "help": "", "ID": 10103, "value": 0, "next": "hours 3" },
+		"Hour range 4": { "title": "activity time", "caption": "11am - 5pm",          "help": "", "ID": 10104, "value": 0, "next": "hours 4" },
+		"Hour range 5": { "title": "activity time", "caption": "5pm - 11pm",          "help": "", "ID": 10105, "value": 0, "next": "hours 5" },
+		"Hour range 6": { "title": "activity time", "caption": "after 11pm",          "help": "", "ID": 10106, "value": 0, "next": "hours 6" },
 
+		"Hours 1": { "title": "activity time", "caption": "5pm", "help": "Day 1", "ID": 10200, "value": 1020,  "next": "minutes" },
+		"Hours 2": { "title": "activity time", "caption": "6pm", "help": "Day 1", "ID": 10201, "value": 1080,  "next": "minutes" },
+		"Hours 3": { "title": "activity time", "caption": "7pm", "help": "Day 1", "ID": 10202, "value": 1140,  "next": "minutes" },
+		"Hours 4": { "title": "activity time", "caption": "8pm", "help": "Day 1", "ID": 10203, "value": 1200,  "next": "minutes" },
+		"Hours 5": { "title": "activity time", "caption": "9pm", "help": "Day 1", "ID": 10204, "value": 1260,  "next": "minutes" },
+		"Hours 6": { "title": "activity time", "caption": "10pm","help": "Day 1", "ID": 10205, "value": 1320, "next": "minutes" },
 
+		"Hours 7":  { "title": "activity time", "caption": "11pm", "help": "Day 1", "ID": 10206, "value": 1380, "next": "minutes" },
+		"Hours 8":  { "title": "activity time", "caption": "0am",  "help": "Day 2", "ID": 10207, "value": 1440, "next": "minutes" },
+		"Hours 9":  { "title": "activity time", "caption": "1am",  "help": "Day 2", "ID": 10208, "value": 1500, "next": "minutes" },
+		"Hours 10": { "title": "activity time", "caption": "2am",  "help": "Day 2", "ID": 10209, "value": 1560, "next": "minutes" },
+		"Hours 11": { "title": "activity time", "caption": "3am",  "help": "Day 2", "ID": 10210, "value": 1620, "next": "minutes" },
+		"Hours 12": { "title": "activity time", "caption": "4am",  "help": "Day 2", "ID": 10211, "value": 1680, "next": "minutes" },
+
+		"Hours 13": { "title": "activity time", "caption": "5am",  "help": "Day 2", "ID": 10212, "value": 1740, "next": "minutes" },
+		"Hours 14": { "title": "activity time", "caption": "6am",  "help": "Day 2", "ID": 10213, "value": 1800, "next": "minutes" },
+		"Hours 15": { "title": "activity time", "caption": "7am",  "help": "Day 2", "ID": 10214, "value": 1860, "next": "minutes" },
+		"Hours 16": { "title": "activity time", "caption": "8am",  "help": "Day 2", "ID": 10215, "value": 1920, "next": "minutes" },
+		"Hours 17": { "title": "activity time", "caption": "9am",  "help": "Day 2", "ID": 10216, "value": 1980, "next": "minutes" },
+		"Hours 18": { "title": "activity time", "caption": "10am", "help": "Day 2", "ID": 10217, "value": 2040, "next": "minutes" },
+
+		"Hours 19": { "title": "activity time", "caption": "11am", "help": "Day 2", "ID": 10218, "value": 2100, "next": "minutes" },
+		"Hours 20": { "title": "activity time", "caption": "12am", "help": "Day 2", "ID": 10219, "value": 2160, "next": "minutes" },
+		"Hours 21": { "title": "activity time", "caption": "1pm",  "help": "Day 2", "ID": 10220, "value": 2220, "next": "minutes" },
+		"Hours 22": { "title": "activity time", "caption": "2pm",  "help": "Day 2", "ID": 10221, "value": 2280, "next": "minutes" },
+		"Hours 23": { "title": "activity time", "caption": "3pm",  "help": "Day 2", "ID": 10222, "value": 2340, "next": "minutes" },
+		"Hours 24": { "title": "activity time", "caption": "4pm",  "help": "Day 2", "ID": 10223, "value": 2400, "next": "minutes" },
+
+		"Hours 25": { "title": "activity time", "caption": "5pm", "help": "Day 1", "ID": 10224, "value": 2460, "next": "minutes" },
+		"Hours 26": { "title": "activity time", "caption": "6pm", "help": "Day 1", "ID": 10225, "value": 2520, "next": "minutes" },
+		"Hours 27": { "title": "activity time", "caption": "7pm", "help": "Day 1", "ID": 10226, "value": 2580, "next": "minutes" },
+		"Hours 28": { "title": "activity time", "caption": "8pm", "help": "Day 1", "ID": 10227, "value": 2640, "next": "minutes" },
+		"Hours 29": { "title": "activity time", "caption": "9pm", "help": "Day 1", "ID": 10228, "value": 2700, "next": "minutes" },
+		"Hours 30": { "title": "activity time", "caption": "10pm","help": "Day 1", "ID": 10229, "value": 2760, "next": "minutes" },
+
+		"Minutes 1": { "title": "activity time", "caption": "00", "help": "min", "ID": 10300, "value":  0, "next": "minutes 2" },
+		"Minutes 2": { "title": "activity time", "caption": "10", "help": "min", "ID": 10301, "value": 10, "next": "minutes 2" },
+		"Minutes 3": { "title": "activity time", "caption": "20", "help": "min", "ID": 10302, "value": 20, "next": "minutes 2" },
+		"Minutes 4": { "title": "activity time", "caption": "30", "help": "min", "ID": 10303, "value": 30, "next": "minutes 2" },
+		"Minutes 5": { "title": "activity time", "caption": "40", "help": "min", "ID": 10304, "value": 40, "next": "minutes 2" },
+		"Minutes 6": { "title": "activity time", "caption": "50", "help": "min", "ID": 10305, "value": 50, "next": "minutes 2" },
+
+		"Minutes 7":  { "title": "activity time", "caption": "0", "help": "min", "ID": 10306, "value": 0, "next": "activity root" },
+		"Minutes 8":  { "title": "activity time", "caption": "2", "help": "min", "ID": 10307, "value": 2, "next": "activity root" },
+		"Minutes 9":  { "title": "activity time", "caption": "4", "help": "min", "ID": 10308, "value": 4, "next": "activity root" },
+		"Minutes 10": { "title": "activity time", "caption": "5", "help": "min", "ID": 10309, "value": 5, "next": "activity root" },
+		"Minutes 11": { "title": "activity time", "caption": "6", "help": "min", "ID": 10310, "value": 6, "next": "activity root" },
+		"Minutes 12": { "title": "activity time", "caption": "8", "help": "min", "ID": 10311, "value": 8, "next": "activity root" },
 
 		"care": {
 			"title": "Unspecified personal care",
