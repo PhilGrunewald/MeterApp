@@ -183,7 +183,7 @@
 			"ID": 30011,
 			"next": "enjoyment"
 		},
-		"xxxtravelling": {
+		"travelling": {
 			"title": "meter: location travelling",
 			"caption": "Travelling",
 			"help": "By car, foot, bus, train, bike, jogging...",
@@ -329,6 +329,7 @@
 			"caption": "Not at all",
 			"help": "I enjoyed this time not at all",
 			"ID": 20002,
+			"value": 1,
 			"next": "home"
 		},
 		"not very much": {
@@ -337,6 +338,7 @@
 			"caption": "Not very much",
 			"help": "I enjoyed this time not very much.",
 			"ID": 20003,
+			"value": 2,
 			"next": "home"
 		},
 		"neutral": {
@@ -345,6 +347,7 @@
 			"caption": "Neutral",
 			"help": "I enjoyed this time somewhat",
 			"ID": 20004,
+			"value": 3,
 			"next": "home"
 		},
 		"somewhat": {
@@ -353,6 +356,7 @@
 			"caption": "Somewhat",
 			"help": "I enjoyed this time",
 			"ID": 20005,
+			"value": 4,
 			"next": "home"
 		},
 		"very much": {
@@ -361,6 +365,7 @@
 			"caption": "Very much",
 			"help": "I enjoyed this time very much.",
 			"ID": 20006,
+			"value": 5,
 			"next": "home"
 		},
 
