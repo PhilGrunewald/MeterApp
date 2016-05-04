@@ -28,6 +28,13 @@
 			"ID": 10000,
 			"next": "help"
 		},
+		"Back": {
+			"title": "meter: back",
+			"caption": "Back",
+			"help": "Return to last screen",
+			"ID": -1,
+			"next": "this is populated by js"
+		},
 
 		"female": 				{ "title": "survey: gender", "caption": "Female", "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
 		"male": 				{ "title": "survey: gender", "caption": "Male", "help": "You would describe yourself as male", "ID": 90012, "next": "survey age" },
