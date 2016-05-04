@@ -57,10 +57,10 @@
 					+ Add activity
 
 					<div class="row">
-						<div class="col" onclick="app.navigateTo('activity root', 'home')">
+						<div class="col" onclick="app.navigateTo('activity root')">
 							<h3>Now</h3>
 						</div>
-						<div class="col" onclick="app.navigateTo('activity time', 'home')">
+						<div class="col" onclick="app.navigateTo('activity time')">
 							<h3>Recent</h3>
 						</div>
 					</div>
@@ -125,8 +125,8 @@
 
 				<div class="footer-nav">
 					<div class="row">
-						<div id="btn-back" class="col btn-activity">Back</div>
-						<div id="btn-done" class="col btn-activity">Done</div>
+						<div id="btn-back" class="col btn-activity" onclick="app.goBack();">Back</div>
+						<div id="btn-done" class="col btn-activity" onclick="app.navigateTo('home')">Done</div>
 					</div>
 				</div>
 

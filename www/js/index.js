@@ -105,7 +105,12 @@ var app = {
     },
         
     navigateTo: function(screen_id, prev_activity) {
-        if (prev_activity !== undefined) {
+    	
+    	console.log("Currently on screen "+screen_id);
+    	app.history.push(screen_id);
+    	console.log("History: "+app.history);
+
+    	if (prev_activity !== undefined) {
         	
             // within the code range of 'activity codes'
             if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
@@ -152,7 +157,7 @@ var app = {
             }
         }
         else {
-            console.log("IT'S UNDEFINED");
+            console.log("Previous activity undefined");
         }
         
         console.log("switching to " + screen_id);
@@ -220,15 +225,22 @@ var app = {
     
     goBack: function() {
     	
-    	prev = app.history.pop()
+    	console.log(app.history);
     	
-    	if (prev !== null) {
-    		app.navigateTo(prev, )
+    	curr = app.history.pop();
+    	prev = app.history.pop();
+    	
+    	if (prev === undefined) {
+    		app.showActivityList();
+    	} else {
+    		app.navigateTo(prev, 'Back');
     	}
     },
     
 		
     showActivityList: function() {
+    	
+    	app.history = new Array();
 		// localStorage.clear();
         log.writeDebug("3 showActivityList" + activityList);          
         var activityList = utils.getList(ACTIVITY_LIST) || []
