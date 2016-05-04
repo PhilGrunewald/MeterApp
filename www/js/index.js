@@ -76,6 +76,7 @@ var app = {
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
+        app.history          = new Array();
         
 		localStorage.clear(); // on restart browser failed to load localStorage
 
@@ -105,10 +106,11 @@ var app = {
         
     navigateTo: function(screen_id, prev_activity) {
         if (prev_activity !== undefined) {
+        	
             // within the code range of 'activity codes'
             if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
-            utils.save(CURR_ACTIVITY, prev_activity);
-            utils.save(CURR_ACTIVITY_ID, app.activities[prev_activity].ID);
+	            utils.save(CURR_ACTIVITY, prev_activity);
+	            utils.save(CURR_ACTIVITY_ID, app.activities[prev_activity].ID);
             }
 			// if going via "Recent" > prompted for time offset 
 			// apply offset to current time
@@ -135,11 +137,11 @@ var app = {
             // NOTE not all branches ask for location - so we ASSUME location doesn't change if not explicitly reported
             // On the 'home' view, the activity edit option could allow them to change 'offending' wrong locations
             else if (app.activities[prev_activity].ID > LOCATION_MIN && app.activities[prev_activity].ID < LOCATION_MAX) {
-            utils.save(CURR_LOCATION, app.activities[prev_activity].value);
+            	utils.save(CURR_LOCATION, app.activities[prev_activity].value);
             }
             // within the code range of 'enjoyments'
             else if (app.activities[prev_activity].ID > ENJOYMENT_MIN && app.activities[prev_activity].ID < ENJOYMENT_MAX) {
-            utils.save(CURR_ENJOYMENT, prev_activity);
+            	utils.save(CURR_ENJOYMENT, prev_activity);
             }
             // within the code range of 'survey'
             else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
@@ -214,6 +216,15 @@ var app = {
             app.activityListPane.hide();
             app.choicesPane.show();
         }
+    },
+    
+    goBack: function() {
+    	
+    	prev = app.history.pop()
+    	
+    	if (prev !== null) {
+    		app.navigateTo(prev, )
+    	}
     },
     
 		
