@@ -152,7 +152,7 @@ var app = {
             else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
 				// save the survey screen_id, such that we can return here via screen_id = 'survey'
             	utils.save(SURVEY_STATUS, screen_id);
-                log.writeSurvey(prev_activity);          
+                log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);          
                 console.log("survey entry: " + prev_activity);
             }
         }
@@ -160,7 +160,7 @@ var app = {
             console.log("Previous activity undefined");
         }
         
-        console.log("switching to " + screen_id);
+        console.log("XXX switching to " + screen_id);
         log.writeDebug("switching to " + screen_id);
 
         if (screen_id == "home" ) {

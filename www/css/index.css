@@ -34,12 +34,14 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:16px;
+    font-size:26px;
     height:100%;
     width:100%;
     
     text-align: center;
-    position: relative
+    position: relative;
+
+	color: #333333;
 }
 
 /* Portrait layout (default) */

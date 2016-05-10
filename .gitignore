@@ -1,3 +1,6 @@
+.gitignore
+config.xml
 platforms
+plugins/**
 MeterApp.komodoproject
 

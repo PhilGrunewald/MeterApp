@@ -8,17 +8,24 @@ var log = {
 	    logAct: null,
 	    logDebug: null,
 	    logSurvey: null,
+		id: 9999,
 	    
-	    init: function() {
-	        if (device.platform != "browser") {        
-	            window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
-	                console.log("got main dir",dir);
+		init: function() {
+			if (device.platform != "browser") {        
+				window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
+					console.log("got main dir",dir);
 					// the existence of folder METER is assumed
 					// in this folder is also id.txt to identify the user
+					//
+					// Read ID file
+					// XXX to be implemented
+
+
+
 	                dir.getFile("METER/survey.csv", {create:true}, function(file) {
 	                    console.log("got survey file", file);
 	                    log.logSurvey = file;
-	                    log.writeSurvey("New session");          
+	                    log.writeSurvey("New session\n");          
 	                }, function(err) {
 	                    console.log(err);
 	                });
@@ -40,6 +47,7 @@ var log = {
 	        }
 	    },
 	    
+
 	    writeToFile: function(obj, str) {
 	    	obj.createWriter(function(fileWriter) {
 	            fileWriter.seek(fileWriter.length);
@@ -69,11 +77,11 @@ var log = {
 	        log.writeLog(log.logDebug, str)
 	    },
 
-	    writeSurvey: function(str) {
+	    writeSurvey: function(title,value) {
 	    	var dt_recorded = new Date().toISOString();
-	    	var logstr = [dt_recorded, str].join() + "\n";
+	    	var logstr = [dt_recorded, title, value, log.id].join() + "\n";
 	        console.log("about to write survey log");
-	        log.writeLog(log.logSurvey, str)
+	        log.writeLog(log.logSurvey, logstr)
 	    },
 
 	    writeActivity: function() {
