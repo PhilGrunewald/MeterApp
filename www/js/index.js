@@ -85,9 +85,7 @@ var app = {
             $.getJSON('js/screens.json', function(screen_data) {
                 app.screens = screen_data.screens;
                 //app.navigateTo("home");
-            	log.writeDebug("001...");          
                 app.showActivityList();
-            	log.writeDebug("002...");          
             });    
         });
         
@@ -101,14 +99,14 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        console.log('Received Event: ' + id);
+        //console.log('Received Event: ' + id);
     },
         
     navigateTo: function(screen_id, prev_activity) {
     	
-    	console.log("Currently on screen "+screen_id);
+    	//console.log("Currently on screen "+screen_id);
     	app.history.push(screen_id);
-    	console.log("History: "+app.history);
+    	//console.log("History: "+app.history);
 
     	if (prev_activity !== undefined) {
         	
@@ -121,12 +119,11 @@ var app = {
 			// apply offset to current time
             else if (app.activities[prev_activity].ID > ACTIVITY_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_TIME_MAX) {
 				var offset = app.activities[prev_activity].value * 60000;
-        		console.log('apply offset: ' + offset);
+        		//console.log('apply offset: ' + offset);
 				var dt_ = Date.now();
 				var dt_activity = new Date(dt_-offset).toISOString();
 					utils.save(ACTIVITY_DATETIME, dt_activity);
 				}
-
 
 			// Set specific time in hours and minutes
             else if (app.activities[prev_activity].ID > ACTIVITY_SET_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_SET_TIME_MAX) {
@@ -135,33 +132,30 @@ var app = {
 				dt_activity = new Date(dt_activity);
 				dt_activity = new Date(dt_activity.getTime() + addition).toISOString();
 				utils.save(ACTIVITY_DATETIME, dt_activity);
-				console.log('dt_activity : ' + dt_activity);
+				//console.log('dt_activity : ' + dt_activity);
 				}
 
             // within the code range of 'locations'
-            // NOTE not all branches ask for location - so we ASSUME location doesn't change if not explicitly reported
-            // On the 'home' view, the activity edit option could allow them to change 'offending' wrong locations
             else if (app.activities[prev_activity].ID > LOCATION_MIN && app.activities[prev_activity].ID < LOCATION_MAX) {
             	utils.save(CURR_LOCATION, app.activities[prev_activity].value);
             }
             // within the code range of 'enjoyments'
             else if (app.activities[prev_activity].ID > ENJOYMENT_MIN && app.activities[prev_activity].ID < ENJOYMENT_MAX) {
-            	utils.save(CURR_ENJOYMENT, prev_activity);
+            	utils.save(CURR_ENJOYMENT, app.activities[prev_activity].value);
             }
             // within the code range of 'survey'
             else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
 				// save the survey screen_id, such that we can return here via screen_id = 'survey'
             	utils.save(SURVEY_STATUS, screen_id);
                 log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);          
-                console.log("survey entry: " + prev_activity);
+                //console.log("survey entry: " + prev_activity);
             }
         }
-        else {
-            console.log("Previous activity undefined");
-        }
         
-        console.log("XXX switching to " + screen_id);
-        log.writeDebug("switching to " + screen_id);
+        // console.log("XXX switching to " + screen_id);
+        // log.writeDebug("switching to " + screen_id);
+		// xxx 16_05_12
+		log.readID()
 
         if (screen_id == "home" ) {
             // an entry has been completed
@@ -182,17 +176,16 @@ var app = {
 				// XXX TODO pull this date from ini file or allow user to set it once
 				var date_activity = new Date(2016, 1, 22);
                 utils.save(ACTIVITY_DATETIME, date_activity);
-                console.log("RESET");
+                // console.log("RESET");
 			}
-			//
-			//
+
             // an entry is still in the middle of completion
             if (screen_id == "survey") {
                 // "survey" is where the top navigation button points to
                 // here it gets redirected to the latest survey screen
                 // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
                 screen_id = utils.get(SURVEY_STATUS);
-                console.log("Survey ID" + screen_id);
+                // console.log("Survey ID" + screen_id);
             }
             // populate buttons XXX move to 'if not home'?
             var screen_ = app.screens[screen_id];
@@ -225,7 +218,7 @@ var app = {
     
     goBack: function() {
     	
-    	console.log(app.history);
+    	// console.log(app.history);
     	
     	curr = app.history.pop();
     	prev = app.history.pop();
@@ -242,7 +235,7 @@ var app = {
     	
     	app.history = new Array();
 		// localStorage.clear();
-        log.writeDebug("3 showActivityList" + activityList);          
+        // log.writeDebug("3 showActivityList" + activityList);          
         var activityList = utils.getList(ACTIVITY_LIST) || []
 	    	
 	    var curr_acts = "";
@@ -261,12 +254,12 @@ var app = {
         				'{2}',
         				'<span class="bordered">{3}</span>')
             
-            console.log("ACTIVITIES: " + JSON.stringify(activityList))
+            // console.log("ACTIVITIES: " + JSON.stringify(activityList))
             
 		    	
             Object.keys(activityList).forEach( function(key, index) {
             	var item = activityList[key];
-            	console.log("ITEM is:", item)
+            	// console.log("ITEM is:", item)
 				curr_acts += row.format(utils.format_time(item.time), 
 										app.activities[item.name].caption,
 										'app.removeActivity(\'' + key + '\')',
@@ -276,11 +269,9 @@ var app = {
             })
         } else {
             
-            console.log("REALLY NO ACTIVITIES")
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
         
-        log.writeDebug("4 showActivityList");          
         app.title.html("Activities")
         app.activity_list_div.html(curr_acts)
         app.choicesPane.hide();
@@ -289,7 +280,7 @@ var app = {
     
     addActivityToList: function() {
         activityList = utils.getList(ACTIVITY_LIST) || {};
-        console.log("ADDING TO CURRENT ACTIVITY: "+utils.get(CURR_ACTIVITY))
+        // console.log("ADDING TO CURRENT ACTIVITY: "+utils.get(CURR_ACTIVITY))
 
 		var dt_act;
 		if (utils.get(ACTIVITY_DATETIME) == "same") {
@@ -306,8 +297,7 @@ var app = {
         // TODO: clear current activity
         
         utils.saveList(ACTIVITY_LIST, activityList)
-        log.writeDebug("2 addActivityToList");          
-        console.log("DDD"+ utils.get(CURR_ACTIVITY) )
+        // console.log("DDD"+ utils.get(CURR_ACTIVITY) )
 		log.writeActivity();          
 		//
     },
@@ -315,29 +305,19 @@ var app = {
     removeActivity: function (uuid) {
     	    	
     	if (uuid) {
-    		
         	activityList = utils.getList(ACTIVITY_LIST) || {};
-        	
         	if (uuid in activityList) {
         		delete activityList[uuid];
-            	
             	utils.saveList(ACTIVITY_LIST, activityList)
-                console.log("XXX Current List "+utils.getList(ACTIVITY_LIST))
-                log.writeDebug("2 addActivityToList");
-            	
             	app.showActivityList();
         	}
-    			
     	}
-    	
     },
     
     toggleCaption: function() {
         
         $(".btn-caption").toggle();
     },
-    
-
 };
 
 app.initialize();
