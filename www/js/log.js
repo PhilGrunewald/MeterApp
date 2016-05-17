@@ -9,7 +9,7 @@ var log = {
 	    logDebug: null,
 	    logSurvey: null,
 	    logID: null,
-		metaID: 9999,
+		metaID: null,
 	    
 		init: function() {
 			if (device.platform != "browser") {        
@@ -21,29 +21,22 @@ var log = {
 					// Read ID file
 					// XXX to be implemented
 
+					log.metaID="99997";
 
-	                dir.getFile("METER/id.txt", {create:true}, function(file) {
-	                    // console.log("got id file", file);
-						log.logID = file;
-	                	}, function(err) {
-	                    	console.log(err);
-						});
-
-	                dir.getFile("METER/survey.csv", {create:true}, function(file) {
+	                dir.getFile("METER/"+log.metaID+"_ind.csv", {create:true}, function(file) {
 	                    console.log("got survey file", file);
 	                    log.logSurvey = file;
-	                    log.writeSurvey("New session\n");          
 	                }, function(err) {
 	                    console.log(err);
 	                });
-	                dir.getFile("METER/activities.csv", {create:true}, function(file) {
+	                dir.getFile("METER/"+log.metaID+"_act.csv", {create:true}, function(file) {
 	                    console.log("got activities file", file);
 	                    log.logAct = file;
-	                    log.writeActivity("Brand new session");          
 	                }, function(err) {
 	                    console.log(err);
 	                });
-	                dir.getFile("METER/debug.csv", {create:true}, function(file) {
+					// I made this txt, so that all data is distinct as csv files
+	                dir.getFile("METER/debug.txt", {create:true}, function(file) {
 	                    console.log("got debug file", file);
 	                    log.logDebug = file;
 	                    log.writeLog("App started");          
@@ -60,8 +53,8 @@ var log = {
 				// var idFile = new File("/xsdcard/xMETER/id.txt");
 				var idblob = new Blob([log.logID], { type: "text/plain" });
 	        	reader.onloadend = function(evt) {
-	            	console.log("XXX ++++++++++:  ", evt.target.result);
-					log.metaID = evt.target.result;
+	            	// console.log("XXX ++++++++++:  ", evt.target.result);
+					//log.metaID = evt.target.result;
 	        		};
 				reader.readAsText(idblob)
 	            console.log("META:  ", log.metaID);
