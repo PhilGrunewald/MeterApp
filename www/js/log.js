@@ -53,7 +53,9 @@ var log = {
     readID: function( callback ) {
     	$.get(log.pathID, function(id_) {
     		metaID = $.trim(id_);
-    		callback(metaID);
+    		if (typeof(callback) === "function" ) {
+    			callback(metaID);
+    		}
     		log.metaID = metaID;
 		});
     	
