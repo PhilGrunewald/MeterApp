@@ -86,7 +86,6 @@ var app = {
             app.activities = data.activities;
             $.getJSON('js/screens.json', function(screen_data) {
                 app.screens = screen_data.screens;
-                //app.navigateTo("home");
                 app.showActivityList();
             });    
         });
@@ -114,11 +113,6 @@ var app = {
 
     	if (prev_activity !== undefined) {
     		
-    		if (prev_activity == TO_BE_SPECIFIED) {
-    			$("div#other-specify").show();
-    			$("div#btn-activity").hide();
-    		}
-    		
     		// previous activity is defined but not known (free text)
     		if (!(prev_activity in app.activities)) {
     			app.activities[prev_activity] = {
@@ -129,6 +123,12 @@ var app = {
     					"next"    : screen_id
     			}
     		}
+
+    		if (prev_activity == TO_BE_SPECIFIED) {
+    			$("div#other-specify").show();
+				screen_id = "other specify";
+    		}
+    		
             // within the code range of 'activity codes'
     		if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
 	            utils.save(CURR_ACTIVITY, prev_activity);
@@ -176,17 +176,17 @@ var app = {
 
         if (screen_id == "home" ) {
             // an entry has been completed
+			$("#btn-time").html(utils.format("${time}"));
             app.addActivityToList();
             app.showActivityList();
             app.choicesPane.hide();
             app.activityListPane.show();
-        } else {
-        	
-            CATEGORIES.forEach(function (cat) {
-                app.actionButtons.each(function (button) {
-                	$(button).removeClass(cat);
-                });
-            });
+		} else {
+			CATEGORIES.forEach(function (cat) {
+				app.actionButtons.each(function (button) {
+					$(button).removeClass(cat);
+				});
+			});
             
             if (screen_id == "activity time") {
 				// user sets own time
