@@ -8,7 +8,7 @@
 		"survey root": {
 			"title": "What gender are you?",
 			"help": "at this moment",
-			"activities": [ "female", "male", "survey gender other", "survey gender skip", "blank", "blank" ]
+			"activities": [ "female", "male", "survey gender other", "survey gender skip", "Blank", "Blank" ]
 		},
 		"survey age": {
 			"title": "What age group are you?",
@@ -28,7 +28,7 @@
 		"survey working regularity": {
 			"title": "Are these hours always the same?",
 			"help": "tap the one that fits best",
-			"activities": [ "Working hours change 1", "Working hours change 2", "Working hours change 3", "Working hours change 4", "blank", "blank" ]
+			"activities": [ "Working hours change 1", "Working hours change 2", "Working hours change 3", "Working hours change 4", "Blank", "Blank" ]
 		},
 		"survey working home": {
 			"title": "How often do you work from home per month?",
@@ -130,7 +130,7 @@
 				"work",
 				"Leisure",
 				"food",
-				"other",
+				"Appliances",
 				"more recent"
 			]
 		},
@@ -152,10 +152,10 @@
 			"activities": [
 				"care wash",
 				"Care rest sleep",
-				"care child",
+				"Care child",
 				"Care personal",
-				"care others",
-				"Unspecified household and family care"
+				"Care others",
+				"Care other"
 			]
 		},
 		"care personal": {
@@ -186,24 +186,58 @@
 			"title": "Specify if you like",
 			"help": "at this moment",
 			"activities": [
-				"care wash shower",
-				"care wash bath",
-				"care wash sink",
-				"care wash dress",
-				"care wash hygiene",
-				"care wash other"
+				"Care wash shower",
+				"Care wash bath",
+				"Care wash sink",
+				"Care wash dress",
+				"Care wash hygiene",
+				"Care wash other"
+			]
+		},
+		"care wash bath": {
+			"title": "About the bath",
+			"help": "at this moment",
+			"activities": [
+				"Care wash bath running",
+				"Care wash bath bathing",
+				"Care wash bath children",
+				"Care wash bath other",
+				"Blank",
+				"Blank"
 			]
 		},
 		"care child": {
 			"title": "Describe the child care:",
 			"help": "at this moment",
 			"activities": [
-				"care child feed",
-				"care child play",
-				"care child teach",
-				"care child supervise",
-				"care child physical",
-				"care child other"
+				"Care child feed",
+				"Care child play",
+				"Care child teach",
+				"Care child supervise",
+				"Care child practical",
+				"Care child other"
+			]
+		},
+		"care others": {
+			"title": "Providing care",
+			"help": "Type of care",
+			"activities": [
+				"Care others physical",
+				"Care others company",
+				"Care others dependent physical",
+				"Care others dependent company",
+				"Blank",
+				"Care others other"
+			]
+		},
+		"care child practical": {
+			"title": "Practical help for child",
+			"help": "at this moment",
+			"activities": [
+				"Care wash bath children",
+				"Care child dress",
+				"Care child physical",
+				"Care child other"
 			]
 		},
 		"travel": {
@@ -223,11 +257,23 @@
 			"help": "Why did you do this journey?",
 			"activities": [
 				"Travel purpose commute",
-				"Travel purpose school",
+				"Travel purpose children",
 				"Travel purpose work",
 				"Travel purpose shopping",
 				"Travel purpose leisure",
 				"Travel purpose 2"
+			]
+		},
+		"travel purpose children": {
+			"title": "taking children",
+			"help": "Why did you do this journey?",
+			"activities": [
+				"Travel purpose children school",
+				"Travel purpose children sport",
+				"Travel purpose children social",
+				"Travel purpose children other",
+				"Blank",
+				"Blank"
 			]
 		},
 		"travel purpose 2": {
@@ -250,8 +296,8 @@
 				"Leisure TV",
 				"Unspecified information by computing",
 				"exercise",
-				"Travel purpose leisure",
-				"other"
+				"Care personal",
+				"Leisure other"
 			]
 		},
 		"food": {
@@ -263,7 +309,7 @@
 				"Food eat snack",
 				"Food clear",
 				"Food drink hot",
-				"Other specified food management"
+				"Work house other"
 			]
 		},
 		"food preparation": {
@@ -275,7 +321,7 @@
 				"Baking",
 				"Food eat snack",
 				"Food clear",
-				"Other specified food management"
+				"Food other"
 			]
 		},
 		"food preparation hot": {
@@ -308,9 +354,57 @@
 				"Food eat hot",
 				"Food eat cold",
 				"Food eat snack",
-				"blank",
-				"blank",
+				"Blank",
+				"Blank",
 				"Other specify"
+			]
+		},
+		"appliances": {
+			"title": "Appliance use",
+			"help": "Use of electrical goods",
+			"activities": [
+				"Appliances Washing machine",
+				"Appliances Tumble dryer",
+				"Appliances Dish washer",
+				"Appliances Oven",
+				"Appliances Microwave",
+				"Appliances 2"
+			]
+		},
+		"appliances 2": {
+			"title": "Appliance use",
+			"help": "Use of electrical goods",
+			"activities": [
+				"Appliances Computer",
+				"Appliances TV",
+				"Appliances Kettle",
+				"Appliances Tools",
+				"Appliances other",
+				"Appliances 3"
+			]
+		},
+		"appliances 3": {
+			"title": "Appliance use",
+			"help": "Use of electrical goods",
+			"activities": [
+				"Appliances Toaster",
+				"Appliances Mower",
+				"Appliances Hedge trimmer",
+				"Appliances Hair dryer",
+				"Appliances other",
+				"Appliances 4"
+			]
+		},
+		"appliances 4": {
+			"title": "Appliance use",
+			"help": "Use of electrical goods",
+			"activities": [
+				"Appliances Lights off",
+				"Appliances Lights on",
+				"Appliances Bread maker",
+				"Appliances Phone charger",
+				"Appliances Radio",
+				"Appliances other"
 			]
 		},
 		"other": {
@@ -341,10 +435,10 @@
 			"title": "What house work do you do:",
 			"help": "at this moment",
 			"activities": [
+				"Work house clear up",
 				"Cleaning dwelling",
 				"Laundry",
-				"Arranging household goods and materials",
-				"Other specified food management",
+				"Work house food",
 				"Disposal of Waste",
 				"Work house other"
 			]
@@ -369,6 +463,18 @@
 				"Cleaning vacuum",
 				"Cleaning floors",
 				"Cleaning other"
+			]
+		},
+		"other people": {
+			"title": "How many people are with you?",
+			"help": "Number of people around you.",
+			"activities": [
+				"Other people 1",
+				"Other people 2",
+				"Other people 3",
+				"Other people 4",
+				"Other people 5",
+				"Other people 6"
 			]
 		},
 		"enjoyment": {

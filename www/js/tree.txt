@@ -1,0 +1,1155 @@
+Home
+.   Care for you / others
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+.   Work /<br>Housework
+.   .   Main job
+.   .   Other job
+.   .   Volunteering
+.   .   House keeping
+.   .   .   Clearing up
+.   .   .   Cleaning
+.   .   .   .   Cleaning / dusting
+.   .   .   .   Vacuum cleaning
+.   .   .   .   Cleaning floors
+.   .   .   .   Other
+.   .   .   Laundry
+.   .   .   .   Washing machine
+.   .   .   .   Sorting
+.   .   .   .   Tumble dryer
+.   .   .   .   Hanging out laundry
+.   .   .   .   House keeping
+.   .   .   .   Other
+.   .   .   Food preparation
+.   .   .   .   Cold meal
+.   .   .   .   Hot / cooked meal
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Food management/preparation
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Snack
+.   .   .   .   Clear table
+.   .   .   .   .   Laying / Clearing up
+.   .   .   .   .   By hand
+.   .   .   .   .   Dish washer
+.   .   .   .   .   Dishwasher and by hand
+.   .   .   .   .   Other
+.   .   .   .   Other
+.   .   .   Clearing / waste
+.   .   .   Other
+.   .   Study
+.   .   Other
+.   Leisure /<br>free time
+.   .   Resting - time out
+.   .   Watching TV / video
+.   .   Computer or mobile device
+.   .   Exercise / sport
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Other
+.   Food
+.   .   Food preparation
+.   .   .   Cold meal
+.   .   .   Hot / cooked meal
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Food management/preparation
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Snack
+.   .   .   Clear table
+.   .   .   .   Laying / Clearing up
+.   .   .   .   By hand
+.   .   .   .   Dish washer
+.   .   .   .   Dishwasher and by hand
+.   .   .   .   Other
+.   .   .   Other
+.   .   Eating
+.   .   .   Hot meal
+.   .   .   Cold meal
+.   .   .   Snack
+.   .   .   
+.   .   .   
+.   .   .   XXX Provide option to enter text XXX
+.   .   Snack
+.   .   Clear table
+.   .   .   Laying / Clearing up
+.   .   .   By hand
+.   .   .   Dish washer
+.   .   .   Dishwasher and by hand
+.   .   .   Other
+.   .   Tea or coffee
+.   .   Other
+.   Use appliances
+.   .   Washing machine
+.   .   Tumble dryer
+.   .   Dish washer
+.   .   Oven
+.   .   Microwave
+.   .   Show more
+.   .   .   Computer
+.   .   .   TV
+.   .   .   Kettle
+.   .   .   Tools
+.   .   .   Other
+.   .   .   Show more
+.   .   .   .   Toaster
+.   .   .   .   Mower
+.   .   .   .   Hedge trimmer
+.   .   .   .   Hair dryer
+.   .   .   .   Other
+.   .   .   .   Show more
+.   .   .   .   .   Lights off
+.   .   .   .   .   Lights on
+.   .   .   .   .   Bread maker
+.   .   .   .   .   Phone charger
+.   .   .   .   .   Radio
+.   .   .   .   .   Other
+.   More / pick recent activities
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+Work
+.   Care for you / others
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+.   Work /<br>Housework
+.   .   Main job
+.   .   Other job
+.   .   Volunteering
+.   .   House keeping
+.   .   .   Clearing up
+.   .   .   Cleaning
+.   .   .   .   Cleaning / dusting
+.   .   .   .   Vacuum cleaning
+.   .   .   .   Cleaning floors
+.   .   .   .   Other
+.   .   .   Laundry
+.   .   .   .   Washing machine
+.   .   .   .   Sorting
+.   .   .   .   Tumble dryer
+.   .   .   .   Hanging out laundry
+.   .   .   .   House keeping
+.   .   .   .   Other
+.   .   .   Food preparation
+.   .   .   .   Cold meal
+.   .   .   .   Hot / cooked meal
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Food management/preparation
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Snack
+.   .   .   .   Clear table
+.   .   .   .   .   Laying / Clearing up
+.   .   .   .   .   By hand
+.   .   .   .   .   Dish washer
+.   .   .   .   .   Dishwasher and by hand
+.   .   .   .   .   Other
+.   .   .   .   Other
+.   .   .   Clearing / waste
+.   .   .   Other
+.   .   Study
+.   .   Other
+.   Leisure /<br>free time
+.   .   Resting - time out
+.   .   Watching TV / video
+.   .   Computer or mobile device
+.   .   Exercise / sport
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Other
+.   Food
+.   .   Food preparation
+.   .   .   Cold meal
+.   .   .   Hot / cooked meal
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Food management/preparation
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Snack
+.   .   .   Clear table
+.   .   .   .   Laying / Clearing up
+.   .   .   .   By hand
+.   .   .   .   Dish washer
+.   .   .   .   Dishwasher and by hand
+.   .   .   .   Other
+.   .   .   Other
+.   .   Eating
+.   .   .   Hot meal
+.   .   .   Cold meal
+.   .   .   Snack
+.   .   .   
+.   .   .   
+.   .   .   XXX Provide option to enter text XXX
+.   .   Snack
+.   .   Clear table
+.   .   .   Laying / Clearing up
+.   .   .   By hand
+.   .   .   Dish washer
+.   .   .   Dishwasher and by hand
+.   .   .   Other
+.   .   Tea or coffee
+.   .   Other
+.   Use appliances
+.   .   Washing machine
+.   .   Tumble dryer
+.   .   Dish washer
+.   .   Oven
+.   .   Microwave
+.   .   Show more
+.   .   .   Computer
+.   .   .   TV
+.   .   .   Kettle
+.   .   .   Tools
+.   .   .   Other
+.   .   .   Show more
+.   .   .   .   Toaster
+.   .   .   .   Mower
+.   .   .   .   Hedge trimmer
+.   .   .   .   Hair dryer
+.   .   .   .   Other
+.   .   .   .   Show more
+.   .   .   .   .   Lights off
+.   .   .   .   .   Lights on
+.   .   .   .   .   Bread maker
+.   .   .   .   .   Phone charger
+.   .   .   .   .   Radio
+.   .   .   .   .   Other
+.   More / pick recent activities
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+Travel
+.   By foot
+.   .   To/from work or school
+.   .   Taking children
+.   .   .   School / nursery
+.   .   .   Sport
+.   .   .   See friends
+.   .   .   Other
+.   .   .   
+.   .   .   
+.   .   For work
+.   .   Shopping
+.   .   Leisure
+.   .   Show more options
+.   .   .   Exercise / wellbeing
+.   .   .   Visit friend / relative
+.   .   .   Entertainment
+.   .   .   Household
+.   .   .   Help / social
+.   .   .   Other
+.   By car
+.   .   To/from work or school
+.   .   Taking children
+.   .   .   School / nursery
+.   .   .   Sport
+.   .   .   See friends
+.   .   .   Other
+.   .   .   
+.   .   .   
+.   .   For work
+.   .   Shopping
+.   .   Leisure
+.   .   Show more options
+.   .   .   Exercise / wellbeing
+.   .   .   Visit friend / relative
+.   .   .   Entertainment
+.   .   .   Household
+.   .   .   Help / social
+.   .   .   Other
+.   By bike
+.   .   To/from work or school
+.   .   Taking children
+.   .   .   School / nursery
+.   .   .   Sport
+.   .   .   See friends
+.   .   .   Other
+.   .   .   
+.   .   .   
+.   .   For work
+.   .   Shopping
+.   .   Leisure
+.   .   Show more options
+.   .   .   Exercise / wellbeing
+.   .   .   Visit friend / relative
+.   .   .   Entertainment
+.   .   .   Household
+.   .   .   Help / social
+.   .   .   Other
+.   Public transport
+.   .   To/from work or school
+.   .   Taking children
+.   .   .   School / nursery
+.   .   .   Sport
+.   .   .   See friends
+.   .   .   Other
+.   .   .   
+.   .   .   
+.   .   For work
+.   .   Shopping
+.   .   Leisure
+.   .   Show more options
+.   .   .   Exercise / wellbeing
+.   .   .   Visit friend / relative
+.   .   .   Entertainment
+.   .   .   Household
+.   .   .   Help / social
+.   .   .   Other
+.   Exercise
+.   .   To/from work or school
+.   .   Taking children
+.   .   .   School / nursery
+.   .   .   Sport
+.   .   .   See friends
+.   .   .   Other
+.   .   .   
+.   .   .   
+.   .   For work
+.   .   Shopping
+.   .   Leisure
+.   .   Show more options
+.   .   .   Exercise / wellbeing
+.   .   .   Visit friend / relative
+.   .   .   Entertainment
+.   .   .   Household
+.   .   .   Help / social
+.   .   .   Other
+.   Other
+.   .   To/from work or school
+.   .   Taking children
+.   .   .   School / nursery
+.   .   .   Sport
+.   .   .   See friends
+.   .   .   Other
+.   .   .   
+.   .   .   
+.   .   For work
+.   .   Shopping
+.   .   Leisure
+.   .   Show more options
+.   .   .   Exercise / wellbeing
+.   .   .   Visit friend / relative
+.   .   .   Entertainment
+.   .   .   Household
+.   .   .   Help / social
+.   .   .   Other
+Public place
+.   Care for you / others
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+.   Work /<br>Housework
+.   .   Main job
+.   .   Other job
+.   .   Volunteering
+.   .   House keeping
+.   .   .   Clearing up
+.   .   .   Cleaning
+.   .   .   .   Cleaning / dusting
+.   .   .   .   Vacuum cleaning
+.   .   .   .   Cleaning floors
+.   .   .   .   Other
+.   .   .   Laundry
+.   .   .   .   Washing machine
+.   .   .   .   Sorting
+.   .   .   .   Tumble dryer
+.   .   .   .   Hanging out laundry
+.   .   .   .   House keeping
+.   .   .   .   Other
+.   .   .   Food preparation
+.   .   .   .   Cold meal
+.   .   .   .   Hot / cooked meal
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Food management/preparation
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Snack
+.   .   .   .   Clear table
+.   .   .   .   .   Laying / Clearing up
+.   .   .   .   .   By hand
+.   .   .   .   .   Dish washer
+.   .   .   .   .   Dishwasher and by hand
+.   .   .   .   .   Other
+.   .   .   .   Other
+.   .   .   Clearing / waste
+.   .   .   Other
+.   .   Study
+.   .   Other
+.   Leisure /<br>free time
+.   .   Resting - time out
+.   .   Watching TV / video
+.   .   Computer or mobile device
+.   .   Exercise / sport
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Other
+.   Food
+.   .   Food preparation
+.   .   .   Cold meal
+.   .   .   Hot / cooked meal
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Food management/preparation
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Snack
+.   .   .   Clear table
+.   .   .   .   Laying / Clearing up
+.   .   .   .   By hand
+.   .   .   .   Dish washer
+.   .   .   .   Dishwasher and by hand
+.   .   .   .   Other
+.   .   .   Other
+.   .   Eating
+.   .   .   Hot meal
+.   .   .   Cold meal
+.   .   .   Snack
+.   .   .   
+.   .   .   
+.   .   .   XXX Provide option to enter text XXX
+.   .   Snack
+.   .   Clear table
+.   .   .   Laying / Clearing up
+.   .   .   By hand
+.   .   .   Dish washer
+.   .   .   Dishwasher and by hand
+.   .   .   Other
+.   .   Tea or coffee
+.   .   Other
+.   Use appliances
+.   .   Washing machine
+.   .   Tumble dryer
+.   .   Dish washer
+.   .   Oven
+.   .   Microwave
+.   .   Show more
+.   .   .   Computer
+.   .   .   TV
+.   .   .   Kettle
+.   .   .   Tools
+.   .   .   Other
+.   .   .   Show more
+.   .   .   .   Toaster
+.   .   .   .   Mower
+.   .   .   .   Hedge trimmer
+.   .   .   .   Hair dryer
+.   .   .   .   Other
+.   .   .   .   Show more
+.   .   .   .   .   Lights off
+.   .   .   .   .   Lights on
+.   .   .   .   .   Bread maker
+.   .   .   .   .   Phone charger
+.   .   .   .   .   Radio
+.   .   .   .   .   Other
+.   More / pick recent activities
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+Outdoors
+.   Care for you / others
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+.   Work /<br>Housework
+.   .   Main job
+.   .   Other job
+.   .   Volunteering
+.   .   House keeping
+.   .   .   Clearing up
+.   .   .   Cleaning
+.   .   .   .   Cleaning / dusting
+.   .   .   .   Vacuum cleaning
+.   .   .   .   Cleaning floors
+.   .   .   .   Other
+.   .   .   Laundry
+.   .   .   .   Washing machine
+.   .   .   .   Sorting
+.   .   .   .   Tumble dryer
+.   .   .   .   Hanging out laundry
+.   .   .   .   House keeping
+.   .   .   .   Other
+.   .   .   Food preparation
+.   .   .   .   Cold meal
+.   .   .   .   Hot / cooked meal
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Food management/preparation
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Snack
+.   .   .   .   Clear table
+.   .   .   .   .   Laying / Clearing up
+.   .   .   .   .   By hand
+.   .   .   .   .   Dish washer
+.   .   .   .   .   Dishwasher and by hand
+.   .   .   .   .   Other
+.   .   .   .   Other
+.   .   .   Clearing / waste
+.   .   .   Other
+.   .   Study
+.   .   Other
+.   Leisure /<br>free time
+.   .   Resting - time out
+.   .   Watching TV / video
+.   .   Computer or mobile device
+.   .   Exercise / sport
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Other
+.   Food
+.   .   Food preparation
+.   .   .   Cold meal
+.   .   .   Hot / cooked meal
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Food management/preparation
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Snack
+.   .   .   Clear table
+.   .   .   .   Laying / Clearing up
+.   .   .   .   By hand
+.   .   .   .   Dish washer
+.   .   .   .   Dishwasher and by hand
+.   .   .   .   Other
+.   .   .   Other
+.   .   Eating
+.   .   .   Hot meal
+.   .   .   Cold meal
+.   .   .   Snack
+.   .   .   
+.   .   .   
+.   .   .   XXX Provide option to enter text XXX
+.   .   Snack
+.   .   Clear table
+.   .   .   Laying / Clearing up
+.   .   .   By hand
+.   .   .   Dish washer
+.   .   .   Dishwasher and by hand
+.   .   .   Other
+.   .   Tea or coffee
+.   .   Other
+.   Use appliances
+.   .   Washing machine
+.   .   Tumble dryer
+.   .   Dish washer
+.   .   Oven
+.   .   Microwave
+.   .   Show more
+.   .   .   Computer
+.   .   .   TV
+.   .   .   Kettle
+.   .   .   Tools
+.   .   .   Other
+.   .   .   Show more
+.   .   .   .   Toaster
+.   .   .   .   Mower
+.   .   .   .   Hedge trimmer
+.   .   .   .   Hair dryer
+.   .   .   .   Other
+.   .   .   .   Show more
+.   .   .   .   .   Lights off
+.   .   .   .   .   Lights on
+.   .   .   .   .   Bread maker
+.   .   .   .   .   Phone charger
+.   .   .   .   .   Radio
+.   .   .   .   .   Other
+.   More / pick recent activities
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+Somewhere else
+.   Care for you / others
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other
+.   Work /<br>Housework
+.   .   Main job
+.   .   Other job
+.   .   Volunteering
+.   .   House keeping
+.   .   .   Clearing up
+.   .   .   Cleaning
+.   .   .   .   Cleaning / dusting
+.   .   .   .   Vacuum cleaning
+.   .   .   .   Cleaning floors
+.   .   .   .   Other
+.   .   .   Laundry
+.   .   .   .   Washing machine
+.   .   .   .   Sorting
+.   .   .   .   Tumble dryer
+.   .   .   .   Hanging out laundry
+.   .   .   .   House keeping
+.   .   .   .   Other
+.   .   .   Food preparation
+.   .   .   .   Cold meal
+.   .   .   .   Hot / cooked meal
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Food management/preparation
+.   .   .   .   .   Oven
+.   .   .   .   .   Microwave
+.   .   .   .   .   Electric kettle
+.   .   .   .   .   Blender or Kitchen appliance
+.   .   .   .   .   Bread maker
+.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Snack
+.   .   .   .   Clear table
+.   .   .   .   .   Laying / Clearing up
+.   .   .   .   .   By hand
+.   .   .   .   .   Dish washer
+.   .   .   .   .   Dishwasher and by hand
+.   .   .   .   .   Other
+.   .   .   .   Other
+.   .   .   Clearing / waste
+.   .   .   Other
+.   .   Study
+.   .   Other
+.   Leisure /<br>free time
+.   .   Resting - time out
+.   .   Watching TV / video
+.   .   Computer or mobile device
+.   .   Exercise / sport
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Other
+.   Food
+.   .   Food preparation
+.   .   .   Cold meal
+.   .   .   Hot / cooked meal
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Food management/preparation
+.   .   .   .   Oven
+.   .   .   .   Microwave
+.   .   .   .   Electric kettle
+.   .   .   .   Blender or Kitchen appliance
+.   .   .   .   Bread maker
+.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   Snack
+.   .   .   Clear table
+.   .   .   .   Laying / Clearing up
+.   .   .   .   By hand
+.   .   .   .   Dish washer
+.   .   .   .   Dishwasher and by hand
+.   .   .   .   Other
+.   .   .   Other
+.   .   Eating
+.   .   .   Hot meal
+.   .   .   Cold meal
+.   .   .   Snack
+.   .   .   
+.   .   .   
+.   .   .   XXX Provide option to enter text XXX
+.   .   Snack
+.   .   Clear table
+.   .   .   Laying / Clearing up
+.   .   .   By hand
+.   .   .   Dish washer
+.   .   .   Dishwasher and by hand
+.   .   .   Other
+.   .   Tea or coffee
+.   .   Other
+.   Use appliances
+.   .   Washing machine
+.   .   Tumble dryer
+.   .   Dish washer
+.   .   Oven
+.   .   Microwave
+.   .   Show more
+.   .   .   Computer
+.   .   .   TV
+.   .   .   Kettle
+.   .   .   Tools
+.   .   .   Other
+.   .   .   Show more
+.   .   .   .   Toaster
+.   .   .   .   Mower
+.   .   .   .   Hedge trimmer
+.   .   .   .   Hair dryer
+.   .   .   .   Other
+.   .   .   .   Show more
+.   .   .   .   .   Lights off
+.   .   .   .   .   Lights on
+.   .   .   .   .   Bread maker
+.   .   .   .   .   Phone charger
+.   .   .   .   .   Radio
+.   .   .   .   .   Other
+.   More / pick recent activities
+.   .   Wash or get dressed
+.   .   .   Shower
+.   .   .   Bath
+.   .   .   .   Running a bath
+.   .   .   .   Bathing
+.   .   .   .   Bathing children
+.   .   .   .   Other
+.   .   .   .   
+.   .   .   .   
+.   .   .   Sink or flannel
+.   .   .   Getting dressed
+.   .   .   Hygiene / Beauty
+.   .   .   Other
+.   .   Break, Rest or sleep
+.   .   .   Tea or coffee
+.   .   .   Resting - time out
+.   .   .   Sleep
+.   .   .   Personal care
+.   .   .   In bed
+.   .   .   Other activities
+.   .   Looking after children
+.   .   .   Feeding / eating
+.   .   .   Play / engage
+.   .   .   Homework / learning
+.   .   .   Supervising
+.   .   .   Practical help
+.   .   .   .   Bathing children
+.   .   .   .   Getting dressed
+.   .   .   .   Washing or physical help
+.   .   .   .   Other
+.   .   .   Other
+.   .   Time for me
+.   .   .   Tea or coffee
+.   .   .   Drink
+.   .   .   Reading a book
+.   .   .   Watching TV / video
+.   .   .   Social media
+.   .   .   Resting - time out
+.   .   Taking care of family or others
+.   .   Other

@@ -11,7 +11,7 @@ def recursive(node,level):
             caption = acts['activities'][branch]['caption']
             # print '.'*level + node + ' > ' + branch + ' > ' + nextNode
             print '.   '*level + caption
-            if not ((nextNode == 'location') or (nextNode == 'home') or (nextNode == 'enjoyment')):
+            if not ((nextNode == 'location') or (nextNode == 'other people') or (nextNode == 'home') or (nextNode == 'enjoyment')):
                 try:
                     recursive(nextNode,level)
                 except KeyError:
