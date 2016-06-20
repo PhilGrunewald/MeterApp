@@ -60,7 +60,7 @@ body {
 .header {
 	/* where the Question is displayed */
     height: 12%;
-	background-image: url("../img/meter.png");
+	/* background-image: url("../img/meter.png"); */
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: right;
@@ -179,6 +179,13 @@ div.btn-time {
     width: 20%;
 }
 
+div.btn-add {
+    display: table-cell;
+    background: #ededed;
+    vertical-align: middle;
+    width: 20%;
+}
+
 div.btn-terminate {
     display: table-cell;
     background: #ededed;
@@ -191,6 +198,12 @@ div.activity-item {
     background: #ededed;
     vertical-align: middle;
     width: 60%;
+}
+
+.clickable {
+	border: 1px solid #555;
+	border-radius: 3px;
+	padding: 2px;
 }
 
 span.bordered {

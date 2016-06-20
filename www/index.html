@@ -39,6 +39,7 @@
 <body>
 	<div class="app">
 		<div class="navbar">
+			<!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
 			<div class="row">
 				<div id="nav-home" class="col-4" onclick="app.showActivityList();">Home</div>
 				<div id="nav-aboutme" class="col-4"
@@ -54,23 +55,24 @@
 		<div class="contents">
 			<div id="activity_list_pane">
 				<div class="btn-addnew container">
-					+ Add activity
-
 					<div class="row">
-						<div class="col" onclick="app.navigateTo('activity root')">
-							<h3>Now</h3>
-						</div>
-						<div class="col" onclick="app.navigateTo('activity time')">
-							<h3>Recent</h3>
-						</div>
+						<div class="col" onclick="app.navigateTo('activity root')"> <span class="clickable">+</span> Now </div>
+							<!-- the current time allows user to 'change' the time for the activity - hope that is intuitive... -->
+						<div class="clickable" onclick="app.navigateTo('activity time')"> ${time} </div>
 					</div>
 				</div>
+				<div id="catchup-list">
+				    <div class="row catchup-row">
+					    <div class="catchup-cell btn-add"></div>
+					    <div class="catchup-cell activity-item"><i>All good</i></div>
+					    <div class="catchup-cell btn-time"></div>
+				    </div>
+				</div>
 				<div id="activity-list">
-				
 				    <div class="row activity-row">
-					    <div class="activity-cell btn-time"></div>
-					    <div class="activity-cell activity-item"><i>No activity yet</i></div>
 					    <div class="activity-cell btn-terminate"></div>
+					    <div class="activity-cell activity-item"><i>No activity yet</i></div>
+					    <div class="activity-cell btn-time"></div>
 				    </div>
 				</div>
 			</div>

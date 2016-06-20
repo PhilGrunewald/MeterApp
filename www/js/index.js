@@ -263,7 +263,7 @@ var app = {
 				curr_acts += row.format(utils.format_time(item.time), 
 										app.activities[item.name].caption,
 										'app.removeActivity(\'' + key + '\')',
-										"done")					
+										"-")					
         		//log.writeDebug("rm ...");          
 				//app.remove(item)
             })
