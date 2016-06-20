@@ -220,18 +220,17 @@ var app = {
                 if (activity === undefined) {
                     btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
                     button.attr("onclick", "");
-                } else if (prev_activity == TO_BE_SPECIFIED) {
-                	document.getElementById(buttonNo).style.backgroundImage = "";
-                    btn_title.html("");
-                    btn_caption.html("");
-                    button.addClass("other_category");
-                    button.attr("onclick", "");
                 } else {
 					document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
                     btn_title.html(activity.caption);
                     btn_caption.html(utils.format(activity.help));
                     button.addClass(activity.category || "other_category");
                     button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
+                }
+				if (activity.ID == -1) {
+                	document.getElementById(buttonNo).style.backgroundImage = "";
+                    button.addClass("other_category");
+                    button.attr("onclick", "");
                 }
             }
             app.activityListPane.hide();

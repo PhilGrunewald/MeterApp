@@ -5,7 +5,8 @@
 			"caption": "",
 			"help": "",
 			"ID": -1,
-			"next": "home"
+			"category": "other",
+			"next": ""
 		},
 		"survey": {
 			"title": "root: survey",
