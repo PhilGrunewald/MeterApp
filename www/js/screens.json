@@ -419,6 +419,18 @@
 				"sleep"
 			]
 		},
+		"other specify": {
+			"title": "Please specify",
+			"help": "Type what you want",
+			"activities": [
+				"Blank",
+				"Blank",
+				"Blank",
+				"Blank",
+				"Blank",
+				"Blank"
+			]
+		},
 		"work": {
 			"title": "You are working on:",
 			"help": "at this moment",

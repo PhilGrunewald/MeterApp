@@ -2913,7 +2913,7 @@
 			"caption": "XXX Provide option to enter text XXX",
 			"help": "Unspecified time use",
 			"ID": 9990,
-			"next": "other people"
+			"next": "other specify"
 		},
 		"other": {
 			"title": "Unspecified time use",

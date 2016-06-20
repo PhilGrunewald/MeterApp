@@ -212,6 +212,19 @@ span.bordered {
 	padding: 2px;
 }
 
+div#other-specify {
+	display: none;
+	position: absolute;
+    left: 5%;
+    top: 25%;
+    width: 90%;
+    z-index: 1;
+}
+
+div#other-specify input {
+	width: 100%;
+}
+
 
 
 /**

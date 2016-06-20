@@ -37,6 +37,8 @@ var CATEGORIES = ["care_self",
                   "work",
                   "other_category"];
 
+var OTHER_SPECIFIED     = "other specify";
+var OTHER_SPECIFIED_ID  = 9990;
 var TIMEUSE_MAX   		= 10000;
 
 var ACTIVITY_TIME_MIN 	= 10000;	// provide time as a relative offset
@@ -104,14 +106,32 @@ var app = {
         
     navigateTo: function(screen_id, prev_activity) {
     	
-    	//console.log("Currently on screen "+screen_id);
+    	console.log("Currently on screen "+screen_id);
+    	console.log("Previous activity "+prev_activity);
+    	
     	app.history.push(screen_id);
     	//console.log("History: "+app.history);
 
     	if (prev_activity !== undefined) {
-        	
+    		
+    		if (screen_id == OTHER_SPECIFIED) {
+    			$("div#other-specify").show();
+    		}
+    		
+    		// previous activity is defined but not known (free text)
+    		if (!(prev_activity in app.activities)) {
+    			
+    			app.activities[prev_activity] = {
+    					"title"   : prev_activity,
+    					"caption" : prev_activity,
+    					"help"    : "Custom input",
+    					"ID"	  : OTHER_SPECIFIED_ID,
+    					"next"    : screen_id
+    			}
+    			
+    		}
             // within the code range of 'activity codes'
-            if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
+    		if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
 	            utils.save(CURR_ACTIVITY, prev_activity);
 	            utils.save(CURR_ACTIVITY_ID, app.activities[prev_activity].ID);
             }
@@ -202,6 +222,12 @@ var app = {
 
                 if (activity === undefined) {
                     btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
+                    button.attr("onclick", "");
+                } else if (activity.ID === -1){
+                	document.getElementById(buttonNo).style.backgroundImage = "";
+                    btn_title.html("");
+                    btn_caption.html("");
+                    button.addClass("other_category");
                     button.attr("onclick", "");
                 } else {
 					document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
@@ -312,6 +338,18 @@ var app = {
             	app.showActivityList();
         	}
     	}
+    },
+    
+    submitOther: function(origin) {
+    	if (origin === undefined) {
+    		origin = "Other specify";
+    	}
+    	var screen_id = app.activities[origin].next;
+    	var prev_activity = $("input#free-text").val();
+    		
+    	$("div#other-specify").hide();
+    	
+    	app.navigateTo(screen_id, prev_activity)
     },
     
     toggleCaption: function() {
