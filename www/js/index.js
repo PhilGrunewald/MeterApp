@@ -37,7 +37,7 @@ var CATEGORIES = ["care_self",
                   "work",
                   "other_category"];
 
-var OTHER_SPECIFIED     = "other specify";
+var TO_BE_SPECIFIED     = "Other specify";
 var OTHER_SPECIFIED_ID  = 9990;
 var TIMEUSE_MAX   		= 10000;
 
@@ -114,13 +114,13 @@ var app = {
 
     	if (prev_activity !== undefined) {
     		
-    		if (screen_id == OTHER_SPECIFIED) {
+    		if (prev_activity == TO_BE_SPECIFIED) {
     			$("div#other-specify").show();
+    			$("div#btn-activity").hide();
     		}
     		
     		// previous activity is defined but not known (free text)
     		if (!(prev_activity in app.activities)) {
-    			
     			app.activities[prev_activity] = {
     					"title"   : prev_activity,
     					"caption" : prev_activity,
@@ -128,7 +128,6 @@ var app = {
     					"ID"	  : OTHER_SPECIFIED_ID,
     					"next"    : screen_id
     			}
-    			
     		}
             // within the code range of 'activity codes'
     		if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
@@ -173,8 +172,6 @@ var app = {
         }
         
         // console.log("XXX switching to " + screen_id);
-        // log.writeDebug("switching to " + screen_id);
-		// xxx 16_05_12
 		log.readID()
 
         if (screen_id == "home" ) {
@@ -223,7 +220,7 @@ var app = {
                 if (activity === undefined) {
                     btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
                     button.attr("onclick", "");
-                } else if (activity.ID === -1){
+                } else if (prev_activity == TO_BE_SPECIFIED) {
                 	document.getElementById(buttonNo).style.backgroundImage = "";
                     btn_title.html("");
                     btn_caption.html("");
@@ -280,9 +277,6 @@ var app = {
         				'{2}',
         				'<span class="bordered">{3}</span>')
             
-            // console.log("ACTIVITIES: " + JSON.stringify(activityList))
-            
-		    	
             Object.keys(activityList).forEach( function(key, index) {
             	var item = activityList[key];
             	// console.log("ITEM is:", item)
@@ -346,9 +340,7 @@ var app = {
     	}
     	var screen_id = app.activities[origin].next;
     	var prev_activity = $("input#free-text").val();
-    		
     	$("div#other-specify").hide();
-    	
     	app.navigateTo(screen_id, prev_activity)
     },
     

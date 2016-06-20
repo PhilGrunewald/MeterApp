@@ -2910,10 +2910,10 @@
 		},
 		"Other specify": {
 			"title": "Unspecified time use",
-			"caption": "XXX Provide option to enter text XXX",
-			"help": "Unspecified time use",
+			"caption": "Other...",
+			"help": "Say in your own words",
 			"ID": 9990,
-			"next": "other specify"
+			"next": "other people"
 		},
 		"other": {
 			"title": "Unspecified time use",
