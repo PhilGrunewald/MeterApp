@@ -156,6 +156,7 @@ h1 {
     color: #232323;
 }
 
+
 div#activity-list {
     width: 100%;
     margin: 2px 0;
@@ -216,9 +217,18 @@ div#other-specify {
 	display: none;
 	position: absolute;
     left: 5%;
-    top: 25%;
+    top: 20%;
+	height: 20%;
     width: 90%;
     z-index: 1;
+}
+#free-text {
+	height: 50px;
+	line-height: 50px;
+}
+
+input[type=submit] {
+	height: 200px;
 }
 
 div#other-specify input {

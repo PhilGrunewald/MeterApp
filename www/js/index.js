@@ -126,8 +126,11 @@ var app = {
 
     		if (prev_activity == TO_BE_SPECIFIED) {
     			$("div#other-specify").show();
+    			$("div.footer-nav").hide();
 				screen_id = "other specify";
-    		}
+    		} else {
+    			$("div.footer-nav").show();
+			}
     		
             // within the code range of 'activity codes'
     		if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
@@ -182,12 +185,6 @@ var app = {
             app.choicesPane.hide();
             app.activityListPane.show();
 		} else {
-			CATEGORIES.forEach(function (cat) {
-				app.actionButtons.each(function (button) {
-                	console.log("remove cat: " + cat);
-					$(button).removeClass(cat);
-				});
-			});
             
             if (screen_id == "activity time") {
 				// user sets own time
@@ -212,6 +209,9 @@ var app = {
                 var activity_id = screen_.activities[i];
                 var activity    = app.activities[activity_id];
                 var button      = $(app.actionButtons[i]);
+			CATEGORIES.forEach(function (cat) {
+				button.removeClass(cat);
+			});
                 var btn_title   = button.find(".btn-title");
                 var btn_caption = button.find(".btn-caption");
                 var btn_button  = button.find(".btn-activity");
