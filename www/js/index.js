@@ -69,7 +69,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
-        log.init();
+		log.setMetaID("0");
         
         utils.save(ACTIVITY_DATETIME, "same");
 		utils.save(SURVEY_STATUS, "survey root");
@@ -81,6 +81,11 @@ var app = {
         app.history          = new Array();
         
 		localStorage.clear(); // on restart browser failed to load localStorage
+		if (log.metaID != "0") {
+    		$("div#change-id").hide();
+		}
+
+		log.init();
 
         $.getJSON('js/activities.json', function(data) {
             app.activities = data.activities;
@@ -89,23 +94,10 @@ var app = {
                 app.showActivityList();
             });    
         });
-        
-        
     },
-//    // Update DOM on a Received Event
-//    receivedEvent: function(id) {
-//        var parentElement = document.getElementById(id);
-//        var listeningElement = parentElement.querySelector('.listening');
-//        var receivedElement = parentElement.querySelector('.received');
-//
-//        listeningElement.setAttribute('style', 'display:none;');
-//        receivedElement.setAttribute('style', 'display:block;');
-//        //console.log('Received Event: ' + id);
-//    },
         
     navigateTo: function(screen_id, prev_activity) {
     	
-    	console.log("Currently on screen "+screen_id);
     	console.log("Previous activity "+prev_activity);
     	
     	app.history.push(screen_id);
@@ -175,7 +167,7 @@ var app = {
         }
         
         // console.log("XXX switching to " + screen_id);
-		log.readID()
+		// log.readID()
 
         if (screen_id == "home" ) {
             // an entry has been completed
@@ -335,6 +327,15 @@ var app = {
     	}
     },
     
+    changeID: function() {
+    	var metaID = $("input#input-id").val();
+		log.setMetaID(metaID);
+    	console.log("META ID ** in APP ** "+ metaID);
+    	$("div#change-id").hide();
+		log.initSurveyFile();
+		log.initActFile();
+    },
+
     submitOther: function(origin) {
     	if (origin === undefined) {
     		origin = "Other specify";

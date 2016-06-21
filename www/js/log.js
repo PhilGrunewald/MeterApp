@@ -9,9 +9,8 @@ var log = {
     logDebug: null,
     logSurvey: null,
     logID: null,
-	metaID: null,
+	metaID: "0",
 	pathID: '/sdcard/METER/id.txt',
-	DEFAULT_ID: "99997",
     
 	init: function() {
 		if (device.platform != "browser") {        
@@ -19,19 +18,14 @@ var log = {
 				console.log("got main dir",dir);
 				// the existence of folder METER is assumed
 				// in this folder is also id.txt to identify the user
-				//
-				// Read ID file
-				// XXX to be implemented
-
-				//log.metaID="99997";
-				log.readID( function(metaID) {
-					dir.getFile("METER/"+metaID+"_ind.csv", {create:true}, function(file) {
+				log.readID( function(thisID) {
+					dir.getFile("METER/"+thisID+"_ind.csv", {create:true}, function(file) {
 	                    console.log("got survey file", file);
 	                    log.logSurvey = file;
 	                }, function(err) {
 	                    console.log(err);
 	                });
-	                dir.getFile("METER/"+metaID+"_act.csv", {create:true}, function(file) {
+	                dir.getFile("METER/"+thisID+"_act.csv", {create:true}, function(file) {
 	                    console.log("got activities file", file);
 	                    log.logAct = file;
 	                }, function(err) {
@@ -50,18 +44,42 @@ var log = {
         }
     },
     
+	initSurveyFile: function() {
+			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
+	                dir.getFile("METER/" + log.metaID + "_ind.csv", {create:true}, function(file) {
+	                    log.logSurvey = file;
+	                }, function(err) {
+	                    console.log(err);
+	                });
+				});
+	},
+	initActFile: function() {
+			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
+	                dir.getFile("METER/" + log.metaID + "_act.csv", {create:true}, function(file) {
+	                    log.logAct = file;
+	                }, function(err) {
+	                    console.log(err);
+	                });
+				});
+	},
+
     readID: function( callback ) {
-    	$.get(log.pathID, function(id_) {
-    		metaID = $.trim(id_);
-    		if (typeof(callback) === "function" ) {
-    			callback(metaID);
-    		}
-    		log.metaID = metaID;
-		});
-    	
-    	return log.metaID;
+		if (log.metaID == "0") {
+			$.get(log.pathID, function(id_) {
+				metaID = $.trim(id_);
+				if (typeof(callback) === "function" ) {
+					callback(metaID);
+				}
+				log.metaID = metaID;
+			});
+		}
+    	console.log("META ID ** in LOG ** "+ log.metaID);
+		return log.metaID;
     },
 
+	setMetaID: function( metaID_ ) {
+		log.metaID = metaID_;
+	},
     
     writeToFile: function(obj, str) {
     	obj.createWriter(function(fileWriter) {
