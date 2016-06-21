@@ -184,6 +184,7 @@ var app = {
 		} else {
 			CATEGORIES.forEach(function (cat) {
 				app.actionButtons.each(function (button) {
+                	console.log("remove cat: " + cat);
 					$(button).removeClass(cat);
 				});
 			});
@@ -224,7 +225,8 @@ var app = {
 					document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
                     btn_title.html(activity.caption);
                     btn_caption.html(utils.format(activity.help));
-                    button.addClass(activity.category || "other_category");
+                    //button.addClass(activity.category || "other_category");
+                    button.addClass(activity.category);
                     button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
                 }
 				if (activity.ID == -1) {
