@@ -22,6 +22,9 @@ var CURR_ACTIVITY = "current_activity";
 var CURR_ACTIVITY_ID = "0";  // the time use code
 
 var ACTIVITY_DATETIME = "same";  // default - meaning activity time = reported time
+var ACTIVITY_MANUAL_YEAR = "none";  // default - if entering manual 'past time' screen promt will ask for it to be set input#input-date
+var ACTIVITY_MANUAL_MONTH = "none";  // default - if entering manual 'past time' screen promt will ask for it to be set input#input-date
+var ACTIVITY_MANUAL_DAY = "none";  // default - if entering manual 'past time' screen promt will ask for it to be set input#input-date
 
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
@@ -72,6 +75,9 @@ var app = {
 		log.setMetaID("0");
         
         utils.save(ACTIVITY_DATETIME, "same");
+        utils.save(ACTIVITY_MANUAL_YEAR, "none");
+        utils.save(ACTIVITY_MANUAL_MONTH, "none");
+        utils.save(ACTIVITY_MANUAL_DAY, "none");
 		utils.save(SURVEY_STATUS, "survey root");
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
@@ -83,6 +89,7 @@ var app = {
 		localStorage.clear(); // on restart browser failed to load localStorage
 		if (log.metaID != "0") {
     		$("div#change-id").hide();
+    	        $("div#change-date").hide();
 		}
 
 		log.init();
@@ -146,7 +153,6 @@ var app = {
 				dt_activity = new Date(dt_activity);
 				dt_activity = new Date(dt_activity.getTime() + addition).toISOString();
 				utils.save(ACTIVITY_DATETIME, dt_activity);
-				//console.log('dt_activity : ' + dt_activity);
 				}
 
             // within the code range of 'locations'
@@ -169,55 +175,61 @@ var app = {
         // console.log("XXX switching to " + screen_id);
 		// log.readID()
 
-        if (screen_id == "home" ) {
-            // an entry has been completed
-			$("#btn-time").html(utils.format("${time}"));
-            app.addActivityToList();
-            app.showActivityList();
-            app.choicesPane.hide();
-            app.activityListPane.show();
-		} else {
-            
-            if (screen_id == "activity time") {
-				// user sets own time
-				// XXX TODO pull this date from ini file or allow user to set it once
-				var date_activity = new Date(2016, 1, 22);
-                utils.save(ACTIVITY_DATETIME, date_activity);
-                // console.log("RESET");
-			}
-
-            // an entry is still in the middle of completion
-            if (screen_id == "survey") {
-                // "survey" is where the top navigation button points to
-                // here it gets redirected to the latest survey screen
-                // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
-                screen_id = utils.get(SURVEY_STATUS);
-                // console.log("Survey ID" + screen_id);
-            }
-            // populate buttons XXX move to 'if not home'?
-            var screen_ = app.screens[screen_id];
-			$("#title").html(utils.format(screen_.title));
-            for (i = 0; i < screen_.activities.length; i++) {
-                var activity_id = screen_.activities[i];
-                var activity    = app.activities[activity_id];
-                var button      = $(app.actionButtons[i]);
-			CATEGORIES.forEach(function (cat) {
-				button.removeClass(cat);
-			});
-                var btn_title   = button.find(".btn-title");
-                var btn_caption = button.find(".btn-caption");
-                var btn_button  = button.find(".btn-activity");
-				var number = i+1;
-				var buttonNo    = "button"+ number;
-
-                if (activity === undefined) {
-                    btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
-                    button.attr("onclick", "");
+                if (screen_id == "home" ) {
+                    // an entry has been completed
+                    $("#btn-time").html(utils.format("${time}"));
+                    app.addActivityToList();
+                    app.showActivityList();
+                    app.choicesPane.hide();
+                    app.activityListPane.show();
                 } else {
-					document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
-                    btn_title.html(activity.caption);
-                    btn_caption.html(utils.format(activity.help));
-                    //button.addClass(activity.category || "other_category");
+
+                    if (screen_id == "activity time") {
+                        // user sets own time
+                        // XXX TODO pull this date from ini file or allow user to set it once
+
+                        // var thisYear  = parseInt(utils.get(ACTIVITY_MANUAL_YEAR));
+                        // var thisMonth = parseInt(utils.get(ACTIVITY_MANUAL_MONTH));
+                        // var thisDay   = parseInt(utils.get(ACTIVITY_MANUAL_DAY));
+                        // // var date_activity = new Date(2016, 1, 22);
+                        // var date_activity = new Date(thisYear, thisMonth, thisDay);
+                        // console.log("XXXX thisYear" + thisYear);
+                        // console.log("XXXX thisYear util" + utils.get(ACTIVITY_MANUAL_YEAR));
+                        // utils.save(ACTIVITY_DATETIME, date_activity);
+                    }
+
+                    // an entry is still in the middle of completion
+                    if (screen_id == "survey") {
+                        // "survey" is where the top navigation button points to
+                        // here it gets redirected to the latest survey screen
+                        // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
+                        screen_id = utils.get(SURVEY_STATUS);
+                        // console.log("Survey ID" + screen_id);
+                    }
+                    // populate buttons XXX move to 'if not home'?
+                    var screen_ = app.screens[screen_id];
+                    $("#title").html(utils.format(screen_.title));
+                    for (i = 0; i < screen_.activities.length; i++) {
+                        var activity_id = screen_.activities[i];
+                        var activity    = app.activities[activity_id];
+                        var button      = $(app.actionButtons[i]);
+                        CATEGORIES.forEach(function (cat) {
+                            button.removeClass(cat);
+                        });
+                        var btn_title   = button.find(".btn-title");
+                        var btn_caption = button.find(".btn-caption");
+                        var btn_button  = button.find(".btn-activity");
+                        var number = i+1;
+                        var buttonNo    = "button"+ number;
+
+                        if (activity === undefined) {
+                            btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
+                            button.attr("onclick", "");
+                        } else {
+                            document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
+                            btn_title.html(activity.caption);
+                            btn_caption.html(utils.format(activity.help));
+                            //button.addClass(activity.category || "other_category");
                     button.addClass(activity.category);
                     button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
                 }
@@ -327,6 +339,33 @@ var app = {
     	}
     },
     
+    changeDate: function() {
+    	var thisDate = $("input#input-date").val();
+        var ds = thisDate.split(" ");
+        var date_activity = new Date(parseInt(ds[0]), parseInt(ds[1]), parseInt(ds[2]));
+        utils.save(ACTIVITY_DATETIME, date_activity);
+
+        // utils.save(ACTIVITY_MANUAL_YEAR, thisDateSplit[0]);
+        // utils.save(ACTIVITY_MANUAL_MONTH, thisDateSplit[1]);
+        // utils.save(ACTIVITY_MANUAL_DAY, thisDateSplit[2]);
+        // utils.save(ACTIVITY_MANUAL_YEAR, thisDate;
+    	// console.log("MANUAL Date "+ thisDate);
+
+
+
+        //                var thisYear  = parseInt(utils.get(ACTIVITY_MANUAL_YEAR));
+        //                var thisMonth = parseInt(utils.get(ACTIVITY_MANUAL_MONTH));
+        //                var thisDay   = parseInt(utils.get(ACTIVITY_MANUAL_DAY));
+        //                // var date_activity = new Date(2016, 1, 22);
+        //                var date_activity = new Date(thisYear, thisMonth, thisDay);
+                        //console.log("XXXX thisYear" + thisYear);
+                        console.log("XXXX thisYear util" + utils.get(ACTIVITY_DATETIME));
+
+
+    	console.log("MANUAL Date "+ thisDate);
+    	$("div#change-date").hide();
+    },
+    
     changeID: function() {
     	var metaID = $("input#input-id").val();
 		log.setMetaID(metaID);
@@ -334,6 +373,7 @@ var app = {
     	$("div#change-id").hide();
 		log.initSurveyFile();
 		log.initActFile();
+    	$("div#change-date").show();
     },
 
     submitOther: function(origin) {
