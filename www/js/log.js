@@ -134,6 +134,11 @@ var log = {
     	log.writeLog(log.logAct, str)
 
 		// "same" means 'not different from current time' - writeActivity replaces "same" with current time
-    	utils.save(ACTIVITY_DATETIME, "same");
+		var manualDate = utils.get(ACTIVITY_MANUAL_DATE);
+		if (manualDate !== "none") {
+    		utils.save(ACTIVITY_DATETIME, manualDate);
+		} else {
+	    	utils.save(ACTIVITY_DATETIME, "same");
+		}
     }
 }
