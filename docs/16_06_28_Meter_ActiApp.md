@@ -36,7 +36,7 @@ The app is build around a html5 user interface consisting of the following secti
 
 5. **Footer** (footer-nav): Two buttons to aid navigation. Left for 'back', right for 'done'.
 
-![Home screen](home_screen.pdf)
+![Home screen](./home_screen.pdf)
 
 ![Activity choice screen](activity_screen.pdf)
 
