@@ -164,8 +164,12 @@ var app = {
         }
 
 		if (screen_id == "activity time") {
-			var refDate = utils.get(ACTIVITY_MANUAL_DATE);
-			utils.save(ACTIVITY_DATETIME, refDate);
+			var dt_ = utils.get(ACTIVITY_MANUAL_DATE);
+			utils.save(ACTIVITY_DATETIME, dt_);
+		} else if (utils.get(ACTIVITY_DATETIME) == null) {
+			var dt_ = Date.now()
+			var dt_ = new Date(dt_).toISOString();
+			utils.save(ACTIVITY_DATETIME, dt_);
 		}
 		if (screen_id == "home" ) {
             // an entry has been completed
@@ -300,7 +304,7 @@ var app = {
         var thisDate = $("input#input-date").val();
         var ds = thisDate.split(" ");
         var date_activity = new Date(parseInt(ds[0]), parseInt(ds[1])-1, parseInt(ds[2]));
-        utils.save(ACTIVITY_DATETIME, date_activity);
+        // utils.save(ACTIVITY_DATETIME, date_activity);
         utils.save(ACTIVITY_MANUAL_DATE, date_activity);
         $("div#change-date").hide();
     },
