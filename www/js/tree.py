@@ -1,7 +1,7 @@
 import json
-datafile = open('/Users/phil/Sites/MeterApp/www/js/activities.json', 'r')
+datafile = open('activities.json', 'r')
 acts = json.loads(datafile.read().decode("utf-8"))
-datafile = open('/Users/phil/Sites/MeterApp/www/js/screens.json', 'r')
+datafile = open('screens.json', 'r')
 screens = json.loads(datafile.read().decode("utf-8"))
 
 def recursive(node,level):
