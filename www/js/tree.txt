@@ -66,14 +66,14 @@ Home
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Food management/preparation
 .   .   .   .   .   Oven
 .   .   .   .   .   Microwave
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Snack
 .   .   .   .   Clear table
 .   .   .   .   .   Laying / Clearing up
@@ -108,14 +108,14 @@ Home
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Food management/preparation
 .   .   .   .   Oven
 .   .   .   .   Microwave
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Snack
 .   .   .   Clear table
 .   .   .   .   Laying / Clearing up
@@ -130,7 +130,7 @@ Home
 .   .   .   Snack
 .   .   .   
 .   .   .   
-.   .   .   XXX Provide option to enter text XXX
+.   .   .   Other...
 .   .   Snack
 .   .   Clear table
 .   .   .   Laying / Clearing up
@@ -274,14 +274,14 @@ Work
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Food management/preparation
 .   .   .   .   .   Oven
 .   .   .   .   .   Microwave
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Snack
 .   .   .   .   Clear table
 .   .   .   .   .   Laying / Clearing up
@@ -316,14 +316,14 @@ Work
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Food management/preparation
 .   .   .   .   Oven
 .   .   .   .   Microwave
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Snack
 .   .   .   Clear table
 .   .   .   .   Laying / Clearing up
@@ -338,7 +338,7 @@ Work
 .   .   .   Snack
 .   .   .   
 .   .   .   
-.   .   .   XXX Provide option to enter text XXX
+.   .   .   Other...
 .   .   Snack
 .   .   Clear table
 .   .   .   Laying / Clearing up
@@ -597,14 +597,14 @@ Public place
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Food management/preparation
 .   .   .   .   .   Oven
 .   .   .   .   .   Microwave
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Snack
 .   .   .   .   Clear table
 .   .   .   .   .   Laying / Clearing up
@@ -639,14 +639,14 @@ Public place
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Food management/preparation
 .   .   .   .   Oven
 .   .   .   .   Microwave
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Snack
 .   .   .   Clear table
 .   .   .   .   Laying / Clearing up
@@ -661,7 +661,7 @@ Public place
 .   .   .   Snack
 .   .   .   
 .   .   .   
-.   .   .   XXX Provide option to enter text XXX
+.   .   .   Other...
 .   .   Snack
 .   .   Clear table
 .   .   .   Laying / Clearing up
@@ -805,14 +805,14 @@ Outdoors
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Food management/preparation
 .   .   .   .   .   Oven
 .   .   .   .   .   Microwave
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Snack
 .   .   .   .   Clear table
 .   .   .   .   .   Laying / Clearing up
@@ -847,14 +847,14 @@ Outdoors
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Food management/preparation
 .   .   .   .   Oven
 .   .   .   .   Microwave
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Snack
 .   .   .   Clear table
 .   .   .   .   Laying / Clearing up
@@ -869,7 +869,7 @@ Outdoors
 .   .   .   Snack
 .   .   .   
 .   .   .   
-.   .   .   XXX Provide option to enter text XXX
+.   .   .   Other...
 .   .   Snack
 .   .   Clear table
 .   .   .   Laying / Clearing up
@@ -1013,14 +1013,14 @@ Somewhere else
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Food management/preparation
 .   .   .   .   .   Oven
 .   .   .   .   .   Microwave
 .   .   .   .   .   Electric kettle
 .   .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   .   Bread maker
-.   .   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   .   Other...
 .   .   .   .   Snack
 .   .   .   .   Clear table
 .   .   .   .   .   Laying / Clearing up
@@ -1055,14 +1055,14 @@ Somewhere else
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Food management/preparation
 .   .   .   .   Oven
 .   .   .   .   Microwave
 .   .   .   .   Electric kettle
 .   .   .   .   Blender or Kitchen appliance
 .   .   .   .   Bread maker
-.   .   .   .   XXX Provide option to enter text XXX
+.   .   .   .   Other...
 .   .   .   Snack
 .   .   .   Clear table
 .   .   .   .   Laying / Clearing up
@@ -1077,7 +1077,7 @@ Somewhere else
 .   .   .   Snack
 .   .   .   
 .   .   .   
-.   .   .   XXX Provide option to enter text XXX
+.   .   .   Other...
 .   .   Snack
 .   .   Clear table
 .   .   .   Laying / Clearing up

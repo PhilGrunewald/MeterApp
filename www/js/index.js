@@ -189,6 +189,7 @@ var app = {
                 // console.log("Survey ID" + screen_id);
             }
             // populate buttons XXX move to 'if not home'?
+
             var screen_ = app.screens[screen_id];
             $("#title").html(utils.format(screen_.title));
             for (i = 0; i < screen_.activities.length; i++) {

@@ -12,6 +12,7 @@ This document explains
 - The ActiApp structure
 - The tree structure of activity selection
 - The navigation logic between activities and screens
+- The code base
 
 ActiApp structure
 =================
@@ -155,6 +156,13 @@ Absolute time adjustments use a reference date (the study day or a manually ente
 
 With four screens the time was set to 8:56am on the 2nd day of the study.
 
+
+The code base
+=============
+
+You will find a lot of files and directories in `MeterApp/`. Here are a few key files:
+
+1. `www/index.html`
 
 Todo
 ====

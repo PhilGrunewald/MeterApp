@@ -300,6 +300,23 @@
 				"Leisure other"
 			]
 		},
+
+
+		"leisure tv device": {
+			"title": "What are you watching on?",
+			"help": "The type of device",
+			"activities": [
+				"Leisure TV Mobile",
+				"Leisure TV Projector",
+				"Leisure TV TV",
+				"Leisure TV Laptop",
+				"Leisure TV Tablet",
+				"Leisure TV Other"
+			]
+		},
+
+
+
 		"food": {
 			"title": "Any particular food? ",
 			"help": "at this moment",

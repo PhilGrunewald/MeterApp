@@ -1519,8 +1519,13 @@
 			"help": "Unspecified tv, video or dvd watching",
 			"ID": 8210,
 			"category": "care_self",
-			"next": "other people"
+			"next": "leisure tv device"
 		},
+
+
+
+
+
 		"Watching a film on TV": {
 			"title": "Watching a film on TV",
 			"caption": "Leisure",
@@ -1535,6 +1540,62 @@
 			"ID": 8212,
 			"next": "other people"
 		},
+
+
+
+
+
+		"Leisure TV Mobile": {
+			"title": "Watching TV on a mobile",
+			"caption": "Mobile",
+			"help": "Watching TV on a mobile",
+			"ID": 8213,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Leisure TV Projector": {
+			"title": "Watching TV on a projector",
+			"caption": "Projector",
+			"help": "Watching TV on a projector",
+			"ID": 8214,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Leisure TV TV": {
+			"title": "Watching TV on a TV",
+			"caption": "TV",
+			"help": "Watching TV on a TV",
+			"ID": 8215,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Leisure TV Laptop": {
+			"title": "Watching TV on a laptop",
+			"caption": "Laptop",
+			"help": "Watching TV on a laptop",
+			"ID": 8216,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Leisure TV Tablet": {
+			"title": "Watching TV on a tablet",
+			"caption": "Tablet",
+			"help": "Watching TV on a tablet",
+			"ID": 8217,
+			"category": "care_self",
+			"next": "other people"
+		},
+
+		"Leisure TV Other": {
+			"title": "Watching",
+			"caption": "Other",
+			"help": "Unspecified tv, video or dvd watching",
+			"ID": 8210,
+			"category": "care_self",
+			"next": "other people"
+		},
+
+
 		"Other specified TV watching": {
 			"title": "Other specified TV watching",
 			"caption": "Leisure",
