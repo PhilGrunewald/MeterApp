@@ -19,7 +19,7 @@
 
 // Storage keys // PG 17 Mar 2016: I think these values are not assigned - for SURVEY_STATUS I did the assignment in "OnDeviceReady"
 var CURR_ACTIVITY = "current_activity";
-var CURR_ACTIVITY_ID = "0";  // the time use code
+var CURR_ACTIVITY_ID = "0";  // the time use code AND category as csv
 
 var ACTIVITY_DATETIME = "same";  // default - meaning activity time = reported time
 var ACTIVITY_MANUAL_DATE = "none";  // default - if entering manual 'past time' screen promt will ask for it to be set input#input-date
@@ -125,7 +125,8 @@ var app = {
             // within the code range of 'activity codes'
             if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
                 utils.save(CURR_ACTIVITY, prev_activity);
-                utils.save(CURR_ACTIVITY_ID, app.activities[prev_activity].ID);
+				utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category].join());
+				// running save for category separately caused ID and category to be set to the same value (???!!!) - so we do it in one go into the same var
             }
             // if going via "Recent" > prompted for time offset 
             // apply offset to current time
