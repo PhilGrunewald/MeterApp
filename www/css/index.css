@@ -85,6 +85,11 @@ h1 {
     height: 100%;
 }
 
+#survey-status {
+	vertical-align:top;
+	float:right;
+}
+
 #list_activity_pane {
     display: block;
     width: 100%;
@@ -227,8 +232,12 @@ div#other-specify {
 	line-height: 50px;
 }
 
+input[type=text] {
+	width: 50px;
+}
+
 input[type=submit] {
-	height: 50px;
+	height: 25px;
 }
 
 div#other-specify input {
@@ -254,7 +263,7 @@ div#other-specify input {
     background-color: #e78ac3;
 }
 .travel {
-    background-color: #ffd92f;
+    background-color: #ddc92f;
 }
 .food {
     background-color: #a6d854;

@@ -70,7 +70,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
-        log.setMetaID("0");
+        //log.setMetaID("0");
 
         utils.save(ACTIVITY_DATETIME, "same");
         utils.save(ACTIVITY_MANUAL_DATE, "none");
@@ -82,15 +82,12 @@ var app = {
         app.history          = new Array();
         // utils.save(SURVEY_STATUS, "survey root");
 		SURVEY_STATUS = "survey root";
-		
 
         localStorage.clear(); // on restart browser failed to load localStorage
-        if (log.metaID != "0") {
-            $("div#change-id").hide();
-        }
-        $("div#change-date").hide();
 
         log.init();
+
+        $("div#change-date").hide();
 
         $.getJSON('js/activities.json', function(data) {
             app.activities = data.activities;
@@ -102,6 +99,7 @@ var app = {
     },
 
     navigateTo: function(screen_id, prev_activity) {
+        $("div#change-id").hide();
         // the button pressed had 'prev_activity' as its 'title'
         // next screen has the key 'screen_id'
         app.history.push(screen_id);                     // for 'back' functionality
@@ -163,6 +161,9 @@ var app = {
                 // utils.save(SURVEY_STATUS, screen_id);
 				SURVEY_STATUS = screen_id;
                 log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);          
+
+				var icon = "0"
+                    document.getElementById("survey-status").src = "img/AR_"+icon+".png";
                 //console.log("survey entry: " + prev_activity);
             }
         }

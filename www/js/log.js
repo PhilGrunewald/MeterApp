@@ -65,6 +65,7 @@ var log = {
 
     readID: function( callback ) {
 		if (log.metaID == "0") {
+    		console.log("readID :"+ log.metaID);
 			$.get(log.pathID, function(id_) {
 				metaID = $.trim(id_);
 				if (typeof(callback) === "function" ) {
@@ -73,6 +74,9 @@ var log = {
 				log.metaID = metaID;
 			});
 		}
+        if (log.metaID != "0") {
+            $("div#change-id").hide();
+        }
     	console.log("META ID ** in LOG ** "+ log.metaID);
 		return log.metaID;
     },

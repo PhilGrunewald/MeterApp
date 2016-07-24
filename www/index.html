@@ -43,7 +43,7 @@
 			<div class="row">
 				<div id="nav-home" class="col-4" onclick="app.showActivityList();">Home</div>
 				<div id="nav-aboutme" class="col-4"
-					onclick="app.navigateTo('survey root')">Survey</div>
+						onclick="app.navigateTo('survey root')">Survey<img src="img/AR_4.png" id="survey-status"></div>
 				<div id="nav-help" class="col-4" onclick="app.toggleCaption();">Help</div>
 			</div>
 		</div>
@@ -53,17 +53,17 @@
 		</div>
 
 		<div id="change-id">
-			<input type="text" id="input-id" autofocus /> <br>
+			<input type="text" id="input-id" autofocus />
 			<div class "btn-change-id">
 			<input id="btn-submit" type="submit" onclick="app.changeID()"/>
 			</div>
 		</div>
 
 		<div id="change-date">
-			<input type="text" id="input-date" autofocus /> <br>
+			<input type="text" id="input-date" value="2016 08 01" autofocus />
 			<div class "btn-change-id">
 			<input id="btn-submit" type="submit" onclick="app.changeDate()"/>
-			Give date as '2016 12 31'</div>
+			</div>
 		</div>
 
 		<div id="other-specify">
