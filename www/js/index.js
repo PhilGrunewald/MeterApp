@@ -27,7 +27,7 @@ var ACTIVITY_MANUAL_DATE = "none";  // default - if entering manual 'past time' 
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
 var ACTIVITY_LIST = "activity_list";
-var SURVEY_STATUS;			// stores how far they got in the survey
+var SURVEY_STATUS = "survey root";			// stores how far they got in the survey
 
 var CATEGORIES = ["care_self",
     "care_other",
@@ -74,13 +74,15 @@ var app = {
 
         utils.save(ACTIVITY_DATETIME, "same");
         utils.save(ACTIVITY_MANUAL_DATE, "none");
-        utils.save(SURVEY_STATUS, "survey root");
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
         app.history          = new Array();
+        // utils.save(SURVEY_STATUS, "survey root");
+		SURVEY_STATUS = "survey root";
+		
 
         localStorage.clear(); // on restart browser failed to load localStorage
         if (log.metaID != "0") {
@@ -158,7 +160,8 @@ var app = {
             // within the code range of 'survey'
             else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
                 // save the survey screen_id, such that we can return here via screen_id = 'survey'
-                utils.save(SURVEY_STATUS, screen_id);
+                // utils.save(SURVEY_STATUS, screen_id);
+				SURVEY_STATUS = screen_id;
                 log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);          
                 //console.log("survey entry: " + prev_activity);
             }
@@ -182,11 +185,12 @@ var app = {
         } else {
 
             // an entry is still in the middle of completion
-            if (screen_id == "survey") {
+            if (screen_id == "survey root") {
                 // "survey" is where the top navigation button points to
                 // here it gets redirected to the latest survey screen
                 // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
-                screen_id = utils.get(SURVEY_STATUS);
+                // screen_id = utils.get(SURVEY_STATUS);
+                screen_id = SURVEY_STATUS;
                 // console.log("Survey ID" + screen_id);
             }
             // populate buttons XXX move to 'if not home'?
