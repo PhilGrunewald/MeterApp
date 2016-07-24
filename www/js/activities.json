@@ -191,14 +191,14 @@
 			"next": "activity main"
 		},
 		"Loc outdoors": {
-			"title": "meter: location outdoors",
+			"title": "Outdoor activity",
 			"icon": "outdoors",
 			"caption": "Outdoors",
 			"help": "Park, road, public places, sports field",
 			"ID": 30018,
 			"value": 5,
 			"category": "travel",
-			"next": "activity main"
+			"next": "outdoors"
 		},
 		"Loc other location": {
 			"title": "meter: location other",
@@ -428,6 +428,8 @@
 		"Time 12": { "title": "activity time", "caption": "Before ${time - 180}",          "help": "Long ago", "ID": 10012, "value": 0,   "next": "activity root" },
 
 
+
+
 		"Hour range 1": { "title": "activity time", "caption": "Day 1<br>5pm - 11pm", "help": "", "ID": 10101, "value": 0, "next": "hours 1" },
 		"Hour range 2": { "title": "activity time", "caption": "11pm - 5am",          "help": "", "ID": 10102, "value": 0, "next": "hours 2" },
 		"Hour range 3": { "title": "activity time", "caption": "5am - 11am",          "help": "", "ID": 10103, "value": 0, "next": "hours 3" },
@@ -494,14 +496,14 @@
 
 		"Appliances 2":  { "title": "More appliances", "caption": "Show more", "help": "appliances", "ID": 8506, "next": "appliances 2" },
 
-		"Appliances Computer":  { "title": "Use of Computer", "caption": "Computer", "help": "it is running or you use it", "ID": 8507, "next": "enjoyment" },
+		"Appliances Computer":  { "title": "Use of Computer", "caption": "Computer", "help": "Laptop, Tablet, PC", "ID": 8507, "next": "enjoyment" },
 		"Appliances TV":  { "title": "Use of TV", "caption": "TV", "help": "it is running or you use it", "ID": 8508, "next": "enjoyment" },
 		"Appliances Kettle":  { "title": "Use of Kettle", "caption": "Kettle", "help": "it is running or you use it", "ID": 8509, "next": "enjoyment" },
-		"Appliances Tools":  { "title": "Use of Tools", "caption": "Tools", "help": "it is running or you use it", "ID": 8510, "next": "enjoyment" },
-
+		"Appliances Tools":  { "title": "Use of Tools", "caption": "Tools / Toys", "help": "Power tools or toys (RC car...)", "ID": 8510, "next": "enjoyment" },
 		"Appliances 3":  { "title": "More appliances", "caption": "Show more", "help": "appliances", "ID": 8511, "next": "appliances 3" },
 
 		"Appliances Toaster":  { "title": "Use of Toaster", "caption": "Toaster", "help": "it is running or you use it", "ID": 8512, "next": "enjoyment" },
+		"Appliances Garden tools":  { "title": "Use of garden tools", "caption": "Garden tools", "help": "Mower, hedge trimmer, etc.", "ID": 8513, "next": "enjoyment" },
 		"Appliances Mower":  { "title": "Use of Mower", "caption": "Mower", "help": "it is running or you use it", "ID": 8513, "next": "enjoyment" },
 		"Appliances Hedge trimmer":  { "title": "Use of Hedge trimmer", "caption": "Hedge trimmer", "help": "it is running or you use it", "ID": 8514, "next": "enjoyment" },
 		"Appliances Hair dryer":  { "title": "Use of Hair dryer", "caption": "Hair dryer", "help": "it is running or you use it", "ID": 8515, "next": "enjoyment" },
@@ -511,7 +513,7 @@
 		"Appliances Lights off":  { "title": "Lights off", "caption": "Lights off", "help": "Switching some light(s) off", "ID": 8517, "next": "home" },
 		"Appliances Lights on":  { "title": "Lights on", "caption": "Lights on", "help": "Switching some light(s) on", "ID": 8518, "next": "home" },
 		"Appliances Bread maker":  { "title": "Use of Bread maker", "caption": "Bread maker", "help": "it is running or you use it", "ID": 8521, "next": "enjoyment" },
-		"Appliances Phone charger":  { "title": "Use of Phone charger", "caption": "Phone charger", "help": "it is running or you use it", "ID": 8522, "next": "home" },
+		"Appliances Phone":  { "title": "Use of Phone", "caption": "Phone", "help": "Use mobile phone", "ID": 8522, "next": "enjoyment" },
 		"Appliances Radio":  { "title": "Use of Radio", "caption": "Radio", "help": "it is running or you use it", "ID": 8523, "next": "enjoyment" },
 
 		"Appliances xxx":  { "title": "Use of xxx", "caption": "xxx", "help": "it is running or you use it", "ID": 8501, "next": "enjoyment" },
@@ -1034,7 +1036,7 @@
 		},
 		"Ironing": {
 			"title": "Ironing",
-			"caption": "House keeping",
+			"caption": "Ironing",
 			"help": "Ironing",
 			"ID": 3320,
 			"category": "care_house",
@@ -1809,8 +1811,8 @@
 		},
 		"Gardening": {
 			"title": "Gardening",
-			"caption": "Unspecified gardening and pet care",
-			"help": "Gardening",
+			"caption": "Gardening",
+			"help": "Tending or spending time in the garden",
 			"ID": 3410,
 			"next": "other people"
 		},
@@ -1830,7 +1832,7 @@
 		},
 		"Walking the dog": {
 			"title": "Walking the dog",
-			"caption": "Unspecified gardening and pet care",
+			"caption": "Walking the dog",
 			"help": "Walking the dog",
 			"ID": 3440,
 			"next": "other people"
@@ -1912,7 +1914,7 @@
 			"next": "other people"
 		},
 		"Unspecified shopping": {
-			"title": "Unspecified shopping",
+			"title": "Shopping",
 			"caption": "Shoppimg",
 			"help": "Unspecified shopping",
 			"ID": 3610,
@@ -2386,12 +2388,80 @@
 		},
 
 
+		"Outdoors other": {
+			"title": "Outdoor activity",
+			"caption": "Other",
+			"help": "Anything else outdoorsy",
+			"ID": 6000,
+			"category": "recreation",
+			"next": "other people"
+		},
 		"Unspecified sports and outdoor activities": {
 			"title": "Unspecified sports and outdoor activities",
 			"caption": "Sports",
 			"help": "Unspecified sports and outdoor activities",
 			"ID": 6000,
 			"next": "other people"
+		},
+
+
+		"Outdoor food": {
+			"title": "Outdoor food",
+			"caption": "Food",
+			"help": "Any food related activity",
+			"ID": 6000,
+			"category": "food",
+			"next": "outdoors food"
+		},
+		"Outdoor food eating": {
+			"title": "Outdoors eating",
+			"caption": "Eating",
+			"help": "Meal outdoors, like restaurant or park",
+			"ID": 6001,
+			"category": "food",
+			"next": "other people"
+		},
+		"Outdoor food shopping": {
+			"title": "Outdoors / food / shopping",
+			"caption": "Shopping",
+			"help": "Outdoor shops or on the way to shops",
+			"ID": 6002,
+			"category": "care_self",
+			"next": "other people"
+		},
+
+		"Outdoor food takeaway": {
+			"title": "Outdoors / food / takeaway",
+			"caption": "Takeaway",
+			"help": "Getting a takeaway meal",
+			"ID": 6003,
+			"category": "food",
+			"next": "other people"
+		},
+		"Outdoor food bbq": {
+			"title": "Outdoors / food / BBQ",
+			"caption": "BBQ",
+			"help": "Having a Barbecue",
+			"ID": 6004,
+			"category": "food",
+			"next": "other people"
+		},
+		"Outdoor food other": {
+			"title": "Outdoors / food / other",
+			"caption": "Other",
+			"help": "Other outdoor food activity",
+			"ID": 6005,
+			"category": "food",
+			"next": "other people"
+		},
+
+		"Outdoors appliances": {
+			"title": "Outdoors / appliances",
+			"caption": "Appliances",
+			"help": "Using an appliance outdoors",
+			"ID": 6010,
+			"category": "recreation",
+			"next": "outdoors appliances"
 		},
 		"exercise": {
 			"title": "Unspecified physical exercise",
@@ -2713,6 +2783,14 @@
 			"ID": 9110,
 			"category": "travel",
 			"next": "other people"
+		},
+		"Travel purpose dog": {
+			"title": "Walking the dog",
+			"caption": "Dog walking",
+			"help": "Taking the dog for a walk",
+			"ID": 3440,
+			"category": "care_other",
+			"next": "enjoyment"
 		},
 		"Travel to work from home and back only": {
 			"title": "Travel to work from home and back only",

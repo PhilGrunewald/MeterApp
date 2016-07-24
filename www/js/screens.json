@@ -134,6 +134,43 @@
 				"more recent"
 			]
 		},
+		"outdoors": {
+			"title": "What are you doing?",
+			"help": "at this moment",
+			"activities": [
+				"Gardening",
+				"Walking the dog",
+				"Loc travelling",
+				"Outdoor food",
+				"Leisure",
+				"Outdoors appliances",
+				"Outdoors other"
+			]
+		},
+		"outdoors food": {
+			"title": "Outdoors food...",
+			"help": "please specify",
+			"activities": [
+				"Outdoor food eating",
+				"Outdoor food shopping",
+				"Outdoor food takeaway",
+				"Outdoor food bbq",
+				"Blank",
+				"Outdoor food other"
+			]
+		},
+		"outdoors appliances": {
+			"title": "Outdoors appliances",
+			"help": "please specify",
+			"activities": [
+				"Appliances Computer",
+				"Appliances Phone",
+				"Appliances Tools",
+				"Appliances Garden tools",
+				"Blank",
+				"Appliances other"
+			]
+		},
 		"activity root 1": {
 			"title": "What are you doing?",
 			"help": "at this moment",
@@ -258,7 +295,7 @@
 			"activities": [
 				"Travel purpose commute",
 				"Travel purpose children",
-				"Travel purpose work",
+				"Travel purpose dog",
 				"Travel purpose shopping",
 				"Travel purpose leisure",
 				"Travel purpose 2"
@@ -405,8 +442,8 @@
 			"help": "Use of electrical goods",
 			"activities": [
 				"Appliances Toaster",
-				"Appliances Mower",
-				"Appliances Hedge trimmer",
+				"Appliances Garden tools",
+				"Ironing",
 				"Appliances Hair dryer",
 				"Appliances other",
 				"Appliances 4"
@@ -419,7 +456,7 @@
 				"Appliances Lights off",
 				"Appliances Lights on",
 				"Appliances Bread maker",
-				"Appliances Phone charger",
+				"Appliances Phone",
 				"Appliances Radio",
 				"Appliances other"
 			]
