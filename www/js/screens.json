@@ -91,11 +91,11 @@
 			"activities": [ "Time exercise 1", "Time exercise 2", "Time exercise 3", "Time exercise 4", "Time exercise 5", "Time exercise 6" ]
 		},
 
-		"xactivity time": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "Time 1", "Time 2", "Time 3", "Time 4", "Time 5", "Time 6" ] },
+		"activity time relative": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "Time 1", "Time 2", "Time 3", "Time 4", "Time 5", "Time 6" ] },
 		"activity time 2": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "Time 7", "Time 8", "Time 9", "Time 10", "Time 11", "Time 12" ] },
 
 
-		"activity time": { "title": "Choose the period", "help": "How long ago or the Hour range", "activities": [ "Hour range 1", "Hour range 2", "Hour range 3", "Hour range 4", "Hour range 5", "Hour range 6" ] },
+		"activity time absolute": { "title": "Choose the period", "help": "How long ago or the Hour range", "activities": [ "Hour range 1", "Hour range 2", "Hour range 3", "Hour range 4", "Hour range 5", "Hour range 6" ] },
 
 
 		"hours 1": { "title": "Select hour", "help": "What hour of the day?", "activities": [ "Hours 1", "Hours 2", "Hours 3", "Hours 4", "Hours 5", "Hours 6" ] },

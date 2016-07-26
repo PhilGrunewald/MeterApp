@@ -19,6 +19,10 @@ var log = {
 				// the existence of folder METER is assumed
 				// in this folder is also id.txt to identify the user
 				log.readID( function(thisID) {
+		if (thisID == "0") {
+        	$("div#change-id").show();
+			$("div#btn-time").attr("onclick", "app.navigateTo('activity time absolute')"); // clicking 'recent' now leads to absolute time values
+		}
 					dir.getFile("METER/"+thisID+"_ind.csv", {create:true}, function(file) {
 	                    console.log("got survey file", file);
 	                    log.logSurvey = file;
@@ -69,15 +73,12 @@ var log = {
 			$.get(log.pathID, function(id_) {
 				metaID = $.trim(id_);
 				if (typeof(callback) === "function" ) {
+				log.metaID = metaID;
 					callback(metaID);
 				}
 				log.metaID = metaID;
 			});
 		}
-        if (log.metaID != "0") {
-            $("div#change-id").hide();
-        }
-    	console.log("META ID ** in LOG ** "+ log.metaID);
 		return log.metaID;
     },
 

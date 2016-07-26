@@ -70,24 +70,15 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
-        //log.setMetaID("0");
 
-        utils.save(ACTIVITY_DATETIME, "same");
-        utils.save(ACTIVITY_MANUAL_DATE, "none");
-        app.actionButtons    = $('.btn-activity');
-        app.activity_list_div= $('#activity-list');
-        app.activityListPane = $('#activity_list_pane');
-        app.choicesPane      = $('#choices_pane');
-        app.title            = $("#title");
-        app.history          = new Array();
-        // utils.save(SURVEY_STATUS, "survey root");
-		SURVEY_STATUS = "survey root";
+        $("div#change-id").hide(); 	// replace by making the div default 'hide'
+        $("div#change-date").hide(); 	// replace by making the div default 'hide'
+
+		app.initialSetup();
 
         localStorage.clear(); // on restart browser failed to load localStorage
 
         log.init();
-
-        $("div#change-date").hide();
 
         $.getJSON('js/activities.json', function(data) {
             app.activities = data.activities;
@@ -98,8 +89,20 @@ var app = {
         });
     },
 
+	initialSetup: function() {
+        utils.save(ACTIVITY_DATETIME, "same");
+        utils.save(ACTIVITY_MANUAL_DATE, "none");
+        app.actionButtons    = $('.btn-activity');
+        app.activity_list_div= $('#activity-list');
+        app.activityListPane = $('#activity_list_pane');
+        app.choicesPane      = $('#choices_pane');
+        app.title            = $("#title");
+        app.history          = new Array();
+        // utils.save(SURVEY_STATUS, "survey root");
+		SURVEY_STATUS = "survey root";
+	},
+
     navigateTo: function(screen_id, prev_activity) {
-        $("div#change-id").hide();
         // the button pressed had 'prev_activity' as its 'title'
         // next screen has the key 'screen_id'
         app.history.push(screen_id);                     // for 'back' functionality
