@@ -57,9 +57,13 @@ body {
     }
 }
 
+.navbar {
+	/* where the "Home | About Me | Help" is displayed */
+    height: 8%;
+}
 .header {
 	/* where the Question is displayed */
-    height: 12%;
+    height: 10%;
 	/* background-image: url("../img/meter.png"); */
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -70,10 +74,14 @@ body {
     height: 75%;
 }
 
-.navbar {
-	/* where the "Home | About Me | Help" is displayed */
-    height: 8%;
+.footer-nav {
+    display: table;
+    width: 100%;
+    height: 18%;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
+
 
 h1 {
     text-transform: uppercase;
@@ -83,6 +91,21 @@ h1 {
     display: table;	
 	width:  100%;
     height: 100%;
+}
+
+#btn-now {
+	background-image: url("../img/now.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center bottom;
+	height: 90px;
+}
+#btn-recent {
+	background-image: url("../img/recent.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center bottom;
+	height: 90px;
 }
 
 #survey-status {
@@ -106,14 +129,6 @@ h1 {
     display: table;
     width: 100%;
     height: 80%;
-    border-collapse: separate;
-    border-spacing: 1px;
-}
-
-.footer-nav {
-    display: table;
-    width: 100%;
-    height: 18%;
     border-collapse: separate;
     border-spacing: 1px;
 }

@@ -27,6 +27,7 @@ var ACTIVITY_MANUAL_DATE = "none";  // default - if entering manual 'past time' 
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
 var ACTIVITY_LIST = "activity_list";
+var CATCHUP_LIST = "catchup_list";			// keeps times that participants should follow up on
 var SURVEY_STATUS = "survey root";			// stores how far they got in the survey
 
 var CATEGORIES = ["care_self",
@@ -55,31 +56,22 @@ var LOCATION_MAX  = 30031;
 var SURVEY_MIN    = 90000;
 var SURVEY_MAX    = 91000;
 
-var app = {
+var CATCHUP_INDEX = 0;
+var catchupList   = "";
+var deviceColour  = "#990000";				// to be used for background or colour marker
 
+var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
     },
-    // Bind Event Listeners // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    // deviceready Event Handler // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        //app.receivedEvent('deviceready');
-
-        $("div#change-id").hide(); 	// replace by making the div default 'hide'
-        $("div#change-date").hide(); 	// replace by making the div default 'hide'
-
 		app.initialSetup();
-
-        localStorage.clear(); // on restart browser failed to load localStorage
-
+        //localStorage.clear(); // on restart browser failed to load localStorage
         log.init();
-
         $.getJSON('js/activities.json', function(data) {
             app.activities = data.activities;
             $.getJSON('js/screens.json', function(screen_data) {
@@ -90,16 +82,19 @@ var app = {
     },
 
 	initialSetup: function() {
+        $("div#change-id").hide(); 	// replace by making the div default 'hide'
+        $("div#change-date").hide(); 	// replace by making the div default 'hide'
         utils.save(ACTIVITY_DATETIME, "same");
         utils.save(ACTIVITY_MANUAL_DATE, "none");
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
+        app.catchup_text     = $('#catchup-text');
+        app.catchup_time     = $('#catchup-time');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
         app.history          = new Array();
-        // utils.save(SURVEY_STATUS, "survey root");
-		SURVEY_STATUS = "survey root";
+        $("#now-time").html(utils.format("${time}"));
 	},
 
     navigateTo: function(screen_id, prev_activity) {
@@ -161,8 +156,9 @@ var app = {
             // within the code range of 'survey'
             else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
                 // save the survey screen_id, such that we can return here via screen_id = 'survey'
-                // utils.save(SURVEY_STATUS, screen_id);
-				SURVEY_STATUS = screen_id;
+                utils.save(SURVEY_STATUS, screen_id);
+        		// localStorage.setItem(SURVEY_STATUS, screen_id);
+				// SURVEY_STATUS = screen_id;
                 log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);          
 
 				var icon = "0"
@@ -181,11 +177,10 @@ var app = {
 		}
 		if (screen_id == "home" ) {
             // an entry has been completed
-            $("#btn-time").html(utils.format("${time}"));
+            $("#now-time").html(utils.format("${time}"));
             app.addActivityToList();
             app.showActivityList();
             app.choicesPane.hide();
-            app.activityListPane.show();
         } else {
 
             // an entry is still in the middle of completion
@@ -193,8 +188,9 @@ var app = {
                 // "survey" is where the top navigation button points to
                 // here it gets redirected to the latest survey screen
                 // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
-                // screen_id = utils.get(SURVEY_STATUS);
-                screen_id = SURVEY_STATUS;
+                screen_id = utils.get(SURVEY_STATUS);
+                // screen_id = SURVEY_STATUS;
+        	    // screen_id = localStorage.getItem(SURVEY_STATUS);
                 // console.log("Survey ID" + screen_id);
             }
             // populate buttons XXX move to 'if not home'?
@@ -248,9 +244,7 @@ var app = {
 
 
     showActivityList: function() {
-
         app.history = new Array();
-        // localStorage.clear();
         var activityList = utils.getList(ACTIVITY_LIST) || []
         var curr_acts = "";
         var row = ''+
@@ -276,11 +270,57 @@ var app = {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
 
-        app.title.html("Activities")
         app.activity_list_div.html(curr_acts)
         app.choicesPane.hide();
         app.activityListPane.show();
+    	app.title.html("What I did ...")
+		app.showCatchupItem(); // overwrites app.title if catchup items exist
     },
+
+	showCatchupItem: function() {
+		// drop (shift) catchup items more than 8 ours old
+		while ((new Date() - new Date(app.catchupList.time[0])) > (8*60*60*1000)) {
+			app.catchupList.time.shift();
+			app.catchupList.displaytime.shift();
+			if (!app.catchupList.time.length) {
+				break;
+				}
+			}
+
+		// find most recent item that is in the past (starting from the back)
+		var catchupIndex = app.catchupList.time.length-1;
+		while (new Date() < new Date(app.catchupList.time[catchupIndex])) {
+			catchupIndex -= 1;	
+			if (catchupIndex < 0) { break;}
+			}
+
+		// show specific time in title
+		if (catchupIndex > -1) {
+			var hh=parseInt(app.catchupList.time[catchupIndex].slice(11,13));
+			var mm=parseInt(app.catchupList.time[catchupIndex].slice(14,16));
+			var strTime = app.formatAMPM(hh,mm);
+			app.title.html("Do you remember " + strTime + "? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
+            app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
+		}
+	},
+
+	formatAMPM: function(hours,minutes) {
+		var ampm = hours >= 12 ? 'pm' : 'am';
+		hours = hours % 12;
+		hours = hours ? hours : 12; // the hour '0' should be '12'
+		minutes = minutes < 10 ? '0'+minutes : minutes;
+		var strTime = hours + ':' + minutes + ' ' + ampm;
+		return strTime;
+	},
+
+	catchupActivity: function(catchupIndex) {
+		var catchupTime = app.catchupList.time[catchupIndex];
+		utils.save(ACTIVITY_DATETIME, catchupTime);
+		app.catchupList.time.splice(catchupIndex,1); // remove this catchup request
+		app.catchupList.displaytime.splice(catchupIndex,1); // remove this catchup request
+		app.navigateTo('activity root');
+	},
+
 
     addActivityToList: function() {
         activityList = utils.getList(ACTIVITY_LIST) || {};
@@ -295,9 +335,10 @@ var app = {
             "name" : utils.get(CURR_ACTIVITY),
             "time" : dt_act
         }
-        utils.saveList(ACTIVITY_LIST, activityList)
+		utils.saveList(ACTIVITY_LIST, activityList);
         log.writeActivity();          
     },
+
 
     removeActivity: function (uuid) {
         if (uuid) {

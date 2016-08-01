@@ -8,17 +8,27 @@ var log = {
     logAct: null,
     logDebug: null,
     logSurvey: null,
-    logID: null,
 	metaID: "0",
+	id: 7,
 	pathID: '/sdcard/METER/id.txt',
+	pathCatchup: '/sdcard/METER/catchup.json',
     
 	init: function() {
 		if (device.platform != "browser") {        
 			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
-				console.log("got main dir",dir);
-				// the existence of folder METER is assumed
-				// in this folder is also id.txt to identify the user
-				log.readID( function(thisID) {
+		console.log("got main dir",dir);
+		// the existence of folder METER is assumed
+		// in this folder is also id.txt to identify the user
+
+
+		$.getJSON("/sdcard/METER/config.json", function(config) {
+			log.id 				= config.id;
+			app.catchupList 	= config.catchup;
+			app.deviceColour 	= config.colour;
+		});
+
+
+		log.readID( function(thisID) {
 		if (thisID == "0") {
         	$("div#change-id").show();
 			$("div#btn-time").attr("onclick", "app.navigateTo('activity time absolute')"); // clicking 'recent' now leads to absolute time values
@@ -69,7 +79,6 @@ var log = {
 
     readID: function( callback ) {
 		if (log.metaID == "0") {
-    		console.log("readID :"+ log.metaID);
 			$.get(log.pathID, function(id_) {
 				metaID = $.trim(id_);
 				if (typeof(callback) === "function" ) {
@@ -81,6 +90,7 @@ var log = {
 		}
 		return log.metaID;
     },
+
 
 	setMetaID: function( metaID_ ) {
 		log.metaID = metaID_;
