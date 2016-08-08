@@ -133,6 +133,7 @@ var log = {
     },
 
     writeActivity: function() {
+		// SUPERSEEDED - now calling writeLog directly from index.js addActivityToList()
     	var dt_recorded = new Date().toISOString();
 		var dt_act;
 		if (utils.get(ACTIVITY_DATETIME) == "same") {
@@ -141,11 +142,11 @@ var log = {
 			dt_act = utils.get(ACTIVITY_DATETIME);
 		} 
 		var act = "\"" + utils.get(CURR_ACTIVITY) + "\"";
-		var tuc =  utils.get(CURR_ACTIVITY_ID) ;
+		var details =  utils.get(CURR_ACTIVITY_ID); // tuc, category, title
 		var loc =  utils.get(CURR_LOCATION) ;
 		var enj =  utils.get(CURR_ENJOYMENT);          
 
-    	var str = [log.metaID,dt_act, dt_recorded, tuc, act, loc, enj].join() + "\n";
+    	var str = [log.metaID,dt_act, dt_recorded, details, loc, enj].join() + "\n";
     	log.writeLog(log.logAct, str)
 
 		// "same" means 'not different from current time' - writeActivity replaces "same" with current time

@@ -39,7 +39,7 @@ var CATEGORIES = ["care_self",
     "work",
     "other_category"];
 
-var TO_BE_SPECIFIED     = "Other specify";
+var TO_BE_SPECIFIED     = "other specify";
 var OTHER_SPECIFIED_ID  = 9990;
 var TIMEUSE_MAX   		= 10000;
 
@@ -59,6 +59,7 @@ var SURVEY_MAX    = 91000;
 var CATCHUP_INDEX = 0;
 var catchupList   = "";
 var deviceColour  = "#990000";				// to be used for background or colour marker
+var ToggleColon   = false;
 
 var app = {
     // Application Constructor
@@ -86,15 +87,30 @@ var app = {
         $("div#change-date").hide(); 	// replace by making the div default 'hide'
         utils.save(ACTIVITY_DATETIME, "same");
         utils.save(ACTIVITY_MANUAL_DATE, "none");
+        // XXX utils.save(SURVEY_STATUS, screen_id);
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
         app.catchup_text     = $('#catchup-text');
         app.catchup_time     = $('#catchup-time');
+        app.activityAddPane  = $('#activity_add_pane');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
+        app.now_time         = $("#now-time");
+		app.act_count        = $('#act-count');
         app.history          = new Array();
-        $("#now-time").html(utils.format("${time}"));
+		setInterval(function(){ app.updateNowTime(); }, 1000);
+		// app.updateNowTime();
+        // $("#now-time").html(utils.format("${time}"));
+	},
+
+	updateNowTime: function() {
+		var timeStr = utils.format("${time}");
+		if (ToggleColon) {
+			timeStr = timeStr.substring(0,2)+" "+timeStr.substring(3,5);
+		}
+		ToggleColon = (!ToggleColon);
+        app.now_time.html(timeStr);
 	},
 
     navigateTo: function(screen_id, prev_activity) {
@@ -112,10 +128,10 @@ var app = {
                 }
             }
 
-            if (prev_activity == TO_BE_SPECIFIED) {     // display text edit field
+            if (screen_id == TO_BE_SPECIFIED) {     // display text edit field
                 $("div#other-specify").show();
                 $("div.footer-nav").hide();
-                screen_id = "other specify";
+                // screen_id = "other specify";
             } else {
                 $("div.footer-nav").show();
             }
@@ -123,7 +139,8 @@ var app = {
             // within the code range of 'activity codes'
             if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
                 utils.save(CURR_ACTIVITY, prev_activity);
-				utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category].join());
+                // utils.save(CURR_ACTIVITY, app.activities[prev_activity].title);
+				utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category,app.activities[prev_activity].title].join());
 				// running save for category separately caused ID and category to be set to the same value (???!!!) - so we do it in one go into the same var
             }
             // if going via "Recent" > prompted for time offset 
@@ -139,8 +156,11 @@ var app = {
             // Set specific time in hours and minutes
             else if (app.activities[prev_activity].ID > ACTIVITY_SET_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_SET_TIME_MAX) {
                 var dt_activity = utils.get(ACTIVITY_DATETIME);
-                var addition = app.activities[prev_activity].value * 60000;
+				if (dt_activity == "same") {
+					dt_activity = utils.get(ACTIVITY_MANUAL_DATE);
+				}
                 dt_activity = new Date(dt_activity);
+                var addition = app.activities[prev_activity].value * 60000;
                 dt_activity = new Date(dt_activity.getTime() + addition).toISOString();
                 utils.save(ACTIVITY_DATETIME, dt_activity);
             }
@@ -177,7 +197,7 @@ var app = {
 		}
 		if (screen_id == "home" ) {
             // an entry has been completed
-            $("#now-time").html(utils.format("${time}"));
+			app.updateNowTime();
             app.addActivityToList();
             app.showActivityList();
             app.choicesPane.hide();
@@ -189,6 +209,9 @@ var app = {
                 // here it gets redirected to the latest survey screen
                 // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
                 screen_id = utils.get(SURVEY_STATUS);
+				if (screen_id === null) {
+					screen_id = "survey root";
+				}
                 // screen_id = SURVEY_STATUS;
         	    // screen_id = localStorage.getItem(SURVEY_STATUS);
                 // console.log("Survey ID" + screen_id);
@@ -227,6 +250,7 @@ var app = {
                     button.attr("onclick", "");
                 }
             }
+        	app.activityAddPane.hide();
             app.activityListPane.hide();
             app.choicesPane.show();
         }
@@ -242,6 +266,40 @@ var app = {
         }
     },
 
+
+    showActivityHistory: function() {
+        app.history = new Array();
+        var activityList = utils.getList(ACTIVITY_LIST) || []
+        var curr_acts = "";
+        var row = ''+
+            '<div class="row activity-row">' + 
+            '	<div class="activity-cell btn-time">{0}</div>' + 
+            '	<div class="activity-cell activity-item">{1}</div>' + 
+            '	<div class="activity-cell btn-terminate" onclick="{2}">{3}</div>' + 
+            '</div>';
+
+        if (Object.keys(activityList).length > 0) {
+            row = row.format( '<span class="bordered">{0}</span>', 
+                '{1}', 
+                '{2}',
+                '<span class="bordered">{3}</span>')
+            Object.keys(activityList).forEach( function(key, index) {
+                var item = activityList[key];
+                curr_acts += row.format(utils.format_time(item.time), 
+                app.activities[item.name].title,
+                'app.removeActivity(\'' + key + '\')',
+                "-")					
+            })
+        } else {
+            curr_acts = row.format("", "<i>No activity yet</i>", "", "")
+        }
+
+        app.activity_list_div.html(curr_acts)
+        app.choicesPane.hide();
+        app.activityAddPane.hide();
+        app.activityListPane.show();
+    	app.title.html("Your activities")
+    },
 
     showActivityList: function() {
         app.history = new Array();
@@ -262,16 +320,17 @@ var app = {
             Object.keys(activityList).forEach( function(key, index) {
                 var item = activityList[key];
                 curr_acts += row.format(utils.format_time(item.time), 
-                app.activities[item.name].caption,
+                item.act,
                 'app.removeActivity(\'' + key + '\')',
                 "-")					
             })
         } else {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
-
-        app.activity_list_div.html(curr_acts)
+		app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
+		app.activity_list_div.html(curr_acts);
         app.choicesPane.hide();
+        app.activityAddPane.show();
         app.activityListPane.show();
     	app.title.html("What I did ...")
 		app.showCatchupItem(); // overwrites app.title if catchup items exist
@@ -281,7 +340,6 @@ var app = {
 		// drop (shift) catchup items more than 8 ours old
 		while ((new Date() - new Date(app.catchupList.time[0])) > (8*60*60*1000)) {
 			app.catchupList.time.shift();
-			app.catchupList.displaytime.shift();
 			if (!app.catchupList.time.length) {
 				break;
 				}
@@ -314,29 +372,52 @@ var app = {
 	},
 
 	catchupActivity: function(catchupIndex) {
+		// takes the 'catchupTime' before navigate to activity selection
 		var catchupTime = app.catchupList.time[catchupIndex];
 		utils.save(ACTIVITY_DATETIME, catchupTime);
 		app.catchupList.time.splice(catchupIndex,1); // remove this catchup request
-		app.catchupList.displaytime.splice(catchupIndex,1); // remove this catchup request
 		app.navigateTo('activity root');
 	},
 
 
     addActivityToList: function() {
+		// 2 Lists: local ACTIVITY_LIST and logAct file
+    	var dt_recorded = new Date().toISOString();
+		var dt_act;
+		if (utils.get(ACTIVITY_DATETIME) == "same") {
+			dt_act = dt_recorded;
+		} else {
+			dt_act = utils.get(ACTIVITY_DATETIME);
+		} 
+		var actKey =  utils.get(CURR_ACTIVITY);
+		var details =  utils.get(CURR_ACTIVITY_ID) ;
+		var loc =  utils.get(CURR_LOCATION) ;
+		var enj =  utils.get(CURR_ENJOYMENT);          
+
+		var detailsArray = details.split(",");  // contains tuc, category, title
+		var tuc = detailsArray[0];
+		var cat = detailsArray[1];			// .category
+		var act = detailsArray[2];			// .title for this activity Key
+
         activityList = utils.getList(ACTIVITY_LIST) || {};
-        var dt_act;
-        if (utils.get(ACTIVITY_DATETIME) == "same") {
-            dt_act = Date.now();
-        } else {
-            dt_act = utils.get(ACTIVITY_DATETIME);
-        } 
+
         var uuid = utils.uuid()
         activityList[uuid] = {
-            "name" : utils.get(CURR_ACTIVITY),
-            "time" : dt_act
+            "name" : actKey,
+            "time" : dt_act,
+			"loc"  : loc,
+			"enj"  : enj,
+			"tuc"  : tuc,
+			"cat"  : cat,
+			"act"  : act
         }
 		utils.saveList(ACTIVITY_LIST, activityList);
-        log.writeActivity();          
+                //console.log('act: ' + act);
+		var actStr = "\""+act+"\"";
+    	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, enj].join() + "\n";
+    	log.writeLog(log.logAct, str)
+        utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
+        // log.writeActivity();          
     },
 
 
@@ -358,6 +439,7 @@ var app = {
         // utils.save(ACTIVITY_DATETIME, date_activity);
         utils.save(ACTIVITY_MANUAL_DATE, date_activity);
         $("div#change-date").hide();
+		$("div#btn-recent").attr("onclick", "app.navigateTo('activity time absolute')");
     },
 
     changeID: function() {
@@ -373,14 +455,13 @@ var app = {
         if (origin === undefined) {
             origin = "Other specify";
         }
-        var screen_id = app.activities[origin].next;
+        // var screen_id = app.activities[origin].next;
         var prev_activity = $("input#free-text").val();
         $("div#other-specify").hide();
-        app.navigateTo(screen_id, prev_activity)
+        app.navigateTo("other people", prev_activity)
     },
 
     toggleCaption: function() {
-
         $(".btn-caption").toggle();
     },
     };

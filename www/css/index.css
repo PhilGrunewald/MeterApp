@@ -35,13 +35,13 @@ body {
     
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:20px;
+	font-weight: lighter;
     height:100%;
     width:100%;
     
     text-align: center;
     position: relative;
-
-	color: #333333;
+    color: #444;
 }
 
 /* Portrait layout (default) */
@@ -91,6 +91,11 @@ h1 {
     display: table;	
 	width:  100%;
     height: 100%;
+}
+
+#title {
+	font-weight: lighter;
+    font-size: 200%;
 }
 
 #btn-now {
@@ -149,11 +154,11 @@ h1 {
 .col {
 	background-position: center;
     background-repeat:no-repeat;
-    background-size: auto 60%;
+    background-size: auto 100%;
     display: table-cell;
     padding: 5px;
     /*background: #ededed;*/
-    vertical-align: middle;
+    /* vertical-align: middle; */
     width: 50%;
 }
 
@@ -170,10 +175,23 @@ h1 {
     height: 100%;
 }
 
+
+.btn-activity {
+	/* default behaviour for activity buttons - superseded by category if specified */
+    background-color: #eec;
+}
+
+.btn-title {
+	/* the short main description */
+	font-weight: lighter;
+    font-size: 150%;
+    /* color: #444; */
+}
+
 .btn-caption {
     display: none;
     font-size: 90%;
-    color: #232323;
+    /* color: #444; */
 }
 
 
@@ -217,8 +235,8 @@ div.btn-terminate {
 div.activity-item {
     display: table-cell;
     background: #ededed;
-    vertical-align: middle;
-    width: 60%;
+    /* vertical-align: middle; */
+    width: 100%;
 }
 
 .clickable {
@@ -266,27 +284,27 @@ div#other-specify input {
  */
 
 .care_self {
-    background-color: #66c2a5;
+    background-color: #cec;
 }
 .care_other {
-    background-color: #8da0cb;
+    background-color: #ace;
 }
 .care_house {
-    background-color: #e5c494;
+    background-color: #eda;
 }
 .recreation {
-    background-color: #e78ac3;
+    background-color: #ece;
 }
 .travel {
-    background-color: #ddc92f;
+    background-color: #eea;
 }
 .food {
-    background-color: #a6d854;
+    background-color: #cea;
 }
 .work {
-    background-color: #fc8d62;
+    background-color: #cde;
 }
 .other_category {
-    background-color: #ededed;
+    background-color: #eec;
 }
 

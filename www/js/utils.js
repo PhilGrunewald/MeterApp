@@ -29,7 +29,6 @@ var utils = {
 		} else {
 			return str;
 		}
-
 		/* keep the contents of the variable */
 		intime = intime_var.substring(2, intime_var.length-1);
 		var elems = intime.split(" ");
@@ -51,7 +50,18 @@ var utils = {
 			}
 
 			return str.replace(intime_var, res.toTimeString().substring(0, 5))
-		} else {
+		} else if (elems[0] == "act_time") {
+			// XXX Needs time zone adjustment!!! in Germany returns two hours too early
+			var dt_act = utils.get(ACTIVITY_DATETIME);
+			if (dt_act == "same") {
+				res = "now";
+			} else {
+				res = "at " + dt_act.substring(11,16);
+			}
+			return str.replace(intime_var, res)
+	
+		}
+	      else	{
 			return str; // no other function implemented
 		}
 

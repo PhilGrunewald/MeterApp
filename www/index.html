@@ -64,7 +64,7 @@
 		</div>
 
 		<div class="header">
-			<h3 id="title">&lt;placeholder&gt;</h3>
+			<div id="title">Welcome</div>
 		</div>
 
 		<div id="other-specify">
@@ -75,13 +75,16 @@
 		</div>
 
 		<div class="contents">
-			<div id="activity_list_pane">
+			<div id="activity_add_pane">
 				<div class="btn-addnew container">
 					<div class="row">
 						<div id="btn-now"    class="col" onclick="app.navigateTo('activity root')">Now<div id="now-time">${time}</div></div>
-						<div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')"> Recent </div>
+						<div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">Recently</div>
 					</div>
 				</div>
+			</div>
+			<div id="activity_list_pane">
+				<div id="btn-history" onclick="app.showActivityHistory()"><div id="act-count"></div></div>
 				<div id="activity-list">
 				    <div class="row activity-row">
 					    <div class="activity-cell btn-terminate"></div>
@@ -98,58 +101,40 @@
 							<div id="title1" class="btn-title">&lt;title&gt;</div>
 							<div id="caption1" class="btn-caption">&lt;caption&gt;</div>
 						</div>
-
 						<div id="button2" class="btn-activity col">
 							<div id="title2" class="btn-title">&lt;title&gt;</div>
 							<div id="caption2" class="btn-caption">&lt;caption&gt;</div>
 						</div>
 					</div>
-					<!-- end of row -->
-
 					<div class="row">
-
 						<div id="button3" class="btn-activity col">
 							<div id="title3" class="btn-title">&lt;title&gt;</div>
 							<div id="caption3" class="btn-caption">&lt;caption&gt;</div>
 						</div>
-
 						<div id="button4" class="btn-activity col">
 							<div id="title4" class="btn-title">&lt;title&gt;</div>
 							<div id="caption4" class="btn-caption">&lt;caption&gt;</div>
 						</div>
-
 					</div>
-
 					<div class="row">
-
 						<div id="button5" class="btn-activity col">
-
 							<div id="title5" class="btn-title">&lt;title&gt;</div>
 							<div id="caption5" class="btn-caption">&lt;caption&gt;</div>
-
 						</div>
 						<div id="button6" class="btn-activity col">
-
 							<div id="title6" class="btn-title">&lt;title&gt;</div>
 							<div id="caption6" class="btn-caption">&lt;caption&gt;</div>
-
 						</div>
 					</div>
-
-
 				</div>
-
 				<div class="footer-nav">
 					<div class="row">
 						<div id="btn-back" class="col btn-activity" onclick="app.goBack();">Back</div>
 						<div id="btn-done" class="col btn-activity" onclick="app.navigateTo('home')">Done</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
-
-
 	</div>
 
 	<script type="text/javascript" src="cordova.js"></script>

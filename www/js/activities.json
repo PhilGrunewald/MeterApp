@@ -152,9 +152,9 @@
 
 		"Loc home": {
 			"title": "meter: location home",
-			"icon": "home",
+			"icon": "Loc_home",
 			"caption": "Home",
-			"help": "In or around your home / garden",
+			"help": "In your home",
 			"ID": 30011,
 			"value": 1,
 			"category": "care_self",
@@ -162,7 +162,7 @@
 		},
 		"Loc travelling": {
 			"title": "meter: location travelling",
-			"icon": "travel",
+			"icon": "Loc_travel",
 			"caption": "Travel",
 			"help": "Travel by car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
@@ -172,7 +172,7 @@
 		},
 		"Loc work": {
 			"title": "meter: location work",
-			"icon": "work",
+			"icon": "Loc_work",
 			"caption": "Work",
 			"help": "At work place or school",
 			"ID": 30013,
@@ -180,9 +180,9 @@
 			"category": "care_other",
 			"next": "activity main"
 		},
-		"Loc friends": {
+		"Loc public": {
 			"title": "meter: location friends",
-			"icon": "publicPlace",
+			"icon": "Loc_shop",
 			"caption": "Public place",
 			"help": "Shop, public building",
 			"ID": 30014,
@@ -192,7 +192,7 @@
 		},
 		"Loc outdoors": {
 			"title": "Outdoor activity",
-			"icon": "outdoors",
+			"icon": "Loc_outside",
 			"caption": "Outdoors",
 			"help": "Park, road, public places, sports field",
 			"ID": 30018,
@@ -202,7 +202,8 @@
 		},
 		"Loc other location": {
 			"title": "meter: location other",
-			"caption": "Somewhere else",
+			"icon": "Loc_other",
+			"caption": "Elsewhere",
 			"help": "None of the above",
 			"ID": 30010,
 			"value": 6,
@@ -359,7 +360,7 @@
 
 		"not at all": {
 			"title": "meter: enjoyment 1",
-			"icon": "smiley_1",
+			"icon": "enjoy_1",
 			"caption": "Not at all",
 			"help": "I enjoyed this time not at all",
 			"ID": 20002,
@@ -368,7 +369,7 @@
 		},
 		"not very much": {
 			"title": "meter: enjoyment 2",
-			"icon": "smiley_2",
+			"icon": "enjoy_2",
 			"caption": "Not very much",
 			"help": "I enjoyed this time not very much.",
 			"ID": 20003,
@@ -377,7 +378,7 @@
 		},
 		"neutral": {
 			"title": "meter: enjoyment 3",
-			"icon": "smiley_3",
+			"icon": "enjoy_3",
 			"caption": "Neutral",
 			"help": "I enjoyed this time somewhat",
 			"ID": 20004,
@@ -386,7 +387,7 @@
 		},
 		"somewhat": {
 			"title": "meter: enjoyment 4",
-			"icon": "smiley_4",
+			"icon": "enjoy_4",
 			"caption": "Somewhat",
 			"help": "I enjoyed this time",
 			"ID": 20005,
@@ -395,7 +396,7 @@
 		},
 		"very much": {
 			"title": "meter: enjoyment 5",
-			"icon": "smiley_5",
+			"icon": "enjoy_5",
 			"caption": "Very much",
 			"help": "I enjoyed this time very much.",
 			"ID": 20006,
@@ -1552,7 +1553,7 @@
 			"caption": "Mobile",
 			"help": "Watching TV on a mobile",
 			"ID": 8213,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Leisure TV Projector": {
@@ -1560,77 +1561,82 @@
 			"caption": "Projector",
 			"help": "Watching TV on a projector",
 			"ID": 8214,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Leisure TV TV": {
-			"title": "Watching TV on a TV",
+			"title": "Watching TV",
 			"caption": "TV",
 			"help": "Watching TV on a TV",
 			"ID": 8215,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Leisure TV Laptop": {
-			"title": "Watching TV on a laptop",
+			"title": "Watching TV",
 			"caption": "Laptop",
 			"help": "Watching TV on a laptop",
 			"ID": 8216,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Leisure TV Tablet": {
-			"title": "Watching TV on a tablet",
+			"title": "Watching TV",
 			"caption": "Tablet",
 			"help": "Watching TV on a tablet",
 			"ID": 8217,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 
 		"Leisure TV Other": {
-			"title": "Watching",
+			"title": "Watching TV",
 			"caption": "Other",
 			"help": "Unspecified tv, video or dvd watching",
 			"ID": 8210,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 
 
 		"Other specified TV watching": {
-			"title": "Other specified TV watching",
+			"title": "Watching TV",
 			"caption": "Leisure",
 			"help": "Other specified TV watching",
 			"ID": 8219,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Unspecified video watching": {
-			"title": "Unspecified video watching",
+			"title": "Watching video",
 			"caption": "Leisure",
 			"help": "Unspecified video watching",
 			"ID": 8220,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Watching a film on video": {
-			"title": "Watching a film on video",
+			"title": "Watching a film",
 			"caption": "Leisure",
 			"help": "Watching a film on video",
 			"ID": 8221,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Watching sport on video": {
-			"title": "Watching sport on video",
+			"title": "Watching sport",
 			"caption": "Leisure",
 			"help": "Watching sport on video",
 			"ID": 8222,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Other specified video watching": {
-			"title": "Other specified video watching",
+			"title": "Watching video",
 			"caption": "Leisure",
 			"help": "Other specified video watching",
 			"ID": 8229,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Unspecified listening to radio and music": {
@@ -1638,6 +1644,7 @@
 			"caption": "Leisure",
 			"help": "Unspecified listening to radio and music",
 			"ID": 8300,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Unspecified radio listening": {
@@ -1645,6 +1652,7 @@
 			"caption": "Leisure",
 			"help": "Unspecified radio listening",
 			"ID": 8310,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Listening to music on the radio": {
@@ -1652,6 +1660,7 @@
 			"caption": "Leisure",
 			"help": "Listening to music on the radio",
 			"ID": 8311,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Listening to sport on the radio": {
@@ -1659,6 +1668,7 @@
 			"caption": "Leisure",
 			"help": "Listening to sport on the radio",
 			"ID": 8312,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Other specified radio listening": {
@@ -1666,6 +1676,7 @@
 			"caption": "Leisure",
 			"help": "Other specified radio listening",
 			"ID": 8319,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Listening to recordings ": {
@@ -1673,6 +1684,7 @@
 			"caption": "Leisure",
 			"help": "Listening to recordings",
 			"ID": 8320,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Unspecified employment": {
@@ -1680,6 +1692,7 @@
 			"caption": "Work",
 			"help": "Unspecified employment",
 			"ID": 1000,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"work": {
@@ -3048,12 +3061,20 @@
 			"ID": 9980,
 			"next": "other people"
 		},
+		"Main other": {
+			"title": "Custom",
+			"icon": "Other_type",
+			"caption": "Customise",
+			"help": "Say in your own words",
+			"ID": 9990,
+			"next": "other specify"
+		},
 		"Other specify": {
 			"title": "Unspecified time use",
 			"caption": "Other...",
 			"help": "Say in your own words",
 			"ID": 9990,
-			"next": "other people"
+			"next": "other specify"
 		},
 		"other": {
 			"title": "Unspecified time use",

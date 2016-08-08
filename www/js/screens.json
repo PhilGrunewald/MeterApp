@@ -111,13 +111,13 @@
 
 
 		"activity root": {
-			"title": "Where are you at ${time}?",
+			"title": "Where are you ${act_time}?",
 			"help": "Your location.",
 			"activities": [
 				"Loc home",
 				"Loc work",
 				"Loc travelling",
-				"Loc friends",
+				"Loc public",
 				"Loc outdoors",
 				"Loc other location"
 			]
@@ -131,7 +131,7 @@
 				"Leisure",
 				"food",
 				"Appliances",
-				"more recent"
+				"Main other"
 			]
 		},
 		"outdoors": {
