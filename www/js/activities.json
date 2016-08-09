@@ -30,11 +30,65 @@
 			"next": "help"
 		},
 		"Back": {
-			"title": "meter: back",
+			"title": "back",
 			"caption": "Back",
 			"help": "Return to last screen",
 			"ID": -1,
 			"next": "this is populated by js"
+		},
+		"Repeat activity now": {
+			"title": "Repeat now",
+			"caption": "Again now",
+			"icon": "edit_again_now",
+			"help": "I do this again right now",
+			"category": "other_category",
+			"ID": -1,
+			"next": "app.repeatActivityNow"
+		},
+		"Repeat activity recently": {
+			"title": "Repeat recently",
+			"caption": "Again recently",
+			"icon": "edit_again_recent",
+			"help": "I did this again recently",
+			"category": "other_category",
+			"ID": -1,
+			"next": "app.repeatActivityRecently"
+		},
+		"Edit activity time": {
+			"title": "Edit time",
+			"caption": "Change time",
+			"icon": "edit_time",
+			"help": "Time is wrong",
+			"category": "other_category",
+			"ID": -1,
+			"next": "app.editActivityTime"
+		},
+		"Edit activity title": {
+			"title": "Edit title",
+			"caption": "Annotate",
+			"icon": "Other_type",
+			"help": "Be more specific",
+			"category": "other_category",
+			"ID": -1,
+			"next": "app.editActivityTitle"
+		},
+		"End activity": {
+			"title": "End activity",
+			"caption": "End",
+			"icon": "edit_end",
+			"help": "I am done with this",
+			"category": "other_category",
+			"ID": -1,
+			"next": "app.endActivity"
+		},
+		"Delete activity": {
+			"title": "Delete activity",
+			"caption": "Delete",
+			"icon": "edit_delete",
+			"help": "I did not do this",
+			"category": "other_category",
+			"ID": -1,
+			"next": "app.deleteActivity"
 		},
 
 		"female": 				{ "title": "Gender", "value": 1,"caption": "Female", "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
@@ -151,7 +205,7 @@
 		"Time exercise 6": { "title": "TimeExercise", "value": 6, "caption": "Over 3h", "help": "spent on exercise", "ID": 90906, "next": "home" },
 
 		"Loc home": {
-			"title": "meter: location home",
+			"title": "location home",
 			"icon": "Loc_home",
 			"caption": "Home",
 			"help": "In your home",
@@ -161,7 +215,7 @@
 			"next": "activity main"
 		},
 		"Loc travelling": {
-			"title": "meter: location travelling",
+			"title": "location travelling",
 			"icon": "Loc_travel",
 			"caption": "Travel",
 			"help": "Travel by car, foot, bus, train, bike, jogging...",
@@ -171,7 +225,7 @@
 			"next": "travel"
 		},
 		"Loc work": {
-			"title": "meter: location work",
+			"title": "location work",
 			"icon": "Loc_work",
 			"caption": "Work",
 			"help": "At work place or school",
@@ -181,7 +235,7 @@
 			"next": "activity main"
 		},
 		"Loc public": {
-			"title": "meter: location friends",
+			"title": "location friends",
 			"icon": "Loc_shop",
 			"caption": "Public place",
 			"help": "Shop, public building",
@@ -201,7 +255,7 @@
 			"next": "outdoors"
 		},
 		"Loc other location": {
-			"title": "meter: location other",
+			"title": "location other",
 			"icon": "Loc_other",
 			"caption": "Elsewhere",
 			"help": "None of the above",
@@ -211,14 +265,14 @@
 		},
 
 		"xxxat home": {
-			"title": "meter: location home",
+			"title": "location home",
 			"caption": "At home",
 			"help": "In or around your home / garden",
 			"ID": 30011,
 			"next": "other people"
 		},
 		"travelling": {
-			"title": "meter: location travelling",
+			"title": "location travelling",
 			"caption": "Travelling",
 			"help": "By car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
@@ -226,191 +280,35 @@
 			"next": "travel"
 		},
 		"xxxat work": {
-			"title": "meter: location work",
+			"title": "location work",
 			"caption": "At work",
 			"help": "I am at my place of work or school",
 			"ID": 30013,
 			"next": "other people"
 		},
 		"xxxat friends": {
-			"title": "meter: location friends",
+			"title": "location friends",
 			"caption": "At a friend's",
 			"help": "At a friends or other peoples house",
 			"ID": 30014,
 			"next": "other people"
 		},
 		"xxxoutdoors": {
-			"title": "meter: location outdoors",
+			"title": "location outdoors",
 			"caption": "Outdoors",
 			"help": "Park, road, public places, sports field",
 			"ID": 30018,
 			"next": "other people"
 		},
 		"xxxother location": {
-			"title": "meter: location other",
+			"title": "location other",
 			"caption": "Somewhere else",
 			"help": "None of the above",
 			"ID": 30010,
 			"next": "other people"
 		},
 
-		"Travel foot": {
-			"title": "meter: travel foot",
-			"caption": "By foot",
-			"help": "Walking, ambling, pottering",
-			"ID": 30031,
-			"category": "travel",
-			"next": "travel purpose"
-		},
-		"Travel car": {
-			"title": "meter: travel car",
-			"caption": "By car",
-			"help": "Car, van, motorbike or count",
-			"ID": 30036,
-			"category": "travel",
-			"next": "travel purpose"
-		},
-		"Travel bike": {
-			"title": "meter: travel bike",
-			"caption": "By bike",
-			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
-			"ID": 30032,
-			"category": "travel",
-			"next": "travel purpose"
-		},
-		"Travel public": {
-			"title": "meter: travel public",
-			"caption": "Public transport",
-			"help": "Bus, coach, train, plane, boat",
-			"ID": 30040,
-			"category": "travel",
-			"next": "travel purpose"
-		},
-		"Travel exercise": {
-			"title": "meter: travel sport",
-			"caption": "Exercise",
-			"help": "Running, cycling, swimming...",
-			"ID": 9610,
-			"category": "travel",
-			"next": "travel purpose"
-		},
-		"Travel other": {
-			"title": "meter: travel other",
-			"caption": "Other",
-			"help": "Anything not listed here",
-			"ID": 30031,
-			"category": "travel",
-			"next": "travel purpose"
-		},
-		"travel foot": {
-			"title": "meter: travel foot",
-			"caption": "By foot",
-			"help": "Walking, ambling, pottering",
-			"ID": 30031,
-			"category": "travel",
-			"next": "other people"
-		},
-		"travel car": {
-			"title": "meter: travel car",
-			"caption": "By car",
-			"help": "Car, van, motorbike or count",
-			"ID": 30036,
-			"category": "travel",
-			"next": "other people"
-		},
-		"travel bike": {
-			"title": "meter: travel bike",
-			"caption": "By bike",
-			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
-			"ID": 30032,
-			"category": "travel",
-			"next": "other people"
-		},
-		"travel public": {
-			"title": "meter: travel public",
-			"caption": "By public",
-			"help": "Bus, coach, train, plane, boat",
-			"ID": 30040,
-			"category": "travel",
-			"next": "other people"
-		},
-		"travel exercise": {
-			"title": "meter: travel sport",
-			"caption": "Exercise",
-			"help": "Running, cycling, swimming...",
-			"ID": 9610,
-			"category": "travel",
-			"next": "other people"
-		},
-		"travel other": {
-			"title": "meter: travel other",
-			"caption": "Other",
-			"help": "Anything not listed here",
-			"ID": 30031,
-			"category": "travel",
-			"next": "other people"
-		},
-		"skip": {
-			"title": "meter: enjoyment skip",
-			"caption": "Skip",
-			"help": "Don't want to say",
-			"ID": 20001,
-			"next": "home"
-		},
 
-		"not at all": {
-			"title": "meter: enjoyment 1",
-			"icon": "enjoy_1",
-			"caption": "Not at all",
-			"help": "I enjoyed this time not at all",
-			"ID": 20002,
-			"value": 1,
-			"next": "home"
-		},
-		"not very much": {
-			"title": "meter: enjoyment 2",
-			"icon": "enjoy_2",
-			"caption": "Not very much",
-			"help": "I enjoyed this time not very much.",
-			"ID": 20003,
-			"value": 2,
-			"next": "home"
-		},
-		"neutral": {
-			"title": "meter: enjoyment 3",
-			"icon": "enjoy_3",
-			"caption": "Neutral",
-			"help": "I enjoyed this time somewhat",
-			"ID": 20004,
-			"value": 3,
-			"next": "home"
-		},
-		"somewhat": {
-			"title": "meter: enjoyment 4",
-			"icon": "enjoy_4",
-			"caption": "Somewhat",
-			"help": "I enjoyed this time",
-			"ID": 20005,
-			"value": 4,
-			"next": "home"
-		},
-		"very much": {
-			"title": "meter: enjoyment 5",
-			"icon": "enjoy_5",
-			"caption": "Very much",
-			"help": "I enjoyed this time very much.",
-			"ID": 20006,
-			"value": 5,
-			"next": "home"
-		},
-
-
-		"Other people 1": { "title": "activity time", "caption": "No one","help": "people",      "ID": 40001, "value": 0, "next": "enjoyment" },
-		"Other people 2": { "title": "activity time", "caption": "1",     "help": "people",      "ID": 40002, "value": 1, "next": "enjoyment" },
-		"Other people 3": { "title": "activity time", "caption": "2",     "help": "people",      "ID": 40003, "value": 2, "next": "enjoyment" },
-		"Other people 4": { "title": "activity time", "caption": "3",     "help": "people",      "ID": 40004, "value": 3, "next": "enjoyment" },
-		"Other people 5": { "title": "activity time", "caption": "4",     "help": "people",      "ID": 40005, "value": 4, "next": "enjoyment" },
-		"Other people 6": { "title": "activity time", "caption": "More",  "help": "More than 4", "ID": 40006, "value": 5, "next": "enjoyment" },
 
 
 
@@ -487,41 +385,158 @@
 		"Minutes 11": { "title": "activity time", "caption": "6", "help": "min", "ID": 10310, "value": 6, "next": "activity root" },
 		"Minutes 12": { "title": "activity time", "caption": "8", "help": "min", "ID": 10311, "value": 8, "next": "activity root" },
 
-		"Appliances":  { "title": "Use of appliances", "caption": "Use appliances", "help": "Electrical goods", "ID": 8500, "value": 0, "next": "appliances" },
 
-		"Appliances Washing machine":  { "title": "Use of washing machine", "caption": "Washing machine", "help": "Loading, unloading or running", "ID": 8501, "next": "enjoyment" },
-		"Appliances Tumble dryer":  { "title": "Use of Tumble dryer", "caption": "Tumble dryer", "help": "it is running or you use it", "ID": 8502, "next": "enjoyment" },
-		"Appliances Dish washer":  { "title": "Use of Dish washer", "caption": "Dish washer", "help": "it is running or you use it", "ID": 8503, "next": "enjoyment" },
-		"Appliances Oven":  { "title": "Use of Oven", "caption": "Oven", "help": "it is running or you use it", "ID": 8504, "next": "enjoyment" },
-		"Appliances Microwave":  { "title": "Use of Microwave", "caption": "Microwave", "help": "it is running or you use it", "ID": 8505, "next": "enjoyment" },
+		"Skip": {
+			"title": "enjoyment skip",
+			"caption": "Skip",
+			"help": "Don't want to say",
+			"ID": 20001,
+			"next": "home"
+		},
 
-		"Appliances 2":  { "title": "More appliances", "caption": "Show more", "help": "appliances", "ID": 8506, "next": "appliances 2" },
+		"Not at all": {
+			"title": "enjoyment 1",
+			"icon": "enjoy_1",
+			"caption": "Not at all",
+			"help": "I enjoyed this time not at all",
+			"ID": 20002,
+			"value": 1,
+			"next": "home"
+		},
+		"Not very much": {
+			"title": "enjoyment 2",
+			"icon": "enjoy_2",
+			"caption": "Not much",
+			"help": "I enjoyed this time not very much.",
+			"ID": 20003,
+			"value": 2,
+			"next": "home"
+		},
+		"Neutral": {
+			"title": "enjoyment 3",
+			"icon": "enjoy_3",
+			"caption": "Neutral",
+			"help": "I enjoyed this time somewhat",
+			"ID": 20004,
+			"value": 3,
+			"next": "home"
+		},
+		"Somewhat": {
+			"title": "enjoyment 4",
+			"icon": "enjoy_4",
+			"caption": "Somewhat",
+			"help": "I enjoyed this time",
+			"ID": 20005,
+			"value": 4,
+			"next": "home"
+		},
+		"Very much": {
+			"title": "enjoyment 5",
+			"icon": "enjoy_5",
+			"caption": "Very much",
+			"help": "I enjoyed this time very much.",
+			"ID": 20006,
+			"value": 5,
+			"next": "home"
+		},
 
-		"Appliances Computer":  { "title": "Use of Computer", "caption": "Computer", "help": "Laptop, Tablet, PC", "ID": 8507, "next": "enjoyment" },
-		"Appliances TV":  { "title": "Use of TV", "caption": "TV", "help": "it is running or you use it", "ID": 8508, "next": "enjoyment" },
-		"Appliances Kettle":  { "title": "Use of Kettle", "caption": "Kettle", "help": "it is running or you use it", "ID": 8509, "next": "enjoyment" },
-		"Appliances Tools":  { "title": "Use of Tools", "caption": "Tools / Toys", "help": "Power tools or toys (RC car...)", "ID": 8510, "next": "enjoyment" },
-		"Appliances 3":  { "title": "More appliances", "caption": "Show more", "help": "appliances", "ID": 8511, "next": "appliances 3" },
 
-		"Appliances Toaster":  { "title": "Use of Toaster", "caption": "Toaster", "help": "it is running or you use it", "ID": 8512, "next": "enjoyment" },
-		"Appliances Garden tools":  { "title": "Use of garden tools", "caption": "Garden tools", "help": "Mower, hedge trimmer, etc.", "ID": 8513, "next": "enjoyment" },
-		"Appliances Mower":  { "title": "Use of Mower", "caption": "Mower", "help": "it is running or you use it", "ID": 8513, "next": "enjoyment" },
-		"Appliances Hedge trimmer":  { "title": "Use of Hedge trimmer", "caption": "Hedge trimmer", "help": "it is running or you use it", "ID": 8514, "next": "enjoyment" },
-		"Appliances Hair dryer":  { "title": "Use of Hair dryer", "caption": "Hair dryer", "help": "it is running or you use it", "ID": 8515, "next": "enjoyment" },
+		"Travel foot": {
+			"title": "Walking",
+			"caption": "By foot",
+			"help": "Walking, ambling, pottering",
+			"ID": 30031,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel car": {
+			"title": "Driving",
+			"caption": "By car",
+			"help": "Car, van, motorbike or count",
+			"ID": 30036,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel bike": {
+			"title": "Cycling",
+			"caption": "By bike",
+			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
+			"ID": 30032,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel public": {
+			"title": "Public transport",
+			"caption": "Public transport",
+			"help": "Bus, coach, train, plane, boat",
+			"ID": 30040,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel exercise": {
+			"title": "Sport",
+			"caption": "Exercise",
+			"help": "Running, cycling, swimming...",
+			"ID": 9610,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel other": {
+			"title": "Travel",
+			"caption": "Other",
+			"help": "Anything not listed here",
+			"ID": 30031,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+
+
+
+
+
+		"Other people 1": { "title": "activity time", "caption": "No one","help": "people",      "ID": 40001, "value": 0, "next": "enjoyment" },
+		"Other people 2": { "title": "activity time", "caption": "1",     "help": "people",      "ID": 40002, "value": 1, "next": "enjoyment" },
+		"Other people 3": { "title": "activity time", "caption": "2",     "help": "people",      "ID": 40003, "value": 2, "next": "enjoyment" },
+		"Other people 4": { "title": "activity time", "caption": "3",     "help": "people",      "ID": 40004, "value": 3, "next": "enjoyment" },
+		"Other people 5": { "title": "activity time", "caption": "4",     "help": "people",      "ID": 40005, "value": 4, "next": "enjoyment" },
+		"Other people 6": { "title": "activity time", "caption": "More",  "help": "More than 4", "ID": 40006, "value": 5, "next": "enjoyment" },
+
+
+
+		"Appliances":  { "title": "Use an appliance", "caption": "Use appliances", "help": "Electrical goods", "ID": 8500, "value": 0, "next": "appliances" },
+
+		"Appliances Washing machine":  { "title": "Washing machine", "caption": "Washing machine", "help": "Loading, unloading or running", "ID": 8501, "next": "enjoyment" },
+		"Appliances Tumble dryer":  { "title": "Tumble dryer", "caption": "Tumble dryer", "help": "it is running or you use it", "ID": 8502, "next": "enjoyment" },
+		"Appliances Dish washer":  { "title": "Dish washer", "caption": "Dish washer", "help": "it is running or you use it", "ID": 8503, "next": "enjoyment" },
+		"Appliances Oven":  { "title": "Oven", "caption": "Oven", "help": "it is running or you use it", "ID": 8504, "next": "enjoyment" },
+		"Appliances Microwave":  { "title": "Microwave", "caption": "Microwave", "help": "it is running or you use it", "ID": 8505, "next": "enjoyment" },
+
+		"Appliances 2":  { "title": "Use an appliance", "caption": "Show more", "help": "appliances", "ID": 8506, "next": "appliances 2" },
+
+		"Appliances Computer":  { "title": "Computer", "caption": "Computer", "help": "Laptop, Tablet, PC", "ID": 8507, "next": "enjoyment" },
+		"Appliances TV":  { "title": "TV", "caption": "TV", "help": "it is running or you use it", "ID": 8508, "next": "enjoyment" },
+		"Appliances Kettle":  { "title": "Kettle", "caption": "Kettle", "help": "it is running or you use it", "ID": 8509, "next": "enjoyment" },
+		"Appliances Tools":  { "title": "Power tools", "caption": "Tools / Toys", "help": "Power tools or toys (RC car...)", "ID": 8510, "next": "enjoyment" },
+		"Appliances 3":  { "title": "Use an appliance", "caption": "Show more", "help": "appliances", "ID": 8511, "next": "appliances 3" },
+
+		"Appliances Toaster":  { "title": "Toaster", "caption": "Toaster", "help": "it is running or you use it", "ID": 8512, "next": "enjoyment" },
+		"Appliances Garden tools":  { "title": "Garden tools", "caption": "Garden tools", "help": "Mower, hedge trimmer, etc.", "ID": 8513, "next": "enjoyment" },
+		"Appliances Mower":  { "title": "Mower", "caption": "Mower", "help": "it is running or you use it", "ID": 8513, "next": "enjoyment" },
+		"Appliances Hedge trimmer":  { "title": "Hedge trimmer", "caption": "Hedge trimmer", "help": "it is running or you use it", "ID": 8514, "next": "enjoyment" },
+		"Appliances Hair dryer":  { "title": "Hair dryer", "caption": "Hair dryer", "help": "it is running or you use it", "ID": 8515, "next": "enjoyment" },
 
 		"Appliances 4":  { "title": "More appliances", "caption": "Show more", "help": "appliances", "ID": 8516, "next": "appliances 4" },
 
 		"Appliances Lights off":  { "title": "Lights off", "caption": "Lights off", "help": "Switching some light(s) off", "ID": 8517, "next": "home" },
 		"Appliances Lights on":  { "title": "Lights on", "caption": "Lights on", "help": "Switching some light(s) on", "ID": 8518, "next": "home" },
-		"Appliances Bread maker":  { "title": "Use of Bread maker", "caption": "Bread maker", "help": "it is running or you use it", "ID": 8521, "next": "enjoyment" },
-		"Appliances Phone":  { "title": "Use of Phone", "caption": "Phone", "help": "Use mobile phone", "ID": 8522, "next": "enjoyment" },
-		"Appliances Radio":  { "title": "Use of Radio", "caption": "Radio", "help": "it is running or you use it", "ID": 8523, "next": "enjoyment" },
+		"Appliances Bread maker":  { "title": "Bread maker", "caption": "Bread maker", "help": "it is running or you use it", "ID": 8521, "next": "enjoyment" },
+		"Appliances Phone":  { "title": "Phone", "caption": "Phone", "help": "Use mobile phone", "ID": 8522, "next": "enjoyment" },
+		"Appliances Radio":  { "title": "Radio", "caption": "Radio", "help": "it is running or you use it", "ID": 8523, "next": "enjoyment" },
 
-		"Appliances xxx":  { "title": "Use of xxx", "caption": "xxx", "help": "it is running or you use it", "ID": 8501, "next": "enjoyment" },
-		"Appliances other":  { "title": "Other appliance", "caption": "Other", "help": "not listed here", "ID": 8599, "next": "enjoyment" },
+		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "Other specify" },
 
 		"care": {
-			"title": "Unspecified personal care",
+			"title": "Looking after you or others",
 			"caption": "Care for you / others",
 			"help": "Wash, dress, rest, care for child/friend/relative",
 			"ID": 0,
@@ -529,7 +544,7 @@
 			"next": "care"
 		},
 		"Unspecified Sleep": {
-			"title": "Unspecified Sleep",
+			"title": "Sleep or rest",
 			"caption": "Rest or sleep",
 			"help": "Unspecified Sleep",
 			"ID": 10,
@@ -554,7 +569,7 @@
 		},
 		"Sick in bed": {
 			"title": "Sick in bed",
-			"caption": "Personal care",
+			"caption": "Personal care XXX not used",
 			"help": "Sick in bed",
 			"ID": 120,
 			"category": "care_self",
@@ -569,7 +584,7 @@
 			"next": "food eat"
 		},
 		"Food eat cold": {
-			"title": "meter: Eating Cold",
+			"title": "Eating",
 			"caption": "Cold meal",
 			"help": "Cold or uncooked food",
 			"ID": 211,
@@ -577,7 +592,7 @@
 			"next": "other people"
 		},
 		"Food eat hot": {
-			"title": "meter: Eating hot",
+			"title": "Eating hot meal",
 			"caption": "Hot meal",
 			"help": "Cooked or heated food",
 			"ID": 212,
@@ -585,7 +600,7 @@
 			"next": "other people"
 		},
 		"Food eat snack": {
-			"title": "meter: food snack",
+			"title": "Snack",
 			"caption": "Snack",
 			"help": "A quick meal",
 			"ID": 213,
@@ -593,15 +608,15 @@
 			"next": "other people"
 		},
 		"Food drink hot": {
-			"title": "meter: food snack",
-			"caption": "Tea or coffee",
-			"help": "any hot drink",
+			"title": "Hot drink",
+			"caption": "Hot drink",
+			"help": "Tea or coffee",
 			"ID": 214,
 			"category": "food",
 			"next": "other people"
 		},
 		"Food drink cold": {
-			"title": "meter: food snack",
+			"title": "Drink",
 			"caption": "Drink",
 			"help": "Alcoholic or non-alcoholic",
 			"ID": 215,
@@ -617,7 +632,7 @@
 			"next": "care wash"
 		},
 		"Care child": {
-			"title": "Unspecified childcare",
+			"title": "Childcare",
 			"caption": "Looking after children",
 			"help": "Unspecified childcare",
 			"ID": 3800,
@@ -626,14 +641,13 @@
 		},
 
 		"Care others": {
-			"title": "Unspecified help to an adult household member",
+			"title": "Help family or others",
 			"caption": "Taking care of family or others",
 			"help": "Any help to an adult household member",
 			"ID": 3910,
 			"category": "care_other",
 			"next": "other people"
 		},
-
 
 		"Care other": {
 			"title": "Care for you or others",
@@ -647,28 +661,28 @@
 
 
 		"Care wash shower": {
-			"title": "meter: Wash and dress",
+			"title": "Shower",
 			"caption": "Shower",
-			"help": "Being in the shower with or without the water on",
+			"help": "Being in the shower",
 			"ID": 311,
 			"category": "care_self",
 			"next": "other people"
 		},
 		"Care wash bath": {
-			"title": "meter: Wash and dress",
+			"title": "Bathing",
 			"caption": "Bath",
-			"help": "Running a bath, having one, bathing somone else",
+			"help": "Running a bath, having one, bathing someone else",
 			"ID": 312,
 			"category": "care_self",
 			"next": "care wash bath"
 		},
-		"Care wash bath running": { "title": "meter: Wash and dress", "caption": "Running a bath", "help": "Filling the tub, preparing", "ID": 320, "category": "care_self", "next": "other people" },
-		"Care wash bath bathing": { "title": "meter: Wash and dress", "caption": "Bathing", "help": "Sitting in a bath", "ID": 321, "category": "care_self", "next": "other people" },
-		"Care wash bath children":{ "title": "meter: Wash and dress", "caption": "Bathing children", "help": "Washing children", "ID": 322, "category": "care_self", "next": "other people" },
-		"Care wash bath other":   { "title": "meter: Wash and dress", "caption": "Other", "help": "Bath related activity", "ID": 323, "category": "care_self", "next": "other people" },
+		"Care wash bath running": { "title": "Running a bath", "caption": "Running a bath", "help": "Filling the tub, preparing", "ID": 320, "category": "care_self", "next": "other people" },
+		"Care wash bath bathing": { "title": "Bathing", "caption": "Bathing", "help": "Sitting in a bath", "ID": 321, "category": "care_self", "next": "other people" },
+		"Care wash bath children":{ "title": "Bathing childern", "caption": "Bathing children", "help": "Washing children", "ID": 322, "category": "care_self", "next": "other people" },
+		"Care wash bath other":   { "title": "Bathing", "caption": "Other", "help": "Bath related activity", "ID": 323, "category": "care_self", "next": "other people" },
 
 		"Care wash sink": {
-			"title": "meter: Wash and dress",
+			"title": "Wash",
 			"caption": "Sink or flannel",
 			"help": "Washing by a sink or with a flannel",
 			"ID": 313,
@@ -676,7 +690,7 @@
 			"next": "other people"
 		},
 		"Care wash dress": {
-			"title": "meter: Wash and dress",
+			"title": "Getting dressed",
 			"caption": "Getting dressed",
 			"help": "Changing clothes, dressing",
 			"ID": 314,
@@ -684,7 +698,7 @@
 			"next": "other people"
 		},
 		"Care wash hygiene": {
-			"title": "meter: Wash and dress",
+			"title": "Hygiene / Beauty",
 			"caption": "Hygiene / Beauty",
 			"help": "Teeth brushing, make-up, shaving",
 			"ID": 315,
@@ -692,7 +706,7 @@
 			"next": "other people"
 		},
 		"Care wash other": {
-			"title": "meter: Wash and dress",
+			"title": "Wash",
 			"caption": "Other",
 			"help": "Teeth brushing, make-up, shaving",
 			"ID": 316,
@@ -704,7 +718,7 @@
 
 
 		"Care personal": {
-			"title": "Unspecified other personal care",
+			"title": "Me time",
 			"caption": "Time for me",
 			"help": "Unspecified other personal care",
 			"ID": 300,
@@ -716,7 +730,7 @@
 
 
 		"Other specified personal care": {
-			"title": "Other specified personal care",
+			"title": "Personal care",
 			"caption": "Personal care",
 			"help": "Other specified personal care",
 			"ID": 390,
@@ -724,7 +738,7 @@
 			"next": "other people"
 		},
 		"Unspecified household and family care": {
-			"title": "Unspecified household and family care",
+			"title": "Household and family care",
 			"caption": "Other",
 			"help": "Unspecified household and family care",
 			"ID": 3000,
@@ -732,7 +746,7 @@
 			"next": "other people"
 		},
 		"food": {
-			"title": "Unspecified food management",
+			"title": "Food related",
 			"caption": "Food",
 			"help": "Eating, preparing, cooking, clearing food",
 			"ID": 3100,
@@ -740,15 +754,15 @@
 			"next": "food"
 		},
 		"Food preparation": {
-			"title": "Food preparation",
-			"caption": "Food preparation",
+			"title": "Prepare meal",
+			"caption": "Prepare meal",
 			"help": "Cooking, serving, arranging...",
 			"ID": 3110,
 			"category": "food",
 			"next": "food preparation"
 		},
 		"Food preparation cold": {
-			"title": "Food preparation",
+			"title": "Prepare cold meal",
 			"caption": "Cold meal",
 			"help": "e.g. Salad, Sandwich...",
 			"ID": 3111,
@@ -756,79 +770,91 @@
 			"next": "other people"
 		},
 		"Food preparation hot": {
-			"title": "Food preparation",
+			"title": "Prepare hot meal",
 			"caption": "Hot / cooked meal",
-			"help": "e.g. Salad, Sandwich...",
+			"help": "Using cooker or other",
 			"ID": 3112,
 			"category": "food",
 			"next": "food preparation hot"
 		},
+
 		"Baking": {
 			"title": "Baking",
-			"caption": "Food management/preparation",
+			"caption": "Baking",
 			"help": "Baking",
 			"ID": 3120,
 			"category": "food",
 			"next": "food preparation hot"
 		},
+		"Hob": {
+			"title": "Cook on hob",
+			"caption": "Hob",
+			"help": "for cooking",
+			"ID": 3125,
+			"category": "food",
+			"next": "other people"
+		},
 		"Oven": {
-			"title": "meter: Oven",
+			"title": "Oven",
 			"caption": "Oven",
-			"help": "For baking or cooking",
+			"help": "for baking or cooking",
 			"ID": 3121,
 			"category": "food",
 			"next": "other people"
 		},
 		"Microwave": {
-			"title": "meter: Microwave",
+			"title": "Microwave",
 			"caption": "Microwave",
-			"help": "For baking or cooking",
+			"help": "for heating food",
 			"ID": 3122,
 			"category": "food",
 			"next": "other people"
 		},
 		"Kettle": {
-			"title": "meter: Kettle",
+			"title": "Kettle",
 			"caption": "Electric kettle",
-			"help": "For boiling water",
+			"help": "for boiling water",
 			"ID": 3123,
 			"category": "food",
 			"next": "other people"
 		},
-		"Blender": {
-			"title": "meter: Blender",
-			"caption": "Blender or Kitchen appliance",
-			"help": "Electric aid",
+		"Toaster": {
+			"title": "Toaster",
+			"caption": "Toaster",
+			"help": "for bread",
 			"ID": 3124,
 			"category": "food",
 			"next": "other people"
 		},
-		"Bread maker": {
-			"title": "meter: Bread maker",
-			"caption": "Bread maker",
-			"help": "Electric kneader / baker",
-			"ID": 3125,
-			"category": "food",
-			"next": "other people"
-		},
-		"Food clear": {
-			"title": "meter: food clear",
-			"caption": "Clear table",
-			"help": "Clear up after a meal",
+
+
+
+		"Cutlery handling": {
+			"title": "Lay or clear table",
+			"caption": "Lay or clear table",
+			"help": "before or after a meal",
 			"ID": 3130,
 			"category": "food",
 			"next": "food clear"
 		},
-		"Dish washing": {
-			"title": "Food management/preparation",
-			"caption": "Dish washing",
-			"help": "Washing up pots, dishes, glasses, cutlery",
+		"Lay table": {
+			"title": "Lay table",
+			"caption": "Lay table",
+			"help": "before meal",
+			"ID": 3135,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food clear": {
+			"title": "Clear away meal",
+			"caption": "Clear up",
+			"help": "after a meal",
 			"ID": 3131,
 			"category": "food",
-			"next": "dish washing"
+			"next": "other people"
 		},
 		"Dishes hand": {
-			"title": "meter: dishes hand",
+			"title": "Wash dishes",
 			"caption": "By hand",
 			"help": "in a sink or tub",
 			"ID": 3132,
@@ -836,33 +862,25 @@
 			"next": "other people"
 		},
 		"Dishes machine": {
-			"title": "meter: dishes machine",
+			"title": "Dish washer",
 			"caption": "Dish washer",
-			"help": "I load / unload / run a dish washer",
+			"help": "load, run or unload",
 			"ID": 3133,
 			"category": "food",
 			"next": "other people"
 		},
 		"Dishes both": {
-			"title": "meter: dishes both",
+			"title": "Dish washing",
 			"caption": "Dishwasher and by hand",
 			"help": "by hand and with machine",
 			"ID": 3134,
 			"category": "food",
 			"next": "other people"
 		},
-		"Dishes clear": {
-			"title": "meter: dishes clear",
-			"caption": "Laying / Clearing up",
-			"help": "before or after meal",
-			"ID": 3135,
-			"category": "food",
-			"next": "other people"
-		},
 		"Dishes other": {
-			"title": "meter: dishes other",
+			"title": "Lay or clear table",
 			"caption": "Other",
-			"help": "anything other than by hand or machine",
+			"help": "laying or clearing",
 			"ID": 3136,
 			"category": "food",
 			"next": "other people"
@@ -876,8 +894,8 @@
 			"next": "other people"
 		},
 		"Work house food": {
-			"title": "Other specified food management",
-			"caption": "Food preparation",
+			"title": "Prepare meal",
+			"caption": "Prepare meal",
 			"help": "Cook, cut, arrange food",
 			"ID": 3190,
 			"category": "food",
@@ -900,7 +918,7 @@
 			"next": "work house"
 		},
 		"Work house other": {
-			"title": "meter: Unspecified household upkeep",
+			"title": "Unspecified household upkeep",
 			"caption": "Other",
 			"help": "Not listed here",
 			"ID": 3200,
@@ -916,7 +934,7 @@
 			"next": "work house clean"
 		},
 		"Cleaning dusting": {
-			"title": "meter: Cleaning dwelling dusting",
+			"title": "Cleaning dwelling dusting",
 			"caption": "Cleaning / dusting",
 			"help": "wiping surfaces",
 			"ID": 3211,
@@ -924,7 +942,7 @@
 			"next": "other people"
 		},
 		"Cleaning vacuum": {
-			"title": "meter: Cleaning dwelling vacuum",
+			"title": "Cleaning dwelling vacuum",
 			"caption": "Vacuum cleaning",
 			"help": "Using a hoover or other",
 			"ID": 3212,
@@ -932,7 +950,7 @@
 			"next": "other people"
 		},
 		"Cleaning floors": {
-			"title": "meter: Cleaning dwelling floors",
+			"title": "Cleaning dwelling floors",
 			"caption": "Cleaning floors",
 			"help": "Wiping, mopping",
 			"ID": 3213,
@@ -940,7 +958,7 @@
 			"next": "other people"
 		},
 		"Cleaning other": {
-			"title": "meter: Cleaning dwelling other",
+			"title": "Cleaning dwelling other",
 			"caption": "Other",
 			"help": "Not listed here",
 			"ID": 3214,
@@ -1004,7 +1022,7 @@
 			"next": "laundry"
 		},
 		"Washing machine": {
-			"title": "meter: Laundry machine",
+			"title": "Laundry machine",
 			"caption": "Washing machine",
 			"help": "Loading, running, unloading",
 			"ID": 3311,
@@ -1012,7 +1030,7 @@
 			"next": "other people"
 		},
 		"Washing sort": {
-			"title": "meter: Laundry sort",
+			"title": "Laundry sort",
 			"caption": "Sorting",
 			"help": "Gathering, putting away",
 			"ID": 3312,
@@ -1020,7 +1038,7 @@
 			"next": "other people"
 		},
 		"Washing dry line": {
-			"title": "meter: Laundry machine",
+			"title": "Laundry machine",
 			"caption": "Hanging out laundry",
 			"help": "On a line, airer or radiator",
 			"ID": 3313,
@@ -1028,7 +1046,7 @@
 			"next": "other people"
 		},
 		"Washing dry machine": {
-			"title": "meter: Laundry machine",
+			"title": "Laundry machine",
 			"caption": "Tumble dryer",
 			"help": "Loading, running, unloading",
 			"ID": 3314,
@@ -1190,7 +1208,7 @@
 			"next": "other people"
 		},
 		"Care child dress": {
-			"title": "meter: Other specified childcare",
+			"title": "Other specified childcare",
 			"caption": "Getting dressed",
 			"help": "Getting children dressed",
 			"ID": 3891,
@@ -1478,7 +1496,7 @@
 			"next": "other people"
 		},
 		"Social media": {
-			"title": "meter: Social media",
+			"title": "Social media",
 			"caption": "Social media",
 			"help": "Online activities",
 			"ID": 8001,
@@ -1501,9 +1519,9 @@
 			"next": "other people"
 		},
 		"Reading books": {
-			"title": "Reading books",
-			"caption": "Reading a book",
-			"help": "Reading books",
+			"title": "Reading",
+			"caption": "Reading",
+			"help": "Print or mobile device",
 			"ID": 8120,
 			"category": "care_self",
 			"next": "other people"
@@ -1696,7 +1714,7 @@
 			"next": "other people"
 		},
 		"work": {
-			"title": "meter: generic work",
+			"title": "generic work",
 			"caption": "Work /<br>Housework",
 			"help": "Housework, Homework, Job, Volunteering",
 			"ID": 1100,
@@ -2384,7 +2402,7 @@
 			"next": "other people"
 		},
 		"Care rest sleep": {
-			"title": "meter: rest or sleep",
+			"title": "rest or sleep",
 			"caption": "Break, Rest or sleep",
 			"help": "Sleeping, resting, having a break",
 			"ID": 5311,
@@ -2750,15 +2768,15 @@
 			"ID": 7170,
 			"next": "other people"
 		},
-		"Other specified or unspecied arts and hobbies": {
-			"title": "Other specified or unspecied arts and hobbies",
+		"Other specified or unspecified arts and hobbies": {
+			"title": "Other specified or unspecified arts and hobbies",
 			"caption": "Hobbies/leisure",
-			"help": "Other specified or unspecied arts and hobbies",
+			"help": "Other specified or unspecified arts and hobbies",
 			"ID": 7190,
 			"next": "other people"
 		},
 		"Travel purpose 2": {
-			"title": "meter: navigation",
+			"title": "navigation",
 			"caption": "Show more options",
 			"help": "Travel related to unspecified time use",
 			"ID": 9000,

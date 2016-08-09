@@ -5,6 +5,18 @@
 			"title": "XXX YOU SHOULD NEVER SEE THIS XXX Your activities",
 			"help": "What you have reported"
 		},
+		"edit activity": {
+			"title": "done by index.js",
+			"help": "done by index.js",
+			"activities": [ 
+				"Repeat activity now", 
+				"Repeat activity recently",
+				"Edit activity time",
+				"Edit activity title",
+				"End activity",
+				"Delete activity"
+			]
+		},
 		"survey root": {
 			"title": "What gender are you?",
 			"help": "at this moment",
@@ -355,13 +367,13 @@
 
 
 		"food": {
-			"title": "Any particular food? ",
+			"title": "What do you do with food? ",
 			"help": "at this moment",
 			"activities": [
 				"Food preparation",
+				"Cutlery handling",
 				"Eating",
 				"Food eat snack",
-				"Food clear",
 				"Food drink hot",
 				"Work house other"
 			]
@@ -373,8 +385,6 @@
 				"Food preparation cold",
 				"Food preparation hot",
 				"Baking",
-				"Food eat snack",
-				"Food clear",
 				"Food other"
 			]
 		},
@@ -382,19 +392,20 @@
 			"title": "Did you use any of these appliances?",
 			"help": "Might they have been running at the time?",
 			"activities": [
+				"Hob",
 				"Oven",
 				"Microwave",
 				"Kettle",
-				"Blender",
-				"Bread maker",
+				"Toaster",
 				"Other specify"
 			]
 		},
 		"food clear": {
-			"title": "How do you wash up? ",
-			"help": "at this moment",
+			"title": "What do you do? ",
+			"help": "with the dishes",
 			"activities": [
-				"Dishes clear",
+				"Lay table",
+				"Food clear",
 				"Dishes hand",
 				"Dishes machine",
 				"Dishes both",
@@ -547,12 +558,12 @@
 			"title": "How much do you enjoy this?",
 			"help": "Think how this made you feel.",
 			"activities": [
-				"very much",
-				"somewhat",
-				"neutral",
-				"not very much",
-				"not at all",
-				"skip"
+				"Very much",
+				"Somewhat",
+				"Neutral",
+				"Not very much",
+				"Not at all",
+				"Skip"
 			]
 		},
 		"xxxlocation": {

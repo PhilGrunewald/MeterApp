@@ -95,7 +95,14 @@ h1 {
 
 #title {
 	font-weight: lighter;
-    font-size: 200%;
+    font-size: 150%;
+}
+#btn-history {
+	font-weight: lighter;
+    font-size: 150%;
+    background-color: #eec;
+	margin-top: 15px;
+    padding: 5px;
 }
 
 #btn-now {
@@ -213,28 +220,29 @@ div.activity-cell {
 
 div.btn-time {
     display: table-cell;
-    background: #ededed;
+    /* background: #ededed; */
     vertical-align: middle;
     width: 20%;
 }
 
 div.btn-add {
     display: table-cell;
-    background: #ededed;
+    /* background: #ededed; */
     vertical-align: middle;
     width: 20%;
 }
 
 div.btn-terminate {
     display: table-cell;
-    background: #ededed;
+    /* background: #ededed; */
     vertical-align: middle;
     width: 20%;
 }
 
 div.activity-item {
     display: table-cell;
-    background: #ededed;
+	text-align: left;
+    /* background: #ededed; */
     /* vertical-align: middle; */
     width: 100%;
 }

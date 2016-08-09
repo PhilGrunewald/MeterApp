@@ -266,29 +266,29 @@ var app = {
         }
     },
 
-
     showActivityHistory: function() {
         app.history = new Array();
         var activityList = utils.getList(ACTIVITY_LIST) || []
         var curr_acts = "";
         var row = ''+
-            '<div class="row activity-row">' + 
+            '<div class="row activity-row {4}" onclick="{2}">' + 
             '	<div class="activity-cell btn-time">{0}</div>' + 
             '	<div class="activity-cell activity-item">{1}</div>' + 
-            '	<div class="activity-cell btn-terminate" onclick="{2}">{3}</div>' + 
+            '	<div class="activity-cell btn-terminate">{3}</div>' + 
             '</div>';
 
         if (Object.keys(activityList).length > 0) {
-            row = row.format( '<span class="bordered">{0}</span>', 
+            row = row.format( '{0}', 
                 '{1}', 
                 '{2}',
-                '<span class="bordered">{3}</span>')
+                '<span class="bordered">{3}</span>','{4}')
             Object.keys(activityList).forEach( function(key, index) {
                 var item = activityList[key];
                 curr_acts += row.format(utils.format_time(item.time), 
-                app.activities[item.name].title,
-                'app.removeActivity(\'' + key + '\')',
-                "-")					
+                item.act,
+                'app.editActivity(\'' + key + '\')',
+                "edit",
+				item.cat)
             })
         } else {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
@@ -298,7 +298,8 @@ var app = {
         app.choicesPane.hide();
         app.activityAddPane.hide();
         app.activityListPane.show();
-    	app.title.html("Your activities")
+    	app.title.html("Your activities ("+Object.keys(activityList).length+")");
+		app.act_count.hide();
     },
 
     showActivityList: function() {
@@ -306,28 +307,28 @@ var app = {
         var activityList = utils.getList(ACTIVITY_LIST) || []
         var curr_acts = "";
         var row = ''+
-            '<div class="row activity-row">' + 
-            '	<div class="activity-cell btn-time">{0}</div>' + 
-            '	<div class="activity-cell activity-item">{1}</div>' + 
-            '	<div class="activity-cell btn-terminate" onclick="{2}">{3}</div>' + 
+            '<div class="row activity-row {3}" onclick="{1}">' + 
+            '	<div class="activity-cell activity-item">{0}</div>' + 
+            '	<div class="activity-cell btn-terminate">{2}</div>' + 
             '</div>';
 
         if (Object.keys(activityList).length > 0) {
-            row = row.format( '<span class="bordered">{0}</span>', 
-                '{1}', 
-                '{2}',
-                '<span class="bordered">{3}</span>')
+            row = row.format(
+                '{0}', 
+                '{1}',
+                '<span class="bordered">{2}</span>','{3}')
             Object.keys(activityList).forEach( function(key, index) {
                 var item = activityList[key];
-                curr_acts += row.format(utils.format_time(item.time), 
-                item.act,
-                'app.removeActivity(\'' + key + '\')',
-                "-")					
+                curr_acts += row.format(item.act,
+                'app.editActivity(\'' + key + '\')',
+                "redo",
+				item.cat)
             })
         } else {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
-		app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
+		app.act_count.html("Recent activities: ");
+		app.act_count.show();
 		app.activity_list_div.html(curr_acts);
         app.choicesPane.hide();
         app.activityAddPane.show();
@@ -431,6 +432,39 @@ var app = {
             }
         }
     },
+
+	editActivity: function (key) {
+            var activityList = utils.getList(ACTIVITY_LIST) || {};
+            var item = activityList[key];
+			app.title.html(item.act + "(" + act.time + ")")
+            var screen_ = app.screens["edit activity"];
+            for (i = 0; i < screen_.activities.length; i++) {
+				var activity_id = screen_.activities[i];
+				var activity    = app.activities[activity_id];
+				var button      = $(app.actionButtons[i]);
+				console.log("activity_id: " + activity_id);
+				console.log("button: " + button);
+				CATEGORIES.forEach(function (cat) {
+					button.removeClass(cat);
+				});
+				var btn_title   = button.find(".btn-title");
+				var btn_caption = button.find(".btn-caption");
+				var btn_button  = button.find(".btn-activity");
+				var number = i+1;
+				var buttonNo    = "button"+ number;
+
+				document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
+				btn_title.html(activity.caption);
+				btn_caption.html(utils.format(activity.help));
+				button.addClass(activity.category);
+				button.attr("onclick", activity.next + "('"+key+"')");
+                }
+        	app.activityAddPane.hide();
+            app.activityListPane.hide();
+            app.choicesPane.show();
+	},
+
+
 
     changeDate: function() {
         var thisDate = $("input#input-date").val();
