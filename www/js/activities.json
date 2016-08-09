@@ -425,7 +425,7 @@
 			"title": "enjoyment 4",
 			"icon": "enjoy_4",
 			"caption": "Somewhat",
-			"help": "I enjoyed this time",
+			"help": "I enjoyed this",
 			"ID": 20005,
 			"value": 4,
 			"next": "home"
