@@ -196,7 +196,7 @@ var app = {
 			utils.save(ACTIVITY_DATETIME, dt_);
 		}
 		if (screen_id == "home" ) {
-            // an entry has been completed
+            // an entry has been completed (incl. via "Done")
 			app.updateNowTime();
             app.addActivityToList();
             app.showActivityList();
@@ -263,6 +263,7 @@ var app = {
             app.showActivityList();
         } else {
             app.navigateTo(prev, 'Back');
+			// XXX undo potential time offsets
         }
     },
 
@@ -433,7 +434,43 @@ var app = {
         }
     },
 
+	editActivityScreen: function (actKey,screenKey) {
+            var activityList = utils.getList(ACTIVITY_LIST) || {};
+            var item = activityList[actKey];
+			app.title.html(item.act + "(" + act.time + ")")
+            var screen_ = app.screens[screenKey];
+            for (i = 0; i < screen_.activities.length; i++) {
+				var activity_id = screen_.activities[i];
+				var activity    = app.activities[activity_id];
+				var button      = $(app.actionButtons[i]);
+				console.log("activity_id: " + activity_id);
+				console.log("button: " + button);
+				CATEGORIES.forEach(function (cat) {
+					button.removeClass(cat);
+				});
+				var btn_title   = button.find(".btn-title");
+				var btn_caption = button.find(".btn-caption");
+				var btn_button  = button.find(".btn-activity");
+				var number = i+1;
+				var buttonNo    = "button"+ number;
+				document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
+				btn_title.html(activity.caption);
+				btn_caption.html(utils.format(activity.help));
+				button.addClass(activity.category);
+				if (activity.value === undefined) {
+					var parameter = "";
+				} else {
+					var parameter = ", "+activity.value;
+					}
+				button.attr("onclick", activity.next + "('"+actKey+parameter"')");
+                }
+        	app.activityAddPane.hide();
+            app.activityListPane.hide();
+            app.choicesPane.show();
+	},
+
 	editActivity: function (key) {
+		// XXX try to use editActivityScreen instead with "screen" prmt
             var activityList = utils.getList(ACTIVITY_LIST) || {};
             var item = activityList[key];
 			app.title.html(item.act + "(" + act.time + ")")
@@ -457,7 +494,7 @@ var app = {
 				btn_title.html(activity.caption);
 				btn_caption.html(utils.format(activity.help));
 				button.addClass(activity.category);
-				button.attr("onclick", activity.next + "('"+key+"')");
+				button.attr("onclick", activity.next + "('"+item+"')");
                 }
         	app.activityAddPane.hide();
             app.activityListPane.hide();
@@ -465,6 +502,56 @@ var app = {
 	},
 
 
+
+	repeatActivityNow: function(actKey) {
+        var activityList = utils.getList(ACTIVITY_LIST) || {};
+        var thisAct = activityList[actKey];
+    	thisAct.time = new Date().toISOString();
+		app.addThisActivity(thisAct);
+	},
+
+	repeatActivityRecent: function(actKey) {
+		app.editActivityScreen(actKey,"adjust time");
+		// Only the "Done" button will take user from this screen
+		// XXX WARNING - I expect that async will not complete all three as should...
+        var dt_ = Date.now();
+        var dt_activity = new Date(dt_).toISOString();
+        utils.save(ACTIVITY_DATETIME, dt_activity);
+        utils.save(CURR_ACTIVITY, thisAct.name);
+		utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.cat, thisAct.act].join());
+        utils.save(CURR_LOCATION, thisAct.loc);
+		utils.save(CURR_ENJOYMENT, thisAct.enj);
+	},
+
+	editActivityTime: function(actKey, offset) {
+		// from screen "adjust time" buttons, offset in Minutes
+		console.log('apply offset: ' + offset);
+        var dt_activity = utils.get(ACTIVITY_DATETIME);
+		var dt_activity = new Date(dt_activity.getTime() + (offset*60000)).toISOString();
+		utils.save(ACTIVITY_DATETIME, dt_activity);
+	},
+
+	addThisActivity: function(thisAct) {
+		// stores thisAct in list and csv file
+		// thisAct is a dict with all properties of an Act
+		// add to list
+        activityList = utils.getList(ACTIVITY_LIST) || {};
+        var uuid = utils.uuid()
+        activityList[uuid] = {
+            "name" : thisAct.name,
+            "time" : thisAct.time,
+			"loc"  : thisAct.loc,
+			"enj"  : thisAct.enj,
+			"tuc"  : thisAct.tuc,
+			"cat"  : thisAct.cat,
+			"act"  : thisAct.act
+        }
+		utils.saveList(ACTIVITY_LIST, activityList);
+
+		// write to _act.csv file
+    	var str = [log.metaID,thisAct.time, thisAct.time, thisAct.tuc, thisAct.cat, thisAct.act, thisAct.loc, thisAct.enj].join() + "\n";
+    	log.writeLog(log.logAct, str)
+	},
 
     changeDate: function() {
         var thisDate = $("input#input-date").val();
