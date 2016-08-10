@@ -436,6 +436,7 @@ var app = {
 
 	editActivityScreen: function (actKey,screenKey) {
             var activityList = utils.getList(ACTIVITY_LIST) || {};
+			console.log("activity list defined yet? : " + activityList); 
             var item = activityList[actKey];
 			app.title.html(item.act + "(" + item.time + ")")
             var screen_ = app.screens[screenKey];
