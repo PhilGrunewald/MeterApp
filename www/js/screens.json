@@ -53,8 +53,8 @@
 			"activities": [ "Bills yes", "Bills contribute", "Bills no", "Bills other", "Blank", "Blank" ]
 		},
 		"survey income": {
-			"title": "Income<br>Roughly, what is your yearly income?",
-			"help": "Before deduction of of tax and national insurance.",
+			"title": "Income<br>Roughly, what is your annual income before taxes?",
+			"help": "Before deduction of taxes and national insurance.",
 			"activities": [ "Income 1", "Income 2", "Income 3", "Income 4", "Income 5", "Income 6" ]
 		},
 		"survey appliances 1": {
@@ -506,9 +506,9 @@
 			"activities": [
 				"Main job",
 				"Working time in second job",
-				"Unspecified volunteer work and meetings",
-				"Unspecified household upkeep",
-				"Other specified activities related to school or university",
+				"Volunteer work and meetings",
+				"Household upkeep",
+				"Activities related to school or university",
 				"Unspecified activities related to employment"
 			]
 		},

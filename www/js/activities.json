@@ -914,8 +914,8 @@
 			"category": "food",
 			"next": "other people"
 		},
-		"Unspecified household upkeep": {
-			"title": "Unspecified household upkeep",
+		"Household upkeep": {
+			"title": "House keeping",
 			"caption": "House keeping",
 			"help": "Cleaning, tidying, cooking, shopping",
 			"ID": 3200,
@@ -1368,9 +1368,9 @@
 			"next": "other people"
 		},
 		"Unspecified information by computing": {
-			"title": "Unspecified information by computing",
+			"title": "Computer or mobile device for leisure",
 			"caption": "Computer or mobile device",
-			"help": "Unspecified information by computing",
+			"help": "Games,online shopping etc.",
 			"ID": 7230,
 			"next": "other people"
 		},
@@ -1503,7 +1503,7 @@
 		"Social media": {
 			"title": "Social media",
 			"caption": "Social media",
-			"help": "Online activities",
+			"help": "On Facebook, Twitter..",
 			"ID": 8001,
 			"category": "care_self",
 			"next": "other people"
@@ -1769,7 +1769,7 @@
 			"next": "other people"
 		},
 		"Unspecified activities related to employment": {
-			"title": "Unspecified activities related to employment",
+			"title": "Work or Housework",
 			"caption": "Other",
 			"help": "None of the above kinds of work",
 			"ID": 1300,
@@ -1810,10 +1810,10 @@
 			"ID": 2000,
 			"next": "other people"
 		},
-		"Unspecified activities related to school or university": {
-			"title": "Unspecified activities related to school or university",
+		"Other activities related to school or university": {
+			"title": "Study",
 			"caption": "Study",
-			"help": "Unspecified activities related to school or university",
+			"help": "Other activities related to school or university",
 			"ID": 2100,
 			"next": "other people"
 		},
@@ -1831,8 +1831,8 @@
 			"ID": 2120,
 			"next": "other people"
 		},
-		"Other specified activities related to school or university": {
-			"title": "Other specified activities related to school or university",
+		"Activities related to school or university": {
+			"title": "Activities related to school or university",
 			"caption": "Study",
 			"help": "School, university or further education work",
 			"ID": 2190,
@@ -2021,8 +2021,8 @@
 			"ID": 3690,
 			"next": "other people"
 		},
-		"Unspecified volunteer work and meetings": {
-			"title": "Unspecified volunteer work and meetings",
+		"Volunteer work and meetings": {
+			"title": "Volunteer work and meetings",
 			"caption": "Volunteering",
 			"help": "Unpaid work or activity",
 			"ID": 4000,
@@ -2407,7 +2407,7 @@
 			"next": "other people"
 		},
 		"Care rest sleep": {
-			"title": "rest or sleep",
+			"title": "Rest or sleep",
 			"caption": "Break, Rest or sleep",
 			"help": "Sleeping, resting, having a break",
 			"ID": 5311,
