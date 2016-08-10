@@ -61,7 +61,7 @@
 			"help": "Time is wrong",
 			"category": "other_category",
 			"ID": -1,
-			"next": "app.editActivityTime"
+			"next": "app.adjustTime"
 		},
 		"Edit activity title": {
 			"title": "Edit title",
@@ -307,8 +307,6 @@
 			"ID": 30010,
 			"next": "other people"
 		},
-
-
 
 		"-10min": { "title": "activity time", "caption": "-10 min</br>${act_time -10}", "help": "10 min earlier", "ID": 10001, "value": -10, "next": "adjust time" },
 		"-30min": { "title": "activity time", "caption": "-30 min</br>${act_time -30}", "help": "30 min earlier", "ID": 10001, "value": -30, "next": "adjust time" },
