@@ -271,8 +271,8 @@
 			"ID": 30011,
 			"next": "other people"
 		},
-		"travelling": {
-			"title": "location travelling",
+		"xxxtravelling": {
+			"title": "Location travelling",
 			"caption": "Travelling",
 			"help": "By car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
@@ -541,7 +541,7 @@
 		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "Other specify" },
 
 		"care": {
-			"title": "Looking after you or others",
+			"title": "Looking after yourself or others",
 			"caption": "Care for you / others",
 			"help": "Wash, dress, rest, care for child/friend/relative",
 			"ID": 0,
@@ -745,7 +745,7 @@
 		"Unspecified household and family care": {
 			"title": "Household and family care",
 			"caption": "Other",
-			"help": "Unspecified household and family care",
+			"help": "Other household and family care",
 			"ID": 3000,
 			"category": "care_other",
 			"next": "other people"
@@ -1035,7 +1035,7 @@
 			"next": "other people"
 		},
 		"Washing sort": {
-			"title": "Laundry sort",
+			"title": "Laundry sorting",
 			"caption": "Sorting",
 			"help": "Gathering, putting away",
 			"ID": 3312,
@@ -1043,7 +1043,7 @@
 			"next": "other people"
 		},
 		"Washing dry line": {
-			"title": "Laundry machine",
+			"title": "Laundry hanging",
 			"caption": "Hanging out laundry",
 			"help": "On a line, airer or radiator",
 			"ID": 3313,
@@ -1051,7 +1051,7 @@
 			"next": "other people"
 		},
 		"Washing dry machine": {
-			"title": "Laundry machine",
+			"title": "Using tumble dryer",
 			"caption": "Tumble dryer",
 			"help": "Loading, running, unloading",
 			"ID": 3314,
@@ -1157,7 +1157,7 @@
 			"next": "other people"
 		},
 		"Care child other": {
-			"title": "Unspecified physical care & supervision of a child",
+			"title": "Other physical care & supervision of a child",
 			"caption": "Other",
 			"help": "Unspecified physical care & supervision of a child",
 			"ID": 3810,
@@ -1171,16 +1171,16 @@
 			"next": "other people"
 		},
 		"Care child physical": {
-			"title": "Other specified physical care & supervision of a child",
+			"title": "Physical care & supervision of a child",
 			"caption": "Washing or physical help",
 			"help": "Physical care & supervision of a child",
 			"ID": 3819,
 			"next": "other people"
 		},
 		"Care child practical": {
-			"title": "Other specified physical care & supervision of a child",
+			"title": "Practical help & supervision of a child",
 				"caption": "Practical help",
-			"help": "Physical care & supervision of a child",
+			"help": "Like putting the child to bed ",
 			"ID": 3818,
 			"next": "care child practical"
 		},
