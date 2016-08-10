@@ -1764,7 +1764,7 @@
 			"next": "other people"
 		},
 		"Unspecified activities related to employment": {
-			"title": "Other activities related to employment",
+			"title": "Work or Housework",
 			"caption": "Other",
 			"help": "None of the above kinds of work",
 			"ID": 1300,
@@ -1806,7 +1806,7 @@
 			"next": "other people"
 		},
 		"Other activities related to school or university": {
-			"title": "Other activities related to school or university",
+			"title": "Study",
 			"caption": "Study",
 			"help": "Other activities related to school or university",
 			"ID": 2100,
