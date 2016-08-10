@@ -103,6 +103,10 @@
 			"activities": [ "Time exercise 1", "Time exercise 2", "Time exercise 3", "Time exercise 4", "Time exercise 5", "Time exercise 6" ]
 		},
 
+		"adjust time": { "title": "Set time: ${act_time}", "help": "Press DONE when time is right", "activities": [ "-10min", "+5min", "-30min", "+15min", "-120min", "+60min" ] },
+
+
+
 		"activity time relative": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "Time 1", "Time 2", "Time 3", "Time 4", "Time 5", "Time 6" ] },
 		"activity time 2": { "title": "When was this?", "help": "How long ago or the time", "activities": [ "Time 7", "Time 8", "Time 9", "Time 10", "Time 11", "Time 12" ] },
 

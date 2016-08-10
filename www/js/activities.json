@@ -310,7 +310,12 @@
 
 
 
-
+		"-10min": { "title": "activity time", "caption": "-10 min</br>${act_time -10}", "help": "10 min earlier", "ID": 10001, "value": -10, "next": "adjust time" },
+		"-30min": { "title": "activity time", "caption": "-30 min</br>${act_time -30}", "help": "30 min earlier", "ID": 10001, "value": -30, "next": "adjust time" },
+		"-120min": { "title": "activity time", "caption": "-2 hours</br>${act_time -120}", "help": "2 hours earlier", "ID": 10001, "value": -120, "next": "adjust time" },
+		"+5min": { "title": "activity time", "caption": "+5 min</br>${act_time +5}", "help": "5 min later", "ID": 10001, "value": 5, "next": "adjust time" },
+		"+15min": { "title": "activity time", "caption": "+15 min</br>${act_time +15}", "help": "15 min later", "ID": 10001, "value": 15, "next": "adjust time" },
+		"+60min": { "title": "activity time", "caption": "+1 hour</br>${act_time +60}", "help": "1 hours later", "ID": 10001, "value": 60, "next": "adjust time" },
 
 		"Time 1": { "title": "activity time", "caption": "Now",        "help": "${time}",      "ID": 10001, "value": 0, "next": "activity root" },
 		"Time 2": { "title": "activity time", "caption": "5 min ago",  "help": "${time - 5}",  "ID": 10002, "value": 5, "next": "activity root" },

@@ -218,8 +218,8 @@ var app = {
             }
             // populate buttons XXX move to 'if not home'?
 
-            var screen_ = app.screens[screen_id];
-            $("#title").html(utils.format(screen_.title));
+		var screen_ = app.screens[screen_id];
+		$("#title").html(utils.format(screen_.title));
             for (i = 0; i < screen_.activities.length; i++) {
                 var activity_id = screen_.activities[i];
                 var activity    = app.activities[activity_id];
@@ -287,7 +287,7 @@ var app = {
                 var item = activityList[key];
                 curr_acts += row.format(utils.format_time(item.time), 
                 item.act,
-                'app.editActivity(\'' + key + '\')',
+                'app.editActivityScreen(\'' + key + '\', \'edit activity\')',
                 "edit",
 				item.cat)
             })
@@ -437,7 +437,7 @@ var app = {
 	editActivityScreen: function (actKey,screenKey) {
             var activityList = utils.getList(ACTIVITY_LIST) || {};
             var item = activityList[actKey];
-			app.title.html(item.act + "(" + act.time + ")")
+			app.title.html(item.act + "(" + item.time + ")")
             var screen_ = app.screens[screenKey];
             for (i = 0; i < screen_.activities.length; i++) {
 				var activity_id = screen_.activities[i];
@@ -460,9 +460,10 @@ var app = {
 				if (activity.value === undefined) {
 					var parameter = "";
 				} else {
-					var parameter = ", "+activity.value;
+					var parameter = ", " + activity.value;
 					}
-				button.attr("onclick", activity.next + "('"+actKey+parameter"')");
+				button.attr("onclick", activity.next + "('"+ actKey + parameter + "')");
+				console.log(activity.next + "('"+ actKey + parameter + "')");
                 }
         	app.activityAddPane.hide();
             app.activityListPane.hide();
@@ -473,7 +474,7 @@ var app = {
 		// XXX try to use editActivityScreen instead with "screen" prmt
             var activityList = utils.getList(ACTIVITY_LIST) || {};
             var item = activityList[key];
-			app.title.html(item.act + "(" + act.time + ")")
+			app.title.html(item.act + "(" + item.time + ")")
             var screen_ = app.screens["edit activity"];
             for (i = 0; i < screen_.activities.length; i++) {
 				var activity_id = screen_.activities[i];
@@ -510,7 +511,9 @@ var app = {
 		app.addThisActivity(thisAct);
 	},
 
-	repeatActivityRecent: function(actKey) {
+	repeatActivityRecently: function(actKey) {
+        var activityList = utils.getList(ACTIVITY_LIST) || {};
+        var thisAct = activityList[actKey];
 		app.editActivityScreen(actKey,"adjust time");
 		// Only the "Done" button will take user from this screen
 		// XXX WARNING - I expect that async will not complete all three as should...
