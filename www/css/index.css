@@ -72,6 +72,7 @@ body {
 
 .contents {
     height: 75%;
+	overflow-y: scroll;
 }
 
 .footer-nav {

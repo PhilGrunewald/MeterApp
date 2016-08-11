@@ -36,9 +36,7 @@ var utils = {
 
 		if (elems[0] == "time") {
 			var time_ = Date.now();
-
 			if (elems.length > 2) {
-
 				if (elems[1] == "-"){
 					var mins = parseInt(elems[2]) * 60000;
 					res = new Date(time_-mins);
@@ -48,18 +46,30 @@ var utils = {
 			} else {
 				res = new Date(time_);
 			}
-
 			return str.replace(intime_var, res.toTimeString().substring(0, 5))
 		} else if (elems[0] == "act_time") {
-			// XXX Needs time zone adjustment!!! in Germany returns two hours too early
 			var dt_act = utils.get(ACTIVITY_DATETIME);
 			if (dt_act == "same") {
-				res = "now";
-			} else {
-				res = "at " + dt_act.substring(11,16);
+				time_ = new Date();
+			} else { 
+				time_ = new Date(dt_act);
 			}
+				console.log("elems0: " +elems[0]);
+				console.log("elems: " +elems[1]);
+
+			res = new Date(time_.getTime());
+			if (elems[1] == "-"){
+				var mins = parseInt(elems[2]) * 60000;
+				res = new Date(time_.getTime() - mins);
+				console.log("res: " +res);
+			} else 
+			if (elems[1] == "+"){
+				var mins = parseInt(elems[2]) * 60000;
+				res = new Date(time_.getTime() + mins);
+			}
+			ISOtime = res.toISOString();
+			res = ISOtime.substring(11,16);
 			return str.replace(intime_var, res)
-	
 		}
 	      else	{
 			return str; // no other function implemented
@@ -89,6 +99,7 @@ var utils = {
 	
     save: function(key, val) {
         localStorage.setItem(key, val);
+		console.log("saving: " + val);
     },
     
     get: function(key) {
