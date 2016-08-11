@@ -112,8 +112,8 @@
 
 		"Working hours 1": { "title": "WorkingHours", "value": 1,"caption": "None", "help": "I do not have work time as such", "ID": 90041, "next": "survey working regularity" },
 		"Working hours 2": { "title": "WorkingHours", "value": 2,"caption": "1 - 15", "help": "Most weeks you work between 1 and 15 hours", "ID": 90042, "next": "survey working regularity" },
-		"Working hours 3": { "title": "WorkingHours", "value": 3,"caption": "15 - 30", "help": "Most weeks you work between 15 and 30 hours", "ID": 90043, "next": "survey working regularity" },
-		"Working hours 4": { "title": "WorkingHours", "value": 4,"caption": "30 - 45", "help": "Most weeks you work between 30 and 45 hours", "ID": 90044, "next": "survey working regularity" },
+		"Working hours 3": { "title": "WorkingHours", "value": 3,"caption": "16 - 30", "help": "Most weeks you work between 16 and 30 hours", "ID": 90043, "next": "survey working regularity" },
+		"Working hours 4": { "title": "WorkingHours", "value": 4,"caption": "31 - 45", "help": "Most weeks you work between 31 and 45 hours", "ID": 90044, "next": "survey working regularity" },
 		"Working hours 5": { "title": "WorkingHours", "value": 5,"caption": "Over 45", "help": "I work over 45 hours", "ID": 90045, "next": "survey working regularity" },
 		"Working hours 6": { "title": "WorkingHours", "value": 6,"caption": "Skip", "help": "I choose not to say", "ID": 90046, "next": "survey working regularity" },
 
@@ -123,7 +123,7 @@
 		"Working hours change 4": { "title": "WorkRegularity", "value": 4, "caption": "Skip", "help": "I choose not to say", "ID": 90054, "next": "survey working home" },
 
 		"Working home 1": { "title": "WorkHome", "value": 1,"caption": "Never", "help": "I never work from home", "ID": 90061, "next": "survey bills" },
-		"Working home 2": { "title": "WorkHome", "value": 2,"caption": "Rarely", "help": "I work from home less than once per month", "ID": 90062, "next": "survey bills" },
+		"Working home 2": { "title": "WorkHome", "value": 2,"caption": "Rarely", "help": "I work from home approx. once per month", "ID": 90062, "next": "survey bills" },
 		"Working home 3": { "title": "WorkHome", "value": 3,"caption": "Sometimes", "help": "I work from home up to 5 times per month", "ID": 90063, "next": "survey bills" },
 		"Working home 4": { "title": "WorkHome", "value": 4,"caption": "Often", "help": "6 times or more per month", "ID": 90064, "next": "survey bills" },
 		"Working home 5": { "title": "WorkHome", "value": 5,"caption": "Always", "help": "Home is my main workplace", "ID": 90065, "next": "survey bills" },
@@ -231,17 +231,17 @@
 			"help": "At work place or school",
 			"ID": 30013,
 			"value": 3,
-			"category": "care_other",
+			"category": "work",
 			"next": "activity main"
 		},
 		"Loc public": {
-			"title": "location friends",
+			"title": "location public place",
 			"icon": "Loc_shop",
 			"caption": "Public place",
-			"help": "Shop, public building",
+			"help": "Shop, church, public building",
 			"ID": 30014,
 			"value": 4,
-			"category": "care_other",
+			"category": "care_self",
 			"next": "activity main"
 		},
 		"Loc outdoors": {
@@ -505,33 +505,33 @@
 
 		"Appliances":  { "title": "Use an appliance", "caption": "Use appliances", "help": "Electrical goods", "ID": 8500, "value": 0, "next": "appliances" },
 
-		"Appliances Washing machine":  { "title": "Washing machine", "caption": "Washing machine", "help": "Loading, unloading or running", "ID": 8501, "next": "enjoyment" },
-		"Appliances Tumble dryer":  { "title": "Tumble dryer", "caption": "Tumble dryer", "help": "it is running or you use it", "ID": 8502, "next": "enjoyment" },
-		"Appliances Dish washer":  { "title": "Dish washer", "caption": "Dish washer", "help": "it is running or you use it", "ID": 8503, "next": "enjoyment" },
-		"Appliances Oven":  { "title": "Oven", "caption": "Oven", "help": "it is running or you use it", "ID": 8504, "next": "enjoyment" },
-		"Appliances Microwave":  { "title": "Microwave", "caption": "Microwave", "help": "it is running or you use it", "ID": 8505, "next": "enjoyment" },
+		"Appliances Washing machine":  { "title": "Washing machine", "caption": "Washing machine", "help": "Loading, unloading or running", "ID": 8501,"category": "care_house", "next": "enjoyment" },
+		"Appliances Tumble dryer":  { "title": "Tumble dryer", "caption": "Tumble dryer", "help": "it is running or you use it", "ID": 8502, "category": "care_house","next": "enjoyment" },
+		"Appliances Dish washer":  { "title": "Dish washer", "caption": "Dish washer", "help": "it is running or you use it", "ID": 8503,"category": "care_house", "next": "enjoyment" },
+		"Appliances Oven":  { "title": "Oven", "caption": "Oven", "help": "it is running or you use it", "ID": 8504, "category": "food","next": "enjoyment" },
+		"Appliances Microwave":  { "title": "Microwave", "caption": "Microwave", "help": "it is running or you use it", "ID": 8505, "category": "food","next": "enjoyment" },
 
 		"Appliances 2":  { "title": "Use an appliance", "caption": "Show more", "help": "appliances", "ID": 8506, "next": "appliances 2" },
 
-		"Appliances Computer":  { "title": "Computer", "caption": "Computer", "help": "Laptop, Tablet, PC", "ID": 8507, "next": "enjoyment" },
-		"Appliances TV":  { "title": "TV", "caption": "TV", "help": "it is running or you use it", "ID": 8508, "next": "enjoyment" },
-		"Appliances Kettle":  { "title": "Kettle", "caption": "Kettle", "help": "it is running or you use it", "ID": 8509, "next": "enjoyment" },
-		"Appliances Tools":  { "title": "Power tools", "caption": "Tools / Toys", "help": "Power tools or toys (RC car...)", "ID": 8510, "next": "enjoyment" },
+		"Appliances Computer":  { "title": "Computer", "caption": "Computer", "help": "Laptop, Tablet, PC", "ID": 8507,"category": "other_category", "next": "enjoyment" },
+		"Appliances TV":  { "title": "TV", "caption": "TV", "help": "it is running or you use it", "ID": 8508, "category": "care_self","next": "enjoyment" },
+		"Appliances Kettle":  { "title": "Kettle", "caption": "Kettle", "help": "it is running or you use it", "ID": 8509, "category": "food", "next": "enjoyment" },
+		"Appliances Tools":  { "title": "Power tools", "caption": "Tools / Toys", "help": "Power tools or toys (RC car...)", "ID": 8510, "category": "care_house", "next": "enjoyment" },
 		"Appliances 3":  { "title": "Use an appliance", "caption": "Show more", "help": "appliances", "ID": 8511, "next": "appliances 3" },
 
-		"Appliances Toaster":  { "title": "Toaster", "caption": "Toaster", "help": "it is running or you use it", "ID": 8512, "next": "enjoyment" },
-		"Appliances Garden tools":  { "title": "Garden tools", "caption": "Garden tools", "help": "Mower, hedge trimmer, etc.", "ID": 8513, "next": "enjoyment" },
-		"Appliances Mower":  { "title": "Mower", "caption": "Mower", "help": "it is running or you use it", "ID": 8513, "next": "enjoyment" },
-		"Appliances Hedge trimmer":  { "title": "Hedge trimmer", "caption": "Hedge trimmer", "help": "it is running or you use it", "ID": 8514, "next": "enjoyment" },
-		"Appliances Hair dryer":  { "title": "Hair dryer", "caption": "Hair dryer", "help": "it is running or you use it", "ID": 8515, "next": "enjoyment" },
+		"Appliances Toaster":  { "title": "Toaster", "caption": "Toaster", "help": "it is running or you use it", "ID": 8512, "category": "food", "next": "enjoyment" },
+		"Appliances Garden tools":  { "title": "Garden tools", "caption": "Garden tools", "help": "Mower, hedge trimmer, etc.", "ID": 8513, "category": "care_house","next": "enjoyment" },
+		"Appliances Mower":  { "title": "Mower", "caption": "Mower", "help": "it is running or you use it", "ID": 8513,"category": "care_house", "next": "enjoyment" },
+		"Appliances Hedge trimmer":  { "title": "Hedge trimmer", "caption": "Hedge trimmer", "help": "it is running or you use it", "ID": 8514,"category": "care_house", "next": "enjoyment" },
+		"Appliances Hair dryer":  { "title": "Hair dryer", "caption": "Hair dryer", "help": "it is running or you use it", "ID": 8515,"category": "care_self", "next": "enjoyment" },
 
 		"Appliances 4":  { "title": "More appliances", "caption": "Show more", "help": "appliances", "ID": 8516, "next": "appliances 4" },
 
-		"Appliances Lights off":  { "title": "Lights off", "caption": "Lights off", "help": "Switching some light(s) off", "ID": 8517, "next": "home" },
-		"Appliances Lights on":  { "title": "Lights on", "caption": "Lights on", "help": "Switching some light(s) on", "ID": 8518, "next": "home" },
-		"Appliances Bread maker":  { "title": "Bread maker", "caption": "Bread maker", "help": "it is running or you use it", "ID": 8521, "next": "enjoyment" },
-		"Appliances Phone":  { "title": "Phone", "caption": "Phone", "help": "Use mobile phone", "ID": 8522, "next": "enjoyment" },
-		"Appliances Radio":  { "title": "Radio", "caption": "Radio", "help": "it is running or you use it", "ID": 8523, "next": "enjoyment" },
+		"Appliances Lights off":  { "title": "Lights off", "caption": "Lights off", "help": "Switching some light(s) off", "ID": 8517, "category": "other_category","next": "home" },
+		"Appliances Lights on":  { "title": "Lights on", "caption": "Lights on", "help": "Switching some light(s) on", "ID": 8518, "category": "other_category", "next": "home" },
+		"Appliances Bread maker":  { "title": "Bread maker", "caption": "Bread maker", "help": "it is running or you use it", "ID": 8521, "category": "food", "next": "enjoyment" },
+		"Appliances Phone":  { "title": "Phone", "caption": "Phone", "help": "Use mobile phone", "ID": 8522, "category": "other_category", "next": "enjoyment" },
+		"Appliances Radio":  { "title": "Radio", "caption": "Radio", "help": "it is running or you use it", "ID": 8523,"category": "recreation", "next": "enjoyment" },
 
 		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "Other specify" },
 
@@ -543,7 +543,7 @@
 			"category": "care_self",
 			"next": "care"
 		},
-		"Unspecified Sleep": {
+		"xxxUnspecified Sleep": {
 			"title": "Sleep or rest",
 			"caption": "Rest or sleep",
 			"help": "Unspecified Sleep",
@@ -569,7 +569,7 @@
 		},
 		"Sick in bed": {
 			"title": "Sick in bed",
-			"caption": "Personal care XXX not used",
+			"caption": "Sick in bed",
 			"help": "Sick in bed",
 			"ID": 120,
 			"category": "care_self",
@@ -634,7 +634,7 @@
 		"Care child": {
 			"title": "Childcare",
 			"caption": "Looking after children",
-			"help": "Unspecified childcare",
+			"help": "Involving in childcare",
 			"ID": 3800,
 			"category": "care_other",
 			"next": "care child"
@@ -737,7 +737,7 @@
 			"category": "care_self",
 			"next": "other people"
 		},
-		"Unspecified household and family care": {
+		"Other household and family care": {
 			"title": "Household and family care",
 			"caption": "Other",
 			"help": "Other household and family care",
