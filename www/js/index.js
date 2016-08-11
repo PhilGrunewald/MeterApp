@@ -138,12 +138,12 @@ var app = {
 			// Is Time Use activity entry
 			//
 			if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
-				  utils.save(CURR_ACTIVITY, prev_activity);
-				  utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category,app.activities[prev_activity].title].join());
-			// now that an activity is selected btn-done will not create a new entry
-			app.footer_nav("done");
-				  // running save for category separately caused ID and category to be set to the same value (???!!!) - so we do it in one go into the same var
+				utils.save(CURR_ACTIVITY, prev_activity);
+				utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category,app.activities[prev_activity].title].join()); // running save for category separately caused ID and category to be set to the same value (???!!!) - so we do it in one go into the same var
+				// now that an activity is selected btn-done will not create a new entry
+				app.footer_nav("done");
 			  }
+
 			  //
 			  // Is TIME setting
 			  //
@@ -195,8 +195,9 @@ var app = {
 				  utils.save(SURVEY_STATUS, screen_id);
 				  log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);          
 
-				  var icon = "0"
-				  document.getElementById("survey-status").src = "img/AR_"+icon+".png";
+				  // var icon = "0"
+				  // document.getElementById("survey-status").src = "img/AR_"+icon+".png";
+				  $("img#survey-status").attr("src","img/AR_progress.png");
 				  //console.log("survey entry: " + prev_activity);
 			  }
 		}
@@ -241,7 +242,7 @@ var app = {
 			// btn-next is only for "activity time relative" actions
 			// it points to "activity root", thus turning itself back to "Done" here
 			$("div.footer-nav").show();
-			app.footer_nav("done");
+			app.footer_nav("home");
 			$("input#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
 		if (screen_id == "other specify") {     // display text edit field
@@ -255,9 +256,17 @@ var app = {
 			// here it gets redirected to the latest survey screen
 			// SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
 			screen_id = utils.get(SURVEY_STATUS);
+			app.footer_nav("home");
 			if (screen_id === null) {
 				screen_id = "survey root";
 			}
+		} else
+		if (screen_id == "survey complete") {
+			$("div#nav-aboutme").hide();
+			$("img#stars").attr("src","img/stars_1.png");
+			$("div#status").show();
+			app.showActivityList();
+			app.choicesPane.hide();
 		}
 
 		//****************************** 

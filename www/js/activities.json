@@ -197,12 +197,12 @@
 		"Time cooking 5": { "title": "TimeCooking", "value": 5, "caption": "3h or less", "help": "spent on cooking", "ID": 90805, "next": "time exercise" },
 		"Time cooking 6": { "title": "TimeCooking", "value": 6, "caption": "Over 3h", "help": "spent on cooking", "ID": 90806, "next": "time exercise" },
 
-		"Time exercise 1": { "title": "TimeExercise", "value": 1, "caption": "None", "help": "I didn't use a exercise", "ID": 90901, "next": "home" },
-		"Time exercise 2": { "title": "TimeExercise", "value": 2, "caption": "10min or less", "help": "spent using exercise", "ID": 90902, "next": "home" },
-		"Time exercise 3": { "title": "TimeExercise", "value": 3, "caption": "30min or less", "help": "spent on exercise", "ID": 90903, "next": "home" },
-		"Time exercise 4": { "title": "TimeExercise", "value": 4, "caption": "1h or less", "help": "spent on exercise", "ID": 90904, "next": "home" },
-		"Time exercise 5": { "title": "TimeExercise", "value": 5, "caption": "3h or less", "help": "spent on exercise", "ID": 90905, "next": "home" },
-		"Time exercise 6": { "title": "TimeExercise", "value": 6, "caption": "Over 3h", "help": "spent on exercise", "ID": 90906, "next": "home" },
+		"Time exercise 1": { "title": "TimeExercise", "value": 1, "caption": "None", "help": "I didn't use a exercise", "ID": 90901, "next": "survey complete" },
+		"Time exercise 2": { "title": "TimeExercise", "value": 2, "caption": "10min or less", "help": "spent using exercise", "ID": 90902, "next": "survey complete" },
+		"Time exercise 3": { "title": "TimeExercise", "value": 3, "caption": "30min or less", "help": "spent on exercise", "ID": 90903, "next": "survey complete" },
+		"Time exercise 4": { "title": "TimeExercise", "value": 4, "caption": "1h or less", "help": "spent on exercise", "ID": 90904, "next": "survey complete" },
+		"Time exercise 5": { "title": "TimeExercise", "value": 5, "caption": "3h or less", "help": "spent on exercise", "ID": 90905, "next": "survey complete" },
+		"Time exercise 6": { "title": "TimeExercise", "value": 6, "caption": "Over 3h", "help": "spent on exercise", "ID": 90906, "next": "survey complete" },
 
 		"Loc home": {
 			"title": "location home",
