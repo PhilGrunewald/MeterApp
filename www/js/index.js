@@ -140,6 +140,8 @@ var app = {
 			if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
 				  utils.save(CURR_ACTIVITY, prev_activity);
 				  utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category,app.activities[prev_activity].title].join());
+			// now that an activity is selected btn-done will not create a new entry
+			app.footer_nav("done");
 				  // running save for category separately caused ID and category to be set to the same value (???!!!) - so we do it in one go into the same var
 			  }
 			  //
@@ -213,23 +215,14 @@ var app = {
 		console.log("Scr ID: " + screen_id);
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
+			if (prev_activity !== "ignore") {
+				app.addActivityToList();
+			}
+			// until and activity is selected btn-home will not create a new entry
+			app.footer_nav("home");
 			app.updateNowTime();
-			app.addActivityToList();
 			app.showActivityList();
 			app.choicesPane.hide();
-		} else 
-		if (screen_id == "other specify") {     // display text edit field
-			$("div#other-specify").show();
-			$("div.footer-nav").hide();
-			app.choicesPane.hide();
-		} else
-		if (screen_id == "activity root") {
-			// btn-next is only for "activity time relative" actions
-			// it points to "activity root", thus turning itself back to "Done" here
-			$("div.footer-nav").show();
-			$("#btn-done").show();
-			$("#btn-next").hide();
-			$("input#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
 		if (screen_id == "activity time relative") {
 			// pressed "recently" button - relative time entry followed by "activity root"
@@ -237,13 +230,24 @@ var app = {
 			var dt_ = Date.now()
 			var dt_ = new Date(dt_).toISOString();
 			utils.save(ACTIVITY_DATETIME, dt_);
-			$("#btn-done").hide();
-			$("#btn-next").show();
+			app.footer_nav("next");
 		} else
 		if (screen_id == "activity time") {
 			// this is only reached when operator set a manual date - absolute time entry
 			var dt_ = utils.get(ACTIVITY_MANUAL_DATE);
 			utils.save(ACTIVITY_DATETIME, dt_);
+		} else
+		if (screen_id == "activity root") {
+			// btn-next is only for "activity time relative" actions
+			// it points to "activity root", thus turning itself back to "Done" here
+			$("div.footer-nav").show();
+			app.footer_nav("done");
+			$("input#btn-other-specify").attr("onclick", "app.submitOther()");
+		} else 
+		if (screen_id == "other specify") {     // display text edit field
+			$("div#other-specify").show();
+			$("div.footer-nav").hide();
+			app.choicesPane.hide();
 		} else
 		if (screen_id == "survey root") {
 			// an entry is still in the middle of completion
@@ -279,7 +283,7 @@ var app = {
 				button.attr("onclick", "");
 			} else {
 				document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
-				btn_title.html(activity.caption);
+				btn_title.html(utils.format(activity.caption));
 				btn_caption.html(utils.format(activity.help));
 				//button.addClass(activity.category || "other_category");
 				button.addClass(activity.category);
@@ -299,7 +303,7 @@ var app = {
         if (prev === undefined) {
             app.showActivityList();
         } else {
-            app.navigateTo(prev, 'Back');
+            app.navigateTo(prev,prev);
 			// XXX undo potential time offsets
         }
     },
@@ -345,27 +349,29 @@ var app = {
         var activityList = utils.getList(ACTIVITY_LIST) || []
         var curr_acts = "";
         var row = ''+
-            '<div class="row activity-row {3}" onclick="{1}">' + 
-            '	<div class="activity-cell activity-item">{0}</div>' + 
-            '	<div class="activity-cell btn-terminate">{2}</div>' + 
+            '<div class="row activity-row {4}" onclick="{2}">' + 
+            '	<div class="activity-cell btn-time">{0}</div>' + 
+            '	<div class="activity-cell activity-item">{1}</div>' + 
+            '	<div class="activity-cell btn-terminate">{3}</div>' + 
             '</div>';
 
         if (Object.keys(activityList).length > 0) {
-            row = row.format(
-                '{0}', 
-                '{1}',
-                '<span class="bordered">{2}</span>','{3}')
+            row = row.format( '{0}', 
+                '{1}', 
+                '{2}',
+                '<span class="bordered">{3}</span>','{4}')
             Object.keys(activityList).forEach( function(key, index) {
                 var item = activityList[key];
-                curr_acts += row.format(item.act,
+                curr_acts += row.format(utils.format_time(item.time), 
+                item.act,
                 'app.editActivityScreen(\'' + key + '\')',
-                "redo",
+                "edit",
 				item.cat)
             })
         } else {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
-		app.act_count.html("Recent activities: ");
+		app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
 		app.act_count.show();
 		app.activity_list_div.html(curr_acts);
         app.choicesPane.hide();
@@ -399,6 +405,17 @@ var app = {
 			app.title.html("Do you remember " + strTime + "? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
             app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
 		}
+	},
+
+	extractTimeStr: function(ISOTime) {
+		var hours=parseInt(ISOTime.slice(11,13));
+		var minutes=parseInt(ISOTime.slice(14,16));
+		var ampm = hours >= 12 ? 'pm' : 'am';
+		hours = hours % 12;
+		hours = hours ? hours : 12; // the hour '0' should be '12'
+		minutes = minutes < 10 ? '0'+minutes : minutes;
+		var strTime = hours + ':' + minutes + ' ' + ampm;
+		return strTime;
 	},
 
 	formatAMPM: function(hours,minutes) {
@@ -461,11 +478,11 @@ var app = {
 
 
     removeActivity: function (uuid) {
-		app.deleteActivity(uuid);
+		app.deleteAct(uuid);
     	app.showActivityList();
     },
 
-	deleteActivity: function (actKey) {
+	deleteAct: function (actKey) {
         if (actKey) {
             activityList = utils.getList(ACTIVITY_LIST) || {};
             if (actKey in activityList) {
@@ -482,7 +499,7 @@ var app = {
             var activityList = utils.getList(ACTIVITY_LIST) || {};
 			console.log("activity list defined yet? : " + activityList); 
             var item = activityList[actKey];
-			app.title.html(item.act + "(" + item.time + ")")
+			app.title.html(app.extractTimeStr(item.time) + ": " + item.act)
             var screen_ = app.screens["edit activity"];
             for (i = 0; i < screen_.activities.length; i++) {
 				var activity_id = screen_.activities[i];
@@ -507,18 +524,25 @@ var app = {
         	app.activityAddPane.hide();
             app.activityListPane.hide();
             app.choicesPane.show();
+			app.footer_nav("home");
 	},
 
 	saveActivityPropertiesLocally: function(actKey) {
 		// this is where app.navigateTo("home") will create new activity from
         var activityList = utils.getList(ACTIVITY_LIST) || {};
         var thisAct = activityList[actKey];
-
         utils.save(ACTIVITY_DATETIME, thisAct.time);
         utils.save(CURR_ACTIVITY, thisAct.name);
 		utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.cat, thisAct.act].join());
         utils.save(CURR_LOCATION, thisAct.loc);
 		utils.save(CURR_ENJOYMENT, thisAct.enj);
+	},
+
+	footer_nav: function(btn) {
+			$("#btn-home").hide();
+			$("#btn-done").hide();
+			$("#btn-next").hide();
+			$("#btn-"+btn).show();
 	},
 
 	// Edit btn 1
@@ -534,6 +558,7 @@ var app = {
 	repeatActivityRecently: function(actKey) {
 		// create a new instance as a copy of this activity and then allow to adjust the time
 		app.saveActivityPropertiesLocally(actKey);
+		app.footer_nav("done");
 		app.navigateTo("adjust time");
 	},
 
@@ -542,7 +567,9 @@ var app = {
 		// the old List and CSV entries need to be removed and a new one is created when navigating Home
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
-		app.deleteActivity(actKey);
+		app.deleteAct(actKey);
+		app.footer_nav("done");
+		$("div.footer-nav").show();
 		app.navigateTo("adjust time");
 	},
 
@@ -551,11 +578,38 @@ var app = {
 		// the old List and CSV entries need to be removed and a new one is created when navigating Home
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
-		app.deleteActivity(actKey);
-		var oldTitle = utils.get(CURR_ACTIVITY);
+		app.deleteAct(actKey);
+		var oldDetail = utils.get(CURR_ACTIVITY_ID);
+		var oldTitle  = oldDetail.split(",")[2];
 		$("input#free-text").val(oldTitle);
 		$("input#btn-other-specify").attr("onclick", "app.submitEdit()");
 		app.navigateTo("other specify");
+	},
+
+	// Edit btn 5
+	endActivity: function(actKey) {
+		// set local variables as copy of this activity, then overwrite time
+		// XXX add log.writeAct_mods(...) to have a CSV file saying to end the entry
+		app.deleteAct(actKey);
+		app.navigateTo("home", "ignore"); // ignore stops creation of new entry
+	},
+
+	// Edit btn 5 - Something else now
+	moreActivityAtThisTime: function(actKey) {
+		app.saveActivityPropertiesLocally(actKey);
+		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
+		app.deleteAct(actKey);
+		app.footer_nav("done");
+		app.navigateTo("activity root");
+		// XXX should have boolean to redirect "other people/enjoyment" -> home
+	},
+
+	// Edit btn 6
+	deleteActivity: function(actKey) {
+		// set local variables as copy of this activity, then overwrite time
+		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore entry
+		app.deleteAct(actKey);
+		app.navigateTo("home", "ignore"); // ignore stops creation of new entry
 	},
 
     changeDate: function() {
@@ -578,9 +632,15 @@ var app = {
     },
 
     submitEdit: function() {
-        var prev_activity = $("input#free-text").val();
+        var prev_activity = 
         $("div#other-specify").hide();
-        app.navigateTo("home", prev_activity)
+		var details = utils.get(CURR_ACTIVITY_ID) ;
+		var detailsArray = details.split(",");  // contains tuc, category, title
+		var tuc = detailsArray[0];
+		var cat = detailsArray[1];			// .category
+		var act = $("input#free-text").val();
+		utils.save(CURR_ACTIVITY_ID, [tuc, cat, act].join());
+        app.navigateTo("home")
     },
     submitOther: function() {
         var prev_activity = $("input#free-text").val();
