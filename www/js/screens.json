@@ -2,8 +2,8 @@
 	"screens": {
 
 		"home": {
-			"title": "XXX YOU SHOULD NEVER SEE THIS XXX Your activities",
-			"help": "What you have reported"
+			"title": "Are you doing something?",
+			"help": ""
 		},
 		"edit activity": {
 			"title": "done by index.js",
@@ -13,9 +13,14 @@
 				"Repeat activity recently",
 				"Edit activity time",
 				"Edit activity title",
-				"End activity",
+				"More activity",
 				"Delete activity"
 			]
+		},
+		"survey complete": {
+			"title": "You have completed the survey",
+			"help": "Click Home to return",
+			"activities": [ "Blank", "Blank", "Blank", "Blank", "Blank", "Blank" ]
 		},
 		"survey root": {
 			"title": "What gender are you?",

@@ -72,6 +72,15 @@
 			"ID": -1,
 			"next": "app.editActivityTitle"
 		},
+		"More activity": {
+			"title": "Something else",
+			"caption": "I did more",
+			"icon": "edit_more",
+			"help": "at the same time",
+			"category": "other_category",
+			"ID": -1,
+			"next": "app.moreActivity"
+		},
 		"End activity": {
 			"title": "End activity",
 			"caption": "End",

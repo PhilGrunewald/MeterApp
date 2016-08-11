@@ -60,6 +60,7 @@ var CATCHUP_INDEX = 0;
 var catchupList   = "";
 var deviceColour  = "#990000";				// to be used for background or colour marker
 var ToggleColon   = false;
+var fastTrack     = false;					// takes navTo("other people") straight "home"
 
 var app = {
     // Application Constructor
@@ -212,8 +213,13 @@ var app = {
 		app.activityListPane.hide();
 		app.choicesPane.show();
 
-		console.log("PRev: " + prev_activity);
-		console.log("Scr ID: " + screen_id);
+		// skip "other people" and "enjoyment" if on fastTrack
+		if (screen_id == "other people" || screen_id == "enjoyment") {
+			if (fastTrack) {
+				screen_id = "home";
+				fastTrack = false;
+			}
+		}
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
 			if (prev_activity !== "ignore") {
@@ -267,7 +273,7 @@ var app = {
 			$("div#status").show();
 			app.showActivityList();
 			app.choicesPane.hide();
-		}
+		} else
 
 		//****************************** 
 		//      Buttons
@@ -318,6 +324,7 @@ var app = {
     },
 
     showActivityHistory: function() {
+		// no longer used
         app.history = new Array();
         var activityList = utils.getList(ACTIVITY_LIST) || []
         var curr_acts = "";
@@ -482,6 +489,20 @@ var app = {
     	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, enj].join() + "\n";
     	log.writeLog(log.logAct, str)
         utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
+		var actCount = Object.keys(activityList).length;
+		if (actCount > 25) {
+			$("img#stars").attr("src","img/stars_5.png");
+		} else
+		if (actCount > 15) {
+			$("img#stars").attr("src","img/stars_4.png");
+		} else
+		if (actCount > 10) {
+			$("img#stars").attr("src","img/stars_3.png");
+		} else
+		if (actCount > 5) {
+			$("img#stars").attr("src","img/stars_2.png");
+		} 
+
         // log.writeActivity();          
     },
 
@@ -604,12 +625,11 @@ var app = {
 	},
 
 	// Edit btn 5 - Something else now
-	moreActivityAtThisTime: function(actKey) {
+	moreActivity: function(actKey) {
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
-		app.deleteAct(actKey);
-		app.footer_nav("done");
-		app.navigateTo("activity root");
+		app.navigateTo("activity main");
+		fastTrack = true;
 		// XXX should have boolean to redirect "other people/enjoyment" -> home
 	},
 
