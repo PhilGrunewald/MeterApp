@@ -44,6 +44,7 @@
 				<div id="nav-home" class="col-4" onclick="app.showActivityList();">Home</div>
 				<div id="nav-aboutme" class="col-4"
 						onclick="app.navigateTo('survey root')">Survey<img src="img/AR_4.png" id="survey-status"></div>
+						<div hidden id="nav-status" class="col-4"><img id="stars"></div>
 				<div id="nav-help" class="col-4" onclick="app.toggleCaption();">Help</div>
 			</div>
 		</div>
@@ -70,7 +71,7 @@
 		<div id="other-specify">
 			<input type="text" id="free-text" autofocus /> <br>
 			<div class "btn-other-specify">
-			<input id="btn-submit" type="submit" onclick="app.submitOther()"/>
+			<input id="btn-other-specify" type="submit" onclick="app.submitOther()"/>
 			</div>
 		</div>
 
@@ -84,7 +85,7 @@
 				</div>
 			</div>
 			<div id="activity_list_pane">
-				<div id="btn-history" onclick="app.showActivityHistory()"><div id="act-count"></div></div>
+				<div id="btn-history"><div id="act-count"></div></div>
 				<div id="activity-list">
 				    <div class="row activity-row">
 					    <div class="activity-cell btn-terminate"></div>
@@ -131,6 +132,8 @@
 					<div class="row">
 						<div id="btn-back" class="col btn-activity" onclick="app.goBack();">Back</div>
 						<div id="btn-done" class="col btn-activity" onclick="app.navigateTo('home')">Done</div>
+						<div id="btn-home" class="col btn-activity" onclick="app.navigateTo('home','ignore')">Home</div>
+						<div id="btn-next" class="col btn-activity" onclick="app.navigateTo('activity root')">Next...</div>
 					</div>
 				</div>
 			</div>
