@@ -397,7 +397,6 @@
 		"Minutes 11": { "title": "activity time", "caption": "6", "help": "min", "ID": 10310, "value": 6, "next": "activity root" },
 		"Minutes 12": { "title": "activity time", "caption": "8", "help": "min", "ID": 10311, "value": 8, "next": "activity root" },
 
-
 		"Skip": {
 			"title": "enjoyment skip",
 			"caption": "Skip",
@@ -547,12 +546,12 @@
 
 		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "Other specify" },
 
-		"care": {
-			"title": "Looking after yourself or others",
-			"caption": "Care for you / others",
-			"help": "Wash, dress, rest, care for child/friend/relative",
+		"Care": {
+			"title": "Being with others",
+			"caption": "Being with others",
+			"help": "Helping, socialising",
 			"ID": 0,
-			"category": "care_self",
+			"category": "care_other",
 			"next": "care"
 		},
 		"xxxUnspecified Sleep": {
@@ -635,7 +634,7 @@
 			"category": "food",
 			"next": "other people"
 		},
-		"care wash": {
+		"Care wash": {
 			"title": "Wash and dress",
 			"caption": "Wash or get dressed",
 			"help": "Shower, bath, changing clothes, beauty",
@@ -652,19 +651,34 @@
 			"next": "care child"
 		},
 
-		"Care others": {
-			"title": "Help family or others",
-			"caption": "Taking care of family or others",
-			"help": "Any help to an adult household member",
+		"Care family": {
+			"title": "Being with family",
+			"caption": "Family",
+			"help": "I am with family",
+			"ID": 3911,
+			"category": "care_other",
+			"next": "care activities"
+		},
+		"Care friends": {
+			"title": "Being with friends",
+			"caption": "Friends",
+			"help": "Being with friends",
 			"ID": 3910,
 			"category": "care_other",
-			"next": "other people"
+			"next": "care activities"
 		},
-
+		"Care others": {
+			"title": "Being with others",
+			"caption": "Others",
+			"help": "Being with other people",
+			"ID": 3913,
+			"category": "care_other",
+			"next": "care activities"
+		},
 		"Care other": {
-			"title": "Care for you or others",
-			"caption": "Other",
-			"help": "Any help to an adult household member",
+			"title": "Being with others",
+			"caption": "Skip",
+			"help": "Any help or socialising",
 			"ID": 3912,
 			"category": "care_other",
 			"next": "other people"
@@ -732,10 +746,34 @@
 		"Care personal": {
 			"title": "Me time",
 			"caption": "Time for me",
-			"help": "Time to care yourself",
+			"help": "Care for yourself",
 			"ID": 300,
 			"category": "care_self",
 			"next": "care personal"
+		},
+		"Getting ready": {
+			"title": "Getting ready",
+			"caption": "Getting ready",
+			"help": "Dress, wash, prepare, arrange",
+			"ID": 301,
+			"category": "care_self",
+			"next": "getting ready"
+		},
+		"Getting ready other": {
+			"title": "Getting ready",
+			"caption": "Skip",
+			"help": "Getting ready for somethning",
+			"ID": 302,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Care personal other": {
+			"title": "Me time",
+			"caption": "Skip",
+			"help": "Care for yourself",
+			"ID": 303,
+			"category": "care_self",
+			"next": "other people"
 		},
 
 
@@ -757,9 +795,9 @@
 			"category": "care_other",
 			"next": "other people"
 		},
-		"food": {
-			"title": "Food related",
-			"caption": "Food",
+		"Food": {
+			"title": "Food or drink ",
+			"caption": "Food / Drink",
 			"help": "Eating, preparing, cooking, clearing food",
 			"ID": 3100,
 			"category": "food",
@@ -994,11 +1032,27 @@
 			"next": "other people"
 		},
 		"Work house clear up": {
-			"title": "Arranging household goods and materials",
+			"title": "Clearing up",
 			"caption": "Clearing up",
 			"help": "Tidy, sort, arrange household goods and materials",
 			"ID": 3240,
 			"category": "care_house",
+			"next": "other people"
+		},
+		"Work house search": {
+			"title": "Looking for things",
+			"caption": "Looking things",
+			"help": "Searching for something",
+			"ID": 3241,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Pottering": {
+			"title": "Pottering",
+			"caption": "Pottering",
+			"help": "This and that...",
+			"ID": 3242,
+			"category": "care_self",
 			"next": "other people"
 		},
 		"Disposal of Waste": {
@@ -1164,9 +1218,9 @@
 			"next": "other people"
 		},
 		"Care child other": {
-			"title": "Other physical care & supervision of a child",
-			"caption": "Other",
-			"help": "Unspecified physical care & supervision of a child",
+			"title": "Being with child",
+			"caption": "Skip",
+			"help": "Being with child",
 			"ID": 3810,
 			"category": "care_other",
 			"next": "other people"
@@ -1187,27 +1241,36 @@
 			"category": "care_other",
 			"next": "other people"
 		},
-		"Care child practical": {
-			"title": "Practical help & supervision of a child",
-				"caption": "Practical help",
-			"help": "Like putting the child to bed ",
+		"Care child bed": {
+			"title": "Putting child to bed",
+			"caption": "Bedtime",
+			"help": "preparing for sleep",
 			"ID": 3818,
 			"category": "care_other",
-			"next": "care child practical"
+			"next": "other people"
 		},
-		"Care child teach": {
-			"title": "Teaching the child",
-			"caption": "Homework / learning",
-			"help": "Teaching or learning with child",
+		"Care child study": {
+			"title": "Study with child",
+			"caption": "Study",
+			"help": "Learning and school work",
 			"ID": 3820,
 			"category": "care_other",
 			"next": "other people"
 		},
-		"Care child play": {
-			"title": "Reading, playing and talking with child",
-			"caption": "Play / engage",
+		
+		"Care child engage": {
+			"title": "Being with child",
+			"caption": "Engage / play",
 			"help": "Reading, playing and talking with child",
 			"ID": 3830,
+			"category": "care_other",
+			"next": "care child engage"
+		},
+		"Care child read": {
+			"title": "Reading with child",
+			"caption": "Read",
+			"help": "Looking at pictures or text",
+			"ID": 3831,
 			"category": "care_other",
 			"next": "other people"
 		},
@@ -1220,26 +1283,18 @@
 			"next": "other people"
 		},
 		"Care child supervise": {
-			"title": "Other specified childcare",
-			"caption": "Supervising",
-			"help": "Other specified childcare",
+			"title": "Supervise child",
+			"caption": "Supervision",
+			"help": "Play, screen time, study",
 			"ID": 3890,
 			"category": "care_other",
-			"next": "other people"
+			"next": "care child engage"
 		},
 		"Care child dress": {
 			"title": "Other specified childcare",
 			"caption": "Getting dressed",
 			"help": "Getting children dressed",
 			"ID": 3891,
-			"category": "care_other",
-			"next": "other people"
-		},
-		"xxxCare others physical": {
-			"title": "Physical care & supervision of an adult household member",
-			"caption": "Helping",
-			"help": "Physical care & supervision of an adult household member",
-			"ID": 3911,
 			"category": "care_other",
 			"next": "other people"
 		},
@@ -1259,10 +1314,18 @@
 			"category": "care_other",
 			"next": "other people"
 		},
-		"xxxCare others unspecified": {
-			"title": "Unspecified help to a dependent adult household member",
-			"caption": "Taking care of family or others",
-			"help": "Looking after them",
+		"Care child play": {
+			"title": "Play with child",
+			"caption": "Play",
+			"help": "Games and physical",
+			"ID": 3920,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care others unspecified": {
+			"title": "Help others",
+			"caption": "Physical help",
+			"help": "Looking after someone",
 			"ID": 3920,
 			"category": "care_other",
 			"next": "other people"
@@ -1317,11 +1380,11 @@
 			"next": "other people"
 		},
 		"Leisure": {
-			"title": "Unspecified social life and entertainment",
-			"caption": "Leisure /<br>free time",
-			"help": "Resting, fun, social",
+			"title": "Personal care",
+			"caption": "Me, leisure",
+			"help": "Personal care, by yourself",
 			"ID": 5000,
-			"category": "recreation",
+			"category": "care_self",
 			"next": "leisure"
 		},
 		"Unspecified social life": {
@@ -1329,6 +1392,7 @@
 			"caption": "Socialising",
 			"help": "Unspecified social life",
 			"ID": 5100,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Socialising with family": {
@@ -1336,6 +1400,7 @@
 			"caption": "Socialising",
 			"help": "Socialising with family",
 			"ID": 5110,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Visiting and receiving visitors": {
@@ -1343,6 +1408,7 @@
 			"caption": "Socialising",
 			"help": "Visiting and receiving visitors",
 			"ID": 5120,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Celebrations": {
@@ -1357,13 +1423,15 @@
 			"caption": "Socialising",
 			"help": "Telephone conversation",
 			"ID": 5140,
+			"category": "recreation",
 			"next": "other people"
 		},
-		"Other specified social life": {
-			"title": "Other specified social life",
+		"Socialising": {
+			"title": "Socialising",
 			"caption": "Socialising",
-			"help": "Other specified social life",
+			"help": "with others",
 			"ID": 5190,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Indoor pairs or doubles games": {
@@ -1560,11 +1628,11 @@
 			"next": "other people"
 		},
 		"Leisure TV": {
-			"title": "Unspecified tv, video or dvd watching",
-			"caption": "Watching TV / video",
-			"help": "Unspecified tv, video or dvd watching",
+			"title": "Screen time",
+			"caption": "Screen time",
+			"help": "Watching TV, YouTube, film...",
 			"ID": 8210,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "leisure tv device"
 		},
 
@@ -1674,10 +1742,10 @@
 			"category": "recreation",
 			"next": "other people"
 		},
-		"Other specified video watching": {
-			"title": "Watching video",
+		"Leisure video": {
+			"title": "Watching TV/video",
 			"caption": "Leisure",
-			"help": "Other specified video watching",
+			"help": "XXXX",
 			"ID": 8229,
 			"category": "recreation",
 			"next": "other people"
@@ -1880,10 +1948,11 @@
 			"next": "other people"
 		},
 		"Caring for pets": {
-			"title": "Caring for pets",
-			"caption": "Unspecified gardening and pet care",
-			"help": "Caring for pets",
+			"title": "With pet",
+			"caption": "Pet",
+			"help": "Caring for pet(s)",
 			"ID": 3430,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Walking the dog": {
@@ -2519,7 +2588,7 @@
 			"category": "recreation",
 			"next": "outdoors appliances"
 		},
-		"exercise": {
+		"Exercise": {
 			"title": "Unspecified physical exercise",
 			"caption": "Exercise / sport",
 			"help": "Sport / physical exercise",
