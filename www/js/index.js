@@ -278,6 +278,7 @@ var app = {
 		//****************************** 
 		//      Buttons
 		//****************************** 
+		console.log("scr: " + screen_id);
 		var screen_ = app.screens[screen_id];
 		$("#title").html(utils.format(screen_.title));
 		for (i = 0; i < screen_.activities.length; i++) {
