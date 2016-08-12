@@ -1,7 +1,7 @@
 {
 	"activities": {
 		"Blank": {
-			"title": "root: blank",
+			"title": "",
 			"caption": "",
 			"help": "",
 			"ID": -1,
@@ -494,7 +494,7 @@
 		},
 		"Travel other": {
 			"title": "Travel",
-			"caption": "Other",
+			"caption": "Skip",
 			"help": "Anything not listed here",
 			"ID": 30031,
 			"category": "travel",
@@ -544,7 +544,7 @@
 		"Appliances Phone":  { "title": "Phone", "caption": "Phone", "help": "Use mobile phone", "ID": 8522, "category": "other_category", "next": "enjoyment" },
 		"Appliances Radio":  { "title": "Radio", "caption": "Radio", "help": "it is running or you use it", "ID": 8523,"category": "recreation", "next": "enjoyment" },
 
-		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "Other specify" },
+		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "other specify" },
 
 		"Care": {
 			"title": "Being with others",
@@ -644,7 +644,7 @@
 		},
 		"Care child": {
 			"title": "Childcare",
-			"caption": "Looking after children",
+			"caption": "My children",
 			"help": "Involving in childcare",
 			"ID": 3800,
 			"category": "care_other",
@@ -705,7 +705,7 @@
 		"Care wash bath running": { "title": "Running a bath", "caption": "Running a bath", "help": "Filling the tub, preparing", "ID": 320, "category": "care_self", "next": "other people" },
 		"Care wash bath bathing": { "title": "Bathing", "caption": "Bathing", "help": "Sitting in a bath", "ID": 321, "category": "care_self", "next": "other people" },
 		"Care wash bath children":{ "title": "Bathing childern", "caption": "Bathing children", "help": "Washing children", "ID": 322, "category": "care_other", "next": "other people" },
-		"Care wash bath other":   { "title": "Bathing", "caption": "Other", "help": "Bath related activity", "ID": 323, "category": "care_other", "next": "other people" },
+		"Care wash bath other":   { "title": "Bathing", "caption": "Skip", "help": "Bath related activity", "ID": 323, "category": "care_other", "next": "other people" },
 
 		"Care wash sink": {
 			"title": "Wash",
@@ -733,8 +733,8 @@
 		},
 		"Care wash other": {
 			"title": "Wash",
-			"caption": "Other",
-			"help": "Brushing teeth, make-up, shaving",
+			"caption": "Skip",
+			"help": "No better match here",
 			"ID": 316,
 			"category": "care_self",
 			"next": "other people"
@@ -789,8 +789,8 @@
 		},
 		"Other household and family care": {
 			"title": "Household and family care",
-			"caption": "Other",
-			"help": "Other household and family care",
+			"caption": "Skip",
+			"help": "Just Household and family care",
 			"ID": 3000,
 			"category": "care_other",
 			"next": "other people"
@@ -905,7 +905,7 @@
 		},
 		"Dishes hand": {
 			"title": "Wash dishes",
-			"caption": "By hand",
+			"caption": "Wash up by hand",
 			"help": "in a sink or tub",
 			"ID": 3132,
 			"category": "food",
@@ -913,7 +913,7 @@
 		},
 		"Dishes machine": {
 			"title": "Dish washer",
-			"caption": "Dish washer",
+			"caption": "Wash up (machine)",
 			"help": "load, run or unload",
 			"ID": 3133,
 			"category": "food",
@@ -921,7 +921,7 @@
 		},
 		"Dishes both": {
 			"title": "Dish washing",
-			"caption": "Dishwasher and by hand",
+			"caption": "Wash up (machine and hand)",
 			"help": "by hand and with machine",
 			"ID": 3134,
 			"category": "food",
@@ -930,7 +930,7 @@
 		"Dishes other": {
 			"title": "Lay or clear table",
 			"caption": "Other",
-			"help": "laying or clearing",
+			"help": "General laying or clearing",
 			"ID": 3136,
 			"category": "food",
 			"next": "other people"
@@ -952,39 +952,39 @@
 			"next": "food preparation"
 		},
 		"Food other": {
-			"title": "Other specified food management",
-			"caption": "Other",
-			"help": "Cook, cut, arrange food",
+			"title": "Food management",
+			"caption": "Skip",
+			"help": "Food management",
 			"ID": 3191,
 			"category": "food",
 			"next": "other people"
 		},
 		"Household upkeep": {
 			"title": "House keeping",
-			"caption": "House keeping",
+			"caption": "House related",
 			"help": "Cleaning, tidying, cooking, shopping",
 			"ID": 3200,
 			"category": "care_house",
 			"next": "work house"
 		},
 		"Work house other": {
-			"title": "Unspecified household upkeep",
-			"caption": "Other",
+			"title": "Housework",
+			"caption": "Skip",
 			"help": "Not listed here",
 			"ID": 3200,
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Cleaning dwelling": {
-			"title": "Cleaning dwelling",
+		"Cleaning house": {
+			"title": "Cleaning house",
 			"caption": "Cleaning",
-			"help": "Cleaning dwelling",
+			"help": "Cleaning house",
 			"ID": 3210,
 			"category": "care_house",
 			"next": "work house clean"
 		},
 		"Cleaning dusting": {
-			"title": "Cleaning dwelling dusting",
+			"title": "Dusting house",
 			"caption": "Cleaning / dusting",
 			"help": "wiping surfaces",
 			"ID": 3211,
@@ -992,7 +992,7 @@
 			"next": "other people"
 		},
 		"Cleaning vacuum": {
-			"title": "Cleaning dwelling vacuum",
+			"title": "Vacuum cleaning",
 			"caption": "Vacuum cleaning",
 			"help": "Using a hoover or other",
 			"ID": 3212,
@@ -1000,7 +1000,7 @@
 			"next": "other people"
 		},
 		"Cleaning floors": {
-			"title": "Cleaning dwelling floors",
+			"title": "Cleaning floors",
 			"caption": "Cleaning floors",
 			"help": "Wiping, mopping",
 			"ID": 3213,
@@ -1008,8 +1008,8 @@
 			"next": "other people"
 		},
 		"Cleaning other": {
-			"title": "Cleaning dwelling other",
-			"caption": "Other",
+			"title": "Cleaning house",
+			"caption": "Skip",
 			"help": "Not listed here",
 			"ID": 3214,
 			"category": "care_house",
@@ -1017,7 +1017,7 @@
 		},
 		"Cleaning yard": {
 			"title": "Cleaning yard",
-			"caption": "House keeping",
+			"caption": "Cleaning yard",
 			"help": "Cleaning yard",
 			"ID": 3220,
 			"category": "care_house",
@@ -1071,8 +1071,8 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"xxxUnspecified making and care for textiles": {
-			"title": "Unspecified making and care for textiles",
+		"Unspecified making and care for textiles": {
+			"title": "Laundry",
 			"caption": "Other",
 			"help": "Handling or other work on textiles",
 			"ID": 3300,
@@ -1660,17 +1660,17 @@
 
 
 		"Leisure TV Mobile": {
-			"title": "Watching TV on a mobile",
+			"title": "Screen time (mobile)",
 			"caption": "Mobile",
-			"help": "Watching TV on a mobile",
+			"help": "Watching something on a mobile",
 			"ID": 8213,
 			"category": "recreation",
 			"next": "other people"
 		},
 		"Leisure TV Projector": {
-			"title": "Watching TV on a projector",
+			"title": "Screen time (projector)",
 			"caption": "Projector",
-			"help": "Watching TV on a projector",
+			"help": "Watching something with a projector",
 			"ID": 8214,
 			"category": "recreation",
 			"next": "other people"
@@ -1678,13 +1678,13 @@
 		"Leisure TV TV": {
 			"title": "Watching TV",
 			"caption": "TV",
-			"help": "Watching TV on a TV",
+			"help": "Watching TV",
 			"ID": 8215,
 			"category": "recreation",
 			"next": "other people"
 		},
 		"Leisure TV Laptop": {
-			"title": "Watching TV",
+			"title": "Screen time (laptop)",
 			"caption": "Laptop",
 			"help": "Watching TV on a laptop",
 			"ID": 8216,
@@ -1692,7 +1692,7 @@
 			"next": "other people"
 		},
 		"Leisure TV Tablet": {
-			"title": "Watching TV",
+			"title": "Screen time (tablet)",
 			"caption": "Tablet",
 			"help": "Watching TV on a tablet",
 			"ID": 8217,
@@ -1701,9 +1701,9 @@
 		},
 
 		"Leisure TV Other": {
-			"title": "Watching TV",
-			"caption": "Other",
-			"help": "Unspecified tv, video or dvd watching",
+			"title": "Screen time",
+			"caption": "Skip",
+			"help": "No need to be more specific",
 			"ID": 8210,
 			"category": "recreation",
 			"next": "other people"
@@ -1806,7 +1806,7 @@
 			"category": "recreation",
 			"next": "other people"
 		},
-		"work": {
+		"Work": {
 			"title": "generic work",
 			"caption": "Work /<br>Housework",
 			"help": "Housework, Homework, Job, Volunteering",
@@ -1822,7 +1822,7 @@
 			"next": "other people"
 		},
 		"Main job": {
-			"title": "Working time in main job",
+			"title": "Main job",
 			"caption": "Main job",
 			"help": "Working time in main job",
 			"ID": 1110,
@@ -1843,7 +1843,7 @@
 			"next": "other people"
 		},
 		"Working time in second job": {
-			"title": "Working time in second job",
+			"title": "Other job",
 			"caption": "Other job",
 			"help": "Working in second or other job",
 			"ID": 1210,
@@ -1858,8 +1858,8 @@
 		},
 		"Unspecified activities related to employment": {
 			"title": "Work or Housework",
-			"caption": "Other",
-			"help": "None of the above kinds of work",
+			"caption": "Skip",
+			"help": "None of the above",
 			"ID": 1300,
 			"next": "other people"
 		},
@@ -1920,7 +1920,7 @@
 			"next": "other people"
 		},
 		"Activities related to school or university": {
-			"title": "Activities related to school or university",
+			"title": "Study",
 			"caption": "Study",
 			"help": "School, university or further education work",
 			"ID": 2190,
@@ -1985,10 +1985,10 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Repairs of dwelling": {
-			"title": "Repairs of dwelling",
+		"Repairs of house": {
+			"title": "Repairs of house",
 			"caption": "Construction and repairs",
-			"help": "Repairs of dwelling",
+			"help": "Repairs of house",
 			"ID": 3520,
 			"category": "care_house",
 			"next": "other people"
@@ -2589,11 +2589,11 @@
 			"next": "outdoors appliances"
 		},
 		"Exercise": {
-			"title": "Unspecified physical exercise",
+			"title": "Physical exercise",
 			"caption": "Exercise / sport",
 			"help": "Sport / physical exercise",
 			"ID": 6100,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Walking and hiking": {
@@ -2601,6 +2601,7 @@
 			"caption": "Sports",
 			"help": "Walking and hiking",
 			"ID": 6110,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Taking a walk or hike that lasts at least 2 miles or 1 hour": {
@@ -3182,7 +3183,7 @@
 			"next": "other specify"
 		},
 		"Other specify": {
-			"title": "Unspecified time use",
+			"title": "Custom definition",
 			"caption": "Other...",
 			"help": "Say in your own words",
 			"ID": 9990,

@@ -150,9 +150,9 @@
 			"title": "What are you doing?",
 			"help": "at this moment",
 			"activities": [
-				"Care",
-				"work",
 				"Leisure",
+				"Care",
+				"Work",
 				"Food",
 				"Appliances",
 				"Main other"
@@ -200,7 +200,7 @@
 			"help": "at this moment",
 			"activities": [
 				"Care",
-				"work",
+				"Work",
 				"Leisure",
 				"Food",
 				"travelling",
@@ -461,8 +461,8 @@
 			]
 		},
 		"food clear": {
-			"title": "What do you do? ",
-			"help": "with the dishes",
+			"title": "Laying or clearing table",
+			"help": "",
 			"activities": [
 				"Lay table",
 				"Food clear",
@@ -538,7 +538,7 @@
 			"activities": [
 				"Leisure",
 				"Food",
-				"work",
+				"Work",
 				"travel",
 				"other",
 				"sleep"
@@ -557,14 +557,14 @@
 			]
 		},
 		"work": {
-			"title": "You are working on:",
-			"help": "at this moment",
+			"title": "You are working",
+			"help": "type of work",
 			"activities": [
-				"Main job",
-				"Working time in second job",
-				"Volunteer work and meetings",
 				"Household upkeep",
+				"Volunteer work and meetings",
+				"Main job",
 				"Activities related to school or university",
+				"Working time in second job",
 				"Unspecified activities related to employment"
 			]
 		},
@@ -573,7 +573,7 @@
 			"help": "at this moment",
 			"activities": [
 				"Work house clear up",
-				"Cleaning dwelling",
+				"Cleaning house",
 				"Laundry",
 				"Work house food",
 				"Disposal of Waste",
