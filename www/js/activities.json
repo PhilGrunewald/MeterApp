@@ -678,8 +678,8 @@
 		},
 		"Care wash bath running": { "title": "Running a bath", "caption": "Running a bath", "help": "Filling the tub, preparing", "ID": 320, "category": "care_self", "next": "other people" },
 		"Care wash bath bathing": { "title": "Bathing", "caption": "Bathing", "help": "Sitting in a bath", "ID": 321, "category": "care_self", "next": "other people" },
-		"Care wash bath children":{ "title": "Bathing childern", "caption": "Bathing children", "help": "Washing children", "ID": 322, "category": "care_self", "next": "other people" },
-		"Care wash bath other":   { "title": "Bathing", "caption": "Other", "help": "Bath related activity", "ID": 323, "category": "care_self", "next": "other people" },
+		"Care wash bath children":{ "title": "Bathing childern", "caption": "Bathing children", "help": "Washing children", "ID": 322, "category": "care_other", "next": "other people" },
+		"Care wash bath other":   { "title": "Bathing", "caption": "Other", "help": "Bath related activity", "ID": 323, "category": "care_other", "next": "other people" },
 
 		"Care wash sink": {
 			"title": "Wash",
@@ -700,7 +700,7 @@
 		"Care wash hygiene": {
 			"title": "Hygiene / Beauty",
 			"caption": "Hygiene / Beauty",
-			"help": "Teeth brushing, make-up, shaving",
+			"help": "Brushing teeth, make-up, shaving",
 			"ID": 315,
 			"category": "care_self",
 			"next": "other people"
@@ -708,7 +708,7 @@
 		"Care wash other": {
 			"title": "Wash",
 			"caption": "Other",
-			"help": "Teeth brushing, make-up, shaving",
+			"help": "Brushing teeth, make-up, shaving",
 			"ID": 316,
 			"category": "care_self",
 			"next": "other people"
@@ -720,7 +720,7 @@
 		"Care personal": {
 			"title": "Me time",
 			"caption": "Time for me",
-			"help": "Unspecified other personal care",
+			"help": "Time to care yourself",
 			"ID": 300,
 			"category": "care_self",
 			"next": "care personal"
@@ -729,7 +729,7 @@
 
 
 
-		"Other specified personal care": {
+		"xxxOther specified personal care": {
 			"title": "Personal care",
 			"caption": "Personal care",
 			"help": "Other specified personal care",
@@ -973,7 +973,7 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Heating and water": {
+		"xxxHeating and water": {
 			"title": "Heating and water",
 			"caption": "House keeping",
 			"help": "Heating and water",
@@ -997,15 +997,15 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Other or unspecified household upkeep": {
-			"title": "Other or unspecified household upkeep",
+		"xxxOther household upkeep": {
+			"title": "Other household upkeep",
 			"caption": "House keeping",
-			"help": "Other or unspecified household upkeep",
+			"help": "Other household upkeep",
 			"ID": 3290,
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Unspecified making and care for textiles": {
+		"xxxUnspecified making and care for textiles": {
 			"title": "Unspecified making and care for textiles",
 			"caption": "Other",
 			"help": "Handling or other work on textiles",
@@ -1061,7 +1061,7 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Handicraft and producing textiles": {
+		"xxxHandicraft and producing textiles": {
 			"title": "Handicraft and producing textiles",
 			"caption": "House keeping",
 			"help": "Handicraft and producing textiles",
@@ -1069,7 +1069,7 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Other specified making and care for textiles": {
+		"xxxOther specified making and care for textiles": {
 			"title": "Other specified making and care for textiles",
 			"caption": "House keeping",
 			"help": "Other specified making and care for textiles",
@@ -1077,7 +1077,7 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Household management not using the internet": {
+		"xxxHousehold management not using the internet": {
 			"title": "Household management not using the internet",
 			"caption": "Activities with internet use",
 			"help": "Household management not using the internet",
@@ -1085,7 +1085,7 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Unspecified household management using the internet": {
+		"xxxUnspecified household management using the internet": {
 			"title": "Unspecified household management using the internet",
 			"caption": "Activities with internet use",
 			"help": "Unspecified household management using the internet",
@@ -1093,7 +1093,7 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Shopping for&ordring unspec gds&srvs via internet": {
+		"xxxShopping for&ordring unspec gds&srvs via internet": {
 			"title": "Shopping for&ordring unspec gds&srvs via internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring unspec gds&srvs via internet",
@@ -1101,7 +1101,7 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"Shopping for&ordring food via the internet": {
+		"xxxShopping for&ordring food via the internet": {
 			"title": "Shopping for&ordring food via the internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring food via the internet",
@@ -1109,42 +1109,42 @@
 			"category": "food",
 			"next": "other people"
 		},
-		"Shopping for&ordring clothing via the internet": {
+		"xxxShopping for&ordring clothing via the internet": {
 			"title": "Shopping for&ordring clothing via the internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring clothing via the internet",
 			"ID": 3723,
 			"next": "other people"
 		},
-		"Shopping for&ordring gds&srv related to acc via internet": {
+		"xxxShopping for&ordring gds&srv related to acc via internet": {
 			"title": "Shopping for&ordring gds&srv related to acc via internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring gds&srv related to acc via internet",
 			"ID": 3724,
 			"next": "other people"
 		},
-		"Shopping for&ordring mass media via the internet": {
+		"xxxShopping for&ordring mass media via the internet": {
 			"title": "Shopping for&ordring mass media via the internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring mass media via the internet",
 			"ID": 3725,
 			"next": "other people"
 		},
-		"Shopping for&ordring entertainment via the internet": {
+		"xxxShopping for&ordring entertainment via the internet": {
 			"title": "Shopping for&ordring entertainment via the internet",
 			"caption": "Activities with internet use",
 			"help": "Shopping for&ordring entertainment via the internet",
 			"ID": 3726,
 			"next": "other people"
 		},
-		"Banking and bill paying via the internet": {
+		"xxxBanking and bill paying via the internet": {
 			"title": "Banking and bill paying via the internet",
 			"caption": "Activities with internet use",
 			"help": "Banking and bill paying via the internet",
 			"ID": 3727,
 			"next": "other people"
 		},
-		"Other specified household management using the internet": {
+		"xxxOther specified household management using the internet": {
 			"title": "Other specified household management using the internet",
 			"caption": "Activities with internet use",
 			"help": "Other specified household management using the internet",
@@ -1156,6 +1156,7 @@
 			"caption": "Other",
 			"help": "Unspecified physical care & supervision of a child",
 			"ID": 3810,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care child feed": {
@@ -1163,6 +1164,7 @@
 			"caption": "Feeding / eating",
 			"help": "Feeding or eating with a child",
 			"ID": 3811,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care child physical": {
@@ -1170,6 +1172,7 @@
 			"caption": "Washing or physical help",
 			"help": "Physical care & supervision of a child",
 			"ID": 3819,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care child practical": {
@@ -1177,6 +1180,7 @@
 				"caption": "Practical help",
 			"help": "Like putting the child to bed ",
 			"ID": 3818,
+			"category": "care_other",
 			"next": "care child practical"
 		},
 		"Care child teach": {
@@ -1184,6 +1188,7 @@
 			"caption": "Homework / learning",
 			"help": "Teaching or learning with child",
 			"ID": 3820,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care child play": {
@@ -1191,6 +1196,7 @@
 			"caption": "Play / engage",
 			"help": "Reading, playing and talking with child",
 			"ID": 3830,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care child company": {
@@ -1198,6 +1204,7 @@
 			"caption": "Accompanying child",
 			"help": "Accompanying child",
 			"ID": 3840,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care child supervise": {
@@ -1205,6 +1212,7 @@
 			"caption": "Supervising",
 			"help": "Other specified childcare",
 			"ID": 3890,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care child dress": {
@@ -1212,34 +1220,39 @@
 			"caption": "Getting dressed",
 			"help": "Getting children dressed",
 			"ID": 3891,
+			"category": "care_other",
 			"next": "other people"
 		},
-		"Care others physical": {
+		"xxxCare others physical": {
 			"title": "Physical care & supervision of an adult household member",
 			"caption": "Helping",
 			"help": "Physical care & supervision of an adult household member",
 			"ID": 3911,
+			"category": "care_other",
 			"next": "other people"
 		},
-		"Care others company": {
+		"xxxCare others company": {
 			"title": "Accompanying an adult household member",
 			"caption": "Accompanying",
 			"help": "Being there for them",
 			"ID": 3914,
+			"category": "care_other",
 			"next": "other people"
 		},
-		"Care others other": {
+		"xxxCare others other": {
 			"title": "Other specified help to an adult household member",
 			"caption": "Other",
 			"help": "form of care",
 			"ID": 3919,
+			"category": "care_other",
 			"next": "other people"
 		},
-		"Care others unspecified": {
+		"xxxCare others unspecified": {
 			"title": "Unspecified help to a dependent adult household member",
 			"caption": "Taking care of family or others",
 			"help": "Looking after them",
 			"ID": 3920,
+			"category": "care_other",
 			"next": "other people"
 		},
 		"Care others dependent physical": {
