@@ -44,7 +44,7 @@
 				<div id="nav-home" class="col-4" onclick="app.showActivityList();">Home</div>
 				<div id="nav-aboutme" class="col-4"
 						onclick="app.navigateTo('survey root')">Survey<img src="img/AR_4.png" id="survey-status"></div>
-						<div hidden id="nav-status" class="col-4"><img id="stars"></div>
+						<div hidden id="nav-status" class="col-4" onclick="app.showProgressList();"><img id="stars"></div>
 				<div id="nav-help" class="col-4" onclick="app.toggleCaption();">Help</div>
 			</div>
 		</div>
@@ -64,18 +64,53 @@
 			</div>
 		</div>
 
+
 		<div class="header">
 			<div id="title">Welcome</div>
 		</div>
 
 		<div id="other-specify">
 			<input type="text" id="free-text" autofocus /> <br>
-			<div class "btn-other-specify">
-			<input id="btn-other-specify" type="submit" onclick="app.submitOther()"/>
-			</div>
+
+				<div class="other-specify-nav">
+					<div class="row">
+						<div id="btn-back" class="col btn-nav" onclick="app.goBack();">Back</div>
+						<div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()">Next</div>
+					</div>
+				</div>
 		</div>
 
 		<div class="contents">
+		<div hidden id="progress_list_pane">
+			<div id="progress-list">
+			    <div class="progress-row">
+				    <div class="progress-item">
+				    <img id="stars1" src="img/stars_on.png">
+						Survey complete</div>
+			    </div>
+			    <div class="progress-row">
+				    <div class="progress-item">
+					<img id="stars2" src="img/stars_off.png">
+						5 Activities</div>
+			    </div>
+			    <div class="progress-row">
+				    <div class="progress-item">
+					<img id="stars3" src="img/stars_off.png">
+						10 Activities</div>
+			    </div>
+			    <div class="progress-row">
+				    <div class="progress-item">
+					<img id="stars4" src="img/stars_off.png">
+						15 Activities</div>
+			    </div>
+			    <div class="progress-row">
+				    <div class="progress-item">
+					<img id="stars5" src="img/stars_off.png">
+						25 Activities</div>
+			    </div>
+			</div>
+		</div>
+
 			<div id="activity_add_pane">
 				<div class="btn-addnew container">
 					<div class="row">

@@ -75,6 +75,13 @@ body {
 	overflow-y: scroll;
 }
 
+.other-specify-nav {
+    display: table;
+    width: 100%;
+    height: 18%;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
 .footer-nav {
     display: table;
     width: 100%;
@@ -184,6 +191,10 @@ h1 {
 }
 
 
+.btn-nav {
+    background-color: #eec;
+}
+
 .btn-activity {
 	/* default behaviour for activity buttons - superseded by category if specified */
     background-color: #eec;
@@ -240,6 +251,14 @@ div.btn-terminate {
     width: 20%;
 }
 
+div.progress-row {
+	margin: 35px 0;
+	padding-left: 150px;
+}
+div.progress-item {
+	text-align: left;
+}
+
 div.activity-item {
     display: table-cell;
 	text-align: left;
@@ -280,6 +299,13 @@ input[type=text] {
 
 input[type=submit] {
 	height: 25px;
+}
+
+div#btn-other-specify {
+	width: 50%;
+	margin: 20px;
+	height:60px;
+    background-color: #eec;
 }
 
 div#other-specify input {

@@ -100,6 +100,10 @@ var app = {
         app.now_time         = $("#now-time");
 		app.act_count        = $('#act-count');
         app.history          = new Array();
+		if (utils.get(SURVEY_STATUS) == "survey complete") {
+			$("div#nav-aboutme").hide();
+		}
+
 		setInterval(function(){ app.updateNowTime(); }, 1000);
 		// app.updateNowTime();
         // $("#now-time").html(utils.format("${time}"));
@@ -212,6 +216,8 @@ var app = {
 		app.activityAddPane.hide();
 		app.activityListPane.hide();
 		app.choicesPane.show();
+		$("div.footer-nav").show();
+		$("div#progress_list_pane").hide();
 
 		// skip "other people" and "enjoyment" if on fastTrack
 		if (screen_id == "other people" || screen_id == "enjoyment") {
@@ -249,7 +255,7 @@ var app = {
 			// it points to "activity root", thus turning itself back to "Done" here
 			$("div.footer-nav").show();
 			app.footer_nav("home");
-			$("input#btn-other-specify").attr("onclick", "app.submitOther()");
+			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
 		if (screen_id == "other specify") {     // display text edit field
 			$("div#other-specify").show();
@@ -273,7 +279,7 @@ var app = {
 			$("div#status").show();
 			app.showActivityList();
 			app.choicesPane.hide();
-		} else
+		} 
 
 		//****************************** 
 		//      Buttons
@@ -314,6 +320,7 @@ var app = {
 	},
 
     goBack: function() {
+		$("div#other-specify").hide();
         curr = app.history.pop();
         prev = app.history.pop();
         if (prev === undefined) {
@@ -357,9 +364,34 @@ var app = {
         app.choicesPane.hide();
         app.activityAddPane.hide();
         app.activityListPane.show();
-    	app.title.html("Your activities ("+Object.keys(activityList).length+")");
+    	// app.title.html("Your activities ("+Object.keys(activityList).length+")");
 		app.act_count.hide();
     },
+
+	showProgressList: function() {
+        var activityList = utils.getList(ACTIVITY_LIST) || []
+		var actCount = Object.keys(activityList).length;
+		app.title.html("You have recorded " + actCount + " activities")
+		if (actCount > 5) {
+			$("img#stars2").attr("src","img/stars_on.png");
+		} 
+		if (actCount > 10) {
+			$("img#stars3").attr("src","img/stars_on.png");
+		} 
+		if (actCount > 15) {
+			$("img#stars4").attr("src","img/stars_on.png");
+		} 
+		if (actCount > 25) {
+			$("img#stars5").attr("src","img/stars_on.png");
+		} 
+		var progressList = $("div#progress_list_pane");
+		if (progressList.is(':visible')) {
+			progressList.hide();
+		} else {
+			progressList.show();
+		}
+	},
+
 
     showActivityList: function() {
         app.history = new Array();
@@ -388,14 +420,16 @@ var app = {
         } else {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
-		app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
+		// app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
 		app.act_count.show();
 		app.activity_list_div.html(curr_acts);
         app.choicesPane.hide();
+		$("div#progress_list_pane").hide();
         app.activityAddPane.show();
         app.activityListPane.show();
     	app.title.html("What I did ...")
 		app.showCatchupItem(); // overwrites app.title if catchup items exist
+		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
     },
 
 	showCatchupItem: function() {
@@ -613,7 +647,7 @@ var app = {
 		var oldDetail = utils.get(CURR_ACTIVITY_ID);
 		var oldTitle  = oldDetail.split(",")[2];
 		$("input#free-text").val(oldTitle);
-		$("input#btn-other-specify").attr("onclick", "app.submitEdit()");
+		$("div#btn-other-specify").attr("onclick", "app.submitEdit()");
 		app.navigateTo("other specify");
 	},
 

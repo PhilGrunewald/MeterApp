@@ -2,7 +2,7 @@
 	"screens": {
 
 		"home": {
-			"title": "Are you doing something?",
+			"title": "What I did",
 			"help": ""
 		},
 		"edit activity": {
