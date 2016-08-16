@@ -9,13 +9,15 @@ def recursive(node,level):
     for branch in screens['screens'][node]['activities']:
             nextNode = acts['activities'][branch]['next']
             caption = acts['activities'][branch]['caption']
+            title = acts['activities'][branch]['title']
             # print '.'*level + node + ' > ' + branch + ' > ' + nextNode
-            print '.   '*level + caption
-            if not ((nextNode == 'location') or (nextNode == '') or (nextNode == 'other people') or (nextNode == 'home') or (nextNode == 'enjoyment')):   # '' is for 'Blank'
+            print "{:<35}".format('.  '*level + caption)  +"{:25}".format(title) + branch
+            if not ((nextNode == 'other specify') or (nextNode == '') or (nextNode == 'other people') or (nextNode == 'home') or (nextNode == 'enjoyment')):   # '' is for 'Blank'
                 try:
                     recursive(nextNode,level)
                 except KeyError:
                     print 'ERROR at: ' + node + ' > ' + branch + ' > ' + nextNode
 
-recursive('activity root',-1)
+# recursive('activity main',-1)
+recursive('activity main',-1)
     

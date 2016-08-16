@@ -60,6 +60,7 @@ var CATCHUP_INDEX = 0;
 var catchupList   = "";
 var deviceColour  = "#990000";				// to be used for background or colour marker
 var ToggleColon   = false;
+var fastTrack     = false;					// takes navTo("other people") straight "home"
 
 var app = {
     // Application Constructor
@@ -99,6 +100,14 @@ var app = {
         app.now_time         = $("#now-time");
 		app.act_count        = $('#act-count');
         app.history          = new Array();
+		if (utils.get(SURVEY_STATUS) == "survey complete") {
+			$("div#nav-aboutme").hide();
+			$("div#status").show();
+		} else {
+			$("div#status").hide();
+			$("div#nav-aboutme").show();
+		}
+
 		setInterval(function(){ app.updateNowTime(); }, 1000);
 		// app.updateNowTime();
         // $("#now-time").html(utils.format("${time}"));
@@ -138,12 +147,12 @@ var app = {
 			// Is Time Use activity entry
 			//
 			if (app.activities[prev_activity].ID < TIMEUSE_MAX) {
-				  utils.save(CURR_ACTIVITY, prev_activity);
-				  utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category,app.activities[prev_activity].title].join());
-			// now that an activity is selected btn-done will not create a new entry
-			app.footer_nav("done");
-				  // running save for category separately caused ID and category to be set to the same value (???!!!) - so we do it in one go into the same var
+				utils.save(CURR_ACTIVITY, prev_activity);
+				utils.save(CURR_ACTIVITY_ID, [app.activities[prev_activity].ID,app.activities[prev_activity].category,app.activities[prev_activity].title].join()); // running save for category separately caused ID and category to be set to the same value (???!!!) - so we do it in one go into the same var
+				// now that an activity is selected btn-done will not create a new entry
+				app.footer_nav("done");
 			  }
+
 			  //
 			  // Is TIME setting
 			  //
@@ -195,8 +204,9 @@ var app = {
 				  utils.save(SURVEY_STATUS, screen_id);
 				  log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);          
 
-				  var icon = "0"
-				  document.getElementById("survey-status").src = "img/AR_"+icon+".png";
+				  // var icon = "0"
+				  // document.getElementById("survey-status").src = "img/AR_"+icon+".png";
+				  $("img#survey-status").attr("src","img/AR_progress.png");
 				  //console.log("survey entry: " + prev_activity);
 			  }
 		}
@@ -210,9 +220,16 @@ var app = {
 		app.activityAddPane.hide();
 		app.activityListPane.hide();
 		app.choicesPane.show();
+		$("div.footer-nav").show();
+		$("div#progress_list_pane").hide();
 
-		console.log("PRev: " + prev_activity);
-		console.log("Scr ID: " + screen_id);
+		// skip "other people" and "enjoyment" if on fastTrack
+		if (screen_id == "other people" || screen_id == "enjoyment") {
+			if (fastTrack) {
+				screen_id = "home";
+				fastTrack = false;
+			}
+		}
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
 			if (prev_activity !== "ignore") {
@@ -241,8 +258,8 @@ var app = {
 			// btn-next is only for "activity time relative" actions
 			// it points to "activity root", thus turning itself back to "Done" here
 			$("div.footer-nav").show();
-			app.footer_nav("done");
-			$("input#btn-other-specify").attr("onclick", "app.submitOther()");
+			app.footer_nav("home");
+			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
 		if (screen_id == "other specify") {     // display text edit field
 			$("div#other-specify").show();
@@ -255,14 +272,23 @@ var app = {
 			// here it gets redirected to the latest survey screen
 			// SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
 			screen_id = utils.get(SURVEY_STATUS);
+			app.footer_nav("home");
 			if (screen_id === null) {
 				screen_id = "survey root";
 			}
-		}
+		} else
+		if (screen_id == "survey complete") {
+			$("div#nav-aboutme").hide();
+			$("img#stars").attr("src","img/stars_1.png");
+			$("div#status").show();
+			app.showActivityList();
+			app.choicesPane.hide();
+		} 
 
 		//****************************** 
 		//      Buttons
 		//****************************** 
+		console.log("scr: " + screen_id);
 		var screen_ = app.screens[screen_id];
 		$("#title").html(utils.format(screen_.title));
 		for (i = 0; i < screen_.activities.length; i++) {
@@ -298,6 +324,7 @@ var app = {
 	},
 
     goBack: function() {
+		$("div#other-specify").hide();
         curr = app.history.pop();
         prev = app.history.pop();
         if (prev === undefined) {
@@ -309,6 +336,7 @@ var app = {
     },
 
     showActivityHistory: function() {
+		// no longer used
         app.history = new Array();
         var activityList = utils.getList(ACTIVITY_LIST) || []
         var curr_acts = "";
@@ -340,9 +368,34 @@ var app = {
         app.choicesPane.hide();
         app.activityAddPane.hide();
         app.activityListPane.show();
-    	app.title.html("Your activities ("+Object.keys(activityList).length+")");
+    	// app.title.html("Your activities ("+Object.keys(activityList).length+")");
 		app.act_count.hide();
     },
+
+	showProgressList: function() {
+        var activityList = utils.getList(ACTIVITY_LIST) || []
+		var actCount = Object.keys(activityList).length;
+		app.title.html("You have recorded</br>" + actCount + " activities")
+		if (actCount > 5) {
+			$("img#stars2").attr("src","img/stars_on.png");
+		} 
+		if (actCount > 10) {
+			$("img#stars3").attr("src","img/stars_on.png");
+		} 
+		if (actCount > 15) {
+			$("img#stars4").attr("src","img/stars_on.png");
+		} 
+		if (actCount > 25) {
+			$("img#stars5").attr("src","img/stars_on.png");
+		} 
+		var progressList = $("div#progress_list_pane");
+		if (progressList.is(':visible')) {
+			progressList.hide();
+		} else {
+			progressList.show();
+		}
+	},
+
 
     showActivityList: function() {
         app.history = new Array();
@@ -371,14 +424,16 @@ var app = {
         } else {
             curr_acts = row.format("", "<i>No activity yet</i>", "", "")
         }
-		app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
+		// app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
 		app.act_count.show();
 		app.activity_list_div.html(curr_acts);
         app.choicesPane.hide();
+		$("div#progress_list_pane").hide();
         app.activityAddPane.show();
         app.activityListPane.show();
     	app.title.html("What I did ...")
 		app.showCatchupItem(); // overwrites app.title if catchup items exist
+		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
     },
 
 	showCatchupItem: function() {
@@ -473,6 +528,20 @@ var app = {
     	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, enj].join() + "\n";
     	log.writeLog(log.logAct, str)
         utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
+		var actCount = Object.keys(activityList).length;
+		if (actCount > 25) {
+			$("img#stars").attr("src","img/stars_5.png");
+		} else
+		if (actCount > 15) {
+			$("img#stars").attr("src","img/stars_4.png");
+		} else
+		if (actCount > 10) {
+			$("img#stars").attr("src","img/stars_3.png");
+		} else
+		if (actCount > 5) {
+			$("img#stars").attr("src","img/stars_2.png");
+		} 
+
         // log.writeActivity();          
     },
 
@@ -582,7 +651,7 @@ var app = {
 		var oldDetail = utils.get(CURR_ACTIVITY_ID);
 		var oldTitle  = oldDetail.split(",")[2];
 		$("input#free-text").val(oldTitle);
-		$("input#btn-other-specify").attr("onclick", "app.submitEdit()");
+		$("div#btn-other-specify").attr("onclick", "app.submitEdit()");
 		app.navigateTo("other specify");
 	},
 
@@ -595,12 +664,11 @@ var app = {
 	},
 
 	// Edit btn 5 - Something else now
-	moreActivityAtThisTime: function(actKey) {
+	moreActivity: function(actKey) {
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
-		app.deleteAct(actKey);
-		app.footer_nav("done");
-		app.navigateTo("activity root");
+		app.navigateTo("activity main");
+		fastTrack = true;
 		// XXX should have boolean to redirect "other people/enjoyment" -> home
 	},
 

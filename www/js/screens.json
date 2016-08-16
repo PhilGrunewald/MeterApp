@@ -2,8 +2,8 @@
 	"screens": {
 
 		"home": {
-			"title": "XXX YOU SHOULD NEVER SEE THIS XXX Your activities",
-			"help": "What you have reported"
+			"title": "What I did",
+			"help": ""
 		},
 		"edit activity": {
 			"title": "done by index.js",
@@ -13,9 +13,14 @@
 				"Repeat activity recently",
 				"Edit activity time",
 				"Edit activity title",
-				"End activity",
+				"More activity",
 				"Delete activity"
 			]
+		},
+		"survey complete": {
+			"title": "You have completed the survey",
+			"help": "Click Home to return",
+			"activities": [ "Blank", "Blank", "Blank", "Blank", "Blank", "Blank" ]
 		},
 		"survey root": {
 			"title": "What gender are you?",
@@ -142,26 +147,61 @@
 			]
 		},
 		"activity main": {
-			"title": "What are you doing?",
+			"title": "Your activity",
 			"help": "at this moment",
 			"activities": [
-				"care",
-				"work",
-				"Leisure",
-				"food",
+				"Personal",
+				"Care",
+				"Work",
+				"Food",
 				"Appliances",
 				"Main other"
 			]
 		},
+		"activity public": {
+			"title": "Your activity",
+			"help": "in a public place",
+			"activities": [
+				"Personal",
+				"Care",
+				"Work",
+				"Food",
+				"Shopping and services",
+				"Main other"
+			]
+		},
 		"outdoors": {
-			"title": "What are you doing?",
+			"title": "Where are you?",
 			"help": "at this moment",
 			"activities": [
-				"Gardening",
-				"Walking the dog",
+				"Loc garden",
+				"Loc outdoors public",
 				"Loc travelling",
+				"Loc work",
+				"Nature",
+				"Loc other location"
+			]
+		},
+		"outdoors public": {
+			"title": "Your activity",
+			"help": "in this outdoor public place",
+			"activities": [
+				"Personal",
+				"Care",
+				"Shopping and services",
 				"Outdoor food",
-				"Leisure",
+				"Exercise",
+				"Outdoors other"
+			]
+		},
+		"garden": {
+			"title": "In the garden",
+			"help": "what is happening",
+			"activities": [
+				"Gardening",
+				"Outdoor food",
+				"Personal",
+				"Care",
 				"Outdoors appliances",
 				"Outdoors other"
 			]
@@ -194,23 +234,36 @@
 			"title": "What are you doing?",
 			"help": "at this moment",
 			"activities": [
-				"care",
-				"work",
-				"Leisure",
-				"food",
+				"Care",
+				"Work",
+				"Personal",
+				"Food",
 				"travelling",
 				"more recent"
 			]
 		},
 		"care": {
-			"title": "Describe the care for you or others:",
-			"help": "at this moment",
+			"title": "Who are you with?",
+			"help": "to help or socialise",
 			"activities": [
-				"care wash",
-				"Care rest sleep",
 				"Care child",
-				"Care personal",
+				"Care family",
+				"Care friends",
+				"Caring for pets",
 				"Care others",
+				"Care other"
+			]
+		},
+
+		"care activities": {
+			"title": "What do you do together?",
+			"help": "to help or socialise",
+			"activities": [
+				"Food",
+				"Leisure TV",
+				"Care others unspecified",
+				"Socialising",
+				"Exercise",
 				"Care other"
 			]
 		},
@@ -218,23 +271,23 @@
 			"title": "How are you spending this time?",
 			"help": "at this moment",
 			"activities": [
-				"Food drink hot",
-				"Food drink cold",
+				"Food",
+				"Exercise",
 				"Reading books",
 				"Leisure TV",
-                                "Social media",
-				"Care rest"
+				"Social media",
+				"Care personal other"
 			]
 		},
 		"care rest sleep": {
 			"title": "What kind or rest is this?",
 			"help": "Give detail if you like",
 			"activities": [
-				"Food drink hot",
 				"Care rest",
-				"sleep",
+				"Sleep",
+				"In bed awake",
 				"Sick in bed",
-				"In bed, not asleep",
+				"Food drink hot",
 				"other"
 			]
 		},
@@ -262,7 +315,32 @@
 				"Blank"
 			]
 		},
+		
 		"care child": {
+			"title": "Describe the child care:",
+			"help": "at this moment",
+			"activities": [
+				"Food",
+				"Care child engage",
+				"Care child supervise",
+				"Care wash",
+				"Blank",
+				"Care child other"
+			]
+		},
+		"care child engage": {
+			"title": "What do you do together",
+			"help": "with your child",
+			"activities": [
+				"Care child study",
+				"Care child play",
+				"Care child read",
+				"Leisure TV",
+				"Care child bed",
+				"Care child other"
+			]
+		},
+		"xxxcare child": {
 			"title": "Describe the child care:",
 			"help": "at this moment",
 			"activities": [
@@ -270,7 +348,6 @@
 				"Care child play",
 				"Care child teach",
 				"Care child supervise",
-				"Care child practical",
 				"Care child other"
 			]
 		},
@@ -344,16 +421,29 @@
 				"Travel purpose other"
 			]
 		},
-		"leisure": {
+		"personal": {
 			"title": "Any particular leisure? ",
 			"help": "at this moment",
 			"activities": [
-				"Care rest",
-				"Leisure TV",
-				"Unspecified information by computing",
-				"exercise",
+				"Getting ready",
+				"Care rest sleep",
 				"Care personal",
-				"Leisure other"
+				"Leisure TV",
+				"Care wash",
+				"Care other"
+			]
+		},
+
+		"getting ready": {
+			"title": "How do you get ready?",
+			"help": "type of preparation",
+			"activities": [
+				"Care wash",
+				"Work house clear up",
+				"Care wash hygiene",
+				"Work house search",
+				"Pottering",
+				"Getting ready other"
 			]
 		},
 
@@ -370,8 +460,6 @@
 				"Leisure TV Other"
 			]
 		},
-
-
 
 		"food": {
 			"title": "What do you do with food? ",
@@ -408,8 +496,8 @@
 			]
 		},
 		"food clear": {
-			"title": "What do you do? ",
-			"help": "with the dishes",
+			"title": "Laying or clearing table",
+			"help": "",
 			"activities": [
 				"Lay table",
 				"Food clear",
@@ -483,12 +571,12 @@
 			"title": "XXX Any particular other? ",
 			"help": "at this moment",
 			"activities": [
-				"Leisure",
-				"food",
-				"work",
+				"Personal",
+				"Food",
+				"Work",
 				"travel",
 				"other",
-				"sleep"
+				"Sleep"
 			]
 		},
 		"other specify": {
@@ -504,15 +592,27 @@
 			]
 		},
 		"work": {
-			"title": "You are working on:",
-			"help": "at this moment",
+			"title": "You are working",
+			"help": "type of work",
 			"activities": [
-				"Main job",
-				"Working time in second job",
-				"Volunteer work and meetings",
 				"Household upkeep",
-				"Activities related to school or university",
+				"Volunteer work and meetings",
+				"Main job",
+				"Study",
+				"Working time in second job",
 				"Unspecified activities related to employment"
+			]
+		},
+		"work job": {
+			"title": "What do you use for work",
+			"help": "Press SKIP if not",
+			"activities": [
+				"Appliances Computer",
+				"Appliances Tools",
+				"Appliances Machinery",
+				"Work job manual",
+				"Work job break",
+				"Work job other"
 			]
 		},
 		"work house": {
@@ -520,7 +620,7 @@
 			"help": "at this moment",
 			"activities": [
 				"Work house clear up",
-				"Cleaning dwelling",
+				"Cleaning house",
 				"Laundry",
 				"Work house food",
 				"Disposal of Waste",
@@ -546,6 +646,8 @@
 				"Cleaning dusting",
 				"Cleaning vacuum",
 				"Cleaning floors",
+				"Disposal of Waste",
+				"Cleaning yard",
 				"Cleaning other"
 			]
 		},
@@ -571,30 +673,6 @@
 				"Not very much",
 				"Not at all",
 				"Skip"
-			]
-		},
-		"xxxlocation": {
-			"title": "Where are you at $time?",
-			"help": "Your location.",
-			"activities": [
-				"at home",
-				"at work",
-				"travelling",
-				"at friends",
-				"outdoors",
-				"other location"
-			]
-		},
-		"sleep": {
-			"title": "Any particular sleep? ",
-			"help": "at this moment",
-			"activities": [
-				"Leisure",
-				"work",
-				"other",
-				"at home",
-				"travel",
-				"food"
 			]
 		}
 	}
