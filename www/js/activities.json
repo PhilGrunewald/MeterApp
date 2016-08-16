@@ -576,7 +576,7 @@
 
 
 
-		"Appliances":  { "title": "Use an appliance", "caption": "Use appliances", "help": "Electrical goods", "ID": 8500, "value": 0, "next": "appliances" },
+		"Appliances":  { "title": "Use an appliance", "caption": "Appliances", "help": "Electrical goods", "ID": 8500, "icon": "act_appliance", "value": 0, "next": "appliances" },
 
 		"Appliances Washing machine":  { "title": "Washing machine", "caption": "Washing machine", "help": "Loading, unloading or running", "ID": 8501,"category": "care_house", "next": "enjoyment" },
 		"Appliances Tumble dryer":  { "title": "Tumble dryer", "caption": "Tumble dryer", "help": "it is running or you use it", "ID": 8502, "category": "care_house","next": "enjoyment" },
@@ -613,6 +613,7 @@
 		"Personal": {
 			"title": "Personal care",
 			"caption": "Personal",
+			"icon": "act_personal",
 			"help": "Personal care, for yourself",
 			"ID": 0,
 			"category": "care_self",
@@ -621,6 +622,7 @@
 		"Care": {
 			"title": "Being with others",
 			"caption": "With others",
+			"icon": "act_others",
 			"help": "Helping, socialising",
 			"ID": 3900,
 			"category": "care_other",
@@ -870,6 +872,7 @@
 			"title": "Food or drink ",
 			"caption": "Food / Drink",
 			"help": "Eating, preparing, cooking, clearing food",
+			"icon": "act_food",
 			"ID": 3100,
 			"category": "food",
 			"next": "food"
@@ -1033,6 +1036,7 @@
 		"Household upkeep": {
 			"title": "House keeping",
 			"caption": "House related",
+			"icon": "Loc_home",
 			"help": "Cleaning, tidying, cooking, shopping",
 			"ID": 3200,
 			"category": "care_house",
@@ -1880,6 +1884,7 @@
 		"Work": {
 			"title": "generic work",
 			"caption": "Work /<br>Housework",
+			"icon": "act_work",
 			"help": "Housework, Homework, Job, Volunteering",
 			"ID": 1100,
 			"category": "work",
@@ -1895,8 +1900,10 @@
 		"Main job": {
 			"title": "Main job",
 			"caption": "Main job",
+			"icon": "act_work",
 			"help": "Working time in main job",
 			"ID": 1110,
+			"category": "work",
 			"next": "work job"
 		},
 		"Work job break": {
@@ -1904,6 +1911,7 @@
 			"caption": "Break",
 			"help": "Coffee, lunch, chat...",
 			"ID": 1120,
+			"category": "care_self",
 			"next": "other people"
 		},
 		"Work job manual": {
@@ -1918,6 +1926,7 @@
 			"caption": "Skip",
 			"help": "Other work",
 			"ID": 1140,
+			"category": "work",
 			"next": "other people"
 		},
 		"Unspecified second job": {
@@ -1925,13 +1934,16 @@
 			"caption": "Work",
 			"help": "Unspecified second job",
 			"ID": 1200,
+			"category": "work",
 			"next": "other people"
 		},
 		"Working time in second job": {
 			"title": "Other job",
 			"caption": "Other job",
+			"icon": "act_work",
 			"help": "Working in second or other job",
 			"ID": 1210,
+			"category": "work",
 			"next": "work job"
 		},
 		"Coffee and other breaks in second job": {
@@ -2007,6 +2019,7 @@
 		"Study": {
 			"title": "Study",
 			"caption": "Study",
+			"icon": "act_study",
 			"help": "School, uni, further education",
 			"ID": 2190,
 			"next": "work job"
@@ -2199,6 +2212,7 @@
 		"Volunteer work and meetings": {
 			"title": "Volunteer work and meetings",
 			"caption": "Volunteering",
+			"icon": "act_volunteer",
 			"help": "Unpaid work or activity",
 			"ID": 4000,
 			"next": "work job"
