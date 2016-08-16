@@ -581,7 +581,7 @@
 		"Appliances Washing machine":  { "title": "Washing machine", "caption": "Washing machine", "help": "Loading, unloading or running", "ID": 8501,"category": "care_house", "next": "enjoyment" },
 		"Appliances Tumble dryer":  { "title": "Tumble dryer", "caption": "Tumble dryer", "help": "it is running or you use it", "ID": 8502, "category": "care_house","next": "enjoyment" },
 		"Appliances Dish washer":  { "title": "Dish washer", "caption": "Dish washer", "help": "it is running or you use it", "ID": 8503,"category": "care_house", "next": "enjoyment" },
-		"Appliances Oven":  { "title": "Oven", "caption": "Oven", "help": "it is running or you use it", "ID": 8504, "category": "food","next": "enjoyment" },
+			"Appliances Oven":  { "title": "Oven", "caption": "Oven", "help": "it is running or you use it", "ID": 8504, "category": "food","next": "enjoyment" },
 		"Appliances Microwave":  { "title": "Microwave", "caption": "Microwave", "help": "it is running or you use it", "ID": 8505, "category": "food","next": "enjoyment" },
 
 		"Appliances 2":  { "title": "Use an appliance", "caption": "Show more", "help": "appliances", "ID": 8506, "next": "appliances 2" },
@@ -589,7 +589,7 @@
 		"Appliances Computer":  { "title": "Computer", "caption": "Computer", "help": "Laptop, Tablet, PC", "ID": 8507,"category": "other_category", "next": "enjoyment" },
 		"Appliances TV":  { "title": "TV", "caption": "TV", "help": "it is running or you use it", "ID": 8508, "category": "care_self","next": "enjoyment" },
 		"Appliances Kettle":  { "title": "Kettle", "caption": "Kettle", "help": "it is running or you use it", "ID": 8509, "category": "food", "next": "enjoyment" },
-		"Appliances Tools":  { "title": "Power tools", "caption": "Tools / Toys", "help": "Power tools or toys (RC car...)", "ID": 8510, "category": "care_house", "next": "enjoyment" },
+		"Appliances Tools":  { "title": "Power tools", "caption": "Tools", "help": "Power tools or toys (RC car...)", "ID": 8510, "category": "care_house", "next": "enjoyment" },
 		"Appliances 3":  { "title": "Use an appliance", "caption": "Show more", "help": "appliances", "ID": 8511, "next": "appliances 3" },
 
 		"Appliances Toaster":  { "title": "Toaster", "caption": "Toaster", "help": "it is running or you use it", "ID": 8512, "category": "food", "next": "enjoyment" },
@@ -605,6 +605,8 @@
 		"Appliances Bread maker":  { "title": "Bread maker", "caption": "Bread maker", "help": "it is running or you use it", "ID": 8521, "category": "food", "next": "enjoyment" },
 		"Appliances Phone":  { "title": "Phone", "caption": "Phone", "help": "Use mobile phone", "ID": 8522, "category": "other_category", "next": "enjoyment" },
 		"Appliances Radio":  { "title": "Radio", "caption": "Radio", "help": "it is running or you use it", "ID": 8523,"category": "recreation", "next": "enjoyment" },
+
+		"Appliances Machinery":  { "title": "Work with machinery", "caption": "Machinery", "help": "Large tools and equipment", "ID": 8524,"category": "work", "next": "other people" },
 
 		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "other specify" },
 
@@ -1888,20 +1890,34 @@
 			"caption": "Work",
 			"help": "Unspecified main job",
 			"ID": 1100,
-			"next": "other people"
+			"next": "work job"
 		},
 		"Main job": {
 			"title": "Main job",
 			"caption": "Main job",
 			"help": "Working time in main job",
 			"ID": 1110,
+			"next": "work job"
+		},
+		"Work job break": {
+			"title": "Work break",
+			"caption": "Break",
+			"help": "Coffee, lunch, chat...",
+			"ID": 1120,
 			"next": "other people"
 		},
-		"Coffee and other breaks in main job": {
-			"title": "Coffee and other breaks in main job",
-			"caption": "Work",
-			"help": "Coffee and other breaks in main job",
-			"ID": 1120,
+		"Work job manual": {
+			"title": "Manual work",
+			"caption": "Manual",
+			"help": "Using hands or strength",
+			"ID": 1130,
+			"next": "other people"
+		},
+		"Work job other": {
+			"title": "Work",
+			"caption": "Skip",
+			"help": "Other work",
+			"ID": 1140,
 			"next": "other people"
 		},
 		"Unspecified second job": {
@@ -1916,7 +1932,7 @@
 			"caption": "Other job",
 			"help": "Working in second or other job",
 			"ID": 1210,
-			"next": "other people"
+			"next": "work job"
 		},
 		"Coffee and other breaks in second job": {
 			"title": "Coffee and other breaks in second job",
@@ -1988,12 +2004,12 @@
 			"ID": 2120,
 			"next": "other people"
 		},
-		"Activities related to school or university": {
+		"Study": {
 			"title": "Study",
 			"caption": "Study",
-			"help": "School, university or further education work",
+			"help": "School, uni, further education",
 			"ID": 2190,
-			"next": "other people"
+			"next": "work job"
 		},
 		"Free Time Study": {
 			"title": "Free Time Study",
@@ -2185,7 +2201,7 @@
 			"caption": "Volunteering",
 			"help": "Unpaid work or activity",
 			"ID": 4000,
-			"next": "other people"
+			"next": "work job"
 		},
 		"Unspecified organisational work": {
 			"title": "Unspecified organisational work",

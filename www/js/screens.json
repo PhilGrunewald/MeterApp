@@ -598,9 +598,21 @@
 				"Household upkeep",
 				"Volunteer work and meetings",
 				"Main job",
-				"Activities related to school or university",
+				"Study",
 				"Working time in second job",
 				"Unspecified activities related to employment"
+			]
+		},
+		"work job": {
+			"title": "What do you use for work",
+			"help": "Press SKIP if not",
+			"activities": [
+				"Appliances Computer",
+				"Appliances Tools",
+				"Appliances Machinery",
+				"Work job manual",
+				"Work job break",
+				"Work job other"
 			]
 		},
 		"work house": {
