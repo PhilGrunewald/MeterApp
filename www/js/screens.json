@@ -147,10 +147,10 @@
 			]
 		},
 		"activity main": {
-			"title": "What are you doing?",
+			"title": "Your activity",
 			"help": "at this moment",
 			"activities": [
-				"Leisure",
+				"Personal",
 				"Care",
 				"Work",
 				"Food",
@@ -158,15 +158,50 @@
 				"Main other"
 			]
 		},
+		"activity public": {
+			"title": "Your activity",
+			"help": "in a public place",
+			"activities": [
+				"Personal",
+				"Care",
+				"Work",
+				"Food",
+				"Shopping and services",
+				"Main other"
+			]
+		},
 		"outdoors": {
-			"title": "What are you doing?",
+			"title": "Where are you?",
 			"help": "at this moment",
 			"activities": [
-				"Gardening",
-				"Walking the dog",
+				"Loc garden",
+				"Loc outdoors public",
 				"Loc travelling",
+				"Loc work",
+				"Nature",
+				"Loc other location"
+			]
+		},
+		"outdoors public": {
+			"title": "Your activity",
+			"help": "in this outdoor public place",
+			"activities": [
+				"Personal",
+				"Care",
+				"Shopping and services",
 				"Outdoor food",
-				"Leisure",
+				"Exercise",
+				"Outdoors other"
+			]
+		},
+		"garden": {
+			"title": "In the garden",
+			"help": "what is happening",
+			"activities": [
+				"Gardening",
+				"Outdoor food",
+				"Personal",
+				"Care",
 				"Outdoors appliances",
 				"Outdoors other"
 			]
@@ -201,7 +236,7 @@
 			"activities": [
 				"Care",
 				"Work",
-				"Leisure",
+				"Personal",
 				"Food",
 				"travelling",
 				"more recent"
@@ -228,8 +263,8 @@
 				"Leisure TV",
 				"Care others unspecified",
 				"Socialising",
-				"Blank",
-				"Blank"
+				"Exercise",
+				"Care other"
 			]
 		},
 		"care personal": {
@@ -248,11 +283,11 @@
 			"title": "What kind or rest is this?",
 			"help": "Give detail if you like",
 			"activities": [
-				"Food drink hot",
 				"Care rest",
-				"sleep",
+				"Sleep",
+				"In bed awake",
 				"Sick in bed",
-				"In bed, not asleep",
+				"Food drink hot",
 				"other"
 			]
 		},
@@ -386,12 +421,12 @@
 				"Travel purpose other"
 			]
 		},
-		"leisure": {
+		"personal": {
 			"title": "Any particular leisure? ",
 			"help": "at this moment",
 			"activities": [
 				"Getting ready",
-				"Care rest",
+				"Care rest sleep",
 				"Care personal",
 				"Leisure TV",
 				"Care wash",
@@ -536,12 +571,12 @@
 			"title": "XXX Any particular other? ",
 			"help": "at this moment",
 			"activities": [
-				"Leisure",
+				"Personal",
 				"Food",
 				"Work",
 				"travel",
 				"other",
-				"sleep"
+				"Sleep"
 			]
 		},
 		"other specify": {

@@ -181,6 +181,15 @@ h1 {
     height: 33%;
 }
 
+.col-3 {
+    display: table-cell;
+    padding: 5px;
+    background: #000;
+	color: #fff;
+    vertical-align: middle;
+    width: 33%;
+    height: 100%;
+}
 .col-4 {
     display: table-cell;
     padding: 5px;
@@ -253,10 +262,13 @@ div.btn-terminate {
 
 div.progress-row {
 	margin: 35px 0;
-	padding-left: 150px;
+	padding-left: 50px;
 }
 div.progress-item {
 	text-align: left;
+}
+#progress {
+	margin-left: 15px;
 }
 
 div.activity-item {

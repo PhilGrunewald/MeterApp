@@ -102,6 +102,10 @@ var app = {
         app.history          = new Array();
 		if (utils.get(SURVEY_STATUS) == "survey complete") {
 			$("div#nav-aboutme").hide();
+			$("div#status").show();
+		} else {
+			$("div#status").hide();
+			$("div#nav-aboutme").show();
 		}
 
 		setInterval(function(){ app.updateNowTime(); }, 1000);
@@ -371,7 +375,7 @@ var app = {
 	showProgressList: function() {
         var activityList = utils.getList(ACTIVITY_LIST) || []
 		var actCount = Object.keys(activityList).length;
-		app.title.html("You have recorded " + actCount + " activities")
+		app.title.html("You have recorded</br>" + actCount + " activities")
 		if (actCount > 5) {
 			$("img#stars2").attr("src","img/stars_on.png");
 		} 

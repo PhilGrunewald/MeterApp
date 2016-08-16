@@ -241,7 +241,7 @@
 			"ID": 30013,
 			"value": 3,
 			"category": "work",
-			"next": "activity main"
+			"next": "work"
 		},
 		"Loc public": {
 			"title": "location public place",
@@ -251,7 +251,17 @@
 			"ID": 30014,
 			"value": 4,
 			"category": "care_self",
-			"next": "activity main"
+			"next": "activity public"
+		},
+		"Loc outdoors public": {
+			"title": "location outdoors public place",
+			"icon": "Loc_outside",
+			"caption": "Public place",
+			"help": "Shop, church, public building",
+			"ID": 30016,
+			"value": 5,
+			"category": "other_category",
+			"next": "outdoors public"
 		},
 		"Loc outdoors": {
 			"title": "Outdoor activity",
@@ -263,13 +273,23 @@
 			"category": "travel",
 			"next": "outdoors"
 		},
+		"Loc garden": {
+			"title": "In the garden",
+			"icon": "Loc_garden",
+			"caption": "Garden",
+			"help": "Gardening, playing, eating",
+			"ID": 30019,
+			"value": 6,
+			"category": "travel",
+			"next": "garden"
+		},
 		"Loc other location": {
 			"title": "location other",
 			"icon": "Loc_other",
 			"caption": "Elsewhere",
 			"help": "None of the above",
 			"ID": 30010,
-			"value": 6,
+			"value": 7,
 			"next": "activity main"
 		},
 
@@ -588,11 +608,19 @@
 
 		"Appliances other":  { "title": "Other appliance", "caption": "Other ...", "help": "not listed here", "ID": 8599, "next": "other specify" },
 
+		"Personal": {
+			"title": "Personal care",
+			"caption": "Personal",
+			"help": "Personal care, for yourself",
+			"ID": 0,
+			"category": "care_self",
+			"next": "personal"
+		},
 		"Care": {
 			"title": "Being with others",
-			"caption": "Being with others",
+			"caption": "With others",
 			"help": "Helping, socialising",
-			"ID": 0,
+			"ID": 3900,
 			"category": "care_other",
 			"next": "care"
 		},
@@ -604,7 +632,7 @@
 			"category": "care_self",
 			"next": "care rest sleep"
 		},
-		"sleep": {
+		"Sleep": {
 			"title": "Sleep",
 			"caption": "Sleep",
 			"help": "Sleep",
@@ -612,7 +640,7 @@
 			"category": "care_self",
 			"next": "other people"
 		},
-		"In bed, not asleep": {
+		"In bed awake": {
 			"title": "In bed, not asleep",
 			"caption": "In bed",
 			"help": "not asleep",
@@ -719,13 +747,12 @@
 		},
 		"Care other": {
 			"title": "Being with others",
-			"caption": "Skip",
-			"help": "Any help or socialising",
+			"caption": "Other",
+			"help": "being together",
 			"ID": 3912,
 			"category": "care_other",
 			"next": "other people"
 		},
-
 
 
 		"Care wash shower": {
@@ -1978,8 +2005,9 @@
 		"Gardening": {
 			"title": "Gardening",
 			"caption": "Gardening",
-			"help": "Tending or spending time in the garden",
+			"help": "Tending your garden",
 			"ID": 3410,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Tending domestic animals": {
@@ -2072,17 +2100,17 @@
 			"ID": 3590,
 			"next": "other people"
 		},
-		"Unspecified shopping and services": {
-			"title": "Unspecified shopping and services",
-			"caption": "Shoppimg",
-			"help": "Unspecified shopping and services",
+		"Shopping and services": {
+			"title": "Shopping",
+			"caption": "Shopping and service",
+			"help": "Buying goods or services",
 			"ID": 3600,
-			"category": "care_house",
+			"category": "care_self",
 			"next": "other people"
 		},
 		"Unspecified shopping": {
 			"title": "Shopping",
-			"caption": "Shoppimg",
+			"caption": "Shopping",
 			"help": "Unspecified shopping",
 			"ID": 3610,
 			"category": "care_house",
@@ -2090,7 +2118,7 @@
 		},
 		"Shopping mainly for food": {
 			"title": "Shopping mainly for food",
-			"caption": "Shoppimg",
+			"caption": "Shopping",
 			"help": "Shopping mainly for food",
 			"ID": 3611,
 			"category": "food",
@@ -2098,35 +2126,35 @@
 		},
 		"Shopping mainly for clothing": {
 			"title": "Shopping mainly for clothing",
-			"caption": "Shoppimg",
+			"caption": "Shopping",
 			"help": "Shopping mainly for clothing",
 			"ID": 3612,
 			"next": "other people"
 		},
 		"Shopping mainly related to accommodation": {
 			"title": "Shopping mainly related to accommodation",
-			"caption": "Shoppimg",
+			"caption": "Shopping",
 			"help": "Shopping mainly related to accommodation",
 			"ID": 3613,
 			"next": "other people"
 		},
 		"Shopping or browsing at car boot sales or antique fairs": {
 			"title": "Shopping or browsing at car boot sales or antique fairs",
-			"caption": "Shoppimg",
+			"caption": "Shopping",
 			"help": "Shopping or browsing at car boot sales or antique fairs",
 			"ID": 3614,
 			"next": "other people"
 		},
 		"Window shopping or other shopping as leisure": {
 			"title": "Window shopping or other shopping as leisure",
-			"caption": "Shoppimg",
+			"caption": "Shopping",
 			"help": "Window shopping or other shopping as leisure",
 			"ID": 3615,
 			"next": "other people"
 		},
 		"Other specified shopping": {
 			"title": "Other specified shopping",
-			"caption": "Shoppimg",
+			"caption": "Shopping",
 			"help": "Other specified shopping",
 			"ID": 3619,
 			"next": "other people"
@@ -2546,9 +2574,9 @@
 			"next": "care rest sleep"
 		},
 		"Care rest": {
-			"title": "Resting - Time out",
-			"caption": "Resting - time out",
-			"help": "Doing nothing, just sitting, reflecting, relaxing, resting, waiting, meditating, smoking, sun bathing, thinking, talking to /scratching a cat or dog etc",
+			"title": "Resting",
+			"caption": "Resting",
+			"help": "Taking a break",
 			"ID": 5310,
 			"category": "care_self",
 			"next": "other people"
@@ -2558,7 +2586,7 @@
 		"Outdoors other": {
 			"title": "Outdoor activity",
 			"caption": "Other",
-			"help": "Anything else outdoorsy",
+			"help": "Anything else",
 			"ID": 6000,
 			"category": "recreation",
 			"next": "other people"
@@ -2589,16 +2617,16 @@
 			"next": "other people"
 		},
 		"Outdoor food shopping": {
-			"title": "Outdoors / food / shopping",
+			"title": "Food shopping",
 			"caption": "Shopping",
-			"help": "Outdoor shops or on the way to shops",
+			"help": "in outdoor shop",
 			"ID": 6002,
 			"category": "care_self",
 			"next": "other people"
 		},
 
 		"Outdoor food takeaway": {
-			"title": "Outdoors / food / takeaway",
+			"title": "Getting a takeaway",
 			"caption": "Takeaway",
 			"help": "Getting a takeaway meal",
 			"ID": 6003,
@@ -2606,7 +2634,7 @@
 			"next": "other people"
 		},
 		"Outdoor food bbq": {
-			"title": "Outdoors / food / BBQ",
+			"title": "BBQ",
 			"caption": "BBQ",
 			"help": "Having a Barbecue",
 			"ID": 6004,
@@ -2614,7 +2642,7 @@
 			"next": "other people"
 		},
 		"Outdoor food other": {
-			"title": "Outdoors / food / other",
+			"title": "Food outdoors",
 			"caption": "Other",
 			"help": "Other outdoor food activity",
 			"ID": 6005,
@@ -2631,7 +2659,7 @@
 			"next": "outdoors appliances"
 		},
 		"Exercise": {
-			"title": "Physical exercise",
+			"title": "Exercise/sport",
 			"caption": "Exercise / sport",
 			"help": "Sport / physical exercise",
 			"ID": 6100,
@@ -2807,6 +2835,15 @@
 			"ID": 6312,
 			"next": "other people"
 		},
+		"Nature": {
+			"title": "In nature",
+			"icon": "nature",
+			"caption": "Nature",
+			"help": "Being in nature",
+			"ID": 6400,
+			"category": "recreation",
+			"next": "other people"
+		},
 		"Leisure other": {
 			"title": "Unspecified hobbies, games and computing",
 			"caption": "Other",
@@ -2921,9 +2958,9 @@
 			"next": "travel purpose 2"
 		},
 		"Travel purpose other": {
-			"title": "Travel related to unspecified time use",
+			"title": "Travel",
 			"caption": "Other",
-			"help": "Travel related to unspecified time use",
+			"help": "Not shown here",
 			"ID": 9000,
 			"category": "travel",
 			"next": "other people"
@@ -2985,30 +3022,30 @@
 			"next": "other people"
 		},
 		"Travel purpose children": {
-			"title": "Travel escorting to/ from education",
+			"title": "Taking children",
 			"caption": "Taking children",
 			"help": "For school, sport or social",
 			"ID": 9230,
 			"category": "travel",
 			"next": "travel purpose children"
 		},
-		"Travel purpose children school": { "title": "Travel children to/ from school", "caption": "School / nursery", "help": "School run", "ID": 9231, "category": "travel", "next": "other people" },
-		"Travel purpose children sport": { "title": "Travel children to/ from sport", "caption": "Sport", "help": "To/from event/training", "ID": 9232, "category": "travel", "next": "other people" },
-		"Travel purpose children social": { "title": "Travel children to/ from social", "caption": "See friends", "help": "Socialising, play", "ID": 9233, "category": "travel", "next": "other people" },
-		"Travel purpose children other": { "title": "Travel children to/ from other", "caption": "Other", "help": "Something else", "ID": 9234, "category": "travel", "next": "other people" },
+		"Travel purpose children school": { "title": "School run", "caption": "School / nursery", "help": "School run", "ID": 9231, "category": "travel", "next": "other people" },
+		"Travel purpose children sport": { "title": "Take children for sport", "caption": "Sport", "help": "To/from event/training", "ID": 9232, "category": "travel", "next": "other people" },
+		"Travel purpose children social": { "title": "Taking children to friends", "caption": "See friends", "help": "Socialising, play", "ID": 9233, "category": "travel", "next": "other people" },
+		"Travel purpose children other": { "title": "Taking children", "caption": "Other", "help": "Something else", "ID": 9234, "category": "travel", "next": "other people" },
 
 		"Travel purpose household": {
-			"title": "Travel related to household care",
+			"title": "Household related travel",
 			"caption": "Household",
-			"help": "Related to household care",
+			"help": "To DIY store, plumber...",
 			"ID": 9310,
 			"category": "travel",
 			"next": "other people"
 		},
 		"Travel purpose shopping": {
-			"title": "Travel related to shopping",
+			"title": "Going shopping",
 			"caption": "Shopping",
-			"help": "Travel related to shopping",
+			"help": "Travel to/from shops",
 			"ID": 9360,
 			"category": "travel",
 			"next": "other people"
@@ -3078,31 +3115,31 @@
 			"next": "other people"
 		},
 		"Travel purpose friend": {
-			"title": "Travel to visit friends/ relatives in their homes (not respondent's household)",
+			"title": "Visit friends/relatives",
 			"caption": "Visit friend / relative",
-			"help": "Travel to visit friends/ relatives in their homes",
+			"help": "travel to/from",
 			"ID": 9500,
 			"category": "travel",
 			"next": "other people"
 		},
 		"Travel purpose social": {
-			"title": "Travel related to other social activities",
-			"caption": "Help / social",
+			"title": "Travel (social)",
+			"caption": "Social activities",
 			"help": "Travel related to other social activities",
 			"ID": 9510,
 			"category": "travel",
 			"next": "other people"
 		},
 		"Travel purpose entertainment": {
-			"title": "Travel related to entertainment and culture",
+			"title": "Travel for entertainment",
 			"caption": "Entertainment",
-			"help": "Travel related to entertainment and culture",
+			"help": "Going to movies, theatre...",
 			"ID": 9520,
 			"category": "travel",
 			"next": "other people"
 		},
 		"Travel purpose leisure": {
-			"title": "Travel related to other leisure",
+			"title": "Travel for leisure",
 			"caption": "Leisure",
 			"help": "Travel related to other leisure",
 			"ID": 9600,
@@ -3110,7 +3147,7 @@
 			"next": "other people"
 		},
 		"Travel purpose exercise": {
-			"title": "Travel related to physical exercise",
+			"title": "Exercise",
 			"caption": "Exercise / wellbeing",
 			"help": "Moving for health and fitness",
 			"ID": 9610,

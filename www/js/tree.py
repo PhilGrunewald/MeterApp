@@ -18,5 +18,6 @@ def recursive(node,level):
                 except KeyError:
                     print 'ERROR at: ' + node + ' > ' + branch + ' > ' + nextNode
 
-recursive('activity main',-1)
+# recursive('activity main',-1)
+recursive('outdoors',-1)
     
