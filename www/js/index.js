@@ -102,15 +102,13 @@ var app = {
         app.history          = new Array();
 		if (utils.get(SURVEY_STATUS) == "survey complete") {
 			$("div#nav-aboutme").hide();
-			$("div#status").show();
+			$("div#nav-status").show();
 		} else {
-			$("div#status").hide();
+			$("div#nav-status").hide();
 			$("div#nav-aboutme").show();
 		}
 
 		setInterval(function(){ app.updateNowTime(); }, 1000);
-		// app.updateNowTime();
-        // $("#now-time").html(utils.format("${time}"));
 	},
 
 	updateNowTime: function() {
@@ -209,7 +207,7 @@ var app = {
 				  $("img#survey-status").attr("src","img/AR_progress.png");
 				  //console.log("survey entry: " + prev_activity);
 			  }
-		}
+		} // if prev undefined
 
 		//****************************** 
 		//
@@ -219,9 +217,10 @@ var app = {
 
 		app.activityAddPane.hide();
 		app.activityListPane.hide();
+		$("div#progress_list_pane").hide();
 		app.choicesPane.show();
 		$("div.footer-nav").show();
-		$("div#progress_list_pane").hide();
+
 
 		// skip "other people" and "enjoyment" if on fastTrack
 		if (screen_id == "other people" || screen_id == "enjoyment") {
@@ -230,14 +229,19 @@ var app = {
 				fastTrack = false;
 			}
 		}
+
+		var screen_ = app.screens[screen_id];
+		$("#title").html(utils.format(screen_.title));
+
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
+			$("#title").html(utils.format(screen_.title));
 			if (prev_activity !== "ignore") {
 				app.addActivityToList();
 			}
 			// until and activity is selected btn-home will not create a new entry
 			app.footer_nav("home");
-			app.updateNowTime();
+			// app.updateNowTime();
 			app.showActivityList();
 			app.choicesPane.hide();
 		} else 
@@ -262,6 +266,7 @@ var app = {
 			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
 		if (screen_id == "other specify") {     // display text edit field
+			console.log("SHOWING");
 			$("div#other-specify").show();
 			$("div.footer-nav").hide();
 			app.choicesPane.hide();
@@ -280,7 +285,7 @@ var app = {
 		if (screen_id == "survey complete") {
 			$("div#nav-aboutme").hide();
 			$("img#stars").attr("src","img/stars_1.png");
-			$("div#status").show();
+			$("div#nav-status").show();
 			app.showActivityList();
 			app.choicesPane.hide();
 		} 
@@ -288,37 +293,36 @@ var app = {
 		//****************************** 
 		//      Buttons
 		//****************************** 
-		console.log("scr: " + screen_id);
-		var screen_ = app.screens[screen_id];
-		$("#title").html(utils.format(screen_.title));
-		for (i = 0; i < screen_.activities.length; i++) {
-			var activity_id = screen_.activities[i];
-			var activity    = app.activities[activity_id];
-			var button      = $(app.actionButtons[i]);
-			CATEGORIES.forEach(function (cat) {
-				button.removeClass(cat);
-			});
-			var btn_title   = button.find(".btn-title");
-			var btn_caption = button.find(".btn-caption");
-			var btn_button  = button.find(".btn-activity");
-			var number = i+1;
-			var buttonNo    = "button"+ number;
+		if (screen_id !== "home") {
+			for (i = 0; i < screen_.activities.length; i++) {
+				var activity_id = screen_.activities[i];
+				var activity    = app.activities[activity_id];
+				var button      = $(app.actionButtons[i]);
+				CATEGORIES.forEach(function (cat) {
+					button.removeClass(cat);
+				});
+				var btn_title   = button.find(".btn-title");
+				var btn_caption = button.find(".btn-caption");
+				var btn_button  = button.find(".btn-activity");
+				var number = i+1;
+				var buttonNo    = "button"+ number;
 
-			if (activity === undefined) {
-				btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
-				button.attr("onclick", "");
-			} else {
-				document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
-				btn_title.html(utils.format(activity.caption));
-				btn_caption.html(utils.format(activity.help));
-				//button.addClass(activity.category || "other_category");
-				button.addClass(activity.category);
-				button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
-			}
-			if (activity.ID == -1) {
-				document.getElementById(buttonNo).style.backgroundImage = "";
-				button.addClass("other_category");
-				button.attr("onclick", "");
+				if (activity === undefined) {
+					btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
+					button.attr("onclick", "");
+				} else {
+					document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
+					btn_title.html(utils.format(activity.caption));
+					btn_caption.html(utils.format(activity.help));
+					//button.addClass(activity.category || "other_category");
+					button.addClass(activity.category);
+					button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
+				}
+				if (activity.ID == -1) {
+					document.getElementById(buttonNo).style.backgroundImage = "";
+					button.addClass("other_category");
+					button.attr("onclick", "");
+				}
 			}
 		}
 	},
@@ -333,43 +337,6 @@ var app = {
             app.navigateTo(prev,prev);
 			// XXX undo potential time offsets
         }
-    },
-
-    showActivityHistory: function() {
-		// no longer used
-        app.history = new Array();
-        var activityList = utils.getList(ACTIVITY_LIST) || []
-        var curr_acts = "";
-        var row = ''+
-            '<div class="row activity-row {4}" onclick="{2}">' + 
-            '	<div class="activity-cell btn-time">{0}</div>' + 
-            '	<div class="activity-cell activity-item">{1}</div>' + 
-            '	<div class="activity-cell btn-terminate">{3}</div>' + 
-            '</div>';
-
-        if (Object.keys(activityList).length > 0) {
-            row = row.format( '{0}', 
-                '{1}', 
-                '{2}',
-                '<span class="bordered">{3}</span>','{4}')
-            Object.keys(activityList).forEach( function(key, index) {
-                var item = activityList[key];
-                curr_acts += row.format(utils.format_time(item.time), 
-                item.act,
-                'app.editActivityScreen(\'' + key + '\')',
-                "edit",
-				item.cat)
-            })
-        } else {
-            curr_acts = row.format("", "<i>No activity yet</i>", "", "")
-        }
-
-        app.activity_list_div.html(curr_acts)
-        app.choicesPane.hide();
-        app.activityAddPane.hide();
-        app.activityListPane.show();
-    	// app.title.html("Your activities ("+Object.keys(activityList).length+")");
-		app.act_count.hide();
     },
 
 	showProgressList: function() {
@@ -400,38 +367,30 @@ var app = {
     showActivityList: function() {
         app.history = new Array();
         var activityList = utils.getList(ACTIVITY_LIST) || []
-        var curr_acts = "";
-        var row = ''+
-            '<div class="row activity-row {4}" onclick="{2}">' + 
-            '	<div class="activity-cell btn-time">{0}</div>' + 
-            '	<div class="activity-cell activity-item">{1}</div>' + 
-            '	<div class="activity-cell btn-terminate">{3}</div>' + 
-            '</div>';
+        var actsHTML = "";
 
-        if (Object.keys(activityList).length > 0) {
-            row = row.format( '{0}', 
-                '{1}', 
-                '{2}',
-                '<span class="bordered">{3}</span>','{4}')
-            Object.keys(activityList).forEach( function(key, index) {
-                var item = activityList[key];
-                curr_acts += row.format(utils.format_time(item.time), 
-                item.act,
-                'app.editActivityScreen(\'' + key + '\')',
-                "edit",
-				item.cat)
-            })
-        } else {
-            curr_acts = row.format("", "<i>No activity yet</i>", "", "")
-        }
+		var actKeys = Object.keys(activityList);
+		var actLength =Object.keys(activityList).length;
+		actKeys.sort();
+
+		for (i = actLength-1; i > -1; i--) {
+			var key = actKeys[i];
+			var item = activityList[key];
+            actsHTML += 
+            	'<div class="row activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
+            	'<div class="activity-cell btn-time">' + utils.format_time(item.time) + '</div>' +
+            	'<div class="activity-cell activity-item">' + item.act  + '</div> ' +
+				'<div class="activity-cell btn-terminate">edit</div></div>';
+		}
 		// app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
 		app.act_count.show();
-		app.activity_list_div.html(curr_acts);
+		app.activity_list_div.html(actsHTML);
         app.choicesPane.hide();
 		$("div#progress_list_pane").hide();
+		$("div#other-specify").hide();
         app.activityAddPane.show();
         app.activityListPane.show();
-    	app.title.html("What I did ...")
+    	//app.title.html("What I did ...")
 		app.showCatchupItem(); // overwrites app.title if catchup items exist
 		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
     },
@@ -457,8 +416,11 @@ var app = {
 			var hh=parseInt(app.catchupList.time[catchupIndex].slice(11,13));
 			var mm=parseInt(app.catchupList.time[catchupIndex].slice(14,16));
 			var strTime = app.formatAMPM(hh,mm);
-			app.title.html("Do you remember " + strTime + "? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
+			console.log("about to show Catchup");
+			app.title.html("What happened <b>at " + strTime + "</b>? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
             app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
+		} else {
+    		app.title.html("xx What I did ...")
 		}
 	},
 
@@ -566,7 +528,6 @@ var app = {
 		// this is a special case of "navigateTo":
 		// instead of "next screen", onclick() points to specific functions
             var activityList = utils.getList(ACTIVITY_LIST) || {};
-			console.log("activity list defined yet? : " + activityList); 
             var item = activityList[actKey];
 			app.title.html(app.extractTimeStr(item.time) + ": " + item.act)
             var screen_ = app.screens["edit activity"];
@@ -574,8 +535,6 @@ var app = {
 				var activity_id = screen_.activities[i];
 				var activity    = app.activities[activity_id];
 				var button      = $(app.actionButtons[i]);
-				console.log("activity_id: " + activity_id);
-				console.log("button: " + button);
 				CATEGORIES.forEach(function (cat) {
 					button.removeClass(cat);
 				});
@@ -667,7 +626,8 @@ var app = {
 	moreActivity: function(actKey) {
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
-		app.navigateTo("activity main");
+		app.footer_nav("next");
+		app.navigateTo("adjust time");
 		fastTrack = true;
 		// XXX should have boolean to redirect "other people/enjoyment" -> home
 	},

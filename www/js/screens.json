@@ -38,7 +38,7 @@
 			"activities": [ "Occupation student", "Occupation employed", "Occupation self employed", "Occupation unpaid work", "Occupation unemployed", "Occupation other" ]
 		},
 		"survey working hours": {
-			"title": "Working hours<br> How many hours do you typically work per week?",
+			"title": "How many hours do you work per week?",
 			"help": "These are the hours from all your occupations combined (if you have more than one)",
 			"activities": [ "Working hours 1", "Working hours 2", "Working hours 3", "Working hours 4", "Working hours 5", "Working hours 6" ]
 		},
@@ -48,7 +48,7 @@
 			"activities": [ "Working hours change 1", "Working hours change 2", "Working hours change 3", "Working hours change 4", "Blank", "Blank" ]
 		},
 		"survey working home": {
-			"title": "How often do you work from home per month?",
+			"title": "How often do you work from home?",
 			"help": "tap the one that fits best",
 			"activities": [ "Working home 1", "Working home 2", "Working home 3", "Working home 4", "Working home 5", "Working home 6" ]
 		},
@@ -58,52 +58,52 @@
 			"activities": [ "Bills yes", "Bills contribute", "Bills no", "Bills other", "Blank", "Blank" ]
 		},
 		"survey income": {
-			"title": "Income<br>Roughly, what is your annual income before taxes?",
+			"title": "Roughly, what is your annual income?",
 			"help": "Before deduction of taxes and national insurance.",
 			"activities": [ "Income 1", "Income 2", "Income 3", "Income 4", "Income 5", "Income 6" ]
 		},
 		"survey appliances 1": {
-			"title": "In the past week, how many times did <i>you</i> use a<br>Dishwasher?",
-			"help": "Think of the last 7 days.",
+			"title": "Did <i>you</i> use a <b>Dishwasher</b> last week?",
+			"help": "over the last 7 days",
 			"activities": [ "App 1 1", "App 1 2", "App 1 3", "App 1 4", "App 1 5", "App 1 6" ]
 		},
 		"survey appliances 2": {
-			"title": "In the past week, how many times did <i>you</i> use a<br>Washing Machine?",
+			"title": "Did <i>you</i> use a <b>Washing Machine</b> last week?",
 			"help": "Think of the last 7 days.",
 			"activities": [ "App 2 1", "App 2 2", "App 2 3", "App 2 4", "App 2 5", "App 2 6" ]
 		},
 		"survey appliances 3": {
-			"title": "In the past week, how many times did <i>you</i> use a<br>Tumble Dryer?",
+			"title": "Did <i>you</i> use a Tumble Dryer last week?",
 			"help": "Think of the last 7 days.",
 			"activities": [ "App 3 1", "App 3 2", "App 3 3", "App 3 4", "App 3 5", "App 3 6" ]
 		},
 		"survey appliances 4": {
-			"title": "In the past week, how many times did <i>you</i> use a<br>Shower?",
+			"title": "Did you use a shower?",
 			"help": "Think of the last 7 days.",
 			"activities": [ "App 4 1", "App 4 2", "App 4 3", "App 4 4", "App 4 5", "App 4 6" ]
 		},
 		"survey appliances 5": {
-			"title": "In the past week, many times did <i>you</i> use a<br>Vacuum Cleaner?",
+			"title": "Did <i>you</i> use a <b>Vacuum Cleaner</b>?",
 			"help": "Think of the last 7 days.",
 			"activities": [ "App 5 1", "App 5 2", "App 5 3", "App 5 4", "App 5 5", "App 5 6" ]
 		},
 		"time mobile": {
-			"title": "Per day, how much time do you spend on mobile devices?",
+			"title": "<small>Time spent on <b>mobile devices</b> per day</small>",
 			"help": "Typical recent use",
 			"activities": [ "Time mobile 1", "Time mobile 2", "Time mobile 3", "Time mobile 4", "Time mobile 5", "Time mobile 6" ]
 		},
 		"time screens": {
-			"title": "Per day, how much time do you spend on screens?",
-			"help": "Typical recent use",
+			"title": "<small><b>Screentime</b> at home per day</small>",
+			"help": "TV, tablet...",
 			"activities": [ "Time screens 1", "Time screens 2", "Time screens 3", "Time screens 4", "Time screens 5", "Time screens 6" ]
 		},
 		"time cooking": {
-			"title": "Per day, how much time do you spend cooking?",
+			"title": "Time spent <b>cooking</b> per day",
 			"help": "Typical recent cooking activities",
 			"activities": [ "Time cooking 1", "Time cooking 2", "Time cooking 3", "Time cooking 4", "Time cooking 5", "Time cooking 6" ]
 		},
 		"time exercise": {
-			"title": "Per day, how much time do you spend exercising?",
+			"title": "Time spend <b>exercising</b> per day",
 			"help": "Typical recent use",
 			"activities": [ "Time exercise 1", "Time exercise 2", "Time exercise 3", "Time exercise 4", "Time exercise 5", "Time exercise 6" ]
 		},
@@ -139,10 +139,10 @@
 			"help": "Your location.",
 			"activities": [
 				"Loc home",
-				"Loc work",
-				"Loc travelling",
-				"Loc public",
 				"Loc outdoors",
+				"Loc work",
+				"Loc public",
+				"Loc travelling",
 				"Loc other location"
 			]
 		},
@@ -243,7 +243,7 @@
 			]
 		},
 		"care": {
-			"title": "Who are you with?",
+			"title": "Joint activity",
 			"help": "to help or socialise",
 			"activities": [
 				"Care child",
@@ -256,8 +256,8 @@
 		},
 
 		"care activities": {
-			"title": "What do you do together?",
-			"help": "to help or socialise",
+			"title": "Joint activity",
+			"help": "with others",
 			"activities": [
 				"Food",
 				"Leisure TV",
@@ -422,8 +422,8 @@
 			]
 		},
 		"personal": {
-			"title": "Any particular leisure? ",
-			"help": "at this moment",
+			"title": "Personal activity",
+			"help": "take a pick",
 			"activities": [
 				"Getting ready",
 				"Care rest sleep",
@@ -480,7 +480,9 @@
 				"Food preparation cold",
 				"Food preparation hot",
 				"Baking",
-				"Food other"
+				"Food other",
+				"Blank",
+				"Blank"
 			]
 		},
 		"food preparation hot": {
@@ -596,8 +598,8 @@
 			"help": "type of work",
 			"activities": [
 				"Household upkeep",
-				"Volunteer work and meetings",
 				"Main job",
+				"Volunteer work and meetings",
 				"Study",
 				"Working time in second job",
 				"Unspecified activities related to employment"
@@ -664,6 +666,18 @@
 			]
 		},
 		"enjoyment": {
+			"title": "How well did this describe what you did",
+			"help": "Think how this made you feel.",
+			"activities": [
+				"Very much",
+				"Somewhat",
+				"Neutral",
+				"Not very much",
+				"Not at all",
+				"Skip"
+			]
+		},
+		"bkp_enjoyment": {
 			"title": "How much do you enjoy this?",
 			"help": "Think how this made you feel.",
 			"activities": [

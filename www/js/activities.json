@@ -103,52 +103,52 @@
 		"female": 				{ "title": "Gender", "value": 1,"caption": "Female", "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
 		"male": 				{ "title": "Gender", "value": 2,"caption": "Male", "help": "You would describe yourself as male", "ID": 90012, "next": "survey age" },
 		"survey gender other":	{ "title": "Gender", "value": 3,"caption": "Other", "help": "You would describe your gender as neither male nor female", "ID": 90013, "next": "survey age" },
-		"survey gender skip":	{ "title": "Gender", "value": 0,"caption": "Skip", "help": "You don't want to answer this question", "ID": 90014, "next": "survey age" },
+		"survey gender skip":	{ "title": "Gender", "value": 0,"caption": "Skip", "icon": "act_skip", "help": "You don't want to answer this question", "ID": 90014, "next": "survey age" },
 
 		"Age 1": { "title": "Age_range", "value": 1,"caption": "8 - 18", "help": "Your age is between 8 and 18", "ID": 90021, "next": "survey occupation" },
 		"Age 2": { "title": "Age_range", "value": 2,"caption": "19 - 34", "help": "Your age is between 19 and 34", "ID": 90022, "next": "survey occupation" },
 		"Age 3": { "title": "Age_range", "value": 3,"caption": "35 - 50", "help": "Your age is between 35 and 50", "ID": 90023, "next": "survey occupation" },
 		"Age 4": { "title": "Age_range", "value": 4,"caption": "51 - 70", "help": "Your age is between 51 and 70", "ID": 90024, "next": "survey occupation" },
 		"Age 5": { "title": "Age_range", "value": 5,"caption": "Over 70", "help": "Your age is over 70", "ID": 90025, "next": "survey occupation" },
-		"Age 6": { "title": "Age_range", "value": 6,"caption": "Skip", "help": "You don't want to say", "ID": 90026, "next": "survey occupation" },
+		"Age 6": { "title": "Age_range", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "You don't want to say", "ID": 90026, "next": "survey occupation" },
 
 		"Occupation student": 		{ "title": "Occupation", "value": 1, "caption": "Student", "help": "You go to school, university or any other form of unpaid training", "ID": 90031, "next": "survey working hours" },
 		"Occupation employed": 		{ "title": "Occupation", "value": 2, "caption": "Employed", "help": "You are in paid employment", "ID": 90032, "next": "survey working hours" },
 		"Occupation self employed": { "title": "Occupation", "value": 3, "caption": "Self employed", "help": "You are self employed", "ID": 90033, "next": "survey working hours" },
 		"Occupation unpaid work": 	{ "title": "Occupation", "value": 4, "caption": "Volunteer / unpaid work", "help": "You work in a voluntary or unpaid capacity", "ID": 90034, "next": "survey working hours" },
 		"Occupation unemployed": 	{ "title": "Occupation", "value": 5, "caption": "Unemployed / retired", "help": "You do not work, are retired or unemployed", "ID": 90035, "next": "survey bills" },
-		"Occupation other": 		{ "title": "Occupation", "value": 6, "caption": "Other / Skip", "help": "Your occupation is different or you don't want to say", "ID": 90036, "next": "survey working hours" },
+		"Occupation other": 		{ "title": "Occupation", "value": 6, "caption": "Other / Skip", "icon": "act_skip", "help": "Your occupation is different or you don't want to say", "ID": 90036, "next": "survey working hours" },
 
 		"Working hours 1": { "title": "WorkingHours", "value": 1,"caption": "None", "help": "I do not have work time as such", "ID": 90041, "next": "survey working regularity" },
 		"Working hours 2": { "title": "WorkingHours", "value": 2,"caption": "1 - 15", "help": "Most weeks you work between 1 and 15 hours", "ID": 90042, "next": "survey working regularity" },
 		"Working hours 3": { "title": "WorkingHours", "value": 3,"caption": "16 - 30", "help": "Most weeks you work between 16 and 30 hours", "ID": 90043, "next": "survey working regularity" },
 		"Working hours 4": { "title": "WorkingHours", "value": 4,"caption": "31 - 45", "help": "Most weeks you work between 31 and 45 hours", "ID": 90044, "next": "survey working regularity" },
 		"Working hours 5": { "title": "WorkingHours", "value": 5,"caption": "Over 45", "help": "I work over 45 hours", "ID": 90045, "next": "survey working regularity" },
-		"Working hours 6": { "title": "WorkingHours", "value": 6,"caption": "Skip", "help": "I choose not to say", "ID": 90046, "next": "survey working regularity" },
+		"Working hours 6": { "title": "WorkingHours", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "I choose not to say", "ID": 90046, "next": "survey working regularity" },
 
 		"Working hours change 1": { "title": "WorkRegularity", "value": 1, "caption": "Always the same", "help": "You have standard hours (e.g. 9am to 5pm)", "ID": 90051, "next": "survey working home" },
 		"Working hours change 2": { "title": "WorkRegularity", "value": 2, "caption": "Variable to suit work", "help": "You have standard hours, but they can vary", "ID": 90052, "next": "survey working home" },
 		"Working hours change 3": { "title": "WorkRegularity", "value": 3, "caption": "Flexible to suit me", "help": "I can choose my hours", "ID": 90053, "next": "survey working home" },
-		"Working hours change 4": { "title": "WorkRegularity", "value": 4, "caption": "Skip", "help": "I choose not to say", "ID": 90054, "next": "survey working home" },
+		"Working hours change 4": { "title": "WorkRegularity", "value": 4, "caption": "Skip", "icon": "act_skip", "help": "I choose not to say", "ID": 90054, "next": "survey working home" },
 
 		"Working home 1": { "title": "WorkHome", "value": 1,"caption": "Never", "help": "I never work from home", "ID": 90061, "next": "survey bills" },
 		"Working home 2": { "title": "WorkHome", "value": 2,"caption": "Rarely", "help": "I work from home approx. once per month", "ID": 90062, "next": "survey bills" },
 		"Working home 3": { "title": "WorkHome", "value": 3,"caption": "Sometimes", "help": "I work from home up to 5 times per month", "ID": 90063, "next": "survey bills" },
 		"Working home 4": { "title": "WorkHome", "value": 4,"caption": "Often", "help": "6 times or more per month", "ID": 90064, "next": "survey bills" },
 		"Working home 5": { "title": "WorkHome", "value": 5,"caption": "Always", "help": "Home is my main workplace", "ID": 90065, "next": "survey bills" },
-		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "help": "I chose not to say", "ID": 90066, "next": "survey bills" },
+		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "I chose not to say", "ID": 90066, "next": "survey bills" },
 
 		"Bills yes": 		{ "title": "BillContributer", "value": 1, "caption": "Yes, I do", "help": "I take responsibility for the bills", "ID": 90071, "next": "survey income" },
 		"Bills contribute": { "title": "BillContributer", "value": 2, "caption": "I contribute", "help": "Others also contribute or deal with bills", "ID": 90072, "next": "survey income" },
 		"Bills no": 		{ "title": "BillContributer", "value": 3, "caption": "I don't", "help": "Others pay or I don't have to", "ID": 90073, "next": "survey income" },
-		"Bills other": 		{ "title": "BillContributer", "value": 4, "caption": "Other / Skip", "help": "I have a different arrangement or don't want to say", "ID": 90074, "next": "survey income" },
+		"Bills other": 		{ "title": "BillContributer", "value": 4, "caption": "Other / Skip", "icon": "act_skip", "help": "I have a different arrangement or don't want to say", "ID": 90074, "next": "survey income" },
 
 		"Income 1": { "title": "Income", "value": 1,"caption": "£0 - <br>£10,000", "help": "I earn less than £10,000 per year.", "ID": 90080, "next": "survey appliances 1" },
 		"Income 2": { "title": "Income", "value": 2,"caption": "up to <br>£20,000", "help": "I earn up to £20,000 per year.", "ID": 90081, "next": "survey appliances 1" },
 		"Income 3": { "title": "Income", "value": 3,"caption": "up to <br>£30,000", "help": "I earn up to £30,000 per year.", "ID": 90082, "next": "survey appliances 1" },
 		"Income 4": { "title": "Income", "value": 4,"caption": "up to <br>£45,000", "help": "I earn up to £40,000 per year.", "ID": 90083, "next": "survey appliances 1" },
 		"Income 5": { "title": "Income", "value": 5,"caption": "Over £45,000", "help": "I earn up to £55,000 per year.", "ID": 90084, "next": "survey appliances 1" },
-		"Income 6": { "title": "Income", "value": 6,"caption": "Skip", "help": "I choose not to say", "ID": 90085, "next": "survey appliances 1" },
+		"Income 6": { "title": "Income", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "I choose not to say", "ID": 90085, "next": "survey appliances 1" },
 
 		"App 1 1": { "title": "UseDishwasher", "value": 1, "caption": "I didn't", "help": "use a dishwasher", "ID": 90101, "next": "survey appliances 2" },
 		"App 1 2": { "title": "UseDishwasher", "value": 2, "caption": "Once", "help": "used a dishwasher", "ID": 90102, "next": "survey appliances 2" },
@@ -266,8 +266,8 @@
 		"Loc outdoors": {
 			"title": "Outdoor activity",
 			"icon": "Loc_outside",
-			"caption": "Outdoors",
-			"help": "Park, road, public places, sports field",
+			"caption": "Garden / Outdoors",
+			"help": "Park, road, sports field",
 			"ID": 30018,
 			"value": 5,
 			"category": "travel",
@@ -462,6 +462,7 @@
 		"Skip": {
 			"title": "enjoyment skip",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Don't want to say",
 			"ID": 20001,
 			"next": "home"
@@ -488,7 +489,7 @@
 		"Neutral": {
 			"title": "enjoyment 3",
 			"icon": "enjoy_3",
-			"caption": "Neutral",
+			"caption": "So so",
 			"help": "I enjoyed this time somewhat",
 			"ID": 20004,
 			"value": 3,
@@ -517,6 +518,7 @@
 		"Travel foot": {
 			"title": "Walking",
 			"caption": "By foot",
+			"icon": "act_walk",
 			"help": "Walking, ambling, pottering",
 			"ID": 30031,
 			"category": "travel",
@@ -525,6 +527,7 @@
 		"Travel car": {
 			"title": "Driving",
 			"caption": "By car",
+			"icon": "act_car",
 			"help": "Car, van, motorbike or count",
 			"ID": 30036,
 			"category": "travel",
@@ -533,7 +536,8 @@
 		"Travel bike": {
 			"title": "Cycling",
 			"caption": "By bike",
-			"help": "Bike, road bike, tandem. For electric bikes use 'car' unless you pedal hard ;-)",
+			"icon": "act_bike",
+			"help": "Bike, road bike, tandem",
 			"ID": 30032,
 			"category": "travel",
 			"next": "travel purpose"
@@ -557,6 +561,7 @@
 		"Travel other": {
 			"title": "Travel",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Anything not listed here",
 			"ID": 30031,
 			"category": "travel",
@@ -567,12 +572,54 @@
 
 
 
-		"Other people 1": { "title": "activity time", "caption": "No one","help": "people",      "ID": 40001, "value": 0, "next": "enjoyment" },
-		"Other people 2": { "title": "activity time", "caption": "1",     "help": "people",      "ID": 40002, "value": 1, "next": "enjoyment" },
-		"Other people 3": { "title": "activity time", "caption": "2",     "help": "people",      "ID": 40003, "value": 2, "next": "enjoyment" },
-		"Other people 4": { "title": "activity time", "caption": "3",     "help": "people",      "ID": 40004, "value": 3, "next": "enjoyment" },
-		"Other people 5": { "title": "activity time", "caption": "4",     "help": "people",      "ID": 40005, "value": 4, "next": "enjoyment" },
-		"Other people 6": { "title": "activity time", "caption": "More",  "help": "More than 4", "ID": 40006, "value": 5, "next": "enjoyment" },
+	"Other people 1": { "title": "activity time",
+		 "caption": "No one",
+		 "icon": "act_others0",
+		"help": "people",
+		      "ID": 40001,
+		 "value": 0,
+		 "next": "enjoyment" },
+		
+	"Other people 2": { "title": "activity time",
+		 "caption": "1",
+		 "icon": "act_others1",
+		     "help": "people",
+		      "ID": 40002,
+		 "value": 1,
+		 "next": "enjoyment" },
+		
+	"Other people 3": { "title": "activity time",
+		 "caption": "2",
+		 "icon": "act_others2",
+		     "help": "people",
+		      "ID": 40003,
+		 "value": 2,
+		 "next": "enjoyment" },
+		
+	"Other people 4": { "title": "activity time",
+		 "caption": "3",
+		 "icon": "act_others3",
+		     "help": "people",
+		      "ID": 40004,
+		 "value": 3,
+		 "next": "enjoyment" },
+		
+	"Other people 5": { "title": "activity time",
+		 "caption": "4",
+		 "icon": "act_others4",
+		     "help": "people",
+		      "ID": 40005,
+		 "value": 4,
+		 "next": "enjoyment" },
+		
+	"Other people 6": { "title": "activity time",
+		 "caption": "More",
+		 "icon": "act_others5",
+		  "help": "More than 4",
+		 "ID": 40006,
+		 "value": 5,
+		 "next": "enjoyment" },
+		
 
 
 
@@ -612,7 +659,7 @@
 
 		"Personal": {
 			"title": "Personal care",
-			"caption": "Personal",
+			"caption": "Personal activity",
 			"icon": "act_personal",
 			"help": "Personal care, for yourself",
 			"ID": 0,
@@ -621,7 +668,7 @@
 		},
 		"Care": {
 			"title": "Being with others",
-			"caption": "With others",
+			"caption": "Joint activity",
 			"icon": "act_others",
 			"help": "Helping, socialising",
 			"ID": 3900,
@@ -711,6 +758,7 @@
 		"Care wash": {
 			"title": "Wash and dress",
 			"caption": "Wash or get dressed",
+			"icon": "act_wash_dress",
 			"help": "Shower, bath, changing clothes, beauty",
 			"ID": 310,
 			"category": "care_self",
@@ -752,16 +800,18 @@
 		"Care other": {
 			"title": "Being with others",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "being together",
 			"ID": 3912,
 			"category": "care_other",
-			"next": "other people"
+			"next": "care activities"
 		},
 
 
 		"Care wash shower": {
 			"title": "Shower",
 			"caption": "Shower",
+			"icon": "act_shower",
 			"help": "Being in the shower",
 			"ID": 311,
 			"category": "care_self",
@@ -778,11 +828,12 @@
 		"Care wash bath running": { "title": "Running a bath", "caption": "Running a bath", "help": "Filling the tub, preparing", "ID": 320, "category": "care_self", "next": "other people" },
 		"Care wash bath bathing": { "title": "Bathing", "caption": "Bathing", "help": "Sitting in a bath", "ID": 321, "category": "care_self", "next": "other people" },
 		"Care wash bath children":{ "title": "Bathing childern", "caption": "Bathing children", "help": "Washing children", "ID": 322, "category": "care_other", "next": "other people" },
-		"Care wash bath other":   { "title": "Bathing", "caption": "Skip", "help": "Bath related activity", "ID": 323, "category": "care_other", "next": "other people" },
+		"Care wash bath other":   { "title": "Bathing", "caption": "Skip", "icon": "act_skip", "help": "Bath related activity", "ID": 323, "category": "care_other", "next": "other people" },
 
 		"Care wash sink": {
 			"title": "Wash",
 			"caption": "Sink or flannel",
+			"icon": "act_sink",
 			"help": "Washing by a sink or with a flannel",
 			"ID": 313,
 			"category": "care_self",
@@ -791,6 +842,7 @@
 		"Care wash dress": {
 			"title": "Getting dressed",
 			"caption": "Getting dressed",
+			"icon": "act_dress",
 			"help": "Changing clothes, dressing",
 			"ID": 314,
 			"category": "care_self",
@@ -799,6 +851,7 @@
 		"Care wash hygiene": {
 			"title": "Hygiene / Beauty",
 			"caption": "Hygiene / Beauty",
+			"icon": "act_beauty",
 			"help": "Brushing teeth, make-up, shaving",
 			"ID": 315,
 			"category": "care_self",
@@ -807,6 +860,7 @@
 		"Care wash other": {
 			"title": "Wash",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "No better match here",
 			"ID": 316,
 			"category": "care_self",
@@ -819,6 +873,7 @@
 		"Care personal": {
 			"title": "Me time",
 			"caption": "Time for me",
+			"icon": "act_personal",
 			"help": "Care for yourself",
 			"ID": 300,
 			"category": "care_self",
@@ -835,6 +890,7 @@
 		"Getting ready other": {
 			"title": "Getting ready",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Getting ready for somethning",
 			"ID": 302,
 			"category": "care_self",
@@ -843,6 +899,7 @@
 		"Care personal other": {
 			"title": "Me time",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Care for yourself",
 			"ID": 303,
 			"category": "care_self",
@@ -863,6 +920,7 @@
 		"Other household and family care": {
 			"title": "Household and family care",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Just Household and family care",
 			"ID": 3000,
 			"category": "care_other",
@@ -880,6 +938,7 @@
 		"Food preparation": {
 			"title": "Prepare meal",
 			"caption": "Prepare meal",
+			"icon": "act_food",
 			"help": "Cooking, serving, arranging...",
 			"ID": 3110,
 			"category": "food",
@@ -1004,6 +1063,7 @@
 		"Dishes other": {
 			"title": "Lay or clear table",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "General laying or clearing",
 			"ID": 3136,
 			"category": "food",
@@ -1027,7 +1087,8 @@
 		},
 		"Food other": {
 			"title": "Food management",
-			"caption": "Skip",
+			"caption": "Other",
+			"icon": "act_skip",
 			"help": "Food management",
 			"ID": 3191,
 			"category": "food",
@@ -1045,6 +1106,7 @@
 		"Work house other": {
 			"title": "Housework",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Not listed here",
 			"ID": 3200,
 			"category": "care_house",
@@ -1085,6 +1147,7 @@
 		"Cleaning other": {
 			"title": "Cleaning house",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Not listed here",
 			"ID": 3214,
 			"category": "care_house",
@@ -1107,16 +1170,18 @@
 			"next": "other people"
 		},
 		"Work house clear up": {
-			"title": "Clearing up",
-			"caption": "Clearing up",
-			"help": "Tidy, sort, arrange household goods and materials",
+			"title": "Arrange things",
+			"caption": "Arrange things",
+			"icon": "act_tidy",
+			"help": "Tidy, sort, arrange things",
 			"ID": 3240,
 			"category": "care_house",
 			"next": "other people"
 		},
 		"Work house search": {
 			"title": "Looking for things",
-			"caption": "Looking things",
+			"caption": "Finding things",
+			"icon": "act_search",
 			"help": "Searching for something",
 			"ID": 3241,
 			"category": "care_house",
@@ -1133,6 +1198,7 @@
 		"Disposal of Waste": {
 			"title": "Disposal of Waste",
 			"caption": "Clearing / waste",
+			"icon": "act_tidy",
 			"help": "Arranging, disposal of waste",
 			"ID": 3250,
 			"category": "care_house",
@@ -1149,6 +1215,7 @@
 		"Unspecified making and care for textiles": {
 			"title": "Laundry",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "Handling or other work on textiles",
 			"ID": 3300,
 			"category": "care_house",
@@ -1157,6 +1224,7 @@
 		"Laundry": {
 			"title": "Laundry",
 			"caption": "Laundry",
+			"icon": "act_dress",
 			"help": "Washing, sorting, caring for textiles",
 			"ID": 3310,
 			"category": "care_house",
@@ -1295,6 +1363,7 @@
 		"Care child other": {
 			"title": "Being with child",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Being with child",
 			"ID": 3810,
 			"category": "care_other",
@@ -1384,6 +1453,7 @@
 		"xxxCare others other": {
 			"title": "Other specified help to an adult household member",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "form of care",
 			"ID": 3919,
 			"category": "care_other",
@@ -1689,6 +1759,7 @@
 		"Reading books": {
 			"title": "Reading",
 			"caption": "Reading",
+			"icon": "act_study",
 			"help": "Print or mobile device",
 			"ID": 8120,
 			"category": "care_self",
@@ -1705,6 +1776,7 @@
 		"Leisure TV": {
 			"title": "Screen time",
 			"caption": "Screen time",
+			"icon": "act_screen",
 			"help": "Watching TV, YouTube, film...",
 			"ID": 8210,
 			"category": "recreation",
@@ -1778,6 +1850,7 @@
 		"Leisure TV Other": {
 			"title": "Screen time",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "No need to be more specific",
 			"ID": 8210,
 			"category": "recreation",
@@ -1924,6 +1997,7 @@
 		"Work job other": {
 			"title": "Work",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "Other work",
 			"ID": 1140,
 			"category": "work",
@@ -1956,6 +2030,7 @@
 		"Unspecified activities related to employment": {
 			"title": "Work or Housework",
 			"caption": "Skip",
+			"icon": "act_skip",
 			"help": "None of the above",
 			"ID": 1300,
 			"next": "other people"
@@ -2132,6 +2207,7 @@
 		"Shopping and services": {
 			"title": "Shopping",
 			"caption": "Shopping and service",
+			"icon": "act_shop",
 			"help": "Buying goods or services",
 			"ID": 3600,
 			"category": "care_self",
@@ -2597,7 +2673,8 @@
 		},
 		"Care rest sleep": {
 			"title": "Rest or sleep",
-			"caption": "Break, Rest or sleep",
+			"caption": "Break, rest, sleep",
+			"icon": "act_rest",
 			"help": "Sleeping, resting, having a break",
 			"ID": 5311,
 			"category": "care_self",
@@ -2606,6 +2683,7 @@
 		"Care rest": {
 			"title": "Resting",
 			"caption": "Resting",
+			"icon": "act_rest",
 			"help": "Taking a break",
 			"ID": 5310,
 			"category": "care_self",
@@ -2616,6 +2694,7 @@
 		"Outdoors other": {
 			"title": "Outdoor activity",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "Anything else",
 			"ID": 6000,
 			"category": "recreation",
@@ -2674,6 +2753,7 @@
 		"Outdoor food other": {
 			"title": "Food outdoors",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "Other outdoor food activity",
 			"ID": 6005,
 			"category": "food",
@@ -2683,6 +2763,7 @@
 		"Outdoors appliances": {
 			"title": "Outdoors / appliances",
 			"caption": "Appliances",
+			"icon": "act_appliance",
 			"help": "Using an appliance outdoors",
 			"ID": 6010,
 			"category": "recreation",
@@ -2699,6 +2780,7 @@
 		"Walking and hiking": {
 			"title": "Walking and hiking",
 			"caption": "Sports",
+			"icon": "act_walk",
 			"help": "Walking and hiking",
 			"ID": 6110,
 			"category": "recreation",
@@ -2714,6 +2796,7 @@
 		"Other walk or hike": {
 			"title": "Other walk or hike",
 			"caption": "Sports",
+			"icon": "act_walk",
 			"help": "Other walk or hike",
 			"ID": 6119,
 			"next": "other people"
@@ -2867,16 +2950,17 @@
 		},
 		"Nature": {
 			"title": "In nature",
-			"icon": "nature",
+			"icon": "act_nature",
 			"caption": "Nature",
 			"help": "Being in nature",
 			"ID": 6400,
 			"category": "recreation",
-			"next": "other people"
+			"next": "activity main"
 		},
 		"Leisure other": {
 			"title": "Unspecified hobbies, games and computing",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "Other hobbies, games or computing",
 			"ID": 7000,
 			"next": "other people"
@@ -2990,6 +3074,7 @@
 		"Travel purpose other": {
 			"title": "Travel",
 			"caption": "Other",
+			"icon": "act_other",
 			"help": "Not shown here",
 			"ID": 9000,
 			"category": "travel",
@@ -3062,7 +3147,7 @@
 		"Travel purpose children school": { "title": "School run", "caption": "School / nursery", "help": "School run", "ID": 9231, "category": "travel", "next": "other people" },
 		"Travel purpose children sport": { "title": "Take children for sport", "caption": "Sport", "help": "To/from event/training", "ID": 9232, "category": "travel", "next": "other people" },
 		"Travel purpose children social": { "title": "Taking children to friends", "caption": "See friends", "help": "Socialising, play", "ID": 9233, "category": "travel", "next": "other people" },
-		"Travel purpose children other": { "title": "Taking children", "caption": "Other", "help": "Something else", "ID": 9234, "category": "travel", "next": "other people" },
+		"Travel purpose children other": { "title": "Taking children", "caption": "Other", "icon": "act_other", "help": "Something else", "ID": 9234, "category": "travel", "next": "other people" },
 
 		"Travel purpose household": {
 			"title": "Household related travel",
