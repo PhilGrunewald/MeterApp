@@ -108,8 +108,8 @@
 			"activities": [ "Time exercise 1", "Time exercise 2", "Time exercise 3", "Time exercise 4", "Time exercise 5", "Time exercise 6" ]
 		},
 
-		"adjust time": { "title": "Set time: ${act_time}", "help": "Press DONE when time is right", "activities": [ "-10min", "+5min", "-30min", "+15min", "-120min", "+60min" ] },
-		"activity time relative": { "title": "Set time: ${act_time}", "help": "Press DONE when time is right", 
+		"adjust time": { "title": "${rel_time}", "help": "Press DONE when time is right", "activities": [ "-10min", "+5min", "-30min", "+15min", "-120min", "+60min" ] },
+		"activity time relative": { "title": "${rel_time}", "help": "Press DONE when time is right", 
 			"activities": [ 
 				"-10min", "+5min", 
 				"-30min", "+15min", 

@@ -54,8 +54,6 @@ var utils = {
 			} else { 
 				time_ = new Date(dt_act);
 			}
-				console.log("elems0: " +elems[0]);
-				console.log("elems: " +elems[1]);
 
 			res = new Date(time_.getTime());
 			if (elems[1] == "-"){
@@ -69,6 +67,45 @@ var utils = {
 			}
 			ISOtime = res.toISOString();
 			res = ISOtime.substring(11,16);
+			return str.replace(intime_var, res)
+		} else if (elems[0] == "rel_time") {
+			var dt_act = utils.get(ACTIVITY_DATETIME);
+			if (dt_act == "same") {
+				time_ = new Date();
+			} else { 
+				time_ = new Date(dt_act);
+			}
+
+                        var nowTime  = new Date().getTime();
+                        var minDiff  = Math.round((time_.getTime() - nowTime)/60000);
+                        var preStr  = "";
+                        var postStr = "";
+                        var hourStr  = "";
+                        var minStr   = "";
+
+                        if (minDiff > 0) {
+                            preStr  = "in ";
+                            postStr = "";
+                        } else {
+                            preStr  = "";
+                            postStr = " ago";
+                            minDiff *= -1;
+                        }
+                        console.log(minDiff);
+                        if (parseInt(minDiff) < 2) {
+                            res = "now";
+                        } else {
+                            if (minDiff > 119) {
+                                hourStr = parseInt(minDiff/60) + " hours ";
+                            } else
+                            if (minDiff > 59) {
+                                hourStr = parseInt(minDiff/60) + " hour ";
+                            }
+                            minStr = minDiff % 60 + " min" ;
+                            var act_time = time_.toISOString();
+                            var actStr = act_time.substring(11,16);
+                            res = preStr + hourStr + minStr + postStr + "</br><small>("+ actStr + ")</small>";
+                        }
 			return str.replace(intime_var, res)
 		}
 	      else	{
@@ -86,29 +123,58 @@ var utils = {
 		return d.toString();
 	},
 
+        //
+        //  TIME handling
+        //
+
 	format_time : function(str) {
 		return new Date(str).toTimeString().substring(0, 5)
 	},
 	
-    save: function(key, val) {
-        localStorage.setItem(key, val);
-		console.log("saving: " + val);
-    },
+	extractTimeStr: function(ISOTime) {
+		var hours=parseInt(ISOTime.slice(11,13));
+		var minutes=parseInt(ISOTime.slice(14,16));
+		var ampm = hours >= 12 ? 'pm' : 'am';
+		hours = hours % 12;
+		hours = hours ? hours : 12; // the hour '0' should be '12'
+		minutes = minutes < 10 ? '0'+minutes : minutes;
+		var strTime = hours + ':' + minutes + ' ' + ampm;
+		return strTime;
+	},
+
+	formatAMPM: function(hours,minutes) {
+		var ampm = hours >= 12 ? 'pm' : 'am';
+		hours = hours % 12;
+		hours = hours ? hours : 12; // the hour '0' should be '12'
+		minutes = minutes < 10 ? '0'+minutes : minutes;
+		var strTime = hours + ':' + minutes + ' ' + ampm;
+		return strTime;
+	},
+
+        //
+        // LOCAL variable handling
+        //
+
+        save: function(key, val) {
+            localStorage.setItem(key, val);
+            console.log("saving: " + val);
+        },
     
-    get: function(key) {
-        return localStorage.getItem(key);
-    },
+
+        get: function(key) {
+            return localStorage.getItem(key);
+        },
     
 	remove: function(key) {
 		localStorage.removeItem(key);
 	},
 
-    saveList: function(key, val) {
-        localStorage.setItem(key, JSON.stringify(val));
-    },
-    
-    getList: function(key) {
-        return JSON.parse(localStorage.getItem(key));
-    },
+        saveList: function(key, val) {
+            localStorage.setItem(key, JSON.stringify(val));
+        },
+
+        getList: function(key) {
+            return JSON.parse(localStorage.getItem(key));
+        },
 
 }

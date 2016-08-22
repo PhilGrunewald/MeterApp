@@ -26,6 +26,7 @@ var ACTIVITY_MANUAL_DATE = "none";  // default - if entering manual 'past time' 
 
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
+var CURR_PEOPLE = "-1";
 var ACTIVITY_LIST = "activity_list";
 var CATCHUP_LIST = "catchup_list";			// keeps times that participants should follow up on
 var SURVEY_STATUS = "survey root";			// stores how far they got in the survey
@@ -53,6 +54,8 @@ var ENJOYMENT_MIN = 20000;
 var ENJOYMENT_MAX = 20010;
 var LOCATION_MIN  = 30000;
 var LOCATION_MAX  = 30031;
+var PEOPLE_MIN    = 40000;
+var PEOPLE_MAX    = 40010;
 var SURVEY_MIN    = 90000;
 var SURVEY_MAX    = 91000;
 
@@ -187,6 +190,12 @@ var app = {
 			  //
 			  else if (app.activities[prev_activity].ID > LOCATION_MIN && app.activities[prev_activity].ID < LOCATION_MAX) {
 				  utils.save(CURR_LOCATION, app.activities[prev_activity].value);
+			  }
+			  //
+			  // PEOPLE
+			  //
+			  else if (app.activities[prev_activity].ID > PEOPLE_MIN && app.activities[prev_activity].ID < PEOPLE_MAX) {
+				  utils.save(CURR_PEOPLE, app.activities[prev_activity].value);
 			  }
 			  //
 			  // ENJOYMENT
@@ -415,7 +424,7 @@ var app = {
 		if (catchupIndex > -1) {
 			var hh=parseInt(app.catchupList.time[catchupIndex].slice(11,13));
 			var mm=parseInt(app.catchupList.time[catchupIndex].slice(14,16));
-			var strTime = app.formatAMPM(hh,mm);
+			var strTime = utils.formatAMPM(hh,mm);
 			console.log("about to show Catchup");
 			app.title.html("What happened <b>at " + strTime + "</b>? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
             app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
@@ -424,25 +433,6 @@ var app = {
 		}
 	},
 
-	extractTimeStr: function(ISOTime) {
-		var hours=parseInt(ISOTime.slice(11,13));
-		var minutes=parseInt(ISOTime.slice(14,16));
-		var ampm = hours >= 12 ? 'pm' : 'am';
-		hours = hours % 12;
-		hours = hours ? hours : 12; // the hour '0' should be '12'
-		minutes = minutes < 10 ? '0'+minutes : minutes;
-		var strTime = hours + ':' + minutes + ' ' + ampm;
-		return strTime;
-	},
-
-	formatAMPM: function(hours,minutes) {
-		var ampm = hours >= 12 ? 'pm' : 'am';
-		hours = hours % 12;
-		hours = hours ? hours : 12; // the hour '0' should be '12'
-		minutes = minutes < 10 ? '0'+minutes : minutes;
-		var strTime = hours + ':' + minutes + ' ' + ampm;
-		return strTime;
-	},
 
 	catchupActivity: function(catchupIndex) {
 		// takes the 'catchupTime' before navigate to activity selection
@@ -465,6 +455,7 @@ var app = {
 		var actKey  = utils.get(CURR_ACTIVITY);
 		var details = utils.get(CURR_ACTIVITY_ID) ;
 		var loc     = utils.get(CURR_LOCATION) ;
+		var people  = utils.get(CURR_PEOPLE);          
 		var enj     = utils.get(CURR_ENJOYMENT);          
 
 		var detailsArray = details.split(",");  // contains tuc, category, title
@@ -479,6 +470,7 @@ var app = {
             "name" : actKey,
             "time" : dt_act,
 			"loc"  : loc,
+			"people": people,
 			"enj"  : enj,
 			"tuc"  : tuc,
 			"cat"  : cat,
@@ -487,9 +479,10 @@ var app = {
 		utils.saveList(ACTIVITY_LIST, activityList);
                 //console.log('act: ' + act);
 		var actStr = "\""+act+"\"";
-    	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, enj].join() + "\n";
+    	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj].join() + "\n";
     	log.writeLog(log.logAct, str)
         utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
+        utils.save(CURR_PEOPLE, "-1"); // reset to assume 'now' entry
 		var actCount = Object.keys(activityList).length;
 		if (actCount > 25) {
 			$("img#stars").attr("src","img/stars_5.png");
@@ -529,7 +522,7 @@ var app = {
 		// instead of "next screen", onclick() points to specific functions
             var activityList = utils.getList(ACTIVITY_LIST) || {};
             var item = activityList[actKey];
-			app.title.html(app.extractTimeStr(item.time) + ": " + item.act)
+			app.title.html(utils.extractTimeStr(item.time) + ": " + item.act)
             var screen_ = app.screens["edit activity"];
             for (i = 0; i < screen_.activities.length; i++) {
 				var activity_id = screen_.activities[i];
@@ -563,6 +556,7 @@ var app = {
         utils.save(CURR_ACTIVITY, thisAct.name);
 		utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.cat, thisAct.act].join());
         utils.save(CURR_LOCATION, thisAct.loc);
+		utils.save(CURR_PEOPLE, thisAct.people);
 		utils.save(CURR_ENJOYMENT, thisAct.enj);
 	},
 
