@@ -104,6 +104,9 @@ h1 {
 #title {
 	font-weight: lighter;
     font-size: 150%;
+	vertical-align: top;
+	padding-left: 5%;
+	padding-top: 5%;
 }
 #btn-history {
 	font-weight: lighter;
@@ -114,17 +117,17 @@ h1 {
 }
 
 #btn-now {
-	background-image: url("../img/now.png");
+/*	background-image: url("../img/now.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-position: center bottom;
+	background-position: center bottom;*/
 	height: 90px;
 }
 #btn-recent {
-	background-image: url("../img/recent.png");
+	/*background-image: url("../img/recent.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-position: center bottom;
+	background-position: center bottom;*/
 	height: 90px;
 }
 
@@ -164,6 +167,10 @@ h1 {
     display: table-row;
     padding: 5px 0;
     width: 100%;
+}
+
+.inline {
+	display:inline-block;
 }
 
 .col {

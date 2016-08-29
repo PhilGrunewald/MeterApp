@@ -41,7 +41,7 @@
 		<div class="navbar">
 			<!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
 			<div class="row">
-				<div id="nav-home" class="col-3" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
+				 <div id="nav-home" class="col-3" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
 				<div id="nav-aboutme" class="col-3" onclick="app.navigateTo('survey root')">Survey<img src="img/AR_4.png" id="survey-status"></div>
 				<div hidden id="nav-status" class="col-3" onclick="app.showProgressList();"><img id="stars"></div>
 				<div id="nav-help" class="col-3" style="font-size:25px" onclick="app.toggleCaption();">?</div>
@@ -65,7 +65,8 @@
 
 
 		<div class="header">
-			<div id="title">Welcome</div>
+			<canvas id="clock-act"   width="75" height="75"  class="inline"></canvas>
+			<div id="title" class="inline">Welcome</div>
 		</div>
 
 		<div id="other-specify">
@@ -113,8 +114,19 @@
 			<div id="activity_add_pane">
 				<div class="btn-addnew container">
 					<div class="row">
-						<div id="btn-now"    class="col" onclick="app.navigateTo('activity root')"><br>Now<div id="now-time">${time}</div></div>
-						<div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')"><br>Set time</div>
+						
+					<div id="btn-now" class="col" onclick="app.navigateTo('activity root')">
+						<canvas id="clock-now"   width="120" height="120"  class=""></canvas>
+					</div>
+
+					<div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">
+						<canvas id="clock-recent" width="120" height="120" class="" onclick="app.navigateTo('activity time relative')">
+						</canvas>
+					</div>
+						<!-- 
+<div id="btn-now"    class="col" onclick="app.navigateTo('activity root')"><br>Now<div id="now-time">${time}</div></div>
+							<br>Set time</div>
+-->
 					</div>
 				</div>
 			</div>

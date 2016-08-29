@@ -102,6 +102,20 @@ var app = {
         app.title            = $("#title");
         app.now_time         = $("#now-time");
 		app.act_count        = $('#act-count');
+
+		// The clock face behind the "Now" button
+		app.nowClock		= $('#clock-now');
+		app.initClock(app.nowClock);
+
+		// clock face (move to utils?)
+		app.recentClock		= $('#clock-recent');
+		app.initClock(app.recentClock);
+
+		// For time setting
+		app.actClock		= $('#clock-act');
+		app.initClock(app.actClock);
+		app.actClock.hide();
+
         app.history          = new Array();
 		if (utils.get(SURVEY_STATUS) == "survey complete") {
 			$("div#nav-aboutme").hide();
@@ -110,22 +124,119 @@ var app = {
 			$("div#nav-status").hide();
 			$("div#nav-aboutme").show();
 		}
+		app.updateNowTime();
+		setInterval(function(){ app.updateNowTime(); }, 10000);
+	},
 
-		setInterval(function(){ app.updateNowTime(); }, 1000);
+	initClock: function(thisClock) {
+		var clock	= thisClock[0].getContext("2d");
+		var r = thisClock.height()/2;
+		clock.translate(r,r);
 	},
 
 	updateNowTime: function() {
-		var timeStr = utils.format("${time}");
-		if (ToggleColon) {
-			timeStr = timeStr.substring(0,2)+" "+timeStr.substring(3,5);
+		//var timeStr = utils.format("${time}");
+		//if (ToggleColon) {
+		//	timeStr = timeStr.substring(0,2)+" "+timeStr.substring(3,5);
+		//}
+		//ToggleColon = (!ToggleColon);
+        //app.now_time.html(timeStr);
+		var now = new Date();
+		var hour = now.getHours();
+		var min  = now.getMinutes();
+		var min2digit = ("0" + min).slice(-2);
+
+		app.drawClock(app.nowClock,hour,min,"Now", hour + ':' + min2digit);
+		app.drawClock(app.recentClock,now.getHours(),now.getMinutes(), "Recently", "back arrow");
+	},
+
+	drawClock: function(thisClock,hour,minute,caption,subcaption) {
+		var clock	= thisClock[0].getContext("2d");
+		var clockEdge = thisClock.height() * 0.08;
+		var radius = (thisClock.height()/2) - (clockEdge /2);
+
+		// face
+		app.drawFace(clock, radius, clockEdge);
+
+	    // hour
+	    hour=hour%12;
+	    hour=(hour*Math.PI/6)+(minute*Math.PI/(6*60));
+	    app.drawHand(clock, hour, radius*0.5, clockEdge);
+
+	    // minute
+	    minute=(minute*Math.PI/30);
+	    app.drawHand(clock, minute, radius*0.8, clockEdge*0.6);
+
+		// caption
+
+    //font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+		clock.textAlign="center";
+		clock.font = radius*0.5 + "px HelveticaNeue-Light";
+
+		clock.fillStyle = "green";
+		if (subcaption == "back arrow") {
+			clock.fillText(caption, 0, 0);
+			app.drawBackArrow(clock, radius*0.6, clockEdge);
+		} else {
+			clock.fillText(caption, 0, -radius*0.25);
+			clock.fillText(subcaption, 0, radius*0.25);
 		}
-		ToggleColon = (!ToggleColon);
-        app.now_time.html(timeStr);
+	},
+
+	drawFace: function(ctx, radius, width) {
+	    ctx.beginPath();
+		ctx.arc(0, 0 , radius, 0, 2*Math.PI);
+		ctx.fillStyle = "white";
+		ctx.fill();
+		ctx.strokeStyle = "#ccc";
+		ctx.lineWidth = width;
+		ctx.stroke();
+		ctx.lineWidth = width/3;
+	    ctx.lineCap = "round";
+		for(num= 0; num < 4; num++){
+	        ang = num * Math.PI / 2;
+	        ctx.rotate(ang);
+	    	ctx.moveTo(0,radius*0.85);
+			ctx.lineTo(0,radius);
+			ctx.stroke();
+	        ctx.rotate(-ang);
+    	}
+	},
+
+	drawBackArrow: function(ctx,radius,width) {
+		ctx.rotate(2/12*Math.PI);
+			// arch
+			ctx.lineWidth = width/3;
+			ctx.strokeStyle = "green";
+	    	ctx.beginPath();
+			ctx.arc(0, 0 , radius, 0, 2/3*Math.PI);
+			ctx.stroke();
+			// arrow
+	    	ctx.beginPath();
+			ctx.fillStyle = "green";
+	    	ctx.moveTo(radius,-5);
+			ctx.lineTo(radius+12,+12);
+			ctx.lineTo(radius-12,12);
+	    	ctx.fill();
+		ctx.rotate(-2/12*Math.PI);
+
+	},
+
+	drawHand: function(ctx, pos, length, width) {
+	    ctx.beginPath();
+	    ctx.moveTo(0,0);
+	    ctx.lineWidth = width;
+	    ctx.lineCap = "round";
+	    ctx.rotate(pos);
+	    ctx.lineTo(0, -length);
+	    ctx.stroke();
+	    ctx.rotate(-pos);
 	},
 
 	navigateTo: function(screen_id, prev_activity) {
 		// the button pressed had 'prev_activity' as its 'title'
 		// next screen has the key 'screen_id'
+		app.actClock.hide();
 		app.history.push(screen_id);                     // for 'back' functionality
 		if (prev_activity !== undefined) {
 			if (!(prev_activity in app.activities)) {    // previous activity is defined but not known (free text)
@@ -240,17 +351,17 @@ var app = {
 		}
 
 		var screen_ = app.screens[screen_id];
-		$("#title").html(utils.format(screen_.title));
+		app.title.html(utils.format(screen_.title));
 
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
-			$("#title").html(utils.format(screen_.title));
+			app.title.html(utils.format(screen_.title));
 			if (prev_activity !== "ignore") {
 				app.addActivityToList();
 			}
 			// until and activity is selected btn-home will not create a new entry
 			app.footer_nav("home");
-			// app.updateNowTime();
+			app.updateNowTime();
 			app.showActivityList();
 			app.choicesPane.hide();
 		} else 
@@ -344,6 +455,10 @@ var app = {
             app.showActivityList();
         } else {
             app.navigateTo(prev,prev);
+			console.log("Back to: " + prev);
+			if (prev == "adjust time") {
+				app.footer_nav("next");  
+			}
 			// XXX undo potential time offsets
         }
     },
@@ -395,13 +510,14 @@ var app = {
 		app.act_count.show();
 		app.activity_list_div.html(actsHTML);
         app.choicesPane.hide();
+		app.actClock.hide();
 		$("div#progress_list_pane").hide();
 		$("div#other-specify").hide();
         app.activityAddPane.show();
         app.activityListPane.show();
     	//app.title.html("What I did ...")
-		app.showCatchupItem(); // overwrites app.title if catchup items exist
 		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
+		app.showCatchupItem(); // overwrites app.title if catchup items exist
     },
 
 	showCatchupItem: function() {

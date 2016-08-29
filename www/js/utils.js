@@ -73,39 +73,46 @@ var utils = {
 			if (dt_act == "same") {
 				time_ = new Date();
 			} else { 
-				time_ = new Date(dt_act);
+			time_ = new Date(dt_act);
 			}
 
-                        var nowTime  = new Date().getTime();
-                        var minDiff  = Math.round((time_.getTime() - nowTime)/60000);
-                        var preStr  = "";
-                        var postStr = "";
-                        var hourStr  = "";
-                        var minStr   = "";
+			var nowTime  = new Date().getTime();
+			var minDiff  = Math.round((time_.getTime() - nowTime)/60000);
+			var preStr  = "";
+			var postStr = "";
+			var hourStr  = "";
+			var minStr   = "";
 
-                        if (minDiff > 0) {
-                            preStr  = "in ";
-                            postStr = "";
-                        } else {
-                            preStr  = "";
-                            postStr = " ago";
-                            minDiff *= -1;
-                        }
-                        console.log(minDiff);
-                        if (parseInt(minDiff) < 2) {
-                            res = "now";
-                        } else {
-                            if (minDiff > 119) {
-                                hourStr = parseInt(minDiff/60) + " hours ";
-                            } else
-                            if (minDiff > 59) {
-                                hourStr = parseInt(minDiff/60) + " hour ";
-                            }
-                            minStr = minDiff % 60 + " min" ;
-                            var act_time = time_.toISOString();
-                            var actStr = act_time.substring(11,16);
-                            res = preStr + hourStr + minStr + postStr + "</br><small>("+ actStr + ")</small>";
-                        }
+			if (minDiff > 0) {
+				preStr  = "in ";
+				postStr = "";
+			} else {
+				preStr  = "";
+				postStr = " ago";
+				minDiff *= -1;
+			}
+			minDiff = Math.round(minDiff/5)*5;
+				// if (minDiff > 119) {
+				//     hourStr = parseInt(minDiff/60) + " hours ";
+				// } else
+				if (minDiff > 59) {
+					hourStr = parseInt(minDiff/60) + " h ";
+				//     hourStr = parseInt(minDiff/60) + " hour ";
+				}
+				if (minDiff % 60 != 0) {
+				minStr = minDiff % 60 + " min" ;
+				}
+				var act_time = time_.toISOString();
+				var actHour = act_time.substring(11,13);
+				var actMin = act_time.substring(14,16);
+			if (parseInt(minDiff) == 0) {
+				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMin);
+				res = "Now";
+			} else {
+				res = preStr + hourStr + minStr + postStr;
+				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMin);
+			}
+				app.actClock.show();
 			return str.replace(intime_var, res)
 		}
 	      else	{
