@@ -103,7 +103,7 @@ h1 {
 
 #title {
 	font-weight: lighter;
-    font-size: 150%;
+    font-size: 120%;
 	vertical-align: top;
 	padding-left: 5%;
 	padding-top: 5%;
@@ -214,12 +214,13 @@ h1 {
 .btn-activity {
 	/* default behaviour for activity buttons - superseded by category if specified */
     background-color: #eec;
+	height: 90px;
 }
 
 .btn-title {
 	/* the short main description */
 	font-weight: lighter;
-    font-size: 120%;
+    font-size: 110%;
     color: #44d;
 }
 

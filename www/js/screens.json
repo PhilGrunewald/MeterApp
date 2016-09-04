@@ -1,8 +1,17 @@
 {
 	"screens": {
 
+		"to do": [
+			"getting ready > ironing",
+			"what if manually brushing teeth",
+			"travel purpose - depend on mode (eg dog walking not by bike)",
+			"coold food appliiances",
+			"Survey questions 'on average'",
+			"review skip"
+		],
+
 		"home": {
-			"title": "What I did",
+			"title": "What I did...",
 			"help": ""
 		},
 		"edit activity": {
@@ -194,6 +203,18 @@
 				"Outdoors other"
 			]
 		},
+		"nature": {
+			"title": "In nature",
+			"help": "what is happening",
+			"activities": [
+				"Exercise",
+				"Care",
+				"Outdoor food",
+				"Leisure TV",
+				"Loc travelling",
+				"Outdoors other"
+			]
+		},
 		"garden": {
 			"title": "In the garden",
 			"help": "what is happening",
@@ -243,8 +264,8 @@
 			]
 		},
 		"care": {
-			"title": "Joint activity",
-			"help": "to help or socialise",
+			"title": "Activity with...",
+			"help": "",
 			"activities": [
 				"Care child",
 				"Care family",
@@ -264,7 +285,7 @@
 				"Care others unspecified",
 				"Socialising",
 				"Exercise",
-				"Care other"
+				"Care activities other"
 			]
 		},
 		"care personal": {
@@ -303,6 +324,19 @@
 				"Care wash other"
 			]
 		},
+
+		"care wash hygiene": {
+			"title": "Anything electric?",
+			"help": "",
+			"activities": [
+				"Appliances Hair dryer",
+				"Appliances hair curler",
+				"Appliances shaver",
+				"Appliances hair trimmer",
+				"Appliances tooth brush",
+				"Appliances hygiene none"
+			]
+		},
 		"care wash bath": {
 			"title": "About the bath",
 			"help": "at this moment",
@@ -317,14 +351,14 @@
 		},
 		
 		"care child": {
-			"title": "Describe the child care:",
+			"title": "Child care",
 			"help": "at this moment",
 			"activities": [
 				"Food",
 				"Care child engage",
-				"Care child supervise",
 				"Care wash",
-				"Blank",
+				"Care child bed",
+				"Care child supervise",
 				"Care child other"
 			]
 		},
@@ -374,14 +408,14 @@
 			]
 		},
 		"travel": {
-			"title": "Any particular travel? ",
+			"title": "Travel",
 			"help": "at this moment",
 			"activities": [
 				"Travel foot",
 				"Travel car",
 				"Travel bike",
 				"Travel public",
-				"Travel exercise",
+				"Travel purpose exercise",
 				"Travel other"
 			]
 		},
@@ -391,14 +425,14 @@
 			"activities": [
 				"Travel purpose commute",
 				"Travel purpose children",
-				"Travel purpose dog",
+				"Walking the dog",
 				"Travel purpose shopping",
 				"Travel purpose leisure",
 				"Travel purpose 2"
 			]
 		},
 		"travel purpose children": {
-			"title": "taking children",
+			"title": "Take child to/from",
 			"help": "Why did you do this journey?",
 			"activities": [
 				"Travel purpose children school",
@@ -409,15 +443,51 @@
 				"Blank"
 			]
 		},
-		"travel purpose 2": {
-			"title": "Purpose of travel:",
-			"help": "Why did you do this journey?",
+		"travel purpose foot": {
+			"title": "Walking for...",
+			"help": "",
 			"activities": [
-				"Travel purpose exercise",
+				"Travel purpose children",
+				"Travel purpose shop service",
+				"Travel purpose leisure",
+				"Walking the dog",
+				"Travel purpose work",
+				"Travel purpose other"
+			]
+		},
+		"travel purpose bike": {
+			"title": "Cycling for...",
+			"help": "",
+			"activities": [
+				"Travel purpose children",
+				"Travel purpose shop service",
+				"Travel purpose leisure",
+				"Walking the dog",
+				"Travel purpose work",
+				"Travel purpose other"
+			]
+		},
+		"travel purpose car": {
+			"title": "Driving for...",
+			"help": "",
+			"activities": [
+				"Travel purpose work",
+				"Travel purpose children",
+				"Travel purpose shop service",
+				"Travel purpose leisure",
 				"Travel purpose friend",
-				"Travel purpose entertainment",
-				"Travel purpose household",
-				"Travel purpose social",
+				"Travel purpose other"
+			]
+		},
+		"travel purpose public": {
+			"title": "Travelling for...",
+			"help": "",
+			"activities": [
+				"Travel purpose work",
+				"Travel purpose children",
+				"Travel purpose shop service",
+				"Travel purpose leisure",
+				"Travel purpose friend",
 				"Travel purpose other"
 			]
 		},
@@ -425,22 +495,22 @@
 			"title": "Personal activity",
 			"help": "take a pick",
 			"activities": [
-				"Getting ready",
 				"Care rest sleep",
+				"Getting ready",
+				"Care wash",
 				"Care personal",
 				"Leisure TV",
-				"Care wash",
 				"Care other"
 			]
 		},
 
 		"getting ready": {
-			"title": "How do you get ready?",
-			"help": "type of preparation",
+			"title": "Getting ready",
+			"help": "",
 			"activities": [
 				"Care wash",
-				"Work house clear up",
 				"Care wash hygiene",
+				"Work house clear up",
 				"Work house search",
 				"Pottering",
 				"Getting ready other"
@@ -449,7 +519,7 @@
 
 
 		"leisure tv device": {
-			"title": "What are you watching on?",
+			"title": "Screen time",
 			"help": "The type of device",
 			"activities": [
 				"Leisure TV Mobile",
@@ -462,8 +532,8 @@
 		},
 
 		"food": {
-			"title": "What do you do with food? ",
-			"help": "at this moment",
+			"title": "Food",
+			"help": "",
 			"activities": [
 				"Food preparation",
 				"Cutlery handling",
@@ -474,27 +544,15 @@
 			]
 		},
 		"food preparation": {
-			"title": "How did you prepare food? ",
-			"help": "at this moment",
+			"title": "Prepare meal",
+			"help": "",
 			"activities": [
 				"Food preparation cold",
 				"Food preparation hot",
 				"Baking",
-				"Food other",
+				"Lay table",
 				"Blank",
-				"Blank"
-			]
-		},
-		"food preparation hot": {
-			"title": "Did you use any of these appliances?",
-			"help": "Might they have been running at the time?",
-			"activities": [
-				"Hob",
-				"Oven",
-				"Microwave",
-				"Kettle",
-				"Toaster",
-				"Other specify"
+				"Food other"
 			]
 		},
 		"food clear": {
@@ -522,6 +580,86 @@
 			]
 		},
 		"appliances": {
+			"title": "Appliance use",
+			"help": "",
+			"activities": [
+				"Appliances clothes",
+				"Appliances kitchen",
+				"Appliances entertainment",
+				"Appliances household",
+				"Appliances bathroom",
+				"Other specify"
+			]
+		},
+
+		"appliances clothes": {
+			"title": "Clothes",
+			"help": "",
+			"activities": [
+				"Appliances Washing machine",
+				"Appliances Washer dryer",
+				"Appliances Tumble dryer",
+				"Ironing",
+				"Appliances Sewing machine",
+				"Other specify"
+			]
+		},
+
+
+		"appliances kitchen": {
+			"title": "Kitchen",
+			"help": "",
+			"activities": [
+				"Appliances Dish washer",
+				"Appliances Oven",
+				"Appliances Microwave",
+				"Appliances Kettle",
+				"Appliances Toaster",
+				"Other specify"
+			]
+		},
+
+		"appliances entertainment": {
+			"title": "Entertainment",
+			"help": "",
+			"activities": [
+				"Appliances TV",
+				"Mobile device",
+				"Appliances Games console",
+				"Appliances Radio",
+				"Appliances Toys",
+				"Other specify"
+			]
+		},
+
+		"appliances household": {
+			"title": "House and garden",
+			"help": "",
+			"activities": [
+				"Cleaning vacuum",
+				"Appliances heater",
+				"Appliances Tools",
+				"Appliances Garden tools",
+				"Appliances Toys",
+				"Other specify"
+			]
+		},
+
+		"appliances bathroom": {
+			"title": "Bathroom",
+			"help": "",
+			"activities": [
+				"Appliances Hair dryer",
+				"Appliances hair curler",
+				"Appliances shaver",
+				"Appliances hair trimmer",
+				"Appliances tooth brush",
+				"Appliances hygiene none"
+			]
+		},
+
+
+		"Xappliances": {
 			"title": "Appliance use",
 			"help": "Use of electrical goods",
 			"activities": [
@@ -552,6 +690,8 @@
 				"Appliances Toaster",
 				"Appliances Garden tools",
 				"Ironing",
+				"Appliance Sewing machine",
+
 				"Appliances Hair dryer",
 				"Appliances other",
 				"Appliances 4"
@@ -618,19 +758,19 @@
 			]
 		},
 		"work house": {
-			"title": "What house work do you do:",
-			"help": "at this moment",
+			"title": "House work",
+			"help": "",
 			"activities": [
-				"Work house clear up",
-				"Cleaning house",
-				"Laundry",
+				"Cutlery handling",
 				"Work house food",
-				"Disposal of Waste",
+				"Laundry",
+				"Cleaning house",
+				"Work house clear up",
 				"Work house other"
 			]
 		},
 		"laundry": {
-			"title": "You are doing laundry",
+			"title": "Laundry",
 			"help": "at this moment",
 			"activities": [
 				"Washing machine",
@@ -642,7 +782,7 @@
 			]
 		},
 		"work house clean": {
-			"title": "How are you cleaning",
+			"title": "Cleaning",
 			"help": "at this moment",
 			"activities": [
 				"Cleaning dusting",

@@ -100,17 +100,25 @@ var utils = {
 				//     hourStr = parseInt(minDiff/60) + " hour ";
 				}
 				if (minDiff % 60 != 0) {
-				minStr = minDiff % 60 + " min" ;
+					minStr = minDiff % 60 + " min" ;
 				}
 				var act_time = time_.toISOString();
 				var actHour = act_time.substring(11,13);
 				var actMin = act_time.substring(14,16);
+				actMin = Math.round(actMin/5)*5;
+				if (actMin == 60) {
+					actMin = 0;
+					actHour = parseInt(actHour)+1;
+				}
+
+			actMinStr = ("0" + actMin).slice(-2);
+
 			if (parseInt(minDiff) == 0) {
-				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMin);
-				res = "Now";
+				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMinStr);
+				res = " at the moment";
 			} else {
 				res = preStr + hourStr + minStr + postStr;
-				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMin);
+				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMinStr);
 			}
 				app.actClock.show();
 			return str.replace(intime_var, res)

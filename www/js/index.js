@@ -63,7 +63,6 @@ var CATCHUP_INDEX = 0;
 var catchupList   = "";
 var deviceColour  = "#990000";				// to be used for background or colour marker
 var ToggleColon   = false;
-var fastTrack     = false;					// takes navTo("other people") straight "home"
 
 var app = {
     // Application Constructor
@@ -91,7 +90,6 @@ var app = {
         $("div#change-date").hide(); 	// replace by making the div default 'hide'
         utils.save(ACTIVITY_DATETIME, "same");
         utils.save(ACTIVITY_MANUAL_DATE, "none");
-        // XXX utils.save(SURVEY_STATUS, screen_id);
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
         app.catchup_text     = $('#catchup-text');
@@ -117,6 +115,8 @@ var app = {
 		app.actClock.hide();
 
         app.history          = new Array();
+        app.act_path          = new Array();
+
 		if (utils.get(SURVEY_STATUS) == "survey complete") {
 			$("div#nav-aboutme").hide();
 			$("div#nav-status").show();
@@ -185,12 +185,14 @@ var app = {
 
 	drawFace: function(ctx, radius, width) {
 	    ctx.beginPath();
+		// the ring (inner white, grey edge)
 		ctx.arc(0, 0 , radius, 0, 2*Math.PI);
 		ctx.fillStyle = "white";
 		ctx.fill();
 		ctx.strokeStyle = "#ccc";
 		ctx.lineWidth = width;
 		ctx.stroke();
+		// four ticks
 		ctx.lineWidth = width/3;
 	    ctx.lineCap = "round";
 		for(num= 0; num < 4; num++){
@@ -247,7 +249,8 @@ var app = {
 						"ID"      : OTHER_SPECIFIED_ID,
 						"next"    : screen_id
 					}
-			}
+			} 
+			app.act_path.push(app.activities[prev_activity].ID);                     // for to keep a record 'how people got to final activity
 
 			//****************************** 
 			//
@@ -269,32 +272,40 @@ var app = {
 			  // Is TIME setting
 			  //
 			  else if (app.activities[prev_activity].ID > ACTIVITY_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_TIME_MAX) {
-				  // if going via "Recent" > prompted for time offset 
-				  // apply offset to current time
-				  var offset = app.activities[prev_activity].value * 60000;
-				  //console.log('apply offset: ' + offset);
-				  // var dt_ = Date.now();
-				  var dt_activity = utils.get(ACTIVITY_DATETIME);
-				  dt_activity = new Date(dt_activity);
-				  var dt_activity = new Date(dt_activity.getTime() +offset).toISOString();
-				  utils.save(ACTIVITY_DATETIME, dt_activity);
-			  }
+			 //      // if a manual date has been set, use that
+			 //    	  dt_activity = utils.get(ACTIVITY_MANUAL_DATE);
+			 //    	  if (dt_activity === "none") {
+			 //    		  var dt_ = Date.now();
+			 //    		  dt_activity = new Date(dt_);
+			 //    	  }
+
+			 //      // if going via "Recent" > prompted for time offset 
+			 //      // apply offset to current time
+			       var offset = app.activities[prev_activity].value * 60000;
+			 //      //console.log('apply offset: ' + offset);
+			 //      // var dt_ = Date.now();
+			       var dt_activity = utils.get(ACTIVITY_DATETIME);
+			       dt_activity = new Date(dt_activity);
+			       var dt_activity = new Date(dt_activity.getTime() +offset).toISOString();
+			       utils.save(ACTIVITY_DATETIME, dt_activity);
+			       utils.save(ACTIVITY_MANUAL_DATE, dt_activity);
+			   }
 
 			  // Set specific time in hours and minutes
-			  else if (app.activities[prev_activity].ID > ACTIVITY_SET_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_SET_TIME_MAX) {
-				  var dt_activity = utils.get(ACTIVITY_DATETIME);
-				  if (dt_activity == "same") {
-					  dt_activity = utils.get(ACTIVITY_MANUAL_DATE);
-					  if (dt_activity === "none") {
-						  var dt_ = Date.now();
-						  dt_activity = new Date(dt_);
-					  }
-				  }
-				  dt_activity = new Date(dt_activity);
-				  var addition = app.activities[prev_activity].value * 60000;
-				  dt_activity = new Date(dt_activity.getTime() + addition).toISOString();
-				  utils.save(ACTIVITY_DATETIME, dt_activity);
-			  }
+			 //  else if (app.activities[prev_activity].ID > ACTIVITY_SET_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_SET_TIME_MAX) {
+			 //      var dt_activity = utils.get(ACTIVITY_DATETIME);
+			 //      if (dt_activity == "same") {
+			 //    	  dt_activity = utils.get(ACTIVITY_MANUAL_DATE);
+			 //    	  if (dt_activity === "none") {
+			 //    		  var dt_ = Date.now();
+			 //    		  dt_activity = new Date(dt_);
+			 //    	  }
+			 //      }
+			 //      dt_activity = new Date(dt_activity);
+			 //      var addition = app.activities[prev_activity].value * 60000;
+			 //      dt_activity = new Date(dt_activity.getTime() + addition).toISOString();
+			 //      utils.save(ACTIVITY_DATETIME, dt_activity);
+			 //  }
 
 			  //
 			  //  LOCATION 
@@ -342,42 +353,40 @@ var app = {
 		$("div.footer-nav").show();
 
 
-		// skip "other people" and "enjoyment" if on fastTrack
-		if (screen_id == "other people" || screen_id == "enjoyment") {
-			if (fastTrack) {
-				screen_id = "home";
-				fastTrack = false;
-			}
-		}
-
 		var screen_ = app.screens[screen_id];
 		app.title.html(utils.format(screen_.title));
 
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
-			app.title.html(utils.format(screen_.title));
+			// app.title.html(utils.format(screen_.title));
 			if (prev_activity !== "ignore") {
 				app.addActivityToList();
 			}
 			// until and activity is selected btn-home will not create a new entry
-			app.footer_nav("home");
-			app.updateNowTime();
+			// app.footer_nav("home");
+		// 	app.updateNowTime();
 			app.showActivityList();
-			app.choicesPane.hide();
+			// app.choicesPane.hide();
 		} else 
 		if (screen_id == "activity time relative") {
 			// pressed "recently" button - relative time entry followed by "activity root"
 			// unlike "adjust time" which is triggered by "edit activity"
-			var dt_ = Date.now()
-			var dt_ = new Date(dt_).toISOString();
+			//
+			var dt_man = utils.get(ACTIVITY_MANUAL_DATE);
+			if (dt_man == "none") {
+				var dt_ = Date.now()
+				var dt_ = new Date(dt_).toISOString();
+			} else {
+				var dt_ = new Date(dt_man).toISOString();
+			}
 			utils.save(ACTIVITY_DATETIME, dt_);
 			app.footer_nav("next");
 		} else
-		if (screen_id == "activity time") {
-			// this is only reached when operator set a manual date - absolute time entry
-			var dt_ = utils.get(ACTIVITY_MANUAL_DATE);
-			utils.save(ACTIVITY_DATETIME, dt_);
-		} else
+// 		if (screen_id == "activity time") {
+// 			// this is only reached when operator set a manual date - absolute time entry
+// 			var dt_ = utils.get(ACTIVITY_MANUAL_DATE);
+// 			utils.save(ACTIVITY_DATETIME, dt_);
+// 		} else
 		if (screen_id == "activity root") {
 			// btn-next is only for "activity time relative" actions
 			// it points to "activity root", thus turning itself back to "Done" here
@@ -449,8 +458,10 @@ var app = {
 
     goBack: function() {
 		$("div#other-specify").hide();
+		app.act_path.push(app.activities['Back'].ID);                     // for to keep a record 'how people got to final activity
         curr = app.history.pop();
         prev = app.history.pop();
+
         if (prev === undefined) {
             app.showActivityList();
         } else {
@@ -485,11 +496,17 @@ var app = {
 		} else {
 			progressList.show();
 		}
+		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
 	},
 
 
     showActivityList: function() {
+		// only used on home screen
+		// used as a proxy for 'being home'
+		// thus populate the title and do some of the hiding
+		console.log("hist: " + app.act_path);
         app.history = new Array();
+        app.act_path = new Array();
         var activityList = utils.getList(ACTIVITY_LIST) || []
         var actsHTML = "";
 
@@ -506,19 +523,29 @@ var app = {
             	'<div class="activity-cell activity-item">' + item.act  + '</div> ' +
 				'<div class="activity-cell btn-terminate">edit</div></div>';
 		}
-		// app.act_count.html("Your activities ("+Object.keys(activityList).length+")");
 		app.act_count.show();
 		app.activity_list_div.html(actsHTML);
         app.choicesPane.hide();
 		app.actClock.hide();
 		$("div#progress_list_pane").hide();
 		$("div#other-specify").hide();
+		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
         app.activityAddPane.show();
         app.activityListPane.show();
-    	//app.title.html("What I did ...")
-		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
+		app.title.html(app.screens['home'].title);
+		app.footer_nav("home");
+		app.updateNowTime();
 		app.showCatchupItem(); // overwrites app.title if catchup items exist
     },
+
+	XXXNEWshowCatchupItem: function() {
+		var thisMoment = new Date();
+		var thisHour = thisMoment.getHours();
+		var thisMin  = thisMoment.getMinutes();
+
+
+
+	},
 
 	showCatchupItem: function() {
 		// drop (shift) catchup items more than 8 ours old
@@ -545,7 +572,7 @@ var app = {
 			app.title.html("What happened <b>at " + strTime + "</b>? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
             app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
 		} else {
-    		app.title.html("xx What I did ...")
+			app.title.html(app.screens['home'].title);
 		}
 	},
 
@@ -579,6 +606,7 @@ var app = {
 		var cat = detailsArray[1];			// .category
 		var act = detailsArray[2];			// .title for this activity Key
 
+
         activityList = utils.getList(ACTIVITY_LIST) || {};
 
         var uuid = utils.uuid()
@@ -594,8 +622,10 @@ var app = {
         }
 		utils.saveList(ACTIVITY_LIST, activityList);
                 //console.log('act: ' + act);
+		var path = "\"" + app.act_path + "\"";
 		var actStr = "\""+act+"\"";
-    	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj].join() + "\n";
+    	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj, path].join() + "\n";
+		console.log("Logging: " + str);
     	log.writeLog(log.logAct, str)
         utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
         utils.save(CURR_PEOPLE, "-1"); // reset to assume 'now' entry
@@ -689,6 +719,7 @@ var app = {
 		app.saveActivityPropertiesLocally(actKey);
     	var thisTime = new Date().toISOString();
         utils.save(ACTIVITY_DATETIME, thisTime);
+		app.act_path.push(app.activities['Repeat activity now'].ID);     
 		app.navigateTo("home");
 	},
 
@@ -696,6 +727,7 @@ var app = {
 	repeatActivityRecently: function(actKey) {
 		// create a new instance as a copy of this activity and then allow to adjust the time
 		app.saveActivityPropertiesLocally(actKey);
+		app.act_path.push(app.activities['Repeat activity recently'].ID); 
 		app.footer_nav("done");
 		app.navigateTo("adjust time");
 	},
@@ -706,6 +738,7 @@ var app = {
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
 		app.deleteAct(actKey);
+		app.act_path.push(app.activities['Edit activity time'].ID); 
 		app.footer_nav("done");
 		$("div.footer-nav").show();
 		app.navigateTo("adjust time");
@@ -714,6 +747,7 @@ var app = {
 	// Edit btn 4
 	editActivityTitle: function(actKey) {
 		// the old List and CSV entries need to be removed and a new one is created when navigating Home
+		app.act_path.push(app.activities['Edit activity title'].ID); 
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
 		app.deleteAct(actKey);
@@ -724,8 +758,9 @@ var app = {
 		app.navigateTo("other specify");
 	},
 
-	// Edit btn 5
+	// Edit btn 5 NOT USED
 	endActivity: function(actKey) {
+		app.act_path.push(app.activities['End activity'].ID); 
 		// set local variables as copy of this activity, then overwrite time
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to end the entry
 		app.deleteAct(actKey);
@@ -734,16 +769,16 @@ var app = {
 
 	// Edit btn 5 - Something else now
 	moreActivity: function(actKey) {
+		app.act_path.push(app.activities['More activity'].ID); 
 		app.saveActivityPropertiesLocally(actKey);
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
 		app.footer_nav("next");
 		app.navigateTo("adjust time");
-		fastTrack = true;
-		// XXX should have boolean to redirect "other people/enjoyment" -> home
 	},
 
 	// Edit btn 6
 	deleteActivity: function(actKey) {
+		app.act_path.push(app.activities['Delete activity'].ID); 
 		// set local variables as copy of this activity, then overwrite time
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore entry
 		app.deleteAct(actKey);
@@ -752,12 +787,10 @@ var app = {
 
     changeDate: function() {
         var thisDate = $("input#input-date").val();
-        var ds = thisDate.split(" ");
-        var date_activity = new Date(parseInt(ds[0]), parseInt(ds[1])-1, parseInt(ds[2]));
-        // utils.save(ACTIVITY_DATETIME, date_activity);
+		var date_activity = new Date(thisDate.substring(0,3), thisDate.substring(4,5)-1, thisDate.substring(6,7), 17, 00);
         utils.save(ACTIVITY_MANUAL_DATE, date_activity);
         $("div#change-date").hide();
-		$("div#btn-recent").attr("onclick", "app.navigateTo('activity time absolute')");
+		// $("div#btn-recent").attr("onclick", "app.navigateTo('activity time absolute')");
     },
 
     changeID: function() {
@@ -767,6 +800,10 @@ var app = {
         log.initSurveyFile();
         log.initActFile();
         $("div#change-date").show();
+		utils.saveList(ACTIVITY_LIST,"");
+		utils.save(SURVEY_STATUS, "survey root");
+		$("div#nav-aboutme").show();
+		$("div#nav-status").hide();
     },
 
     submitEdit: function() {
