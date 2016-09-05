@@ -92,12 +92,12 @@ var app = {
         utils.save(ACTIVITY_MANUAL_DATE, "none");
         app.actionButtons    = $('.btn-activity');
         app.activity_list_div= $('#activity-list');
-        app.catchup_text     = $('#catchup-text');
-        app.catchup_time     = $('#catchup-time');
         app.activityAddPane  = $('#activity_add_pane');
         app.activityListPane = $('#activity_list_pane');
         app.choicesPane      = $('#choices_pane');
         app.title            = $("#title");
+		app.header			 = $("#header");
+        app.catchup		     = $('#catch-up');
         app.now_time         = $("#now-time");
 		app.act_count        = $('#act-count');
 
@@ -239,6 +239,11 @@ var app = {
 		// the button pressed had 'prev_activity' as its 'title'
 		// next screen has the key 'screen_id'
 		app.actClock.hide();
+			app.header.removeClass('alert');
+			app.actClock.hide();
+			app.catchup.hide();
+			app.title.show();
+
 		app.history.push(screen_id);                     // for 'back' functionality
 		if (prev_activity !== undefined) {
 			if (!(prev_activity in app.activities)) {    // previous activity is defined but not known (free text)
@@ -538,15 +543,6 @@ var app = {
 		app.showCatchupItem(); // overwrites app.title if catchup items exist
     },
 
-	XXXNEWshowCatchupItem: function() {
-		var thisMoment = new Date();
-		var thisHour = thisMoment.getHours();
-		var thisMin  = thisMoment.getMinutes();
-
-
-
-	},
-
 	showCatchupItem: function() {
 		// drop (shift) catchup items more than 8 ours old
 		while ((new Date() - new Date(app.catchupList.time[0])) > (8*60*60*1000)) {
@@ -568,11 +564,24 @@ var app = {
 			var hh=parseInt(app.catchupList.time[catchupIndex].slice(11,13));
 			var mm=parseInt(app.catchupList.time[catchupIndex].slice(14,16));
 			var strTime = utils.formatAMPM(hh,mm);
-			console.log("about to show Catchup");
-			app.title.html("What happened <b>at " + strTime + "</b>? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
+			// console.log("about to show Catchup");
+			var min2digit = ("0" + mm).slice(-2);
+			app.catchup.html("<img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\"> What I did at");
+			app.drawClock(app.actClock,hh,mm,"", hh + ':' + min2digit);
+            app.actClock.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
+			app.catchup.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
+			app.header.addClass('alert');
+			app.title.hide();
+			app.catchup.css('display','inline-block');
+			app.actClock.show();
+			// app.title.html("What happened <b>at " + strTime + "</b>? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
             app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
 		} else {
 			app.title.html(app.screens['home'].title);
+			app.header.removeClass('alert');
+			app.actClock.hide();
+			app.catchup.hide();
+			app.title.show();
 		}
 	},
 

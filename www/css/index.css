@@ -64,10 +64,20 @@ body {
 .header {
 	/* where the Question is displayed */
     height: 15%;
-	/* background-image: url("../img/meter.png"); */
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: right;
+}
+
+.catch-up {
+	text-align: right;
+	vertical-align: top;
+	padding-right: 20px;
+	width: 50%;
+	font-size: 180%;
+}
+
+.alert {
+	background-color: #6f6;
+	height: 18%;
+	padding: 20px;
 }
 
 .contents {
