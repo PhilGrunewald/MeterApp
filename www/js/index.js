@@ -545,24 +545,24 @@ var app = {
 
 	showCatchupItem: function() {
 		// drop (shift) catchup items more than 8 ours old
-		while ((new Date() - new Date(app.catchupList.time[0])) > (8*60*60*1000)) {
-			app.catchupList.time.shift();
-			if (!app.catchupList.time.length) {
+		while ((new Date() - new Date(app.catchupList[0])) > (8*60*60*1000)) {
+			app.catchupList.shift();
+			if (!app.catchupList.length) {
 				break;
 				}
 			}
 
 		// find most recent item that is in the past (starting from the back)
-		var catchupIndex = app.catchupList.time.length-1;
-		while (new Date() < new Date(app.catchupList.time[catchupIndex])) {
+		var catchupIndex = app.catchupList.length-1;
+		while (new Date() < new Date(app.catchupList[catchupIndex])) {
 			catchupIndex -= 1;	
 			if (catchupIndex < 0) { break;}
 			}
 
 		// show specific time in title
 		if (catchupIndex > -1) {
-			var hh=parseInt(app.catchupList.time[catchupIndex].slice(11,13));
-			var mm=parseInt(app.catchupList.time[catchupIndex].slice(14,16));
+			var hh=parseInt(app.catchupList[catchupIndex].slice(11,13));
+			var mm=parseInt(app.catchupList[catchupIndex].slice(14,16));
 			var strTime = utils.formatAMPM(hh,mm);
 			// console.log("about to show Catchup");
 			var min2digit = ("0" + mm).slice(-2);
@@ -588,9 +588,9 @@ var app = {
 
 	catchupActivity: function(catchupIndex) {
 		// takes the 'catchupTime' before navigate to activity selection
-		var catchupTime = app.catchupList.time[catchupIndex];
+		var catchupTime = app.catchupList[catchupIndex];
 		utils.save(ACTIVITY_DATETIME, catchupTime);
-		app.catchupList.time.splice(catchupIndex,1); // remove this catchup request
+		app.catchupList.splice(catchupIndex,1); // remove this catchup request
 		app.navigateTo('activity root');
 	},
 
