@@ -180,7 +180,7 @@
 			]
 		},
 		"outdoors": {
-			"title": "Where are you?",
+			"title": "Outdoors",
 			"help": "at this moment",
 			"activities": [
 				"Loc garden",
@@ -205,7 +205,7 @@
 		},
 		"nature": {
 			"title": "In nature",
-			"help": "what is happening",
+			"help": "",
 			"activities": [
 				"Exercise",
 				"Care",
@@ -221,7 +221,7 @@
 			"activities": [
 				"Gardening",
 				"Outdoor food",
-				"Personal",
+				"Care personal",
 				"Care",
 				"Outdoors appliances",
 				"Outdoors other"
@@ -251,7 +251,7 @@
 				"Appliances other"
 			]
 		},
-		"activity root 1": {
+		"xxxactivity root 1": {
 			"title": "What are you doing?",
 			"help": "at this moment",
 			"activities": [
@@ -289,8 +289,8 @@
 			]
 		},
 		"care personal": {
-			"title": "How are you spending this time?",
-			"help": "at this moment",
+			"title": "Time for you",
+			"help": "",
 			"activities": [
 				"Food",
 				"Exercise",
@@ -301,19 +301,19 @@
 			]
 		},
 		"care rest sleep": {
-			"title": "What kind or rest is this?",
-			"help": "Give detail if you like",
+			"title": "Rest / sleep",
+			"help":"",
 			"activities": [
 				"Care rest",
+				"Food drink hot",
 				"Sleep",
 				"In bed awake",
 				"Sick in bed",
-				"Food drink hot",
 				"other"
 			]
 		},
 		"care wash": {
-			"title": "Specify if you like",
+			"title": "Wash or dress",
 			"help": "at this moment",
 			"activities": [
 				"Care wash shower",
@@ -326,7 +326,7 @@
 		},
 
 		"care wash hygiene": {
-			"title": "Anything electric?",
+			"title": "Used any of these?",
 			"help": "",
 			"activities": [
 				"Appliances Hair dryer",
@@ -338,7 +338,7 @@
 			]
 		},
 		"care wash bath": {
-			"title": "About the bath",
+			"title": "Bath",
 			"help": "at this moment",
 			"activities": [
 				"Care wash bath running",
@@ -374,17 +374,6 @@
 				"Care child other"
 			]
 		},
-		"xxxcare child": {
-			"title": "Describe the child care:",
-			"help": "at this moment",
-			"activities": [
-				"Care child feed",
-				"Care child play",
-				"Care child teach",
-				"Care child supervise",
-				"Care child other"
-			]
-		},
 		"care others": {
 			"title": "Providing care",
 			"help": "Type of care",
@@ -398,7 +387,7 @@
 			]
 		},
 		"care child practical": {
-			"title": "Practical help for child",
+			"title": "Helping child",
 			"help": "at this moment",
 			"activities": [
 				"Care wash bath children",
@@ -523,10 +512,10 @@
 			"help": "The type of device",
 			"activities": [
 				"Leisure TV Mobile",
-				"Leisure TV Projector",
+				"Leisure TV Tablet",
 				"Leisure TV TV",
 				"Leisure TV Laptop",
-				"Leisure TV Tablet",
+				"Leisure TV Projector",
 				"Leisure TV Other"
 			]
 		},
@@ -568,7 +557,7 @@
 			]
 		},
 		"food eat": {
-			"title": "What kind of meal was this?",
+			"title": "Eating",
 			"help": "",
 			"activities": [
 				"Food eat hot",
@@ -734,7 +723,7 @@
 			]
 		},
 		"work": {
-			"title": "You are working",
+			"title": "Working",
 			"help": "type of work",
 			"activities": [
 				"Household upkeep",
@@ -746,7 +735,7 @@
 			]
 		},
 		"work job": {
-			"title": "What do you use for work",
+			"title": "Using any of these?",
 			"help": "Press SKIP if not",
 			"activities": [
 				"Appliances Computer",
@@ -754,6 +743,18 @@
 				"Appliances Machinery",
 				"Work job manual",
 				"Work job break",
+				"Work job other"
+			]
+		},
+		"work job break": {
+			"title": "Break from work",
+			"help": "",
+			"activities": [
+				"Food drink hot",
+				"Food eat snack",
+				"Food eat hot",
+				"Food eat cold",
+				"Socialising",
 				"Work job other"
 			]
 		},

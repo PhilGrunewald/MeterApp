@@ -19,5 +19,5 @@ def recursive(node,level):
                     print 'ERROR at: ' + node + ' > ' + branch + ' > ' + nextNode
 
 # recursive('activity main',-1)
-recursive('travel',-1)
+recursive('activity main',-1)
     

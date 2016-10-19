@@ -126,6 +126,7 @@ var app = {
 		}
 		app.updateNowTime();
 		setInterval(function(){ app.updateNowTime(); }, 10000);
+		console.log("XXXXXXX");
 	},
 
 	initClock: function(thisClock) {
@@ -395,7 +396,7 @@ var app = {
 		if (screen_id == "activity root") {
 			// btn-next is only for "activity time relative" actions
 			// it points to "activity root", thus turning itself back to "Done" here
-			$("div.footer-nav").show();
+			// $("div.footer-nav").show();
 			app.footer_nav("home");
 			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
@@ -410,6 +411,7 @@ var app = {
 			// "survey root" is where the top navigation button points to
 			// here it gets redirected to the latest survey screen
 			// SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
+			clearTimeout(app.waitFor5pm);
 			screen_id = utils.get(SURVEY_STATUS);
 			app.footer_nav("home");
 			if (screen_id === null) {
@@ -509,38 +511,63 @@ var app = {
 		// only used on home screen
 		// used as a proxy for 'being home'
 		// thus populate the title and do some of the hiding
-		console.log("hist: " + app.act_path);
-        app.history = new Array();
-        app.act_path = new Array();
-        var activityList = utils.getList(ACTIVITY_LIST) || []
-        var actsHTML = "";
 
-		var actKeys = Object.keys(activityList);
-		var actLength =Object.keys(activityList).length;
-		actKeys.sort();
+		var nowDate = new Date().toISOString().slice(0, 10);
+		var nowTime = new Date().toISOString().slice(11, 16);
+		var nowDT   = nowDate + " " + nowTime;
+		console.log("showActivityList: " + nowDT);
+		var startDT = log.start + " 16:50";
 
-		for (i = actLength-1; i > -1; i--) {
-			var key = actKeys[i];
-			var item = activityList[key];
-            actsHTML += 
-            	'<div class="row activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
-            	'<div class="activity-cell btn-time">' + utils.format_time(item.time) + '</div>' +
-            	'<div class="activity-cell activity-item">' + item.act  + '</div> ' +
-				'<div class="activity-cell btn-terminate">edit</div></div>';
-		}
-		app.act_count.show();
-		app.activity_list_div.html(actsHTML);
+		$("div#progress_list_pane").hide();
         app.choicesPane.hide();
 		app.actClock.hide();
-		$("div#progress_list_pane").hide();
 		$("div#other-specify").hide();
-		$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
-        app.activityAddPane.show();
-        app.activityListPane.show();
-		app.title.html(app.screens['home'].title);
-		app.footer_nav("home");
-		app.updateNowTime();
-		app.showCatchupItem(); // overwrites app.title if catchup items exist
+
+		app.title.attr("onclick", "");
+		if (nowDT < startDT) {
+			var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date(log.start).getDay()];
+			if (utils.get(SURVEY_STATUS) != "survey complete") {
+				app.title.html("You can start recording activties on <b>" + day + " at 5pm</b> once you have completed this 3 minute <br><br><div class=\"clickable\">survey</div>");
+				app.title.attr("onclick", "app.navigateTo('survey root')");
+			} else {
+				app.title.html("Well done. You completed the survey. <br>You will be able to start recording activties on <b>" + day + " at 5pm</b>");
+			}
+			app.activityAddPane.hide();
+			app.activityListPane.hide();
+			app.waitFor5pm = setTimeout(function(){ app.showActivityList(); }, 10000);
+		}
+		else
+		{
+			console.log("hist: " + app.act_path);
+        	app.history = new Array();
+        	app.act_path = new Array();
+        	var activityList = utils.getList(ACTIVITY_LIST) || []
+        	var actsHTML = "";
+
+			var actKeys = Object.keys(activityList);
+			var actLength =Object.keys(activityList).length;
+			actKeys.sort();
+
+			for (i = actLength-1; i > -1; i--) {
+				var key = actKeys[i];
+				var item = activityList[key];
+        	    actsHTML += 
+        	    	'<div class="row activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
+        	    	'<div class="activity-cell btn-time">' + utils.format_time(item.time) + '</div>' +
+        	    	'<div class="activity-cell activity-item">' + item.act  + '</div> ' +
+					'<div class="activity-cell btn-terminate">edit</div></div>';
+			}
+			app.act_count.show();
+			app.activity_list_div.html(actsHTML);
+			$('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
+        	app.activityAddPane.show();
+        	app.activityListPane.show();
+			app.title.html(app.screens['home'].title);
+			app.footer_nav("home");
+			app.updateNowTime();
+			app.showCatchupItem(); // overwrites app.title if catchup items exist
+		}
+
     },
 
 	showCatchupItem: function() {
@@ -716,10 +743,11 @@ var app = {
 	},
 
 	footer_nav: function(btn) {
-			$("#btn-home").hide();
-			$("#btn-done").hide();
-			$("#btn-next").hide();
-			$("#btn-"+btn).show();
+		$("div.footer-nav").show();
+		$("#btn-home").hide();
+		$("#btn-done").hide();
+		$("#btn-next").hide();
+		$("#btn-"+btn).show();
 	},
 
 	// Edit btn 1
@@ -749,7 +777,7 @@ var app = {
 		app.deleteAct(actKey);
 		app.act_path.push(app.activities['Edit activity time'].ID); 
 		app.footer_nav("done");
-		$("div.footer-nav").show();
+		// $("div.footer-nav").show();
 		app.navigateTo("adjust time");
 	},
 

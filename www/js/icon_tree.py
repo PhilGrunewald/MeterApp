@@ -14,7 +14,7 @@ def recursive(node,level):
                 icon = acts['activities'][branch]['icon']
             except:
                 icon = "XXX XXX XXX"
-            print "{:<35}".format('.  '*level + caption)  +"{:25}".format(title) + "{:20}".format(branch) + " > " + icon
+                print "{:<35}".format('.  '*level + caption)  +"{:25}".format(title) + "{:20}".format(branch) + " > " + icon
             if not ((nextNode == 'other specify') or (nextNode == '') or (nextNode == 'other people') or (nextNode == 'home') or (nextNode == 'enjoyment')):   # '' is for 'Blank'
                 try:
                     recursive(nextNode,level)

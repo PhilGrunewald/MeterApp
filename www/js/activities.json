@@ -65,7 +65,7 @@
 		},
 		"Edit activity title": {
 			"title": "Edit title",
-			"caption": "Annotate",
+			"caption": "Rename",
 			"icon": "Other_type",
 			"help": "Be more specific",
 			"category": "other_category",
@@ -103,52 +103,52 @@
 		"female": 				{ "title": "Gender", "value": 1,"caption": "Female", "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
 		"male": 				{ "title": "Gender", "value": 2,"caption": "Male", "help": "You would describe yourself as male", "ID": 90012, "next": "survey age" },
 		"survey gender other":	{ "title": "Gender", "value": 3,"caption": "Other", "help": "You would describe your gender as neither male nor female", "ID": 90013, "next": "survey age" },
-		"survey gender skip":	{ "title": "Gender", "value": 0,"caption": "Skip", "icon": "act_skip", "help": "You don't want to answer this question", "ID": 90014, "next": "survey age" },
+		"survey gender skip":	{ "title": "Gender", "value": 0,"caption": "Skip", "icon": "act2_skip", "help": "You don't want to answer this question", "ID": 90014, "next": "survey age" },
 
 		"Age 1": { "title": "Age_range", "value": 1,"caption": "8 - 18", "help": "Your age is between 8 and 18", "ID": 90021, "next": "survey occupation" },
 		"Age 2": { "title": "Age_range", "value": 2,"caption": "19 - 34", "help": "Your age is between 19 and 34", "ID": 90022, "next": "survey occupation" },
 		"Age 3": { "title": "Age_range", "value": 3,"caption": "35 - 50", "help": "Your age is between 35 and 50", "ID": 90023, "next": "survey occupation" },
 		"Age 4": { "title": "Age_range", "value": 4,"caption": "51 - 70", "help": "Your age is between 51 and 70", "ID": 90024, "next": "survey occupation" },
 		"Age 5": { "title": "Age_range", "value": 5,"caption": "Over 70", "help": "Your age is over 70", "ID": 90025, "next": "survey occupation" },
-		"Age 6": { "title": "Age_range", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "You don't want to say", "ID": 90026, "next": "survey occupation" },
+		"Age 6": { "title": "Age_range", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "You don't want to say", "ID": 90026, "next": "survey occupation" },
 
 		"Occupation student": 		{ "title": "Occupation", "value": 1, "caption": "Student", "help": "You go to school, university or any other form of unpaid training", "ID": 90031, "next": "survey working hours" },
 		"Occupation employed": 		{ "title": "Occupation", "value": 2, "caption": "Employed", "help": "You are in paid employment", "ID": 90032, "next": "survey working hours" },
 		"Occupation self employed": { "title": "Occupation", "value": 3, "caption": "Self employed", "help": "You are self employed", "ID": 90033, "next": "survey working hours" },
 		"Occupation unpaid work": 	{ "title": "Occupation", "value": 4, "caption": "Volunteer / unpaid work", "help": "You work in a voluntary or unpaid capacity", "ID": 90034, "next": "survey working hours" },
 		"Occupation unemployed": 	{ "title": "Occupation", "value": 5, "caption": "Unemployed / retired", "help": "You do not work, are retired or unemployed", "ID": 90035, "next": "survey bills" },
-		"Occupation other": 		{ "title": "Occupation", "value": 6, "caption": "Other / Skip", "icon": "act_skip", "help": "Your occupation is different or you don't want to say", "ID": 90036, "next": "survey working hours" },
+		"Occupation other": 		{ "title": "Occupation", "value": 6, "caption": "Other / Skip", "icon": "act2_skip", "help": "Your occupation is different or you don't want to say", "ID": 90036, "next": "survey working hours" },
 
 		"Working hours 1": { "title": "WorkingHours", "value": 1,"caption": "None", "help": "I do not have work time as such", "ID": 90041, "next": "survey working regularity" },
 		"Working hours 2": { "title": "WorkingHours", "value": 2,"caption": "1 - 15", "help": "Most weeks you work between 1 and 15 hours", "ID": 90042, "next": "survey working regularity" },
 		"Working hours 3": { "title": "WorkingHours", "value": 3,"caption": "16 - 30", "help": "Most weeks you work between 16 and 30 hours", "ID": 90043, "next": "survey working regularity" },
 		"Working hours 4": { "title": "WorkingHours", "value": 4,"caption": "31 - 45", "help": "Most weeks you work between 31 and 45 hours", "ID": 90044, "next": "survey working regularity" },
 		"Working hours 5": { "title": "WorkingHours", "value": 5,"caption": "Over 45", "help": "I work over 45 hours", "ID": 90045, "next": "survey working regularity" },
-		"Working hours 6": { "title": "WorkingHours", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "I choose not to say", "ID": 90046, "next": "survey working regularity" },
+		"Working hours 6": { "title": "WorkingHours", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90046, "next": "survey working regularity" },
 
 		"Working hours change 1": { "title": "WorkRegularity", "value": 1, "caption": "Always the same", "help": "You have standard hours (e.g. 9am to 5pm)", "ID": 90051, "next": "survey working home" },
 		"Working hours change 2": { "title": "WorkRegularity", "value": 2, "caption": "Variable to suit work", "help": "You have standard hours, but they can vary", "ID": 90052, "next": "survey working home" },
 		"Working hours change 3": { "title": "WorkRegularity", "value": 3, "caption": "Flexible to suit me", "help": "I can choose my hours", "ID": 90053, "next": "survey working home" },
-		"Working hours change 4": { "title": "WorkRegularity", "value": 4, "caption": "Skip", "icon": "act_skip", "help": "I choose not to say", "ID": 90054, "next": "survey working home" },
+		"Working hours change 4": { "title": "WorkRegularity", "value": 4, "caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90054, "next": "survey working home" },
 
 		"Working home 1": { "title": "WorkHome", "value": 1,"caption": "Never", "help": "I never work from home", "ID": 90061, "next": "survey bills" },
 		"Working home 2": { "title": "WorkHome", "value": 2,"caption": "Rarely", "help": "I work from home approx. once per month", "ID": 90062, "next": "survey bills" },
 		"Working home 3": { "title": "WorkHome", "value": 3,"caption": "Sometimes", "help": "I work from home up to 5 times per month", "ID": 90063, "next": "survey bills" },
 		"Working home 4": { "title": "WorkHome", "value": 4,"caption": "Often", "help": "6 times or more per month", "ID": 90064, "next": "survey bills" },
 		"Working home 5": { "title": "WorkHome", "value": 5,"caption": "Always", "help": "Home is my main workplace", "ID": 90065, "next": "survey bills" },
-		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "I chose not to say", "ID": 90066, "next": "survey bills" },
+		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I chose not to say", "ID": 90066, "next": "survey bills" },
 
 		"Bills yes": 		{ "title": "BillContributer", "value": 1, "caption": "Yes, I do", "help": "I take responsibility for the bills", "ID": 90071, "next": "survey income" },
 		"Bills contribute": { "title": "BillContributer", "value": 2, "caption": "I contribute", "help": "Others also contribute or deal with bills", "ID": 90072, "next": "survey income" },
 		"Bills no": 		{ "title": "BillContributer", "value": 3, "caption": "I don't", "help": "Others pay or I don't have to", "ID": 90073, "next": "survey income" },
-		"Bills other": 		{ "title": "BillContributer", "value": 4, "caption": "Other / Skip", "icon": "act_skip", "help": "I have a different arrangement or don't want to say", "ID": 90074, "next": "survey income" },
+		"Bills other": 		{ "title": "BillContributer", "value": 4, "caption": "Other / Skip", "icon": "act2_skip", "help": "I have a different arrangement or don't want to say", "ID": 90074, "next": "survey income" },
 
 		"Income 1": { "title": "Income", "value": 1,"caption": "£0 - <br>£10,000", "help": "I earn less than £10,000 per year.", "ID": 90080, "next": "survey appliances 1" },
 		"Income 2": { "title": "Income", "value": 2,"caption": "up to <br>£20,000", "help": "I earn up to £20,000 per year.", "ID": 90081, "next": "survey appliances 1" },
 		"Income 3": { "title": "Income", "value": 3,"caption": "up to <br>£30,000", "help": "I earn up to £30,000 per year.", "ID": 90082, "next": "survey appliances 1" },
 		"Income 4": { "title": "Income", "value": 4,"caption": "up to <br>£45,000", "help": "I earn up to £40,000 per year.", "ID": 90083, "next": "survey appliances 1" },
 		"Income 5": { "title": "Income", "value": 5,"caption": "Over £45,000", "help": "I earn up to £55,000 per year.", "ID": 90084, "next": "survey appliances 1" },
-		"Income 6": { "title": "Income", "value": 6,"caption": "Skip", "icon": "act_skip", "help": "I choose not to say", "ID": 90085, "next": "survey appliances 1" },
+		"Income 6": { "title": "Income", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90085, "next": "survey appliances 1" },
 
 		"App 1 1": { "title": "UseDishwasher", "value": 1, "caption": "I didn't", "help": "use a dishwasher", "ID": 90101, "next": "survey appliances 2" },
 		"App 1 2": { "title": "UseDishwasher", "value": 2, "caption": "Once", "help": "used a dishwasher", "ID": 90102, "next": "survey appliances 2" },
@@ -215,7 +215,7 @@
 
 		"Loc home": {
 			"title": "location home",
-			"icon": "Loc_home",
+			"icon": "act2_home",
 			"caption": "Home",
 			"help": "In your home",
 			"ID": 30011,
@@ -225,7 +225,7 @@
 		},
 		"Loc travelling": {
 			"title": "location travelling",
-			"icon": "Loc_travel",
+			"icon": "act2_travel",
 			"caption": "Travel",
 			"help": "Travel by car, foot, bus, train, bike, jogging...",
 			"ID": 30030,
@@ -245,8 +245,8 @@
 		},
 		"Loc public": {
 			"title": "location public place",
-			"icon": "act_shop",
 			"caption": "Public place",
+			"icon": "act2_shop",
 			"help": "Shop, church, public building",
 			"ID": 30014,
 			"value": 4,
@@ -255,8 +255,8 @@
 		},
 		"Loc outdoors public": {
 			"title": "location outdoors public place",
-			"icon": "Loc_outside",
 			"caption": "Public place",
+			"icon": "act2_shop",
 			"help": "Shop, church, public building",
 			"ID": 30016,
 			"value": 5,
@@ -265,8 +265,8 @@
 		},
 		"Loc outdoors": {
 			"title": "Outdoor activity",
-			"icon": "Loc_outside",
 			"caption": "Garden / Outdoors",
+			"icon": "act2_garden",
 			"help": "Park, road, sports field",
 			"ID": 30018,
 			"value": 5,
@@ -275,7 +275,7 @@
 		},
 		"Loc garden": {
 			"title": "In the garden",
-			"icon": "act_garden",
+			"icon": "act2_garden",
 			"caption": "Garden",
 			"help": "Gardening, playing, eating",
 			"ID": 30019,
@@ -462,7 +462,7 @@
 		"Skip": {
 			"title": "enjoyment skip",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Don't want to say",
 			"ID": 20001,
 			"next": "home"
@@ -518,7 +518,7 @@
 		"Travel foot": {
 			"title": "Walking",
 			"caption": "By foot",
-			"icon": "act_walk",
+			"icon": "act2_walk",
 			"help": "Walking, ambling, pottering",
 			"ID": 30021,
 			"value": 21,
@@ -528,7 +528,7 @@
 		"Travel bike": {
 			"title": "Cycling",
 			"caption": "By bike",
-			"icon": "act_bike",
+			"icon": "act2_bike",
 			"help": "Bike, road bike, tandem",
 			"ID": 30022,
 			"value": 22,
@@ -538,7 +538,7 @@
 		"Travel car": {
 			"title": "Driving",
 			"caption": "By car",
-			"icon": "act_car",
+			"icon": "act2_car",
 			"help": "Car, van, motorbike or count",
 			"ID": 30023,
 			"value": 23,
@@ -547,8 +547,8 @@
 		},
 		"Travel public": {
 			"title": "Public transport",
-			"caption": "Public transport",
-			"icon": "act_public_transport",
+			"caption": "Public",
+			"icon": "act2_public_transport",
 			"help": "Bus, train, plane, boat",
 			"ID": 30024,
 			"value": 24,
@@ -566,7 +566,7 @@
 		"Travel other": {
 			"title": "Travel",
 			"caption": "Other",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Anything not listed here",
 			"ID": 30031,
 			"category": "travel",
@@ -579,7 +579,7 @@
 
 	"Other people 1": { "title": "activity time",
 		 "caption": "No one",
-		 "icon": "act_others0",
+		 "icon": "act2_others0",
 		"help": "people",
 		      "ID": 40001,
 		 "value": 0,
@@ -587,7 +587,7 @@
 		
 	"Other people 2": { "title": "activity time",
 		 "caption": "1",
-		 "icon": "act_others1",
+		 "icon": "act2_others1",
 		     "help": "people",
 		      "ID": 40002,
 		 "value": 1,
@@ -595,7 +595,7 @@
 		
 	"Other people 3": { "title": "activity time",
 		 "caption": "2",
-		 "icon": "act_others2",
+		 "icon": "act2_others2",
 		     "help": "people",
 		      "ID": 40003,
 		 "value": 2,
@@ -603,7 +603,7 @@
 		
 	"Other people 4": { "title": "activity time",
 		 "caption": "3",
-		 "icon": "act_others3",
+		 "icon": "act2_others3",
 		     "help": "people",
 		      "ID": 40004,
 		 "value": 3,
@@ -611,7 +611,7 @@
 		
 	"Other people 5": { "title": "activity time",
 		 "caption": "4",
-		 "icon": "act_others4",
+		 "icon": "act2_others4",
 		     "help": "people",
 		      "ID": 40005,
 		 "value": 4,
@@ -619,7 +619,7 @@
 		
 	"Other people 6": { "title": "activity time",
 		 "caption": "More",
-		 "icon": "act_others5",
+		 "icon": "act2_others5",
 		  "help": "More than 4",
 		 "ID": 40006,
 		 "value": 5,
@@ -633,13 +633,14 @@
 			 "caption": "Appliances",
 			 "help": "Electrical goods",
 			 "ID": 8500,
-			 "icon": "act_appliance",
+			 "icon": "act2_appliance",
 			 "value": 0,
 			 "next": "appliances" },
 			
 		"Appliances kitchen":  
 			{ "title": "Use kitchen appliance",
 			 "caption": "Kitchen",
+			 "icon": "act2_eat",
 			 "help": "Bake, cook, prepare", "ID": 8501,
 			"category": "food",
 			 "next": "appliances kitchen" },
@@ -648,6 +649,7 @@
 		"Appliances clothes":  
 			{ "title": "Handling clothes",
 			 "caption": "Clothes",
+			"icon": "act2_dress",
 			 "help": "Washing, drying, ironing", "ID": 8501,
 			"category": "care_house",
 			 "next": "appliances clothes" },
@@ -656,6 +658,7 @@
 		"Appliances entertainment":  
 			{ "title": "Entertainment appliance use",
 			 "caption": "Entertainment",
+			"icon": "app_projector",
 			 "help": "TV, computer, radio", "ID": 8501,
 			"category": "recreation",
 			 "next": "appliances entertainment" },
@@ -663,7 +666,8 @@
 
 		"Appliances household":  
 			{ "title": "Household appliance use",
-			 "caption": "Household",
+			 "caption": "House and garden",
+			"icon": "act2_house_garden",
 			 "help": "Vacuum cleaner, heater, fridge", "ID": 8501,
 			"category": "care_house",
 			 "next": "appliances household" },
@@ -671,6 +675,7 @@
 		"Appliances heater":  
 			{ "title": "Heater",
 			 "caption": "Heater",
+			"icon": "app_heater",
 			 "help": "portable", "ID": 8501,
 			"category": "care_house",
 			 "next": "other people" },
@@ -680,6 +685,7 @@
 		"Appliances bathroom":  
 			{ "title": "Bathroom",
 			 "caption": "Bathroom",
+			"icon": "act2_bathroom",
 			 "help": "Hair, teeth, beauty", "ID": 8501,
 			"category": "care_self",
 			 "next": "appliances bathroom" },
@@ -688,7 +694,7 @@
 		"Appliances Washing machine":  
 			{ "title": "Washing machine",
 			 "caption": "Washing machine",
-			"icon": "act_washing_machine",
+			"icon": "app_washing_machine",
 			 "help": "Loading, unloading or running", "ID": 8501,
 			"category": "care_house",
 			 "next": "enjoyment" },
@@ -697,15 +703,16 @@
 		"Appliances Tumble dryer":  
 			{ "title": "Tumble dryer",
 			 "caption": "Tumble dryer",
+			"icon": "app_tumble_dryer",
 			 "help": "it is running or you use it",
 			 "ID": 8502,
 			 "category": "care_house",
 			"next": "enjoyment" },
 			
 		"Appliances Washer dryer":  
-			{ "title": "Tumble dryer",
-			 "caption": "Tumble dryer",
-			"icon": "act_washer_dryer",
+			{ "title": "Washer-dryer",
+			 "caption": "Washer-dryer",
+			"icon": "app_washer_dryer",
 			 "help": "it is running or you use it",
 			 "ID": 8502,
 			 "category": "care_house",
@@ -713,14 +720,16 @@
 
 		"Appliances Sewing machine":  
 			{ "title": "Sewing machine",
-			 "caption": "Sewing machine",
+			 "caption": "Sewing",
+			"icon": "app_sewing",
 			 "help": "", "ID": 8501,
 			"category": "care_house",
 			 "next": "other people" },
 			
 		"Appliances Dish washer":  
-			{ "title": "Dish washer",
-			 "caption": "Dish washer",
+			{ "title": "Dishwasher",
+			 "caption": "Dishwasher",
+			"icon": "app_dishwasher",
 			 "help": "it is running or you use it",
 			 "ID": 8503,
 			"category": "care_house",
@@ -729,7 +738,7 @@
 			"Appliances Oven":  
 			{ "title": "Oven",
 			 "caption": "Oven",
-			"icon": "act_oven",
+			"icon": "app_oven",
 			 "help": "it is running or you use it",
 			 "ID": 8504,
 			 "category": "food",
@@ -738,7 +747,7 @@
 		"Appliances Microwave":  
 			{ "title": "Microwave",
 			 "caption": "Microwave",
-			 "icon": "act_microwave",
+			 "icon": "app_microwave",
 			 "help": "it is running or you use it",
 			 "ID": 8505,
 			 "category": "food",
@@ -757,7 +766,7 @@
 		"Appliances Computer":  
 			{ "title": "Computer",
 			 "caption": "Computer",
-			 "icon": "act_computer",
+			 "icon": "app_computer",
 			 "help": "Laptop, Tablet, PC",
 			 "ID": 8507,
 			"category": "other_category",
@@ -766,7 +775,7 @@
 		"Appliances Games console":  
 			{ "title": "Computer games",
 			 "caption": "Computer / Games console",
-			 "icon": "act_computer",
+			 "icon": "app_computer",
 			 "help": "X-Box, Nintendo...",
 			 "ID": 8507,
 			"category": "recreation",
@@ -775,6 +784,7 @@
 		"Appliances TV":  
 			{ "title": "TV",
 			 "caption": "TV",
+			 "icon": "app_TV",
 			 "help": "it is running or you use it",
 			 "ID": 8508,
 			 "category": "care_self",
@@ -783,7 +793,8 @@
 		"Appliances Kettle":  
 			{ "title": "Kettle",
 			 "caption": "Kettle",
-			 "help": "it is running or you use it",
+			 "icon": "app_kettle",
+			 "help": "fill, using, pour",
 			 "ID": 8509,
 			 "category": "food",
 			 "next": "other people" },
@@ -792,6 +803,7 @@
 		"Appliances Tools":  
 			{ "title": "Power tools",
 			 "caption": "Tools",
+			"icon": "app_power_tool",
 			 "help": "Power tools or toys (RC car...)",
 			 "ID": 8510,
 			 "category": "care_house",
@@ -800,6 +812,7 @@
 		"Appliances Toys":  
 			{ "title": "Toys",
 			 "caption": "Toys",
+			"icon": "app_toy",
 			 "help": "RC car, train track...",
 			 "ID": 8510,
 			 "category": "recreation",
@@ -816,6 +829,7 @@
 		"Appliances Toaster":  
 			{ "title": "Toaster",
 			 "caption": "Toaster",
+			 "icon": "app_toaster",
 			 "help": "it is running or you use it",
 			 "ID": 8512,
 			 "category": "food",
@@ -849,7 +863,7 @@
 		"Appliances Hair dryer":  
 			{ "title": "Hair dryer",
 			 "caption": "Hair dryer",
-			"icon": "act_hair_dryer",
+			"icon": "app_hair_dryer",
 			 "help": "it is running or you use it",
 			 "ID": 8515,
 			"category": "care_self",
@@ -886,7 +900,8 @@
 		"Appliances Phone":  
 			{ "title": "Phone",
 			 "caption": "Phone",
-			 "help": "Use mobile phone",
+			 "icon": "app_mobile",
+			 "help": "Use a phone",
 			 "ID": 8522,
 			 "category": "other_category",
 			 "next": "enjoyment" },
@@ -894,6 +909,7 @@
 		"Appliances Radio":  
 			{ "title": "Radio / Music",
 			 "caption": "Radio",
+			"icon": "app_radio",
 			 "help": "it is running or you use it",
 			 "ID": 8523,
 			"category": "recreation",
@@ -902,7 +918,8 @@
 
 		"Appliances Machinery":  
 			{ "title": "Work with machinery",
-			 "caption": "Machinery",
+			 "caption": "Machine",
+			"icon": "app_work_machine",
 			 "help": "Large tools and equipment",
 			 "ID": 8524,
 			"category": "work",
@@ -912,7 +929,7 @@
 			"Appliances tooth brush": 
 			{ "title": "Brush teeth",
 			 "caption": "Electric toothbrush",
-			"icon": "act_toothbrush",
+			"icon": "app_toothbrush",
 			 "help": "",
 			 "ID": 8525,
 			"category": "care_self",
@@ -920,7 +937,7 @@
 			
 			"Appliances hair trimmer": 
 			{ "title": "Trim hair",
-			"icon": "act_hair_trimmer",
+			"icon": "app_hair_trimmer",
 			 "caption": "Electric hair trimmer",
 			 "help": "",
 			 "ID": 8526,
@@ -930,7 +947,7 @@
 			"Appliances shaver": 
 			{ "title": "Shave",
 			 "caption": "Electric shaver",
-			"icon": "act_shaver",
+			"icon": "app_shaver",
 			 "help": "",
 			 "ID": 8527,
 			"category": "care_self",
@@ -939,7 +956,7 @@
 			"Appliances hair curler": 
 			{ "title": "Do hair",
 			 "caption": "Hair curl/ straightener",
-			"icon": "act_hair_curler",
+			"icon": "app_hair_curler",
 			 "help": "",
 			 "ID": 8528,
 			"category": "care_self",
@@ -949,6 +966,7 @@
 		"Appliances other":  
 			{ "title": "Other appliance",
 			 "caption": "Other ...",
+			"icon": "Other_type",
 			 "help": "not listed here",
 			 "ID": 8599,
 			 "category": "other_category",
@@ -966,8 +984,8 @@
 
 		"Personal": {
 			"title": "Personal care",
-			"caption": "Personal activity",
-			"icon": "act_personal",
+			"caption": "Personal",
+			"icon": "act2_personal",
 			"help": "Personal care, for yourself",
 			"ID": 0,
 			"category": "care_self",
@@ -976,7 +994,7 @@
 		"Care": {
 			"title": "Being with others",
 			"caption": "Joint activity",
-			"icon": "act_others",
+			"icon": "act2_others",
 			"help": "Helping, socialising",
 			"ID": 3900,
 			"category": "care_other",
@@ -993,7 +1011,7 @@
 		"Sleep": {
 			"title": "Sleep",
 			"caption": "Sleep",
-			"icon": "act_sleep",
+			"icon": "act2_sleep",
 			"help": "Sleep",
 			"ID": 110,
 			"category": "care_self",
@@ -1002,7 +1020,7 @@
 		"In bed awake": {
 			"title": "In bed, not asleep",
 			"caption": "In bed",
-			"icon": "act_bed_awake",
+			"icon": "act2_bed_awake",
 			"help": "not asleep",
 			"ID": 111,
 			"category": "care_self",
@@ -1011,7 +1029,7 @@
 		"Sick in bed": {
 			"title": "Sick in bed",
 			"caption": "Sick in bed",
-			"icon": "act_bed_sick",
+			"icon": "act2_bed_sick",
 			"help": "Sick in bed",
 			"ID": 120,
 			"category": "care_self",
@@ -1021,7 +1039,7 @@
 			"title": "Eat",
 			"caption": "Eat",
 			"help": "Eating",
-			"icon": "act_eat",
+			"icon": "act2_eat",
 			"ID": 210,
 			"category": "food",
 			"next": "food eat"
@@ -1029,7 +1047,7 @@
 		"Food eat cold": {
 			"title": "Eating",
 			"caption": "Cold meal",
-			"icon": "act_cold_meal",
+			"icon": "act2_meal_cold",
 			"help": "Cold or uncooked food",
 			"ID": 211,
 			"category": "food",
@@ -1038,7 +1056,7 @@
 		"Food eat hot": {
 			"title": "Eating hot meal",
 			"caption": "Hot meal",
-			"icon": "act_hot_meal",
+			"icon": "act2_meal_hot",
 			"help": "Cooked or heated food",
 			"ID": 212,
 			"category": "food",
@@ -1047,7 +1065,7 @@
 		"Food eat snack": {
 			"title": "Snack",
 			"caption": "Snack",
-			"icon": "act_snack",
+			"icon": "act2_snack",
 			"help": "A quick meal",
 			"ID": 213,
 			"category": "food",
@@ -1057,7 +1075,7 @@
 			"title": "Hot drink",
 			"caption": "Hot drink",
 			"help": "Tea or coffee",
-			"icon": "act_hot_drink",
+			"icon": "act2_hot_drink",
 			"ID": 214,
 			"category": "food",
 			"next": "other people"
@@ -1073,7 +1091,7 @@
 		"Care wash": {
 			"title": "Wash and dress",
 			"caption": "Wash or dress",
-			"icon": "act_wash_dress",
+			"icon": "act2_wash_dress",
 			"help": "Shower, bath, changing",
 			"ID": 310,
 			"category": "care_self",
@@ -1082,7 +1100,7 @@
 		"Care child": {
 			"title": "Childcare",
 			"caption": "My children",
-			"icon": "act_children",
+			"icon": "act2_children",
 			"help": "Involving in childcare",
 			"ID": 3800,
 			"category": "care_other",
@@ -1092,7 +1110,7 @@
 		"Care family": {
 			"title": "Being with family",
 			"caption": "Family",
-			"icon": "act_family",
+			"icon": "act2_family",
 			"help": "relatives",
 			"ID": 3911,
 			"category": "care_other",
@@ -1101,7 +1119,7 @@
 		"Care friends": {
 			"title": "Being with friends",
 			"caption": "Friends",
-			"icon": "act_friends",
+			"icon": "act2_friends",
 			"help": "Being with friends",
 			"ID": 3910,
 			"category": "care_other",
@@ -1110,7 +1128,7 @@
 		"Care others": {
 			"title": "With people",
 			"caption": "Others",
-			"icon": "act_with_others",
+			"icon": "act2_with_others",
 			"help": "Being with other people",
 			"ID": 3913,
 			"category": "care_other",
@@ -1119,7 +1137,7 @@
 		"Care other": {
 			"title": "Being with others",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "being together",
 			"ID": 3912,
 			"category": "care_other",
@@ -1129,7 +1147,7 @@
 		"Care activities other": {
 			"title": "Being with others",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "being together",
 			"ID": 3912,
 			"category": "care_other",
@@ -1139,7 +1157,7 @@
 		"Care wash shower": {
 			"title": "Shower",
 			"caption": "Shower",
-			"icon": "act_shower",
+			"icon": "act2_shower",
 			"help": "Being in the shower",
 			"ID": 311,
 			"category": "care_self",
@@ -1148,7 +1166,7 @@
 		"Care wash bath": {
 			"title": "Bathing",
 			"caption": "Bath",
-			"icon": "act_bath",
+			"icon": "act2_bath",
 			"help": "Running a bath, having one, bathing someone else",
 			"ID": 312,
 			"category": "care_self",
@@ -1156,7 +1174,7 @@
 		},
 		"Care wash bath running": { "title": "Running a bath",
 			 "caption": "Running a bath",
-			"icon": "act_bath_fill",
+			"icon": "act2_bath_fill",
 			 "help": "Filling the tub, preparing",
 			 "ID": 320,
 			 "category": "care_self",
@@ -1164,7 +1182,7 @@
 			
 		"Care wash bath bathing": { "title": "Bathing",
 			 "caption": "Bathing",
-			"icon": "act_bathing",
+			"icon": "act2_bathing",
 			 "help": "Sitting in a bath",
 			 "ID": 321,
 			 "category": "care_self",
@@ -1172,7 +1190,7 @@
 			
 		"Care wash bath children":{ "title": "Bathing childern",
 			 "caption": "Bathing children",
-			"icon": "act_bath_children",
+			"icon": "act2_bath_children",
 			 "help": "Washing children",
 			 "ID": 322,
 			 "category": "care_other",
@@ -1180,7 +1198,7 @@
 			
 		"Care wash bath other":   { "title": "Bathing",
 			 "caption": "Skip",
-			 "icon": "act_skip",
+			 "icon": "act2_skip",
 			 "help": "Bath related activity",
 			 "ID": 323,
 			 "category": "care_other",
@@ -1190,7 +1208,7 @@
 		"Care wash sink": {
 			"title": "Wash",
 			"caption": "Sink or flannel",
-			"icon": "act_sink",
+			"icon": "act2_sink",
 			"help": "Washing by a sink or with a flannel",
 			"ID": 313,
 			"category": "care_self",
@@ -1199,7 +1217,7 @@
 		"Care wash dress": {
 			"title": "Getting dressed",
 			"caption": "Getting dressed",
-			"icon": "act_dress",
+			"icon": "act2_dress",
 			"help": "Changing clothes, dressing",
 			"ID": 314,
 			"category": "care_self",
@@ -1208,7 +1226,7 @@
 		"Care wash hygiene": {
 			"title": "Hygiene / Beauty",
 			"caption": "Hygiene / Beauty",
-			"icon": "act_beauty",
+			"icon": "act2_beauty",
 			"help": "Brushing teeth, make-up, shaving",
 			"ID": 315,
 			"category": "care_self",
@@ -1217,7 +1235,7 @@
 		"Care wash other": {
 			"title": "Wash",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "No better match here",
 			"ID": 316,
 			"category": "care_self",
@@ -1230,7 +1248,7 @@
 		"Care personal": {
 			"title": "Me time",
 			"caption": "Time for me",
-			"icon": "act_personal",
+			"icon": "act2_personal",
 			"help": "Care for yourself",
 			"ID": 300,
 			"category": "care_self",
@@ -1239,7 +1257,7 @@
 		"Getting ready": {
 			"title": "Getting ready",
 			"caption": "Getting ready",
-			"icon": "act_getting_ready",
+			"icon": "act2_getting_ready",
 			"help": "Dress, wash, prepare, arrange",
 			"ID": 301,
 			"category": "care_self",
@@ -1248,7 +1266,7 @@
 		"Getting ready other": {
 			"title": "Getting ready",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Getting ready for somethning",
 			"ID": 302,
 			"category": "care_self",
@@ -1257,7 +1275,7 @@
 		"Care personal other": {
 			"title": "Me time",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Care for yourself",
 			"ID": 303,
 			"category": "care_self",
@@ -1278,7 +1296,7 @@
 		"Other household and family care": {
 			"title": "Household and family care",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Just Household and family care",
 			"ID": 3000,
 			"category": "care_other",
@@ -1288,7 +1306,7 @@
 			"title": "Food or drink ",
 			"caption": "Food / Drink",
 			"help": "Eating, preparing, cooking, clearing food",
-			"icon": "act_food",
+			"icon": "act2_food",
 			"ID": 3100,
 			"category": "food",
 			"next": "food"
@@ -1296,7 +1314,7 @@
 		"Food preparation": {
 			"title": "Prepare meal",
 			"caption": "Prepare meal",
-			"icon": "act_cook",
+			"icon": "act2_cook",
 			"help": "Cook, stir, spread...",
 			"ID": 3110,
 			"category": "food",
@@ -1305,7 +1323,7 @@
 		"Food preparation cold": {
 			"title": "Prepare cold meal",
 			"caption": "Cold meal",
-			"icon": "act_meal_cold",
+			"icon": "act2_meal_cold",
 			"help": "e.g. Salad, Sandwich...",
 			"ID": 3111,
 			"category": "food",
@@ -1314,7 +1332,7 @@
 		"Food preparation hot": {
 			"title": "Prepare hot meal",
 			"caption": "Hot / cooked meal",
-			"icon": "act_meal_hot",
+			"icon": "act2_meal_hot",
 			"help": "Using cooker or other",
 			"ID": 3112,
 			"category": "food",
@@ -1324,6 +1342,7 @@
 		"Baking": {
 			"title": "Baking",
 			"caption": "Baking",
+			"icon": "act2_baking",
 			"help": "Baking",
 			"ID": 3120,
 			"category": "food",
@@ -1340,7 +1359,7 @@
 		"Oven": {
 			"title": "Oven",
 			"caption": "Oven",
-			"icon": "act_oven",
+			"icon": "app_oven",
 			"help": "for baking or cooking",
 			"ID": 3121,
 			"category": "food",
@@ -1359,9 +1378,9 @@
 
 		"Cutlery handling": {
 			"title": "Lay or clear table",
-			"caption": "Lay or clear table",
-			"icon": "act_lay_clear_table",
-			"help": "before or after a meal",
+			"caption": "Lay or clear",
+			"icon": "act2_lay_clear_table",
+			"help": "cutlery, plates...",
 			"ID": 3130,
 			"category": "food",
 			"next": "food clear"
@@ -1369,7 +1388,7 @@
 		"Lay table": {
 			"title": "Lay table",
 			"caption": "Lay table",
-			"icon": "act_lay_table",
+			"icon": "act2_lay_table",
 			"help": "get things ready",
 			"ID": 3135,
 			"category": "food",
@@ -1378,7 +1397,7 @@
 		"Food clear": {
 			"title": "Clear away meal",
 			"caption": "Clear up",
-			"icon": "act_clear_table",
+			"icon": "act2_clear_table",
 			"help": "put things away",
 			"ID": 3131,
 			"category": "food",
@@ -1386,7 +1405,8 @@
 		},
 		"Dishes hand": {
 			"title": "Wash dishes",
-			"caption": "Wash up by hand",
+			"caption": "By hand",
+			"icon": "act2_dishes_hand",
 			"help": "in a sink or tub",
 			"ID": 3132,
 			"category": "food",
@@ -1394,7 +1414,8 @@
 		},
 		"Dishes machine": {
 			"title": "Dish washer",
-			"caption": "Wash up (machine)",
+			"caption": "Dishwasher",
+			"icon": "app_dishwasher",
 			"help": "load, run or unload",
 			"ID": 3133,
 			"category": "food",
@@ -1402,8 +1423,9 @@
 		},
 		"Dishes both": {
 			"title": "Dish washing",
-			"caption": "Wash up (machine and hand)",
-			"help": "by hand and with machine",
+			"caption": "Hand + machine",
+			"icon": "act2_dishwasher_hand",
+			"help": "bit of both",
 			"ID": 3134,
 			"category": "food",
 			"next": "other people"
@@ -1411,7 +1433,7 @@
 		"Dishes other": {
 			"title": "Lay or clear table",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "General laying or clearing",
 			"ID": 3136,
 			"category": "food",
@@ -1428,7 +1450,7 @@
 		"Work house food": {
 			"title": "Prepare meal",
 			"caption": "Prepare meal",
-			"icon": "act_cook",
+			"icon": "act2_cook",
 			"help": "Cook, cut, arrange food",
 			"ID": 3190,
 			"category": "food",
@@ -1437,7 +1459,7 @@
 		"Food other": {
 			"title": "Food management",
 			"caption": "Other",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Food management",
 			"ID": 3191,
 			"category": "food",
@@ -1446,7 +1468,7 @@
 		"Household upkeep": {
 			"title": "House keeping",
 			"caption": "House related",
-			"icon": "Loc_home",
+			"icon": "act2_home",
 			"help": "Cleaning, tidying, cooking, shopping",
 			"ID": 3200,
 			"category": "care_house",
@@ -1455,7 +1477,7 @@
 		"Work house other": {
 			"title": "Housework",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Not listed here",
 			"ID": 3200,
 			"category": "care_house",
@@ -1464,16 +1486,17 @@
 		"Cleaning house": {
 			"title": "Cleaning house",
 			"caption": "Cleaning / clearing",
-			"icon": "act_tidy",
+			"icon": "act2_tidy",
 			"help": "Cleaning house",
 			"ID": 3210,
 			"category": "care_house",
 			"next": "work house clean"
 		},
 		"Cleaning dusting": {
-			"title": "Dusting house",
-			"caption": "Cleaning / dusting",
-			"help": "wiping surfaces",
+			"title": "Cleaning house",
+			"caption": "Clean / dust",
+			"icon": "act2_clean",
+			"help": "wiping, sweeping",
 			"ID": 3211,
 			"category": "care_house",
 			"next": "other people"
@@ -1481,14 +1504,16 @@
 		"Cleaning vacuum": {
 			"title": "Vacuum cleaning",
 			"caption": "Vacuum cleaning",
+			"icon": "app_vacuum_cleaner",
 			"help": "Using a hoover or other",
 			"ID": 3212,
 			"category": "care_house",
 			"next": "other people"
 		},
 		"Cleaning floors": {
-			"title": "Cleaning floors",
-			"caption": "Cleaning floors",
+			"title": "Clean floors",
+			"caption": "Clean floor",
+			"icon": "act2_clean_floor",
 			"help": "Wiping, mopping",
 			"ID": 3213,
 			"category": "care_house",
@@ -1497,7 +1522,7 @@
 		"Cleaning other": {
 			"title": "Cleaning house",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Not listed here",
 			"ID": 3214,
 			"category": "care_house",
@@ -1507,6 +1532,7 @@
 			"title": "Cleaning yard",
 			"caption": "Cleaning yard",
 			"help": "Cleaning yard",
+			"icon": "act2_clean_yard",
 			"ID": 3220,
 			"category": "care_house",
 			"next": "other people"
@@ -1522,7 +1548,7 @@
 		"Work house clear up": {
 			"title": "Arrange things",
 			"caption": "Arrange things",
-			"icon": "act_arrange",
+			"icon": "act2_arrange",
 			"help": "Tidy, sort, arrange things",
 			"ID": 3240,
 			"category": "care_house",
@@ -1531,7 +1557,7 @@
 		"Work house search": {
 			"title": "Looking for things",
 			"caption": "Finding things",
-			"icon": "act_search",
+			"icon": "act2_search",
 			"help": "Searching for something",
 			"ID": 3241,
 			"category": "care_house",
@@ -1540,7 +1566,7 @@
 		"Pottering": {
 			"title": "Pottering",
 			"caption": "Pottering",
-			"icon": "act_pottering",
+			"icon": "act2_pottering",
 			"help": "This and that...",
 			"ID": 3242,
 			"category": "care_self",
@@ -1549,7 +1575,7 @@
 		"Disposal of Waste": {
 			"title": "Disposal of Waste",
 			"caption": "Clearing / waste",
-			"icon": "act_tidy",
+			"icon": "act2_tidy",
 			"help": "Arranging, disposal of waste",
 			"ID": 3250,
 			"category": "care_house",
@@ -1566,7 +1592,7 @@
 		"Unspecified making and care for textiles": {
 			"title": "Laundry",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "Handling or other work on textiles",
 			"ID": 3300,
 			"category": "care_house",
@@ -1575,7 +1601,7 @@
 		"Laundry": {
 			"title": "Laundry",
 			"caption": "Laundry",
-			"icon": "act_dress",
+			"icon": "act2_dress",
 			"help": "Washing, sorting, caring for textiles",
 			"ID": 3310,
 			"category": "care_house",
@@ -1584,7 +1610,7 @@
 		"Washing machine": {
 			"title": "Laundry machine",
 			"caption": "Washing machine",
-			"icon": "act_washing_machine",
+			"icon": "app_washing_machine",
 			"help": "Loading, running, unloading",
 			"ID": 3311,
 			"category": "care_house",
@@ -1593,6 +1619,7 @@
 		"Washing sort": {
 			"title": "Laundry sorting",
 			"caption": "Sorting",
+			"icon": "act2_clothes_sort",
 			"help": "Gathering, putting away",
 			"ID": 3312,
 			"category": "care_house",
@@ -1601,6 +1628,7 @@
 		"Washing dry line": {
 			"title": "Laundry hanging",
 			"caption": "Hanging out laundry",
+			"icon": "act2_dry_line",
 			"help": "On a line, airer or radiator",
 			"ID": 3313,
 			"category": "care_house",
@@ -1609,6 +1637,7 @@
 		"Washing dry machine": {
 			"title": "Using tumble dryer",
 			"caption": "Tumble dryer",
+			"icon": "app_tumble_dryer",
 			"help": "Loading, running, unloading",
 			"ID": 3314,
 			"category": "care_house",
@@ -1617,6 +1646,7 @@
 		"Ironing": {
 			"title": "Ironing",
 			"caption": "Ironing",
+			"icon": "app_iron",
 			"help": "Ironing",
 			"ID": 3320,
 			"category": "care_house",
@@ -1715,7 +1745,7 @@
 		"Care child other": {
 			"title": "Child care",
 			"caption": "Other",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Being with child",
 			"ID": 3810,
 			"category": "care_other",
@@ -1740,7 +1770,7 @@
 		"Care child bed": {
 			"title": "Putting child to bed",
 			"caption": "Bedtime",
-			"icon": "act_child_bed",
+			"icon": "act2_child_bed",
 			"help": "preparing for sleep",
 			"ID": 3818,
 			"category": "care_other",
@@ -1749,7 +1779,7 @@
 		"Care child study": {
 			"title": "Study with child",
 			"caption": "Study",
-			"icon": "act_study",
+			"icon": "act2_study",
 			"help": "Learning and school work",
 			"ID": 3820,
 			"category": "care_other",
@@ -1759,7 +1789,7 @@
 		"Care child engage": {
 			"title": "Being with child",
 			"caption": "Engage / play",
-			"icon": "act_with_child",
+			"icon": "act2_with_child",
 			"help": "Reading, playing and talking with child",
 			"ID": 3830,
 			"category": "care_other",
@@ -1768,7 +1798,7 @@
 		"Care child read": {
 			"title": "Reading with child",
 			"caption": "Read",
-			"icon": "act_book",
+			"icon": "act2_book",
 			"help": "Looking at pictures or text",
 			"ID": 3831,
 			"category": "care_other",
@@ -1785,7 +1815,7 @@
 		"Care child supervise": {
 			"title": "Supervise child",
 			"caption": "Supervise",
-			"icon": "act_supervise",
+			"icon": "act2_supervise",
 			"help": "Play, screen time, study",
 			"ID": 3890,
 			"category": "care_other",
@@ -1810,7 +1840,7 @@
 		"xxxCare others other": {
 			"title": "Other specified help to an adult household member",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "form of care",
 			"ID": 3919,
 			"category": "care_other",
@@ -1819,15 +1849,16 @@
 		"Care child play": {
 			"title": "Play with child",
 			"caption": "Play",
-			"icon": "act_child_play",
+			"icon": "act2_child_play",
 			"help": "Games and physical",
 			"ID": 3920,
 			"category": "care_other",
 			"next": "other people"
 		},
 		"Care others unspecified": {
-			"title": "Help others",
+			"title": "Help someone",
 			"caption": "Physical help",
+			"icon": "act2_help_physical",
 			"help": "Looking after someone",
 			"ID": 3920,
 			"category": "care_other",
@@ -1864,6 +1895,7 @@
 		"Meetings": {
 			"title": "Meetings",
 			"caption": "Socialising",
+			"icon": "act2_friends",
 			"help": "Meetings",
 			"ID": 4310,
 			"next": "other people"
@@ -1885,10 +1917,10 @@
 		"Leisure": {
 			"title": "Personal care",
 			"caption": "Me, leisure",
-			"icon": "act_leisure",
+			"icon": "act2_leisure",
 			"help": "Personal care, by yourself",
 			"ID": 5000,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "leisure"
 		},
 		"Unspecified social life": {
@@ -1933,6 +1965,7 @@
 		"Socialising": {
 			"title": "Socialising",
 			"caption": "Socialising",
+			"icon": "act2_friends",
 			"help": "with others",
 			"ID": 5190,
 			"category": "recreation",
@@ -1962,7 +1995,7 @@
 		"Mobile device": {
 			"title": "Mobile device",
 			"caption": "Mobile device",
-			"icon": "act_mobile",
+			"icon": "app_mobile",
 			"help": "Computer or mobile device",
 			"ID": 7230,
 			"next": "other people"
@@ -2119,7 +2152,7 @@
 		"Reading books": {
 			"title": "Reading",
 			"caption": "Reading",
-			"icon": "act_study",
+			"icon": "act2_book",
 			"help": "Print or mobile device",
 			"ID": 8120,
 			"category": "care_self",
@@ -2136,7 +2169,7 @@
 		"Leisure TV": {
 			"title": "Screen time",
 			"caption": "Screen time",
-			"icon": "act_screen",
+			"icon": "act2_screen",
 			"help": "Watching TV, YouTube, film...",
 			"ID": 8210,
 			"category": "recreation",
@@ -2169,6 +2202,7 @@
 		"Leisure TV Mobile": {
 			"title": "Screen time (mobile)",
 			"caption": "Mobile",
+			"icon": "app_mobile",
 			"help": "Watching something on a mobile",
 			"ID": 8213,
 			"category": "recreation",
@@ -2177,6 +2211,7 @@
 		"Leisure TV Projector": {
 			"title": "Screen time (projector)",
 			"caption": "Projector",
+			"icon": "app_projector",
 			"help": "Watching something with a projector",
 			"ID": 8214,
 			"category": "recreation",
@@ -2185,6 +2220,7 @@
 		"Leisure TV TV": {
 			"title": "Watching TV",
 			"caption": "TV",
+			"icon": "app_TV",
 			"help": "Watching TV",
 			"ID": 8215,
 			"category": "recreation",
@@ -2193,6 +2229,7 @@
 		"Leisure TV Laptop": {
 			"title": "Screen time (laptop)",
 			"caption": "Laptop",
+			"icon": "app_laptop",
 			"help": "Watching TV on a laptop",
 			"ID": 8216,
 			"category": "recreation",
@@ -2201,6 +2238,7 @@
 		"Leisure TV Tablet": {
 			"title": "Screen time (tablet)",
 			"caption": "Tablet",
+			"icon": "act2_screen",
 			"help": "Watching TV on a tablet",
 			"ID": 8217,
 			"category": "recreation",
@@ -2210,7 +2248,7 @@
 		"Leisure TV Other": {
 			"title": "Screen time",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "No need to be more specific",
 			"ID": 8210,
 			"category": "recreation",
@@ -2317,7 +2355,7 @@
 		"Work": {
 			"title": "generic work",
 			"caption": "Work /<br>Housework",
-			"icon": "act_work",
+			"icon": "act2_work",
 			"help": "Housework, Homework, Job, Volunteering",
 			"ID": 1100,
 			"category": "work",
@@ -2333,7 +2371,7 @@
 		"Main job": {
 			"title": "Main job",
 			"caption": "Main job",
-			"icon": "act_work",
+			"icon": "act2_work",
 			"help": "Working time in main job",
 			"ID": 1110,
 			"category": "work",
@@ -2342,14 +2380,16 @@
 		"Work job break": {
 			"title": "Work break",
 			"caption": "Break",
+			"icon": "act2_hot_drink",
 			"help": "Coffee, lunch, chat...",
 			"ID": 1120,
 			"category": "care_self",
 			"next": "other people"
 		},
 		"Work job manual": {
-			"title": "Manual work",
-			"caption": "Manual",
+			"title": "Work",
+			"caption": "Hands",
+			"icon": "act2_work_manual",
 			"help": "Using hands or strength",
 			"ID": 1130,
 			"next": "other people"
@@ -2357,7 +2397,7 @@
 		"Work job other": {
 			"title": "Work",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Other work",
 			"ID": 1140,
 			"category": "work",
@@ -2374,7 +2414,7 @@
 		"Working time in second job": {
 			"title": "Other job",
 			"caption": "Other job",
-			"icon": "act_work",
+			"icon": "act2_work",
 			"help": "Working in second or other job",
 			"ID": 1210,
 			"category": "work",
@@ -2390,7 +2430,7 @@
 		"Unspecified activities related to employment": {
 			"title": "Work or Housework",
 			"caption": "Skip",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "None of the above",
 			"ID": 1300,
 			"next": "other people"
@@ -2454,7 +2494,7 @@
 		"Study": {
 			"title": "Study",
 			"caption": "Study",
-			"icon": "act_study",
+			"icon": "act2_study",
 			"help": "School, uni, further education",
 			"ID": 2190,
 			"next": "work job"
@@ -2469,7 +2509,7 @@
 		"Gardening": {
 			"title": "Gardening",
 			"caption": "Gardening",
-			"icon": "act_gardening",
+			"icon": "act2_gardening",
 			"help": "Tending your garden",
 			"ID": 3410,
 			"category": "recreation",
@@ -2485,7 +2525,7 @@
 		"Caring for pets": {
 			"title": "With pet",
 			"caption": "Pet",
-			"icon": "act_pets",
+			"icon": "act2_pets",
 			"help": "Caring for pet(s)",
 			"ID": 3430,
 			"category": "care_other",
@@ -2494,7 +2534,7 @@
 		"Walking the dog": {
 			"title": "Walking the dog",
 			"caption": "Dog",
-			"icon": "act_dog",
+			"icon": "act2_dog",
 			"help": "Walking the dog",
 			"ID": 3440,
 			"category": "care_other",
@@ -2571,7 +2611,7 @@
 		"Shopping and services": {
 			"title": "Shopping",
 			"caption": "Shopping and service",
-			"icon": "act_shopping",
+			"icon": "act2_shopping",
 			"help": "Buying goods or services",
 			"ID": 3600,
 			"category": "care_self",
@@ -2652,7 +2692,7 @@
 		"Volunteer work and meetings": {
 			"title": "Volunteer work and meetings",
 			"caption": "Volunteering",
-			"icon": "act_volunteer",
+			"icon": "act2_volunteer",
 			"help": "Unpaid work or activity",
 			"ID": 4000,
 			"next": "work job"
@@ -3037,8 +3077,8 @@
 		},
 		"Care rest sleep": {
 			"title": "Rest or sleep",
-			"caption": "Break, rest, sleep",
-			"icon": "act_rest",
+			"caption": "Rest, sleep",
+			"icon": "act2_rest",
 			"help": "Sleeping, resting, having a break",
 			"ID": 5311,
 			"category": "care_self",
@@ -3047,7 +3087,7 @@
 		"Care rest": {
 			"title": "Resting",
 			"caption": "Resting",
-			"icon": "act_rest",
+			"icon": "act2_leisure",
 			"help": "Taking a break",
 			"ID": 5310,
 			"category": "care_self",
@@ -3058,7 +3098,7 @@
 		"Outdoors other": {
 			"title": "Outdoor activity",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "Anything else",
 			"ID": 6000,
 			"category": "recreation",
@@ -3076,6 +3116,7 @@
 		"Outdoor food": {
 			"title": "Outdoor food",
 			"caption": "Food",
+			"icon": "act2_food",
 			"help": "Any food related activity",
 			"ID": 6000,
 			"category": "food",
@@ -3084,6 +3125,7 @@
 		"Outdoor food eating": {
 			"title": "Outdoors eating",
 			"caption": "Eating",
+			"icon": "act2_eat",
 			"help": "Meal outdoors, like restaurant or park",
 			"ID": 6001,
 			"category": "food",
@@ -3092,6 +3134,7 @@
 		"Outdoor food shopping": {
 			"title": "Food shopping",
 			"caption": "Shopping",
+			"icon": "act2_shop",
 			"help": "in outdoor shop",
 			"ID": 6002,
 			"category": "care_self",
@@ -3109,6 +3152,7 @@
 		"Outdoor food bbq": {
 			"title": "BBQ",
 			"caption": "BBQ",
+			"icon": "act2_bbq",
 			"help": "Having a Barbecue",
 			"ID": 6004,
 			"category": "food",
@@ -3117,7 +3161,7 @@
 		"Outdoor food other": {
 			"title": "Food outdoors",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "Other outdoor food activity",
 			"ID": 6005,
 			"category": "food",
@@ -3127,17 +3171,17 @@
 		"Outdoors appliances": {
 			"title": "Outdoors / appliances",
 			"caption": "Appliances",
-			"icon": "act_appliance",
+			"icon": "act2_appliance",
 			"help": "Using an appliance outdoors",
 			"ID": 6010,
 			"category": "recreation",
 			"next": "outdoors appliances"
 		},
 		"Exercise": {
-			"title": "Exercise/sport",
-			"caption": "Exercise / sport",
-			"icon": "act_exercise",
-			"help": "Sport / physical exercise",
+			"title": "Exercise",
+			"caption": "Exercise",
+			"icon": "act2_exercise",
+			"help": "Sport / physical activity",
 			"ID": 6100,
 			"category": "recreation",
 			"next": "other people"
@@ -3145,7 +3189,7 @@
 		"Walking and hiking": {
 			"title": "Walking and hiking",
 			"caption": "Sports",
-			"icon": "act_walk",
+			"icon": "act2_walk",
 			"help": "Walking and hiking",
 			"ID": 6110,
 			"category": "recreation",
@@ -3161,7 +3205,7 @@
 		"Other walk or hike": {
 			"title": "Other walk or hike",
 			"caption": "Sports",
-			"icon": "act_walk",
+			"icon": "act2_walk",
 			"help": "Other walk or hike",
 			"ID": 6119,
 			"next": "other people"
@@ -3315,7 +3359,7 @@
 		},
 		"Nature": {
 			"title": "In nature",
-			"icon": "act_nature",
+			"icon": "act2_nature",
 			"caption": "Nature",
 			"help": "Being in nature",
 			"ID": 6400,
@@ -3325,7 +3369,7 @@
 		"Leisure other": {
 			"title": "Unspecified hobbies, games and computing",
 			"caption": "Other",
-			"icon": "act_other",
+			"icon": "act2_other",
 			"help": "Other hobbies, games or computing",
 			"ID": 7000,
 			"next": "other people"
@@ -3439,7 +3483,7 @@
 		"Travel purpose other": {
 			"title": "Travel",
 			"caption": "Other",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Not shown here",
 			"ID": 9000,
 			"category": "travel",
@@ -3464,7 +3508,7 @@
 		"Travel purpose work": {
 			"title": "Travel (work)",
 			"caption": "Work",
-			"icon": "act_work",
+			"icon": "act2_work",
 			"help": "For, to or from work",
 			"ID": 9110,
 			"category": "travel",
@@ -3497,7 +3541,7 @@
 		"Travel purpose children": {
 			"title": "Take children",
 			"caption": "Children",
-			"icon": "act_children",
+			"icon": "act2_children",
 			"help": "For school, sport or social",
 			"ID": 9230,
 			"category": "travel",
@@ -3505,7 +3549,7 @@
 		},
 		"Travel purpose children school": { "title": "School run",
 			 "caption": "School / nursery",
-			 "icon": "act_study",
+			 "icon": "act2_study",
 			 "help": "School run",
 			 "ID": 9231,
 			 "category": "travel",
@@ -3515,7 +3559,7 @@
 		"Travel purpose children sport": { "title": "Child to/from sport",
 			 "caption": "Sport",
 			 "help": "To/from event/training",
-			 "icon": "act_exercise",
+			 "icon": "act2_exercise",
 			 "ID": 9232,
 			 "category": "travel",
 			 "next": "other people" 
@@ -3523,7 +3567,7 @@
 			
 		"Travel purpose children social": { "title": "Child to/from friend",
 			 "caption": "See friends",
-			 "icon": "act_friends",
+			 "icon": "act2_friends",
 			 "help": "to play",
 			 "ID": 9233,
 			 "category": "travel",
@@ -3532,7 +3576,7 @@
 			
 		"Travel purpose children other": { "title": "Taking children",
 			 "caption": "Other",
-			 "icon": "act_other",
+			 "icon": "act2_other",
 			 "help": "Something else",
 			 "ID": 9234,
 			 "category": "travel",
@@ -3551,7 +3595,7 @@
 		"Travel purpose shop service": {
 			"title": "Travel (shop/service)",
 			"caption": "Shopping / service",
-			"icon": "act_shop",
+			"icon": "act2_shop",
 			"help": "food, goods, bank",
 			"ID": 9310,
 			"category": "care_house",
@@ -3560,7 +3604,7 @@
 		"Travel purpose shopping": {
 			"title": "Going shopping",
 			"caption": "Shopping",
-			 "icon": "act_exercise",
+			 "icon": "act2_exercise",
 			"help": "Travel to/from shops",
 			"ID": 9360,
 			"category": "travel",
@@ -3633,7 +3677,7 @@
 		"Travel purpose friend": {
 			"title": "Travel (social)",
 			"caption": "Family / friends",
-			"icon": "act_friends",
+			"icon": "act2_friends",
 			"help": "visiting or travelling with",
 			"ID": 9500,
 			"category": "travel",
@@ -3658,7 +3702,7 @@
 		"Travel purpose leisure": {
 			"title": "Travel (leisure)",
 			"caption": "Leisure",
-			"icon": "act_leisure",
+			"icon": "act2_leisure",
 			"help": "to have fun",
 			"ID": 9600,
 			"category": "travel",
@@ -3666,8 +3710,8 @@
 		},
 		"Travel purpose exercise": {
 			"title": "Exercise",
-			"caption": "Exercise / well-being",
-			"icon": "act_exercise",
+			"caption": "Exercise",
+			"icon": "act2_exercise",
 			"help": "Health and fitness",
 			"ID": 9610,
 			"category": "recreation",
@@ -3783,6 +3827,7 @@
 		"Other specify": {
 			"title": "Custom definition",
 			"caption": "Other...",
+			"icon": "Other_type",
 			"help": "Say in your own words",
 			"ID": 9990,
 			"next": "other specify"
@@ -3790,7 +3835,7 @@
 		"other": {
 			"title": "Unspecified time use",
 			"caption": "Other",
-			"icon": "act_skip",
+			"icon": "act2_skip",
 			"help": "Unspecified time use",
 			"ID": 9990,
 			"next": "other people"

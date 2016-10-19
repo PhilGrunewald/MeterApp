@@ -16,45 +16,45 @@ var log = {
 	init: function() {
 		if (device.platform != "browser") {        
 			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
-		console.log("got main dir",dir);
-		// the existence of folder METER is assumed
-		// in this folder is also id.txt to identify the user
-
-
-		$.getJSON("/sdcard/METER/config.json", function(config) {
-			log.id 				= config.id;
-			app.catchupList 	= config.catchup;
-			app.deviceColour 	= config.colour;
-		//});
-		//
-		//log.readID( function(thisID) {
-		// if (thisID == "0") {
-		if (config.id == "0") {
-			$("div#change-id").show();
-			$("div#btn-time").attr("onclick", "app.navigateTo('activity time absolute')"); // clicking 'recent' now leads to absolute time values
-		}
-		dir.getFile("METER/"+config.id+"_ind.csv", {create:true}, function(file) {
-			console.log("got survey file", file);
-			log.logSurvey = file;
-		}, function(err) {
-			console.log(err);
-		});
-		dir.getFile("METER/"+config.id+"_act.csv", {create:true}, function(file) {
-			console.log("got activities file", file);
-			log.logAct = file;
-		}, function(err) {
-			console.log(err);
-		});
-		// I made this txt, so that all data is distinct as csv files
-		dir.getFile("METER/debug.txt", {create:true}, function(file) {
-			console.log("got debug file", file);
-			log.logDebug = file;
-			log.writeLog("App started");          
-		}, function(err) {
-			console.log(err);
-		});					
-		});
+			console.log("got main dir",dir);
+			// the existence of folder METER is assumed
+			// in this folder is also id.txt to identify the user
+			$.getJSON("/sdcard/METER/config.json", function(config) {
+				log.id 				= config.id;
+				log.start			= config.start;
+				app.catchupList 	= config.times;
+				if (config.id == "0") {
+					$("div#change-id").show();
+					$("div#btn-time").attr("onclick", "app.navigateTo('activity time absolute')"); // clicking 'recent' now leads to absolute time values
+				}
+				dir.getFile("METER/"+config.id+"_ind.csv", {create:true}, function(file) {
+					console.log("got survey file", file);
+					log.logSurvey = file;
+				}, function(err) {
+					console.log(err);
+				});
+				dir.getFile("METER/"+config.id+"_act.csv", {create:true}, function(file) {
+					console.log("got activities file", file);
+					log.logAct = file;
+				}, function(err) {
+					console.log(err);
+				});
+				// I made this txt, so that all data is distinct as csv files
+				dir.getFile("METER/debug.txt", {create:true}, function(file) {
+					console.log("got debug file", file);
+					log.logDebug = file;
+					log.writeLog("App started");          
+				}, function(err) {
+					console.log(err);
+				});					
 			});
+			});
+		} else {
+			$.getJSON("/js/config.json", function(config) {
+				log.id 				= config.id;
+				log.start			= config.start;
+				app.catchupList 	= config.times;
+			})
 		}
 	},
     
