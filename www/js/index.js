@@ -359,12 +359,9 @@ var app = {
 		$("div.footer-nav").show();
 
 
-		var screen_ = app.screens[screen_id];
-		app.title.html(utils.format(screen_.title));
 
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
-			// app.title.html(utils.format(screen_.title));
 			if (prev_activity !== "ignore") {
 				app.addActivityToList();
 			}
@@ -411,12 +408,14 @@ var app = {
 			// "survey root" is where the top navigation button points to
 			// here it gets redirected to the latest survey screen
 			// SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
-			clearTimeout(app.waitFor5pm);
 			screen_id = utils.get(SURVEY_STATUS);
+			clearTimeout(app.waitFor5pm);
+			$('div.contents').show();
 			app.footer_nav("home");
 			if (screen_id === null) {
 				screen_id = "survey root";
 			}
+			console.log("XXX: " + screen_id);
 		} else
 		if (screen_id == "survey complete") {
 			$("div#nav-aboutme").hide();
@@ -429,6 +428,8 @@ var app = {
 		//****************************** 
 		//      Buttons
 		//****************************** 
+		var screen_ = app.screens[screen_id];
+		app.title.html(utils.format(screen_.title));
 		if (screen_id !== "home") {
 			for (i = 0; i < screen_.activities.length; i++) {
 				var activity_id = screen_.activities[i];
@@ -527,8 +528,9 @@ var app = {
 		if (nowDT < startDT) {
 			var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date(log.start).getDay()];
 			if (utils.get(SURVEY_STATUS) != "survey complete") {
-				app.title.html("You can start recording activties on <b>" + day + " at 5pm</b> once you have completed this 3 minute <br><br><div class=\"clickable\">survey</div>");
+				app.title.html("You can start recording activties on <b>" + day + " at 5pm</b>. Tap here to complete the survey.");
 				app.title.attr("onclick", "app.navigateTo('survey root')");
+				$('div.contents').hide();
 			} else {
 				app.title.html("Well done. You completed the survey. <br>You will be able to start recording activties on <b>" + day + " at 5pm</b>");
 			}

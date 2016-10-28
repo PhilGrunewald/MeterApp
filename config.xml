@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="uk.ac.ox.energy.meter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Meter</name>
+<widget id="org.energy-use.meter" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Activity recorder</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+		An activity recorder
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+	<author email="philipp.grunewald@ouce.ox.ac.uk" href="http://www.energy-use.org">
         Phil Grunewald
     </author>
     <content src="index.html" />
@@ -19,6 +19,21 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+		<icon src="www/img/recent.png" />
+        <!--
+            ldpi    : 36x36 px
+            mdpi    : 48x48 px
+            hdpi    : 72x72 px
+            xhdpi   : 96x96 px
+            xxhdpi  : 144x144 px
+            xxxhdpi : 192x192 px
+        -->
+        <icon src="www/img/recent.png" density="ldpi" />
+        <icon src="www/img/recent.png" density="mdpi" />
+        <icon src="www/img/recent.png" density="hdpi" />
+        <icon src="www/img/recent.png" density="xhdpi" />
+        <icon src="www/img/recent.png" density="xxhdpi" />
+        <icon src="www/img/recent.png" density="xxxhdpi" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
