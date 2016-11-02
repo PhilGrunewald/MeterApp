@@ -61,6 +61,11 @@
 			"help": "tap the one that fits best",
 			"activities": [ "Working home 1", "Working home 2", "Working home 3", "Working home 4", "Working home 5", "Working home 6" ]
 		},
+		"survey energy": {
+			"title": "How interested are you in energy issues?",
+			"help": "",
+			"activities": [ "Energy interest 1", "Energy interest 2", "Energy interest 3", "Energy interest 4", "Energy interest 5", "Energy interest 6" ]
+		},
 		"survey bills": {
 			"title": "Do you pay the electricity bills?",
 			"help": "tap the one that fits best",
@@ -72,48 +77,48 @@
 			"activities": [ "Income 1", "Income 2", "Income 3", "Income 4", "Income 5", "Income 6" ]
 		},
 		"survey appliances 1": {
-			"title": "Did <i>you</i> use a <b>Dishwasher</b> last week?",
-			"help": "over the last 7 days",
+			"title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Dishwasher</b>?",
+			"help": "",
 			"activities": [ "App 1 1", "App 1 2", "App 1 3", "App 1 4", "App 1 5", "App 1 6" ]
 		},
 		"survey appliances 2": {
-			"title": "Did <i>you</i> use a <b>Washing Machine</b> last week?",
-			"help": "Think of the last 7 days.",
+			"title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Washing Machine</b>?",
+			"help": "",
 			"activities": [ "App 2 1", "App 2 2", "App 2 3", "App 2 4", "App 2 5", "App 2 6" ]
 		},
 		"survey appliances 3": {
-			"title": "Did <i>you</i> use a Tumble Dryer last week?",
-			"help": "Think of the last 7 days.",
+			"title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Tumble Dryer</b>?",
+			"help": "",
 			"activities": [ "App 3 1", "App 3 2", "App 3 3", "App 3 4", "App 3 5", "App 3 6" ]
 		},
 		"survey appliances 4": {
-			"title": "Did you use a shower?",
-			"help": "Think of the last 7 days.",
+			"title": "In the last 7 days,</br> did you use a</br> <b>Shower</b>?",
+			"help": "",
 			"activities": [ "App 4 1", "App 4 2", "App 4 3", "App 4 4", "App 4 5", "App 4 6" ]
 		},
 		"survey appliances 5": {
-			"title": "Did <i>you</i> use a <b>Vacuum Cleaner</b>?",
-			"help": "Think of the last 7 days.",
+			"title": "In the last 7 days,</br> did you use a</br> <b>Vacuum Cleaner</b>?",
+			"help": "",
 			"activities": [ "App 5 1", "App 5 2", "App 5 3", "App 5 4", "App 5 5", "App 5 6" ]
 		},
 		"time mobile": {
-			"title": "<small>Time spent on <b>mobile devices</b> per day</small>",
-			"help": "Typical recent use",
+			"title": "On a typical weekday, how much time do you spend on</br> <b>Mobile Devices</b> (in total)",
+			"help": "",
 			"activities": [ "Time mobile 1", "Time mobile 2", "Time mobile 3", "Time mobile 4", "Time mobile 5", "Time mobile 6" ]
 		},
 		"time screens": {
-			"title": "<small><b>Screentime</b> at home per day</small>",
+			"title": "On a typical weekday, how much time do you spend on</br> <b>Screens</b> (any device)",
 			"help": "TV, tablet...",
 			"activities": [ "Time screens 1", "Time screens 2", "Time screens 3", "Time screens 4", "Time screens 5", "Time screens 6" ]
 		},
 		"time cooking": {
-			"title": "Time spent <b>cooking</b> per day",
-			"help": "Typical recent cooking activities",
+			"title": "On a typical weekday, how much time do you spend </br> <b>Cooking</b>",
+			"help": "",
 			"activities": [ "Time cooking 1", "Time cooking 2", "Time cooking 3", "Time cooking 4", "Time cooking 5", "Time cooking 6" ]
 		},
 		"time exercise": {
-			"title": "Time spend <b>exercising</b> per day",
-			"help": "Typical recent use",
+			"title": "On a typical weekday, how much time do you spend </br> <b>Exercising</b>",
+			"help": "",
 			"activities": [ "Time exercise 1", "Time exercise 2", "Time exercise 3", "Time exercise 4", "Time exercise 5", "Time exercise 6" ]
 		},
 
@@ -594,6 +599,18 @@
 			]
 		},
 
+		"appliances food preparation": {
+			"title": "Kitchen",
+			"help": "",
+			"activities": [
+				"Appliances Oven",
+				"Appliances Hob",
+				"Appliances Microwave",
+				"Appliances Kettle",
+				"Appliances Toaster",
+				"Other specify"
+			]
+		},
 
 		"appliances kitchen": {
 			"title": "Kitchen",

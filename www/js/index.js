@@ -294,7 +294,7 @@ var app = {
 			       dt_activity = new Date(dt_activity);
 			       var dt_activity = new Date(dt_activity.getTime() +offset).toISOString();
 			       utils.save(ACTIVITY_DATETIME, dt_activity);
-			       utils.save(ACTIVITY_MANUAL_DATE, dt_activity);
+			       // XXX utils.save(ACTIVITY_MANUAL_DATE, dt_activity);
 			   }
 
 			  // Set specific time in hours and minutes
@@ -357,6 +357,7 @@ var app = {
 		$("div#progress_list_pane").hide();
 		app.choicesPane.show();
 		$("div.footer-nav").show();
+		$(".btn-caption").hide(); // hide help text when moving on (default off)
 
 
 

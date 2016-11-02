@@ -28,12 +28,12 @@
             xxhdpi  : 144x144 px
             xxxhdpi : 192x192 px
         -->
-        <icon src="www/img/recent.png" density="ldpi" />
-        <icon src="www/img/recent.png" density="mdpi" />
-        <icon src="www/img/recent.png" density="hdpi" />
-        <icon src="www/img/recent.png" density="xhdpi" />
-        <icon src="www/img/recent.png" density="xxhdpi" />
-        <icon src="www/img/recent.png" density="xxxhdpi" />
+        <icon src="www/img/meter_go.png" density="ldpi" />
+        <icon src="www/img/meter_go.png" density="mdpi" />
+        <icon src="www/img/meter_go.png" density="hdpi" />
+        <icon src="www/img/meter_go.png" density="xhdpi" />
+        <icon src="www/img/meter_go.png" density="xxhdpi" />
+        <icon src="www/img/meter_go.png" density="xxxhdpi" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

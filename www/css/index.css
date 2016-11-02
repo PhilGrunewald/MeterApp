@@ -75,7 +75,7 @@ body {
 }
 
 .alert {
-	background-color: #6f6;
+	background-color: #060;
 	height: 18%;
 	padding: 20px;
 }
@@ -233,13 +233,13 @@ h1 {
 	/* the short main description */
 	font-weight: lighter;
     font-size: 110%;
-    color: #44d;
+    color: #060;
 }
 
 .btn-caption {
     display: none;
     font-size: 90%;
-    color: #44d;
+    color: #060;
 }
 
 

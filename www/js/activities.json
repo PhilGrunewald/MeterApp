@@ -100,8 +100,8 @@
 			"next": "app.deleteActivity"
 		},
 
-		"female": 				{ "title": "Gender", "value": 1,"caption": "Female", "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
-		"male": 				{ "title": "Gender", "value": 2,"caption": "Male", "help": "You would describe yourself as male", "ID": 90012, "next": "survey age" },
+		"female": 				{ "title": "Gender", "value": 1,"caption": "Female", "icon": "act2_female",  "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
+		"male": 				{ "title": "Gender", "value": 2,"caption": "Male", "icon": "act2_male",  "help": "You would describe yourself as male", "ID": 90012, "next": "survey age" },
 		"survey gender other":	{ "title": "Gender", "value": 3,"caption": "Other", "help": "You would describe your gender as neither male nor female", "ID": 90013, "next": "survey age" },
 		"survey gender skip":	{ "title": "Gender", "value": 0,"caption": "Skip", "icon": "act2_skip", "help": "You don't want to answer this question", "ID": 90014, "next": "survey age" },
 
@@ -116,7 +116,7 @@
 		"Occupation employed": 		{ "title": "Occupation", "value": 2, "caption": "Employed", "help": "You are in paid employment", "ID": 90032, "next": "survey working hours" },
 		"Occupation self employed": { "title": "Occupation", "value": 3, "caption": "Self employed", "help": "You are self employed", "ID": 90033, "next": "survey working hours" },
 		"Occupation unpaid work": 	{ "title": "Occupation", "value": 4, "caption": "Volunteer / unpaid work", "help": "You work in a voluntary or unpaid capacity", "ID": 90034, "next": "survey working hours" },
-		"Occupation unemployed": 	{ "title": "Occupation", "value": 5, "caption": "Unemployed / retired", "help": "You do not work, are retired or unemployed", "ID": 90035, "next": "survey bills" },
+		"Occupation unemployed": 	{ "title": "Occupation", "value": 5, "caption": "Unemployed / retired", "help": "You do not work, are retired or unemployed", "ID": 90035, "next": "survey energy" },
 		"Occupation other": 		{ "title": "Occupation", "value": 6, "caption": "Other / Skip", "icon": "act2_skip", "help": "Your occupation is different or you don't want to say", "ID": 90036, "next": "survey working hours" },
 
 		"Working hours 1": { "title": "WorkingHours", "value": 1,"caption": "None", "help": "I do not have work time as such", "ID": 90041, "next": "survey working regularity" },
@@ -131,14 +131,21 @@
 		"Working hours change 3": { "title": "WorkRegularity", "value": 3, "caption": "Flexible to suit me", "help": "I can choose my hours", "ID": 90053, "next": "survey working home" },
 		"Working hours change 4": { "title": "WorkRegularity", "value": 4, "caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90054, "next": "survey working home" },
 
-		"Working home 1": { "title": "WorkHome", "value": 1,"caption": "Never", "help": "I never work from home", "ID": 90061, "next": "survey bills" },
-		"Working home 2": { "title": "WorkHome", "value": 2,"caption": "Rarely", "help": "I work from home approx. once per month", "ID": 90062, "next": "survey bills" },
-		"Working home 3": { "title": "WorkHome", "value": 3,"caption": "Sometimes", "help": "I work from home up to 5 times per month", "ID": 90063, "next": "survey bills" },
-		"Working home 4": { "title": "WorkHome", "value": 4,"caption": "Often", "help": "6 times or more per month", "ID": 90064, "next": "survey bills" },
-		"Working home 5": { "title": "WorkHome", "value": 5,"caption": "Always", "help": "Home is my main workplace", "ID": 90065, "next": "survey bills" },
-		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I chose not to say", "ID": 90066, "next": "survey bills" },
+		"Working home 1": { "title": "WorkHome", "value": 1,"caption": "Never", "help": "I never work from home", "ID": 90061, "next": "survey energy" },
+		"Working home 2": { "title": "WorkHome", "value": 2,"caption": "Rarely", "help": "I work from home approx. once per month", "ID": 90062, "next": "survey energy" },
+		"Working home 3": { "title": "WorkHome", "value": 3,"caption": "Sometimes", "help": "I work from home up to 5 times per month", "ID": 90063, "next": "survey energy" },
+		"Working home 4": { "title": "WorkHome", "value": 4,"caption": "Often", "help": "6 times or more per month", "ID": 90064, "next": "survey energy" },
+		"Working home 5": { "title": "WorkHome", "value": 5,"caption": "Always", "help": "Home is my main workplace", "ID": 90065, "next": "survey energy" },
+		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I chose not to say", "ID": 90066, "next": "survey energy" },
 
-		"Bills yes": 		{ "title": "BillContributer", "value": 1, "caption": "Yes, I do", "help": "I take responsibility for the bills", "ID": 90071, "next": "survey income" },
+		"Energy interest 1": { "title": "Energy interest", "value": 1,"caption": "Very Interested", "help": "I have a keen interest", "ID": 90090, "next": "survey bills" },
+		"Energy interest 2": { "title": "Energy interest", "value": 2,"caption": "Interested", "help": "", "ID": 90091, "next": "survey bills" },
+		"Energy interest 3": { "title": "Energy interest", "value": 3,"caption": "Somewhat", "help": "", "ID": 90092, "next": "survey bills" },
+		"Energy interest 4": { "title": "Energy interest", "value": 4,"caption": "Not very much", "help": "", "ID": 90093, "next": "survey bills" },
+		"Energy interest 5": { "title": "Energy interest", "value": 5,"caption": "Not at all", "help": "I do not care about energy issues", "ID": 90094, "next": "survey bills" },
+		"Energy interest 6": { "title": "Energy interest", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90095, "next": "survey bills" },
+
+			"Bills yes": 		{ "title": "BillContributer", "value": 1, "caption": "Yes, I do", "help": "I take responsibility for the bills", "ID": 90071, "next": "survey income" },
 		"Bills contribute": { "title": "BillContributer", "value": 2, "caption": "I contribute", "help": "Others also contribute or deal with bills", "ID": 90072, "next": "survey income" },
 		"Bills no": 		{ "title": "BillContributer", "value": 3, "caption": "I don't", "help": "Others pay or I don't have to", "ID": 90073, "next": "survey income" },
 		"Bills other": 		{ "title": "BillContributer", "value": 4, "caption": "Other / Skip", "icon": "act2_skip", "help": "I have a different arrangement or don't want to say", "ID": 90074, "next": "survey income" },
@@ -151,67 +158,67 @@
 		"Income 6": { "title": "Income", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90085, "next": "survey appliances 1" },
 
 		"App 1 1": { "title": "UseDishwasher", "value": 1, "caption": "I didn't", "help": "use a dishwasher", "ID": 90101, "next": "survey appliances 2" },
-		"App 1 2": { "title": "UseDishwasher", "value": 2, "caption": "Once", "help": "used a dishwasher", "ID": 90102, "next": "survey appliances 2" },
-		"App 1 3": { "title": "UseDishwasher", "value": 3, "caption": "Twice", "help": "used a dishwasher", "ID": 90103, "next": "survey appliances 2" },
-		"App 1 4": { "title": "UseDishwasher", "value": 4, "caption": "3 - 4<br>times", "help": "I used a dishwasher 3 or 4 times", "ID": 90104, "next": "survey appliances 2" },
-		"App 1 5": { "title": "UseDishwasher", "value": 5, "caption": "5 - 7<br>times", "help": "I used a dishwasher 5-7 times", "ID": 90105, "next": "survey appliances 2" },
-		"App 1 6": { "title": "UseDishwasher", "value": 6, "caption": "8<br>or more", "help": "I used a dishwasher over eight times", "ID": 90106, "next": "survey appliances 2" },
+		"App 1 2": { "title": "UseDishwasher", "value": 2, "icon": "app_dishwasher", "caption": "Once", "help": "used a dishwasher", "ID": 90102, "next": "survey appliances 2" },
+		"App 1 3": { "title": "UseDishwasher", "value": 3, "icon": "app_dishwasher_2", "caption": "Twice", "help": "used a dishwasher", "ID": 90103, "next": "survey appliances 2" },
+		"App 1 4": { "title": "UseDishwasher", "value": 4, "icon": "app_dishwasher_3", "caption": "3 - 4<br>times", "help": "I used a dishwasher 3 or 4 times", "ID": 90104, "next": "survey appliances 2" },
+		"App 1 5": { "title": "UseDishwasher", "value": 5, "icon": "app_dishwasher_5", "caption": "5 - 7<br>times", "help": "I used a dishwasher 5-7 times", "ID": 90105, "next": "survey appliances 2" },
+		"App 1 6": { "title": "UseDishwasher", "value": 6, "icon": "app_dishwasher+", "caption": "8<br>or more", "help": "I used a dishwasher over eight times", "ID": 90106, "next": "survey appliances 2" },
 
 		"App 2 1": { "title": "UseWashingMachine", "value": 1,"caption": "I didn't", "help": "use a washing machine", "ID": 90201, "next": "survey appliances 3" },
-		"App 2 2": { "title": "UseWashingMachine", "value": 2,"caption": "Once", "help": "used a washing machine", "ID": 90202, "next": "survey appliances 3" },
-		"App 2 3": { "title": "UseWashingMachine", "value": 3,"caption": "Twice", "help": "used a washing machine", "ID": 90203, "next": "survey appliances 3" },
-		"App 2 4": { "title": "UseWashingMachine", "value": 4,"caption": "3 - 4<br>times", "help": "I used a washing machine 3 or 4 times", "ID": 90204, "next": "survey appliances 3" },
-		"App 2 5": { "title": "UseWashingMachine", "value": 5,"caption": "5 - 7<br>times", "help": "I used a washing machine 5-7 times", "ID": 90205, "next": "survey appliances 3" },
-		"App 2 6": { "title": "UseWashingMachine", "value": 6,"caption": "8<br>or more", "help": "I used a washing machine over eight times", "ID": 90206, "next": "survey appliances 3" },
+		"App 2 2": { "title": "UseWashingMachine", "icon": "app_washing_machine_1", "value": 2,"caption": "Once", "help": "used a washing machine", "ID": 90202, "next": "survey appliances 3" },
+		"App 2 3": { "title": "UseWashingMachine", "icon": "app_washing_machine_2", "value": 3,"caption": "Twice", "help": "used a washing machine", "ID": 90203, "next": "survey appliances 3" },
+		"App 2 4": { "title": "UseWashingMachine", "icon": "app_washing_machine_3", "value": 4,"caption": "3 - 4<br>times", "help": "I used a washing machine 3 or 4 times", "ID": 90204, "next": "survey appliances 3" },
+		"App 2 5": { "title": "UseWashingMachine", "icon": "app_washing_machine_5", "value": 5,"caption": "5 - 7<br>times", "help": "I used a washing machine 5-7 times", "ID": 90205, "next": "survey appliances 3" },
+		"App 2 6": { "title": "UseWashingMachine", "icon": "app_washing_machine+", "value": 6,"caption": "8<br>or more", "help": "I used a washing machine over eight times", "ID": 90206, "next": "survey appliances 3" },
 
 		"App 3 1": { "title": "UseTumbleDryer", "value": 1,"caption": "I didn't", "help": "use a tumble dryer", "ID": 90301, "next": "survey appliances 4" },
-		"App 3 2": { "title": "UseTumbleDryer", "value": 2,"caption": "Once", "help": "used a tumble dryer", "ID": 90302, "next": "survey appliances 4" },
-		"App 3 3": { "title": "UseTumbleDryer", "value": 3,"caption": "Twice", "help": "used a tumble dryer", "ID": 90303, "next": "survey appliances 4" },
-		"App 3 4": { "title": "UseTumbleDryer", "value": 4,"caption": "3 - 4<br>times", "help": "I used a tumble dryer 3 or 4 times", "ID": 90304, "next": "survey appliances 4" },
-		"App 3 5": { "title": "UseTumbleDryer", "value": 5,"caption": "5 - 7<br>times", "help": "I used a tumble dryer 5-7 times", "ID": 90305, "next": "survey appliances 4" },
-		"App 3 6": { "title": "UseTumbleDryer", "value": 6,"caption": "8<br>or more", "help": "I used a tumble dryer over eight times", "ID": 90306, "next": "survey appliances 4" },
+		"App 3 2": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 2,"caption": "Once", "help": "used a tumble dryer", "ID": 90302, "next": "survey appliances 4" },
+		"App 3 3": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 3,"caption": "Twice", "help": "used a tumble dryer", "ID": 90303, "next": "survey appliances 4" },
+		"App 3 4": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 4,"caption": "3 - 4<br>times", "help": "I used a tumble dryer 3 or 4 times", "ID": 90304, "next": "survey appliances 4" },
+		"App 3 5": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 5,"caption": "5 - 7<br>times", "help": "I used a tumble dryer 5-7 times", "ID": 90305, "next": "survey appliances 4" },
+		"App 3 6": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 6,"caption": "8<br>or more", "help": "I used a tumble dryer over eight times", "ID": 90306, "next": "survey appliances 4" },
 
 		"App 4 1": { "title": "UseShower", "value": 1,"caption": "I didn't", "help": "use a shower", "ID": 90401, "next": "survey appliances 5" },
-		"App 4 2": { "title": "UseShower", "value": 2,"caption": "Once", "help": "used a shower", "ID": 90402, "next": "survey appliances 5" },
-		"App 4 3": { "title": "UseShower", "value": 3,"caption": "Twice", "help": "used a shower", "ID": 90403, "next": "survey appliances 5" },
-		"App 4 4": { "title": "UseShower", "value": 4,"caption": "3 - 4<br>times", "help": "I used a shower 3 or 4 times", "ID": 90404, "next": "survey appliances 5" },
-		"App 4 5": { "title": "UseShower", "value": 5,"caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90405, "next": "survey appliances 5" },
-		"App 4 6": { "title": "UseShower", "value": 6,"caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90406, "next": "survey appliances 5" },
+		"App 4 2": { "title": "UseShower", "icon": "act2_shower", "value": 2,"caption": "Once", "help": "used a shower", "ID": 90402, "next": "survey appliances 5" },
+		"App 4 3": { "title": "UseShower", "icon": "act2_shower", "value": 3,"caption": "Twice", "help": "used a shower", "ID": 90403, "next": "survey appliances 5" },
+		"App 4 4": { "title": "UseShower", "icon": "act2_shower", "value": 4,"caption": "3 - 4<br>times", "help": "I used a shower 3 or 4 times", "ID": 90404, "next": "survey appliances 5" },
+		"App 4 5": { "title": "UseShower", "icon": "act2_shower", "value": 5,"caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90405, "next": "survey appliances 5" },
+		"App 4 6": { "title": "UseShower", "icon": "act2_shower", "value": 6,"caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90406, "next": "survey appliances 5" },
 
 		"App 5 1": { "title": "UseVacuumCleaner", "value": 1,"caption": "I didn't", "help": "use a vacuum cleaner", "ID": 90501, "next": "time mobile" },
-		"App 5 2": { "title": "UseVacuumCleaner", "value": 2,"caption": "Once", "help": "used a vacuum cleaner", "ID": 90502, "next": "time mobile" },
-		"App 5 3": { "title": "UseVacuumCleaner", "value": 3,"caption": "Twice", "help": "used a vacuum cleaner", "ID": 90503, "next": "time mobile" },
-		"App 5 4": { "title": "UseVacuumCleaner", "value": 4,"caption": "3 - 4<br>times", "help": "I used a vacuum cleaner 3 or 4 times", "ID": 90504, "next": "time mobile" },
-		"App 5 5": { "title": "UseVacuumCleaner", "value": 5,"caption": "5 - 7<br>times", "help": "I used a vacuum cleaner 5-7 times", "ID": 90505, "next": "time mobile" },
-		"App 5 6": { "title": "UseVacuumCleaner", "value": 6,"caption": "8<br>or more", "help": "I used a vacuum cleaner over eight times", "ID": 90506, "next": "time mobile" },
+		"App 5 2": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 2,"caption": "Once", "help": "used a vacuum cleaner", "ID": 90502, "next": "time mobile" },
+		"App 5 3": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 3,"caption": "Twice", "help": "used a vacuum cleaner", "ID": 90503, "next": "time mobile" },
+		"App 5 4": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 4,"caption": "3 - 4<br>times", "help": "I used a vacuum cleaner 3 or 4 times", "ID": 90504, "next": "time mobile" },
+		"App 5 5": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 5,"caption": "5 - 7<br>times", "help": "I used a vacuum cleaner 5-7 times", "ID": 90505, "next": "time mobile" },
+		"App 5 6": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 6,"caption": "8<br>or more", "help": "I used a vacuum cleaner over eight times", "ID": 90506, "next": "time mobile" },
 
 		"Time mobile 1": { "title": "TimeMobile", "value": 1, "caption": "None", "help": "I didn't use a mobile", "ID": 90601, "next": "time screens" },
-		"Time mobile 2": { "title": "TimeMobile", "value": 2, "caption": "10min or less", "help": "spent on mobile", "ID": 90602, "next": "time screens" },
-		"Time mobile 3": { "title": "TimeMobile", "value": 3, "caption": "30min or less", "help": "spent on mobile", "ID": 90603, "next": "time screens" },
-		"Time mobile 4": { "title": "TimeMobile", "value": 4, "caption": "1h or less", "help": "spent on mobile", "ID": 90604, "next": "time screens" },
-		"Time mobile 5": { "title": "TimeMobile", "value": 5, "caption": "3h or less", "help": "spent on mobile", "ID": 90605, "next": "time screens" },
-		"Time mobile 6": { "title": "TimeMobile", "value": 6, "caption": "Over 3h", "help": "spent on mobile", "ID": 90606, "next": "time screens" },
+		"Time mobile 2": { "title": "TimeMobile", "icon": "app_mobile", "value": 2, "caption": "10min or less", "help": "spent on mobile", "ID": 90602, "next": "time screens" },
+		"Time mobile 3": { "title": "TimeMobile", "icon": "app_mobile", "value": 3, "caption": "30min or less", "help": "spent on mobile", "ID": 90603, "next": "time screens" },
+		"Time mobile 4": { "title": "TimeMobile", "icon": "app_mobile", "value": 4, "caption": "1h or less", "help": "spent on mobile", "ID": 90604, "next": "time screens" },
+		"Time mobile 5": { "title": "TimeMobile", "icon": "app_mobile", "value": 5, "caption": "2h or less", "help": "spent on mobile", "ID": 90605, "next": "time screens" },
+		"Time mobile 6": { "title": "TimeMobile", "icon": "app_mobile", "value": 6, "caption": "Over 2h", "help": "spent on mobile", "ID": 90606, "next": "time screens" },
 
 		"Time screens 1": { "title": "TimeScreens", "value": 1, "caption": "None", "help": "I didn't use screens", "ID": 90701, "next": "time cooking" },
-		"Time screens 2": { "title": "TimeScreens", "value": 2, "caption": "10min or less", "help": "spent on screens", "ID": 90702, "next": "time cooking" },
-		"Time screens 3": { "title": "TimeScreens", "value": 3, "caption": "30min or less", "help": "spent on screens", "ID": 90703, "next": "time cooking" },
-		"Time screens 4": { "title": "TimeScreens", "value": 4, "caption": "1h or less", "help": "spent on screens", "ID": 90704, "next": "time cooking" },
-		"Time screens 5": { "title": "TimeScreens", "value": 5, "caption": "3h or less", "help": "spent on screens", "ID": 90705, "next": "time cooking" },
-		"Time screens 6": { "title": "TimeScreens", "value": 6, "caption": "Over 3h", "help": "spent on screens", "ID": 90706, "next": "time cooking" },
+		"Time screens 2": { "title": "TimeScreens", "icon": "app_TV", "value": 2, "caption": "30 min</br>or less", "help": "spent on screens", "ID": 90702, "next": "time cooking" },
+		"Time screens 3": { "title": "TimeScreens", "icon": "app_TV", "value": 3, "caption": "1 hour</br>or less", "help": "spent on screens", "ID": 90703, "next": "time cooking" },
+		"Time screens 4": { "title": "TimeScreens", "icon": "app_TV", "value": 4, "caption": "2 hours</br>or less", "help": "spent on screens", "ID": 90704, "next": "time cooking" },
+		"Time screens 5": { "title": "TimeScreens", "icon": "app_TV", "value": 5, "caption": "3 hours</br>or less", "help": "spent on screens", "ID": 90705, "next": "time cooking" },
+		"Time screens 6": { "title": "TimeScreens", "icon": "app_TV", "value": 6, "caption": "Over 3 hours", "help": "spent on screens", "ID": 90706, "next": "time cooking" },
 
 		"Time cooking 1": { "title": "TimeCooking", "value": 1, "caption": "None", "help": "I didn't cook", "ID": 90801, "next": "time exercise" },
-		"Time cooking 2": { "title": "TimeCooking", "value": 2, "caption": "10min or less", "help": "spent on cooking", "ID": 90802, "next": "time exercise" },
-		"Time cooking 3": { "title": "TimeCooking", "value": 3, "caption": "30min or less", "help": "spent on cooking", "ID": 90803, "next": "time exercise" },
-		"Time cooking 4": { "title": "TimeCooking", "value": 4, "caption": "1h or less", "help": "spent on cooking", "ID": 90804, "next": "time exercise" },
-		"Time cooking 5": { "title": "TimeCooking", "value": 5, "caption": "3h or less", "help": "spent on cooking", "ID": 90805, "next": "time exercise" },
-		"Time cooking 6": { "title": "TimeCooking", "value": 6, "caption": "Over 3h", "help": "spent on cooking", "ID": 90806, "next": "time exercise" },
+		"Time cooking 2": { "title": "TimeCooking", "icon": "act2_cook", "value": 2, "caption": "10min or less", "help": "spent on cooking", "ID": 90802, "next": "time exercise" },
+		"Time cooking 3": { "title": "TimeCooking", "icon": "act2_cook", "value": 3, "caption": "30min or less", "help": "spent on cooking", "ID": 90803, "next": "time exercise" },
+		"Time cooking 4": { "title": "TimeCooking", "icon": "act2_cook", "value": 4, "caption": "1h or less", "help": "spent on cooking", "ID": 90804, "next": "time exercise" },
+		"Time cooking 5": { "title": "TimeCooking", "icon": "act2_cook", "value": 5, "caption": "3h or less", "help": "spent on cooking", "ID": 90805, "next": "time exercise" },
+		"Time cooking 6": { "title": "TimeCooking", "icon": "act2_cook", "value": 6, "caption": "Over 3h", "help": "spent on cooking", "ID": 90806, "next": "time exercise" },
 
 		"Time exercise 1": { "title": "TimeExercise", "value": 1, "caption": "None", "help": "I didn't use a exercise", "ID": 90901, "next": "survey complete" },
-		"Time exercise 2": { "title": "TimeExercise", "value": 2, "caption": "10min or less", "help": "spent using exercise", "ID": 90902, "next": "survey complete" },
-		"Time exercise 3": { "title": "TimeExercise", "value": 3, "caption": "30min or less", "help": "spent on exercise", "ID": 90903, "next": "survey complete" },
-		"Time exercise 4": { "title": "TimeExercise", "value": 4, "caption": "1h or less", "help": "spent on exercise", "ID": 90904, "next": "survey complete" },
-		"Time exercise 5": { "title": "TimeExercise", "value": 5, "caption": "3h or less", "help": "spent on exercise", "ID": 90905, "next": "survey complete" },
-		"Time exercise 6": { "title": "TimeExercise", "value": 6, "caption": "Over 3h", "help": "spent on exercise", "ID": 90906, "next": "survey complete" },
+		"Time exercise 2": { "title": "TimeExercise", "icon": "act2_exercise", "value": 2, "caption": "10min or less", "help": "spent using exercise", "ID": 90902, "next": "survey complete" },
+		"Time exercise 3": { "title": "TimeExercise", "icon": "act2_exercise", "value": 3, "caption": "30min or less", "help": "spent on exercise", "ID": 90903, "next": "survey complete" },
+		"Time exercise 4": { "title": "TimeExercise", "icon": "act2_exercise", "value": 4, "caption": "1h or less", "help": "spent on exercise", "ID": 90904, "next": "survey complete" },
+		"Time exercise 5": { "title": "TimeExercise", "icon": "act2_exercise", "value": 5, "caption": "3h or less", "help": "spent on exercise", "ID": 90905, "next": "survey complete" },
+		"Time exercise 6": { "title": "TimeExercise", "icon": "act2_exercise", "value": 6, "caption": "Over 3h", "help": "spent on exercise", "ID": 90906, "next": "survey complete" },
 
 		"Loc home": {
 			"title": "location home",
@@ -235,7 +242,7 @@
 		},
 		"Loc work": {
 			"title": "location work",
-			"icon": "Loc_work",
+			"icon": "act2_workplace",
 			"caption": "Work",
 			"help": "At work place or school",
 			"ID": 30013,
@@ -726,32 +733,6 @@
 			"category": "care_house",
 			 "next": "other people" },
 			
-		"Appliances Dish washer":  
-			{ "title": "Dishwasher",
-			 "caption": "Dishwasher",
-			"icon": "app_dishwasher",
-			 "help": "it is running or you use it",
-			 "ID": 8503,
-			"category": "care_house",
-			 "next": "enjoyment" },
-			
-			"Appliances Oven":  
-			{ "title": "Oven",
-			 "caption": "Oven",
-			"icon": "app_oven",
-			 "help": "it is running or you use it",
-			 "ID": 8504,
-			 "category": "food",
-			"next": "enjoyment" },
-			
-		"Appliances Microwave":  
-			{ "title": "Microwave",
-			 "caption": "Microwave",
-			 "icon": "app_microwave",
-			 "help": "it is running or you use it",
-			 "ID": 8505,
-			 "category": "food",
-			"next": "enjoyment" },
 			
 
 		"Appliances 2":  
@@ -790,15 +771,6 @@
 			 "category": "care_self",
 			 "next": "other people" },
 			
-		"Appliances Kettle":  
-			{ "title": "Kettle",
-			 "caption": "Kettle",
-			 "icon": "app_kettle",
-			 "help": "fill, using, pour",
-			 "ID": 8509,
-			 "category": "food",
-			 "next": "other people" },
-			
 			
 		"Appliances Tools":  
 			{ "title": "Power tools",
@@ -826,15 +798,6 @@
 			 "next": "appliances 3" },
 			
 
-		"Appliances Toaster":  
-			{ "title": "Toaster",
-			 "caption": "Toaster",
-			 "icon": "app_toaster",
-			 "help": "it is running or you use it",
-			 "ID": 8512,
-			 "category": "food",
-			 "next": "other people" },
-			
 		"Appliances Garden tools":  
 			{ "title": "Garden tools",
 			 "caption": "Garden tools",
@@ -962,6 +925,62 @@
 			"category": "care_self",
 			 "next": "other people" },
 			
+"KITCHEN APPLIANCES":{},
+
+		"Appliances Dish washer":  
+			{ "title": "Dishwasher",
+			 "caption": "Dishwasher",
+			"icon": "app_dishwasher",
+			 "help": "it is running or you use it",
+			 "ID": 8503,
+			"category": "care_house",
+			 "next": "enjoyment" },
+			
+		"Appliances Oven":  
+			{ "title": "Oven",
+			 "caption": "Oven",
+			"icon": "app_oven",
+			 "help": "it is running or you use it",
+			 "ID": 8531,
+			 "category": "food",
+			"next": "enjoyment" },
+
+		"Appliances Hob": {
+			"title": "Cook on hob",
+			"caption": "Hob",
+			"icon": "app_hob",
+			"help": "for cooking",
+			"ID": 8532,
+			"category": "food",
+			"next": "other people"
+		},
+			
+		"Appliances Microwave":  
+			{ "title": "Microwave",
+			 "caption": "Microwave",
+			 "icon": "app_microwave",
+			 "help": "it is running or you use it",
+			 "ID": 8533,
+			 "category": "food",
+			"next": "enjoyment" },
+			
+		"Appliances Toaster":  
+			{ "title": "Toaster",
+			 "caption": "Toaster",
+			 "icon": "app_toaster",
+			 "help": "it is running or you use it",
+			 "ID": 8534,
+			 "category": "food",
+			 "next": "other people" },
+			
+		"Appliances Kettle":  
+			{ "title": "Kettle",
+			 "caption": "Kettle",
+			 "icon": "app_kettle",
+			 "help": "fill, using, pour",
+			 "ID": 8535,
+			 "category": "food",
+			 "next": "other people" },
 
 		"Appliances other":  
 			{ "title": "Other appliance",
@@ -1336,7 +1355,7 @@
 			"help": "Using cooker or other",
 			"ID": 3112,
 			"category": "food",
-			"next": "appliances kitchen"
+			"next": "appliances food preparation"
 		},
 
 		"Baking": {
@@ -1346,24 +1365,7 @@
 			"help": "Baking",
 			"ID": 3120,
 			"category": "food",
-			"next": "appliances kitchen"
-		},
-		"Hob": {
-			"title": "Cook on hob",
-			"caption": "Hob",
-			"help": "for cooking",
-			"ID": 3125,
-			"category": "food",
-			"next": "other people"
-		},
-		"Oven": {
-			"title": "Oven",
-			"caption": "Oven",
-			"icon": "app_oven",
-			"help": "for baking or cooking",
-			"ID": 3121,
-			"category": "food",
-			"next": "other people"
+			"next": "appliances food preparation"
 		},
 		"Toaster": {
 			"title": "Toaster",
@@ -2169,7 +2171,7 @@
 		"Leisure TV": {
 			"title": "Screen time",
 			"caption": "Screen time",
-			"icon": "act2_screen",
+			"icon": "app_TV",
 			"help": "Watching TV, YouTube, film...",
 			"ID": 8210,
 			"category": "recreation",
