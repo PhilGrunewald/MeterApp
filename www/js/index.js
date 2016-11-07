@@ -28,7 +28,6 @@ var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
 var CURR_PEOPLE = "-1";
 var ACTIVITY_LIST = "activity_list";
-var CATCHUP_LIST = "catchup_list";			// keeps times that participants should follow up on
 var SURVEY_STATUS = "survey root";			// stores how far they got in the survey
 
 var CATEGORIES = ["care_self",
@@ -111,8 +110,11 @@ var app = {
 
 		// For time setting
 		app.actClock		= $('#clock-act');
+		app.actClockDiv		= $('.clock-act');
 		app.initClock(app.actClock);
 		app.actClock.hide();
+		app.actClockDiv.hide();
+		
 
         app.history          = new Array();
         app.act_path          = new Array();
@@ -132,6 +134,7 @@ var app = {
 	initClock: function(thisClock) {
 		var clock	= thisClock[0].getContext("2d");
 		var r = thisClock.height()/2;
+		console.log("radius: " + r);
 		clock.translate(r,r);
 	},
 
@@ -240,10 +243,10 @@ var app = {
 		// the button pressed had 'prev_activity' as its 'title'
 		// next screen has the key 'screen_id'
 		app.actClock.hide();
-			app.header.removeClass('alert');
-			app.actClock.hide();
-			app.catchup.hide();
-			app.title.show();
+// 		app.actClockDiv.hide();
+		app.header.removeClass('alert');
+		app.catchup.hide();
+		app.title.show();
 
 		app.history.push(screen_id);                     // for 'back' functionality
 		if (prev_activity !== undefined) {
@@ -396,6 +399,7 @@ var app = {
 			// it points to "activity root", thus turning itself back to "Done" here
 			// $("div.footer-nav").show();
 			app.footer_nav("home");
+			app.actClockDiv.hide();
 			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
 		if (screen_id == "other specify") {     // display text edit field
@@ -522,7 +526,7 @@ var app = {
 
 		$("div#progress_list_pane").hide();
         app.choicesPane.hide();
-		app.actClock.hide();
+		// app.actClock.hide();
 		$("div#other-specify").hide();
 
 		app.title.attr("onclick", "");
@@ -570,7 +574,6 @@ var app = {
 			app.updateNowTime();
 			app.showCatchupItem(); // overwrites app.title if catchup items exist
 		}
-
     },
 
 	showCatchupItem: function() {
@@ -663,7 +666,12 @@ var app = {
                 //console.log('act: ' + act);
 		var path = "\"" + app.act_path + "\"";
 		var actStr = "\""+act+"\"";
-    	var str = [log.metaID,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj, path].join() + "\n";
+
+		// trim trailing milliseconds and the 'Z' upsetting mySQL datetime
+		dt_act      = dt_act.substring(0,19);
+		dt_recorded = dt_recorded.substring(0,19);
+
+    	var str = [log.id,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj, path].join() + "\n";
 		console.log("Logging: " + str);
     	log.writeLog(log.logAct, str)
         utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
@@ -681,8 +689,6 @@ var app = {
 		if (actCount > 5) {
 			$("img#stars").attr("src","img/stars_2.png");
 		} 
-
-        // log.writeActivity();          
     },
 
 
@@ -834,6 +840,7 @@ var app = {
     },
 
     changeID: function() {
+		// XXX no longer needed...
         var metaID = $("input#input-id").val();
         log.setMetaID(metaID);
         $("div#change-id").hide();

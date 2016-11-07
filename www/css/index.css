@@ -114,6 +114,7 @@ h1 {
 }
 
 #title {
+	display: inline-block;
 	font-weight: lighter;
     font-size: 120%;
 	vertical-align: top;
@@ -128,18 +129,16 @@ h1 {
     padding: 5px;
 }
 
+.clock-act {
+	display: inline-block;
+	height: 112px;
+	width: 112px;
+}
+
 #btn-now {
-/*	background-image: url("../img/now.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center bottom;*/
 	height: 90px;
 }
 #btn-recent {
-	/*background-image: url("../img/recent.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center bottom;*/
 	height: 90px;
 }
 

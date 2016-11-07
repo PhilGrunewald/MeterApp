@@ -138,12 +138,12 @@
 		"Working home 5": { "title": "WorkHome", "value": 5,"caption": "Always", "help": "Home is my main workplace", "ID": 90065, "next": "survey energy" },
 		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I chose not to say", "ID": 90066, "next": "survey energy" },
 
-		"Energy interest 1": { "title": "Energy interest", "value": 1,"caption": "Very Interested", "help": "I have a keen interest", "ID": 90090, "next": "survey bills" },
-		"Energy interest 2": { "title": "Energy interest", "value": 2,"caption": "Interested", "help": "", "ID": 90091, "next": "survey bills" },
-		"Energy interest 3": { "title": "Energy interest", "value": 3,"caption": "Somewhat", "help": "", "ID": 90092, "next": "survey bills" },
-		"Energy interest 4": { "title": "Energy interest", "value": 4,"caption": "Not very much", "help": "", "ID": 90093, "next": "survey bills" },
-		"Energy interest 5": { "title": "Energy interest", "value": 5,"caption": "Not at all", "help": "I do not care about energy issues", "ID": 90094, "next": "survey bills" },
-		"Energy interest 6": { "title": "Energy interest", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90095, "next": "survey bills" },
+		"Energy interest 1": { "title": "EnergyInterest", "value": 1,"caption": "Very Interested", "help": "I have a keen interest", "ID": 90090, "next": "survey bills" },
+		"Energy interest 2": { "title": "EnergyInterest", "value": 2,"caption": "Interested", "help": "", "ID": 90091, "next": "survey bills" },
+		"Energy interest 3": { "title": "EnergyInterest", "value": 3,"caption": "Somewhat", "help": "", "ID": 90092, "next": "survey bills" },
+		"Energy interest 4": { "title": "EnergyInterest", "value": 4,"caption": "Not very much", "help": "", "ID": 90093, "next": "survey bills" },
+		"Energy interest 5": { "title": "EnergyInterest", "value": 5,"caption": "Not at all", "help": "I do not care about energy issues", "ID": 90094, "next": "survey bills" },
+		"Energy interest 6": { "title": "EnergyInterest", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90095, "next": "survey bills" },
 
 			"Bills yes": 		{ "title": "BillContributer", "value": 1, "caption": "Yes, I do", "help": "I take responsibility for the bills", "ID": 90071, "next": "survey income" },
 		"Bills contribute": { "title": "BillContributer", "value": 2, "caption": "I contribute", "help": "Others also contribute or deal with bills", "ID": 90072, "next": "survey income" },

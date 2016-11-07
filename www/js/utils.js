@@ -120,7 +120,9 @@ var utils = {
 				res = preStr + hourStr + minStr + postStr;
 				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMinStr);
 			}
-				app.actClock.show();
+
+			app.actClockDiv.show();
+			app.actClock.show();
 			return str.replace(intime_var, res)
 		}
 	      else	{
