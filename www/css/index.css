@@ -257,9 +257,28 @@ div.activity-row {
 	margin: 2px 0;
 }
 
+div.activity-item {
+    display: table-cell;
+	text-align: left;
+    /* background: #ededed; */
+    /* vertical-align: middle; */
+    width: 100%;
+}
+
 div.activity-cell {
 	border-bottom: 2px white solid; 
-	padding: 20px 0;
+	/*padding: 20px 0;*/
+}
+div.activity-time {
+	width:	28%;
+	border-bottom: 2px white solid; 
+}
+div.activity-icon {
+	width:	50px;
+	border-bottom: 2px white solid; 
+}
+img.activity-icon {
+	height: 50px;
 }
 
 div.btn-time {
@@ -292,14 +311,6 @@ div.progress-item {
 }
 #progress {
 	margin-left: 15px;
-}
-
-div.activity-item {
-    display: table-cell;
-	text-align: left;
-    /* background: #ededed; */
-    /* vertical-align: middle; */
-    width: 100%;
 }
 
 .clickable {

@@ -531,11 +531,16 @@ var app = {
 			for (i = actLength-1; i > -1; i--) {
 				var key = actKeys[i];
 				var item = activityList[key];
+				console.log("ITEM: " + item.name);
+                var activity    = app.activities[item.name];
         	    actsHTML += 
-        	    	'<div class="row activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
-        	    	'<div class="activity-cell btn-time">' + utils.format_time(item.time) + '</div>' +
+        	    '<div class="row activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
+        	    	'<div class="activity-time activity-item">' + utils.format_time(item.time) + '</div>' +
         	    	'<div class="activity-cell activity-item">' + item.act  + '</div> ' +
-					'<div class="activity-cell btn-terminate">edit</div></div>';
+					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+activity.icon+'.png"></div>'+
+					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.loc+'.png"></div>'+
+					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enj+'.png"></div>'+
+				'</div>';
 			}
 			app.act_count.show();
 			app.activity_list_div.html(actsHTML);
@@ -623,8 +628,9 @@ var app = {
 
         activityList = utils.getList(ACTIVITY_LIST) || {};
 
-        var uuid = utils.uuid()
-        activityList[uuid] = {
+        //var uuid = utils.uuid()
+        var actID = utils.actID(dt_act)
+        activityList[actID] = {
             "name" : actKey,
             "time" : dt_act,
 			"loc"  : loc,

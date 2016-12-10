@@ -134,7 +134,15 @@ var utils = {
 
 	}, 
 
+	actID : function(actTime) {
+		//var d = new Date().getTime();
+		actTime += performance.now();  	//use high-precision timer 
+		return actTime.toString();
+	},
+
 	uuid : function() {
+		// used to create ID based on creation time
+		// superseeded (?) by actID
 		var d = new Date().getTime();
 		d += performance.now();  	//use high-precision timer 
 		return d.toString();
