@@ -174,7 +174,7 @@ var utils = {
 
         save: function(key, val) {
             localStorage.setItem(key, val);
-            console.log("saving: " + val);
+            console.log("saving: " + key + " > " + val);
         },
     
 

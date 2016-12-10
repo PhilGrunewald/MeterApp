@@ -48,7 +48,7 @@
 			</div>
 		</div>
 
-
+        <div class="main-screen">
 		<div hidden id="change-id">
 			<input type="text" id="input-id" autofocus />
 			<div class "btn-change-id">
@@ -77,8 +77,11 @@
 
 				<div class="other-specify-nav">
 					<div class="row">
+						<!-- 
+						Removed because the item had to be deleted before re-entry - Back resulted in it being lost
 						<div id="btn-back" class="col btn-nav" onclick="app.goBack();">Back</div>
-						<div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()">Next</div>
+						-->
+						<div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()">Done</div>
 					</div>
 				</div>
 		</div>
@@ -134,7 +137,6 @@
 				</div>
 			</div>
 			<div id="activity_list_pane">
-				<div id="btn-history"><div id="act-count"></div></div>
 				<div id="activity-list">
 				    <div class="row activity-row">
 					    <div class="activity-cell btn-terminate"></div>
@@ -178,6 +180,8 @@
 						</div>
 					</div>
 				</div>
+
+
 				<div class="footer-nav">
 					<div class="row">
 						<div id="btn-back" class="col" onclick="app.goBack();"><img src="img/nav_back.png" height="25px">Back</div>
@@ -189,6 +193,7 @@
 			</div>
 		</div>
 	</div>
+                            </div> <!-- main-screen -->
 
 	<script type="text/javascript" src="cordova.js"></script>
 	<script type="text/javascript" src="js/log.js"></script>

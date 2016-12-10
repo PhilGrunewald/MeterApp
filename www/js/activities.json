@@ -100,6 +100,10 @@
 			"next": "app.deleteActivity"
 		},
 
+		"Agree": { 
+			"title": "", 
+			"caption": "I agree", "icon": "act2_skip",  "help": "I can withdraw at any time", "ID": 99999, "next": "survey gender" },
+
 		"female": 				{ "title": "Gender", "value": 1,"caption": "Female", "icon": "act2_female",  "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
 		"male": 				{ "title": "Gender", "value": 2,"caption": "Male", "icon": "act2_male",  "help": "You would describe yourself as male", "ID": 90012, "next": "survey age" },
 		"survey gender other":	{ "title": "Gender", "value": 3,"caption": "Other", "help": "You would describe your gender as neither male nor female", "ID": 90013, "next": "survey age" },
@@ -554,7 +558,7 @@
 		},
 		"Travel public": {
 			"title": "Public transport",
-			"caption": "Public",
+			"caption": "Public transport",
 			"icon": "act2_public_transport",
 			"help": "Bus, train, plane, boat",
 			"ID": 30024,
@@ -576,6 +580,7 @@
 			"icon": "act2_skip",
 			"help": "Anything not listed here",
 			"ID": 30031,
+			"value": 31,
 			"category": "travel",
 			"next": "travel purpose public"
 		},
@@ -755,8 +760,8 @@
 
 		"Appliances Games console":  
 			{ "title": "Computer games",
-			 "caption": "Computer / Games console",
-			 "icon": "app_computer",
+			 "caption": "Games",
+			 "icon": "app_games",
 			 "help": "X-Box, Nintendo...",
 			 "ID": 8507,
 			"category": "recreation",
@@ -1459,8 +1464,8 @@
 			"next": "food preparation"
 		},
 		"Food other": {
-			"title": "Food management",
-			"caption": "Other",
+			"title": "Food",
+			"caption": "Next...",
 			"icon": "act2_skip",
 			"help": "Food management",
 			"ID": 3191,
@@ -1678,18 +1683,20 @@
 			"category": "care_house",
 			"next": "other people"
 		},
-		"xxxUnspecified household management using the internet": {
-			"title": "Unspecified household management using the internet",
-			"caption": "Activities with internet use",
-			"help": "Unspecified household management using the internet",
+		"Device Internet": {
+			"title": "Internet",
+			"caption": "Internet",
+			"icon": "act2_www",
+			"help": "Browsing, searching, anything...",
 			"ID": 3720,
-			"category": "care_house",
+			"category": "recreation",
 			"next": "other people"
 		},
-		"xxxShopping for&ordring unspec gds&srvs via internet": {
-			"title": "Shopping for&ordring unspec gds&srvs via internet",
-			"caption": "Activities with internet use",
-			"help": "Shopping for&ordring unspec gds&srvs via internet",
+		"Device Shopping": {
+			"title": "Online shopping",
+			"caption": "Shopping",
+			"icon": "act2_shopping",
+			"help": "Looking for or buying things",
 			"ID": 3721,
 			"category": "care_house",
 			"next": "other people"
@@ -2131,6 +2138,7 @@
 		"Social media": {
 			"title": "Social media",
 			"caption": "Social media",
+			"icon": "app_tablet",
 			"help": "On Facebook, Twitter..",
 			"ID": 8001,
 			"category": "care_self",
@@ -2157,7 +2165,7 @@
 			"icon": "act2_book",
 			"help": "Print or mobile device",
 			"ID": 8120,
-			"category": "care_self",
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Other specified reading": {
@@ -2208,7 +2216,7 @@
 			"help": "Watching something on a mobile",
 			"ID": 8213,
 			"category": "recreation",
-			"next": "other people"
+			"next": "device use"
 		},
 		"Leisure TV Projector": {
 			"title": "Screen time (projector)",
@@ -2228,6 +2236,15 @@
 			"category": "recreation",
 			"next": "other people"
 		},
+		"Leisure TV Computer": {
+			"title": "Computer",
+			"caption": "Computer",
+			"icon": "app_laptop",
+			"help": "Laptop, desktop...",
+			"ID": 8216,
+			"category": "recreation",
+			"next": "device use"
+		},
 		"Leisure TV Laptop": {
 			"title": "Screen time (laptop)",
 			"caption": "Laptop",
@@ -2244,12 +2261,21 @@
 			"help": "Watching TV on a tablet",
 			"ID": 8217,
 			"category": "recreation",
-			"next": "other people"
+			"next": "device use"
 		},
 
+		"Device Next": {
+			"title": "Screen time",
+			"caption": "Next...",
+			"icon": "act2_skip",
+			"help": "No need to be more specific",
+			"ID": 8210,
+			"category": "recreation",
+			"next": "other people"
+		},
 		"Leisure TV Other": {
 			"title": "Screen time",
-			"caption": "Skip",
+			"caption": "Next...",
 			"icon": "act2_skip",
 			"help": "No need to be more specific",
 			"ID": 8210,
@@ -2274,10 +2300,11 @@
 			"category": "recreation",
 			"next": "other people"
 		},
-		"Watching a film on video": {
-			"title": "Watching a film",
-			"caption": "Leisure",
-			"help": "Watching a film on video",
+		"Device Videos": {
+			"title": "Screen time",
+			"caption": "Videos",
+			"icon": "app_DVD",
+			"help": "YouTube, Netflix, iPlayer...",
 			"ID": 8221,
 			"category": "recreation",
 			"next": "other people"
@@ -2379,6 +2406,15 @@
 			"category": "work",
 			"next": "work job"
 		},
+		"Computer Work":  { 
+			"title": "Work",
+			"caption": "Work",
+			"icon": "app_computer",
+			"help": "Work related device use",
+			"ID": 1111,
+			"category": "other_category",
+			"next": "other people" 
+		},
 		"Work job break": {
 			"title": "Work break",
 			"caption": "Break",
@@ -2386,7 +2422,7 @@
 			"help": "Coffee, lunch, chat...",
 			"ID": 1120,
 			"category": "care_self",
-			"next": "other people"
+			"next": "work job break"
 		},
 		"Work job manual": {
 			"title": "Work",
@@ -2398,7 +2434,7 @@
 		},
 		"Work job other": {
 			"title": "Work",
-			"caption": "Skip",
+			"caption": "Next...",
 			"icon": "act2_skip",
 			"help": "Other work",
 			"ID": 1140,
@@ -2458,7 +2494,7 @@
 			"ID": 1391,
 			"next": "other people"
 		},
-		"Other specified activities related to employment": {
+		"xxOther specified activities related to employment": {
 			"title": "Other specified activities related to employment",
 			"caption": "Work",
 			"help": "Other specified activities related to employment",
@@ -2881,7 +2917,7 @@
 			"ID": 4284,
 			"next": "other people"
 		},
-		"Other specified help to an adult member of another household": {
+		"xOther specified help to an adult member of another household": {
 			"title": "Other specified help to an adult member of another household",
 			"caption": "Asistance/Help",
 			"help": "Other specified help to an adult member of another household",
@@ -3162,7 +3198,7 @@
 		},
 		"Outdoor food other": {
 			"title": "Food outdoors",
-			"caption": "Other",
+			"caption": "Next...",
 			"icon": "act2_other",
 			"help": "Other outdoor food activity",
 			"ID": 6005,
@@ -3460,11 +3496,13 @@
 			"ID": 7160,
 			"next": "other people"
 		},
-		"Correspondence": {
-			"title": "Correspondence",
-			"caption": "Hobbies/leisure",
-			"help": "Correspondence",
+		"Device Email": {
+			"title": "email",
+			"caption": "Personal email",
+			"help": "Reading or writing",
+			"icon": "app_computer",
 			"ID": 7170,
+			"category": "recreation",
 			"next": "other people"
 		},
 		"Other specified or unspecified arts and hobbies": {

@@ -32,6 +32,11 @@
 			"activities": [ "Blank", "Blank", "Blank", "Blank", "Blank", "Blank" ]
 		},
 		"survey root": {
+			"title": "My anonymised entries will be used for research",
+			"help": "",
+			"activities": [ "Blank", "Agree", "Blank", "Blank", "Blank", "Blank" ]
+		},
+		"survey gender": {
 			"title": "What gender are you?",
 			"help": "at this moment",
 			"activities": [ "female", "male", "survey gender other", "survey gender skip", "Blank", "Blank" ]
@@ -516,12 +521,26 @@
 			"title": "Screen time",
 			"help": "The type of device",
 			"activities": [
+				"Leisure TV Other",
 				"Leisure TV Mobile",
 				"Leisure TV Tablet",
 				"Leisure TV TV",
-				"Leisure TV Laptop",
-				"Leisure TV Projector",
-				"Leisure TV Other"
+				"Leisure TV Computer",
+				"Appliances Games console"
+			]
+		},
+
+
+		"device use": {
+			"title": "On a device",
+			"help": "",
+			"activities": [
+				"Device Next",
+				"Device Email",
+				"Computer Work",
+				"Device Shopping",
+				"Device Internet",
+				"Device Videos"
 			]
 		},
 
@@ -529,12 +548,12 @@
 			"title": "Food",
 			"help": "",
 			"activities": [
+				"Food other",
 				"Food preparation",
 				"Cutlery handling",
 				"Eating",
 				"Food eat snack",
-				"Food drink hot",
-				"Work house other"
+				"Food drink hot"
 			]
 		},
 		"food preparation": {
@@ -755,24 +774,24 @@
 			"title": "Using any of these?",
 			"help": "Press SKIP if not",
 			"activities": [
+				"Work job other",
 				"Appliances Computer",
 				"Appliances Tools",
 				"Appliances Machinery",
 				"Work job manual",
-				"Work job break",
-				"Work job other"
+				"Work job break"
 			]
 		},
 		"work job break": {
 			"title": "Break from work",
 			"help": "",
 			"activities": [
+				"Work job other",
 				"Food drink hot",
 				"Food eat snack",
 				"Food eat hot",
 				"Food eat cold",
-				"Socialising",
-				"Work job other"
+				"Socialising"
 			]
 		},
 		"work house": {
@@ -824,18 +843,6 @@
 			]
 		},
 		"enjoyment": {
-			"title": "How well did this describe what you did",
-			"help": "Think how this made you feel.",
-			"activities": [
-				"Very much",
-				"Somewhat",
-				"Neutral",
-				"Not very much",
-				"Not at all",
-				"Skip"
-			]
-		},
-		"bkp_enjoyment": {
 			"title": "How much do you enjoy this?",
 			"help": "Think how this made you feel.",
 			"activities": [

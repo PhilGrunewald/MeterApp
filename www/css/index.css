@@ -82,6 +82,10 @@ body {
 
 .contents {
     height: 80%;
+}
+
+.main-screen {
+    height: 100%;
 	overflow-y: scroll;
 }
 

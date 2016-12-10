@@ -11,9 +11,9 @@ var log = {
 //	metaID: "0",
 //	id: 7,
     
-	init: function() {
-		if (device.platform != "browser") {        
-			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
+init: function() {
+	if (device.platform != "browser") {        
+		window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
 			console.log("got main dir",dir);
 			// the existence of folder METER is assumed
 			$.getJSON("/sdcard/METER/config.json", function(config) {
@@ -28,15 +28,15 @@ var log = {
 					console.log("got existing survey file", file);
 					log.logSurvey = file;
 				}, function(err) {
-						dir.getFile("METER/"+config.id+"_ind.csv", {create:true}, function(file) {
-							console.log("created survey file", file);
-							utils.save(SURVEY_STATUS,'survey root');
-							$("div#nav-status").hide();
-							$("div#nav-aboutme").show();
-							log.logSurvey = file;
-						}, function(err) {
-							console.log(err);
-						});
+					dir.getFile("METER/"+config.id+"_ind.csv", {create:true}, function(file) {
+						console.log("created survey file", file);
+						utils.save(SURVEY_STATUS,'survey root');
+						$("div#nav-status").hide();
+						$("div#nav-aboutme").show();
+						log.logSurvey = file;
+					}, function(err) {
+						console.log(err);
+					});
 				});
 
 				dir.getFile("METER/"+config.id+"_act.csv", {create:false}, function(file) {
@@ -51,24 +51,24 @@ var log = {
 						console.log(err);
 					});
 				});
+
 				// I made this txt, so that all data is distinct as csv files
 				dir.getFile("METER/debug.txt", {create:true}, function(file) {
 					console.log("got debug file", file);
 					log.logDebug = file;
-					log.writeLog("App started");          
 				}, function(err) {
 					console.log(err);
-				});					
+				});
 			});
-			});
-		} else {
-			$.getJSON("/js/config.json", function(config) {
-				log.id 				= config.id;
-				log.start			= config.start;
-				app.catchupList 	= config.times;
-			})
-		}
-	},
+		});
+	} else {
+		$.getJSON("/js/config.json", function(config) {
+			log.id 				= config.id;
+			log.start			= config.start;
+			app.catchupList 	= config.times;
+		})
+	}
+},
     
 	initSurveyFile: function() {
 			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
