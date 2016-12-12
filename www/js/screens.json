@@ -154,7 +154,7 @@
 
 
 		"activity root": {
-			"title": "Where are you ${act_time}?",
+			"title": "Where are you at ${act_time}?",
 			"help": "Your location.",
 			"activities": [
 				"Loc home",

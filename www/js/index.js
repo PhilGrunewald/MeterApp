@@ -353,13 +353,13 @@ var app = {
 			// pressed "recently" button - relative time entry followed by "activity root"
 			// unlike "adjust time" which is triggered by "edit activity"
 			//
-			var dt_man = utils.get(ACTIVITY_MANUAL_DATE);
-			if (dt_man == "none") {
+			//var dt_man = utils.get(ACTIVITY_MANUAL_DATE);
+			//if (dt_man == "none") {
 				var dt_ = Date.now()
 				var dt_ = new Date(dt_).toISOString();
-			} else {
-				var dt_ = new Date(dt_man).toISOString();
-			}
+			//} else {
+			//	var dt_ = new Date(dt_man).toISOString();
+			//}
 			utils.save(ACTIVITY_DATETIME, dt_);
 			app.footer_nav("next");
 		} else
@@ -528,10 +528,18 @@ var app = {
 			var actLength =Object.keys(activityList).length;
 			actKeys.sort();
 
+			var weekday = '';
 			for (i = actLength-1; i > -1; i--) {
 				var key = actKeys[i];
 				var item = activityList[key];
-				console.log("ITEM: " + item.name);
+				thisWeekday = utils.format_weekday(item.time);
+				if (weekday != thisWeekday) {
+					actsHTML += 
+        	    '<div class="row activity-row">' + thisWeekday + '</div>'
+				}
+				weekday = thisWeekday;
+
+				console.log("ITEM: " + item.time);
                 var activity    = app.activities[item.name];
         	    actsHTML += 
         	    '<div class="row activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
