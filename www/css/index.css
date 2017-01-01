@@ -66,7 +66,7 @@ body {
     height: 20%;
 }
 
-.catch-up {
+.btn-box {
 	background-color: #ccc;
 	border-radius: 	20px;
 	font-size: 		150%;
@@ -101,8 +101,8 @@ body {
     height: 18%;
     border-collapse: separate;
     border-spacing: 1px;
-    background: #000;
-	color: #fff;
+    /* background: #000;
+	color: #fff; */
 }
 
 
@@ -121,9 +121,9 @@ h1 {
 	font-weight: lighter;
     font-size: 120%;
 	vertical-align: top;
-	padding-left: 5%;
-	padding-top: 5%;
+	padding: 5%;
 }
+
 #btn-history {
 	font-weight: lighter;
     font-size: 150%;
@@ -167,7 +167,7 @@ h1 {
     width: 100%;
     height: 80%;
     border-collapse: separate;
-    border-spacing: 1px;
+    border-spacing: 4px;
 }
 
 .navbar {
@@ -196,6 +196,10 @@ h1 {
     /*background: #ededed;*/
     /* vertical-align: middle; */
     width: 50%;
+}
+.col-footer {
+    background: #000;
+	color: #fff;
 }
 
 .col-choices {
@@ -227,6 +231,7 @@ h1 {
 
 .btn-activity {
 	/* default behaviour for activity buttons - superseded by category if specified */
+	border-radius: 5px;
     background-color: #eec;
 	height: 90px;
 }

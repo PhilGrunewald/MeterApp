@@ -256,7 +256,7 @@ var app = {
 						"title"   : prev_activity,
 						"caption" : prev_activity,
 						"help"    : "Custom input",
-                                                "category": "other_category",
+						"category": "other_category",
 						"ID"      : OTHER_SPECIFIED_ID,
 						"next"    : screen_id
 					}
@@ -337,7 +337,7 @@ var app = {
 		$("div.footer-nav").show();
 		$(".btn-caption").hide(); // hide help text when moving on (default off)
 
-
+		console.log(screen_id);
 
 		if (screen_id == "home" ) {
 			// an entry has been completed (incl. via "Done")
@@ -363,18 +363,17 @@ var app = {
 			//}
 			utils.save(ACTIVITY_DATETIME, dt_);
 			app.footer_nav("next");
+			app.header.attr("onclick", "app.navigateTo('activity root')");
+			app.title.addClass("btn-box");
 		} else
-// 		if (screen_id == "activity time") {
-// 			// this is only reached when operator set a manual date - absolute time entry
-// 			var dt_ = utils.get(ACTIVITY_MANUAL_DATE);
-// 			utils.save(ACTIVITY_DATETIME, dt_);
-// 		} else
 		if (screen_id == "activity root") {
 			// btn-next is only for "activity time relative" actions
 			// it points to "activity root", thus turning itself back to "Done" here
 			// $("div.footer-nav").show();
 			app.footer_nav("home");
 			app.actClockDiv.hide();
+			app.header.attr("onclick", "");
+			app.title.removeClass("btn-box");
 			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
 		} else 
 		if (screen_id == "other specify") {     // display text edit field
@@ -533,22 +532,22 @@ var app = {
 			for (i = actLength-1; i > -1; i--) {
 				var key = actKeys[i];
 				var item = activityList[key];
-				thisWeekday = utils.format_weekday(item.time);
+				thisWeekday = utils.format_weekday(item.dt_activity);
 				if (weekday != thisWeekday) {
 					actsHTML += 
         	    '<div class="row activity-row">' + thisWeekday + '</div>'
 				}
 				weekday = thisWeekday;
 
-				console.log("ITEM: " + item.time);
-                var activity    = app.activities[item.name];
+				console.log("ITEM: " + item.dt_activity);
+                var activity    = app.activities[item.key];
         	    actsHTML += 
-					'<div class="activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
-        	    	'<div class="activity-time activity-item">' + utils.format_time(item.time) + '</div>' +
-        	    	'<div class="activity-cell activity-item">' + item.act  + '</div> ' +
+					'<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
+        	    	'<div class="activity-time activity-item">' + utils.format_time(item.dt_activity) + '</div>' +
+        	    	'<div class="activity-cell activity-item">' + item.activity  + '</div> ' +
 					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+activity.icon+'.png"></div>'+
-					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.loc+'.png"></div>'+
-					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enj+'.png"></div>'+
+					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
+					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enjoyment+'.png"></div>'+
 				'</div>';
 			}
 			app.act_count.show();
@@ -627,29 +626,30 @@ var app = {
 		var cat = detailsArray[1];			// .category
 		var act = detailsArray[2];			// .title for this activity Key
 
-
-        activityList = utils.getList(ACTIVITY_LIST) || {};
-
-        //var uuid = utils.uuid()
-        var actID = utils.actID(dt_act)
-        activityList[actID] = {
-            "name" : actKey,
-            "time" : dt_act,
-			"loc"  : loc,
-			"people": people,
-			"enj"  : enj,
-			"tuc"  : tuc,
-			"cat"  : cat,
-			"act"  : act
-        }
-		utils.saveList(ACTIVITY_LIST, activityList);
-                //console.log('act: ' + act);
 		var path = "\"" + app.act_path + "\"";
 		var actStr = "\""+act+"\"";
 
 		// trim trailing milliseconds and the 'Z' upsetting mySQL datetime
 		dt_act      = dt_act.substring(0,19);
 		dt_recorded = dt_recorded.substring(0,19);
+
+        activityList = utils.getList(ACTIVITY_LIST) || {};
+
+        var actID = utils.actID(dt_act)
+        activityList[actID] = {
+            "key"		: actKey,
+            "dt_activity": dt_act,
+			"dt_recorded": dt_recorded,
+			"location"  : loc,
+			"people"	: people,
+			"enjoyment"	: enj,
+			"tuc"		: tuc,
+			"category"	: cat,
+			"activity"	: act,
+			"path"		: path
+        }
+		utils.saveList(ACTIVITY_LIST, activityList);
+                //console.log('act: ' + act);
 
     	var str = [log.id,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj, path].join() + "\n";
 		console.log("Logging: " + str);
@@ -696,7 +696,7 @@ var app = {
             // instead of "next screen", onclick() points to specific functions
             var activityList = utils.getList(ACTIVITY_LIST) || {};
             var item = activityList[actKey];
-            app.title.html(utils.extractTimeStr(item.time) + ": " + item.act)
+            app.title.html(utils.extractTimeStr(item.dt_activity) + ": " + item.activity)
             var screen_ = app.screens["edit activity"];
             for (i = 0; i < screen_.activities.length; i++) {
                 var activity_id = screen_.activities[i];
@@ -727,12 +727,12 @@ var app = {
 		// this is where app.navigateTo("home") will create new activity from
         var activityList = utils.getList(ACTIVITY_LIST) || {};
         var thisAct = activityList[actKey];
-        utils.save(ACTIVITY_DATETIME, thisAct.time);
-        utils.save(CURR_ACTIVITY, thisAct.name);
-	utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.cat, thisAct.act].join());
-        utils.save(CURR_LOCATION, thisAct.loc);
+        utils.save(ACTIVITY_DATETIME, thisAct.dt_activity);
+        utils.save(CURR_ACTIVITY, thisAct.key);
+	utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.category, thisAct.activity].join());
+        utils.save(CURR_LOCATION, thisAct.location);
 	utils.save(CURR_PEOPLE, thisAct.people);
-	utils.save(CURR_ENJOYMENT, thisAct.enj);
+	utils.save(CURR_ENJOYMENT, thisAct.enjoyment);
 	},
 
 	footer_nav: function(btn) {

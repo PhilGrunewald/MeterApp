@@ -4,7 +4,7 @@
     <description>
 		An activity recorder
     </description>
-	<author email="philipp.grunewald@ouce.ox.ac.uk" href="http://www.energy-use.org">
+    <author email="philipp.grunewald@ouce.ox.ac.uk" href="http://www.energy-use.org">
         Phil Grunewald
     </author>
     <content src="index.html" />
@@ -19,29 +19,17 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-		<icon src="www/img/recent.png" />
-        <!--
-            ldpi    : 36x36 px
-            mdpi    : 48x48 px
-            hdpi    : 72x72 px
-            xhdpi   : 96x96 px
-            xxhdpi  : 144x144 px
-            xxxhdpi : 192x192 px
-        -->
-        <icon src="www/img/meter_go.png" density="ldpi" />
-        <icon src="www/img/meter_go.png" density="mdpi" />
-        <icon src="www/img/meter_go.png" density="hdpi" />
-        <icon src="www/img/meter_go.png" density="xhdpi" />
-        <icon src="www/img/meter_go.png" density="xxhdpi" />
-        <icon src="www/img/meter_go.png" density="xxxhdpi" />
+        <icon src="www/img/recent.png" />
+        <icon density="ldpi" src="www/img/meter_go.png" />
+        <icon density="mdpi" src="www/img/meter_go.png" />
+        <icon density="hdpi" src="www/img/meter_go.png" />
+        <icon density="xhdpi" src="www/img/meter_go.png" />
+        <icon density="xxhdpi" src="www/img/meter_go.png" />
+        <icon density="xxxhdpi" src="www/img/meter_go.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
-    <preference name="xwalkVersion" value="xwalk_core_library_beta:18+" />
-    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
-    <preference name="xwalkMode" value="embedded" />
-    <preference name="xwalkMultipleApk" value="true" />
 </widget>

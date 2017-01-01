@@ -111,6 +111,7 @@ init: function() {
     
 
     rewriteFile: function(obj, str) {
+        if (device.platform != "browser") {
     	obj.createWriter(function(fileWriter) {
             //fileWriter.seek(fileWriter.length);
             var blob = new Blob([str], {type:'text/plain'});
@@ -118,6 +119,7 @@ init: function() {
         }, function(err) {
             console.log(err)
         });
+		}
     },
     
 

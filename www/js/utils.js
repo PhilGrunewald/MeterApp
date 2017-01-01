@@ -59,7 +59,6 @@ var utils = {
 			if (elems[1] == "-"){
 				var mins = parseInt(elems[2]) * 60000;
 				res = new Date(time_.getTime() - mins);
-				console.log("res: " +res);
 			} else 
 			if (elems[1] == "+"){
 				var mins = parseInt(elems[2]) * 60000;
@@ -199,7 +198,6 @@ var utils = {
             console.log("saving: " + key + " > " + val);
         },
     
-
         get: function(key) {
             return localStorage.getItem(key);
         },
