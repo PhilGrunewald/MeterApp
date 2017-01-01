@@ -14,7 +14,7 @@
 			"title": "What I did...",
 			"help": ""
 		},
-		"edit activity": {
+		"xx edit activity": {
 			"title": "done by index.js",
 			"help": "done by index.js",
 			"activities": [ 
@@ -23,6 +23,18 @@
 				"Edit activity time",
 				"Edit activity title",
 				"More activity",
+				"Delete activity"
+			]
+		},
+		"edit activity": {
+			"title": "done by index.js",
+			"help": "done by index.js",
+			"activities": [ 
+				"More activity",
+				"Repeat activity recently",
+				"Edit activity title",
+				"Edit activity time",
+				"End activity", 
 				"Delete activity"
 			]
 		},
@@ -499,7 +511,7 @@
 				"Care wash",
 				"Care personal",
 				"Leisure TV",
-				"Care other"
+				"Care personal other"
 			]
 		},
 
@@ -622,12 +634,12 @@
 			"title": "Kitchen",
 			"help": "",
 			"activities": [
+				"Food preparation hot other",
 				"Appliances Oven",
 				"Appliances Hob",
 				"Appliances Microwave",
 				"Appliances Kettle",
-				"Appliances Toaster",
-				"Other specify"
+				"Appliances Toaster"
 			]
 		},
 

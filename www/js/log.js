@@ -5,6 +5,7 @@
 var log = {
 
     logOb: null,
+    ActJSON: null,
     logAct: null,
     logDebug: null,
     logSurvey: null,
@@ -34,6 +35,19 @@ init: function() {
 						$("div#nav-status").hide();
 						$("div#nav-aboutme").show();
 						log.logSurvey = file;
+					}, function(err) {
+						console.log(err);
+					});
+				});
+
+				dir.getFile("METER/"+config.id+"_act.json", {create:false}, function(file) {
+					console.log("got exisiting activities file", file);
+					log.ActJSON = file;
+				}, function(err) {
+					dir.getFile("METER/"+config.id+"_act.json", {create:true}, function(file) {
+						console.log("created activities file", file);
+						log.ActJSON = file;
+						// utils.saveList(ACTIVITY_LIST,"");
 					}, function(err) {
 						console.log(err);
 					});
@@ -70,6 +84,7 @@ init: function() {
 	}
 },
     
+// XXX take these two functions out (only were used by changeID()
 	initSurveyFile: function() {
 			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
 	                dir.getFile("METER/" + log.metaID + "_ind.csv", {create:true}, function(file) {
@@ -94,6 +109,18 @@ init: function() {
 		log.metaID = metaID_;
 	},
     
+
+    rewriteFile: function(obj, str) {
+    	obj.createWriter(function(fileWriter) {
+            //fileWriter.seek(fileWriter.length);
+            var blob = new Blob([str], {type:'text/plain'});
+            fileWriter.write(blob);
+        }, function(err) {
+            console.log(err)
+        });
+    },
+    
+
     writeToFile: function(obj, str) {
     	obj.createWriter(function(fileWriter) {
             fileWriter.seek(fileWriter.length);

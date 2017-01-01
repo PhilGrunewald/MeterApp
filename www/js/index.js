@@ -1,5 +1,5 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one
+* Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
  * regarding copyright ownership.  The ASF licenses this file
@@ -117,6 +117,7 @@ var app = {
 		app.actClock.hide();
 		app.actClockDiv.hide();
 
+		app.catchup.hide();
 
 		app.history          = new Array();
 		app.act_path          = new Array();
@@ -244,7 +245,7 @@ var app = {
 		// next screen has the key 'screen_id'
 		app.actClock.hide();
 // 		app.actClockDiv.hide();
-		app.header.removeClass('alert');
+		//app.header.removeClass('alert');
 		app.catchup.hide();
 		app.title.show();
 
@@ -542,7 +543,7 @@ var app = {
 				console.log("ITEM: " + item.time);
                 var activity    = app.activities[item.name];
         	    actsHTML += 
-        	    '<div class="row activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
+					'<div class="activity-row ' + item.cat + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
         	    	'<div class="activity-time activity-item">' + utils.format_time(item.time) + '</div>' +
         	    	'<div class="activity-cell activity-item">' + item.act  + '</div> ' +
 					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+activity.icon+'.png"></div>'+
@@ -558,10 +559,12 @@ var app = {
 			app.title.html(app.screens['home'].title);
 			app.footer_nav("home");
 			app.updateNowTime();
+			app.actClockDiv.hide()
 			app.showCatchupItem(); // overwrites app.title if catchup items exist
     },
 
 	showCatchupItem: function() {
+		// test for catchup items in list and display if applies
 		// drop (shift) catchup items more than 8 ours old
 		while ((new Date() - new Date(app.catchupList[0])) > (8*60*60*1000)) {
 			app.catchupList.shift();
@@ -579,24 +582,15 @@ var app = {
 
 		// show specific time in title
 		if (catchupIndex > -1) {
-			var hh=parseInt(app.catchupList[catchupIndex].slice(11,13));
-			var mm=parseInt(app.catchupList[catchupIndex].slice(14,16));
+			var hh= parseInt(app.catchupList[catchupIndex].slice(11,13));
+			var mm= parseInt(app.catchupList[catchupIndex].slice(14,16));
 			var strTime = utils.formatAMPM(hh,mm);
-			// console.log("about to show Catchup");
-			var min2digit = ("0" + mm).slice(-2);
-			app.catchup.html("<img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\"> What I did at");
-			app.drawClock(app.actClock,hh,mm,"", hh + ':' + min2digit);
-            app.actClock.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
+			app.catchup.html(" at "+ strTime +"? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
 			app.catchup.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
-			app.header.addClass('alert');
-			app.title.hide();
-			app.catchup.css('display','inline-block');
-			app.actClock.show();
-			// app.title.html("What happened <b>at " + strTime + "</b>? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
+			app.catchup.show();
             app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
 		} else {
 			app.title.html(app.screens['home'].title);
-			app.header.removeClass('alert');
 			app.actClock.hide();
 			app.catchup.hide();
 			app.title.show();
@@ -659,7 +653,10 @@ var app = {
 
     	var str = [log.id,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj, path].join() + "\n";
 		console.log("Logging: " + str);
-    	log.writeLog(log.logAct, str)
+		log.writeLog(log.logAct, str);
+		log.rewriteFile(log.ActJSON, JSON.stringify(activityList));
+
+
         utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
         utils.save(CURR_PEOPLE, "-1"); 
 		var actCount = Object.keys(activityList).length;
@@ -792,12 +789,26 @@ var app = {
 	},
 
 	// Edit btn 5 NOT USED
-	endActivity: function(actKey) {
+	xxendActivity: function(actKey) {
 		app.act_path.push(app.activities['End activity'].ID); 
 		// set local variables as copy of this activity, then overwrite time
 		// XXX add log.writeAct_mods(...) to have a CSV file saying to end the entry
 		app.deleteAct(actKey);
 		app.navigateTo("home", "ignore"); // ignore stops creation of new entry
+	},
+
+	// Edit btn 2
+	endActivity: function(actKey) {
+		// mark entry with "(end)" and confirm exact time
+		// create a new instance as a copy of this activity and then allow to adjust the time
+		app.saveActivityPropertiesLocally(actKey);
+		app.act_path.push(app.activities['End activity'].ID); 
+		var tuc_cat_title = utils.get(CURR_ACTIVITY_ID);
+		utils.save(CURR_ACTIVITY_ID,tuc_cat_title + " (end)");
+    	var thisTime = new Date().toISOString();
+        utils.save(ACTIVITY_DATETIME, thisTime);
+		app.footer_nav("done");
+		app.navigateTo("adjust time");
 	},
 
 	// Edit btn 5 - Something else now

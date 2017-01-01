@@ -36,7 +36,8 @@
 			"ID": -1,
 			"next": "this is populated by js"
 		},
-		"Repeat activity now": {
+		"XXX Repeat activity now": {
+			"comment": "XXX DISUSED",
 			"title": "Repeat now",
 			"caption": "Again now",
 			"icon": "edit_again_now",
@@ -47,8 +48,8 @@
 		},
 		"Repeat activity recently": {
 			"title": "Repeat recently",
-			"caption": "Again recently",
-			"icon": "edit_again_recent",
+			"caption": "Repeat",
+			"icon": "edit_repeat",
 			"help": "I did this again recently",
 			"category": "other_category",
 			"ID": 11001,
@@ -75,8 +76,8 @@
 		"More activity": {
 			"title": "Something else",
 			"caption": "I did more",
-			"icon": "edit_more",
-			"help": "at the same time",
+			"icon": "edit_add",
+			"help": "than this",
 			"category": "other_category",
 			"ID": 11004,
 			"next": "app.moreActivity"
@@ -987,6 +988,7 @@
 			 "category": "food",
 			 "next": "other people" },
 
+			
 		"Appliances other":  
 			{ "title": "Other appliance",
 			 "caption": "Other ...",
@@ -1362,6 +1364,14 @@
 			"category": "food",
 			"next": "appliances food preparation"
 		},
+		"Food preparation hot other": {
+			"title": "Prepare hot meal",
+			 "caption": "Next",
+			 "icon": "act2_meal_hot",
+			 "help": "not listed here",
+			 "ID": 3112,
+			 "category": "food",
+			 "next": "other people" },
 
 		"Baking": {
 			"title": "Baking",

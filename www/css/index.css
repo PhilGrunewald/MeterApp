@@ -67,15 +67,14 @@ body {
 }
 
 .catch-up {
-	text-align: right;
-	vertical-align: top;
-	padding-right: 20px;
-	width: 50%;
-	font-size: 180%;
+	background-color: #ccc;
+	border-radius: 	20px;
+	font-size: 		150%;
+	margin: 		20px;
+	padding:		10px;
 }
 
 .alert {
-	background-color: #060;
 	height: 18%;
 	padding: 20px;
 }
@@ -254,28 +253,30 @@ div#activity-list {
 }
 
 div.activity-row {
+	border-radius: 20px;
 	margin: 2px 0;
 }
 
 div.activity-item {
     display: table-cell;
-	text-align: left;
+	/* text-align: left; */
     /* background: #ededed; */
-    /* vertical-align: middle; */
+    vertical-align: middle;
+	border-bottom: 2px white solid; 
     width: 100%;
 }
 
 div.activity-cell {
-	border-bottom: 2px white solid; 
-	/*padding: 20px 0;*/
+	/* border-bottom: 2px white solid; */
+	/* vertical-align: middle; */
 }
 div.activity-time {
-	width:	28%;
-	border-bottom: 2px white solid; 
+	width:	30%;
+	/* border-bottom: 2px white solid; */
 }
 div.activity-icon {
 	width:	50px;
-	border-bottom: 2px white solid; 
+	/* border-bottom: 2px white solid; */
 }
 img.activity-icon {
 	height: 50px;
