@@ -61,7 +61,6 @@ var SURVEY_MAX    = 91000;
 var CATCHUP_INDEX = 0;
 var catchupList   = "";
 var deviceColour  = "#990000";				// to be used for background or colour marker
-var ToggleColon   = false;
 
 var app = {
     // Application Constructor
@@ -101,6 +100,11 @@ var app = {
 		app.catchup		     = $('#catch-up');
 		app.now_time         = $("#now-time");
 		app.act_count        = $('#act-count');
+		
+		app.helpCaption		= $(".help-caption");
+		app.progressListPane = $("div#progress_list_pane");
+		app.footerNav		 = $("div.footer-nav");
+		app.btnCaption		 = $(".btn-caption"); 
 
 		// The clock face behind the "Now" button
 		app.nowClock		= $('#clock-now');
@@ -116,6 +120,7 @@ var app = {
 		app.initClock(app.actClock);
 		app.actClock.hide();
 		app.actClockDiv.hide();
+		app.helpCaption.hide(); // hide help text when moving on (default off)
 
 		app.catchup.hide();
 
@@ -140,12 +145,6 @@ var app = {
 	},
 
 	updateNowTime: function() {
-		//var timeStr = utils.format("${time}");
-		//if (ToggleColon) {
-		//	timeStr = timeStr.substring(0,2)+" "+timeStr.substring(3,5);
-		//}
-		//ToggleColon = (!ToggleColon);
-        //app.now_time.html(timeStr);
 		var now = new Date();
 		var hour = now.getHours();
 		var min  = now.getMinutes();
@@ -334,10 +333,11 @@ var app = {
 
 		app.activityAddPane.hide();
 		app.activityListPane.hide();
-		$("div#progress_list_pane").hide();
+		app.progressListPane.hide();
 		app.choicesPane.show();
-		$("div.footer-nav").show();
-		$(".btn-caption").hide(); // hide help text when moving on (default off)
+		app.footerNav.show();
+		app.helpCaption.hide(); // hide help text when moving on (default off)
+		app.btnCaption.hide(); // hide help text when moving on (default off)
 
 		console.log(screen_id);
 
@@ -363,7 +363,6 @@ var app = {
 		if (screen_id == "activity root") {
 			// btn-next is only for "activity time relative" actions
 			// it points to "activity root", thus turning itself back to "Done" here
-			// $("div.footer-nav").show();
 			app.footer_nav("home");
 			app.actClockDiv.hide();
 			app.header.attr("onclick", "");
@@ -373,7 +372,7 @@ var app = {
 		if (screen_id == "other specify") {     // display text edit field
 			console.log("SHOWING");
 			$("div#other-specify").show();
-			$("div.footer-nav").hide();
+			app.footerNav.hide();
 			app.choicesPane.hide();
 		} else
 		if (screen_id == "survey root") {
@@ -540,8 +539,6 @@ var app = {
         	    '<div class="row activity-row">' + thisWeekday + '</div>'
 				}
 				weekday = thisWeekday;
-
-				console.log("ITEM: " + item.dt_activity);
                 var activity    = app.activities[item.key];
         	    actsHTML += 
 					'<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
@@ -720,7 +717,7 @@ var app = {
 	},
 
 	footer_nav: function(btn) {
-		$("div.footer-nav").show();
+		app.footerNav.show();
 		$("#btn-home").hide();
 		$("#btn-done").hide();
 		$("#btn-next").hide();
@@ -848,7 +845,8 @@ var app = {
     },
 
     toggleCaption: function() {
-        $(".btn-caption").toggle();
+		app.btnCaption.toggle();
+		app.helpCaption.toggle();
     },
     };
 

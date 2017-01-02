@@ -78,6 +78,12 @@ ampm {
 	padding:		10px;
 }
 
+.help-caption {
+	color: #f00;
+	font-style: italic;
+	font-family: serif;
+}
+
 .alert {
 	height: 18%;
 	padding: 20px;
@@ -250,7 +256,10 @@ h1 {
 .btn-caption {
     display: none;
     font-size: 90%;
-    color: #060;
+    /*color: #060;*/
+	color: #f00;
+	font-style: italic;
+	font-family: serif;
 }
 
 
