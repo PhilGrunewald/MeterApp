@@ -65,7 +65,8 @@ var utils = {
 				res = new Date(time_.getTime() + mins);
 			}
 			ISOtime = res.toISOString();
-			res = ISOtime.substring(11,16);
+			res = utils.format_dt_AMPM(ISOtime);
+			// res = ISOtime.substring(11,16);
 			return str.replace(intime_var, res)
 		} else if (elems[0] == "rel_time") {
 			var dt_act = utils.get(ACTIVITY_DATETIME);
@@ -180,12 +181,23 @@ var utils = {
 		return strTime;
 	},
 
+	format_dt_AMPM: function(str) {
+		var hh = new Date(str).toTimeString().substring(0, 2)
+		var mm = new Date(str).toTimeString().substring(3, 5)
+		return utils.formatAMPM(hh,mm)
+	},
+
 	formatAMPM: function(hours,minutes) {
-		var ampm = hours >= 12 ? 'pm' : 'am';
+		if (minutes > 57) {
+			hours = parseInt(hours) + 1;
+			minutes = 0;
+		}
+		minutes = Math.round(minutes/5)*5;
+		var ampm = hours >= 12 ? '<ampm> pm</ampm>' : '<ampm> am</ampm>';
 		hours = hours % 12;
 		hours = hours ? hours : 12; // the hour '0' should be '12'
 		minutes = minutes < 10 ? '0'+minutes : minutes;
-		var strTime = hours + ':' + minutes + ' ' + ampm;
+		var strTime = hours + ':' + minutes + ampm;
 		return strTime;
 	},
 

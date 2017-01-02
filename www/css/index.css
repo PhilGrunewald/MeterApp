@@ -44,6 +44,10 @@ body {
     color: #444;
 }
 
+ampm {
+	font-size: 60%;
+}
+
 /* Portrait layout (default) */
 .app {
     margin: 0 auto;

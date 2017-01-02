@@ -74,7 +74,7 @@ var app = {
     onDeviceReady: function() {
 	app.initialSetup();
     $.getJSON('js/activities.json', function(data) {
-		console.log("loading Activities");
+		console.log("loading YY Activities");
          app.activities = data.activities;
          $.getJSON('js/screens.json', function(screen_data) {
 			console.log("loading Screens");
@@ -149,10 +149,12 @@ var app = {
 		var now = new Date();
 		var hour = now.getHours();
 		var min  = now.getMinutes();
-		var min2digit = ("0" + min).slice(-2);
+		hour = hour % 12;
+		hour = hour ? hour : 12; // the hour '0' should be '12'
+		minutes = min < 10 ? '0'+min : min;
 
-		app.drawClock(app.nowClock,hour,min,"Now", hour + ':' + min2digit);
-		app.drawClock(app.recentClock,now.getHours(),now.getMinutes(), "Recently", "back arrow");
+		app.drawClock(app.nowClock,hour,min,"Now", hour + ':' + minutes);
+		app.drawClock(app.recentClock,hour,min, "Recently", "back arrow");
 	},
 
 	drawClock: function(thisClock,hour,minute,caption,subcaption) {
@@ -344,23 +346,15 @@ var app = {
 			if (prev_activity !== "ignore") {
 				app.addActivityToList();
 			}
-			// until and activity is selected btn-home will not create a new entry
-			// app.footer_nav("home");
-		// 	app.updateNowTime();
+			app.header.attr("onclick", "");
+			app.title.removeClass("btn-box");
 			app.showActivityList();
-			// app.choicesPane.hide();
 		} else 
 		if (screen_id == "activity time relative") {
 			// pressed "recently" button - relative time entry followed by "activity root"
 			// unlike "adjust time" which is triggered by "edit activity"
-			//
-			//var dt_man = utils.get(ACTIVITY_MANUAL_DATE);
-			//if (dt_man == "none") {
-				var dt_ = Date.now()
-				var dt_ = new Date(dt_).toISOString();
-			//} else {
-			//	var dt_ = new Date(dt_man).toISOString();
-			//}
+			var dt_ = Date.now()
+			var dt_ = new Date(dt_).toISOString();
 			utils.save(ACTIVITY_DATETIME, dt_);
 			app.footer_nav("next");
 			app.header.attr("onclick", "app.navigateTo('activity root')");
@@ -375,7 +369,7 @@ var app = {
 			app.header.attr("onclick", "");
 			app.title.removeClass("btn-box");
 			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
-		} else 
+		} else
 		if (screen_id == "other specify") {     // display text edit field
 			console.log("SHOWING");
 			$("div#other-specify").show();
@@ -391,7 +385,8 @@ var app = {
 			// clearTimeout(app.waitFor5pm);
 			$('div.contents').show();
 			app.footer_nav("home");
-			if (screen_id === null) {
+
+			if (screen_id === null) {  // in case SURVEY_STATUS was not set
 				screen_id = "survey root";
 			}
 		} else
@@ -401,7 +396,14 @@ var app = {
 			$("div#nav-status").show();
 			app.showActivityList();
 			app.choicesPane.hide();
-		} 
+		} else
+		if (screen_id == "adjust time") {
+			console.log("Doing nothing - just so that the <else> part doesn't remove the title action")
+			} 
+		else {
+			app.header.attr("onclick", "");
+			app.title.removeClass("btn-box");
+			}
 
 		//****************************** 
 		//      Buttons
@@ -543,7 +545,7 @@ var app = {
                 var activity    = app.activities[item.key];
         	    actsHTML += 
 					'<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
-        	    	'<div class="activity-time activity-item">' + utils.format_time(item.dt_activity) + '</div>' +
+        	    	'<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
         	    	'<div class="activity-cell activity-item">' + item.activity  + '</div> ' +
 					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+activity.icon+'.png"></div>'+
 					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
@@ -615,48 +617,30 @@ var app = {
 		} else {
 			dt_act = utils.get(ACTIVITY_DATETIME);
 		} 
-		var actKey  = utils.get(CURR_ACTIVITY);
-		var details = utils.get(CURR_ACTIVITY_ID) ;
-		var loc     = utils.get(CURR_LOCATION) ;
-		var people  = utils.get(CURR_PEOPLE);          
-		var enj     = utils.get(CURR_ENJOYMENT);          
+        var actID = utils.actID(dt_act)
 
-		var detailsArray = details.split(",");  // contains tuc, category, title
-		var tuc = detailsArray[0];
-		var cat = detailsArray[1];			// .category
-		var act = detailsArray[2];			// .title for this activity Key
-
-		var path = "\"" + app.act_path + "\"";
-		var actStr = "\""+act+"\"";
-
-		// trim trailing milliseconds and the 'Z' upsetting mySQL datetime
+		// trim trailing milliseconds and the trailing 'Z' upsetting mySQL datetime
 		dt_act      = dt_act.substring(0,19);
 		dt_recorded = dt_recorded.substring(0,19);
-
         activityList = utils.getList(ACTIVITY_LIST) || {};
-
-        var actID = utils.actID(dt_act)
         activityList[actID] = {
-            "key"		: actKey,
+            "key"		: utils.get(CURR_ACTIVITY),
+			"Meta_idMeta": log.id,
             "dt_activity": dt_act,
 			"dt_recorded": dt_recorded,
-			"location"  : loc,
-			"people"	: people,
-			"enjoyment"	: enj,
-			"tuc"		: tuc,
-			"category"	: cat,
-			"activity"	: act,
-			"path"		: path
+			"location"  : utils.get(CURR_LOCATION),
+			"people"	: utils.get(CURR_PEOPLE),
+			"enjoyment"	: utils.get(CURR_ENJOYMENT),
+			"tuc"		: utils.get(CURR_ACTIVITY_ID).split(",")[0],
+			"category"	: utils.get(CURR_ACTIVITY_ID).split(",")[1],
+			"activity"	: utils.get(CURR_ACTIVITY_ID).split(",")[2],
+			"path"		: app.act_path.join()
         }
 		utils.saveList(ACTIVITY_LIST, activityList);
-                //console.log('act: ' + act);
-
-    	var str = [log.id,dt_act, dt_recorded, tuc, cat, actStr, loc, people, enj, path].join() + "\n";
-		console.log("Logging: " + str);
-		log.writeLog(log.logAct, str);
 		log.rewriteFile(log.ActJSON, JSON.stringify(activityList));
 
 
+		// reset values
         utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
         utils.save(CURR_PEOPLE, "-1"); 
 		var actCount = Object.keys(activityList).length;
@@ -745,6 +729,7 @@ var app = {
 
 	// Edit btn 1
 	repeatActivityNow: function(actKey) {
+		// XXX no longer used
 		// set local variables as copy of this activity, then overwrite time
 		app.saveActivityPropertiesLocally(actKey);
     	var thisTime = new Date().toISOString();
@@ -759,6 +744,8 @@ var app = {
 		app.saveActivityPropertiesLocally(actKey);
 		app.act_path.push(app.activities['Repeat activity recently'].ID); 
 		app.footer_nav("done");
+		app.header.attr("onclick", "app.navigateTo('other people')");
+		app.title.addClass("btn-box");
 		app.navigateTo("adjust time");
 	},
 
@@ -766,11 +753,11 @@ var app = {
 	adjustTime: function(actKey) {
 		// the old List and CSV entries need to be removed and a new one is created when navigating Home
 		app.saveActivityPropertiesLocally(actKey);
-		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
 		app.deleteAct(actKey);
 		app.act_path.push(app.activities['Edit activity time'].ID); 
 		app.footer_nav("done");
-		// $("div.footer-nav").show();
+		app.header.attr("onclick", "app.navigateTo('home')");
+		app.title.addClass("btn-box");
 		app.navigateTo("adjust time");
 	},
 
@@ -779,22 +766,12 @@ var app = {
 		// the old List and CSV entries need to be removed and a new one is created when navigating Home
 		app.act_path.push(app.activities['Edit activity title'].ID); 
 		app.saveActivityPropertiesLocally(actKey);
-		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
 		app.deleteAct(actKey);
 		var oldDetail = utils.get(CURR_ACTIVITY_ID);
 		var oldTitle  = oldDetail.split(",")[2];
 		$("input#free-text").val(oldTitle);
 		$("div#btn-other-specify").attr("onclick", "app.submitEdit()");
 		app.navigateTo("other specify");
-	},
-
-	// Edit btn 5 NOT USED
-	xxendActivity: function(actKey) {
-		app.act_path.push(app.activities['End activity'].ID); 
-		// set local variables as copy of this activity, then overwrite time
-		// XXX add log.writeAct_mods(...) to have a CSV file saying to end the entry
-		app.deleteAct(actKey);
-		app.navigateTo("home", "ignore"); // ignore stops creation of new entry
 	},
 
 	// Edit btn 2
@@ -808,6 +785,8 @@ var app = {
     	var thisTime = new Date().toISOString();
         utils.save(ACTIVITY_DATETIME, thisTime);
 		app.footer_nav("done");
+		app.header.attr("onclick", "app.navigateTo('home')");
+		app.title.addClass("btn-box");
 		app.navigateTo("adjust time");
 	},
 
@@ -815,8 +794,9 @@ var app = {
 	moreActivity: function(actKey) {
 		app.act_path.push(app.activities['More activity'].ID); 
 		app.saveActivityPropertiesLocally(actKey);
-		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore the changed entry
 		app.footer_nav("next");
+		app.header.attr("onclick", "app.navigateTo('activity root')");
+		app.title.addClass("btn-box");
 		app.navigateTo("adjust time");
 	},
 
@@ -824,7 +804,6 @@ var app = {
 	deleteActivity: function(actKey) {
 		app.act_path.push(app.activities['Delete activity'].ID); 
 		// set local variables as copy of this activity, then overwrite time
-		// XXX add log.writeAct_mods(...) to have a CSV file saying to ignore entry
 		app.deleteAct(actKey);
 		app.navigateTo("home", "ignore"); // ignore stops creation of new entry
 	},
