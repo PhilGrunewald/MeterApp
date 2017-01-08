@@ -399,6 +399,13 @@ var app = {
 		if (screen_id == "adjust time") {
 			console.log("Doing nothing - just so that the <else> part doesn't remove the title action")
 			} 
+		else 
+		if (screen_id == "other people") {
+			// bit of a special case - for "edit repeat" going straight to 'other people'
+	 		app.actClockDiv.hide();
+			app.header.attr("onclick", "");
+			app.title.removeClass("btn-box");
+			} 
 		else {
 			app.header.attr("onclick", "");
 			app.title.removeClass("btn-box");
@@ -740,6 +747,9 @@ var app = {
 		// create a new instance as a copy of this activity and then allow to adjust the time
 		app.saveActivityPropertiesLocally(actKey);
 		app.act_path.push(app.activities['Repeat activity recently'].ID); 
+		// default is 'now'
+    	var thisTime = new Date().toISOString();
+        utils.save(ACTIVITY_DATETIME, thisTime);
 		app.footer_nav("done");
 		app.header.attr("onclick", "app.navigateTo('other people')");
 		app.title.addClass("btn-box");
