@@ -547,6 +547,14 @@ var app = {
 				}
 				weekday = thisWeekday;
                 var activity    = app.activities[item.key];
+				// safety catch - somehow some people managed to store entries with a 'custom key', which is not in the list
+				if (activity !== undefined) {
+					var icon = activity.icon;
+				}
+				else {
+					var icon = "Other_type"
+				}
+
         	    actsHTML += 
 					'<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
         	    	'<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
