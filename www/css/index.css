@@ -78,6 +78,17 @@ ampm {
 	padding:		10px;
 }
 
+.btn-catchup {
+	background-color: #ccc;
+    border-radius: 20px;
+    font-size: 150%;
+    margin-top: -15px;
+    padding: 10px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .help-caption {
 	color: #f00;
 	font-style: italic;
