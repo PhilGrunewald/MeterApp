@@ -559,7 +559,7 @@ var app = {
 					'<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
         	    	'<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
         	    	'<div class="activity-cell activity-item">' + item.activity  + '</div> ' +
-					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+activity.icon+'.png"></div>'+
+					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+icon+'.png"></div>'+
 					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
 					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enjoyment+'.png"></div>'+
 				'</div>';
