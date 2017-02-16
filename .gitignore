@@ -1,4 +1,5 @@
 platforms
 plugins/**
 MeterApp.komodoproject
-
+*/.DS_Store
+*.swp
