@@ -1,4 +1,11 @@
 {
+	"TODO":{ 
+		"Loading and unloadign the dishwasher": "add",
+		"Skip 'hot or cold meal'": "add",
+		"Allow manual teeth brushing": "add",
+		"back button when EDIT change time":"hide"
+		"Ask in SURVEY: how many times did yoy go shopping?":"add Survey"
+	},
 	"activities": {
 		"Blank": {
 			"title": "",
@@ -3508,7 +3515,7 @@
 		},
 		"Device Email": {
 			"title": "email",
-			"caption": "Personal email",
+			"caption": "Email",
 			"help": "Reading or writing",
 			"icon": "app_computer",
 			"ID": 7170,
