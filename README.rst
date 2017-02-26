@@ -1,15 +1,22 @@
 =================
 Activity Recorder
 =================
+.. image:: docs/meter_logo.png
+    :height: 200
+    :align: right
 
-The Meter_ Activity Recorder is a Cordova based android app, which allows Meter_ project
-participants to submit activity and individual information through a 
+
+The Meter_ Activity Recorder records everyday household activities. The app is Cordova based and pre-installed on Android Devices, for Meter_ project participants to submit activity and individual information through a 
 simple interface. The app can also be used to code up hand written
-activity booklets. The code and dependent data is available on `gitHub
-MeterApp <https://github.com/PhilGrunewald/MeterApp>`__.
+activity booklets. The code and dependent data is available in this `gitHub
+repository <https://github.com/PhilGrunewald/MeterApp>`__.
 
 .. _Meter: http://www.energy-use.org
 
+
+.. image:: docs/handheld.png
+    :height: 200
+    :align: right
 
 This document explains
 
@@ -260,7 +267,8 @@ The code base
 You will find a lot of files and directories in ``MeterApp/``. Here are
 a few key files:
 
-1. ``www/index.html``
+1. `www/index.html <www/index.html>`_
+1. `www/js/index.js <www/js/index.js>`_
 
 Todo
 ====
