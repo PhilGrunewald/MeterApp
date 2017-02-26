@@ -14,8 +14,9 @@ This document explains
 - The navigation logic between activities and screens
 - The code base
 
-ActiApp structure
-=================
+App interface
+=============
+
 
 The app is build around a html5 user interface consisting of the following sections:
 
@@ -37,11 +38,14 @@ The app is build around a html5 user interface consisting of the following secti
 
 5. **Footer** (footer-nav): Two buttons to aid navigation. Left for 'back', right for 'done'.
 
+<!-- 
 ![Home screen](/docs/home_screen.pdf)
-
 ![Activity choice screen](activity_screen.pdf)
+-->
 
-![The Screen and Activities area with the standard 2x3 button layout](ActivityScreens.pdf)
+![Standard layout](ScreenActivity.pdf)
+
+![The Home Screen (a) and Choice Screens (b-e). The Activities pane always follows the standard 2x3 button layout](ActivityScreens.pdf)
 
 Activity navigation
 ===================
@@ -123,6 +127,21 @@ In the above case `"activity main"` will produce a screen with the following act
 (Note: the upper case convention is not observed yet here)
 
 At the end of a typically 3-5 screen deep tree structure follows in most cases `"Other people"`, which asks for a count of people someone was with, followed by the `"enjoyment"` screen. The `"next"` field in all activities displayed points to `"home"`, which displays the list of activities as per Figure 1.
+
+Edit screen
+-----------
+
+Each activity on the Home Screen links to an edit screen, where the following modifications can be made:
+
+- **I did more**: adds a new entry with the same time as the default
+- **Repeat**: copies the entry and opens the time setting screen
+- **Rename**: edit field to modify the activity caption (tuc remains unchanged)
+- **Change time**: keep entry and adjust the time
+- **Stop**: create a copy and append '(end)'
+- **Delete**: removes the entry
+
+![Activities on the Home Screen lead to the edit screen, where activities can be modified](home_edit.pdf)
+
 
 Code Ranges
 ===========
