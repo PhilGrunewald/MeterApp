@@ -8,7 +8,7 @@ simple interface. The app can also be used to code up hand written
 activity booklets. The code and dependent data is available on `gitHub
 MeterApp <https://github.com/PhilGrunewald/MeterApp>`__.
 
-.. _Meter: <http://www.energy-use.org>
+.. _Meter: http://www.energy-use.org
 
 
 This document explains
