@@ -41,6 +41,8 @@ The app is build around a html5 user interface consisting of the following secti
 
 ![Activity choice screen](activity_screen.pdf)
 
+![The Screen and Activities area with the standard 2x3 button layout](ActivityScreens.pdf)
+
 Activity navigation
 ===================
 
