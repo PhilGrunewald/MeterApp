@@ -58,7 +58,7 @@ following sections:
    ![Activity choice screen](activity_screen.pdf)
    -->
 
-.. image:: docs/ScreenActivity.pdf
+.. image:: docs/homescreen.png
 
 .. figure:: ./docs/ScreenActivity.pdf
    :alt: Standard layout
@@ -241,7 +241,7 @@ current time minus 3 hours (e.g. at 15:21 it would display 12:21):
 
             "Time 8":  { 
                 "title": "activity time", 
-                "caption": "3 hours ago</br>${time - 180}"
+                "caption": "3 hours ago</br>${time - 180}",
                 "ID": 10008, 
                 "value": 180, 
                 "next": "activity root" }
