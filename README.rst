@@ -58,6 +58,8 @@ following sections:
    ![Activity choice screen](activity_screen.pdf)
    -->
 
+.. image:: docs/ScreenActivity.pdf
+
 .. figure:: ./docs/ScreenActivity.pdf
    :alt: Standard layout
 
