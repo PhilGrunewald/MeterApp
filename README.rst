@@ -64,11 +64,9 @@ following sections:
    Standard layout
 
 .. figure:: /docs/ActivityScreens.png
-   :alt: The Home Screen (a) and Choice Screens (b-e). The Activities
-   pane always follows the standard 2x3 button layout
+   :alt: Activity Screens
 
-   The Home Screen (a) and Choice Screens (b-e). The Activities pane
-   always follows the standard 2x3 button layout
+   The Home Screen (a) and Choice Screens (b-e). The Activities pane always follows the standard 2x3 button layout
 
 Activity navigation
 ===================
