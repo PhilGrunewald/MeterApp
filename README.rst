@@ -58,12 +58,12 @@ following sections:
    ![Activity choice screen](activity_screen.pdf)
    -->
 
-.. figure:: docs/ScreenActivity.pdf
+.. figure:: ./docs/ScreenActivity.pdf
    :alt: Standard layout
 
    Standard layout
 
-.. figure:: docs/ActivityScreens.pdf
+.. figure:: /docs/ActivityScreens.pdf
    :alt: The Home Screen (a) and Choice Screens (b-e). The Activities
    pane always follows the standard 2x3 button layout
 
