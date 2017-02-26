@@ -58,14 +58,12 @@ following sections:
    ![Activity choice screen](activity_screen.pdf)
    -->
 
-.. image:: docs/homescreen.png
-
-.. figure:: ./docs/ScreenActivity.pdf
-   :alt: Standard layout
+.. figure:: ./docs/ScreenActivity.png
+   :alt: Standard screen layout
 
    Standard layout
 
-.. figure:: /docs/ActivityScreens.pdf
+.. figure:: /docs/ActivityScreens.png
    :alt: The Home Screen (a) and Choice Screens (b-e). The Activities
    pane always follows the standard 2x3 button layout
 
@@ -77,7 +75,7 @@ Activity navigation
 
 Activity entries follow a common sequence shown in Figure 3.
 
-.. figure:: docs/activity_flow.pdf
+.. figure:: docs/activity_flow.png
    :alt: Entry sequence for activities
 
    Entry sequence for activities
