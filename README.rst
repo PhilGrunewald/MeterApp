@@ -268,7 +268,8 @@ You will find a lot of files and directories in ``MeterApp/``. Here are
 a few key files:
 
 1. `www/index.html <www/index.html>`_
-1. `www/js/index.js <www/js/index.js>`_
+
+2. `www/js/index.js <www/js/index.js>`_
 
 Todo
 ====
