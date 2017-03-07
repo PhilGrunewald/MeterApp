@@ -1,0 +1,221 @@
+Gardening                          Gardening                Gardening
+Walking the dog                    Walking the dog          Walking the dog
+Travel                             location travelling      Loc travelling
+.  By foot                         Walking                  Travel foot
+.  .  To/from work or school       Travel to/from work      Travel purpose commute
+.  .  Taking children              Taking children          Travel purpose children
+.  .  .  School / nursery          School run               Travel purpose children school
+.  .  .  Sport                     Take children for sport  Travel purpose children sport
+.  .  .  See friends               Taking children to friendsTravel purpose children social
+.  .  .  Other                     Taking children          Travel purpose children other
+.  .  .                                                     Blank
+.  .  .                                                     Blank
+.  .  Dog walking                  Walking the dog          Travel purpose dog
+.  .  Shopping                     Going shopping           Travel purpose shopping
+.  .  Leisure                      Travel for leisure       Travel purpose leisure
+.  .  Show more options            navigation               Travel purpose 2
+.  .  .  Exercise / wellbeing      Exercise                 Travel purpose exercise
+.  .  .  Visit friend / relative   Visit friends/relatives  Travel purpose friend
+.  .  .  Entertainment             Travel for entertainment Travel purpose entertainment
+.  .  .  Household                 Household related travel Travel purpose household
+.  .  .  Social activities         Travel (social)          Travel purpose social
+.  .  .  Other                     Travel                   Travel purpose other
+.  By car                          Driving                  Travel car
+.  .  To/from work or school       Travel to/from work      Travel purpose commute
+.  .  Taking children              Taking children          Travel purpose children
+.  .  .  School / nursery          School run               Travel purpose children school
+.  .  .  Sport                     Take children for sport  Travel purpose children sport
+.  .  .  See friends               Taking children to friendsTravel purpose children social
+.  .  .  Other                     Taking children          Travel purpose children other
+.  .  .                                                     Blank
+.  .  .                                                     Blank
+.  .  Dog walking                  Walking the dog          Travel purpose dog
+.  .  Shopping                     Going shopping           Travel purpose shopping
+.  .  Leisure                      Travel for leisure       Travel purpose leisure
+.  .  Show more options            navigation               Travel purpose 2
+.  .  .  Exercise / wellbeing      Exercise                 Travel purpose exercise
+.  .  .  Visit friend / relative   Visit friends/relatives  Travel purpose friend
+.  .  .  Entertainment             Travel for entertainment Travel purpose entertainment
+.  .  .  Household                 Household related travel Travel purpose household
+.  .  .  Social activities         Travel (social)          Travel purpose social
+.  .  .  Other                     Travel                   Travel purpose other
+.  By bike                         Cycling                  Travel bike
+.  .  To/from work or school       Travel to/from work      Travel purpose commute
+.  .  Taking children              Taking children          Travel purpose children
+.  .  .  School / nursery          School run               Travel purpose children school
+.  .  .  Sport                     Take children for sport  Travel purpose children sport
+.  .  .  See friends               Taking children to friendsTravel purpose children social
+.  .  .  Other                     Taking children          Travel purpose children other
+.  .  .                                                     Blank
+.  .  .                                                     Blank
+.  .  Dog walking                  Walking the dog          Travel purpose dog
+.  .  Shopping                     Going shopping           Travel purpose shopping
+.  .  Leisure                      Travel for leisure       Travel purpose leisure
+.  .  Show more options            navigation               Travel purpose 2
+.  .  .  Exercise / wellbeing      Exercise                 Travel purpose exercise
+.  .  .  Visit friend / relative   Visit friends/relatives  Travel purpose friend
+.  .  .  Entertainment             Travel for entertainment Travel purpose entertainment
+.  .  .  Household                 Household related travel Travel purpose household
+.  .  .  Social activities         Travel (social)          Travel purpose social
+.  .  .  Other                     Travel                   Travel purpose other
+.  Public transport                Public transport         Travel public
+.  .  To/from work or school       Travel to/from work      Travel purpose commute
+.  .  Taking children              Taking children          Travel purpose children
+.  .  .  School / nursery          School run               Travel purpose children school
+.  .  .  Sport                     Take children for sport  Travel purpose children sport
+.  .  .  See friends               Taking children to friendsTravel purpose children social
+.  .  .  Other                     Taking children          Travel purpose children other
+.  .  .                                                     Blank
+.  .  .                                                     Blank
+.  .  Dog walking                  Walking the dog          Travel purpose dog
+.  .  Shopping                     Going shopping           Travel purpose shopping
+.  .  Leisure                      Travel for leisure       Travel purpose leisure
+.  .  Show more options            navigation               Travel purpose 2
+.  .  .  Exercise / wellbeing      Exercise                 Travel purpose exercise
+.  .  .  Visit friend / relative   Visit friends/relatives  Travel purpose friend
+.  .  .  Entertainment             Travel for entertainment Travel purpose entertainment
+.  .  .  Household                 Household related travel Travel purpose household
+.  .  .  Social activities         Travel (social)          Travel purpose social
+.  .  .  Other                     Travel                   Travel purpose other
+.  Exercise                        Sport                    Travel exercise
+.  .  To/from work or school       Travel to/from work      Travel purpose commute
+.  .  Taking children              Taking children          Travel purpose children
+.  .  .  School / nursery          School run               Travel purpose children school
+.  .  .  Sport                     Take children for sport  Travel purpose children sport
+.  .  .  See friends               Taking children to friendsTravel purpose children social
+.  .  .  Other                     Taking children          Travel purpose children other
+.  .  .                                                     Blank
+.  .  .                                                     Blank
+.  .  Dog walking                  Walking the dog          Travel purpose dog
+.  .  Shopping                     Going shopping           Travel purpose shopping
+.  .  Leisure                      Travel for leisure       Travel purpose leisure
+.  .  Show more options            navigation               Travel purpose 2
+.  .  .  Exercise / wellbeing      Exercise                 Travel purpose exercise
+.  .  .  Visit friend / relative   Visit friends/relatives  Travel purpose friend
+.  .  .  Entertainment             Travel for entertainment Travel purpose entertainment
+.  .  .  Household                 Household related travel Travel purpose household
+.  .  .  Social activities         Travel (social)          Travel purpose social
+.  .  .  Other                     Travel                   Travel purpose other
+.  Skip                            Travel                   Travel other
+.  .  To/from work or school       Travel to/from work      Travel purpose commute
+.  .  Taking children              Taking children          Travel purpose children
+.  .  .  School / nursery          School run               Travel purpose children school
+.  .  .  Sport                     Take children for sport  Travel purpose children sport
+.  .  .  See friends               Taking children to friendsTravel purpose children social
+.  .  .  Other                     Taking children          Travel purpose children other
+.  .  .                                                     Blank
+.  .  .                                                     Blank
+.  .  Dog walking                  Walking the dog          Travel purpose dog
+.  .  Shopping                     Going shopping           Travel purpose shopping
+.  .  Leisure                      Travel for leisure       Travel purpose leisure
+.  .  Show more options            navigation               Travel purpose 2
+.  .  .  Exercise / wellbeing      Exercise                 Travel purpose exercise
+.  .  .  Visit friend / relative   Visit friends/relatives  Travel purpose friend
+.  .  .  Entertainment             Travel for entertainment Travel purpose entertainment
+.  .  .  Household                 Household related travel Travel purpose household
+.  .  .  Social activities         Travel (social)          Travel purpose social
+.  .  .  Other                     Travel                   Travel purpose other
+Food                               Outdoor food             Outdoor food
+.  Eating                          Outdoors eating          Outdoor food eating
+.  Shopping                        Food shopping            Outdoor food shopping
+.  Takeaway                        Getting a takeaway       Outdoor food takeaway
+.  BBQ                             BBQ                      Outdoor food bbq
+.                                                           Blank
+.  Other                           Food outdoors            Outdoor food other
+Me, leisure                        Personal care            Leisure
+.  Getting ready                   Getting ready            Getting ready
+.  .  Wash or get dressed          Wash and dress           Care wash
+.  .  .  Shower                    Shower                   Care wash shower
+.  .  .  Bath                      Bathing                  Care wash bath
+.  .  .  .  Running a bath         Running a bath           Care wash bath running
+.  .  .  .  Bathing                Bathing                  Care wash bath bathing
+.  .  .  .  Bathing children       Bathing childern         Care wash bath children
+.  .  .  .  Skip                   Bathing                  Care wash bath other
+.  .  .  .                                                  Blank
+.  .  .  .                                                  Blank
+.  .  .  Sink or flannel           Wash                     Care wash sink
+.  .  .  Getting dressed           Getting dressed          Care wash dress
+.  .  .  Hygiene / Beauty          Hygiene / Beauty         Care wash hygiene
+.  .  .  Skip                      Wash                     Care wash other
+.  .  Clearing up                  Clearing up              Work house clear up
+.  .  Hygiene / Beauty             Hygiene / Beauty         Care wash hygiene
+.  .  Looking things               Looking for things       Work house search
+.  .  Pottering                    Pottering                Pottering
+.  .  Skip                         Getting ready            Getting ready other
+.  Resting - time out              Resting - Time out       Care rest
+.  Time for me                     Me time                  Care personal
+.  .  Food / Drink                 Food or drink            Food
+.  .  .  Prepare meal              Prepare meal             Food preparation
+.  .  .  .  Cold meal              Prepare cold meal        Food preparation cold
+.  .  .  .  Hot / cooked meal      Prepare hot meal         Food preparation hot
+.  .  .  .  .  Hob                 Cook on hob              Hob
+.  .  .  .  .  Oven                Oven                     Oven
+.  .  .  .  .  Microwave           Microwave                Microwave
+.  .  .  .  .  Electric kettle     Kettle                   Kettle
+.  .  .  .  .  Toaster             Toaster                  Toaster
+.  .  .  .  .  Other...            Custom definition        Other specify
+.  .  .  .  Baking                 Baking                   Baking
+.  .  .  .  .  Hob                 Cook on hob              Hob
+.  .  .  .  .  Oven                Oven                     Oven
+.  .  .  .  .  Microwave           Microwave                Microwave
+.  .  .  .  .  Electric kettle     Kettle                   Kettle
+.  .  .  .  .  Toaster             Toaster                  Toaster
+.  .  .  .  .  Other...            Custom definition        Other specify
+.  .  .  .  Skip                   Food management          Food other
+.  .  .  Lay or clear table        Lay or clear table       Cutlery handling
+.  .  .  .  Lay table              Lay table                Lay table
+.  .  .  .  Clear up               Clear away meal          Food clear
+.  .  .  .  Wash up by hand        Wash dishes              Dishes hand
+.  .  .  .  Wash up (machine)      Dish washer              Dishes machine
+.  .  .  .  Wash up (machine and hand)Dish washing             Dishes both
+.  .  .  .  Other                  Lay or clear table       Dishes other
+.  .  .  Eating                    Eating                   Eating
+.  .  .  .  Hot meal               Eating hot meal          Food eat hot
+.  .  .  .  Cold meal              Eating                   Food eat cold
+.  .  .  .  Snack                  Snack                    Food eat snack
+.  .  .  .                                                  Blank
+.  .  .  .                                                  Blank
+.  .  .  .  Other...               Custom definition        Other specify
+.  .  .  Snack                     Snack                    Food eat snack
+.  .  .  Hot drink                 Hot drink                Food drink hot
+.  .  .  Skip                      Housework                Work house other
+.  .  Exercise / sport             Physical exercise        Exercise
+.  .  Reading                      Reading                  Reading books
+.  .  Screen time                  Screen time              Leisure TV
+.  .  .  Mobile                    Screen time (mobile)     Leisure TV Mobile
+.  .  .  Projector                 Screen time (projector)  Leisure TV Projector
+.  .  .  TV                        Watching TV              Leisure TV TV
+.  .  .  Laptop                    Screen time (laptop)     Leisure TV Laptop
+.  .  .  Tablet                    Screen time (tablet)     Leisure TV Tablet
+.  .  .  Skip                      Screen time              Leisure TV Other
+.  .  Social media                 Social media             Social media
+.  .  Skip                         Me time                  Care personal other
+.  Screen time                     Screen time              Leisure TV
+.  .  Mobile                       Screen time (mobile)     Leisure TV Mobile
+.  .  Projector                    Screen time (projector)  Leisure TV Projector
+.  .  TV                           Watching TV              Leisure TV TV
+.  .  Laptop                       Screen time (laptop)     Leisure TV Laptop
+.  .  Tablet                       Screen time (tablet)     Leisure TV Tablet
+.  .  Skip                         Screen time              Leisure TV Other
+.  Wash or get dressed             Wash and dress           Care wash
+.  .  Shower                       Shower                   Care wash shower
+.  .  Bath                         Bathing                  Care wash bath
+.  .  .  Running a bath            Running a bath           Care wash bath running
+.  .  .  Bathing                   Bathing                  Care wash bath bathing
+.  .  .  Bathing children          Bathing childern         Care wash bath children
+.  .  .  Skip                      Bathing                  Care wash bath other
+.  .  .                                                     Blank
+.  .  .                                                     Blank
+.  .  Sink or flannel              Wash                     Care wash sink
+.  .  Getting dressed              Getting dressed          Care wash dress
+.  .  Hygiene / Beauty             Hygiene / Beauty         Care wash hygiene
+.  .  Skip                         Wash                     Care wash other
+.  Skip                            Being with others        Care other
+Appliances                         Outdoors / appliances    Outdoors appliances
+.  Computer                        Computer                 Appliances Computer
+.  Phone                           Phone                    Appliances Phone
+.  Tools / Toys                    Power tools              Appliances Tools
+.  Garden tools                    Garden tools             Appliances Garden tools
+.                                                           Blank
+.  Other ...                       Other appliance          Appliances other
+Other                              Outdoor activity         Outdoors other

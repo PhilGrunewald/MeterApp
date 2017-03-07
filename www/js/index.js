@@ -63,7 +63,7 @@ var catchupList   = "";
 var deviceColour  = "#990000";				// to be used for background or colour marker
 
 var app = {
-    // Application Constructor
+    /** Application Constructor */
     initialize: function() {
         this.bindEvents();
     },
@@ -71,6 +71,11 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     onDeviceReady: function() {
+		/** Load json files before we get going 
+		 * has to be nested to run sequentially
+		 * @param {js/activities.json} contains the activities
+		 */
+
 	app.initialSetup();
     $.getJSON('js/activities.json', function(data) {
 		console.log("loading YY Activities");
@@ -721,14 +726,14 @@ var app = {
 
 	saveActivityPropertiesLocally: function(actKey) {
 		// this is where app.navigateTo("home") will create new activity from
-        var activityList = utils.getList(ACTIVITY_LIST) || {};
-        var thisAct = activityList[actKey];
-        utils.save(ACTIVITY_DATETIME, thisAct.dt_activity);
-        utils.save(CURR_ACTIVITY, thisAct.key);
-	utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.category, thisAct.activity].join());
-        utils.save(CURR_LOCATION, thisAct.location);
-	utils.save(CURR_PEOPLE, thisAct.people);
-	utils.save(CURR_ENJOYMENT, thisAct.enjoyment);
+		var activityList = utils.getList(ACTIVITY_LIST) || {};
+		var thisAct = activityList[actKey];
+		utils.save(ACTIVITY_DATETIME, thisAct.dt_activity);
+		utils.save(CURR_ACTIVITY, thisAct.key);
+		utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.category, thisAct.activity].join());
+		utils.save(CURR_LOCATION, thisAct.location);
+		utils.save(CURR_PEOPLE, thisAct.people);
+		utils.save(CURR_ENJOYMENT, thisAct.enjoyment);
 	},
 
 	footer_nav: function(btn) {
@@ -737,9 +742,10 @@ var app = {
 		$("#btn-done").hide();
 		$("#btn-next").hide();
 		$("#btn-"+btn).show();
+		$("#btn-back").attr("onclick", "app.goBack();");
 	},
 
-	// Edit btn 1
+	// Edit btn XXX
 	repeatActivityNow: function(actKey) {
 		// XXX no longer used
 		// set local variables as copy of this activity, then overwrite time
@@ -750,11 +756,27 @@ var app = {
 		app.navigateTo("home");
 	},
 
-	// Edit btn 2
+	// Edit btn 1 - I did More
+	moreActivity: function(actKey) {
+		app.act_path.push(app.activities['More activity'].ID); 
+		app.saveActivityPropertiesLocally(actKey);
+		app.footer_nav("next");
+		app.header.attr("onclick", "app.navigateTo('activity root')");
+		app.title.addClass("btn-box");
+		app.navigateTo("adjust time");
+	},
+
+	// Edit btn 2: Repeat
 	repeatActivityRecently: function(actKey) {
 		// create a new instance as a copy of this activity and then allow to adjust the time
 		app.saveActivityPropertiesLocally(actKey);
+		//
+		// get the original path and append this button ID
+		var activityList = utils.getList(ACTIVITY_LIST) || {};
+		var thisAct = activityList[actKey];
+		app.act_path.push(thisAct.path);
 		app.act_path.push(app.activities['Repeat activity recently'].ID); 
+
 		// default is 'now'
     	var thisTime = new Date().toISOString();
         utils.save(ACTIVITY_DATETIME, thisTime);
@@ -764,21 +786,15 @@ var app = {
 		app.navigateTo("adjust time");
 	},
 
-	// Edit btn 3
-	adjustTime: function(actKey) {
-		// the old List and CSV entries need to be removed and a new one is created when navigating Home
-		app.saveActivityPropertiesLocally(actKey);
-		app.deleteAct(actKey);
-		app.act_path.push(app.activities['Edit activity time'].ID); 
-		app.footer_nav("done");
-		app.header.attr("onclick", "app.navigateTo('home')");
-		app.title.addClass("btn-box");
-		app.navigateTo("adjust time");
-	},
-
-	// Edit btn 4
+	// Edit btn 3: Rename
 	editActivityTitle: function(actKey) {
 		// the old List and CSV entries need to be removed and a new one is created when navigating Home
+
+		// get the original path and append this button ID
+		var activityList = utils.getList(ACTIVITY_LIST) || {};
+		var thisAct = activityList[actKey];
+		app.act_path.push(thisAct.path);
+
 		app.act_path.push(app.activities['Edit activity title'].ID); 
 		app.saveActivityPropertiesLocally(actKey);
 		app.deleteAct(actKey);
@@ -789,33 +805,68 @@ var app = {
 		app.navigateTo("other specify");
 	},
 
-	// Edit btn 2
-	endActivity: function(actKey) {
-		// mark entry with "(end)" and confirm exact time
-		// create a new instance as a copy of this activity and then allow to adjust the time
+	// Edit btn 4: Adjust time
+	adjustTime: function(actKey) {
+		// the old List and CSV entries need to be removed and a new one is created when navigating Home
 		app.saveActivityPropertiesLocally(actKey);
-		app.act_path.push(app.activities['End activity'].ID); 
-		var tuc_cat_title = utils.get(CURR_ACTIVITY_ID);
-		utils.save(CURR_ACTIVITY_ID,tuc_cat_title + " (end)");
-    	var thisTime = new Date().toISOString();
-        utils.save(ACTIVITY_DATETIME, thisTime);
+		//
+		// get the original path and append this button ID
+		var activityList = utils.getList(ACTIVITY_LIST) || {};
+		var thisAct = activityList[actKey];
+		app.act_path.push(thisAct.path);
+		app.act_path.push(app.activities['Edit activity time'].ID); 
+
+		app.deleteAct(actKey);
 		app.footer_nav("done");
+		// Remap back button to ensure entry isn't lost
+		$("#btn-back").attr("onclick", "app.navigateTo('home')");
 		app.header.attr("onclick", "app.navigateTo('home')");
 		app.title.addClass("btn-box");
 		app.navigateTo("adjust time");
 	},
 
-	// Edit btn 5 - Something else now
-	moreActivity: function(actKey) {
-		app.act_path.push(app.activities['More activity'].ID); 
+	// Edit btn 5: "END"
+	endActivity: function(actKey) {
+		// mark entry with "(end)" and confirm exact time
+		
+		// create a new instance as a copy of this activity and then allow to adjust the time
 		app.saveActivityPropertiesLocally(actKey);
-		app.footer_nav("next");
-		app.header.attr("onclick", "app.navigateTo('activity root')");
-		app.title.addClass("btn-box");
-		app.navigateTo("adjust time");
+
+		// get the original path and append this button ID
+		var activityList = utils.getList(ACTIVITY_LIST) || {};
+		var thisAct = activityList[actKey];
+		app.act_path.push(thisAct.path);
+		app.act_path.push(app.activities['End activity'].ID); 
+
+
+		// check if title ends with "(end)" and toggle
+		var tuc_cat_title = utils.get(CURR_ACTIVITY_ID);
+		var endStr = " (end)";
+		if (tuc_cat_title.endsWith(endStr)) {
+			// already ended activity: remove the end delete the old entry and put in the new
+			tuc_cat_title = tuc_cat_title.substring(0, tuc_cat_title.length - endStr.length);
+			utils.save(CURR_ACTIVITY_ID,tuc_cat_title);
+			app.deleteAct(actKey);
+			app.navigateTo("home"); // ignore stops creation of new entry
+		} else {
+			// add end
+			tuc_cat_title = tuc_cat_title + endStr;
+			utils.save(CURR_ACTIVITY_ID,tuc_cat_title);
+
+			// set recording time
+    		var thisTime = new Date().toISOString();
+        	utils.save(ACTIVITY_DATETIME, thisTime);
+
+			// get time when it ended
+			app.footer_nav("done");
+			app.header.attr("onclick", "app.navigateTo('home')");
+			app.title.addClass("btn-box");
+			app.navigateTo("adjust time");
+		}
 	},
 
-	// Edit btn 6
+
+	// Edit btn 6: Delete
 	deleteActivity: function(actKey) {
 		app.act_path.push(app.activities['Delete activity'].ID); 
 		// set local variables as copy of this activity, then overwrite time
@@ -823,13 +874,15 @@ var app = {
 		app.navigateTo("home", "ignore"); // ignore stops creation of new entry
 	},
 
+	/*
     changeDate: function() {
+		// was only used when data change was done via screen
         var thisDate = $("input#input-date").val();
 		var date_activity = new Date(thisDate.substring(0,3), thisDate.substring(4,5)-1, thisDate.substring(6,7), 17, 00);
         utils.save(ACTIVITY_MANUAL_DATE, date_activity);
         $("div#change-date").hide();
-		// $("div#btn-recent").attr("onclick", "app.navigateTo('activity time absolute')");
     },
+	*/
 
     changeID: function() {
 		// XXX no longer needed...

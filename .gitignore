@@ -1,5 +1,7 @@
+**/.DS_Store
+www/js/*.txt
+www/img/.DS_Store
 platforms
 plugins/**
 MeterApp.komodoproject
-*/.DS_Store
 *.swp
