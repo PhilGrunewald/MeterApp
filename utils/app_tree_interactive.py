@@ -2,8 +2,8 @@
 
 import json
 
-act_address = '/Users/Marina/Meter/MeterApp/www/js/activities.json'
-screens_address = '/Users/Marina/Meter/MeterApp/www/js/screens.json'
+act_address = '../www/js/activities.json'
+screens_address = '../www/js/screens.json'
 datafile = open(act_address, 'r')
 acts = json.loads(datafile.read().decode("utf-8"))
 datafile = open(screens_address, 'r')

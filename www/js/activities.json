@@ -1,9 +1,11 @@
 {
 	"TODO":{ 
 		"Loading and unloadign the dishwasher": "add",
+		"Dishwacher et al> Delay timer ????": "add",
 		"Skip 'hot or cold meal'": "add",
 		"Allow manual teeth brushing": "add",
 		"back button when EDIT change time":"hide",
+		"Ask in SURVEY: how many times did yoy go shopping?":"add Survey",
 		"Ask in SURVEY: how many times did yoy go shopping?":"add Survey"
 	},
 	"activities": {
@@ -3875,8 +3877,8 @@
 		},
 		"Main other": {
 			"title": "Custom",
-			"icon": "Other_type",
 			"caption": "Customise",
+			"icon": "Other_type",
 			"help": "Say in your own words",
 			"ID": 9990,
 			"next": "other specify"
@@ -3894,7 +3896,7 @@
 			"caption": "Other",
 			"icon": "act2_skip",
 			"help": "Unspecified time use",
-			"ID": 9990,
+			"ID": 9991,
 			"next": "other people"
 		},
 
