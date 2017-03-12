@@ -1,8 +1,12 @@
 #!/usr/bin/python
 
+import sys
+import getopt
 import json
 import MySQLdb.cursors
 import meter_ini as db      # database credentials
+
+opt_hits = False
 
 def _getJSON(filePath):
     """ returns json from file """
@@ -39,7 +43,9 @@ def getPathCount(tuc,tucNext):
 def interact(screenKey, actKey, old_screenKey):
     """ list activities for a given screen """
     options = {'1','2','3','4','5','6'}
-    seperator = '_' * 54
+    seperator = '_' * 47
+    if opt_hits:
+        seperator = seperator + '_' * 7
 
     title = screens['screens'][screenKey]['title']
     if (actKey):
@@ -50,14 +56,17 @@ def interact(screenKey, actKey, old_screenKey):
     print '\n' + seperator
     line = "{:<5}".format("Key") + \
            "{:<35}".format("Activity") + \
-           "{:^7}".format("ID") + \
-           "{:^7}".format("Hits ")
+           "{:^7}".format("ID")
+    if opt_hits:
+        line = line + "{:^7}".format("Hits")
     print line
     print seperator
     i = 0
     for a in act:
         tucNext = acts['activities'][a]['ID']
-        hits = getPathCount(tuc,tucNext)
+        hits = ''
+        if opt_hits:
+            hits = getPathCount(tuc,tucNext)
         i += 1
         line = "{:^5}".format(i) + \
                "{:<35}".format(a) + \
@@ -76,10 +85,30 @@ def interact(screenKey, actKey, old_screenKey):
     return [new_screenKey, actKey, screenKey]
 
 
-acts        = _getJSON( '../www/js/activities.json')
-screens     = _getJSON('../www/js/screens.json')
-cursor      = _connectDatabase(db.Host)
-nextScreen  = ['activity root', None, None]
 
-while (nextScreen[0] != 'home'):
-    nextScreen = interact(nextScreen[0],nextScreen[1],nextScreen[2])
+def main(argv):
+    """ Check for arguments """
+    nextScreen  = ['activity root', None, None]
+    global opt_hits
+    helpStr =  'app_tree.py [ch] \n options \n [-h,--help]\t\tthis help \n [-c,--hitcount]\tshow usage of buttons'
+    try:
+       opts, args = getopt.getopt(argv,"ch",["hitcount","help"])
+    except getopt.GetoptError:
+       print helpStr
+       sys.exit(2)
+    for opt, arg in opts:
+       if opt in ("-h", "--help"):
+          print helpStr
+          sys.exit()
+       elif opt in ("-c", "--hitcount"):
+          opt_hits = True
+    while (nextScreen[0] != 'home'):
+        nextScreen = interact(nextScreen[0],nextScreen[1],nextScreen[2])
+    print "Entry complete\n\n"
+
+
+if __name__ == "__main__":
+    acts        = _getJSON( '../www/js/activities.json')
+    screens     = _getJSON('../www/js/screens.json')
+    cursor      = _connectDatabase(db.Host)
+    main(sys.argv[1:])
