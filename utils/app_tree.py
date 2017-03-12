@@ -1,9 +1,8 @@
 #!/usr/bin/python
 
 import json
-# import MySQLdb
 import MySQLdb.cursors
-from meter_ini import *     # reads the database and file path information from meter_ini.py
+import meter_ini as db      # database credentials
 
 def _getJSON(filePath):
     """ returns json from file """
@@ -16,7 +15,7 @@ def _connectDatabase(_dbHost):
     global dbHost
     dbHost = _dbHost
     try:
-        dbConnection = MySQLdb.connect(host=dbHost, user=dbUser, passwd= dbPass, db=dbName, cursorclass = MySQLdb.cursors.DictCursor)
+        dbConnection = MySQLdb.connect(host=db.Host, user=db.User, passwd= db.Pass, db=db.Name, cursorclass = MySQLdb.cursors.DictCursor)
         cursor = dbConnection.cursor()
     except:
         dbHost='localhost'
@@ -79,7 +78,7 @@ def interact(screenKey, actKey, old_screenKey):
 
 acts        = _getJSON( '../www/js/activities.json')
 screens     = _getJSON('../www/js/screens.json')
-cursor      = _connectDatabase(dbHost)
+cursor      = _connectDatabase(db.Host)
 nextScreen  = ['activity root', None, None]
 
 while (nextScreen[0] != 'home'):
