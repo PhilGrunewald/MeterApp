@@ -1,7 +1,7 @@
 import json
-datafile = open('activities.json', 'r')
+datafile = open('../www/js/activities.json', 'r')
 acts = json.loads(datafile.read().decode("utf-8"))
-datafile = open('screens.json', 'r')
+datafile = open('../www/js/screens.json', 'r')
 screens = json.loads(datafile.read().decode("utf-8"))
 
 def recursive(node,level):

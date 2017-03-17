@@ -624,7 +624,7 @@
 				"Appliances Washing machine",
 				"Appliances Washer dryer",
 				"Appliances Tumble dryer",
-				"Ironing",
+				"Appliances Iron",
 				"Appliances Sewing machine",
 				"Other specify"
 			]
@@ -661,7 +661,7 @@
 			"help": "",
 			"activities": [
 				"Appliances TV",
-				"Mobile device",
+				"Appliance Mobile",
 				"Appliances Games console",
 				"Appliances Radio",
 				"Appliances Toys",
@@ -673,7 +673,7 @@
 			"title": "House and garden",
 			"help": "",
 			"activities": [
-				"Cleaning vacuum",
+				"Appliances vacuum",
 				"Appliances heater",
 				"Appliances Tools",
 				"Appliances Garden tools",
@@ -696,56 +696,6 @@
 		},
 
 
-		"Xappliances": {
-			"title": "Appliance use",
-			"help": "Use of electrical goods",
-			"activities": [
-				"Appliances Washing machine",
-				"Appliances Tumble dryer",
-				"Appliances Dish washer",
-				"Appliances Oven",
-				"Appliances Microwave",
-				"Appliances 2"
-			]
-		},
-		"appliances 2": {
-			"title": "Appliance use",
-			"help": "Use of electrical goods",
-			"activities": [
-				"Appliances Computer",
-				"Appliances TV",
-				"Appliances Kettle",
-				"Appliances Tools",
-				"Appliances other",
-				"Appliances 3"
-			]
-		},
-		"appliances 3": {
-			"title": "Appliance use",
-			"help": "Use of electrical goods",
-			"activities": [
-				"Appliances Toaster",
-				"Appliances Garden tools",
-				"Ironing",
-				"Appliance Sewing machine",
-
-				"Appliances Hair dryer",
-				"Appliances other",
-				"Appliances 4"
-			]
-		},
-		"appliances 4": {
-			"title": "Appliance use",
-			"help": "Use of electrical goods",
-			"activities": [
-				"Appliances Lights off",
-				"Appliances Lights on",
-				"Appliances Bread maker",
-				"Appliances Phone",
-				"Appliances Radio",
-				"Appliances other"
-			]
-		},
 		"other": {
 			"title": "XXX Any particular other? ",
 			"help": "at this moment",

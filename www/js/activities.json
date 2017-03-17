@@ -659,197 +659,43 @@
 			 "value": 0,
 			 "next": "appliances" },
 			
-		"Appliances kitchen":  
-			{ "title": "Use kitchen appliance",
-			 "caption": "Kitchen",
-			 "icon": "act2_eat",
-			 "help": "Bake, cook, prepare", "ID": 8501,
-			"category": "food",
-			 "next": "appliances kitchen" },
 
 
-		"Appliances clothes":  
-			{ "title": "Handling clothes",
-			 "caption": "Clothes",
-			"icon": "act2_dress",
-			 "help": "Washing, drying, ironing", "ID": 8501,
+	"Appliances household":  { 
+		"title": "Household appliance use",
+		"caption": "House and garden",
+		"icon": "act2_house_garden",
+		"help": "Vacuum cleaner, heater, fridge", "ID": 8510,
+		"category": "care_house",
+		"next": "appliances household" },
+
+		"Appliances vacuum": {
+			"title": "Vacuum cleaner",
+			"caption": "Vacuum cleaner",
+			"icon": "app_vacuum_cleaner",
+			"help": "Using a hoover or other",
+			"ID": 8511,
 			"category": "care_house",
-			 "next": "appliances clothes" },
+			"next": "other people"
+		},
 
-
-		"Appliances entertainment":  
-			{ "title": "Entertainment appliance use",
-			 "caption": "Entertainment",
-			"icon": "app_projector",
-			 "help": "TV, computer, radio", "ID": 8501,
-			"category": "recreation",
-			 "next": "appliances entertainment" },
-
-
-		"Appliances household":  
-			{ "title": "Household appliance use",
-			 "caption": "House and garden",
-			"icon": "act2_house_garden",
-			 "help": "Vacuum cleaner, heater, fridge", "ID": 8501,
-			"category": "care_house",
-			 "next": "appliances household" },
-
-		"Appliances heater":  
-			{ "title": "Heater",
-			 "caption": "Heater",
+		"Appliances heater":  { 
+			"title": "Heater",
+			"caption": "Heater",
 			"icon": "app_heater",
-			 "help": "portable", "ID": 8501,
+			"help": "portable", 
+			"ID": 8514,
 			"category": "care_house",
-			 "next": "other people" },
-
-
-
-		"Appliances bathroom":  
-			{ "title": "Bathroom",
-			 "caption": "Bathroom",
-			"icon": "act2_bathroom",
-			 "help": "Hair, teeth, beauty", "ID": 8501,
-			"category": "care_self",
-			 "next": "appliances bathroom" },
-
-
-		"Appliances Washing machine":  
-			{ "title": "Washing machine",
-			 "caption": "Washing machine",
-			"icon": "app_washing_machine",
-			 "help": "Loading, unloading or running", "ID": 8501,
-			"category": "care_house",
-			 "next": "other people" },
-			
-			
-		"Appliances Tumble dryer":  
-			{ "title": "Tumble dryer",
-			 "caption": "Tumble dryer",
-			"icon": "app_tumble_dryer",
-			 "help": "it is running or you use it",
-			 "ID": 8502,
-			 "category": "care_house",
-			"next": "other people" },
-			
-		"Appliances Washer dryer":  
-			{ "title": "Washer-dryer",
-			 "caption": "Washer-dryer",
-			"icon": "app_washer_dryer",
-			 "help": "it is running or you use it",
-			 "ID": 8502,
-			 "category": "care_house",
 			"next": "other people" },
 
-		"Appliances Sewing machine":  
-			{ "title": "Sewing machine",
-			 "caption": "Sewing",
-			"icon": "app_sewing",
-			 "help": "", "ID": 8501,
-			"category": "care_house",
-			 "next": "other people" },
-			
-			
-
-		"Appliances 2":  
-			{ "title": "Use an appliance",
-			 "caption": "Show more",
-			 "help": "appliances",
-			 "ID": 8506,
-			 "next": "appliances 2" },
-			
-
-
-		"Appliances Computer":  
-			{ "title": "Computer",
-			 "caption": "Computer",
-			 "icon": "app_computer",
-			 "help": "Laptop, Tablet, PC",
-			 "ID": 8507,
-			"category": "other_category",
-			 "next": "other people" },
-
-		"Appliances Games console":  
-			{ "title": "Computer games",
-			 "caption": "Games",
-			 "icon": "app_games",
-			 "help": "X-Box, Nintendo...",
-			 "ID": 8507,
-			"category": "recreation",
-			 "next": "other people" },
-			
-		"Appliances TV":  
-			{ "title": "TV",
-			 "caption": "TV",
-			 "icon": "app_TV",
-			 "help": "it is running or you use it",
-			 "ID": 8508,
-			 "category": "care_self",
-			 "next": "other people" },
-			
-			
 		"Appliances Tools":  
 			{ "title": "Power tools",
 			 "caption": "Tools",
 			"icon": "app_power_tool",
 			 "help": "Power tools or toys (RC car...)",
-			 "ID": 8510,
-			 "category": "care_house",
-			 "next": "other people" },
-
-		"Appliances Toys":  
-			{ "title": "Toys",
-			 "caption": "Toys",
-			"icon": "app_toy",
-			 "help": "RC car, train track...",
-			 "ID": 8510,
-			 "category": "recreation",
-			 "next": "other people" },
-			
-		"Appliances 3":  
-			{ "title": "Use an appliance",
-			 "caption": "Show more",
-			 "help": "appliances",
-			 "ID": 8511,
-			 "next": "appliances 3" },
-			
-
-		"Appliances Garden tools":  
-			{ "title": "Garden tools",
-			 "caption": "Garden tools",
-			 "help": "Mower, hedge trimmer, etc.",
-			 "ID": 8513,
-			 "category": "care_house",
-			"next": "other people" },
-		
-			
-		"Appliances Mower":  
-			{ "title": "Mower",
-			 "caption": "Mower",
-			 "help": "it is running or you use it",
-			 "ID": 8513,
-			"category": "care_house",
-			 "next": "other people" },
-			
-		"Appliances Hedge trimmer":  
-			{ "title": "Hedge trimmer",
-			 "caption": "Hedge trimmer",
-			 "help": "it is running or you use it",
-			 "ID": 8514,
-			"category": "care_house",
-			 "next": "other people" },
-			
-		"Appliances Hair dryer":  
-			{ "title": "Hair dryer",
-			 "caption": "Hair dryer",
-			"icon": "app_hair_dryer",
-			 "help": "it is running or you use it",
 			 "ID": 8515,
-			"category": "care_self",
+			 "category": "care_house",
 			 "next": "other people" },
-			
-
-		"Appliances 4":  
-			{ "title": "More appliances", "caption": "Show more", "help": "appliances", "ID": 8516, "next": "appliances 4" },
 
 		"Appliances Lights off":  
 			{ "title": "Lights off",
@@ -866,91 +712,17 @@
 			 "ID": 8518,
 			 "category": "other_category",
 			 "next": "other people" },
-			
-		"Appliances Bread maker":  
-			{ "title": "Bread maker",
-			 "caption": "Bread maker",
-			 "help": "it is running or you use it",
-			 "ID": 8521,
-			 "category": "food",
-			 "next": "other people" },
-			
-		"Appliances Phone":  
-			{ "title": "Phone",
-			 "caption": "Phone",
-			 "icon": "app_mobile",
-			 "help": "Use a phone",
-			 "ID": 8522,
-			 "category": "other_category",
-			 "next": "other people" },
-			
-		"Appliances Radio":  
-			{ "title": "Music",
-			 "caption": "Music",
-			"icon": "app_radio",
-			 "help": "or radio / listening",
-			 "ID": 8523,
-			"category": "recreation",
-			 "next": "other people" },
-			
 
-		"Appliances Machinery":  
-			{ "title": "Work with machinery",
-			 "caption": "Machine",
-			"icon": "app_work_machine",
-			 "help": "Large tools and equipment",
-			 "ID": 8524,
-			"category": "work",
-			 "next": "other people" },
-			
 
-			"Appliances tooth brush": 
-			{ "title": "Brush teeth",
-			 "caption": "Electric toothbrush",
-			"icon": "app_toothbrush",
-			 "help": "",
-			 "ID": 8525,
-			"category": "care_self",
-			 "next": "other people" },
-			
-			"Appliances hair trimmer": 
-			{ "title": "Trim hair",
-			"icon": "app_hair_trimmer",
-			 "caption": "Electric hair trimmer",
-			 "help": "",
-			 "ID": 8526,
-			"category": "care_self",
-			 "next": "other people" },
-			
-			"Appliances shaver": 
-			{ "title": "Shave",
-			 "caption": "Electric shaver",
-			"icon": "app_shaver",
-			 "help": "",
-			 "ID": 8527,
-			"category": "care_self",
-			 "next": "other people" },
-			
-			"Appliances hair curler": 
-			{ "title": "Do hair",
-			 "caption": "Hair curl/ straightener",
-			"icon": "app_hair_curler",
-			 "help": "",
-			 "ID": 8528,
-			"category": "care_self",
-			 "next": "other people" },
-			
-"KITCHEN APPLIANCES":{},
+	"Appliances kitchen":  { 
+		"title": "Use kitchen appliance",
+		"caption": "Kitchen",
+		"icon": "act2_eat",
+		"help": "Bake, cook, prepare", 
+		"ID": 8530,
+		"category": "food",
+		"next": "appliances kitchen" },
 
-		"Appliances Dish washer":  
-			{ "title": "Dishwasher",
-			 "caption": "Dishwasher",
-			"icon": "app_dishwasher",
-			 "help": "it is running or you use it",
-			 "ID": 8503,
-			"category": "care_house",
-			 "next": "other people" },
-			
 		"Appliances Oven":  
 			{ "title": "Oven",
 			 "caption": "Oven",
@@ -997,16 +769,240 @@
 			 "category": "food",
 			 "next": "other people" },
 
+		"Appliances Dish washer":  
+			{ "title": "Dishwasher",
+			 "caption": "Dishwasher",
+			"icon": "app_dishwasher",
+			 "help": "it is running or you use it",
+			 "ID": 8536,
+			"category": "care_house",
+			 "next": "other people" },
+
+		"Appliances Bread maker":  
+			{ "title": "Bread maker",
+			 "caption": "Bread maker",
+			 "help": "it is running or you use it",
+			 "ID": 8537,
+			 "category": "food",
+			 "next": "other people" },
+
+
+	"Appliances clothes":  
+		{ "title": "Handling clothes",
+		 "caption": "Clothes",
+		"icon": "act2_dress",
+		 "help": "Washing, drying, ironing",
+		"ID": 8540,
+		"category": "care_house",
+		 "next": "appliances clothes" },
+
+		"Appliances Washing machine":  
+			{ "title": "Washing machine",
+			 "caption": "Washing machine",
+			"icon": "app_washing_machine",
+			 "help": "Loading, unloading or running", 
+			"ID": 8541,
+			"category": "care_house",
+			 "next": "other people" },
 			
-		"Appliances other":  
-			{ "title": "Other appliance",
-			 "caption": "Other ...",
-			"icon": "Other_type",
-			 "help": "not listed here",
-			 "ID": 8599,
+		"Appliances Tumble dryer":  
+			{ "title": "Tumble dryer",
+			 "caption": "Tumble dryer",
+			"icon": "app_tumble_dryer",
+			 "help": "it is running or you use it",
+			 "ID": 8542,
+			 "category": "care_house",
+			"next": "other people" },
+			
+		"Appliances Washer dryer":  
+			{ "title": "Washer-dryer",
+			"caption": "Washer-dryer",
+			"icon":"app_washer_dryer",
+			"help": "it is running or you use it",
+			"ID": 8543,
+			"category": "care_house",
+			"next":"other people" },
+
+		"Appliances Sewing machine":  {
+			"title": "Sewing machine",
+			"caption": "Sewing",
+			"icon":"app_sewing",
+			"help": "", 
+			"ID": 8544,
+			"category":"care_house",
+			"next": "other people" },
+			
+		"Appliances Iron":  { 
+			"title": "Iron",
+			"caption": "Iron",
+			"icon": "app_iron",
+			"help": "", 
+			"ID": 8545,
+			"category": "care_house",
+			"next": "other people" },
+			
+
+
+	"Appliances entertainment":  { 
+		"title":"Entertainment appliance use",
+		"caption": "Entertainment",
+		"icon":"app_projector",
+		"help": "TV, computer, radio", 
+		"ID": 8550,
+		"category":"recreation",
+		"next": "appliances entertainment" },
+
+		"Appliances Computer":  
+			{ "title": "Computer",
+			 "caption": "Computer",
+			 "icon": "app_computer",
+			 "help": "Laptop, Tablet, PC",
+			 "ID": 8551,
+			"category": "other_category",
+			 "next": "other people" },
+
+		"Appliances Games console":  
+			{ "title": "Computer games",
+			 "caption": "Games",
+			 "icon": "app_games",
+			 "help": "X-Box, Nintendo...",
+			 "ID": 8552,
+			"category": "recreation",
+			 "next": "other people" },
+			
+		"Appliances TV":  
+			{ "title": "TV",
+			 "caption": "TV",
+			 "icon": "app_TV",
+			 "help": "it is running or you use it",
+			 "ID": 8553,
+			 "category": "care_self",
+			 "next": "other people" },
+			
+
+		"Appliance Mobile": {
+			"title": "Mobile device",
+			"caption": "Mobile device",
+			"icon": "app_mobile",
+			"help": "Computer or mobile device",
+			"ID": 8554,
+			"next": "other people"
+		},
+
+		"Appliances Phone":  
+			{ "title": "Phone",
+			 "caption": "Phone",
+			 "icon": "app_mobile",
+			 "help": "Use a phone",
+			 "ID": 8556,
 			 "category": "other_category",
-			 "next": "other specify" },
+			 "next": "other people" },
 			
+		"Appliances Radio":  
+			{ "title": "Music",
+			 "caption": "Music",
+			"icon": "app_radio",
+			 "help": "or radio / listening",
+			 "ID": 8556,
+			"category": "recreation",
+			 "next": "other people" },
+			
+		"Appliances Toys":  { 
+			"title":   "Toys",
+			"caption": "Toys",
+			"icon":    "app_toy",
+			"help":    "RC car, train track...",
+			"ID": 8557,
+			"category": "recreation",
+			"next": "other people" },
+
+
+
+
+	"Appliances Garden tools":  
+		{ "title": "Garden tools",
+		 "caption": "Garden tools",
+		 "help": "Mower, hedge trimmer, etc.",
+		 "ID": 8560,
+		 "category": "care_house",
+		"next": "other people" },
+
+		"Appliances Mower":  
+			{ "title": "Mower",
+			 "caption": "Mower",
+			 "help": "it is running or you use it",
+			 "ID": 8561,
+			"category": "care_house",
+			 "next": "other people" },
+			
+		"Appliances Hedge trimmer":  
+			{ "title": "Hedge trimmer",
+			 "caption": "Hedge trimmer",
+			 "help": "it is running or you use it",
+			 "ID": 8562,
+			"category": "care_house",
+			 "next": "other people" },
+			
+
+
+
+
+
+
+	"Appliances bathroom":  
+		{ "title": "Bathroom",
+		 "caption": "Bathroom",
+		"icon": "act2_bathroom",
+		 "help": "Hair, teeth, beauty", 
+		"ID": 8570,
+		"category": "care_self",
+		 "next": "appliances bathroom" },
+
+
+		"Appliances Hair dryer":  
+			{ "title": "Hair dryer",
+			 "caption": "Hair dryer",
+			"icon": "app_hair_dryer",
+			 "help": "it is running or you use it",
+			 "ID": 8571,
+			"category": "care_self",
+			 "next": "other people" },
+
+		"Appliances tooth brush": 
+			{ "title": "Brush teeth",
+			 "caption": "Electric toothbrush",
+			"icon": "app_toothbrush",
+			 "help": "",
+			 "ID": 8572,
+			"category": "care_self",
+			 "next": "other people" },
+			
+		"Appliances hair trimmer": 
+			{ "title": "Trim hair",
+			"icon": "app_hair_trimmer",
+			 "caption": "Electric hair trimmer",
+			 "help": "",
+			 "ID": 8573,
+			"category": "care_self",
+			 "next": "other people" },
+			
+		"Appliances shaver": 
+			{ "title": "Shave",
+			 "caption": "Electric shaver",
+			"icon": "app_shaver",
+			 "help": "",
+			 "ID": 8574,
+			"category": "care_self",
+			 "next": "other people" },
+			
+		"Appliances hair curler": 
+			{ "title": "Do hair",
+			 "caption": "Hair curl/ straightener",
+			"icon": "app_hair_curler",
+			 "help": "",
+			 "ID": 8575,
+			"category": "care_self",
+			 "next": "other people" },
 
 		"Appliances hygiene none":  
 			{ "title": "Hygiene / Beauty",
@@ -1015,7 +1011,26 @@
 			"category": "other_category",
 			 "ID": 8599,
 			 "next": "other people" },
-			
+
+		"Appliances Machinery":  
+			{ "title": "Work with machinery",
+			 "caption": "Machine",
+			"icon": "app_work_machine",
+			 "help": "Large tools and equipment",
+			 "ID": 8581,
+			"category": "work",
+			 "next": "other people" },
+
+		"Appliances other":  
+			{ "title": "Other appliance",
+			 "caption": "Other ...",
+			"icon": "Other_type",
+			 "help": "not listed here",
+			 "ID": 8599,
+			 "category": "other_category",
+			 "next": "other specify" },
+
+
 
 		"Personal": {
 			"title": "Personal care",
@@ -1634,7 +1649,7 @@
 			"next": "laundry"
 		},
 		"Washing machine": {
-			"title": "Laundry machine",
+			"title": "Washing machine",
 			"caption": "Washing machine",
 			"icon": "app_washing_machine",
 			"help": "Loading, running, unloading",
