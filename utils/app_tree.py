@@ -53,7 +53,8 @@ def interact(screenKey, actKey, old_screenKey):
     else:
         tuc = ''
     act = screens['screens'][screenKey]['activities']
-    print '\n' + seperator
+    print "\nScreen: {}".format(screenKey)
+    print seperator
     line = "{:<5}".format("Key") + \
            "{:<35}".format("Activity") + \
            "{:^7}".format("ID")

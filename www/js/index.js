@@ -373,6 +373,12 @@ var app = {
 			app.header.attr("onclick", "");
 			app.title.removeClass("btn-box");
 			$("div#btn-other-specify").attr("onclick", "app.submitOther()");
+			// SPECIAL CASE for 'getting home'
+			// if last location was not home, go to screen 'activity root away', which will have an option to 'arrive home'
+			if (utils.get(CURR_LOCATION) != 1) {
+				screen_id = "activity root away";
+			}
+
 		} else
 		if (screen_id == "other specify") {     // display text edit field
 			console.log("SHOWING");

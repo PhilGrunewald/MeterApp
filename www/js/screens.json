@@ -177,6 +177,18 @@
 				"Loc other location"
 			]
 		},
+		"activity root away": {
+			"title": "Where are you at ${act_time}?",
+			"help": "Your location.",
+			"activities": [
+				"Loc got home",
+				"Loc outdoors",
+				"Loc work",
+				"Loc public",
+				"Loc travelling",
+				"Loc other location"
+			]
+		},
 		"activity main": {
 			"title": "Your activity",
 			"help": "at this moment",
@@ -186,6 +198,18 @@
 				"Work",
 				"Food",
 				"Appliances",
+				"Main other"
+			]
+		},
+		"activity home": {
+			"title": "Your activity",
+			"help": "at this moment",
+			"activities": [
+				"Personal",
+				"Care",
+				"Work",
+				"Food",
+				"Get home",
 				"Main other"
 			]
 		},
@@ -422,10 +446,10 @@
 			"title": "Travel",
 			"help": "at this moment",
 			"activities": [
-				"Travel foot",
 				"Travel car",
-				"Travel bike",
 				"Travel public",
+				"Travel foot",
+				"Travel bike",
 				"Travel purpose exercise",
 				"Travel other"
 			]
@@ -455,7 +479,7 @@
 			]
 		},
 		"travel purpose foot": {
-			"title": "Walking for...",
+			"title": "Walking to/from/for",
 			"help": "",
 			"activities": [
 				"Travel purpose children",
@@ -467,7 +491,7 @@
 			]
 		},
 		"travel purpose bike": {
-			"title": "Cycling for...",
+			"title": "Cycling to/from/for",
 			"help": "",
 			"activities": [
 				"Travel purpose children",
@@ -479,7 +503,7 @@
 			]
 		},
 		"travel purpose car": {
-			"title": "Driving for...",
+			"title": "Driving to/from/for",
 			"help": "",
 			"activities": [
 				"Travel purpose work",
@@ -491,7 +515,7 @@
 			]
 		},
 		"travel purpose public": {
-			"title": "Travelling for...",
+			"title": "Travelling to/from/for",
 			"help": "",
 			"activities": [
 				"Travel purpose work",
@@ -599,7 +623,7 @@
 				"Food eat hot",
 				"Food eat cold",
 				"Food eat snack",
-				"Blank",
+				"Food eat skip",
 				"Blank",
 				"Other specify"
 			]

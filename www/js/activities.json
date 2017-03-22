@@ -234,6 +234,16 @@
 		"Time exercise 5": { "title": "TimeExercise", "icon": "act2_exercise", "value": 5, "caption": "3h or less", "help": "spent on exercise", "ID": 90905, "next": "survey complete" },
 		"Time exercise 6": { "title": "TimeExercise", "icon": "act2_exercise", "value": 6, "caption": "Over 3h", "help": "spent on exercise", "ID": 90906, "next": "survey complete" },
 
+		"Loc got home": {
+			"title": "location home",
+			"icon": "act2_home",
+			"caption": "Home",
+			"help": "Arrive home",
+			"ID": 30011,
+			"value": 1,
+			"category": "care_self",
+			"next": "activity home"
+		},
 		"Loc home": {
 			"title": "location home",
 			"icon": "act2_home",
@@ -1094,6 +1104,15 @@
 			"category": "food",
 			"next": "food eat"
 		},
+		"Food eat skip": {
+			"title": "Eat",
+			"caption": "Skip",
+			"help": "Just eating",
+			"icon": "act2_skip",
+			"ID": 210,
+			"category": "food",
+			"next": "other people"
+		},
 		"Food eat cold": {
 			"title": "Eating",
 			"caption": "Cold meal",
@@ -1328,6 +1347,15 @@
 			"icon": "act2_skip",
 			"help": "Care for yourself",
 			"ID": 303,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Get home": {
+			"title": "Got home",
+			"caption": "Got home",
+			"icon": "act2_home",
+			"help": "Arriving",
+			"ID": 304,
 			"category": "care_self",
 			"next": "other people"
 		},
@@ -2463,6 +2491,7 @@
 			"caption": "Hands",
 			"icon": "act2_work_manual",
 			"help": "Using hands or strength",
+			"category": "work",
 			"ID": 1130,
 			"next": "other people"
 		},
