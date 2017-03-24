@@ -1,0 +1,3956 @@
+{
+	"TODO":{ 
+		"Loading and unloadign the dishwasher": "add",
+		"Dishwacher et al> Delay timer ????": "add",
+		"Skip 'hot or cold meal'": "add",
+		"Allow manual teeth brushing": "add",
+		"back button when EDIT change time":"hide",
+		"Ask in SURVEY: how many times did yoy go shopping?":"add Survey",
+		"Ask in SURVEY: how many times did yoy go shopping?":"add Survey"
+	},
+	"activities": {
+		"Blank": {
+			"title": "",
+			"caption": "",
+			"help": "",
+			"ID": -1,
+			"category": "other",
+			"next": ""
+		},
+		"survey": {
+			"title": "root: survey",
+			"caption": "Complete the survey",
+			"help": "Answer a few questions about yourself",
+			"ID": 90000,
+			"next": "survey gender"
+		},
+		"activities": {
+			"title": "root: activities",
+			"caption": "Add activity",
+			"help": "Tell us what you do",
+			"ID": 10000,
+			"next": "other people"
+		},
+		"help": {
+			"title": "root: help",
+			"caption": "Help",
+			"help": "Learn how to use this app",
+			"ID": 10000,
+			"next": "help"
+		},
+		"Back": {
+			"title": "back",
+			"caption": "Back",
+			"help": "Return to last screen",
+			"ID": -1,
+			"next": "this is populated by js"
+		},
+		"XXX Repeat activity now": {
+			"comment": "XXX DISUSED",
+			"title": "Repeat now",
+			"caption": "Again now",
+			"icon": "edit_again_now",
+			"help": "I do this again right now",
+			"category": "other_category",
+			"ID": 11000,
+			"next": "app.repeatActivityNow"
+		},
+		"Repeat activity recently": {
+			"title": "Repeat recently",
+			"caption": "Repeat",
+			"icon": "edit_repeat",
+			"help": "I did this again recently",
+			"category": "other_category",
+			"ID": 11001,
+			"next": "app.repeatActivityRecently"
+		},
+		"Edit activity time": {
+			"title": "Edit time",
+			"caption": "Change time",
+			"icon": "edit_time",
+			"help": "Time is wrong",
+			"category": "other_category",
+			"ID": 11002,
+			"next": "app.adjustTime"
+		},
+		"Edit activity title": {
+			"title": "Edit title",
+			"caption": "Rename",
+			"icon": "Other_type",
+			"help": "Be more specific",
+			"category": "other_category",
+			"ID": 11003,
+			"next": "app.editActivityTitle"
+		},
+		"More activity": {
+			"title": "Something else",
+			"caption": "I did more",
+			"icon": "edit_add",
+			"help": "than this",
+			"category": "other_category",
+			"ID": 11004,
+			"next": "app.moreActivity"
+		},
+		"End activity": {
+			"title": "End activity",
+			"caption": "End",
+			"icon": "edit_end",
+			"help": "I am done with this",
+			"category": "other_category",
+			"ID": 11005,
+			"next": "app.endActivity"
+		},
+		"Delete activity": {
+			"title": "Delete activity",
+			"caption": "Delete",
+			"icon": "edit_delete",
+			"help": "I did not do this",
+			"category": "other_category",
+			"ID": 11006,
+			"next": "app.deleteActivity"
+		},
+
+		"Agree": { 
+			"title": "", 
+			"caption": "I agree", "icon": "act2_skip",  "help": "I can withdraw at any time", "ID": 99999, "next": "survey gender" },
+
+		"female": 				{ "title": "Gender", "value": 1,"caption": "Female", "icon": "act2_female",  "help": "You would describe yourself as female", "ID": 90011, "next": "survey age" },
+		"male": 				{ "title": "Gender", "value": 2,"caption": "Male", "icon": "act2_male",  "help": "You would describe yourself as male", "ID": 90012, "next": "survey age" },
+		"survey gender other":	{ "title": "Gender", "value": 3,"caption": "Other", "help": "You would describe your gender as neither male nor female", "ID": 90013, "next": "survey age" },
+		"survey gender skip":	{ "title": "Gender", "value": 0,"caption": "Skip", "icon": "act2_skip", "help": "You don't want to answer this question", "ID": 90014, "next": "survey age" },
+
+		"Age 1": { "title": "Age_range", "value": 1,"caption": "8 - 18", "help": "Your age is between 8 and 18", "ID": 90021, "next": "survey occupation" },
+		"Age 2": { "title": "Age_range", "value": 2,"caption": "19 - 34", "help": "Your age is between 19 and 34", "ID": 90022, "next": "survey occupation" },
+		"Age 3": { "title": "Age_range", "value": 3,"caption": "35 - 50", "help": "Your age is between 35 and 50", "ID": 90023, "next": "survey occupation" },
+		"Age 4": { "title": "Age_range", "value": 4,"caption": "51 - 70", "help": "Your age is between 51 and 70", "ID": 90024, "next": "survey occupation" },
+		"Age 5": { "title": "Age_range", "value": 5,"caption": "Over 70", "help": "Your age is over 70", "ID": 90025, "next": "survey occupation" },
+		"Age 6": { "title": "Age_range", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "You don't want to say", "ID": 90026, "next": "survey occupation" },
+
+		"Occupation student": 		{ "title": "Occupation", "value": 1, "caption": "Student", "help": "You go to school, university or any other form of unpaid training", "ID": 90031, "next": "survey working hours" },
+		"Occupation employed": 		{ "title": "Occupation", "value": 2, "caption": "Employed", "help": "You are in paid employment", "ID": 90032, "next": "survey working hours" },
+		"Occupation self employed": { "title": "Occupation", "value": 3, "caption": "Self employed", "help": "You are self employed", "ID": 90033, "next": "survey working hours" },
+		"Occupation unpaid work": 	{ "title": "Occupation", "value": 4, "caption": "Volunteer / unpaid work", "help": "You work in a voluntary or unpaid capacity", "ID": 90034, "next": "survey working hours" },
+		"Occupation unemployed": 	{ "title": "Occupation", "value": 5, "caption": "Unemployed / retired", "help": "You do not work, are retired or unemployed", "ID": 90035, "next": "survey energy" },
+		"Occupation other": 		{ "title": "Occupation", "value": 6, "caption": "Other / Skip", "icon": "act2_skip", "help": "Your occupation is different or you don't want to say", "ID": 90036, "next": "survey working hours" },
+
+		"Working hours 1": { "title": "WorkingHours", "value": 1,"caption": "None", "help": "I do not have work time as such", "ID": 90041, "next": "survey working regularity" },
+		"Working hours 2": { "title": "WorkingHours", "value": 2,"caption": "1 - 15", "help": "Most weeks you work between 1 and 15 hours", "ID": 90042, "next": "survey working regularity" },
+		"Working hours 3": { "title": "WorkingHours", "value": 3,"caption": "16 - 30", "help": "Most weeks you work between 16 and 30 hours", "ID": 90043, "next": "survey working regularity" },
+		"Working hours 4": { "title": "WorkingHours", "value": 4,"caption": "31 - 45", "help": "Most weeks you work between 31 and 45 hours", "ID": 90044, "next": "survey working regularity" },
+		"Working hours 5": { "title": "WorkingHours", "value": 5,"caption": "Over 45", "help": "I work over 45 hours", "ID": 90045, "next": "survey working regularity" },
+		"Working hours 6": { "title": "WorkingHours", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90046, "next": "survey working regularity" },
+
+		"Working hours change 1": { "title": "WorkRegularity", "value": 1, "caption": "Always the same", "help": "You have standard hours (e.g. 9am to 5pm)", "ID": 90051, "next": "survey working home" },
+		"Working hours change 2": { "title": "WorkRegularity", "value": 2, "caption": "Variable to suit work", "help": "You have standard hours, but they can vary", "ID": 90052, "next": "survey working home" },
+		"Working hours change 3": { "title": "WorkRegularity", "value": 3, "caption": "Flexible to suit me", "help": "I can choose my hours", "ID": 90053, "next": "survey working home" },
+		"Working hours change 4": { "title": "WorkRegularity", "value": 4, "caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90054, "next": "survey working home" },
+
+		"Working home 1": { "title": "WorkHome", "value": 1,"caption": "Never", "help": "I never work from home", "ID": 90061, "next": "survey energy" },
+		"Working home 2": { "title": "WorkHome", "value": 2,"caption": "Rarely", "help": "I work from home approx. once per month", "ID": 90062, "next": "survey energy" },
+		"Working home 3": { "title": "WorkHome", "value": 3,"caption": "Sometimes", "help": "I work from home up to 5 times per month", "ID": 90063, "next": "survey energy" },
+		"Working home 4": { "title": "WorkHome", "value": 4,"caption": "Often", "help": "6 times or more per month", "ID": 90064, "next": "survey energy" },
+		"Working home 5": { "title": "WorkHome", "value": 5,"caption": "Always", "help": "Home is my main workplace", "ID": 90065, "next": "survey energy" },
+		"Working home 6": { "title": "WorkHome", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I chose not to say", "ID": 90066, "next": "survey energy" },
+
+		"Energy interest 1": { "title": "EnergyInterest", "value": 1,"caption": "Very Interested", "help": "I have a keen interest", "ID": 90090, "next": "survey bills" },
+		"Energy interest 2": { "title": "EnergyInterest", "value": 2,"caption": "Interested", "help": "", "ID": 90091, "next": "survey bills" },
+		"Energy interest 3": { "title": "EnergyInterest", "value": 3,"caption": "Somewhat", "help": "", "ID": 90092, "next": "survey bills" },
+		"Energy interest 4": { "title": "EnergyInterest", "value": 4,"caption": "Not very much", "help": "", "ID": 90093, "next": "survey bills" },
+		"Energy interest 5": { "title": "EnergyInterest", "value": 5,"caption": "Not at all", "help": "I do not care about energy issues", "ID": 90094, "next": "survey bills" },
+		"Energy interest 6": { "title": "EnergyInterest", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90095, "next": "survey bills" },
+
+			"Bills yes": 		{ "title": "BillContributer", "value": 1, "caption": "Yes, I do", "help": "I take responsibility for the bills", "ID": 90071, "next": "survey income" },
+		"Bills contribute": { "title": "BillContributer", "value": 2, "caption": "I contribute", "help": "Others also contribute or deal with bills", "ID": 90072, "next": "survey income" },
+		"Bills no": 		{ "title": "BillContributer", "value": 3, "caption": "I don't", "help": "Others pay or I don't have to", "ID": 90073, "next": "survey income" },
+		"Bills other": 		{ "title": "BillContributer", "value": 4, "caption": "Other / Skip", "icon": "act2_skip", "help": "I have a different arrangement or don't want to say", "ID": 90074, "next": "survey income" },
+
+		"Income 1": { "title": "Income", "value": 1,"caption": "£0 - <br>£10,000", "help": "I earn less than £10,000 per year.", "ID": 90080, "next": "survey appliances 1" },
+		"Income 2": { "title": "Income", "value": 2,"caption": "up to <br>£20,000", "help": "I earn up to £20,000 per year.", "ID": 90081, "next": "survey appliances 1" },
+		"Income 3": { "title": "Income", "value": 3,"caption": "up to <br>£30,000", "help": "I earn up to £30,000 per year.", "ID": 90082, "next": "survey appliances 1" },
+		"Income 4": { "title": "Income", "value": 4,"caption": "up to <br>£45,000", "help": "I earn up to £40,000 per year.", "ID": 90083, "next": "survey appliances 1" },
+		"Income 5": { "title": "Income", "value": 5,"caption": "Over £45,000", "help": "I earn up to £55,000 per year.", "ID": 90084, "next": "survey appliances 1" },
+		"Income 6": { "title": "Income", "value": 6,"caption": "Skip", "icon": "act2_skip", "help": "I choose not to say", "ID": 90085, "next": "survey appliances 1" },
+
+		"App 1 1": { "title": "UseDishwasher", "value": 1, "caption": "I didn't", "help": "use a dishwasher", "ID": 90101, "next": "survey appliances 2" },
+		"App 1 2": { "title": "UseDishwasher", "value": 2, "icon": "app_dishwasher", "caption": "Once", "help": "used a dishwasher", "ID": 90102, "next": "survey appliances 2" },
+		"App 1 3": { "title": "UseDishwasher", "value": 3, "icon": "app_dishwasher_2", "caption": "Twice", "help": "used a dishwasher", "ID": 90103, "next": "survey appliances 2" },
+		"App 1 4": { "title": "UseDishwasher", "value": 4, "icon": "app_dishwasher_3", "caption": "3 - 4<br>times", "help": "I used a dishwasher 3 or 4 times", "ID": 90104, "next": "survey appliances 2" },
+		"App 1 5": { "title": "UseDishwasher", "value": 5, "icon": "app_dishwasher_5", "caption": "5 - 7<br>times", "help": "I used a dishwasher 5-7 times", "ID": 90105, "next": "survey appliances 2" },
+		"App 1 6": { "title": "UseDishwasher", "value": 6, "icon": "app_dishwasher+", "caption": "8<br>or more", "help": "I used a dishwasher over eight times", "ID": 90106, "next": "survey appliances 2" },
+
+		"App 2 1": { "title": "UseWashingMachine", "value": 1,"caption": "I didn't", "help": "use a washing machine", "ID": 90201, "next": "survey appliances 3" },
+		"App 2 2": { "title": "UseWashingMachine", "icon": "app_washing_machine_1", "value": 2,"caption": "Once", "help": "used a washing machine", "ID": 90202, "next": "survey appliances 3" },
+		"App 2 3": { "title": "UseWashingMachine", "icon": "app_washing_machine_2", "value": 3,"caption": "Twice", "help": "used a washing machine", "ID": 90203, "next": "survey appliances 3" },
+		"App 2 4": { "title": "UseWashingMachine", "icon": "app_washing_machine_3", "value": 4,"caption": "3 - 4<br>times", "help": "I used a washing machine 3 or 4 times", "ID": 90204, "next": "survey appliances 3" },
+		"App 2 5": { "title": "UseWashingMachine", "icon": "app_washing_machine_5", "value": 5,"caption": "5 - 7<br>times", "help": "I used a washing machine 5-7 times", "ID": 90205, "next": "survey appliances 3" },
+		"App 2 6": { "title": "UseWashingMachine", "icon": "app_washing_machine+", "value": 6,"caption": "8<br>or more", "help": "I used a washing machine over eight times", "ID": 90206, "next": "survey appliances 3" },
+
+		"App 3 1": { "title": "UseTumbleDryer", "value": 1,"caption": "I didn't", "help": "use a tumble dryer", "ID": 90301, "next": "survey appliances 4" },
+		"App 3 2": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 2,"caption": "Once", "help": "used a tumble dryer", "ID": 90302, "next": "survey appliances 4" },
+		"App 3 3": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 3,"caption": "Twice", "help": "used a tumble dryer", "ID": 90303, "next": "survey appliances 4" },
+		"App 3 4": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 4,"caption": "3 - 4<br>times", "help": "I used a tumble dryer 3 or 4 times", "ID": 90304, "next": "survey appliances 4" },
+		"App 3 5": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 5,"caption": "5 - 7<br>times", "help": "I used a tumble dryer 5-7 times", "ID": 90305, "next": "survey appliances 4" },
+		"App 3 6": { "title": "UseTumbleDryer", "icon": "app_tumble_dryer", "value": 6,"caption": "8<br>or more", "help": "I used a tumble dryer over eight times", "ID": 90306, "next": "survey appliances 4" },
+
+		"App 4 1": { "title": "UseShower", "value": 1,"caption": "I didn't", "help": "use a shower", "ID": 90401, "next": "survey appliances 5" },
+		"App 4 2": { "title": "UseShower", "icon": "act2_shower", "value": 2,"caption": "Once", "help": "used a shower", "ID": 90402, "next": "survey appliances 5" },
+		"App 4 3": { "title": "UseShower", "icon": "act2_shower", "value": 3,"caption": "Twice", "help": "used a shower", "ID": 90403, "next": "survey appliances 5" },
+		"App 4 4": { "title": "UseShower", "icon": "act2_shower", "value": 4,"caption": "3 - 4<br>times", "help": "I used a shower 3 or 4 times", "ID": 90404, "next": "survey appliances 5" },
+		"App 4 5": { "title": "UseShower", "icon": "act2_shower", "value": 5,"caption": "5 - 7<br>times", "help": "I used a shower 5-7 times", "ID": 90405, "next": "survey appliances 5" },
+		"App 4 6": { "title": "UseShower", "icon": "act2_shower", "value": 6,"caption": "8<br>or more", "help": "I used a shower over eight times", "ID": 90406, "next": "survey appliances 5" },
+
+		"App 5 1": { "title": "UseVacuumCleaner", "value": 1,"caption": "I didn't", "help": "use a vacuum cleaner", "ID": 90501, "next": "time mobile" },
+		"App 5 2": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 2,"caption": "Once", "help": "used a vacuum cleaner", "ID": 90502, "next": "time mobile" },
+		"App 5 3": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 3,"caption": "Twice", "help": "used a vacuum cleaner", "ID": 90503, "next": "time mobile" },
+		"App 5 4": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 4,"caption": "3 - 4<br>times", "help": "I used a vacuum cleaner 3 or 4 times", "ID": 90504, "next": "time mobile" },
+		"App 5 5": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 5,"caption": "5 - 7<br>times", "help": "I used a vacuum cleaner 5-7 times", "ID": 90505, "next": "time mobile" },
+		"App 5 6": { "title": "UseVacuumCleaner", "icon": "app_vacuum_cleaner", "value": 6,"caption": "8<br>or more", "help": "I used a vacuum cleaner over eight times", "ID": 90506, "next": "time mobile" },
+
+		"Time mobile 1": { "title": "TimeMobile", "value": 1, "caption": "None", "help": "I didn't use a mobile", "ID": 90601, "next": "time screens" },
+		"Time mobile 2": { "title": "TimeMobile", "icon": "app_mobile", "value": 2, "caption": "10min or less", "help": "spent on mobile", "ID": 90602, "next": "time screens" },
+		"Time mobile 3": { "title": "TimeMobile", "icon": "app_mobile", "value": 3, "caption": "30min or less", "help": "spent on mobile", "ID": 90603, "next": "time screens" },
+		"Time mobile 4": { "title": "TimeMobile", "icon": "app_mobile", "value": 4, "caption": "1h or less", "help": "spent on mobile", "ID": 90604, "next": "time screens" },
+		"Time mobile 5": { "title": "TimeMobile", "icon": "app_mobile", "value": 5, "caption": "2h or less", "help": "spent on mobile", "ID": 90605, "next": "time screens" },
+		"Time mobile 6": { "title": "TimeMobile", "icon": "app_mobile", "value": 6, "caption": "Over 2h", "help": "spent on mobile", "ID": 90606, "next": "time screens" },
+
+		"Time screens 1": { "title": "TimeScreens", "value": 1, "caption": "None", "help": "I didn't use screens", "ID": 90701, "next": "time cooking" },
+		"Time screens 2": { "title": "TimeScreens", "icon": "app_TV", "value": 2, "caption": "30 min</br>or less", "help": "spent on screens", "ID": 90702, "next": "time cooking" },
+		"Time screens 3": { "title": "TimeScreens", "icon": "app_TV", "value": 3, "caption": "1 hour</br>or less", "help": "spent on screens", "ID": 90703, "next": "time cooking" },
+		"Time screens 4": { "title": "TimeScreens", "icon": "app_TV", "value": 4, "caption": "2 hours</br>or less", "help": "spent on screens", "ID": 90704, "next": "time cooking" },
+		"Time screens 5": { "title": "TimeScreens", "icon": "app_TV", "value": 5, "caption": "3 hours</br>or less", "help": "spent on screens", "ID": 90705, "next": "time cooking" },
+		"Time screens 6": { "title": "TimeScreens", "icon": "app_TV", "value": 6, "caption": "Over 3 hours", "help": "spent on screens", "ID": 90706, "next": "time cooking" },
+
+		"Time cooking 1": { "title": "TimeCooking", "value": 1, "caption": "None", "help": "I didn't cook", "ID": 90801, "next": "time exercise" },
+		"Time cooking 2": { "title": "TimeCooking", "icon": "act2_cook", "value": 2, "caption": "10min or less", "help": "spent on cooking", "ID": 90802, "next": "time exercise" },
+		"Time cooking 3": { "title": "TimeCooking", "icon": "act2_cook", "value": 3, "caption": "30min or less", "help": "spent on cooking", "ID": 90803, "next": "time exercise" },
+		"Time cooking 4": { "title": "TimeCooking", "icon": "act2_cook", "value": 4, "caption": "1h or less", "help": "spent on cooking", "ID": 90804, "next": "time exercise" },
+		"Time cooking 5": { "title": "TimeCooking", "icon": "act2_cook", "value": 5, "caption": "3h or less", "help": "spent on cooking", "ID": 90805, "next": "time exercise" },
+		"Time cooking 6": { "title": "TimeCooking", "icon": "act2_cook", "value": 6, "caption": "Over 3h", "help": "spent on cooking", "ID": 90806, "next": "time exercise" },
+
+		"Time exercise 1": { "title": "TimeExercise", "value": 1, "caption": "None", "help": "I didn't use a exercise", "ID": 90901, "next": "survey complete" },
+		"Time exercise 2": { "title": "TimeExercise", "icon": "act2_exercise", "value": 2, "caption": "10min or less", "help": "spent using exercise", "ID": 90902, "next": "survey complete" },
+		"Time exercise 3": { "title": "TimeExercise", "icon": "act2_exercise", "value": 3, "caption": "30min or less", "help": "spent on exercise", "ID": 90903, "next": "survey complete" },
+		"Time exercise 4": { "title": "TimeExercise", "icon": "act2_exercise", "value": 4, "caption": "1h or less", "help": "spent on exercise", "ID": 90904, "next": "survey complete" },
+		"Time exercise 5": { "title": "TimeExercise", "icon": "act2_exercise", "value": 5, "caption": "3h or less", "help": "spent on exercise", "ID": 90905, "next": "survey complete" },
+		"Time exercise 6": { "title": "TimeExercise", "icon": "act2_exercise", "value": 6, "caption": "Over 3h", "help": "spent on exercise", "ID": 90906, "next": "survey complete" },
+
+		"Loc got home": {
+			"title": "location home",
+			"icon": "act2_home",
+			"caption": "Home",
+			"help": "Arrive home",
+			"ID": 30011,
+			"value": 1,
+			"category": "care_self",
+			"next": "activity home"
+		},
+		"Loc home": {
+			"title": "location home",
+			"icon": "act2_home",
+			"caption": "Home",
+			"help": "In your home",
+			"ID": 30011,
+			"value": 1,
+			"category": "care_self",
+			"next": "activity main"
+		},
+		"Loc travelling": {
+			"title": "location travelling",
+			"icon": "act2_travel",
+			"caption": "Travel",
+			"help": "Travel by car, foot, bus, train, bike, jogging...",
+			"ID": 30030,
+			"value": 2,
+			"category": "travel",
+			"next": "travel"
+		},
+		"Loc work": {
+			"title": "location work",
+			"icon": "act2_workplace",
+			"caption": "Work",
+			"help": "At work place or school",
+			"ID": 30013,
+			"value": 3,
+			"category": "work",
+			"next": "work"
+		},
+		"Loc public": {
+			"title": "location public place",
+			"caption": "Public place",
+			"icon": "act2_shop",
+			"help": "Shop, church, public building",
+			"ID": 30014,
+			"value": 4,
+			"category": "care_self",
+			"next": "activity public"
+		},
+		"Loc outdoors public": {
+			"title": "location outdoors public place",
+			"caption": "Public place",
+			"icon": "act2_shop",
+			"help": "Shop, church, public building",
+			"ID": 30016,
+			"value": 5,
+			"category": "other_category",
+			"next": "outdoors public"
+		},
+		"Loc outdoors": {
+			"title": "Outdoor activity",
+			"caption": "Garden / Outdoors",
+			"icon": "act2_garden",
+			"help": "Park, road, sports field",
+			"ID": 30018,
+			"value": 5,
+			"category": "travel",
+			"next": "outdoors"
+		},
+		"Loc garden": {
+			"title": "In the garden",
+			"icon": "act2_garden",
+			"caption": "Garden",
+			"help": "Gardening, playing, eating",
+			"ID": 30019,
+			"value": 6,
+			"category": "travel",
+			"next": "garden"
+		},
+		"Loc other location": {
+			"title": "location other",
+			"icon": "Loc_other",
+			"caption": "Elsewhere",
+			"help": "None of the above",
+			"ID": 30010,
+			"value": 7,
+			"next": "activity main"
+		},
+
+		"xxxat home": {
+			"title": "location home",
+			"caption": "At home",
+			"help": "In or around your home / garden",
+			"ID": 30011,
+			"next": "other people"
+		},
+		"xxxtravelling": {
+			"title": "Location travelling",
+			"caption": "Travelling",
+			"help": "By car, foot, bus, train, bike, jogging...",
+			"ID": 30030,
+			"category": "travel",
+			"next": "travel"
+		},
+		"xxxat work": {
+			"title": "location work",
+			"caption": "At work",
+			"help": "I am at my place of work or school",
+			"ID": 30013,
+			"next": "other people"
+		},
+		"xxxat friends": {
+			"title": "location friends",
+			"caption": "At a friend's",
+			"help": "At a friends or other peoples house",
+			"ID": 30014,
+			"next": "other people"
+		},
+		"xxxoutdoors": {
+			"title": "location outdoors",
+			"caption": "Outdoors",
+			"help": "Park, road, public places, sports field",
+			"ID": 30018,
+			"next": "other people"
+		},
+		"xxxother location": {
+			"title": "location other",
+			"caption": "Somewhere else",
+			"help": "None of the above",
+			"ID": 30010,
+			"next": "other people"
+		},
+
+		"-10min": { "title": "activity time",
+			 "caption": "10 min</br><small>${act_time - 10}</small>",
+			 "help": "10 min earlier",
+			 "icon": "time_back",
+			 "ID": 10001,
+			 "value": -10,
+			 "next": "adjust time" },
+			
+		"-30min": { "title": "activity time",
+			 "caption": "30 min</br><small>${act_time - 30}</small>",
+			 "help": "30 min earlier",
+			 "icon": "time_back",
+			 "ID": 10002,
+			 "value": -30,
+			 "next": "adjust time" },
+			
+		"-120min": { "title": "activity time",
+			 "caption": "2 h</br><small>${act_time - 120}</small>",
+			 "help": "2 hours earlier",
+			 "icon": "time_back",
+			 "ID": 10003,
+			 "value": -120,
+			 "next": "adjust time" },
+			
+		"+5min": { "title": "activity time",
+			 "caption": "5 min</br><small>${act_time + 5}</small>",
+			 "help": "5 min later",
+			 "icon": "time_forward",
+			 "ID": 10004,
+			 "value": 5,
+			 "next": "adjust time" },
+			
+		"+15min": { "title": "activity time",
+			 "caption": "15 min</br><small>${act_time + 15}</small>",
+			 "help": "15 min later",
+			 "icon": "time_forward",
+			 "ID": 10005,
+			 "value": 15,
+			 "next": "adjust time" },
+			
+		"+60min": { "title": "activity time",
+			 "caption": "1 h</br><small>${act_time + 60}</small>",
+			 "help": "1 hours later",
+			 "icon": "time_forward",
+			 "ID": 10006,
+			 "value": 60,
+			 "next": "adjust time" },
+			
+
+		"Time 1": { "title": "activity time", "caption": "Now",        "help": "${time}",      "ID": 10001, "value": 0, "next": "activity root" },
+		"Time 2": { "title": "activity time", "caption": "5 min ago",  "help": "${time - 5}",  "ID": 10002, "value": 5, "next": "activity root" },
+		"Time 3": { "title": "activity time", "caption": "15 min ago", "help": "${time - 15}", "ID": 10003, "value": 15, "next": "activity root" },
+		"Time 4": { "title": "activity time", "caption": "30 min ago", "help": "${time - 30}", "ID": 10004, "value": 30, "next": "activity root" },
+		"Time 5": { "title": "activity time", "caption": "1 hour ago", "help": "${time - 60}", "ID": 10005, "value": 60, "next": "activity root" },
+		"Time 6": { "title": "activity time", "caption": "longer ago", "help": "More options", "ID": 10006, "value": 0, "next": "activity time 2" },
+
+		"Time 7":  { "title": "activity time", "caption": "2 hours ago</br>${time - 120}", "help": "roughly",  "ID": 10007, "value": 120, "next": "activity root" },
+		"Time 8":  { "title": "activity time", "caption": "3 hours ago</br>${time - 180}", "help": "roughly",  "ID": 10008, "value": 180, "next": "activity root" },
+		"Time 9":  { "title": "activity time", "caption": "4 hours ago</br>${time - 240}", "help": "roughly",  "ID": 10009, "value": 240, "next": "activity root" },
+		"Time 10": { "title": "activity time", "caption": "5 hours ago</br>${time - 300}", "help": "roughly",  "ID": 10010, "value": 300, "next": "activity root" },
+		"Time 11": { "title": "activity time", "caption": "6 hours ago</br>${time - 360}", "help": "roughly",  "ID": 10011, "value": 360, "next": "activity root" },
+		"Time 12": { "title": "activity time", "caption": "Before ${time - 180}",          "help": "Long ago", "ID": 10012, "value": 0,   "next": "activity root" },
+
+
+
+
+		"Hour range 1": { "title": "activity time", "caption": "Day 1<br>5pm - 11pm", "help": "", "ID": 10101, "value": 0, "next": "hours 1" },
+		"Hour range 2": { "title": "activity time", "caption": "11pm - 5am",          "help": "", "ID": 10102, "value": 0, "next": "hours 2" },
+		"Hour range 3": { "title": "activity time", "caption": "5am - 11am",          "help": "", "ID": 10103, "value": 0, "next": "hours 3" },
+		"Hour range 4": { "title": "activity time", "caption": "11am - 5pm",          "help": "", "ID": 10104, "value": 0, "next": "hours 4" },
+		"Hour range 5": { "title": "activity time", "caption": "5pm - 11pm",          "help": "", "ID": 10105, "value": 0, "next": "hours 5" },
+		"Hour range 6": { "title": "activity time", "caption": "after 11pm",          "help": "", "ID": 10106, "value": 0, "next": "hours 6" },
+
+		"Hours 1": { "title": "activity time", "caption": "5pm", "help": "Day 1", "ID": 10200, "value": 1020,  "next": "minutes" },
+		"Hours 2": { "title": "activity time", "caption": "6pm", "help": "Day 1", "ID": 10201, "value": 1080,  "next": "minutes" },
+		"Hours 3": { "title": "activity time", "caption": "7pm", "help": "Day 1", "ID": 10202, "value": 1140,  "next": "minutes" },
+		"Hours 4": { "title": "activity time", "caption": "8pm", "help": "Day 1", "ID": 10203, "value": 1200,  "next": "minutes" },
+		"Hours 5": { "title": "activity time", "caption": "9pm", "help": "Day 1", "ID": 10204, "value": 1260,  "next": "minutes" },
+		"Hours 6": { "title": "activity time", "caption": "10pm","help": "Day 1", "ID": 10205, "value": 1320, "next": "minutes" },
+
+		"Hours 7":  { "title": "activity time", "caption": "11pm", "help": "Day 1", "ID": 10206, "value": 1380, "next": "minutes" },
+		"Hours 8":  { "title": "activity time", "caption": "0am",  "help": "Day 2", "ID": 10207, "value": 1440, "next": "minutes" },
+		"Hours 9":  { "title": "activity time", "caption": "1am",  "help": "Day 2", "ID": 10208, "value": 1500, "next": "minutes" },
+		"Hours 10": { "title": "activity time", "caption": "2am",  "help": "Day 2", "ID": 10209, "value": 1560, "next": "minutes" },
+		"Hours 11": { "title": "activity time", "caption": "3am",  "help": "Day 2", "ID": 10210, "value": 1620, "next": "minutes" },
+		"Hours 12": { "title": "activity time", "caption": "4am",  "help": "Day 2", "ID": 10211, "value": 1680, "next": "minutes" },
+
+		"Hours 13": { "title": "activity time", "caption": "5am",  "help": "Day 2", "ID": 10212, "value": 1740, "next": "minutes" },
+		"Hours 14": { "title": "activity time", "caption": "6am",  "help": "Day 2", "ID": 10213, "value": 1800, "next": "minutes" },
+		"Hours 15": { "title": "activity time", "caption": "7am",  "help": "Day 2", "ID": 10214, "value": 1860, "next": "minutes" },
+		"Hours 16": { "title": "activity time", "caption": "8am",  "help": "Day 2", "ID": 10215, "value": 1920, "next": "minutes" },
+		"Hours 17": { "title": "activity time", "caption": "9am",  "help": "Day 2", "ID": 10216, "value": 1980, "next": "minutes" },
+		"Hours 18": { "title": "activity time", "caption": "10am", "help": "Day 2", "ID": 10217, "value": 2040, "next": "minutes" },
+
+		"Hours 19": { "title": "activity time", "caption": "11am", "help": "Day 2", "ID": 10218, "value": 2100, "next": "minutes" },
+		"Hours 20": { "title": "activity time", "caption": "12am", "help": "Day 2", "ID": 10219, "value": 2160, "next": "minutes" },
+		"Hours 21": { "title": "activity time", "caption": "1pm",  "help": "Day 2", "ID": 10220, "value": 2220, "next": "minutes" },
+		"Hours 22": { "title": "activity time", "caption": "2pm",  "help": "Day 2", "ID": 10221, "value": 2280, "next": "minutes" },
+		"Hours 23": { "title": "activity time", "caption": "3pm",  "help": "Day 2", "ID": 10222, "value": 2340, "next": "minutes" },
+		"Hours 24": { "title": "activity time", "caption": "4pm",  "help": "Day 2", "ID": 10223, "value": 2400, "next": "minutes" },
+
+		"Hours 25": { "title": "activity time", "caption": "5pm", "help": "Day 1", "ID": 10224, "value": 2460, "next": "minutes" },
+		"Hours 26": { "title": "activity time", "caption": "6pm", "help": "Day 1", "ID": 10225, "value": 2520, "next": "minutes" },
+		"Hours 27": { "title": "activity time", "caption": "7pm", "help": "Day 1", "ID": 10226, "value": 2580, "next": "minutes" },
+		"Hours 28": { "title": "activity time", "caption": "8pm", "help": "Day 1", "ID": 10227, "value": 2640, "next": "minutes" },
+		"Hours 29": { "title": "activity time", "caption": "9pm", "help": "Day 1", "ID": 10228, "value": 2700, "next": "minutes" },
+		"Hours 30": { "title": "activity time", "caption": "10pm","help": "Day 1", "ID": 10229, "value": 2760, "next": "minutes" },
+
+		"Minutes 1": { "title": "activity time", "caption": "00", "help": "min", "ID": 10300, "value":  0, "next": "minutes 2" },
+		"Minutes 2": { "title": "activity time", "caption": "10", "help": "min", "ID": 10301, "value": 10, "next": "minutes 2" },
+		"Minutes 3": { "title": "activity time", "caption": "20", "help": "min", "ID": 10302, "value": 20, "next": "minutes 2" },
+		"Minutes 4": { "title": "activity time", "caption": "30", "help": "min", "ID": 10303, "value": 30, "next": "minutes 2" },
+		"Minutes 5": { "title": "activity time", "caption": "40", "help": "min", "ID": 10304, "value": 40, "next": "minutes 2" },
+		"Minutes 6": { "title": "activity time", "caption": "50", "help": "min", "ID": 10305, "value": 50, "next": "minutes 2" },
+
+		"Minutes 7":  { "title": "activity time", "caption": "0", "help": "min", "ID": 10306, "value": 0, "next": "activity root" },
+		"Minutes 8":  { "title": "activity time", "caption": "2", "help": "min", "ID": 10307, "value": 2, "next": "activity root" },
+		"Minutes 9":  { "title": "activity time", "caption": "4", "help": "min", "ID": 10308, "value": 4, "next": "activity root" },
+		"Minutes 10": { "title": "activity time", "caption": "5", "help": "min", "ID": 10309, "value": 5, "next": "activity root" },
+		"Minutes 11": { "title": "activity time", "caption": "6", "help": "min", "ID": 10310, "value": 6, "next": "activity root" },
+		"Minutes 12": { "title": "activity time", "caption": "8", "help": "min", "ID": 10311, "value": 8, "next": "activity root" },
+
+		"Skip": {
+			"title": "enjoyment skip",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "Don't want to say",
+			"ID": 20001,
+			"next": "home"
+		},
+
+		"Not at all": {
+			"title": "enjoyment 1",
+			"icon": "enjoy_1",
+			"caption": "Not at all",
+			"help": "I enjoyed this time not at all",
+			"ID": 20002,
+			"value": 1,
+			"next": "home"
+		},
+		"Not very much": {
+			"title": "enjoyment 2",
+			"icon": "enjoy_2",
+			"caption": "Not much",
+			"help": "I enjoyed this time not very much.",
+			"ID": 20003,
+			"value": 2,
+			"next": "home"
+		},
+		"Neutral": {
+			"title": "enjoyment 3",
+			"icon": "enjoy_3",
+			"caption": "So so",
+			"help": "I enjoyed this time somewhat",
+			"ID": 20004,
+			"value": 3,
+			"next": "home"
+		},
+		"Somewhat": {
+			"title": "enjoyment 4",
+			"icon": "enjoy_4",
+			"caption": "Somewhat",
+			"help": "I enjoyed this time",
+			"ID": 20005,
+			"value": 4,
+			"next": "home"
+		},
+		"Very much": {
+			"title": "enjoyment 5",
+			"icon": "enjoy_5",
+			"caption": "Very much",
+			"help": "I enjoyed this time very much.",
+			"ID": 20006,
+			"value": 5,
+			"next": "home"
+		},
+
+
+		"Travel foot": {
+			"title": "Walking",
+			"caption": "By foot",
+			"icon": "act2_walk",
+			"help": "Walking, ambling, pottering",
+			"ID": 30021,
+			"value": 21,
+			"category": "travel",
+			"next": "travel purpose foot"
+		},
+		"Travel bike": {
+			"title": "Cycling",
+			"caption": "By bike",
+			"icon": "act2_bike",
+			"help": "Bike, road bike, tandem",
+			"ID": 30022,
+			"value": 22,
+			"category": "travel",
+			"next": "travel purpose bike"
+		},
+		"Travel car": {
+			"title": "Driving",
+			"caption": "By car",
+			"icon": "act2_car",
+			"help": "Car, van, motorbike or count",
+			"ID": 30023,
+			"value": 23,
+			"category": "travel",
+			"next": "travel purpose car"
+		},
+		"Travel public": {
+			"title": "Public transport",
+			"caption": "Public transport",
+			"icon": "act2_public_transport",
+			"help": "Bus, train, plane, boat",
+			"ID": 30024,
+			"value": 24,
+			"category": "travel",
+			"next": "travel purpose public"
+		},
+		"Travel exercise": {
+			"title": "Sport",
+			"caption": "Exercise",
+			"help": "Running, cycling, swimming...",
+			"ID": 9610,
+			"category": "travel",
+			"next": "travel purpose"
+		},
+		"Travel other": {
+			"title": "Travel",
+			"caption": "Other",
+			"icon": "act2_skip",
+			"help": "Anything not listed here",
+			"ID": 30031,
+			"value": 31,
+			"category": "travel",
+			"next": "travel purpose public"
+		},
+
+
+
+
+
+	"Other people 1": { "title": "activity time",
+		 "caption": "No one",
+		 "icon": "act2_others0",
+		"help": "people",
+		      "ID": 40001,
+		 "value": 0,
+		 "next": "enjoyment" },
+		
+	"Other people 2": { "title": "activity time",
+		 "caption": "1",
+		 "icon": "act2_others1",
+		     "help": "people",
+		      "ID": 40002,
+		 "value": 1,
+		 "next": "enjoyment" },
+		
+	"Other people 3": { "title": "activity time",
+		 "caption": "2",
+		 "icon": "act2_others2",
+		     "help": "people",
+		      "ID": 40003,
+		 "value": 2,
+		 "next": "enjoyment" },
+		
+	"Other people 4": { "title": "activity time",
+		 "caption": "3",
+		 "icon": "act2_others3",
+		     "help": "people",
+		      "ID": 40004,
+		 "value": 3,
+		 "next": "enjoyment" },
+		
+	"Other people 5": { "title": "activity time",
+		 "caption": "4",
+		 "icon": "act2_others4",
+		     "help": "people",
+		      "ID": 40005,
+		 "value": 4,
+		 "next": "enjoyment" },
+		
+	"Other people 6": { "title": "activity time",
+		 "caption": "More",
+		 "icon": "act2_others5",
+		  "help": "More than 4",
+		 "ID": 40006,
+		 "value": 5,
+		 "next": "enjoyment" },
+		
+
+
+
+		"Appliances":  
+			{ "title": "Use an appliance",
+			 "caption": "Appliances",
+			 "help": "Electrical goods",
+			 "ID": 8500,
+			 "icon": "act2_appliance",
+			 "value": 0,
+			 "next": "appliances" },
+			
+
+
+	"Appliances household":  { 
+		"title": "Household appliance use",
+		"caption": "House and garden",
+		"icon": "act2_house_garden",
+		"help": "Vacuum cleaner, heater, fridge", "ID": 8510,
+		"category": "care_house",
+		"next": "appliances household" },
+
+		"Appliances vacuum": {
+			"title": "Vacuum cleaner",
+			"caption": "Vacuum cleaner",
+			"icon": "app_vacuum_cleaner",
+			"help": "Using a hoover or other",
+			"ID": 8511,
+			"category": "care_house",
+			"next": "other people"
+		},
+
+		"Appliances heater":  { 
+			"title": "Heater",
+			"caption": "Heater",
+			"icon": "app_heater",
+			"help": "portable", 
+			"ID": 8514,
+			"category": "care_house",
+			"next": "other people" },
+
+		"Appliances Tools":  
+			{ "title": "Power tools",
+			 "caption": "Tools",
+			"icon": "app_power_tool",
+			 "help": "Power tools or toys (RC car...)",
+			 "ID": 8515,
+			 "category": "care_house",
+			 "next": "other people" },
+
+		"Appliances Lights off":  
+			{ "title": "Lights off",
+			 "caption": "Lights off",
+			 "help": "Switching some light(s) off",
+			 "ID": 8517,
+			 "category": "other_category",
+			"next": "other people" },
+			
+		"Appliances Lights on":  
+			{ "title": "Lights on",
+			 "caption": "Lights on",
+			 "help": "Switching some light(s) on",
+			 "ID": 8518,
+			 "category": "other_category",
+			 "next": "other people" },
+
+
+	"Appliances kitchen":  { 
+		"title": "Use kitchen appliance",
+		"caption": "Kitchen",
+		"icon": "act2_eat",
+		"help": "Bake, cook, prepare", 
+		"ID": 8530,
+		"category": "food",
+		"next": "appliances kitchen" },
+
+		"Appliances Oven":  
+			{ "title": "Oven",
+			 "caption": "Oven",
+			"icon": "app_oven",
+			 "help": "it is running or you use it",
+			 "ID": 8531,
+			 "category": "food",
+			"next": "other people" },
+
+		"Appliances Hob": {
+			"title": "Cook on hob",
+			"caption": "Hob",
+			"icon": "app_hob",
+			"help": "for cooking",
+			"ID": 8532,
+			"category": "food",
+			"next": "other people"
+		},
+			
+		"Appliances Microwave":  
+			{ "title": "Microwave",
+			 "caption": "Microwave",
+			 "icon": "app_microwave",
+			 "help": "it is running or you use it",
+			 "ID": 8533,
+			 "category": "food",
+			"next": "other people" },
+			
+		"Appliances Toaster":  
+			{ "title": "Toaster",
+			 "caption": "Toaster",
+			 "icon": "app_toaster",
+			 "help": "it is running or you use it",
+			 "ID": 8534,
+			 "category": "food",
+			 "next": "other people" },
+			
+		"Appliances Kettle":  
+			{ "title": "Kettle",
+			 "caption": "Kettle",
+			 "icon": "app_kettle",
+			 "help": "fill, using, pour",
+			 "ID": 8535,
+			 "category": "food",
+			 "next": "other people" },
+
+		"Appliances Dish washer":  
+			{ "title": "Dishwasher",
+			 "caption": "Dishwasher",
+			"icon": "app_dishwasher",
+			 "help": "it is running or you use it",
+			 "ID": 8536,
+			"category": "care_house",
+			 "next": "other people" },
+
+		"Appliances Bread maker":  
+			{ "title": "Bread maker",
+			 "caption": "Bread maker",
+			 "help": "it is running or you use it",
+			 "ID": 8537,
+			 "category": "food",
+			 "next": "other people" },
+
+
+	"Appliances clothes":  
+		{ "title": "Handling clothes",
+		 "caption": "Clothes",
+		"icon": "act2_dress",
+		 "help": "Washing, drying, ironing",
+		"ID": 8540,
+		"category": "care_house",
+		 "next": "appliances clothes" },
+
+		"Appliances Washing machine":  
+			{ "title": "Washing machine",
+			 "caption": "Washing machine",
+			"icon": "app_washing_machine",
+			 "help": "Loading, unloading or running", 
+			"ID": 8541,
+			"category": "care_house",
+			 "next": "other people" },
+			
+		"Appliances Tumble dryer":  
+			{ "title": "Tumble dryer",
+			 "caption": "Tumble dryer",
+			"icon": "app_tumble_dryer",
+			 "help": "it is running or you use it",
+			 "ID": 8542,
+			 "category": "care_house",
+			"next": "other people" },
+			
+		"Appliances Washer dryer":  
+			{ "title": "Washer-dryer",
+			"caption": "Washer-dryer",
+			"icon":"app_washer_dryer",
+			"help": "it is running or you use it",
+			"ID": 8543,
+			"category": "care_house",
+			"next":"other people" },
+
+		"Appliances Sewing machine":  {
+			"title": "Sewing machine",
+			"caption": "Sewing",
+			"icon":"app_sewing",
+			"help": "", 
+			"ID": 8544,
+			"category":"care_house",
+			"next": "other people" },
+			
+		"Appliances Iron":  { 
+			"title": "Iron",
+			"caption": "Iron",
+			"icon": "app_iron",
+			"help": "", 
+			"ID": 8545,
+			"category": "care_house",
+			"next": "other people" },
+			
+
+
+	"Appliances entertainment":  { 
+		"title":"Entertainment appliance use",
+		"caption": "Entertainment",
+		"icon":"app_projector",
+		"help": "TV, computer, radio", 
+		"ID": 8550,
+		"category":"recreation",
+		"next": "appliances entertainment" },
+
+		"Appliances Computer":  
+			{ "title": "Computer",
+			 "caption": "Computer",
+			 "icon": "app_computer",
+			 "help": "Laptop, Tablet, PC",
+			 "ID": 8551,
+			"category": "other_category",
+			 "next": "other people" },
+
+		"Appliances Games console":  
+			{ "title": "Computer games",
+			 "caption": "Games",
+			 "icon": "app_games",
+			 "help": "X-Box, Nintendo...",
+			 "ID": 8552,
+			"category": "recreation",
+			 "next": "other people" },
+			
+		"Appliances TV":  
+			{ "title": "TV",
+			 "caption": "TV",
+			 "icon": "app_TV",
+			 "help": "it is running or you use it",
+			 "ID": 8553,
+			 "category": "care_self",
+			 "next": "other people" },
+			
+
+		"Appliance Mobile": {
+			"title": "Mobile device",
+			"caption": "Mobile device",
+			"icon": "app_mobile",
+			"help": "Computer or mobile device",
+			"ID": 8554,
+			"next": "other people"
+		},
+
+		"Appliances Phone":  
+			{ "title": "Phone",
+			 "caption": "Phone",
+			 "icon": "app_mobile",
+			 "help": "Use a phone",
+			 "ID": 8556,
+			 "category": "other_category",
+			 "next": "other people" },
+			
+		"Appliances Radio":  
+			{ "title": "Music",
+			 "caption": "Music",
+			"icon": "app_radio",
+			 "help": "or radio / listening",
+			 "ID": 8556,
+			"category": "recreation",
+			 "next": "other people" },
+			
+		"Appliances Toys":  { 
+			"title":   "Toys",
+			"caption": "Toys",
+			"icon":    "app_toy",
+			"help":    "RC car, train track...",
+			"ID": 8557,
+			"category": "recreation",
+			"next": "other people" },
+
+
+
+
+	"Appliances Garden tools":  
+		{ "title": "Garden tools",
+		 "caption": "Garden tools",
+		 "help": "Mower, hedge trimmer, etc.",
+		 "ID": 8560,
+		 "category": "care_house",
+		"next": "other people" },
+
+		"Appliances Mower":  
+			{ "title": "Mower",
+			 "caption": "Mower",
+			 "help": "it is running or you use it",
+			 "ID": 8561,
+			"category": "care_house",
+			 "next": "other people" },
+			
+		"Appliances Hedge trimmer":  
+			{ "title": "Hedge trimmer",
+			 "caption": "Hedge trimmer",
+			 "help": "it is running or you use it",
+			 "ID": 8562,
+			"category": "care_house",
+			 "next": "other people" },
+			
+
+
+
+
+
+
+	"Appliances bathroom":  
+		{ "title": "Bathroom",
+		 "caption": "Bathroom",
+		"icon": "act2_bathroom",
+		 "help": "Hair, teeth, beauty", 
+		"ID": 8570,
+		"category": "care_self",
+		 "next": "appliances bathroom" },
+
+
+		"Appliances Hair dryer":  
+			{ "title": "Hair dryer",
+			 "caption": "Hair dryer",
+			"icon": "app_hair_dryer",
+			 "help": "it is running or you use it",
+			 "ID": 8571,
+			"category": "care_self",
+			 "next": "other people" },
+
+		"Appliances tooth brush": 
+			{ "title": "Brush teeth",
+			 "caption": "Electric toothbrush",
+			"icon": "app_toothbrush",
+			 "help": "",
+			 "ID": 8572,
+			"category": "care_self",
+			 "next": "other people" },
+			
+		"Appliances hair trimmer": 
+			{ "title": "Trim hair",
+			"icon": "app_hair_trimmer",
+			 "caption": "Electric hair trimmer",
+			 "help": "",
+			 "ID": 8573,
+			"category": "care_self",
+			 "next": "other people" },
+			
+		"Appliances shaver": 
+			{ "title": "Shave",
+			 "caption": "Electric shaver",
+			"icon": "app_shaver",
+			 "help": "",
+			 "ID": 8574,
+			"category": "care_self",
+			 "next": "other people" },
+			
+		"Appliances hair curler": 
+			{ "title": "Do hair",
+			 "caption": "Hair curl/ straightener",
+			"icon": "app_hair_curler",
+			 "help": "",
+			 "ID": 8575,
+			"category": "care_self",
+			 "next": "other people" },
+
+		"Appliances hygiene none":  
+			{ "title": "Hygiene / Beauty",
+			 "caption": "None of these",
+			 "help": "not listed here",
+			"category": "other_category",
+			 "ID": 8599,
+			 "next": "other people" },
+
+		"Appliances Machinery":  
+			{ "title": "Work with machinery",
+			 "caption": "Machine",
+			"icon": "app_work_machine",
+			 "help": "Large tools and equipment",
+			 "ID": 8581,
+			"category": "work",
+			 "next": "other people" },
+
+		"Appliances other":  
+			{ "title": "Other appliance",
+			 "caption": "Other ...",
+			"icon": "Other_type",
+			 "help": "not listed here",
+			 "ID": 8599,
+			 "category": "other_category",
+			 "next": "other specify" },
+
+
+
+		"Personal": {
+			"title": "Personal care",
+			"caption": "Personal",
+			"icon": "act2_personal",
+			"help": "Personal care, for yourself",
+			"ID": 0,
+			"category": "care_self",
+			"next": "personal"
+		},
+		"Care": {
+			"title": "Being with others",
+			"caption": "Joint activity",
+			"icon": "act2_others",
+			"help": "Helping, socialising",
+			"ID": 3900,
+			"category": "care_other",
+			"next": "care"
+		},
+		"xxxUnspecified Sleep": {
+			"title": "Sleep or rest",
+			"caption": "Rest or sleep",
+			"help": "Unspecified Sleep",
+			"ID": 10,
+			"category": "care_self",
+			"next": "care rest sleep"
+		},
+		"Sleep": {
+			"title": "Sleep",
+			"caption": "Sleep",
+			"icon": "act2_sleep",
+			"help": "Sleep",
+			"ID": 110,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"In bed awake": {
+			"title": "In bed, not asleep",
+			"caption": "In bed",
+			"icon": "act2_bed_awake",
+			"help": "not asleep",
+			"ID": 111,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Sick in bed": {
+			"title": "Sick in bed",
+			"caption": "Sick in bed",
+			"icon": "act2_bed_sick",
+			"help": "Sick in bed",
+			"ID": 120,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Eating": {
+			"title": "Eat",
+			"caption": "Eat",
+			"help": "Eating",
+			"icon": "act2_eat",
+			"ID": 210,
+			"category": "food",
+			"next": "food eat"
+		},
+		"Food eat skip": {
+			"title": "Eat",
+			"caption": "Skip",
+			"help": "Just eating",
+			"icon": "act2_skip",
+			"ID": 210,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food eat cold": {
+			"title": "Eating",
+			"caption": "Cold meal",
+			"icon": "act2_meal_cold",
+			"help": "Cold or uncooked food",
+			"ID": 211,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food eat hot": {
+			"title": "Eating hot meal",
+			"caption": "Hot meal",
+			"icon": "act2_meal_hot",
+			"help": "Cooked or heated food",
+			"ID": 212,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food eat snack": {
+			"title": "Snack",
+			"caption": "Snack",
+			"icon": "act2_snack",
+			"help": "A quick meal",
+			"ID": 213,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food drink hot": {
+			"title": "Hot drink",
+			"caption": "Hot drink",
+			"help": "Tea or coffee",
+			"icon": "act2_hot_drink",
+			"ID": 214,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food drink cold": {
+			"title": "Drink",
+			"caption": "Drink",
+			"help": "Alcoholic or non-alcoholic",
+			"ID": 215,
+			"category": "food",
+			"next": "other people"
+		},
+		"Care wash": {
+			"title": "Wash and dress",
+			"caption": "Wash or dress",
+			"icon": "act2_wash_dress",
+			"help": "Shower, bath, changing",
+			"ID": 310,
+			"category": "care_self",
+			"next": "care wash"
+		},
+		"Care child": {
+			"title": "Childcare",
+			"caption": "My children",
+			"icon": "act2_children",
+			"help": "Involving in childcare",
+			"ID": 3800,
+			"category": "care_other",
+			"next": "care child"
+		},
+
+		"Care family": {
+			"title": "Being with family",
+			"caption": "Family",
+			"icon": "act2_family",
+			"help": "relatives",
+			"ID": 3911,
+			"category": "care_other",
+			"next": "care activities"
+		},
+		"Care friends": {
+			"title": "Being with friends",
+			"caption": "Friends",
+			"icon": "act2_friends",
+			"help": "Being with friends",
+			"ID": 3910,
+			"category": "care_other",
+			"next": "care activities"
+		},
+		"Care others": {
+			"title": "With people",
+			"caption": "Others",
+			"icon": "act2_with_others",
+			"help": "Being with other people",
+			"ID": 3913,
+			"category": "care_other",
+			"next": "care activities"
+		},
+		"Care other": {
+			"title": "Being with others",
+			"caption": "Other",
+			"icon": "act2_other",
+			"help": "being together",
+			"ID": 3912,
+			"category": "care_other",
+			"next": "care activities"
+		},
+
+		"Care activities other": {
+			"title": "Being with others",
+			"caption": "Other",
+			"icon": "act2_other",
+			"help": "being together",
+			"ID": 3912,
+			"category": "care_other",
+			"next": "other people"
+		},
+
+		"Care wash shower": {
+			"title": "Shower",
+			"caption": "Shower",
+			"icon": "act2_shower",
+			"help": "Being in the shower",
+			"ID": 311,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Care wash bath": {
+			"title": "Bathing",
+			"caption": "Bath",
+			"icon": "act2_bath",
+			"help": "Running a bath, having one, bathing someone else",
+			"ID": 312,
+			"category": "care_self",
+			"next": "care wash bath"
+		},
+		"Care wash bath running": { "title": "Running a bath",
+			 "caption": "Running a bath",
+			"icon": "act2_bath_fill",
+			 "help": "Filling the tub, preparing",
+			 "ID": 320,
+			 "category": "care_self",
+			 "next": "other people" },
+			
+		"Care wash bath bathing": { "title": "Bathing",
+			 "caption": "Bathing",
+			"icon": "act2_bathing",
+			 "help": "Sitting in a bath",
+			 "ID": 321,
+			 "category": "care_self",
+			 "next": "other people" },
+			
+		"Care wash bath children":{ "title": "Bathing children",
+			 "caption": "Bathing children",
+			"icon": "act2_bath_children",
+			 "help": "Washing children",
+			 "ID": 322,
+			 "category": "care_other",
+			 "next": "other people" },
+			
+		"Care wash bath other":   { "title": "Bathing",
+			 "caption": "Skip",
+			 "icon": "act2_skip",
+			 "help": "Bath related activity",
+			 "ID": 323,
+			 "category": "care_other",
+			 "next": "other people" },
+			
+
+		"Care wash sink": {
+			"title": "Wash",
+			"caption": "Sink or flannel",
+			"icon": "act2_sink",
+			"help": "Washing by a sink or with a flannel",
+			"ID": 313,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Care wash dress": {
+			"title": "Getting dressed",
+			"caption": "Getting dressed",
+			"icon": "act2_dress",
+			"help": "Changing clothes, dressing",
+			"ID": 314,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Care wash hygiene": {
+			"title": "Hygiene / Beauty",
+			"caption": "Hygiene / Beauty",
+			"icon": "act2_beauty",
+			"help": "Brushing teeth, make-up, shaving",
+			"ID": 315,
+			"category": "care_self",
+			"next": "care wash hygiene"
+		},
+		"Care wash other": {
+			"title": "Wash",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "No better match here",
+			"ID": 316,
+			"category": "care_self",
+			"next": "other people"
+		},
+
+
+
+
+		"Care personal": {
+			"title": "Me time",
+			"caption": "Time for me",
+			"icon": "act2_personal",
+			"help": "Care for yourself",
+			"ID": 300,
+			"category": "care_self",
+			"next": "care personal"
+		},
+		"Getting ready": {
+			"title": "Getting ready",
+			"caption": "Getting ready",
+			"icon": "act2_getting_ready",
+			"help": "Dress, wash, prepare, arrange",
+			"ID": 301,
+			"category": "care_self",
+			"next": "getting ready"
+		},
+		"Getting ready other": {
+			"title": "Getting ready",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "Getting ready for somethning",
+			"ID": 302,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Care personal other": {
+			"title": "Me time",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "Care for yourself",
+			"ID": 303,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Get home": {
+			"title": "Got home",
+			"caption": "Got home",
+			"icon": "act2_home",
+			"help": "Arriving",
+			"ID": 304,
+			"category": "care_self",
+			"next": "other people"
+		},
+
+
+
+
+		"xxxOther specified personal care": {
+			"title": "Personal care",
+			"caption": "Personal care",
+			"help": "Other specified personal care",
+			"ID": 390,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Other household and family care": {
+			"title": "Household and family care",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "Just Household and family care",
+			"ID": 3000,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Food": {
+			"title": "Food or drink ",
+			"caption": "Food / Drink",
+			"help": "Eating, preparing, cooking, clearing food",
+			"icon": "act2_food",
+			"ID": 3100,
+			"category": "food",
+			"next": "food"
+		},
+		"Food preparation": {
+			"title": "Prepare meal",
+			"caption": "Prepare meal",
+			"icon": "act2_cook",
+			"help": "Cook, stir, spread...",
+			"ID": 3110,
+			"category": "food",
+			"next": "food preparation"
+		},
+		"Food preparation cold": {
+			"title": "Prepare cold meal",
+			"caption": "Cold meal",
+			"icon": "act2_meal_cold",
+			"help": "e.g. Salad, Sandwich...",
+			"ID": 3111,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food preparation hot": {
+			"title": "Prepare hot meal",
+			"caption": "Hot / cooked meal",
+			"icon": "act2_meal_hot",
+			"help": "Using cooker or other",
+			"ID": 3112,
+			"category": "food",
+			"next": "appliances food preparation"
+		},
+		"Food preparation hot other": {
+			"title": "Prepare hot meal",
+			 "caption": "Next",
+			 "icon": "act2_meal_hot",
+			 "help": "not listed here",
+			 "ID": 3112,
+			 "category": "food",
+			 "next": "other people" },
+
+		"Baking": {
+			"title": "Baking",
+			"caption": "Baking",
+			"icon": "act2_baking",
+			"help": "Baking",
+			"ID": 3120,
+			"category": "food",
+			"next": "appliances food preparation"
+		},
+		"Toaster": {
+			"title": "Toaster",
+			"caption": "Toaster",
+			"help": "for bread",
+			"ID": 3124,
+			"category": "food",
+			"next": "other people"
+		},
+
+
+
+		"Cutlery handling": {
+			"title": "Lay or clear table",
+			"caption": "Lay or clear",
+			"icon": "act2_lay_clear_table",
+			"help": "cutlery, plates...",
+			"ID": 3130,
+			"category": "food",
+			"next": "food clear"
+		},
+		"Lay table": {
+			"title": "Lay table",
+			"caption": "Lay table",
+			"icon": "act2_lay_table",
+			"help": "get things ready",
+			"ID": 3135,
+			"category": "food",
+			"next": "other people"
+		},
+		"Food clear": {
+			"title": "Clear away meal",
+			"caption": "Clear up",
+			"icon": "act2_clear_table",
+			"help": "put things away",
+			"ID": 3131,
+			"category": "food",
+			"next": "other people"
+		},
+		"Dishes hand": {
+			"title": "Wash dishes",
+			"caption": "By hand",
+			"icon": "act2_dishes_hand",
+			"help": "in a sink or tub",
+			"ID": 3132,
+			"category": "food",
+			"next": "other people"
+		},
+		"Dishes machine": {
+			"title": "Dish washer",
+			"caption": "Dishwasher",
+			"icon": "app_dishwasher",
+			"help": "load, run or unload",
+			"ID": 3133,
+			"category": "food",
+			"next": "other people"
+		},
+		"Dishes both": {
+			"title": "Dish washing",
+			"caption": "Hand + machine",
+			"icon": "act2_dishwasher_hand",
+			"help": "bit of both",
+			"ID": 3134,
+			"category": "food",
+			"next": "other people"
+		},
+		"Dishes other": {
+			"title": "Lay or clear table",
+			"caption": "Other",
+			"icon": "act2_other",
+			"help": "General laying or clearing",
+			"ID": 3136,
+			"category": "food",
+			"next": "other people"
+		},
+		"Preserving": {
+			"title": "Preserving",
+			"caption": "Food management/preparation",
+			"help": "Preserving",
+			"ID": 3140,
+			"category": "food",
+			"next": "other people"
+		},
+		"Work house food": {
+			"title": "Prepare meal",
+			"caption": "Prepare meal",
+			"icon": "act2_cook",
+			"help": "Cook, cut, arrange food",
+			"ID": 3190,
+			"category": "food",
+			"next": "food preparation"
+		},
+		"Food other": {
+			"title": "Food",
+			"caption": "Next...",
+			"icon": "act2_skip",
+			"help": "Food management",
+			"ID": 3191,
+			"category": "food",
+			"next": "other people"
+		},
+		"Household upkeep": {
+			"title": "House keeping",
+			"caption": "House related",
+			"icon": "act2_home",
+			"help": "Cleaning, tidying, cooking, shopping",
+			"ID": 3200,
+			"category": "care_house",
+			"next": "work house"
+		},
+		"Work house other": {
+			"title": "Housework",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "Not listed here",
+			"ID": 3200,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Cleaning house": {
+			"title": "Cleaning house",
+			"caption": "Cleaning / clearing",
+			"icon": "act2_tidy",
+			"help": "Cleaning house",
+			"ID": 3210,
+			"category": "care_house",
+			"next": "work house clean"
+		},
+		"Cleaning dusting": {
+			"title": "Cleaning house",
+			"caption": "Clean / dust",
+			"icon": "act2_clean",
+			"help": "wiping, sweeping",
+			"ID": 3211,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Cleaning vacuum": {
+			"title": "Vacuum cleaning",
+			"caption": "Vacuum cleaning",
+			"icon": "app_vacuum_cleaner",
+			"help": "Using a hoover or other",
+			"ID": 3212,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Cleaning floors": {
+			"title": "Clean floors",
+			"caption": "Clean floor",
+			"icon": "act2_clean_floor",
+			"help": "Wiping, mopping",
+			"ID": 3213,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Cleaning other": {
+			"title": "Cleaning",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "Not listed here",
+			"ID": 3214,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Cleaning yard": {
+			"title": "Cleaning yard",
+			"caption": "Cleaning yard",
+			"help": "Cleaning yard",
+			"icon": "act2_clean_yard",
+			"ID": 3220,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"xxxHeating and water": {
+			"title": "Heating and water",
+			"caption": "House keeping",
+			"help": "Heating and water",
+			"ID": 3230,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Work house clear up": {
+			"title": "Arrange things",
+			"caption": "Arrange things",
+			"icon": "act2_arrange",
+			"help": "Tidy, sort, arrange things",
+			"ID": 3240,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Work house search": {
+			"title": "Looking for things",
+			"caption": "Finding things",
+			"icon": "act2_search",
+			"help": "Searching for something",
+			"ID": 3241,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Pottering": {
+			"title": "Pottering",
+			"caption": "Pottering",
+			"icon": "act2_pottering",
+			"help": "This and that...",
+			"ID": 3242,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Disposal of Waste": {
+			"title": "Clear up",
+			"caption": "Clear up",
+			"icon": "act2_tidy",
+			"help": "Arranging, disposal of waste",
+			"ID": 3250,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"xxxOther household upkeep": {
+			"title": "Other household upkeep",
+			"caption": "House keeping",
+			"help": "Other household upkeep",
+			"ID": 3290,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Unspecified making and care for textiles": {
+			"title": "Laundry",
+			"caption": "Other",
+			"icon": "act2_other",
+			"help": "Handling or other work on textiles",
+			"ID": 3300,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Laundry": {
+			"title": "Laundry",
+			"caption": "Laundry",
+			"icon": "act2_dress",
+			"help": "Washing, sorting, caring for textiles",
+			"ID": 3310,
+			"category": "care_house",
+			"next": "laundry"
+		},
+		"Washing machine": {
+			"title": "Washing machine",
+			"caption": "Washing machine",
+			"icon": "app_washing_machine",
+			"help": "Loading, running, unloading",
+			"ID": 3311,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Washing sort": {
+			"title": "Laundry sorting",
+			"caption": "Sorting",
+			"icon": "act2_clothes_sort",
+			"help": "Gathering, putting away",
+			"ID": 3312,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Washing dry line": {
+			"title": "Laundry hanging",
+			"caption": "Hanging out laundry",
+			"icon": "act2_dry_line",
+			"help": "On a line, airer or radiator",
+			"ID": 3313,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Washing dry machine": {
+			"title": "Using tumble dryer",
+			"caption": "Tumble dryer",
+			"icon": "app_tumble_dryer",
+			"help": "Loading, running, unloading",
+			"ID": 3314,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Ironing": {
+			"title": "Ironing",
+			"caption": "Ironing",
+			"icon": "app_iron",
+			"help": "Ironing",
+			"ID": 3320,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"xxxHandicraft and producing textiles": {
+			"title": "Handicraft and producing textiles",
+			"caption": "House keeping",
+			"help": "Handicraft and producing textiles",
+			"ID": 3330,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"xxxOther specified making and care for textiles": {
+			"title": "Other specified making and care for textiles",
+			"caption": "House keeping",
+			"help": "Other specified making and care for textiles",
+			"ID": 3390,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"xxxHousehold management not using the internet": {
+			"title": "Household management not using the internet",
+			"caption": "Activities with internet use",
+			"help": "Household management not using the internet",
+			"ID": 3710,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Device Internet": {
+			"title": "Internet",
+			"caption": "Internet",
+			"icon": "act2_www",
+			"help": "Browsing, searching, anything...",
+			"ID": 3720,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Device Shopping": {
+			"title": "Online shopping",
+			"caption": "Shopping",
+			"icon": "act2_shopping",
+			"help": "Looking for or buying things",
+			"ID": 3721,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"xxxShopping for&ordring food via the internet": {
+			"title": "Shopping for&ordring food via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring food via the internet",
+			"ID": 3722,
+			"category": "food",
+			"next": "other people"
+		},
+		"xxxShopping for&ordring clothing via the internet": {
+			"title": "Shopping for&ordring clothing via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring clothing via the internet",
+			"ID": 3723,
+			"next": "other people"
+		},
+		"xxxShopping for&ordring gds&srv related to acc via internet": {
+			"title": "Shopping for&ordring gds&srv related to acc via internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring gds&srv related to acc via internet",
+			"ID": 3724,
+			"next": "other people"
+		},
+		"xxxShopping for&ordring mass media via the internet": {
+			"title": "Shopping for&ordring mass media via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring mass media via the internet",
+			"ID": 3725,
+			"next": "other people"
+		},
+		"xxxShopping for&ordring entertainment via the internet": {
+			"title": "Shopping for&ordring entertainment via the internet",
+			"caption": "Activities with internet use",
+			"help": "Shopping for&ordring entertainment via the internet",
+			"ID": 3726,
+			"next": "other people"
+		},
+		"xxxBanking and bill paying via the internet": {
+			"title": "Banking and bill paying via the internet",
+			"caption": "Activities with internet use",
+			"help": "Banking and bill paying via the internet",
+			"ID": 3727,
+			"next": "other people"
+		},
+		"xxxOther specified household management using the internet": {
+			"title": "Other specified household management using the internet",
+			"caption": "Activities with internet use",
+			"help": "Other specified household management using the internet",
+			"ID": 3729,
+			"next": "other people"
+		},
+		"Care child other": {
+			"title": "Child care",
+			"caption": "Other",
+			"icon": "act2_skip",
+			"help": "Being with child",
+			"ID": 3810,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care child feed": {
+			"title": "Feeding the child",
+			"caption": "Feeding / eating",
+			"help": "Feeding or eating with a child",
+			"ID": 3811,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care child physical": {
+			"title": "Physical care & supervision of a child",
+			"caption": "Washing or physical help",
+			"help": "Physical care & supervision of a child",
+			"ID": 3819,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care child bed": {
+			"title": "Putting child to bed",
+			"caption": "Bedtime",
+			"icon": "act2_child_bed",
+			"help": "preparing for sleep",
+			"ID": 3818,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care child study": {
+			"title": "Study with child",
+			"caption": "Study",
+			"icon": "act2_study",
+			"help": "Learning and school work",
+			"ID": 3820,
+			"category": "care_other",
+			"next": "other people"
+		},
+		
+		"Care child engage": {
+			"title": "Being with child",
+			"caption": "Engage / play",
+			"icon": "act2_with_child",
+			"help": "Reading, playing and talking with child",
+			"ID": 3830,
+			"category": "care_other",
+			"next": "care child engage"
+		},
+		"Care child read": {
+			"title": "Reading with child",
+			"caption": "Read",
+			"icon": "act2_book",
+			"help": "Looking at pictures or text",
+			"ID": 3831,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care child company": {
+			"title": "not used - Accompanying child",
+			"caption": "Accompanying child",
+			"help": "Accompanying child",
+			"ID": 3840,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care child supervise": {
+			"title": "Supervise child",
+			"caption": "Supervise",
+			"icon": "act2_supervise",
+			"help": "Play, screen time, study",
+			"ID": 3890,
+			"category": "care_other",
+			"next": "care child engage"
+		},
+		"Care child dress": {
+			"title": "Other specified childcare",
+			"caption": "Getting dressed",
+			"help": "Getting children dressed",
+			"ID": 3891,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"xxxCare others company": {
+			"title": "Accompanying an adult household member",
+			"caption": "Accompanying",
+			"help": "Being there for them",
+			"ID": 3914,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"xxxCare others other": {
+			"title": "Other specified help to an adult household member",
+			"caption": "Other",
+			"icon": "act2_other",
+			"help": "form of care",
+			"ID": 3919,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care child play": {
+			"title": "Play with child",
+			"caption": "Play",
+			"icon": "act2_child_play",
+			"help": "Games and physical",
+			"ID": 3920,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care others unspecified": {
+			"title": "Help someone",
+			"caption": "Physical help",
+			"icon": "act2_help_physical",
+			"help": "Looking after someone",
+			"ID": 3920,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Care others dependent physical": {
+			"title": "Physical care of a dependent adult household member (eg Alzheimic parent)",
+			"caption": "Helping a dependent person",
+			"help": "with disability or illness",
+			"ID": 3921,
+			"next": "other people"
+		},
+		"Care others dependent company": {
+			"title": "Accompanying a dependent adult household member (eg Alzheimic)",
+			"caption": "Accompanying a dependent person",
+			"help": "with disability or illness",
+			"ID": 3924,
+			"next": "other people"
+		},
+		"Care others dependant other": {
+			"title": "Other specified help to a dependent adult household member",
+			"caption": "Taking care of family or others",
+			"help": "Other specified help to a dependent adult household member",
+			"ID": 3929,
+			"next": "other people"
+		},
+		"Unspecified participatory activities": {
+			"title": "Unspecified participatory activities",
+			"caption": "Taking care of family or others",
+			"help": "Unspecified participatory activities",
+			"ID": 4300,
+			"next": "other people"
+		},
+		"Meetings": {
+			"title": "Meetings",
+			"caption": "Socialising",
+			"icon": "act2_friends",
+			"help": "Meetings",
+			"ID": 4310,
+			"next": "other people"
+		},
+		"Religious activities": {
+			"title": "Religious activities",
+			"caption": "Socialising",
+			"help": "Religious activities",
+			"ID": 4320,
+			"next": "other people"
+		},
+		"Other specified participatory activities": {
+			"title": "Other specified participatory activities",
+			"caption": "Socialising",
+			"help": "Other specified participatory activities",
+			"ID": 4390,
+			"next": "other people"
+		},
+		"Leisure": {
+			"title": "Personal care",
+			"caption": "Me, leisure",
+			"icon": "act2_leisure",
+			"help": "Personal care, by yourself",
+			"ID": 5000,
+			"category": "recreation",
+			"next": "leisure"
+		},
+		"Unspecified social life": {
+			"title": "Unspecified social life",
+			"caption": "Socialising",
+			"help": "Unspecified social life",
+			"ID": 5100,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Socialising with family": {
+			"title": "Socialising with family",
+			"caption": "Socialising",
+			"help": "Socialising with family",
+			"ID": 5110,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Visiting and receiving visitors": {
+			"title": "Visiting and receiving visitors",
+			"caption": "Socialising",
+			"help": "Visiting and receiving visitors",
+			"ID": 5120,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Celebrations": {
+			"title": "Celebrations",
+			"caption": "Socialising",
+			"help": "Celebrations",
+			"ID": 5130,
+			"next": "other people"
+		},
+		"Telephone conversation": {
+			"title": "Telephone conversation",
+			"caption": "Socialising",
+			"help": "Telephone conversation",
+			"ID": 5140,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Socialising": {
+			"title": "Socialising",
+			"caption": "Socialising",
+			"icon": "act2_friends",
+			"help": "with others",
+			"ID": 5190,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Indoor pairs or doubles games": {
+			"title": "Indoor pairs or doubles games",
+			"caption": "Leisure involving computer",
+			"help": "Indoor pairs or doubles games",
+			"ID": 6141,
+			"next": "other people"
+		},
+		"Indoor team games": {
+			"title": "Indoor team games",
+			"caption": "Leisure involving computer",
+			"help": "Indoor team games",
+			"ID": 6142,
+			"next": "other people"
+		},
+		"Computing - programming": {
+			"title": "Computing - programming",
+			"caption": "Leisure involving computer",
+			"help": "Computing - programming",
+			"ID": 7220,
+			"next": "other people"
+		},
+		"Mobile device": {
+			"title": "Mobile device",
+			"caption": "Mobile device",
+			"icon": "app_mobile",
+			"help": "Computer or mobile device",
+			"ID": 7230,
+			"next": "other people"
+		},
+		"Information searching on the internet": {
+			"title": "Information searching on the internet",
+			"caption": "Leisure involving computer",
+			"help": "Information searching on the internet",
+			"ID": 7231,
+			"next": "other people"
+		},
+		"Other specified information by computing": {
+			"title": "Other specified information by computing",
+			"caption": "Leisure involving computer",
+			"help": "Other specified information by computing",
+			"ID": 7239,
+			"next": "other people"
+		},
+		"Unspecified communication by computer": {
+			"title": "Unspecified communication by computer",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified communication by computer",
+			"ID": 7240,
+			"next": "other people"
+		},
+		"Communication on the internet": {
+			"title": "Communication on the internet",
+			"caption": "Leisure involving computer",
+			"help": "Communication on the internet",
+			"ID": 7241,
+			"next": "other people"
+		},
+		"Other specified communication by computing": {
+			"title": "Other specified communication by computing",
+			"caption": "Leisure involving computer",
+			"help": "Other specified communication by computing",
+			"ID": 7249,
+			"next": "other people"
+		},
+		"Unspecified other computing": {
+			"title": "Unspecified other computing",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified other computing",
+			"ID": 7250,
+			"next": "other people"
+		},
+		"Skype or other video call": {
+			"title": "Skype or other video call",
+			"caption": "Leisure involving computer",
+			"help": "Skype or other video call",
+			"ID": 7251,
+			"next": "other people"
+		},
+		"Other specified computing": {
+			"title": "Other specified computing",
+			"caption": "Leisure involving computer",
+			"help": "Other specified computing",
+			"ID": 7259,
+			"next": "other people"
+		},
+		"Unspecified games": {
+			"title": "Unspecified games",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified games",
+			"ID": 7300,
+			"next": "other people"
+		},
+		"Solo games and play": {
+			"title": "Solo games and play",
+			"caption": "Leisure involving computer",
+			"help": "Solo games and play",
+			"ID": 7310,
+			"next": "other people"
+		},
+		"Unspecified games and play with others": {
+			"title": "Unspecified games and play with others",
+			"caption": "Leisure involving computer",
+			"help": "Unspecified games and play with others",
+			"ID": 7320,
+			"next": "other people"
+		},
+		"Billiards, pool, snooker or petanque": {
+			"title": "Billiards, pool, snooker or petanque",
+			"caption": "Leisure involving computer",
+			"help": "Billiards, pool, snooker or petanque",
+			"ID": 7321,
+			"next": "other people"
+		},
+		"Chess and bridge": {
+			"title": "Chess and bridge",
+			"caption": "Leisure involving computer",
+			"help": "Chess and bridge",
+			"ID": 7322,
+			"next": "other people"
+		},
+		"Other specified parlour games and play": {
+			"title": "Other specified parlour games and play",
+			"caption": "Leisure involving computer",
+			"help": "Other specified parlour games and play",
+			"ID": 7329,
+			"next": "other people"
+		},
+		"Computer games": {
+			"title": "Computer games",
+			"caption": "Leisure involving computer",
+			"help": "Computer games",
+			"ID": 7330,
+			"next": "other people"
+		},
+		"Gambling": {
+			"title": "Gambling",
+			"caption": "Leisure",
+			"help": "Gambling",
+			"ID": 7340,
+			"next": "other people"
+		},
+		"Other specified games ": {
+			"title": "Other specified games",
+			"caption": "Leisure",
+			"help": "Other specified games",
+			"ID": 7390,
+			"next": "other people"
+		},
+		"Unspecified mass media": {
+			"title": "Unspecified mass media",
+			"caption": "Social media",
+			"help": "Unspecified mass media",
+			"ID": 8000,
+			"next": "other people"
+		},
+		"Social media": {
+			"title": "Social media",
+			"caption": "Social media",
+			"icon": "app_tablet",
+			"help": "On Facebook, Twitter..",
+			"ID": 8001,
+			"category": "care_self",
+			"next": "other people"
+                },
+		"Unspecified reading": {
+			"title": "Unspecified reading",
+			"caption": "Leisure",
+			"help": "Unspecified reading",
+			"ID": 8100,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Reading periodicals": {
+			"title": "Reading periodicals",
+			"caption": "Leisure",
+			"help": "Reading periodicals",
+			"ID": 8110,
+			"next": "other people"
+		},
+		"Reading books": {
+			"title": "Reading",
+			"caption": "Reading",
+			"icon": "act2_book",
+			"help": "Print or mobile device",
+			"ID": 8120,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Other specified reading": {
+			"title": "Other specified reading",
+			"caption": "Leisure",
+			"help": "Other specified reading",
+			"ID": 8190,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Leisure TV": {
+			"title": "Screen time",
+			"caption": "Screen time",
+			"icon": "app_TV",
+			"help": "Watching TV, YouTube, film...",
+			"ID": 8210,
+			"category": "recreation",
+			"next": "leisure tv device"
+		},
+
+
+
+
+
+		"Watching a film on TV": {
+			"title": "Watching a film on TV",
+			"caption": "Leisure",
+			"help": "Watching a film on TV",
+			"ID": 8211,
+			"next": "other people"
+		},
+		"Watching sport on TV ": {
+			"title": "Watching sport on TV",
+			"caption": "Leisure",
+			"help": "Watching sport on TV",
+			"ID": 8212,
+			"next": "other people"
+		},
+
+
+
+
+
+		"Leisure TV Mobile": {
+			"title": "Screen time (mobile)",
+			"caption": "Mobile",
+			"icon": "app_mobile",
+			"help": "Watching something on a mobile",
+			"ID": 8213,
+			"category": "recreation",
+			"next": "device use"
+		},
+		"Leisure TV Projector": {
+			"title": "Screen time (projector)",
+			"caption": "Projector",
+			"icon": "app_projector",
+			"help": "Watching something with a projector",
+			"ID": 8214,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Leisure TV TV": {
+			"title": "Watching TV",
+			"caption": "TV",
+			"icon": "app_TV",
+			"help": "Watching TV",
+			"ID": 8215,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Leisure TV Computer": {
+			"title": "Computer",
+			"caption": "Computer",
+			"icon": "app_laptop",
+			"help": "Laptop, desktop...",
+			"ID": 8216,
+			"category": "recreation",
+			"next": "device use"
+		},
+		"Leisure TV Laptop": {
+			"title": "Screen time (laptop)",
+			"caption": "Laptop",
+			"icon": "app_laptop",
+			"help": "Watching TV on a laptop",
+			"ID": 8216,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Leisure TV Tablet": {
+			"title": "Screen time (tablet)",
+			"caption": "Tablet",
+			"icon": "act2_screen",
+			"help": "Watching TV on a tablet",
+			"ID": 8217,
+			"category": "recreation",
+			"next": "device use"
+		},
+
+		"Device Next": {
+			"title": "Screen time",
+			"caption": "Next...",
+			"icon": "act2_skip",
+			"help": "No need to be more specific",
+			"ID": 8210,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Leisure TV Other": {
+			"title": "Screen time",
+			"caption": "Next...",
+			"icon": "act2_skip",
+			"help": "No need to be more specific",
+			"ID": 8210,
+			"category": "recreation",
+			"next": "other people"
+		},
+
+
+		"Other specified TV watching": {
+			"title": "Watching TV",
+			"caption": "Leisure",
+			"help": "Other specified TV watching",
+			"ID": 8219,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Unspecified video watching": {
+			"title": "Watching video",
+			"caption": "Leisure",
+			"help": "Unspecified video watching",
+			"ID": 8220,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Device Videos": {
+			"title": "Screen time",
+			"caption": "Videos",
+			"icon": "app_DVD",
+			"help": "YouTube, Netflix, iPlayer...",
+			"ID": 8221,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Watching sport on video": {
+			"title": "Watching sport",
+			"caption": "Leisure",
+			"help": "Watching sport on video",
+			"ID": 8222,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Leisure video": {
+			"title": "Watching TV/video",
+			"caption": "Leisure",
+			"help": "XXXX",
+			"ID": 8229,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Unspecified listening to radio and music": {
+			"title": "Unspecified listening to radio and music",
+			"caption": "Leisure",
+			"help": "Unspecified listening to radio and music",
+			"ID": 8300,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Unspecified radio listening": {
+			"title": "Unspecified radio listening",
+			"caption": "Leisure",
+			"help": "Unspecified radio listening",
+			"ID": 8310,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Listening to music on the radio": {
+			"title": "Listening to music on the radio",
+			"caption": "Leisure",
+			"help": "Listening to music on the radio",
+			"ID": 8311,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Listening to sport on the radio": {
+			"title": "Listening to sport on the radio",
+			"caption": "Leisure",
+			"help": "Listening to sport on the radio",
+			"ID": 8312,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Other specified radio listening": {
+			"title": "Other specified radio listening",
+			"caption": "Leisure",
+			"help": "Other specified radio listening",
+			"ID": 8319,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Listening to recordings ": {
+			"title": "Listening to recordings",
+			"caption": "Leisure",
+			"help": "Listening to recordings",
+			"ID": 8320,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Unspecified employment": {
+			"title": "Unspecified employment",
+			"caption": "Work",
+			"help": "Unspecified employment",
+			"ID": 1000,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Work": {
+			"title": "generic work",
+			"caption": "Work /<br>Housework",
+			"icon": "act2_work",
+			"help": "Housework, Homework, Job, Volunteering",
+			"ID": 1100,
+			"category": "work",
+			"next": "work"
+		},
+		"Unspecified main job": {
+			"title": "Unspecified main job",
+			"caption": "Work",
+			"help": "Unspecified main job",
+			"ID": 1100,
+			"next": "work job"
+		},
+		"Main job": {
+			"title": "Main job",
+			"caption": "Main job",
+			"icon": "act2_work",
+			"help": "Working time in main job",
+			"ID": 1110,
+			"category": "work",
+			"next": "work job"
+		},
+		"Computer Work":  { 
+			"title": "Work",
+			"caption": "Work",
+			"icon": "app_computer",
+			"help": "Work related device use",
+			"ID": 1111,
+			"category": "other_category",
+			"next": "other people" 
+		},
+		"Work job break": {
+			"title": "Work break",
+			"caption": "Break",
+			"icon": "act2_hot_drink",
+			"help": "Coffee, lunch, chat...",
+			"ID": 1120,
+			"category": "care_self",
+			"next": "work job break"
+		},
+		"Work job manual": {
+			"title": "Work",
+			"caption": "Hands",
+			"icon": "act2_work_manual",
+			"help": "Using hands or strength",
+			"category": "work",
+			"ID": 1130,
+			"next": "other people"
+		},
+		"Work job other": {
+			"title": "Work",
+			"caption": "Next...",
+			"icon": "act2_skip",
+			"help": "Other work",
+			"ID": 1140,
+			"category": "work",
+			"next": "other people"
+		},
+		"Unspecified second job": {
+			"title": "Unspecified second job",
+			"caption": "Work",
+			"help": "Unspecified second job",
+			"ID": 1200,
+			"category": "work",
+			"next": "other people"
+		},
+		"Working time in second job": {
+			"title": "Other job",
+			"caption": "Other job",
+			"icon": "act2_work",
+			"help": "Working in second or other job",
+			"ID": 1210,
+			"category": "work",
+			"next": "work job"
+		},
+		"Coffee and other breaks in second job": {
+			"title": "Coffee and other breaks in second job",
+			"caption": "Work",
+			"help": "Coffee and other breaks in second job",
+			"ID": 1220,
+			"next": "other people"
+		},
+		"Unspecified activities related to employment": {
+			"title": "Work or Housework",
+			"caption": "Skip",
+			"icon": "act2_skip",
+			"help": "None of the above",
+			"ID": 1300,
+			"next": "other people"
+		},
+		"Lunch break": {
+			"title": "Lunch break",
+			"caption": "Work",
+			"help": "Lunch break",
+			"ID": 1310,
+			"next": "other people"
+		},
+		"Other specified activities related to employment": {
+			"title": "Other specified activities related to employment",
+			"caption": "Work",
+			"help": "Other specified activities related to employment",
+			"ID": 1390,
+			"next": "other people"
+		},
+		"Activities related to job seeking": {
+			"title": "Activities related to job seeking",
+			"caption": "Work",
+			"help": "Activities related to job seeking",
+			"ID": 1391,
+			"next": "other people"
+		},
+		"xxOther specified activities related to employment": {
+			"title": "Other specified activities related to employment",
+			"caption": "Work",
+			"help": "Other specified activities related to employment",
+			"ID": 1399,
+			"next": "other people"
+		},
+		"Unspecified study": {
+			"title": "Unspecified study",
+			"caption": "Work",
+			"help": "Unspecified study",
+			"ID": 2000,
+			"next": "other people"
+		},
+		"Other activities related to school or university": {
+			"title": "Study",
+			"caption": "Study",
+			"help": "Other activities related to school or university",
+			"ID": 2100,
+			"next": "other people"
+		},
+		"Classes and lectures": {
+			"title": "Classes and lectures",
+			"caption": "Study",
+			"help": "Classes and lectures",
+			"ID": 2110,
+			"next": "other people"
+		},
+		"Homework": {
+			"title": "Homework",
+			"caption": "Study",
+			"help": "Homework",
+			"ID": 2120,
+			"next": "other people"
+		},
+		"Study": {
+			"title": "Study",
+			"caption": "Study",
+			"icon": "act2_study",
+			"help": "School, uni, further education",
+			"ID": 2190,
+			"next": "work job"
+		},
+		"Free Time Study": {
+			"title": "Free Time Study",
+			"caption": "Study",
+			"help": "Free Time Study",
+			"ID": 2210,
+			"next": "other people"
+		},
+		"Gardening": {
+			"title": "Gardening",
+			"caption": "Gardening",
+			"icon": "act2_gardening",
+			"help": "Tending your garden",
+			"ID": 3410,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Tending domestic animals": {
+			"title": "Tending domestic animals",
+			"caption": "Unspecified gardening and pet care",
+			"help": "Tending domestic animals",
+			"ID": 3420,
+			"next": "other people"
+		},
+		"Caring for pets": {
+			"title": "With pet",
+			"caption": "Pet",
+			"icon": "act2_pets",
+			"help": "Caring for pet(s)",
+			"ID": 3430,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Walking the dog": {
+			"title": "Walking the dog",
+			"caption": "Dog",
+			"icon": "act2_dog",
+			"help": "Walking the dog",
+			"ID": 3440,
+			"category": "care_other",
+			"next": "other people"
+		},
+		"Other specified gardening and pet care": {
+			"title": "Other specified gardening and pet care",
+			"caption": "Unspecified gardening and pet care",
+			"help": "Other specified gardening and pet care",
+			"category": "care_house",
+			"ID": 3490,
+			"next": "other people"
+		},
+		"Unspecified construction and repairs": {
+			"title": "Unspecified construction and repairs",
+			"caption": "Construction and repairs",
+			"help": "Unspecified construction and repairs",
+			"ID": 3500,
+			"next": "other people"
+		},
+		"House construction and renovation": {
+			"title": "House construction and renovation",
+			"caption": "Construction and repairs",
+			"help": "House construction and renovation",
+			"ID": 3510,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Repairs of house": {
+			"title": "Repairs of house",
+			"caption": "Construction and repairs",
+			"help": "Repairs of house",
+			"ID": 3520,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Unspecified making, repairing and maintaining equipment": {
+			"title": "Unspecified making, repairing and maintaining equipment",
+			"caption": "Construction and repairs",
+			"help": "Unspecified making, repairing and maintaining equipment",
+			"ID": 3530,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Woodcraft, metal craft, sculpture and pottery": {
+			"title": "Woodcraft, metal craft, sculpture and pottery",
+			"caption": "Construction and repairs",
+			"help": "Woodcraft, metal craft, sculpture and pottery",
+			"ID": 3531,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Other specified making, repairing and maintaining equipment": {
+			"title": "Other specified making, repairing and maintaining equipment",
+			"caption": "Construction and repairs",
+			"help": "Other specified making, repairing and maintaining equipment",
+			"ID": 3539,
+			"next": "other people"
+		},
+		"Vehicle maintenance": {
+			"title": "Vehicle maintenance",
+			"caption": "Construction and repairs",
+			"help": "Vehicle maintenance",
+			"ID": 3540,
+			"next": "other people"
+		},
+		"Other specified construction and repairs": {
+			"title": "Other specified construction and repairs",
+			"caption": "Construction and repairs",
+			"help": "Other specified construction and repairs",
+			"ID": 3590,
+			"next": "other people"
+		},
+		"Shopping and services": {
+			"title": "Shopping",
+			"caption": "Shopping and service",
+			"icon": "act2_shopping",
+			"help": "Buying goods or services",
+			"ID": 3600,
+			"category": "care_self",
+			"next": "other people"
+		},
+		"Unspecified shopping": {
+			"title": "Shopping",
+			"caption": "Shopping",
+			"help": "Unspecified shopping",
+			"ID": 3610,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Shopping mainly for food": {
+			"title": "Shopping mainly for food",
+			"caption": "Shopping",
+			"help": "Shopping mainly for food",
+			"ID": 3611,
+			"category": "food",
+			"next": "other people"
+		},
+		"Shopping mainly for clothing": {
+			"title": "Shopping mainly for clothing",
+			"caption": "Shopping",
+			"help": "Shopping mainly for clothing",
+			"ID": 3612,
+			"next": "other people"
+		},
+		"Shopping mainly related to accommodation": {
+			"title": "Shopping mainly related to accommodation",
+			"caption": "Shopping",
+			"help": "Shopping mainly related to accommodation",
+			"ID": 3613,
+			"next": "other people"
+		},
+		"Shopping or browsing at car boot sales or antique fairs": {
+			"title": "Shopping or browsing at car boot sales or antique fairs",
+			"caption": "Shopping",
+			"help": "Shopping or browsing at car boot sales or antique fairs",
+			"ID": 3614,
+			"next": "other people"
+		},
+		"Window shopping or other shopping as leisure": {
+			"title": "Window shopping or other shopping as leisure",
+			"caption": "Shopping",
+			"help": "Window shopping or other shopping as leisure",
+			"ID": 3615,
+			"next": "other people"
+		},
+		"Other specified shopping": {
+			"title": "Other specified shopping",
+			"caption": "Shopping",
+			"help": "Other specified shopping",
+			"ID": 3619,
+			"next": "other people"
+		},
+		"Commercial and administrative services": {
+			"title": "Commercial and administrative services",
+			"caption": "Services",
+			"help": "Commercial and administrative services",
+			"ID": 3620,
+			"next": "other people"
+		},
+		"Personal services": {
+			"title": "Personal services",
+			"caption": "Services",
+			"help": "Personal services",
+			"ID": 3630,
+			"next": "other people"
+		},
+		"Other specified shopping and services": {
+			"title": "Other specified shopping and services",
+			"caption": "Services",
+			"help": "Other specified shopping and services",
+			"ID": 3690,
+			"next": "other people"
+		},
+		"Volunteer work and meetings": {
+			"title": "Volunteer work and meetings",
+			"caption": "Volunteering",
+			"icon": "act2_volunteer",
+			"help": "Unpaid work or activity",
+			"ID": 4000,
+			"next": "work job"
+		},
+		"Unspecified organisational work": {
+			"title": "Unspecified organisational work",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Unspecified organisational work",
+			"ID": 4100,
+			"next": "other people"
+		},
+		"Work for an organisation": {
+			"title": "Work for an organisation",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Work for an organisation",
+			"ID": 4110,
+			"next": "other people"
+		},
+		"Volunteer work through an organisation": {
+			"title": "Volunteer work through an organisation",
+			"caption": "Voluntary work",
+			"help": "Volunteer work through an organisation",
+			"ID": 4120,
+			"next": "other people"
+		},
+		"Other specified organisational work": {
+			"title": "Other specified organisational work",
+			"caption": "VOLUNTARY WORK AND MEETINGS",
+			"help": "Other specified organisational work",
+			"ID": 4190,
+			"next": "other people"
+		},
+		"Unspecified informal help to other households": {
+			"title": "Unspecified informal help to other households",
+			"caption": "Asistance/Help",
+			"help": "Unspecified informal help to other households",
+			"ID": 4200,
+			"next": "other people"
+		},
+		"Food management as help to other households": {
+			"title": "Food management as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Food management as help to other households",
+			"ID": 4210,
+			"next": "other people"
+		},
+		"Household upkeep as help to other households": {
+			"title": "Household upkeep as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Household upkeep as help to other households",
+			"ID": 4220,
+			"next": "other people"
+		},
+		"Gardening and pet care as help to other households": {
+			"title": "Gardening and pet care as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Gardening and pet care as help to other households",
+			"ID": 4230,
+			"next": "other people"
+		},
+		"Construction and repairs as help to other households": {
+			"title": "Construction and repairs as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Construction and repairs as help to other households",
+			"ID": 4240,
+			"next": "other people"
+		},
+		"Shopping and services as help to other households": {
+			"title": "Shopping and services as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Shopping and services as help to other households",
+			"ID": 4250,
+			"next": "other people"
+		},
+		"Help to other households in employment and farming": {
+			"title": "Help to other households in employment and farming",
+			"caption": "Asistance/Help",
+			"help": "Help to other households in employment and farming",
+			"ID": 4260,
+			"next": "other people"
+		},
+		"Unspecified childcare as help to other households": {
+			"title": "Unspecified childcare as help to other households",
+			"caption": "Asistance/Help",
+			"help": "Unspecified childcare as help to other households",
+			"ID": 4270,
+			"next": "other people"
+		},
+		"Physical care and supervision of child as help to other household": {
+			"title": "Physical care and supervision of child as help to other household",
+			"caption": "Asistance/Help",
+			"help": "Physical care and supervision of child as help to other household",
+			"ID": 4271,
+			"next": "other people"
+		},
+		"Teaching the child as help": {
+			"title": "Teaching the child as help",
+			"caption": "Asistance/Help",
+			"help": "Teaching the child as help",
+			"ID": 4272,
+			"next": "other people"
+		},
+		"Reading, playing & talking to the child as help": {
+			"title": "Reading, playing & talking to the child as help",
+			"caption": "Asistance/Help",
+			"help": "Reading, playing & talking to the child as help",
+			"ID": 4273,
+			"next": "other people"
+		},
+		"Accompanying the child as help": {
+			"title": "Accompanying the child as help",
+			"caption": "Asistance/Help",
+			"help": "Accompanying the child as help",
+			"ID": 4274,
+			"next": "other people"
+		},
+		"Physical care and supervision of own child as help to other household": {
+			"title": "Physical care and supervision of own child as help to other household",
+			"caption": "Asistance/Help",
+			"help": "Physical care and supervision of own child as help to other household",
+			"ID": 4275,
+			"next": "other people"
+		},
+		"Teaching own non-coresident child": {
+			"title": "Teaching own non-coresident child",
+			"caption": "Asistance/Help",
+			"help": "Teaching own non-coresident child",
+			"ID": 4276,
+			"next": "other people"
+		},
+		"Reading, playing & talking to own non-coresident child": {
+			"title": "Reading, playing & talking to own non-coresident child",
+			"caption": "Asistance/Help",
+			"help": "Reading, playing & talking to own non-coresident child",
+			"ID": 4277,
+			"next": "other people"
+		},
+		"Accompanying own non-coresident child": {
+			"title": "Accompanying own non-coresident child",
+			"caption": "Asistance/Help",
+			"help": "Accompanying own non-coresident child",
+			"ID": 4278,
+			"next": "other people"
+		},
+		"Other specified childcare as help": {
+			"title": "Other specified childcare as help",
+			"caption": "Asistance/Help",
+			"help": "Other specified childcare as help",
+			"ID": 4279,
+			"next": "other people"
+		},
+		"Unspecified help to an adult member of another household": {
+			"title": "Unspecified help to an adult member of another household",
+			"caption": "Asistance/Help",
+			"help": "Unspecified help to an adult member of another household",
+			"ID": 4280,
+			"next": "other people"
+		},
+		"Physical care and supervision of an adult as help to another household": {
+			"title": "Physical care and supervision of an adult as help to another household",
+			"caption": "Asistance/Help",
+			"help": "Physical care and supervision of an adult as help to another household",
+			"ID": 4281,
+			"next": "other people"
+		},
+		"Accompanying an adult as help to another household": {
+			"title": "Accompanying an adult as help to another household",
+			"caption": "Asistance/Help",
+			"help": "Accompanying an adult as help to another household",
+			"ID": 4282,
+			"next": "other people"
+		},
+		"Other specified help to an adult member of another household": {
+			"title": "Other specified help to an adult member of another household",
+			"caption": "Asistance/Help",
+			"help": "Other specified help to an adult member of another household",
+			"ID": 4283,
+			"next": "other people"
+		},
+		"Accompanying an adult as help": {
+			"title": "Accompanying an adult as help",
+			"caption": "Asistance/Help",
+			"help": "Accompanying an adult as help",
+			"ID": 4284,
+			"next": "other people"
+		},
+		"xOther specified help to an adult member of another household": {
+			"title": "Other specified help to an adult member of another household",
+			"caption": "Asistance/Help",
+			"help": "Other specified help to an adult member of another household",
+			"ID": 4289,
+			"next": "other people"
+		},
+		"Other specified informal help": {
+			"title": "Other specified informal help",
+			"caption": "Asistance/Help",
+			"help": "Other specified informal help",
+			"ID": 4290,
+			"next": "other people"
+		},
+		"Unspecified entertainment and culture": {
+			"title": "Unspecified entertainment and culture",
+			"caption": "Entertainment/ Leisure",
+			"help": "Unspecified entertainment and culture",
+			"ID": 5200,
+			"next": "other people"
+		},
+		"Cinema": {
+			"title": "Cinema",
+			"caption": "Entertainment/ Leisure",
+			"help": "Cinema",
+			"ID": 5210,
+			"next": "other people"
+		},
+		"Unspecified theatre or concerts": {
+			"title": "Unspecified theatre or concerts",
+			"caption": "Entertainment/ Leisure",
+			"help": "Unspecified theatre or concerts",
+			"ID": 5220,
+			"next": "other people"
+		},
+		"Plays, musicals or pantomimes": {
+			"title": "Plays, musicals or pantomimes",
+			"caption": "Entertainment/ Leisure",
+			"help": "Plays, musicals or pantomimes",
+			"ID": 5221,
+			"next": "other people"
+		},
+		"Opera, operetta or light opera": {
+			"title": "Opera, operetta or light opera",
+			"caption": "Entertainment/ Leisure",
+			"help": "Opera, operetta or light opera",
+			"ID": 5222,
+			"next": "other people"
+		},
+		"Concerts or other performances of classical music": {
+			"title": "Concerts or other performances of classical music",
+			"caption": "Entertainment/ Leisure",
+			"help": "Concerts or other performances of classical music",
+			"ID": 5223,
+			"next": "other people"
+		},
+		"Live music other than classical concerts, opera and musicals": {
+			"title": "Live music other than classical concerts, opera and musicals",
+			"caption": "Entertainment/ Leisure",
+			"help": "Live music other than classical concerts, opera and musicals",
+			"ID": 5224,
+			"next": "other people"
+		},
+		"Dance performances": {
+			"title": "Dance performances",
+			"caption": "Entertainment/ Leisure",
+			"help": "Dance performances",
+			"ID": 5225,
+			"next": "other people"
+		},
+		"Other specified theatre or concerts": {
+			"title": "Other specified theatre or concerts",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified theatre or concerts",
+			"ID": 5229,
+			"next": "other people"
+		},
+		"Art exhibitions and museums": {
+			"title": "Art exhibitions and museums",
+			"caption": "Entertainment/ Leisure",
+			"help": "Art exhibitions and museums",
+			"ID": 5230,
+			"next": "other people"
+		},
+		"Unspecified library": {
+			"title": "Unspecified library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Unspecified library",
+			"ID": 5240,
+			"next": "other people"
+		},
+		"Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library": {
+			"title": "Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Borrowing books, records, audiotapes, videotapes, CDs, VDs etc. from a library",
+			"ID": 5241,
+			"next": "other people"
+		},
+		"Reference to bks and other library materials within library": {
+			"title": "Reference to bks and other library materials within library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Reference to bks and other library materials within library",
+			"ID": 5242,
+			"next": "other people"
+		},
+		"Using internet in the library": {
+			"title": "Using internet in the library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Using internet in the library",
+			"ID": 5243,
+			"next": "other people"
+		},
+		"Using computers in the library other than internet use": {
+			"title": "Using computers in the library other than internet use",
+			"caption": "Entertainment/ Leisure",
+			"help": "Using computers in the library other than internet use",
+			"ID": 5244,
+			"next": "other people"
+		},
+		"Reading newspapers in a library": {
+			"title": "Reading newspapers in a library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Reading newspapers in a library",
+			"ID": 5245,
+			"next": "other people"
+		},
+		"Listening to music in a library": {
+			"title": "Listening to music in a library",
+			"caption": "Entertainment/ Leisure",
+			"help": "Listening to music in a library",
+			"ID": 5246,
+			"next": "other people"
+		},
+		"Other specified library activities": {
+			"title": "Other specified library activities",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified library activities",
+			"ID": 5249,
+			"next": "other people"
+		},
+		"Sports events": {
+			"title": "Sports events",
+			"caption": "Entertainment/ Leisure",
+			"help": "Sports events",
+			"ID": 5250,
+			"next": "other people"
+		},
+		"Other specified entertainment and culture": {
+			"title": "Other specified entertainment and culture",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified entertainment and culture",
+			"ID": 5290,
+			"next": "other people"
+		},
+		"Visiting a historical site": {
+			"title": "Visiting a historical site",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a historical site",
+			"ID": 5291,
+			"next": "other people"
+		},
+		"Visiting a wildlife site": {
+			"title": "Visiting a wildlife site",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a wildlife site",
+			"ID": 5292,
+			"next": "other people"
+		},
+		"Visiting a botanical site": {
+			"title": "Visiting a botanical site",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a botanical site",
+			"ID": 5293,
+			"next": "other people"
+		},
+		"Visiting a leisure park": {
+			"title": "Visiting a leisure park",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting a leisure park",
+			"ID": 5294,
+			"next": "other people"
+		},
+		"Visiting an urban park, playground or designated play area": {
+			"title": "Visiting an urban park, playground or designated play area",
+			"caption": "Entertainment/ Leisure",
+			"help": "Visiting an urban park, playground or designated play area",
+			"ID": 5295,
+			"next": "other people"
+		},
+		"Other specified entertainment or culture": {
+			"title": "Other specified entertainment or culture",
+			"caption": "Entertainment/ Leisure",
+			"help": "Other specified entertainment or culture",
+			"ID": 5299,
+			"next": "other people"
+		},
+		"Care rest sleep": {
+			"title": "Rest or sleep",
+			"caption": "Rest, sleep",
+			"icon": "act2_rest",
+			"help": "Sleeping, resting, having a break",
+			"ID": 5311,
+			"category": "care_self",
+			"next": "care rest sleep"
+		},
+		"Care rest": {
+			"title": "Resting",
+			"caption": "Resting",
+			"icon": "act2_leisure",
+			"help": "Taking a break",
+			"ID": 5310,
+			"category": "care_self",
+			"next": "other people"
+		},
+
+
+		"Outdoors other": {
+			"title": "Outdoor activity",
+			"caption": "Other",
+			"icon": "act2_other",
+			"help": "Anything else",
+			"ID": 6000,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Unspecified sports and outdoor activities": {
+			"title": "Unspecified sports and outdoor activities",
+			"caption": "Sports",
+			"help": "Unspecified sports and outdoor activities",
+			"ID": 6000,
+			"next": "other people"
+		},
+
+
+		"Outdoor food": {
+			"title": "Outdoor food",
+			"caption": "Food",
+			"icon": "act2_food",
+			"help": "Any food related activity",
+			"ID": 6000,
+			"category": "food",
+			"next": "outdoors food"
+		},
+		"Outdoor food eating": {
+			"title": "Outdoors eating",
+			"caption": "Eating",
+			"icon": "act2_eat",
+			"help": "Meal outdoors, like restaurant or park",
+			"ID": 6001,
+			"category": "food",
+			"next": "other people"
+		},
+		"Outdoor food shopping": {
+			"title": "Food shopping",
+			"caption": "Shopping",
+			"icon": "act2_shop",
+			"help": "in outdoor shop",
+			"ID": 6002,
+			"category": "care_self",
+			"next": "other people"
+		},
+
+		"Outdoor food takeaway": {
+			"title": "Getting a takeaway",
+			"caption": "Takeaway",
+			"help": "Getting a takeaway meal",
+			"ID": 6003,
+			"category": "food",
+			"next": "other people"
+		},
+		"Outdoor food bbq": {
+			"title": "BBQ",
+			"caption": "BBQ",
+			"icon": "act2_bbq",
+			"help": "Having a Barbecue",
+			"ID": 6004,
+			"category": "food",
+			"next": "other people"
+		},
+		"Outdoor food other": {
+			"title": "Food outdoors",
+			"caption": "Next...",
+			"icon": "act2_other",
+			"help": "Other outdoor food activity",
+			"ID": 6005,
+			"category": "food",
+			"next": "other people"
+		},
+
+		"Outdoors appliances": {
+			"title": "Outdoors / appliances",
+			"caption": "Appliances",
+			"icon": "act2_appliance",
+			"help": "Using an appliance outdoors",
+			"ID": 6010,
+			"category": "recreation",
+			"next": "outdoors appliances"
+		},
+		"Exercise": {
+			"title": "Exercise",
+			"caption": "Exercise",
+			"icon": "act2_exercise",
+			"help": "Sport / physical activity",
+			"ID": 6100,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Walking and hiking": {
+			"title": "Walking and hiking",
+			"caption": "Sports",
+			"icon": "act2_walk",
+			"help": "Walking and hiking",
+			"ID": 6110,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Taking a walk or hike that lasts at least 2 miles or 1 hour": {
+			"title": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
+			"caption": "Sports",
+			"help": "Taking a walk or hike that lasts at least 2 miles or 1 hour",
+			"ID": 6111,
+			"next": "other people"
+		},
+		"Other walk or hike": {
+			"title": "Other walk or hike",
+			"caption": "Sports",
+			"icon": "act2_walk",
+			"help": "Other walk or hike",
+			"ID": 6119,
+			"next": "other people"
+		},
+		"Jogging and running": {
+			"title": "Jogging and running",
+			"caption": "Sports",
+			"help": "Jogging and running",
+			"ID": 6120,
+			"next": "other people"
+		},
+		"Biking, skiing and skating": {
+			"title": "Biking, skiing and skating",
+			"caption": "Sports",
+			"help": "Biking, skiing and skating",
+			"ID": 6130,
+			"next": "other people"
+		},
+		"Biking": {
+			"title": "Biking",
+			"caption": "Sports",
+			"help": "Biking",
+			"ID": 6131,
+			"next": "other people"
+		},
+		"Skiing or skating": {
+			"title": "Skiing or skating",
+			"caption": "Sports",
+			"help": "Skiing or skating",
+			"ID": 6132,
+			"next": "other people"
+		},
+		"Unspecified ball games": {
+			"title": "Unspecified ball games",
+			"caption": "Sports",
+			"help": "Unspecified ball games",
+			"ID": 6140,
+			"next": "other people"
+		},
+		"Outdoor pairs or doubles games": {
+			"title": "Outdoor pairs or doubles games",
+			"caption": "Sports",
+			"help": "Outdoor pairs or doubles games",
+			"ID": 6143,
+			"next": "other people"
+		},
+		"Outdoor team games": {
+			"title": "Outdoor team games",
+			"caption": "Sports ",
+			"help": "Outdoor team games",
+			"ID": 6144,
+			"next": "other people"
+		},
+		"Other specified ball games": {
+			"title": "Other specified ball games",
+			"caption": "Sports ",
+			"help": "Other specified ball games",
+			"ID": 6149,
+			"next": "other people"
+		},
+		"Gymnastics": {
+			"title": "Gymnastics",
+			"caption": "Sports ",
+			"help": "Gymnastics",
+			"ID": 6150,
+			"next": "other people"
+		},
+		"Fitness": {
+			"title": "Fitness",
+			"caption": "Sports ",
+			"help": "Fitness",
+			"ID": 6160,
+			"next": "other people"
+		},
+		"Unspecified water sports": {
+			"title": "Unspecified water sports",
+			"caption": "Sports ",
+			"help": "Unspecified water sports",
+			"ID": 6170,
+			"next": "other people"
+		},
+		"Swimming": {
+			"title": "Swimming",
+			"caption": "Sports ",
+			"help": "Swimming",
+			"ID": 6171,
+			"next": "other people"
+		},
+		"Other specified water sports": {
+			"title": "Other specified water sports",
+			"caption": "Sports ",
+			"help": "Other specified water sports",
+			"ID": 6179,
+			"next": "other people"
+		},
+		"Other specified physical exercise": {
+			"title": "Other specified physical exercise",
+			"caption": "Sports ",
+			"help": "Other specified physical exercise",
+			"ID": 6190,
+			"next": "other people"
+		},
+		"Unspecified productive exercise": {
+			"title": "Unspecified productive exercise",
+			"caption": "Sports ",
+			"help": "Unspecified productive exercise",
+			"ID": 6200,
+			"next": "other people"
+		},
+		"Hunting and fishing": {
+			"title": "Hunting and fishing",
+			"caption": "Sports ",
+			"help": "Hunting and fishing",
+			"ID": 6210,
+			"next": "other people"
+		},
+		"Picking berries, mushroom and herbs": {
+			"title": "Picking berries, mushroom and herbs",
+			"caption": "Sports ",
+			"help": "Picking berries, mushroom and herbs",
+			"ID": 6220,
+			"next": "other people"
+		},
+		"Other specified productive exercise": {
+			"title": "Other specified productive exercise",
+			"caption": "Sports ",
+			"help": "Other specified productive exercise",
+			"ID": 6290,
+			"next": "other people"
+		},
+		"Unspecified sports related activities": {
+			"title": "Unspecified sports related activities",
+			"caption": "Sports ",
+			"help": "Unspecified sports related activities",
+			"ID": 6310,
+			"next": "other people"
+		},
+		"Activities related to sports": {
+			"title": "Activities related to sports",
+			"caption": "Sports ",
+			"help": "Activities related to sports",
+			"ID": 6311,
+			"next": "other people"
+		},
+		"Activities related to productive exercise": {
+			"title": "Activities related to productive exercise",
+			"caption": "Sports ",
+			"help": "Activities related to productive exercise",
+			"ID": 6312,
+			"next": "other people"
+		},
+		"Nature": {
+			"title": "In nature",
+			"icon": "act2_nature",
+			"caption": "Nature",
+			"help": "Being in nature",
+			"ID": 6400,
+			"category": "recreation",
+			"next": "nature"
+		},
+		"Leisure other": {
+			"title": "Unspecified hobbies, games and computing",
+			"caption": "Other",
+			"icon": "act2_other",
+			"help": "Other hobbies, games or computing",
+			"ID": 7000,
+			"next": "other people"
+		},
+		"Unspecified arts": {
+			"title": "Unspecified arts",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified arts",
+			"ID": 7100,
+			"next": "other people"
+		},
+		"Unspecified visual arts": {
+			"title": "Unspecified visual arts",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified visual arts",
+			"ID": 7110,
+			"next": "other people"
+		},
+		"Painting, drawing or other graphic arts": {
+			"title": "Painting, drawing or other graphic arts",
+			"caption": "Hobbies/leisure",
+			"help": "Painting, drawing or other graphic arts",
+			"ID": 7111,
+			"next": "other people"
+		},
+		"Making videos, taking photos or related activities": {
+			"title": "Making videos, taking photos or related activities",
+			"caption": "Hobbies/leisure",
+			"help": "Making videos, taking photos or related activities",
+			"ID": 7112,
+			"next": "other people"
+		},
+		"Other specified visual arts": {
+			"title": "Other specified visual arts",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified visual arts",
+			"ID": 7119,
+			"next": "other people"
+		},
+		"Unspecified performing arts": {
+			"title": "Unspecified performing arts",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified performing arts",
+			"ID": 7120,
+			"next": "other people"
+		},
+		"Singing or other musical activities": {
+			"title": "Singing or other musical activities",
+			"caption": "Hobbies/leisure",
+			"help": "Singing or other musical activities",
+			"ID": 7121,
+			"next": "other people"
+		},
+		"Other specified performing arts": {
+			"title": "Other specified performing arts",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified performing arts",
+			"ID": 7129,
+			"next": "other people"
+		},
+		"Literary arts": {
+			"title": "Literary arts",
+			"caption": "Hobbies/leisure",
+			"help": "Literary arts",
+			"ID": 7130,
+			"next": "other people"
+		},
+		"Other specified arts": {
+			"title": "Other specified arts",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified arts",
+			"ID": 7140,
+			"next": "other people"
+		},
+		"Unspecified hobbies": {
+			"title": "Unspecified hobbies",
+			"caption": "Hobbies/leisure",
+			"help": "Unspecified hobbies",
+			"ID": 7150,
+			"next": "other people"
+		},
+		"Collecting": {
+			"title": "Collecting",
+			"caption": "Hobbies/leisure",
+			"help": "Collecting",
+			"ID": 7160,
+			"next": "other people"
+		},
+		"Device Email": {
+			"title": "email",
+			"caption": "Email",
+			"help": "Reading or writing",
+			"icon": "app_computer",
+			"ID": 7170,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Other specified or unspecified arts and hobbies": {
+			"title": "Other specified or unspecified arts and hobbies",
+			"caption": "Hobbies/leisure",
+			"help": "Other specified or unspecified arts and hobbies",
+			"ID": 7190,
+			"next": "other people"
+		},
+		"Travel purpose 2": {
+			"title": "navigation",
+			"caption": "Show more options",
+			"help": "Travel related to unspecified time use",
+			"ID": 9000,
+			"category": "travel",
+			"next": "travel purpose 2"
+		},
+		"Travel purpose other": {
+			"title": "Travel",
+			"caption": "Other",
+			"icon": "act2_skip",
+			"help": "Not shown here",
+			"ID": 9000,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to personal business": {
+			"title": "Travel related to personal business",
+			"caption": "Travel activities",
+			"help": "Travel related to personal business",
+			"ID": 9010,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose commute": {
+			"title": "Travel to/from work",
+			"caption": "To/from work or school",
+			"help": "Travel to/from work",
+			"ID": 9100,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose work": {
+			"title": "Travel (work)",
+			"caption": "Work",
+			"icon": "act2_work",
+			"help": "For, to or from work",
+			"ID": 9110,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel to work from home and back only": {
+			"title": "Travel to work from home and back only",
+			"caption": "Travel activities",
+			"help": "Travel to work from home and back only",
+			"ID": 9120,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel to work from a place other than home": {
+			"title": "Travel to work from a place other than home",
+			"caption": "Travel activities",
+			"help": "Travel to work from a place other than home",
+			"ID": 9130,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to education": {
+			"title": "Travel related to education",
+			"caption": "Travel activities",
+			"help": "Travel related to education",
+			"ID": 9210,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose children": {
+			"title": "Take children",
+			"caption": "Children",
+			"icon": "act2_children",
+			"help": "For school, sport or social",
+			"ID": 9230,
+			"category": "travel",
+			"next": "travel purpose children"
+		},
+		"Travel purpose children school": { "title": "School run",
+			 "caption": "School / nursery",
+			 "icon": "act2_study",
+			 "help": "School run",
+			 "ID": 9231,
+			 "category": "travel",
+			 "next": "other people" 
+		},
+			
+		"Travel purpose children sport": { "title": "Child to/from sport",
+			 "caption": "Sport",
+			 "help": "To/from event/training",
+			 "icon": "act2_exercise",
+			 "ID": 9232,
+			 "category": "travel",
+			 "next": "other people" 
+		},
+			
+		"Travel purpose children social": { "title": "Child to/from friend",
+			 "caption": "See friends",
+			 "icon": "act2_friends",
+			 "help": "to play",
+			 "ID": 9233,
+			 "category": "travel",
+			 "next": "other people" 
+		},
+			
+		"Travel purpose children other": { "title": "Taking children",
+			 "caption": "Other",
+			 "icon": "act2_other",
+			 "help": "Something else",
+			 "ID": 9234,
+			 "category": "travel",
+			 "next": "other people" 
+		},
+			
+
+		"Travel purpose household": {
+			"title": "Household travel",
+			"caption": "Household",
+			"help": "To DIY store, plumber...",
+			"ID": 9310,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose shop service": {
+			"title": "Travel (shop/service)",
+			"caption": "Shopping / service",
+			"icon": "act2_shop",
+			"help": "food, goods, bank",
+			"ID": 9310,
+			"category": "care_house",
+			"next": "other people"
+		},
+		"Travel purpose shopping": {
+			"title": "Going shopping",
+			"caption": "Shopping",
+			 "icon": "act2_exercise",
+			"help": "Travel to/from shops",
+			"ID": 9360,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to services": {
+			"title": "Travel related to services",
+			"caption": "Travel activities",
+			"help": "Travel related to services",
+			"ID": 9370,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel escorting a child (other than education)": {
+			"title": "Travel escorting a child (other than education)",
+			"caption": "Travel activities",
+			"help": "Travel escorting a child (other than education)",
+			"ID": 9380,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel escorting an adult (other than education)": {
+			"title": "Travel escorting an adult (other than education)",
+			"caption": "Travel activities",
+			"help": "Travel escorting an adult (other than education)",
+			"ID": 9390,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to organisational work": {
+			"title": "Travel related to organisational work",
+			"caption": "Travel activities",
+			"help": "Travel related to organisational work",
+			"ID": 9400,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to voluntary work and meetings": {
+			"title": "Travel related to voluntary work and meetings",
+			"caption": "Travel activities",
+			"help": "Travel related to voluntary work and meetings",
+			"ID": 9410,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to informal help to other households": {
+			"title": "Travel related to informal help to other households",
+			"caption": "Travel activities",
+			"help": "Travel related to informal help to other households",
+			"ID": 9420,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to religious activities": {
+			"title": "Travel related to religious activities",
+			"caption": "Travel activities",
+			"help": "Travel related to religious activities",
+			"ID": 9430,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to participatory activities other than religious activities": {
+			"title": "Travel related to participatory activities other than religious activities",
+			"caption": "Travel activities",
+			"help": "Travel related to participatory activities other than religious activities",
+			"ID": 9440,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose friend": {
+			"title": "Travel (social)",
+			"caption": "Family / friends",
+			"icon": "act2_friends",
+			"help": "visiting or travelling with",
+			"ID": 9500,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose social": {
+			"title": "Travel (social)",
+			"caption": "Social activities",
+			"help": "Travel related to other social activities",
+			"ID": 9510,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose entertainment": {
+			"title": "Travel for entertainment",
+			"caption": "Entertainment",
+			"help": "Going to movies, theatre...",
+			"ID": 9520,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose leisure": {
+			"title": "Travel (leisure)",
+			"caption": "Leisure",
+			"icon": "act2_leisure",
+			"help": "to have fun",
+			"ID": 9600,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel purpose exercise": {
+			"title": "Exercise",
+			"caption": "Exercise",
+			"icon": "act2_exercise",
+			"help": "Health and fitness",
+			"ID": 9610,
+			"category": "recreation",
+			"next": "other people"
+		},
+		"Travel related to hunting & fishing": {
+			"title": "Travel related to hunting & fishing",
+			"caption": "Travel activities",
+			"help": "Travel related to hunting & fishing",
+			"ID": 9620,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to productive excs expt hunting & fishing": {
+			"title": "Travel related to productive excs expt hunting & fishing",
+			"caption": "Travel activities",
+			"help": "Travel related to productive excs expt hunting & fishing",
+			"ID": 9630,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to gambling": {
+			"title": "Travel related to gambling",
+			"caption": "Travel activities",
+			"help": "Travel related to gambling",
+			"ID": 9710,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to hobbies other than gambling": {
+			"title": "Travel related to hobbies other than gambling",
+			"caption": "Travel activities",
+			"help": "Travel related to hobbies other than gambling",
+			"ID": 9720,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel related to changing locality": {
+			"title": "Travel related to changing locality",
+			"caption": "Travel activities",
+			"help": "Travel related to changing locality",
+			"ID": 9800,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel to holiday base": {
+			"title": "Travel to holiday base",
+			"caption": "Travel activities",
+			"help": "Travel to holiday base",
+			"ID": 9810,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Travel for day trip/ just walk": {
+			"title": "Travel for day trip/ just walk",
+			"caption": "Travel activities",
+			"help": "Travel for day trip/ just walk",
+			"ID": 9820,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Other specified travel": {
+			"title": "Other specified travel",
+			"caption": "Travel activities",
+			"help": "Other specified travel",
+			"ID": 9890,
+			"category": "travel",
+			"next": "other people"
+		},
+		"Punctuating activity": {
+			"title": "Punctuating activity",
+			"caption": "Other activities",
+			"help": "Punctuating activity",
+			"ID": 9940,
+			"next": "other people"
+		},
+		"Filling in the time use diary": {
+			"title": "Filling in the time use diary",
+			"caption": "Other activities",
+			"help": "Filling in the time use diary",
+			"ID": 9950,
+			"next": "other people"
+		},
+		"No main activity, no idea what it might be": {
+			"title": "No main activity, no idea what it might be",
+			"caption": "Other activities",
+			"help": "No main activity, no idea what it might be",
+			"ID": 9960,
+			"next": "other people"
+		},
+		"No main activity, some idea what it might be": {
+			"title": "No main activity, some idea what it might be",
+			"caption": "Other activities",
+			"help": "No main activity, some idea what it might be",
+			"ID": 9970,
+			"next": "other people"
+		},
+		"Illegible activity": {
+			"title": "Illegible activity",
+			"caption": "Other activities",
+			"help": "Illegible activity",
+			"ID": 9980,
+			"next": "other people"
+		},
+		"Main other": {
+			"title": "Custom",
+			"caption": "Customise",
+			"icon": "Other_type",
+			"help": "Say in your own words",
+			"ID": 9990,
+			"next": "other specify"
+		},
+		"Other specify": {
+			"title": "Custom definition",
+			"caption": "Other...",
+			"icon": "Other_type",
+			"help": "Say in your own words",
+			"ID": 9990,
+			"next": "other specify"
+		},
+		"other": {
+			"title": "Unspecified time use",
+			"caption": "Other",
+			"icon": "act2_skip",
+			"help": "Unspecified time use",
+			"ID": 9991,
+			"next": "other people"
+		},
+
+		"more recent": {
+			"title": "quick list",
+			"caption": "More / pick recent activities",
+			"help": "Wash, dress, rest, care for child/friend/relative",
+			"ID": 0,
+			"category": "care_self",
+			"next": "care"
+		}
+	}
+}
