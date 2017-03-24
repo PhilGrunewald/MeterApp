@@ -1,3 +1,0 @@
-# log
-
-Phil and Davide...
