@@ -75,13 +75,14 @@ init: function() {
 				});
 			});
 		});
-	} else {
-		$.getJSON("/js/config.json", function(config) {
-			log.id 				= config.id;
-			log.start			= config.start;
-			app.catchupList 	= config.times;
-		})
 	}
+	//  else {
+	// 	$.getJSON("/js/config.json", function(config) {
+	// 		log.id 				= config.id;
+	// 		log.start			= config.start;
+	// 		app.catchupList 	= config.times;
+	// 	})
+	// }
 },
     
 // XXX take these two functions out (only were used by changeID()
