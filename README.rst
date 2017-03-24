@@ -5,7 +5,7 @@ Activity Recorder
     :height: 200
     :align: right
 
-
+X
 The Meter_ Activity Recorder records everyday household activities. The app is Cordova based and pre-installed on Android Devices, for Meter_ project participants to submit activity and individual information through a 
 simple interface. The app can also be used to code up hand written
 activity booklets. The code and dependent data is available in this `gitHub

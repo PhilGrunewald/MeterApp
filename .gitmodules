@@ -1,3 +1,0 @@
-[submodule "www/json"]
-	path = www/json
-	url = https://github.com/PhilGrunewald/MeterActivities.git
