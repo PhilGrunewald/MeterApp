@@ -1,8 +1,8 @@
 files.toc
+/Users/phil/Sites/MeterApp/www/index.html 
 /Users/phil/Sites/MeterApp/www/js/index.js
-/Users/phil/Sites/MeterApp/www/js/activities.json 
-/Users/phil/Sites/MeterApp/www/js/screens.json 
 /Users/phil/Sites/MeterApp/www/js/log.js 
 /Users/phil/Sites/MeterApp/www/js/utils.js 
+/Users/phil/Sites/MeterApp/www/json/activities.json 
+/Users/phil/Sites/MeterApp/www/json/screens.json 
 /Users/phil/Sites/MeterApp/www/css/index.css
-/Users/phil/Sites/MeterApp/www/index.html 
