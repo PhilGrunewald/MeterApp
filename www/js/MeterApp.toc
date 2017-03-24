@@ -1,8 +1,0 @@
-~/Sites/MeterApp/www/js/index.css 
-~/Sites/MeterApp/www/js/activities.json 
-~/Sites/MeterApp/www/js/activities.json 
-~/Sites/MeterApp/www/js/log.js 
-~/Sites/MeterApp/www/js/utils.js 
-~/Sites/MeterApp/www/index.html 
-~/Sites/MeterApp/www/css/index.css 
-~/Sites/MeterApp/www/js/screens.json 
