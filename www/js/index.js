@@ -73,14 +73,14 @@ var app = {
     onDeviceReady: function() {
 		/** Load json files before we get going 
 		 * has to be nested to run sequentially
-		 * @param {js/activities.json} contains the activities
+		 * @param {json/activities.json} contains the activities
 		 */
 
 	app.initialSetup();
-    $.getJSON('js/activities.json', function(data) {
+    $.getJSON('json/activities.json', function(data) {
 		console.log("loading YY Activities");
          app.activities = data.activities;
-         $.getJSON('js/screens.json', function(screen_data) {
+         $.getJSON('json/screens.json', function(screen_data) {
 			console.log("loading Screens");
              app.screens = screen_data.screens;
 				log.init( function() {
