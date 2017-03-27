@@ -77,6 +77,7 @@ var utils = {
 			}
 
 			var nowTime  = new Date().getTime();
+
 			var minDiff  = Math.round((time_.getTime() - nowTime)/60000);
 			var preStr  = "";
 			var postStr = "";
@@ -92,34 +93,31 @@ var utils = {
 				minDiff *= -1;
 			}
 			minDiff = Math.round(minDiff/5)*5;
-				// if (minDiff > 119) {
-				//     hourStr = parseInt(minDiff/60) + " hours ";
-				// } else
 				if (minDiff > 59) {
 					hourStr = parseInt(minDiff/60) + " h ";
-				//     hourStr = parseInt(minDiff/60) + " hour ";
 				}
 				if (minDiff % 60 != 0) {
 					minStr = minDiff % 60 + " min" ;
 				}
-				var act_time = time_.toISOString();
-				var actHour = act_time.substring(11,13);
-				var actMin = act_time.substring(14,16);
-				actMin = Math.round(actMin/5)*5;
-				if (actMin == 60) {
-					actMin = 0;
-					actHour = parseInt(actHour)+1;
-				}
 
-			actMinStr = ("0" + actMin).slice(-2);
+		var hour = time_.getHours();
+		var min  = time_.getMinutes();
+		min = Math.round(min/5)*5;
+		if (min == 60) {
+			min = 0;
+			hour += 1;
+		}
+
+		hour = hour % 12;
+		hour = hour ? hour : 12; // the hour '0' should be '12'
+		minPad = min < 10 ? '0'+min : min;
 
 			if (parseInt(minDiff) == 0) {
-				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMinStr);
 				res = " at the moment";
 			} else {
 				res = preStr + hourStr + minStr + postStr;
-				app.drawClock(app.actClock,parseInt(actHour),parseInt(actMin),"",actHour+":"+actMinStr);
 			}
+			app.drawClock(app.actClock,hour,min,"",hour+":"+minPad);
 
 			app.actClockDiv.show();
 			app.actClock.show();
