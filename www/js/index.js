@@ -77,10 +77,10 @@ var app = {
 		 */
 
 	app.initialSetup();
-    $.getJSON('../json/activities.json', function(data) {
+    $.getJSON('json/activities.json', function(data) {
 		console.log("loading YY Activities");
          app.activities = data.activities;
-         $.getJSON('../json/screens.json', function(screen_data) {
+         $.getJSON('json/screens.json', function(screen_data) {
 			console.log("loading Screens");
              app.screens = screen_data.screens;
 				log.init( function() {
