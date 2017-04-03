@@ -537,43 +537,43 @@ var app = {
 			//app.activityListPane.hide();
 			//app.waitFor5pm = setTimeout(function(){ app.showActivityList(); }, 10000);
 		}
-			console.log("hist: " + app.act_path);
-        	app.history = new Array();
-        	app.act_path = new Array();
-        	var activityList = utils.getList(ACTIVITY_LIST) || []
-        	var actsHTML = "";
+		console.log("hist: " + app.act_path);
+        app.history = new Array();
+        app.act_path = new Array();
+        var activityList = utils.getList(ACTIVITY_LIST) || []
+        var actsHTML = "";
 
-			var actKeys = Object.keys(activityList);
-			var actLength =Object.keys(activityList).length;
-			actKeys.sort();
+		var actKeys = Object.keys(activityList);
+		var actLength =Object.keys(activityList).length;
+		actKeys.sort();
 
-			var weekday = '';
-			for (i = actLength-1; i > -1; i--) {
-				var key = actKeys[i];
-				var item = activityList[key];
-				thisWeekday = utils.format_weekday(item.dt_activity);
-				if (weekday != thisWeekday) {
-					actsHTML += 
-        	    '<div class="row activity-row">' + thisWeekday + '</div>'
-				}
-				weekday = thisWeekday;
-                var activity    = app.activities[item.key];
-				// safety catch - somehow some people managed to store entries with a 'custom key', which is not in the list
-				if (activity !== undefined) {
-					var icon = activity.icon;
-				}
-				else {
-					var icon = "Other_type"
-				}
+		var weekday = '';
+		for (i = actLength-1; i > -1; i--) {
+			var key = actKeys[i];
+			var item = activityList[key];
+			thisWeekday = utils.format_weekday(item.dt_activity);
+			if (weekday != thisWeekday) {
+				actsHTML += 
+            '<div class="row activity-row">' + thisWeekday + '</div>'
+			}
+			weekday = thisWeekday;
+            var activity    = app.activities[item.key];
+			// safety catch - somehow some people managed to store entries with a 'custom key', which is not in the list
+			if (activity !== undefined) {
+				var icon = activity.icon;
+			}
+			else {
+				var icon = "Other_type"
+			}
 
-        	    actsHTML += 
-					'<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
-        	    	'<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
-        	    	'<div class="activity-cell activity-item">' + item.activity  + '</div> ' +
-					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+icon+'.png"></div>'+
-					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
-					'<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enjoyment+'.png"></div>'+
-				'</div>';
+            actsHTML += 
+				'<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
+            	'<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
+            	'<div class="activity-cell activity-item">' + item.activity  + '</div> ' +
+				'<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+icon+'.png"></div>'+
+				'<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
+				'<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enjoyment+'.png"></div>'+
+			'</div>';
 			}
 			app.act_count.show();
 			app.activity_list_div.html(actsHTML);
@@ -632,7 +632,7 @@ var app = {
 
 
     addActivityToList: function() {
-		// 2 Lists: local ACTIVITY_LIST and logAct file
+		// 2 Lists: local ACTIVITY_LIST and logActJSON file
     	var dt_recorded = new Date().toISOString();
 		var dt_act;
 		if (utils.get(ACTIVITY_DATETIME) == "same") {
