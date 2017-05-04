@@ -649,8 +649,8 @@ var app = {
         activityList[actID] = {
             "key"		: utils.get(CURR_ACTIVITY),
 			"Meta_idMeta": log.id,
-            "dt_activity": dt_act,
-			"dt_recorded": dt_recorded,
+            "dt_activity": utils.getDateTimeStr(dt_act),
+			"dt_recorded": utils.getDateTimeStr(dt_recorded),
 			"location"  : utils.get(CURR_LOCATION),
 			"people"	: utils.get(CURR_PEOPLE),
 			"enjoyment"	: utils.get(CURR_ENJOYMENT),

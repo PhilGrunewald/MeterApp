@@ -132,6 +132,23 @@ var utils = {
 
 	}, 
 
+    padded: function(i) {
+    return i < 10 ? '0' + i : i;
+    },
+
+    getDateTimeStr: function(DateTime) {
+    // produces a ISO like string without timezone
+    // 2000-07-31T00:59:59 (BST) -> 2007-07-30 23:59:59
+    dt = new Date(DateTime);
+     y = dt.getFullYear();
+     m = utils.padded(dt.getMonth()+1);
+     d = utils.padded(dt.getDate());
+     h = utils.padded(dt.getHours());
+     M = utils.padded(dt.getMinutes());
+     s = utils.padded(dt.getSeconds());
+     return y+'-'+m+'-'+d+' '+h+':'+M+':'+s;
+    },
+
 	actID : function(actTime) {
 		//var d = new Date().getTime();
 		actTime += performance.now();  	//use high-precision timer 
