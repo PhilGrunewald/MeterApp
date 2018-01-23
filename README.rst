@@ -316,7 +316,7 @@ Make changes to the code as you see fit and then test it as follows:
 
     $ cordova run brower
 
-With an Android device connected (make sure Developer options are enabled by tapping Settings > About phone > Build number 7 times and enable USB debugging).
+With an Android device connected (make sure Developer options are enabled by tapping `Settings > About phone > Build number` 7 times and enable USB debugging).
 
 .. code:: bash
 
