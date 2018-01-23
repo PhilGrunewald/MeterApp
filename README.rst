@@ -284,17 +284,20 @@ The development environment is `Cordova <https://cordova.apache.org/>`_. General
 
 get cordova
 
-::
+.. code:: bash
+
     $ npm install -g cordova
 
 get platform for local testing in browser
 
-::
+.. code:: bash
+
     $ cordova platform add browser
 
 get platform to deploy to an android device
 
-::
+.. code:: bash
+
     $ cordova platform add android
 
 Note that you will also require and `Android SDK <https://developer.android.com/studio/index.html>`_ or equivalent Apple, Windows environemtn on your machine.
