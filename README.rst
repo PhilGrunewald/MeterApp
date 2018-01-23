@@ -29,7 +29,10 @@ Revision History
 ================
 
 1 Nov 2017 | introduced branch 'german' in www/json
+
 7 Nov 2017 | v2.0.2: changed "How many people are you with" > "How many people are you doing this with"
+
+23 Jan 2018 | introduction to Cordova setup (1st draft)
 
 App interface
 =============
