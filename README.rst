@@ -295,6 +295,7 @@ Note that you will also require and `Android SDK <https://developer.android.com/
 In a terminal, first clone this repository into your chosen location. On a Mac, I keep it under Sites and serve it to my local browser for testing.
 
 .. code:: bash
+
     $ mkdir MeterApp
     $ cd MeterApp
     $ clone https://github.com/PhilGrunewald/MeterApp
@@ -302,11 +303,13 @@ In a terminal, first clone this repository into your chosen location. On a Mac, 
 Make changes to the code as you see fit and then test it as follows:
 
 .. code:: bash
+
     $ cordova run brower
 
 With an Android device connected (make sure Develeper options are enabled by tapping Settings > About phone > Build number 7 times and enable USB debugging).
 
 .. code:: bash
+
     $ cordova run android
 
 This will build and apk and install it on the device.
