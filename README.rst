@@ -283,6 +283,7 @@ How to compile and install the app
 The development environment is `Cordova <https://cordova.apache.org/>`_. General instructions for how to obtain and configure Cordova is given `here <https://cordova.apache.org/#getstarted>`_.
 
 .. code:: bash
+
     get cordova
     $ npm install -g cordova
     get platform for local testing in browser
