@@ -19,10 +19,17 @@ repository <https://github.com/PhilGrunewald/MeterApp>`__.
 
 This document explains
 
+-  Revisions
 -  The App structure
 -  The tree structure of activity selection
 -  The navigation logic between activities and screens
 -  The code base
+
+Revision History
+================
+
+1 Nov 2017 | introduced branch 'german' in www/json
+7 Nov 2017 | v2.0.2: changed "How many people are you with" > "How many people are you doing this with"
 
 App interface
 =============
@@ -269,6 +276,41 @@ a few key files:
 1. `www/index.html <www/index.html>`_
 
 2. `www/js/index.js <www/js/index.js>`_
+
+How to compile and install the app
+==================================
+
+The development environment is `Cordova <https://cordova.apache.org/>`_. General instructions for how to obtain and configure Cordova is given `here <https://cordova.apache.org/#getstarted>`_.
+
+.. code:: bash
+    get cordova
+    $ npm install -g cordova
+    get platform for local testing in browser
+    $ cordova platform add browser
+    get platform to deploy to an android device
+    $ cordova platform add android
+
+Note that you will also require and `Android SDK <https://developer.android.com/studio/index.html>`_ or equivalent Apple, Windows environemtn on your machine.
+
+In a terminal, first clone this repository into your chosen location. On a Mac, I keep it under Sites and serve it to my local browser for testing.
+
+.. code:: bash
+    $ mkdir MeterApp
+    $ cd MeterApp
+    $ clone https://github.com/PhilGrunewald/MeterApp
+
+Make changes to the code as you see fit and then test it as follows:
+
+.. code:: bash
+    $ cordova run brower
+
+With an Android device connected (make sure Develeper options are enabled by tapping Settings > About phone > Build number 7 times and enable USB debugging).
+
+.. code:: bash
+    $ cordova run android
+
+This will build and apk and install it on the device.
+
 
 Todo
 ====
