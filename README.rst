@@ -297,13 +297,13 @@ get platform for local testing in browser
 
     $ cordova platform add browser
 
-get platform to deploy to an android device
+get platform to deploy to an Android device
 
 .. code:: bash
 
     $ cordova platform add android
 
-Note that you will also require and `Android SDK <https://developer.android.com/studio/index.html>`_ or equivalent Apple, Windows environemtn on your machine.
+Note that you will also require and `Android SDK <https://developer.android.com/studio/index.html>`_ or equivalent Apple, Windows environment on your machine.
 
 In a terminal, first clone this repository into your chosen location. On a Mac, I keep it under Sites and serve it to my local browser for testing.
 
