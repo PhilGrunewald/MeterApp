@@ -42,7 +42,7 @@
 			<!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
 			<div class="row">
 				 <div id="nav-home" class="col-3" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
-				<div id="nav-aboutme" class="col-3" onclick="app.navigateTo('survey root')">Umfrage<img src="img/AR_4.png" id="survey-status"></div>
+				<div id="nav-aboutme" class="col-3" onclick="app.navigateTo('survey root')"><span id="lblSurvey">Survey</span><img src="img/AR_4.png" id="survey-status"></div>
 				<div hidden id="nav-status" class="col-3" onclick="app.showProgressList();"><img id="stars"></div>
 				<div id="nav-help" class="col-3" style="font-size:25px" onclick="app.toggleCaption();">?</div>
 			</div>
@@ -95,27 +95,27 @@
 			    <div class="progress-row">
 				    <div class="progress-item">
 				    <img id="stars1" src="img/stars_on.png">
-						<span id="progress">Survey complete</span></div>
+						<span id="progress1">Survey complete</span></div>
 			    </div>
 			    <div class="progress-row">
 				    <div class="progress-item">
 					<img id="stars2" src="img/stars_off.png">
-						<span id="progress">5 Aktivitäten</span></div>
+						<span id="progress2">5 Aktivitäten</span></div>
 			    </div>
 			    <div class="progress-row">
 				    <div class="progress-item">
 					<img id="stars3" src="img/stars_off.png">
-						<span id="progress">10 activities</span></div>
+						<span id="progress3">10 activities</span></div>
 			    </div>
 			    <div class="progress-row">
 				    <div class="progress-item">
 					<img id="stars4" src="img/stars_off.png">
-						<span id="progress">15 activities</span></div>
+						<span id="progress4">15 activities</span></div>
 			    </div>
 			    <div class="progress-row">
 				    <div class="progress-item">
 					<img id="stars5" src="img/stars_off.png">
-						<span id="progress">25 activities</span></div>
+						<span id="progress5">25 activities</span></div>
 			    </div>
 			</div>
 		</div>
@@ -144,7 +144,7 @@
 				<div id="activity-list">
 				    <div class="row activity-row">
 					    <div class="activity-cell btn-terminate"></div>
-					    <div class="activity-cell activity-item"><i>No activity yet</i></div>
+					    <div id="actListLabel" class="activity-cell activity-item"><i>No activity yet</i></div>
 					    <div class="activity-cell btn-time"></div>
 				    </div>
 				</div>
@@ -188,10 +188,10 @@
 
 				<div class="footer-nav">
 					<div class="row">
-						<div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px">Back</div>
-						<div id="btn-done" class="col col-footer" onclick="app.navigateTo('home')">Done<img src="img/nav_done.png" height="25px"></div>
-						<div id="btn-home" class="col col-footer" onclick="app.navigateTo('home','ignore')">Home<img src="img/nav_home.png" height="25px"></div>
-						<div id="btn-next" class="col col-footer" onclick="app.navigateTo('activity root')">Next...<img src="img/nav_next.png" height="25px"></div>
+						<div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
+						<div id="btn-done" class="col col-footer" onclick="app.navigateTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
+						<div id="btn-home" class="col col-footer" onclick="app.navigateTo('home','ignore')"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
+						<div id="btn-next" class="col col-footer" onclick="app.navigateTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
 					</div>
 				</div>
 			</div>

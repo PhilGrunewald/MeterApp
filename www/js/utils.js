@@ -85,11 +85,11 @@ var utils = {
 			var minStr   = "";
 
 			if (minDiff > 0) {
-				preStr  = "in ";
-				postStr = "";
+				preStr  = app.label.time.after.pre;
+				postStr = app.label.time.after.post;
 			} else {
-				preStr  = "";
-				postStr = " ago";
+				preStr  = app.label.time.before.pre;
+				postStr = app.label.time.before.post;
 				minDiff *= -1;
 			}
 			minDiff = Math.round(minDiff/5)*5;
@@ -107,13 +107,14 @@ var utils = {
 			min = 0;
 			hour += 1;
 		}
-
-		hour = hour % 12;
-		hour = hour ? hour : 12; // the hour '0' should be '12'
+        if (app.label.hours == "12") {
+		    hour = hour % 12;
+		    hour = hour ? hour : 12; // the hour '0' should be '12'
+            }
 		minPad = min < 10 ? '0'+min : min;
 
 			if (parseInt(minDiff) == 0) {
-				res = " at the moment";
+				res = app.label.AtTheMoment;
 			} else {
 				res = preStr + hourStr + minStr + postStr;
 			}
@@ -189,8 +190,10 @@ var utils = {
 		var hours=parseInt(ISOTime.slice(11,13));
 		var minutes=parseInt(ISOTime.slice(14,16));
 		var ampm = hours >= 12 ? 'pm' : 'am';
-		hours = hours % 12;
-		hours = hours ? hours : 12; // the hour '0' should be '12'
+        if (app.label.hours == "12") {
+		    hours = hours % 12;
+		    hours = hours ? hours : 12; // the hour '0' should be '12'
+            }
 		minutes = minutes < 10 ? '0'+minutes : minutes;
 		var strTime = hours + ':' + minutes + ' ' + ampm;
 		return strTime;
@@ -208,11 +211,16 @@ var utils = {
 			minutes = 0;
 		}
 		minutes = Math.round(minutes/5)*5;
-		var ampm = hours >= 12 ? '<ampm> pm</ampm>' : '<ampm> am</ampm>';
-		hours = hours % 12;
-		hours = hours ? hours : 12; // the hour '0' should be '12'
 		minutes = minutes < 10 ? '0'+minutes : minutes;
-		var strTime = hours + ':' + minutes + ampm;
+        if (app.label.hours == "12") {
+		    var ampm = hours >= 12 ? '<ampm> pm</ampm>' : '<ampm> am</ampm>';
+		    hours = hours % 12;
+		    hours = hours ? hours : 12; // the hour '0' should be '12'
+		    var strTime = hours + ':' + minutes + ampm;
+            }
+        else {
+		    var strTime = hours + ':' + minutes;
+        }
 		return strTime;
 	},
 

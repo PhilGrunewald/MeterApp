@@ -75,17 +75,21 @@ var app = {
 		 * has to be nested to run sequentially
 		 * @param {js/activities.json} contains the activities
 		 */
+    $.getJSON('json/labels.json', function(label_data) {
+            console.log("loading labels");
+            app.label = label_data;
+	        app.initialSetup();
+            }),
 
-	app.initialSetup();
     $.getJSON('json/activities.json', function(data) {
 		console.log("loading YY Activities");
-         app.activities = data.activities;
-         $.getJSON('json/screens.json', function(screen_data) {
+        app.activities = data.activities;
+        $.getJSON('json/screens.json', function(screen_data) {
 			console.log("loading Screens");
-             app.screens = screen_data.screens;
-				log.init( function() {
-    				app.showActivityList();
-				});
+            app.screens = screen_data.screens;
+				   log.init( function() {
+    			   app.showActivityList();
+            });    
          });    
       });
     },
@@ -110,6 +114,21 @@ var app = {
 		app.progressListPane = $("div#progress_list_pane");
 		app.footerNav		 = $("div.footer-nav");
 		app.btnCaption		 = $(".btn-caption"); 
+
+
+		app.title.html(app.label.title);
+        $('#actListLabel').html(app.label.actListLabel)
+        $('#lblSurvey').html(app.label.lblSurvey)
+        $('#lblBack').html(app.label.lblBack)
+        $('#lblHome').html(app.label.lblHome)
+        $('#lblNext').html(app.label.lblNext)
+        $('#lblDone').html(app.label.lblDone)
+
+        $('#progress1').html(app.label.progress1)
+        $('#progress2').html(app.label.progress2)
+        $('#progress3').html(app.label.progress3)
+        $('#progress4').html(app.label.progress4)
+        $('#progress5').html(app.label.progress5)
 
 		// The clock face behind the "Now" button
 		app.nowClock		= $('#clock-now');
@@ -153,12 +172,14 @@ var app = {
 		var now = new Date();
 		var hour = now.getHours();
 		var min  = now.getMinutes();
-		hour = hour % 12;
+        if (app.label.hours == "12") {
+		    hour = hour % 12;
+        }
 		hour = hour ? hour : 12; // the hour '0' should be '12'
 		minutes = min < 10 ? '0'+min : min;
 
-		app.drawClock(app.nowClock,hour,min,"Now", hour + ':' + minutes);
-		app.drawClock(app.recentClock,hour,min, "Recently", "back arrow");
+		app.drawClock(app.nowClock,hour,min,app.label.now, hour + ':' + minutes);
+		app.drawClock(app.recentClock,hour,min, app.label.recently, "back arrow");
 	},
 
 	drawClock: function(thisClock,hour,minute,caption,subcaption) {
