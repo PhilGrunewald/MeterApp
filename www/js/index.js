@@ -868,7 +868,7 @@ var app = {
 
 		// check if title ends with "(end)" and toggle
 		var tuc_cat_title = utils.get(CURR_ACTIVITY_ID);
-		var endStr = " (Ende)";
+		var endStr = " (end)";
 		if (tuc_cat_title.endsWith(endStr)) {
 			// already ended activity: remove the end delete the old entry and put in the new
 			tuc_cat_title = tuc_cat_title.substring(0, tuc_cat_title.length - endStr.length);
