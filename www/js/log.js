@@ -11,9 +11,9 @@ var log = {
     logSurvey: null,
 //	metaID: "0",
 //	id: 7,
-    
+
 init: function() {
-	if (device.platform != "browser") {        
+	if (device.platform != "browser") {
 		window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
 			console.log("got main dir",dir);
 			// the existence of folder METER is assumed
@@ -84,7 +84,7 @@ init: function() {
 	// 	})
 	// }
 },
-    
+
 // XXX take these two functions out (only were used by changeID()
 	initSurveyFile: function() {
 			window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory, function(dir) {
@@ -109,7 +109,7 @@ init: function() {
 	setMetaID: function( metaID_ ) {
 		log.metaID = metaID_;
 	},
-    
+
 
     rewriteFile: function(obj, str) {
         if (device.platform != "browser") {
@@ -122,7 +122,7 @@ init: function() {
         });
 		}
     },
-    
+
 
     writeToFile: function(obj, str) {
     	obj.createWriter(function(fileWriter) {
@@ -133,7 +133,7 @@ init: function() {
             console.log(err)
         });
     },
-    
+
     writeLog: function(logobj, str) {
         if (device.platform == "browser") {
             console.log(str);
@@ -160,5 +160,4 @@ init: function() {
         // console.log("about to write survey log");
         log.writeLog(log.logSurvey, logstr)
     },
-
 }

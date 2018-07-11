@@ -1,209 +1,231 @@
 <!DOCTYPE html>
 <!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+   Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+   http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.
+   -->
 <html>
-<head>
-<!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' https://ajax.googleapis.com/ajax/libs/ ">-->
-<meta name="format-detection" content="telephone=no">
-<meta name="msapplication-tap-highlight" content="no">
-<meta name="viewport"
-	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<title>Meter</title>
-</head>
-<body>
-	<div class="app">
-		<div class="navbar">
-			<!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
-			<div class="row">
-				 <div id="nav-home" class="col-3" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
-				<div id="nav-aboutme" class="col-3" onclick="app.navigateTo('survey root')"><span id="lblSurvey">Survey</span><img src="img/AR_4.png" id="survey-status"></div>
-				<div hidden id="nav-status" class="col-3" onclick="app.showProgressList();"><img id="stars"></div>
-				<div id="nav-help" class="col-3" style="font-size:25px" onclick="app.toggleCaption();">?</div>
-			</div>
-		</div>
-
-        <div class="main-screen">
-		<div hidden id="change-id">
-			<input type="text" id="input-id" autofocus />
-			<div class "btn-change-id">
-			<input id="btn-submit" type="submit" onclick="app.changeID()"/>
-			</div>
-		</div>
-
-		<div hidden id="change-date">
-			<input type="text" id="input-date" value="20160813" autofocus />
-			<div class "btn-change-id">
-			<input id="btn-submit" type="submit" onclick="app.changeDate()"/>
-			</div>
-		</div>
-
-
-
-		<div id="header" class="header">
-		<div class="clock-act">
-				<canvas id="clock-act" width="112px" height="112px"></canvas>
-		</div> 
-		<!-- 
--->
-		<div id="title">Welcome</div>
-		<div id="catch-up" class="btn-catchup"> at </div>
-		</div>
-
-		<div id="other-specify">
-			<input type="text" id="free-text" autofocus /> <br>
-
-				<div class="other-specify-nav">
-					<div class="row">
-						<!-- 
-						Removed because the item had to be deleted before re-entry - Back resulted in it being lost
-						<div id="btn-back" class="col btn-nav" onclick="app.goBack();">Back</div>
-						-->
-						<div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()">Done</div>
-					</div>
-				</div>
-		</div>
-
-		<div class="contents">
-		<div hidden id="progress_list_pane">
-			<div id="progress-list">
-			    <div class="progress-row">
-				    <div class="progress-item">
-				    <img id="stars1" src="img/stars_on.png">
-						<span id="progress1">Survey complete</span></div>
-			    </div>
-			    <div class="progress-row">
-				    <div class="progress-item">
-					<img id="stars2" src="img/stars_off.png">
-						<span id="progress2">5 Aktivitäten</span></div>
-			    </div>
-			    <div class="progress-row">
-				    <div class="progress-item">
-					<img id="stars3" src="img/stars_off.png">
-						<span id="progress3">10 activities</span></div>
-			    </div>
-			    <div class="progress-row">
-				    <div class="progress-item">
-					<img id="stars4" src="img/stars_off.png">
-						<span id="progress4">15 activities</span></div>
-			    </div>
-			    <div class="progress-row">
-				    <div class="progress-item">
-					<img id="stars5" src="img/stars_off.png">
-						<span id="progress5">25 activities</span></div>
-			    </div>
-			</div>
-		</div>
-
-			<div id="activity_add_pane">
-				<div class="btn-addnew container">
-					<div class="row">
-						
-					<div id="btn-now" class="col" onclick="app.navigateTo('activity root')">
-							<div class="help-caption">Start here to say what you do now</div>
-						<canvas id="clock-now"   width="120" height="120"  class=""></canvas>
-					</div>
-
-					<div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">
-					<div class="help-caption">For activities in the past use this button</div>
-						<canvas id="clock-recent" width="120" height="120" class="" onclick="app.navigateTo('activity time relative')">
-						</canvas>
-					</div>
-
-					</div>
-				</div>
-					<div class="help-caption">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
-			</div>
-
-			<div id="activity_list_pane">
-				<div id="activity-list">
-				    <div class="row activity-row">
-					    <div class="activity-cell btn-terminate"></div>
-					    <div id="actListLabel" class="activity-cell activity-item"><i>No activity yet</i></div>
-					    <div class="activity-cell btn-time"></div>
-				    </div>
-				</div>
-			</br><br>
-			</div>
-
-			<div id="choices_pane">
-				<div class="choices">
-					<div class="row">
-						<div id="button1" class="btn-activity col">
-							<div id="title1" class="btn-title">&lt;title&gt;</div>
-							<div id="caption1" class="btn-caption">&lt;caption&gt;</div>
-						</div>
-						<div id="button2" class="btn-activity col">
-							<div id="title2" class="btn-title">&lt;title&gt;</div>
-							<div id="caption2" class="btn-caption">&lt;caption&gt;</div>
-						</div>
-					</div>
-					<div class="row">
-						<div id="button3" class="btn-activity col">
-							<div id="title3" class="btn-title">&lt;title&gt;</div>
-							<div id="caption3" class="btn-caption">&lt;caption&gt;</div>
-						</div>
-						<div id="button4" class="btn-activity col">
-							<div id="title4" class="btn-title">&lt;title&gt;</div>
-							<div id="caption4" class="btn-caption">&lt;caption&gt;</div>
-						</div>
-					</div>
-					<div class="row">
-						<div id="button5" class="btn-activity col">
-							<div id="title5" class="btn-title">&lt;title&gt;</div>
-							<div id="caption5" class="btn-caption">&lt;caption&gt;</div>
-						</div>
-						<div id="button6" class="btn-activity col">
-							<div id="title6" class="btn-title">&lt;title&gt;</div>
-							<div id="caption6" class="btn-caption">&lt;caption&gt;</div>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="footer-nav">
-					<div class="row">
-						<div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
-						<div id="btn-done" class="col col-footer" onclick="app.navigateTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
-						<div id="btn-home" class="col col-footer" onclick="app.navigateTo('home','ignore')"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
-						<div id="btn-next" class="col col-footer" onclick="app.navigateTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-                            </div> <!-- main-screen -->
-
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="js/log.js"></script>
-	<script type="text/javascript" src="js/utils.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
-	<script type="text/javascript" src="js/jquery-2.2.1.js"></script>
-</body>
+   <head>
+      <!--
+         Customize this policy to fit your own app's needs. For more guidance, see:
+         https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+         Some notes:
+         * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+         * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+         * Enable inline JS: add 'unsafe-inline' to default-src
+         -->
+      <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' https://ajax.googleapis.com/ajax/libs/ ">-->
+      <meta name="format-detection" content="telephone=no">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+      <link rel="stylesheet" type="text/css" href="css/index.css">
+      <title>Meter</title>
+   </head>
+   <body>
+      <div class="app" id="app_screen">
+         <div class="navbar">
+            <!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
+            <div class="row">
+               <div id="nav-home" class="col-3" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
+               <div id="nav-aboutme" class="col-3" onclick="app.navigateTo('survey root')"><span id="lblSurvey">Survey</span><img src="img/AR_4.png" id="survey-status"></div>
+               <div hidden id="nav-status" class="col-3" onclick="app.showProgressList();"><img id="stars"></div>
+               <div id="nav-help" class="col-3" style="font-size:25px" onclick="app.toggleCaption();">?</div>
+            </div>
+         </div>
+         <div class="main-screen">
+            <div hidden id="change-id">
+               <input type="text" id="input-id" autofocus />
+               <div class "btn-change-id">
+                  <input id="btn-submit" type="submit" onclick="app.changeID()" />
+               </div>
+            </div>
+            <div hidden id="change-date">
+               <input type="text" id="input-date" value="20160813" autofocus />
+               <div class "btn-change-id">
+                  <input id="btn-submit" type="submit" onclick="app.changeDate()" />
+               </div>
+            </div>
+            <div id="header" class="header">
+               <div class="clock-act">
+                  <canvas id="clock-act" width="112px" height="112px"></canvas>
+               </div>
+               <!--
+                  -->
+               <div id="title">Welcome</div>
+               <br></br>
+               <button type="button" id="personalise" class="btn_personalise" onclick="app.personaliseClick()">Personalise...</button>
+               <div id="catch-up" class="btn-catchup"> at </div>
+            </div>
+            <div id="other-specify">
+               <input type="text" id="free-text" autofocus /> <br>
+               <div class="other-specify-nav">
+                  <div class="row">
+                     <!--
+                        Removed because the item had to be deleted before re-entry - Back resulted in it being lost
+                        <div id="btn-back" class="col btn-nav" onclick="app.goBack();">Back</div>
+                        -->
+                     <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()">Fertig</div>
+                  </div>
+               </div>
+            </div>
+            <div class="contents">
+               <div hidden id="progress_list_pane">
+                  <div id="progress-list">
+                     <div class="progress-row">
+                        <div class="progress-item">
+                           <img id="stars1" src="img/stars_on.png">
+                           <span id="progress1">Survey complete</span>
+                        </div>
+                     </div>
+                     <div class="progress-row">
+                        <div class="progress-item">
+                           <img id="stars2" src="img/stars_off.png">
+                           <span id="progress2">5 Aktivitï¿½ten</span>
+                        </div>
+                     </div>
+                     <div class="progress-row">
+                        <div class="progress-item">
+                           <img id="stars3" src="img/stars_off.png">
+                           <span id="progress3">10 activities</span>
+                        </div>
+                     </div>
+                     <div class="progress-row">
+                        <div class="progress-item">
+                           <img id="stars4" src="img/stars_off.png">
+                           <span id="progress4">15 activities</span>
+                        </div>
+                     </div>
+                     <div class="progress-row">
+                        <div class="progress-item">
+                           <img id="stars5" src="img/stars_off.png">
+                           <span id="progress5">25 activities</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="activity_add_pane">
+                  <div class="btn-addnew container">
+                     <div class="row">
+                        <div id="btn-now" class="col" onclick="app.navigateTo('activity root')">
+                           <div class="help-caption">Start here to say what you do now</div>
+                           <canvas id="clock-now" width="120" height="120" class=""></canvas>
+                        </div>
+                        <div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">
+                           <div class="help-caption">For activities in the past use this button</div>
+                           <canvas id="clock-recent" width="120" height="120" class="" onclick="app.navigateTo('activity time relative')">
+                           </canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="help-caption">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
+               </div>
+               <div id="activity_list_pane">
+                  <div id="activity-list">
+                     <div class="row activity-row">
+                        <div class="activity-cell btn-terminate"></div>
+                        <div id="actListLabel" class="activity-cell activity-item"><i>No activity yet</i></div>
+                        <div class="activity-cell btn-time"></div>
+                     </div>
+                  </div>
+                  </br><br>
+               </div>
+               <div id="choices_pane">
+                  <div class="choices">
+                     <div class="row">
+                        <div id="button1" class="btn-activity col">
+                           <div id="title1" class="btn-title">&lt;title&gt;</div>
+                           <div id="caption1" class="btn-caption">&lt;caption&gt;</div>
+                        </div>
+                        <div id="button2" class="btn-activity col">
+                           <div id="title2" class="btn-title">&lt;title&gt;</div>
+                           <div id="caption2" class="btn-caption">&lt;caption&gt;</div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div id="button3" class="btn-activity col">
+                           <div id="title3" class="btn-title">&lt;title&gt;</div>
+                           <div id="caption3" class="btn-caption">&lt;caption&gt;</div>
+                        </div>
+                        <div id="button4" class="btn-activity col">
+                           <div id="title4" class="btn-title">&lt;title&gt;</div>
+                           <div id="caption4" class="btn-caption">&lt;caption&gt;</div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div id="button5" class="btn-activity col">
+                           <div id="title5" class="btn-title">&lt;title&gt;</div>
+                           <div id="caption5" class="btn-caption">&lt;caption&gt;</div>
+                        </div>
+                        <div id="button6" class="btn-activity col">
+                           <div id="title6" class="btn-title">&lt;title&gt;</div>
+                           <div id="caption6" class="btn-caption">&lt;caption&gt;</div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="footer-nav">
+                     <div class="row">
+                        <div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
+                        <div id="btn-done" class="col col-footer" onclick="app.navigateTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
+                        <div id="btn-home" class="col col-footer" onclick="app.navigateTo('home','ignore')"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
+                        <div id="btn-next" class="col col-footer" onclick="app.navigateTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- main-screen ^ -->
+      <div hidden id="personalise_screen" class="personalise_screen">
+         <header id="welcome" class="welcome">
+            Welcome to the METER project!
+         </header>
+         <div id="help_text" class="help_text">
+            Enter your postcode
+         </div>
+         <div id="postcode_section">
+         <input id="postcode_input" class="postcode_input" type="text" placeholder="e.g. EX19 8DZ" style="text-transform:uppercase">
+         <select hidden id="address_list" size="3" class="address_list">
+           <!-- This is where the addresses are inserted-->
+         </select>
+         <br></br>
+         <button type="submit" class="btn_submit" id="btn_submit" onclick="app.submitPostcode()">Submit</button>
+       </div>
+         <br></br>
+         <div class="footer_postcode">
+            <div class="footer_postcode_content">
+              <br>
+               <button type="button" id="personalise_back" class="btn_return" onclick="">Do this later</button>
+               <button type="button" class="btn_link" onclick="navigator.app.loadUrl('http://energy-use.org/about.php', { openExternal:true });">Learn more</button>
+               <br>
+               <br>
+            </div>
+         </div>
+      </div>
+      <!-- personalise-screen ^ -->
+      <div hidden class="register_screen" id="register_screen">
+      <iframe id="iframe_register" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+      <!-- register-screen ^ -->
+      <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/log.js"></script>
+      <script type="text/javascript" src="js/utils.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+      <script type="text/javascript" src="js/connect.js"></script>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+      <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
+   </body>
 </html>

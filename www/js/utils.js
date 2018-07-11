@@ -1,6 +1,6 @@
 /**
- * 
- */
+*
+*/
 
 String.prototype.format = String.prototype.f = function() {
 	var s = this,
@@ -51,7 +51,7 @@ var utils = {
 			var dt_act = utils.get(ACTIVITY_DATETIME);
 			if (dt_act == "same") {
 				time_ = new Date();
-			} else { 
+			} else {
 				time_ = new Date(dt_act);
 			}
 
@@ -59,7 +59,7 @@ var utils = {
 			if (elems[1] == "-"){
 				var mins = parseInt(elems[2]) * 60000;
 				res = new Date(time_.getTime() - mins);
-			} else 
+			} else
 			if (elems[1] == "+"){
 				var mins = parseInt(elems[2]) * 60000;
 				res = new Date(time_.getTime() + mins);
@@ -72,8 +72,8 @@ var utils = {
 			var dt_act = utils.get(ACTIVITY_DATETIME);
 			if (dt_act == "same") {
 				time_ = new Date();
-			} else { 
-			time_ = new Date(dt_act);
+			} else {
+				time_ = new Date(dt_act);
 			}
 
 			var nowTime  = new Date().getTime();
@@ -93,25 +93,25 @@ var utils = {
 				minDiff *= -1;
 			}
 			minDiff = Math.round(minDiff/5)*5;
-				if (minDiff > 59) {
-					hourStr = parseInt(minDiff/60) + " h ";
-				}
-				if (minDiff % 60 != 0) {
-					minStr = minDiff % 60 + " min" ;
-				}
+			if (minDiff > 59) {
+				hourStr = parseInt(minDiff/60) + " h ";
+			}
+			if (minDiff % 60 != 0) {
+				minStr = minDiff % 60 + " min" ;
+			}
 
-		var hour = time_.getHours();
-		var min  = time_.getMinutes();
-		min = Math.round(min/5)*5;
-		if (min == 60) {
-			min = 0;
-			hour += 1;
-		}
-        if (app.label.hours == "12") {
-		    hour = hour % 12;
-		    hour = hour ? hour : 12; // the hour '0' should be '12'
-            }
-		minPad = min < 10 ? '0'+min : min;
+			var hour = time_.getHours();
+			var min  = time_.getMinutes();
+			min = Math.round(min/5)*5;
+			if (min == 60) {
+				min = 0;
+				hour += 1;
+			}
+			if (app.label.hours == "12") {
+				hour = hour % 12;
+				hour = hour ? hour : 12; // the hour '0' should be '12'
+			}
+			minPad = min < 10 ? '0'+min : min;
 
 			if (parseInt(minDiff) == 0) {
 				res = app.label.AtTheMoment;
@@ -124,35 +124,35 @@ var utils = {
 			app.actClock.show();
 			return str.replace(intime_var, res)
 		}
-	      else	{
+		else	{
 			return str; // no other function implemented
 		}
 
 		// should never get here
 		return str;
 
-	}, 
+	},
 
-    padded: function(i) {
-    return i < 10 ? '0' + i : i;
-    },
+	padded: function(i) {
+		return i < 10 ? '0' + i : i;
+	},
 
-    getDateTimeStr: function(DateTime) {
-    // produces a ISO like string without timezone
-    // 2000-07-31T00:59:59 (BST) -> 2007-07-30 23:59:59
-    dt = new Date(DateTime);
-     y = dt.getFullYear();
-     m = utils.padded(dt.getMonth()+1);
-     d = utils.padded(dt.getDate());
-     h = utils.padded(dt.getHours());
-     M = utils.padded(dt.getMinutes());
-     s = utils.padded(dt.getSeconds());
-     return y+'-'+m+'-'+d+' '+h+':'+M+':'+s;
-    },
+	getDateTimeStr: function(DateTime) {
+		// produces a ISO like string without timezone
+		// 2000-07-31T00:59:59 (BST) -> 2007-07-30 23:59:59
+		dt = new Date(DateTime);
+		y = dt.getFullYear();
+		m = utils.padded(dt.getMonth()+1);
+		d = utils.padded(dt.getDate());
+		h = utils.padded(dt.getHours());
+		M = utils.padded(dt.getMinutes());
+		s = utils.padded(dt.getSeconds());
+		return y+'-'+m+'-'+d+' '+h+':'+M+':'+s;
+	},
 
 	actID : function(actTime) {
 		//var d = new Date().getTime();
-		actTime += performance.now();  	//use high-precision timer 
+		actTime += performance.now();  	//use high-precision timer
 		return actTime.toString();
 	},
 
@@ -160,13 +160,13 @@ var utils = {
 		// used to create ID based on creation time
 		// superseeded (?) by actID
 		var d = new Date().getTime();
-		d += performance.now();  	//use high-precision timer 
+		d += performance.now();  	//use high-precision timer
 		return d.toString();
 	},
 
-        //
-        //  TIME handling
-        //
+	//
+	//  TIME handling
+	//
 
 	format_time : function(str) {
 		return new Date(str).toTimeString().substring(0, 5)
@@ -185,15 +185,15 @@ var utils = {
 
 		return weekday[d.getDay()];
 	},
-	
+
 	extractTimeStr: function(ISOTime) {
 		var hours=parseInt(ISOTime.slice(11,13));
 		var minutes=parseInt(ISOTime.slice(14,16));
 		var ampm = hours >= 12 ? 'pm' : 'am';
-        if (app.label.hours == "12") {
-		    hours = hours % 12;
-		    hours = hours ? hours : 12; // the hour '0' should be '12'
-            }
+		if (app.label.hours == "12") {
+			hours = hours % 12;
+			hours = hours ? hours : 12; // the hour '0' should be '12'
+		}
 		minutes = minutes < 10 ? '0'+minutes : minutes;
 		var strTime = hours + ':' + minutes + ' ' + ampm;
 		return strTime;
@@ -212,41 +212,41 @@ var utils = {
 		}
 		minutes = Math.round(minutes/5)*5;
 		minutes = minutes < 10 ? '0'+minutes : minutes;
-        if (app.label.hours == "12") {
-		    var ampm = hours >= 12 ? '<ampm> pm</ampm>' : '<ampm> am</ampm>';
-		    hours = hours % 12;
-		    hours = hours ? hours : 12; // the hour '0' should be '12'
-		    var strTime = hours + ':' + minutes + ampm;
-            }
-        else {
-		    var strTime = hours + ':' + minutes;
-        }
+		if (app.label.hours == "12") {
+			var ampm = hours >= 12 ? '<ampm> pm</ampm>' : '<ampm> am</ampm>';
+			hours = hours % 12;
+			hours = hours ? hours : 12; // the hour '0' should be '12'
+			var strTime = hours + ':' + minutes + ampm;
+		}
+		else {
+			var strTime = hours + ':' + minutes;
+		}
 		return strTime;
 	},
 
-        //
-        // LOCAL variable handling
-        //
+	//
+	// LOCAL variable handling
+	//
 
-        save: function(key, val) {
-            localStorage.setItem(key, val);
-            console.log("saving: " + key + " > " + val);
-        },
-    
-        get: function(key) {
-            return localStorage.getItem(key);
-        },
-    
+	save: function(key, val) {
+		localStorage.setItem(key, val);
+		console.log("saving: " + key + " > " + val);
+	},
+
+	get: function(key) {
+		return localStorage.getItem(key);
+	},
+
 	remove: function(key) {
 		localStorage.removeItem(key);
 	},
 
-        saveList: function(key, val) {
-            localStorage.setItem(key, JSON.stringify(val));
-        },
+	saveList: function(key, val) {
+		localStorage.setItem(key, JSON.stringify(val));
+	},
 
-        getList: function(key) {
-            return JSON.parse(localStorage.getItem(key));
-        },
+	getList: function(key) {
+		return JSON.parse(localStorage.getItem(key));
+	},
 
 }
