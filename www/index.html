@@ -36,6 +36,32 @@
       <title>Meter</title>
    </head>
    <body>
+     <!---
+     <div class="splash_screen" id="splash_screen" style="text-align:center;width:100%;height:100%">
+     </div>
+     --->
+       <div hidden class="consent" id="consent" style="text-align:center">
+<br>
+<br>
+<img src="../img/meter.png" alt="Meter" style="height:100px">
+<br>
+<img src="../img/eci-logo-colour.png" alt="ECI" style="height:50px">
+
+<br>
+<br>
+<div>
+ Welcome to the METER research project
+</div>
+<br> <br>
+<div>
+By using this app your data will be used and shared for research purposes
+</div>
+<br>
+<br>
+<button type="button" id="consent" class="btn_link" onclick="app.givenConsent();">I Agree</button>
+<div>
+</div>
+     </div>
       <div class="app" id="app_screen">
          <div class="navbar">
             <!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
@@ -199,7 +225,7 @@
          <div id="postcode_section">
          <input id="postcode_input" class="postcode_input" type="text" placeholder="e.g. EX19 8DZ" style="text-transform:uppercase">
          <select hidden id="address_list" size="3" class="address_list">
-           <!-- This is where the addresses are inserted-->
+             <!-- This is where the addresses are inserted-->
          </select>
          <br></br>
          <button type="submit" class="btn_submit" id="btn_submit" onclick="app.submitPostcode()">Submit</button>
@@ -221,11 +247,11 @@
       </div>
       <!-- register-screen ^ -->
       <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
       <script type="text/javascript" src="js/log.js"></script>
       <script type="text/javascript" src="js/utils.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/connect.js"></script>
       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
-      <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
    </body>
 </html>

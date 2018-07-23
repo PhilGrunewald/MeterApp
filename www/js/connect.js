@@ -111,24 +111,24 @@ function requestAddresses(postcode){ //Requesting from API (or really our PHP wh
 				alert("Please enter a valid postcode");
 				app.personaliseClick();
 			} else if (status=="Invalid API key") {
-				alert("Please try again later");
+				alert("Invalid API key");
 				app.returnToMainScreen();
 			} else if (status=="No addresses found") {
 				//How should this be handled?
 				alert("No addresses found on that postcode");
 				app.personaliseClick();
 			} else if (status=="API limit reached") {
-				alert("Please try again later");
+				alert("API limit reached");
 				app.returnToMainScreen();
 			} else if (status=="API server down") {
-				alert("Please try again later");
+				alert("API server down");
 				app.returnToMainScreen();
 			} else if (status=="Unknown error") {
 				app.returnToMainScreen();
-				alert("Please try again later");
+				alert("1 Please try again later");
 			} else {
 				app.returnToMainScreen();
-				alert("Please try again later");
+				alert("2 Please try again later");
 			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
@@ -155,7 +155,7 @@ function checkForAddress(address) { //Checks whether address is in our database
 				app.returnToMainScreen();
 			} else if (response=="0 results") {
 				console.log("0 results");
-				app.registerNewHousehold("http://energy-use.org", address, localStorage.getItem("postcode"));
+				app.registerNewHousehold("http://www.energy-use.org/app", address, localStorage.getItem("postcode"));
 			} else {
 				alert("Please try again later");
 				app.returnToMainScreen();

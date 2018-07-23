@@ -494,9 +494,7 @@ br {
 
 .footer_postcode_content {
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  background-color:#ededed;
+  height: 100%;
 }
 
 .btn_link {
@@ -534,6 +532,11 @@ br {
 }
 
 .address_list {
+  padding: 10px 10px 10px 10px;
+  max-width: 100%;
+  border-radius: 3px;
+  color: #444444;
+  font-size: 18px;
 }
 
 .register_screen {

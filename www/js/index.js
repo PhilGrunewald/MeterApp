@@ -1059,7 +1059,7 @@ submitAddress: function() {
   if (app.addressList.val() == "None of the above") {
     console.log("None of the above houses");
     localStorage.setItem("address", "ignore");
-    app.registerNewHousehold("http://energy-use.org");
+    app.registerNewHousehold("http://energy-use.org/app");
   } else if (app.addressList.val() == null){
     //do nothing
     console.log("nothing");
@@ -1151,14 +1151,14 @@ registerNewHousehold: function(registerURL) {
 
 continueRegistration: function() {
   //var1.hostname is now just the "www.energy-use.org"
-  if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == "" || localStorage.getItem('continue_registration_link')=="http://energy-use.org/hhq.php"){
-    continueRegistrationLink = "http://energy-use.org";
+  if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == "" || localStorage.getItem('continue_registration_link')=="http://energy-use.org/app/hhq.php"){
+    continueRegistrationLink = "http://energy-use.org/app";
   } else {
     continueRegistrationLink = localStorage.getItem('continue_registration_link');
     var var1 = document.createElement ('a');
     var1.href = continueRegistrationLink;
-    if (var1.hostname != "energy-use.org") { //A method of making sure the domain of the url is energy-use.org
-      continueRegistrationLink = "http://energy-use.org";
+    if (var1.hostname != "energy-use.org/app") { //A method of making sure the domain of the url is energy-use.org
+      continueRegistrationLink = "http://energy-use.org/app";
     }
     console.log(continueRegistrationLink);
   }
