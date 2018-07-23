@@ -129,6 +129,8 @@ var app = {
 
     app.iframe_register = $('#iframe_register');
 
+    app.consent = $('#consent');
+
     app.title.html(app.label.title);
     $('#actListLabel').html(app.label.actListLabel)
     $('#lblSurvey').html(app.label.lblSurvey)
@@ -186,6 +188,7 @@ var app = {
 */
 app.checkIfRegistered(); //(Changes the personalise button appropriately)
 //app.registerNewHousehold("http://energy-use.org"); //faster debugging purposes - remove later
+app.checkIfConsent(); //Shows consent screen if they havent agreed
 },
 
 initClock: function(thisClock) {
@@ -372,9 +375,9 @@ navigateTo: function(screen_id, prev_activity) {
 
       var newSurveyInput = app.activities[prev_activity].title + "," + app.activities[prev_activity].value;
       if (localStorage.getItem("surveyAnswers")==null){ //Otherwise there is a "null" value at start
-        localStorage.setItem("surveyAnswers", newSurveyInput);
-      } else {
-        localStorage.setItem("surveyAnswers", localStorage.getItem("surveyAnswers") + "#" + newSurveyInput);
+      localStorage.setItem("surveyAnswers", newSurveyInput);
+    } else {
+      localStorage.setItem("surveyAnswers", localStorage.getItem("surveyAnswers") + "#" + newSurveyInput);
     }
     if (app.activities[prev_activity].title=="TimeExercise") { // if it is final question (survey complete)
       /* Handled by connectionManager
@@ -736,7 +739,7 @@ addActivityToList: function() {
   // activityList[actID]['key'] + "#" + activityList[actID]['Meta_idMeta'] + "#"
   // JSON.stringify(activityList[actID]);
   console.log("New list: " + newActivityList);
-  addToUploadList(newActivityList);
+  localStorage.setItem('activitiesToUpload', localStorage.getItem('activitiesToUpload') + ";" + newActivityList);
   // app.personalise.show();
   // app.personalise.addClass('btn_personalise');
 
@@ -770,7 +773,7 @@ deleteAct: function (actKey) {
     activityList = utils.getList(ACTIVITY_LIST) || {};
     if (actKey in activityList) {
       var newActivityList = activityList[actKey]['dt_activity'] + "#" + activityList[actKey]['dt_recorded'] + "#"  + activityList[actKey]['tuc'] + "#"  + activityList[actKey]['activity'] + "#" + activityList[actKey]['location'] + "#" +  activityList[actKey]['enjoyment'] + "#" + activityList[actKey]['category'] + "#" + activityList[actKey]['people'] + "#" + activityList[actKey]['path'] +  ",11006" + "#" + activityList[actKey]['key']; //actKey = actID??
-      addToUploadList(newActivityList);
+      localStorage.setItem('activitiesToUpload', localStorage.getItem('activitiesToUpload') + ";" + newActivityList); //List of activities to upload
       delete activityList[actKey];
       // XXX this is where to add the "add to ..._act_edited.csv"
       utils.saveList(ACTIVITY_LIST, activityList)
@@ -1008,7 +1011,7 @@ toggleCaption: function() {
 
 personaliseClick: function() { //Goes to the screen with the postcode input
   if (localStorage.getItem('metaID') == null){
-    requestNextID(); //this should only ever happen once unless no ID is returned from SQL
+    //requestNextID(); //this should only ever happen once unless no ID is returned from SQL
   } // "null" ^ because we don't need to execute any function after wards
   app.appScreen.hide();
   app.addressList.hide();
@@ -1022,6 +1025,7 @@ personaliseClick: function() { //Goes to the screen with the postcode input
 },
 
 returnToMainScreen: function() {
+  console.log("returning");
   app.appScreen.show();
   app.personaliseScreen.hide();
   app.register_screen.hide();
@@ -1033,6 +1037,7 @@ submitPostcode: function() {
   if (postcodeValue == "" || postcodeValue == null) {
     //do nothing
   } else {
+    localStorage.setItem("postcode", postcodeValue);
     app.helpText.html("Select your address");
     app.btnSubmit.html("Loading...");
     app.addressList.show();
@@ -1042,6 +1047,7 @@ submitPostcode: function() {
     app.back_btn_pers.attr("onclick","app.personaliseClick()");
     document.getElementById('personalise_back').innerHTML = 'Do this later';
     requestAddresses(postcodeValue);
+    localStorage.setItem("postcode", postcodeValue);
     (app.addressList).empty(); //Clear list incase this isn't first time
   }
   //app.btnSubmit.prop('disabled', true);
@@ -1051,21 +1057,35 @@ submitPostcode: function() {
 submitAddress: function() {
   console.log("submitted address");
   if (app.addressList.val() == "None of the above") {
-    console.log("This is the house: " + app.addressList.val());
+    console.log("None of the above houses");
+    localStorage.setItem("address", "ignore");
     app.registerNewHousehold("http://energy-use.org");
   } else if (app.addressList.val() == null){
     //do nothing
     console.log("nothing");
-  } else { //Then we must link their metaID to their householdID
+  } else { //Then we must check whether house is in database
+    localStorage.setItem("address", app.addressList.val());
     console.log("This is the house: " + app.addressList.val());
-    localStorage.setItem('household_id', app.addressList.val()); //Useful to store it if we are unable to connect now (this is storing the Household_id)
-    if (localStorage.getItem('metaID') == null){
-      requestNextID(linkHousehold); //We need a User ID to be able to link it to the household id
+
+    var count = parseInt(localStorage.getItem("address_security_count")) || 0;
+
+    if(count < 2) {
+      checkForAddress(app.addressList.val());
+      count += 1;
+      localStorage.setItem("address_security_count", count.toString());
     } else {
-      linkHousehold(); //(in upload.js)
+      alert("You have tried this too many times");
     }
-    app.returnToMainScreen();
-  }
+
+    /*localStorage.setItem('household_id', app.addressList.val()); //Useful to store it if we are unable to connect now (this is storing the Household_id)
+    if (localStorage.getItem('metaID') == null){
+    //requestNextID(linkHousehold); //We need a User ID to be able to link it to the household id
+  } else {
+  linkHousehold(); //(in upload.js)
+}
+app.returnToMainScreen();
+*/
+}
 },
 
 populateAddressList: function(array) {
@@ -1083,9 +1103,17 @@ populateAddressList: function(array) {
   array.forEach(function(entry){
     console.log(entry);
     var option = document.createElement('option');
-    option.value = entry.split("; ")[2]; //Household_id
-    option.innerHTML = entry.split("; ")[0] + ", " + entry.split("; ")[1]; //Hnumber and street name
+    //option.value = entry.split("; ")[2]; //Household_id
+    var address1 = entry.split(",")[0];
+    var address2 = "," + entry.split(",")[1];
+    //var town = entry.split(",")[4];
+    if (address2 == ", ") { //If empty remove the commas
+      address2 = "";
+    }
+    var town = "";
+    option.innerHTML = address1 + address2 + town; //Hnumber, street name and town (see https://getaddress.io/Documentation)
     (app.addressList).append(option);
+    option.value = entry;
   });
 
   var option = document.createElement('option');
@@ -1123,7 +1151,7 @@ registerNewHousehold: function(registerURL) {
 
 continueRegistration: function() {
   //var1.hostname is now just the "www.energy-use.org"
-  if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == ""){
+  if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == "" || localStorage.getItem('continue_registration_link')=="http://energy-use.org/hhq.php"){
     continueRegistrationLink = "http://energy-use.org";
   } else {
     continueRegistrationLink = localStorage.getItem('continue_registration_link');
@@ -1137,6 +1165,21 @@ continueRegistration: function() {
   //If URL is not set or not on the energy-use.org domain, reset it.
   app.registerNewHousehold(continueRegistrationLink);
 },
+
+checkIfConsent: function() {
+  if (localStorage.getItem("consent")==null) {
+    app.consent.show();
+    app.appScreen.hide();
+  }
+},
+
+givenConsent: function() {
+  localStorage.setItem("consent", 1);
+  app.consent.hide();
+  app.appScreen.show();
+},
+
+
 
 };
 
