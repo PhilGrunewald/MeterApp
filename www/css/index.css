@@ -166,6 +166,10 @@ h1 {
   height: 90px;
 }
 
+#imgStatus {
+  height: 50px;
+}
+
 #survey-status {
   vertical-align:top;
   float:right;
@@ -225,6 +229,25 @@ h1 {
 
 .col-choices {
   height: 33%;
+}
+
+.col-50 {
+  display: table-cell;
+  padding: 5px;
+  background: #000;
+  color: #fff;
+  vertical-align: middle;
+  width: 50%;
+  height: 100%;
+}
+.col-25 {
+  display: table-cell;
+  padding: 5px;
+  background: #000;
+  color: #fff;
+  vertical-align: middle;
+  width: 25%;
+  height: 100%;
 }
 
 .col-3 {

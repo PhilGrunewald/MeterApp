@@ -18,6 +18,8 @@
 */
 
 // Storage keys // PG 17 Mar 2016: I think these values are not assigned - for SURVEY_STATUS I did the assignment in "OnDeviceReady"
+var meterURL = "http://www.energy-use.org/app/"
+
 var CURR_ACTIVITY = "current_activity";
 var CURR_ACTIVITY_ID = "0";  // the time use code AND category as csv
 
@@ -82,13 +84,14 @@ var app = {
     }),
 
     $.getJSON('json/activities.json', function(data) {
-      console.log("loading YY Activities");
+      console.log("loading activities.json");
       app.activities = data.activities;
       $.getJSON('json/screens.json', function(screen_data) {
-        console.log("loading Screens");
+        console.log("loading screens.json");
         app.screens = screen_data.screens;
         log.init( function() {
           app.showActivityList();
+          console.log("X3");
         });
       });
     });
@@ -115,7 +118,15 @@ var app = {
     app.footerNav		 = $("div.footer-nav");
     app.btnCaption		 = $(".btn-caption");
 
-    app.personalise = $('#personalise');
+    // app.nav_personalise = $('#nav-personalise');
+    // app.nav_survey  = $("#nav-aboutme");
+    // app.nav_status  = $("#nav-status");
+
+    app.divStatus  = $("#divStatus");
+    app.imgStatus  = $("#imgStatus");
+    app.lblStatus  = $("#lblStatus");
+
+    // app.personalise = $('#personalise');
     app.personaliseScreen = $('#personalise_screen');
     app.appScreen = $('#app_screen');
     app.btnSubmit = $('#btn_submit');
@@ -133,6 +144,7 @@ var app = {
 
     app.title.html(app.label.title);
     $('#actListLabel').html(app.label.actListLabel)
+    $('#lblPersonalise').html(app.label.lblPersonalise)
     $('#lblSurvey').html(app.label.lblSurvey)
     $('#lblBack').html(app.label.lblBack)
     $('#lblHome').html(app.label.lblHome)
@@ -166,15 +178,13 @@ var app = {
     app.history          = new Array();
     app.act_path          = new Array();
 
-    if (utils.get(SURVEY_STATUS) == "survey complete") {
-      $("div#nav-aboutme").hide();
-      $("div#nav-status").show();
-    } else {
-      $("div#nav-status").hide();
-      $("div#nav-aboutme").show();
-    }
     app.updateNowTime();
     setInterval(function(){ app.updateNowTime(); }, 10000);
+
+    app.statusCheck();
+    setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
+  
+  
 
     //console.log("Device type: " + device.platform + ", " + device.cordova + ", " + device.model + ", " + device.uuid +  ", " + device.version +  ", " + device.manufacturer + ", " + device.serial);
     /* Handled by connectionManager
@@ -186,7 +196,7 @@ var app = {
 }
 }
 */
-app.checkIfRegistered(); //(Changes the personalise button appropriately)
+// app.checkIfRegistered(); //(Changes the personalise button appropriately)
 //app.registerNewHousehold("http://energy-use.org"); //faster debugging purposes - remove later
 app.checkIfConsent(); //Shows consent screen if they havent agreed
 },
@@ -195,6 +205,85 @@ initClock: function(thisClock) {
   var clock	= thisClock[0].getContext("2d");
   var r = thisClock.height()/2;
   clock.translate(r,r);
+},
+
+
+statusCheck: function() {
+    // steps are                    condition
+    // 1: personalise               hh id
+    // 2: finish personalise        registration status = 'complete'
+    // 3: get date                  dateChoice
+    // 4: survey                    SURVEY_STATUS
+    // 5: study (stars)             
+    // 6: return eMeter             date > dateChoice +1
+    //
+    var dateChoice = localStorage.getItem('dateChoice');
+    var hh = localStorage.getItem('household_id');
+    var registrationStatus = localStorage.getItem('registrationStatus');
+    var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date(dateChoice).getDay()];
+    //var day = app.label.days[new Date(dateChoice).getDay()];
+
+    if (hh == null) {
+        // personalise -> hhq
+        app.title.html(app.label.titlePersonalise);
+        app.lblStatus.html(app.label.lblPersonalise);
+        app.divStatus.attr("onclick","app.personaliseClick()");
+        app.imgStatus.attr("src","img/act2_personal.png")
+    } else if (registrationStatus == null) {
+        // complete registration
+        app.title.html(app.label.titlePersonaliseFinish);
+        app.lblStatus.html(app.label.lblPersonaliseFinish);
+        app.divStatus.attr("onclick","app.continueRegistration()");
+        app.imgStatus.attr("src","img/act_others1.png")
+    } else if (dateChoice == null) {
+        // get Date
+        app.title.html(app.label.titleDate);
+        app.lblStatus.html(app.label.lblDate);
+        app.divStatus.attr("onclick","app.getDate()");
+        app.imgStatus.attr("src","img/time_forward.png")
+    } else if (new Date() < new Date(dateChoice)) {
+        // wait for big day
+        app.title.html(app.label.titleWait1 + day + dateChoice + app.label.titleWait2);
+        app.lblStatus.html(app.label.lblWait + day + dateChoice);
+        app.divStatus.attr("onclick","app.getDate()");
+        app.imgStatus.attr("src","")
+    } else if (utils.get(SURVEY_STATUS) != "survey complete") {
+        // survey
+        app.title.html(app.label.titleSurvey);
+        app.lblStatus.html(app.label.lblSurvey );
+        app.divStatus.attr("onclick","app.navigateTo('survey root')");
+        app.imgStatus.attr("src","img/AR_4.png")
+    } else if (new Date() == new Date(dateChoice)) {
+        app.lblStatus.html("");
+        app.divStatus.attr("onclick","app.showProgressList()");
+        app.title.html(app.label.titleDay1);
+        updateStars();
+    } else {
+        app.lblStatus.html("");
+        app.divStatus.attr("onclick","app.showProgressList()");
+        app.title.html("Meter");
+    }
+    //
+    // XXX add Day + 2 return kit
+    //
+},
+
+updateStars: function() {
+
+  activityList = utils.getList(ACTIVITY_LIST) || {};
+  var actCount = Object.keys(activityList).length;
+  if (actCount > 24) {
+    app.imgStatus.attr("src","img/stars_5.png");
+  } else if (actCount > 14) {
+    app.imgStatus.attr("src","img/stars_4.png");
+  } else if (actCount > 9) {
+    app.imgStatus.attr("src","img/stars_3.png");
+  } else if (actCount > 4) {
+    app.imgStatus.attr("src","img/stars_2.png");
+  } else {
+    app.imgStatus.attr("src","img/stars_1.png");
+  }
+
 },
 
 updateNowTime: function() {
@@ -412,7 +501,7 @@ app.helpCaption.hide(); // hide help text when moving on (default off)
 app.btnCaption.hide(); // hide help text when moving on (default off)
 
 console.log("Screen ID: " + screen_id);
-app.personalise.hide();
+// app.personalise.hide();
 
 if (screen_id == "home" ) {
   // an entry has been completed (incl. via "Done")
@@ -469,9 +558,9 @@ if (screen_id == "survey root") {
   }
 } else
 if (screen_id == "survey complete") {
-  $("div#nav-aboutme").hide();
-  $("img#stars").attr("src","img/stars_1.png");
-  $("div#nav-status").show();
+  // app.nav_survey.hide()
+  app.imgStatus.attr("src","img/stars_1.png");
+  // app.nav_status.show();
   app.showActivityList();
   app.choicesPane.hide();
 } else
@@ -580,7 +669,9 @@ showActivityList: function() {
   // thus populate the title and do some of the hiding
 
   console.log("Checking if registered...");
-  app.checkIfRegistered(); //Will show 'personalise' or 'finish registration' button or neither
+  app.statusCheck();
+
+  // app.checkIfRegistered(); //Will show 'personalise' or 'finish registration' button or neither
 
   var nowDate = new Date().toISOString().slice(0, 10);
   var nowTime = new Date().toISOString().slice(11, 16);
@@ -740,26 +831,12 @@ addActivityToList: function() {
   // JSON.stringify(activityList[actID]);
   console.log("New list: " + newActivityList);
   localStorage.setItem('activitiesToUpload', localStorage.getItem('activitiesToUpload') + ";" + newActivityList);
-  // app.personalise.show();
-  // app.personalise.addClass('btn_personalise');
 
 
   // reset values
   utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
   utils.save(CURR_PEOPLE, "-1");
-  var actCount = Object.keys(activityList).length;
-  if (actCount > 25) {
-    $("img#stars").attr("src","img/stars_5.png");
-  } else
-  if (actCount > 15) {
-    $("img#stars").attr("src","img/stars_4.png");
-  } else
-  if (actCount > 10) {
-    $("img#stars").attr("src","img/stars_3.png");
-  } else
-  if (actCount > 5) {
-    $("img#stars").attr("src","img/stars_2.png");
-  }
+  updateStars();
 },
 
 
@@ -963,29 +1040,6 @@ deleteActivity: function(actKey) {
   app.navigateTo("home", "ignore"); // ignore stops creation of new entry
 },
 
-/*
-changeDate: function() {
-// was only used when data change was done via screen
-var thisDate = $("input#input-date").val();
-var date_activity = new Date(thisDate.substring(0,3), thisDate.substring(4,5)-1, thisDate.substring(6,7), 17, 00);
-utils.save(ACTIVITY_MANUAL_DATE, date_activity);
-$("div#change-date").hide();
-},
-*/
-
-changeID: function() {
-  // XXX no longer needed...
-  var metaID = $("input#input-id").val();
-  log.setMetaID(metaID);
-  $("div#change-id").hide();
-  log.initSurveyFile();
-  log.initActFile();
-  $("div#change-date").show();
-  utils.saveList(ACTIVITY_LIST,"");
-  utils.save(SURVEY_STATUS, "survey root");
-  $("div#nav-aboutme").show();
-  $("div#nav-status").hide();
-},
 
 submitEdit: function() {
   var prev_activity =
@@ -1029,7 +1083,7 @@ returnToMainScreen: function() {
   app.appScreen.show();
   app.personaliseScreen.hide();
   app.register_screen.hide();
-  app.checkIfRegistered();
+  app.statusCheck();
 },
 
 submitPostcode: function() {
@@ -1122,19 +1176,39 @@ populateAddressList: function(array) {
   (app.addressList).append(option);
 },
 
-checkIfRegistered: function() { //Called onDeviceReady and when returning to main screen
-  if (localStorage.getItem('household_id') == null) {
-    app.personalise.show();//Hide "personalise button" as they have already completed it
-  } else if (localStorage.getItem('household_id') != null) { //if personalise section complete
-    if (localStorage.getItem('registrationStatus') == 'incomplete') {//if the form wasn't finished
-    app.personalise.show();
-    app.personalise.html('Finish registration');
-    app.personalise.attr("onclick","app.continueRegistration()");
-  } else {
-    app.personalise.hide();//Hide "personalise button" as they have already completed it
-  }
-}
-//localStorage.getItem('household_id') != null)
+// checkIfRegistered: function() { //Called onDeviceReady and when returning to main screen
+//   if (localStorage.getItem('household_id') != null) {                  // HH id present
+//     if (localStorage.getItem('registrationStatus') != null) {  // form wasn't finished
+//         console.log("Have incomplete HH id");
+//         // app.nav_personalise.show();
+//         // app.nav_personalise.html(app.label.lblPersonaliseFinish);
+//         // app.nav_personalise.attr("onclick","app.continueRegistration()");
+//         app.divStatus.html(app.label.lblPersonaliseFinish);
+//         app.divStatus.attr("onclick","app.continueRegistration()");
+//     } else {                                                        // completed HH - hide personalise
+//         console.log("Have complete HH id");
+//         app.nav_personalise.hide();
+//         // $("div#nav-aboutme").show();                         // AR activate by dateChoice
+//     }
+//   } else {
+//     console.log("No HH id");
+//     app.nav_personalise.show();  //Hide "personalise button" as they have already completed it
+//   }
+// },
+
+getDate: function() {
+  var getDateURL = meterURL +  "date.php";
+  var sc = localStorage.getItem('sc');
+  var hh = localStorage.getItem('household_id');
+  var dateURL = getDateURL + "?hh=" +hh+ "&sc=" + sc
+  console.log("Get date" + dateURL);
+  app.appScreen.hide();
+  app.personaliseScreen.hide();
+  app.register_screen.show();
+  app.iframe_register.attr('src', dateURL);
+//   app.iframe_register.ready(function(){
+//   sendMessageIframe("Getting date from app");
+//   });
 },
 
 registerNewHousehold: function(registerURL) {
@@ -1157,12 +1231,13 @@ continueRegistration: function() {
     continueRegistrationLink = localStorage.getItem('continue_registration_link');
     var var1 = document.createElement ('a');
     var1.href = continueRegistrationLink;
-    if (var1.hostname != "energy-use.org/app") { //A method of making sure the domain of the url is energy-use.org
+    if (var1.hostname != "energy-use.org") { //A method of making sure the domain of the url is energy-use.org
       continueRegistrationLink = "http://energy-use.org/app";
     }
     console.log(continueRegistrationLink);
   }
   //If URL is not set or not on the energy-use.org domain, reset it.
+  console.log(continueRegistrationLink);
   app.registerNewHousehold(continueRegistrationLink);
 },
 

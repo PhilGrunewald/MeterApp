@@ -1,10 +1,13 @@
-var getMetaID = "http://www.energy-use.org/app/getMetaID.php";
-var getAddresses = "http://www.energy-use.org/app/getAddresses.php";
-var checkForHouseID = "http://www.energy-use.org/app/checkAddress.php";
-var linkHouseholdURL = "http://www.energy-use.org/app/linkHousehold.php";
-var insertSurvey = "http://www.energy-use.org/app/insertSurvey.php";
-var insertActivity = "http://www.energy-use.org/app/insertActivity.php";
-var insertError = "http://www.energy-use.org/app/insertError.php";
+// var meterURL = "http://www.energy-use.org/app/"
+// var getDateURL = meterURL +  "date.php";
+var getMetaID = meterURL +  "getMetaID.php";
+var getAddresses = meterURL +  "getAddresses.php";
+var checkForHouseID = meterURL +  "checkAddress.php";
+var linkHouseholdURL = meterURL +  "linkHousehold.php";
+var insertSurvey = meterURL +  "insertSurvey.php";
+var insertActivity = meterURL +  "insertActivity.php";
+var insertError = meterURL +  "insertError.php";
+
 var appVersion = "1.0.3";
 
 setInterval(connectionManager, 10000); //Begin connecting to server on intervals , in ms (default 10s)
@@ -83,9 +86,9 @@ function requestNextID(functionToExecuteNext){
 		error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
 			console.log("Check server connection (to php): " + textStatus);
 			if (localStorage.getItem("consent")==null) {
-			} else { //Dont want to alert if they are still on consent screen
+			}/* else { //Dont want to alert if they are still on consent screen
 				alert("Please check your internet connection");
-			}
+			}*/
 		}
 	});
 }
@@ -101,7 +104,7 @@ function requestAddresses(postcode){ //Requesting from API (or really our PHP wh
 			console.log("Response: " + response);
 			var status = response.split("#")[1];
 			console.log("Address API status: " + status);
-			//Handle possible events (see https://getaddress.io/Documentation)
+			//Handle possible events (see http://get address.so/Documentation)
 			if (status=="Success") {
 				console.log("Addresses: " + response.split("#<br>")[1]);
 				var addresses = (response.split("#<br>")[1]).split("<br>"); //Array of addresses
@@ -141,7 +144,7 @@ function requestAddresses(postcode){ //Requesting from API (or really our PHP wh
 
 
 function checkForAddress(address) { //Checks whether address is in our database
-	console.log("Requesting Addresses");
+	console.log("Checking for contact with this address");
 	var request;
 	request = $.ajax({
 		url: checkForHouseID,
@@ -153,9 +156,13 @@ function checkForAddress(address) { //Checks whether address is in our database
 				localStorage.setItem('household_id', response.split("#")[1]);
 				localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
 				app.returnToMainScreen();
-			} else if (response=="0 results") {
+			} else if (response.split("#")[0]=="0 results") {
 				console.log("0 results");
-				app.registerNewHousehold("http://www.energy-use.org/app", address, localStorage.getItem("postcode"));
+                var idContact = response.split("#")[1]);
+				console.log("Created new contact: " + idContact);
+				localStorage.setItem('contact_id', idContact);
+				//app.registerNewHousehold("http://energy-use.org/app", address, localStorage.getItem("postcode"));
+				app.registerNewHousehold(meterURL,idContact);
 			} else {
 				alert("Please try again later");
 				app.returnToMainScreen();
@@ -181,7 +188,7 @@ function linkHousehold() {
 				console.log("Succesfully uploaded!");
 				console.log(response);
 				localStorage.setItem('householdStatus', "LINKED"); //so we can determine that it has successfully linked
-				app.checkIfRegistered();
+				app.statusCheck();
 			} else {
 				localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
 				console.log("MySQL connection error" + response);
@@ -195,16 +202,7 @@ function linkHousehold() {
 	});
 }
 
-/* //I don't think this is being used anymore...
-function checkHouseholdLinked() {
-	if (localStorage.getItem('householdStatus') == "LINKED" || localStorage.getItem('household_id') == null) {
-		//ID has been linked or they haven't comepleted the "personalise" section
-	} else {
-		//ID hasn't been linked but has been obtained (unlikely scenario where they lost connection just before submitting a household address)
-		linkHousehold();
-	}
-}
-*/
+
 
 function surveyUpload() {
 	var request;
@@ -227,12 +225,14 @@ function surveyUpload() {
 	});
 }
 
-function connectionManager() { //gets Meta_ID, uploads activities, uploads survey
-	console.log("Connecting again");
+function connectionManager() { 
+    //
+    // called from timer
+    // gets Meta_ID, uploads activities, uploads survey
+    //
 	if (localStorage.getItem('metaID') == null){
 		requestNextID();
 	} else {
-		console.log("We have a meta ID");
 		if (localStorage.getItem('activitiesToUpload') != "" && localStorage.getItem('activitiesToUpload') != null) {
 			console.log("Uploading Activities");
 			uploadActivities(); //Called if there are items to upload
@@ -270,20 +270,33 @@ function receiveMessageIframe(message) {
 		app.returnToMainScreen();
 		var urlReceived = message.split("#")[1];
 		localStorage.setItem('continue_registration_link', urlReceived);
-		app.checkIfRegistered();
-		localStorage.setItem('registrationStatus', 'incomplete');
+		app.statusCheck();
+		// localStorage.setItem('registrationStatus', 'incomplete');
 		//Can ignore error below
 		try {
-			var pageNumber = urlReceived.split("hhq.php?")[1].split("&pn")[0]; //getting the pp=12 value from url
-		} catch (err) {
+			var pageNumber = urlReceived.split("hhq.php?pp=")[1].split("&pn")[0]; //getting the pp=12 value from url
+			var sc = urlReceived.split("sc=")[1].split("&address1")[0]; //getting the sc=12 value from url
+			localStorage.setItem('sc',sc);
+        } catch (err) {
 			var pageNumber = "none";
 		}
 		console.log("page number: " + pageNumber);
-		if (pageNumber == "pp=19") { //If it is the last page
+		if (pageNumber >= 17) { //If it is the last page
 			localStorage.setItem('registrationStatus', 'complete');
 		}
-		app.checkIfRegistered();
+		app.statusCheck();
 	}
+
+	if (message.split("#")[0]=="Got date"){
+		app.returnToMainScreen();
+		var dateChoice = message.split("#")[1];
+        if (dateChoice == '2000-01-01') {         // default, i.e. no date chosen
+            dateChoice = null;
+        }
+        localStorage.setItem('dateChoice',dateChoice);
+		app.statusCheck();
+	}
+
 	if (message.split("#")[0]=="Got Household ID"){
 		console.log("Household id : " + message.split("#")[1]);
 		if(localStorage.getItem('household_id') != message.split("#")[1]) { //If it is a different ID we must change it

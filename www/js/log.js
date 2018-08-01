@@ -18,13 +18,18 @@ init: function() {
 			console.log("got main dir",dir);
 			// the existence of folder METER is assumed
 			$.getJSON("/sdcard/METER/config.json", function(config) {
+                // if a config file exists locally (this is one of our devices) use this one
+                console.log("X4");
+				localStorage.setItem('metaID', config.id);
+				localStorage.setItem('household_id', config.hh);
+				localStorage.setItem('dateChoice', config.start);
 				log.id 				= config.id;
 				log.start			= config.start;
 				app.catchupList 	= config.times;
-				if (config.id == "0") {
-					$("div#change-id").show();
-					$("div#btn-time").attr("onclick", "app.navigateTo('activity time absolute')"); // clicking 'recent' now leads to absolute time values
-				}
+				// if (config.id == "0") {
+				// 	$("div#change-id").show();
+				// 	$("div#btn-time").attr("onclick", "app.navigateTo('activity time absolute')"); // clicking 'recent' now leads to absolute time values
+				// }
 				dir.getFile("METER/"+config.id+"_ind.csv", {create:false}, function(file) {
 					console.log("got existing survey file", file);
 					log.logSurvey = file;
@@ -32,8 +37,8 @@ init: function() {
 					dir.getFile("METER/"+config.id+"_ind.csv", {create:true}, function(file) {
 						console.log("created survey file", file);
 						utils.save(SURVEY_STATUS,'survey root');
-						$("div#nav-status").hide();
-						$("div#nav-aboutme").show();
+						// $("div#nav-status").hide();
+						// $("div#nav-aboutme").show();
 						log.logSurvey = file;
 					}, function(err) {
 						console.log(err);

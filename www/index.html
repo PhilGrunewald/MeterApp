@@ -1,34 +1,6 @@
 <!DOCTYPE html>
-<!--
-   Licensed to the Apache Software Foundation (ASF) under one
-   or more contributor license agreements.  See the NOTICE file
-   distributed with this work for additional information
-   regarding copyright ownership.  The ASF licenses this file
-   to you under the Apache License, Version 2.0 (the
-   "License"); you may not use this file except in compliance
-   with the License.  You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing,
-   software distributed under the License is distributed on an
-   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-   KIND, either express or implied.  See the License for the
-   specific language governing permissions and limitations
-   under the License.
-   -->
 <html>
    <head>
-      <!--
-         Customize this policy to fit your own app's needs. For more guidance, see:
-         https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-         Some notes:
-         * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-         * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-         * Enable inline JS: add 'unsafe-inline' to default-src
-         -->
-      <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' https://ajax.googleapis.com/ajax/libs/ ">-->
       <meta name="format-detection" content="telephone=no">
       <meta name="msapplication-tap-highlight" content="no">
       <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -36,25 +8,23 @@
       <title>Meter</title>
    </head>
    <body>
-     <!---
-     <div class="splash_screen" id="splash_screen" style="text-align:center;width:100%;height:100%">
-     </div>
-     --->
        <div hidden class="consent" id="consent" style="text-align:center">
 <br>
 <br>
-<img src="../img/meter.png" alt="Meter" style="height:100px">
+<img src="img/meter.png" alt="Meter" style="height:100px">
 <br>
-<img src="../img/eci-logo-colour.png" alt="ECI" style="height:50px">
+<img src="img/eci-logo-colour.png" alt="ECI" style="height:50px">
 
 <br>
 <br>
 <div>
- Welcome to the METER research project
+ Welcome to the METER energy study
 </div>
 <br> <br>
 <div>
-By using this app your data will be used and shared for research purposes
+The data you provide with this app is used for research. 
+<br>
+<a href="http://www.energy-use.org/data_policy.php">Read our data policy and ethics</a>
 </div>
 <br>
 <br>
@@ -66,10 +36,14 @@ By using this app your data will be used and shared for research purposes
          <div class="navbar">
             <!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
             <div class="row">
-               <div id="nav-home" class="col-3" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
-               <div id="nav-aboutme" class="col-3" onclick="app.navigateTo('survey root')"><span id="lblSurvey">Survey</span><img src="img/AR_4.png" id="survey-status"></div>
-               <div hidden id="nav-status" class="col-3" onclick="app.showProgressList();"><img id="stars"></div>
-               <div id="nav-help" class="col-3" style="font-size:25px" onclick="app.toggleCaption();">?</div>
+               <div id="nav-home" class="col-25" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
+
+               <div id="divStatus" class="col-50" onclick="app.showProgressList();"> 
+                    <img id="imgStatus">
+                    <div id="lblStatus"> </div>
+               </div>
+
+               <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();">?</div>
             </div>
          </div>
          <div class="main-screen">
@@ -93,7 +67,6 @@ By using this app your data will be used and shared for research purposes
                   -->
                <div id="title">Welcome</div>
                <br></br>
-               <button type="button" id="personalise" class="btn_personalise" onclick="app.personaliseClick()">Personalise...</button>
                <div id="catch-up" class="btn-catchup"> at </div>
             </div>
             <div id="other-specify">
@@ -114,31 +87,31 @@ By using this app your data will be used and shared for research purposes
                      <div class="progress-row">
                         <div class="progress-item">
                            <img id="stars1" src="img/stars_on.png">
-                           <span id="progress1">Survey complete</span>
+                           <span id="progress1"></span>
                         </div>
                      </div>
                      <div class="progress-row">
                         <div class="progress-item">
                            <img id="stars2" src="img/stars_off.png">
-                           <span id="progress2">5 Aktivit�ten</span>
+                           <span id="progress2">5</span>
                         </div>
                      </div>
                      <div class="progress-row">
                         <div class="progress-item">
                            <img id="stars3" src="img/stars_off.png">
-                           <span id="progress3">10 activities</span>
+                           <span id="progress3">10</span>
                         </div>
                      </div>
                      <div class="progress-row">
                         <div class="progress-item">
                            <img id="stars4" src="img/stars_off.png">
-                           <span id="progress4">15 activities</span>
+                           <span id="progress4">15</span>
                         </div>
                      </div>
                      <div class="progress-row">
                         <div class="progress-item">
                            <img id="stars5" src="img/stars_off.png">
-                           <span id="progress5">25 activities</span>
+                           <span id="progress5">25</span>
                         </div>
                      </div>
                   </div>
