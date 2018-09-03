@@ -151,6 +151,7 @@ var app = {
     $('#lblHome').html(app.label.lblHome)
     $('#lblNext').html(app.label.lblNext)
     $('#lblDone').html(app.label.lblDone)
+    $('#btn-other-specify').html(app.label.btnOther)
 
     $('#progress1').html(app.label.progress1)
     $('#progress2').html(app.label.progress2)

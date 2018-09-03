@@ -1,8 +1,8 @@
 // var meterURL = "http://www.energy-use.org/app/"
 // var getDateURL = meterURL +  "date.php";
 var getMetaID = meterURL +  "getMetaID.php";
-var getAddresses = "https://nutellaplant.000webhostapp.com/addressAPI.php";
-//var getAddresses =  meterURL +  "getAddresses.php";
+// var getAddresses = "https://nutellaplant.000webhostapp.com/addressAPI.php";
+var getAddresses =  meterURL +  "getAddresses.php";
 var checkForHouseID = meterURL +  "checkAddress.php";
 var linkHouseholdURL = meterURL +  "linkHousehold.php";
 var insertSurvey = meterURL +  "insertSurvey.php";
@@ -258,7 +258,7 @@ function connectionManager() {
 		}
 		if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
 			//If there is at least one error to upload
-			uploadErrorMessages();
+			// uploadErrorMessages();
 		}
 	}
 }
