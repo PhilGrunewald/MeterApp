@@ -141,6 +141,7 @@ var app = {
     app.iframe_register = $('#iframe_register');
 
     app.consent = $('#consent');
+    app.navbar = $('#navbar');
 
     app.title.html(app.label.title);
     $('#actListLabel').html(app.label.actListLabel)
@@ -183,8 +184,8 @@ var app = {
 
     app.statusCheck();
     setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
-  
-  
+
+
 
     //console.log("Device type: " + device.platform + ", " + device.cordova + ", " + device.model + ", " + device.uuid +  ", " + device.version +  ", " + device.manufacturer + ", " + device.serial);
     /* Handled by connectionManager
@@ -199,6 +200,8 @@ var app = {
 // app.checkIfRegistered(); //(Changes the personalise button appropriately)
 //app.registerNewHousehold("http://energy-use.org"); //faster debugging purposes - remove later
 app.checkIfConsent(); //Shows consent screen if they havent agreed
+//app.registerNewHousehold("https://nutellaplant.000webhostapp.com/hhqTestFile.php?sc=I7DpvDupHx&pg=0&id=10940");
+
 },
 
 initClock: function(thisClock) {
@@ -214,7 +217,7 @@ statusCheck: function() {
     // 2: finish personalise        registration status = 'complete'
     // 3: get date                  dateChoice
     // 4: survey                    SURVEY_STATUS
-    // 5: study (stars)             
+    // 5: study (stars)
     // 6: return eMeter             date > dateChoice +1
     //
     var dateChoice = localStorage.getItem('dateChoice');
@@ -257,7 +260,7 @@ statusCheck: function() {
         app.lblStatus.html("");
         app.divStatus.attr("onclick","app.showProgressList()");
         app.title.html(app.label.titleDay1);
-        updateStars();
+        app.updateStars();
     } else {
         app.lblStatus.html("");
         app.divStatus.attr("onclick","app.showProgressList()");
@@ -670,6 +673,7 @@ showActivityList: function() {
 
   console.log("Checking if registered...");
   app.statusCheck();
+  app.returnToMainScreen();
 
   // app.checkIfRegistered(); //Will show 'personalise' or 'finish registration' button or neither
 
@@ -836,7 +840,7 @@ addActivityToList: function() {
   // reset values
   utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
   utils.save(CURR_PEOPLE, "-1");
-  updateStars();
+  app.updateStars();
 },
 
 
@@ -1114,6 +1118,8 @@ submitAddress: function() {
     console.log("None of the above houses");
     localStorage.setItem("address", "ignore");
     app.registerNewHousehold("http://energy-use.org/app");
+
+    //app.registerNewHousehold("https://nutellaplant.000webhostapp.com/hhqTestFile.php?sc=I7DpvDupHx&pg=0&id=10940");
   } else if (app.addressList.val() == null){
     //do nothing
     console.log("nothing");
@@ -1155,7 +1161,7 @@ populateAddressList: function(array) {
   app.disabled_list_option.html("Select here");
 
   array.forEach(function(entry){
-    console.log(entry);
+    //console.log("This is the address: " + entry);
     var option = document.createElement('option');
     //option.value = entry.split("; ")[2]; //Household_id
     var address1 = entry.split(",")[0];
@@ -1217,9 +1223,10 @@ registerNewHousehold: function(registerURL) {
   app.personaliseScreen.hide();
   app.register_screen.show();
   app.iframe_register.attr('src', registerURL);
-  app.iframe_register.ready(function(){
+  app.iframe_register.load(function(){
     console.log("Hello");
     sendMessageIframe("I am registering from the app");
+    sendMessageIframe("Fill address fields#" + localStorage.getItem("address") + "#" + localStorage.getItem("postcode"));
   });
 },
 
@@ -1245,6 +1252,7 @@ checkIfConsent: function() {
   if (localStorage.getItem("consent")==null) {
     app.consent.show();
     app.appScreen.hide();
+    app.navbar.hide();
   }
 },
 
@@ -1252,6 +1260,7 @@ givenConsent: function() {
   localStorage.setItem("consent", 1);
   app.consent.hide();
   app.appScreen.show();
+  app.navbar.show();
 },
 
 

@@ -1,7 +1,8 @@
 // var meterURL = "http://www.energy-use.org/app/"
 // var getDateURL = meterURL +  "date.php";
 var getMetaID = meterURL +  "getMetaID.php";
-var getAddresses = meterURL +  "getAddresses.php";
+var getAddresses = "https://nutellaplant.000webhostapp.com/addressAPI.php";
+//var getAddresses =  meterURL +  "getAddresses.php";
 var checkForHouseID = meterURL +  "checkAddress.php";
 var linkHouseholdURL = meterURL +  "linkHousehold.php";
 var insertSurvey = meterURL +  "insertSurvey.php";
@@ -22,6 +23,9 @@ window.onerror = function(message, source, lineNumber) {
 };
 
 
+//setInterval(createNotification, 5000);
+
+//document.addEventListener('deviceready', createNotification(12,12), false);
 
 //document.addEventListener('DOMContentLoaded', connectionManager, false); // initial upload at start of app (in case of brief returns to the app)
 //Strange error thrown...
@@ -158,11 +162,11 @@ function checkForAddress(address) { //Checks whether address is in our database
 				app.returnToMainScreen();
 			} else if (response.split("#")[0]=="0 results") {
 				console.log("0 results");
-                var idContact = response.split("#")[1]);
-				console.log("Created new contact: " + idContact);
-				localStorage.setItem('contact_id', idContact);
+				//var idContact = response.split("#")[1];
+				//console.log("Created new contact: " + idContact);
+				//localStorage.setItem('contact_id', idContact);
 				//app.registerNewHousehold("http://energy-use.org/app", address, localStorage.getItem("postcode"));
-				app.registerNewHousehold(meterURL,idContact);
+				app.registerNewHousehold("https://nutellaplant.000webhostapp.com/contactRegister.html");//meterURL);
 			} else {
 				alert("Please try again later");
 				app.returnToMainScreen();
@@ -225,11 +229,11 @@ function surveyUpload() {
 	});
 }
 
-function connectionManager() { 
-    //
-    // called from timer
-    // gets Meta_ID, uploads activities, uploads survey
-    //
+function connectionManager() {
+	//
+	// called from timer
+	// gets Meta_ID, uploads activities, uploads survey
+	//
 	if (localStorage.getItem('metaID') == null){
 		requestNextID();
 	} else {
@@ -246,6 +250,11 @@ function connectionManager() {
 			//Unlikely scenario where they lose connection after having received an HouseholdID and so fail to link
 			linkHousehold();
 			console.log("Linking household");
+		} else if (localStorage.getItem('dateChoice') == "" || localStorage.getItem('dateChoice') == null ) {
+			//Request dateChoice from server
+		} else if (localStorage.getItem('notificationReminder') != "SET") {//If reminder hasn't been set
+		var date = localStorage.getItem('dateChoice').split("-");
+			createNotification(date[0],date[1] - 1,date[2] - 1, 20, 0);
 		}
 		if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
 			//If there is at least one error to upload
@@ -277,7 +286,7 @@ function receiveMessageIframe(message) {
 			var pageNumber = urlReceived.split("hhq.php?pp=")[1].split("&pn")[0]; //getting the pp=12 value from url
 			var sc = urlReceived.split("sc=")[1].split("&address1")[0]; //getting the sc=12 value from url
 			localStorage.setItem('sc',sc);
-        } catch (err) {
+		} catch (err) {
 			var pageNumber = "none";
 		}
 		console.log("page number: " + pageNumber);
@@ -290,10 +299,10 @@ function receiveMessageIframe(message) {
 	if (message.split("#")[0]=="Got date"){
 		app.returnToMainScreen();
 		var dateChoice = message.split("#")[1];
-        if (dateChoice == '2000-01-01') {         // default, i.e. no date chosen
-            dateChoice = null;
-        }
-        localStorage.setItem('dateChoice',dateChoice);
+		if (dateChoice == '2000-01-01') {         // default, i.e. no date chosen
+			dateChoice = null;
+		}
+		localStorage.setItem('dateChoice',dateChoice);
 		app.statusCheck();
 	}
 

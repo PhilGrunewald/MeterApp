@@ -22,7 +22,7 @@
 </div>
 <br> <br>
 <div>
-The data you provide with this app is used for research. 
+The data you provide with this app is used for research.
 <br>
 <a href="http://www.energy-use.org/data_policy.php">Read our data policy and ethics</a>
 </div>
@@ -32,20 +32,22 @@ The data you provide with this app is used for research.
 <div>
 </div>
      </div>
+
+     <div class="navbar" id="navbar">
+        <!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
+        <div class="row">
+           <div id="nav-home" class="col-25" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
+
+           <div id="divStatus" class="col-50" onclick="app.showProgressList();">
+                <img id="imgStatus">
+                <div id="lblStatus"> </div>
+           </div>
+
+           <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();">?</div>
+        </div>
+     </div>
+
       <div class="app" id="app_screen">
-         <div class="navbar">
-            <!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
-            <div class="row">
-               <div id="nav-home" class="col-25" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
-
-               <div id="divStatus" class="col-50" onclick="app.showProgressList();"> 
-                    <img id="imgStatus">
-                    <div id="lblStatus"> </div>
-               </div>
-
-               <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();">?</div>
-            </div>
-         </div>
          <div class="main-screen">
             <div hidden id="change-id">
                <input type="text" id="input-id" autofocus />
@@ -190,7 +192,7 @@ The data you provide with this app is used for research.
       <!-- main-screen ^ -->
       <div hidden id="personalise_screen" class="personalise_screen">
          <header id="welcome" class="welcome">
-            Welcome to the METER project!
+            Welcome to the METER study!
          </header>
          <div id="help_text" class="help_text">
             Enter your postcode
@@ -209,6 +211,7 @@ The data you provide with this app is used for research.
               <br>
                <button type="button" id="personalise_back" class="btn_return" onclick="">Do this later</button>
                <button type="button" class="btn_link" onclick="navigator.app.loadUrl('http://energy-use.org/about.php', { openExternal:true });">Learn more</button>
+               <!--Above will cause error in browser but not on Android-->
                <br>
                <br>
             </div>
@@ -216,7 +219,7 @@ The data you provide with this app is used for research.
       </div>
       <!-- personalise-screen ^ -->
       <div hidden class="register_screen" id="register_screen">
-      <iframe id="iframe_register" width="100%" height="100%" frameborder="0"></iframe>
+      <iframe id="iframe_register" width="100%" height="90%" frameborder="0"></iframe>
       </div>
       <!-- register-screen ^ -->
       <script type="text/javascript" src="cordova.js"></script>
@@ -225,6 +228,8 @@ The data you provide with this app is used for research.
       <script type="text/javascript" src="js/utils.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
       <script type="text/javascript" src="js/connect.js"></script>
+      <script type="text/javascript" src="js/notifications.js"></script>
+
       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
    </body>
 </html>
