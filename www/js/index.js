@@ -185,24 +185,7 @@ var app = {
 
     app.statusCheck();
     setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
-
-
-
-    //console.log("Device type: " + device.platform + ", " + device.cordova + ", " + device.model + ", " + device.uuid +  ", " + device.version +  ", " + device.manufacturer + ", " + device.serial);
-    /* Handled by connectionManager
-    if (localStorage.getItem('metaID') == null){
-    requestNextID();
-  } else {
-  if (localStorage.getItem('surveyUploaded') != 1 && localStorage.getItem('survey root') == 'survey complete') {
-  surveyUpload(); //called if survey is complete but has not been uploaded up and we already have an ID
-}
-}
-*/
-// app.checkIfRegistered(); //(Changes the personalise button appropriately)
-//app.registerNewHousehold("http://energy-use.org"); //faster debugging purposes - remove later
-app.checkIfConsent(); //Shows consent screen if they havent agreed
-//app.registerNewHousehold("https://nutellaplant.000webhostapp.com/hhqTestFile.php?sc=I7DpvDupHx&pg=0&id=10940");
-
+    app.checkIfConsent(); //Shows consent screen if they havent agreed
 },
 
 initClock: function(thisClock) {

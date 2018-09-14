@@ -72,7 +72,7 @@ Exceptions that are handled: no wifi connection, no connection to php host, php 
 */
 
 function requestNextID(functionToExecuteNext){
-	console.log("Requesting the next ID");
+	console.log("Requesting next ID");
 	var request;
 	request = $.ajax({
 		url: getMetaID,
@@ -235,8 +235,10 @@ function connectionManager() {
 	// gets Meta_ID, uploads activities, uploads survey
 	//
 	if (localStorage.getItem('metaID') == null){
+		console.log("no meta");
 		requestNextID();
 	} else {
+		console.log("meta: " + localStorage.getItem('metaID'));
 		if (localStorage.getItem('activitiesToUpload') != "" && localStorage.getItem('activitiesToUpload') != null) {
 			console.log("Uploading Activities");
 			uploadActivities(); //Called if there are items to upload
