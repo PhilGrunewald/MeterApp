@@ -1,0 +1,34 @@
+{
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-windows"
+  ],
+  "dependencies": {
+    "cordova-android": "^7.0.0",
+    "cordova-browser": "^5.0.4",
+    "cordova-ios": "^4.5.5",
+    "cordova-plugin-whitelist": "1",
+    "cordova-plugin-compat": "~1.1.0",
+    "cordova-plugin-device": "~1.1.5",
+    "cordova-plugin-file": "~4.3.2",
+    "cordova-plugin-console": "~1.0.6",
+    "cordova-plugin-local-notification": "~0.9.0-beta.2"
+  },
+  "cordova": {
+    "platforms": [
+      "ios",
+      "android",
+      "browser"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-compat": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-file": {},
+      "cordova-plugin-console": {},
+      "cordova-plugin-local-notification": {}
+    }
+  }
+}
