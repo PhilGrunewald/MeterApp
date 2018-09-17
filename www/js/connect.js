@@ -8,6 +8,7 @@ var linkHouseholdURL = meterURL +  "linkHousehold.php";
 var insertSurvey = meterURL +  "insertSurvey.php";
 var insertActivity = meterURL +  "insertActivity.php";
 var insertError = meterURL +  "insertError.php";
+var insertContactDetails = meterURL + "insertContactDetails.php";
 
 var appVersion = "1.0.3";
 
@@ -165,8 +166,10 @@ function checkForAddress(address) { //Checks whether address is in our database
 				//var idContact = response.split("#")[1];
 				//console.log("Created new contact: " + idContact);
 				//localStorage.setItem('contact_id', idContact);
-				//app.registerNewHousehold("http://energy-use.org/app", address, localStorage.getItem("postcode"));
-				app.registerNewHousehold("https://nutellaplant.000webhostapp.com/contactRegister.html");//meterURL);
+
+				//app.registerNewHousehold(meterURL, address, localStorage.getItem("postcode"));
+				app.contactInfoScreen(); //Shows name and email inputs
+                // https://nutellaplant.000webhostapp.com/contactRegister.html");//meterURL);
 			} else {
 				alert("Please try again later");
 				app.returnToMainScreen();
@@ -176,6 +179,9 @@ function checkForAddress(address) { //Checks whether address is in our database
 		error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
 			app.personaliseClick();
 			console.log("Check server connection (to php): " + textStatus);
+			console.log(errorThrown);
+			console.log(textStatus);
+
 			alert("Please check your internet connection");
 		}
 	});
@@ -229,6 +235,39 @@ function surveyUpload() {
 	});
 }
 
+function submitContactInfo() {
+	var Name = document.getElementById("contact_name").value;
+	var Email = document.getElementById("contact_email").value;
+	var Source = "appVersion:" + appVersion;
+	var address = localStorage.getItem("address").split(",");
+	var address1 = address[0];
+	var address2 = address[1];
+	var town = address[4];
+	var postcode = localStorage.getItem("postcode");
+	var request;
+	request = $.ajax({ //Send request to php
+		url: insertContactDetails,
+		type: "POST",
+		data: {Name:Name,Email:Email,Source:Source,address1:address1,address2:address2,town:town,postcode:postcode}, //send survey array
+		success: function(response) {
+				console.log("Response: " + response);
+				//response contains hhq.php? and the corresponding GET values
+				//line 71: echo "app/hhq.php?sc=" . $securityCode . "&pg=0&id=" . $last_id  . "#";
+				var hhqURL = meterURL + response.split("app/")[1].split("#")[0];
+				console.log("This is the address received from insertContactDetails.php: " + hhqURL);
+				app.registerNewHousehold(hhqURL);// address, localStorage.getItem("postcode"));
+				//window.location.href = meterURL + response.split('#')[0];
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
+				console.log("Check server connection (to php): " + textStatus);
+				alert("Please check your internet connection and try again later");
+				console.log(XMLHttpRequest);
+				console.log(textStatus);
+				console.log(errorThrown);
+		}
+	});
+}
+
 function connectionManager() {
 	//
 	// called from timer
@@ -247,16 +286,28 @@ function connectionManager() {
 			console.log("Uploading Survey");
 			surveyUpload(); //called if survey is complete but has not been uploaded up and we already have an ID
 		}
+
 		if(localStorage.getItem('householdStatus') == "NOTLINKED") {
 			//This means we have got a hhid but havent linked to it yet
 			//Unlikely scenario where they lose connection after having received an HouseholdID and so fail to link
 			linkHousehold();
 			console.log("Linking household");
 		} else if (localStorage.getItem('dateChoice') == "" || localStorage.getItem('dateChoice') == null ) {
-			//Request dateChoice from server
-		} else if (localStorage.getItem('notificationReminder') != "SET") {//If reminder hasn't been set
-		var date = localStorage.getItem('dateChoice').split("-");
-			createNotification(date[0],date[1] - 1,date[2] - 1, 20, 0);
+			//Request dates from server
+        // Have a date...
+		} else if (localStorage.getItem('notifyRemindStart') == "" || localStorage.getItem('notifyRemindStart') == null) {//If reminder hasn't been set
+		  var isNotPermission = checkNotPermission();
+			if (isNotPermission) {
+				var date = localStorage.getItem('dateChoice').split("-");
+				var notificationID = getRandomInt(100000);
+                // yr mth day hour min id title message
+				createNotification(date[0],date[1] - 1,date[2] - 1, 20, 0, notificationID, "METER Particpation", "Remember to record your activites tomrrow");
+				localStorage.setItem('notifyRemindStart', notificationID);
+				//storing the ID allows us to modify it if needed in the future
+			} else if (!requestNotPermission()){
+				//permission has been refused; must be granted manually via settings
+				//alert("Please enable notification permission");
+			}
 		}
 		if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
 			//If there is at least one error to upload
@@ -325,7 +376,10 @@ function receiveMessageIframe(message) {
 	if (message.split("#")[0]=="Changed page"){
 		var urlReceived = message.split("#")[1];
 		try {
-			var pageNumber = urlReceived.split("hhq.php?")[1].split("&pn")[0]; //getting the pp=12 value from url
+			var urlReceived = message.split("#")[1];
+			localStorage.setItem('continue_registration_link', urlReceived);
+			var pageNumber = "1"; //use regex
+			//var pageNumber = urlReceived.split("hhq.php?")[1].split("&pn")[0]; //getting the pp=12 value from url
 		} catch (err) {
 			pageNumber = "none";
 		}

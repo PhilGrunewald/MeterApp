@@ -1,0 +1,1082 @@
+{
+    "screens": {
+        "XXXactivity time relative": {
+            "activities": [
+                "Time 1",
+                "Time 2",
+                "Time 3",
+                "Time 4",
+                "Time 5",
+                "Time 6"
+            ],
+            "help": "How long ago or the time",
+            "title": "When was this?"
+        },
+        "activity home": {
+            "activities": [
+                "Personal",
+                "Care",
+                "Work",
+                "Food",
+                "Get home",
+                "Main other"
+            ],
+            "help": "at this moment",
+            "title": "Your activity"
+        },
+        "activity main": {
+            "activities": [
+                "Personal",
+                "Care",
+                "Work",
+                "Food",
+                "Appliances",
+                "Main other"
+            ],
+            "help": "at this moment",
+            "title": "Your activity"
+        },
+        "activity public": {
+            "activities": [
+                "Personal",
+                "Care",
+                "Work",
+                "Food",
+                "Shopping and services",
+                "Main other"
+            ],
+            "help": "in a public place",
+            "title": "Your activity"
+        },
+        "activity root": {
+            "activities": [
+                "Loc home",
+                "Loc outdoors",
+                "Loc work",
+                "Loc public",
+                "Loc travelling",
+                "Loc other location"
+            ],
+            "help": "Your location.",
+            "title": "Where are you at ${act_time}?"
+        },
+        "activity root away": {
+            "activities": [
+                "Loc got home",
+                "Loc outdoors",
+                "Loc work",
+                "Loc public",
+                "Loc travelling",
+                "Loc other location"
+            ],
+            "help": "Your location.",
+            "title": "Where are you at ${act_time}?"
+        },
+        "activity time 2": {
+            "activities": [
+                "Time 7",
+                "Time 8",
+                "Time 9",
+                "Time 10",
+                "Time 11",
+                "Time 12"
+            ],
+            "help": "How long ago or the time",
+            "title": "When was this?"
+        },
+        "activity time absolute": {
+            "activities": [
+                "Hour range 1",
+                "Hour range 2",
+                "Hour range 3",
+                "Hour range 4",
+                "Hour range 5",
+                "Hour range 6"
+            ],
+            "help": "How long ago or the Hour range",
+            "title": "Choose the period"
+        },
+        "activity time relative": {
+            "activities": [
+                "-10min",
+                "+5min",
+                "-30min",
+                "+15min",
+                "-120min",
+                "+60min"
+            ],
+            "help": "Press DONE when time is right",
+            "title": "${rel_time}"
+        },
+        "adjust time": {
+            "activities": [
+                "-10min",
+                "+5min",
+                "-30min",
+                "+15min",
+                "-120min",
+                "+60min"
+            ],
+            "help": "Press DONE when time is right",
+            "title": "${rel_time}"
+        },
+        "appliances": {
+            "activities": [
+                "Appliances clothes",
+                "Appliances kitchen",
+                "Appliances entertainment",
+                "Appliances household",
+                "Appliances bathroom",
+                "Other specify"
+            ],
+            "help": "",
+            "title": "Appliance use"
+        },
+        "appliances bathroom": {
+            "activities": [
+                "Appliances Hair dryer",
+                "Appliances hair curler",
+                "Appliances shaver",
+                "Appliances hair trimmer",
+                "Appliances tooth brush",
+                "Appliances hygiene none"
+            ],
+            "help": "",
+            "title": "Bathroom"
+        },
+        "appliances clothes": {
+            "activities": [
+                "Appliances Washing machine",
+                "Appliances Washer dryer",
+                "Appliances Tumble dryer",
+                "Appliances Iron",
+                "Appliances Sewing machine",
+                "Other specify"
+            ],
+            "help": "",
+            "title": "Clothes"
+        },
+        "appliances entertainment": {
+            "activities": [
+                "Appliances TV",
+                "Appliance Mobile",
+                "Appliances Games console",
+                "Appliances Radio",
+                "Appliances Toys",
+                "Other specify"
+            ],
+            "help": "",
+            "title": "Entertainment"
+        },
+        "appliances food preparation": {
+            "activities": [
+                "Food preparation hot other",
+                "Appliances Oven",
+                "Appliances Hob",
+                "Appliances Microwave",
+                "Appliances Kettle",
+                "Appliances Toaster"
+            ],
+            "help": "",
+            "title": "Kitchen"
+        },
+        "appliances household": {
+            "activities": [
+                "Appliances vacuum",
+                "Appliances heater",
+                "Appliances Tools",
+                "Appliances Garden tools",
+                "Appliances Toys",
+                "Other specify"
+            ],
+            "help": "",
+            "title": "House and garden"
+        },
+        "appliances kitchen": {
+            "activities": [
+                "Appliances Dish washer",
+                "Appliances Oven",
+                "Appliances Microwave",
+                "Appliances Kettle",
+                "Appliances Toaster",
+                "Other specify"
+            ],
+            "help": "",
+            "title": "Kitchen"
+        },
+        "care": {
+            "activities": [
+                "Care child",
+                "Care family",
+                "Care friends",
+                "Caring for pets",
+                "Care others",
+                "Care other"
+            ],
+            "help": "",
+            "title": "Activity with..."
+        },
+        "care activities": {
+            "activities": [
+                "Food",
+                "Leisure TV",
+                "Care others unspecified",
+                "Socialising",
+                "Exercise",
+                "Care activities other"
+            ],
+            "help": "with others",
+            "title": "Joint activity"
+        },
+        "care child": {
+            "activities": [
+                "Food",
+                "Care child engage",
+                "Care wash",
+                "Care child bed",
+                "Care child supervise",
+                "Care child other"
+            ],
+            "help": "at this moment",
+            "title": "Child care"
+        },
+        "care child engage": {
+            "activities": [
+                "Care child study",
+                "Care child play",
+                "Care child read",
+                "Leisure TV",
+                "Care child bed",
+                "Care child other"
+            ],
+            "help": "with your child",
+            "title": "What do you do together"
+        },
+        "care child practical": {
+            "activities": [
+                "Care wash bath children",
+                "Care child dress",
+                "Care child physical",
+                "Care child other"
+            ],
+            "help": "at this moment",
+            "title": "Helping child"
+        },
+        "care others": {
+            "activities": [
+                "Care others physical",
+                "Care others company",
+                "Care others dependent physical",
+                "Care others dependent company",
+                "Blank",
+                "Care others other"
+            ],
+            "help": "Type of care",
+            "title": "Providing care"
+        },
+        "care personal": {
+            "activities": [
+                "Food",
+                "Exercise",
+                "Reading books",
+                "Leisure TV",
+                "Social media",
+                "Care personal other"
+            ],
+            "help": "",
+            "title": "Time for you"
+        },
+        "care rest sleep": {
+            "activities": [
+                "Care rest",
+                "Food drink hot",
+                "Sleep",
+                "In bed awake",
+                "Sick in bed",
+                "other"
+            ],
+            "help": "",
+            "title": "Rest / sleep"
+        },
+        "care wash": {
+            "activities": [
+                "Care wash shower",
+                "Care wash bath",
+                "Care wash sink",
+                "Care wash dress",
+                "Care wash hygiene",
+                "Care wash other"
+            ],
+            "help": "at this moment",
+            "title": "Wash or dress"
+        },
+        "care wash bath": {
+            "activities": [
+                "Care wash bath running",
+                "Care wash bath bathing",
+                "Care wash bath children",
+                "Care wash bath other",
+                "Blank",
+                "Blank"
+            ],
+            "help": "at this moment",
+            "title": "Bath"
+        },
+        "care wash hygiene": {
+            "activities": [
+                "Appliances Hair dryer",
+                "Appliances hair curler",
+                "Appliances shaver",
+                "Appliances hair trimmer",
+                "Appliances tooth brush",
+                "Appliances hygiene none"
+            ],
+            "help": "",
+            "title": "Used any of these?"
+        },
+        "device use": {
+            "activities": [
+                "Device Next",
+                "Device Email",
+                "Computer Work",
+                "Device Shopping",
+                "Device Internet",
+                "Device Videos"
+            ],
+            "help": "",
+            "title": "On a device"
+        },
+        "edit activity": {
+            "activities": [
+                "More activity",
+                "Repeat activity recently",
+                "Edit activity title",
+                "Edit activity time",
+                "End activity",
+                "Delete activity"
+            ],
+            "help": "done by index.js",
+            "title": "done by index.js"
+        },
+        "enjoyment": {
+            "activities": [
+                "Very much",
+                "Somewhat",
+                "Neutral",
+                "Not very much",
+                "Not at all",
+                "Skip"
+            ],
+            "help": "Think how this made you feel.",
+            "title": "How much do you enjoy this?"
+        },
+        "food": {
+            "activities": [
+                "Food other",
+                "Food preparation",
+                "Cutlery handling",
+                "Eating",
+                "Food eat snack",
+                "Food drink hot"
+            ],
+            "help": "",
+            "title": "Food"
+        },
+        "food clear": {
+            "activities": [
+                "Lay table",
+                "Food clear",
+                "Dishes hand",
+                "Dishes machine",
+                "Dishes both",
+                "Dishes other"
+            ],
+            "help": "",
+            "title": "Laying or clearing table"
+        },
+        "food eat": {
+            "activities": [
+                "Food eat hot",
+                "Food eat cold",
+                "Food eat snack",
+                "Food eat skip",
+                "Blank",
+                "Other specify"
+            ],
+            "help": "",
+            "title": "Eating"
+        },
+        "food preparation": {
+            "activities": [
+                "Food preparation cold",
+                "Food preparation hot",
+                "Baking",
+                "Lay table",
+                "Blank",
+                "Food other"
+            ],
+            "help": "",
+            "title": "Prepare meal"
+        },
+        "garden": {
+            "activities": [
+                "Gardening",
+                "Outdoor food",
+                "Care personal",
+                "Care",
+                "Outdoors appliances",
+                "Outdoors other"
+            ],
+            "help": "what is happening",
+            "title": "In the garden"
+        },
+        "getting ready": {
+            "activities": [
+                "Care wash",
+                "Care wash hygiene",
+                "Work house clear up",
+                "Work house search",
+                "Pottering",
+                "Getting ready other"
+            ],
+            "help": "",
+            "title": "Getting ready"
+        },
+        "home": {
+            "help": "",
+            "title": "What I did..."
+        },
+        "hours 1": {
+            "activities": [
+                "Hours 1",
+                "Hours 2",
+                "Hours 3",
+                "Hours 4",
+                "Hours 5",
+                "Hours 6"
+            ],
+            "help": "What hour of the day?",
+            "title": "Select hour"
+        },
+        "hours 2": {
+            "activities": [
+                "Hours 7",
+                "Hours 8",
+                "Hours 9",
+                "Hours 10",
+                "Hours 11",
+                "Hours 12"
+            ],
+            "help": "What hour of the day?",
+            "title": "Select hour"
+        },
+        "hours 3": {
+            "activities": [
+                "Hours 13",
+                "Hours 14",
+                "Hours 15",
+                "Hours 16",
+                "Hours 17",
+                "Hours 18"
+            ],
+            "help": "What hour of the day?",
+            "title": "Select hour"
+        },
+        "hours 4": {
+            "activities": [
+                "Hours 19",
+                "Hours 20",
+                "Hours 21",
+                "Hours 22",
+                "Hours 23",
+                "Hours 24"
+            ],
+            "help": "What hour of the day?",
+            "title": "Select hour"
+        },
+        "hours 5": {
+            "activities": [
+                "Hours 25",
+                "Hours 26",
+                "Hours 27",
+                "Hours 28",
+                "Hours 29",
+                "Hours 30"
+            ],
+            "help": "What hour of the day?",
+            "title": "Select hour"
+        },
+        "laundry": {
+            "activities": [
+                "Washing machine",
+                "Washing sort",
+                "Washing dry machine",
+                "Washing dry line",
+                "Ironing",
+                "Unspecified making and care for textiles"
+            ],
+            "help": "at this moment",
+            "title": "Laundry"
+        },
+        "leisure tv device": {
+            "activities": [
+                "Leisure TV Other",
+                "Leisure TV Mobile",
+                "Leisure TV Tablet",
+                "Leisure TV TV",
+                "Leisure TV Computer",
+                "Appliances Games console"
+            ],
+            "help": "The type of device",
+            "title": "Screen time"
+        },
+        "minutes": {
+            "activities": [
+                "Minutes 1",
+                "Minutes 2",
+                "Minutes 3",
+                "Minutes 4",
+                "Minutes 5",
+                "Minutes 6"
+            ],
+            "help": "narrow down on next screen",
+            "title": "Select 10s of min"
+        },
+        "minutes 2": {
+            "activities": [
+                "Minutes 7",
+                "Minutes 8",
+                "Minutes 9",
+                "Minutes 10",
+                "Minutes 11",
+                "Minutes 12"
+            ],
+            "help": "within your 10 min band",
+            "title": "Select min"
+        },
+        "nature": {
+            "activities": [
+                "Exercise",
+                "Care",
+                "Outdoor food",
+                "Leisure TV",
+                "Loc travelling",
+                "Outdoors other"
+            ],
+            "help": "",
+            "title": "In nature"
+        },
+        "other": {
+            "activities": [
+                "Personal",
+                "Food",
+                "Work",
+                "travel",
+                "other",
+                "Sleep"
+            ],
+            "help": "at this moment",
+            "title": "XXX Any particular other? "
+        },
+        "other people": {
+            "activities": [
+                "Other people 1",
+                "Other people 2",
+                "Other people 3",
+                "Other people 4",
+                "Other people 5",
+                "Other people 6"
+            ],
+            "help": "Number of people around you.",
+            "title": "How many people are you doing this with?"
+        },
+        "other specify": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Type what you want",
+            "title": "Please specify"
+        },
+        "outdoors": {
+            "activities": [
+                "Loc garden",
+                "Loc outdoors public",
+                "Loc travelling",
+                "Loc work",
+                "Nature",
+                "Loc other location"
+            ],
+            "help": "at this moment",
+            "title": "Outdoors"
+        },
+        "outdoors appliances": {
+            "activities": [
+                "Appliances Computer",
+                "Appliances Phone",
+                "Appliances Tools",
+                "Appliances Garden tools",
+                "Blank",
+                "Appliances other"
+            ],
+            "help": "please specify",
+            "title": "Outdoors appliances"
+        },
+        "outdoors food": {
+            "activities": [
+                "Outdoor food eating",
+                "Outdoor food shopping",
+                "Outdoor food takeaway",
+                "Outdoor food bbq",
+                "Blank",
+                "Outdoor food other"
+            ],
+            "help": "please specify",
+            "title": "Outdoors food..."
+        },
+        "outdoors public": {
+            "activities": [
+                "Personal",
+                "Care",
+                "Shopping and services",
+                "Outdoor food",
+                "Exercise",
+                "Outdoors other"
+            ],
+            "help": "in this outdoor public place",
+            "title": "Your activity"
+        },
+        "personal": {
+            "activities": [
+                "Care rest sleep",
+                "Getting ready",
+                "Care wash",
+                "Care personal",
+                "Leisure TV",
+                "Care personal other"
+            ],
+            "help": "take a pick",
+            "title": "Personal activity"
+        },
+        "survey age": {
+            "activities": [
+                "Age 1",
+                "Age 2",
+                "Age 3",
+                "Age 4",
+                "Age 5",
+                "Age 6"
+            ],
+            "help": "tap the button your age falls into",
+            "title": "What age group are you?"
+        },
+        "survey appliances 1": {
+            "activities": [
+                "App 1 1",
+                "App 1 2",
+                "App 1 3",
+                "App 1 4",
+                "App 1 5",
+                "App 1 6"
+            ],
+            "help": "",
+            "title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Dishwasher</b>?"
+        },
+        "survey appliances 2": {
+            "activities": [
+                "App 2 1",
+                "App 2 2",
+                "App 2 3",
+                "App 2 4",
+                "App 2 5",
+                "App 2 6"
+            ],
+            "help": "",
+            "title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Washing Machine</b>?"
+        },
+        "survey appliances 3": {
+            "activities": [
+                "App 3 1",
+                "App 3 2",
+                "App 3 3",
+                "App 3 4",
+                "App 3 5",
+                "App 3 6"
+            ],
+            "help": "",
+            "title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Tumble Dryer</b>?"
+        },
+        "survey appliances 4": {
+            "activities": [
+                "App 4 1",
+                "App 4 2",
+                "App 4 3",
+                "App 4 4",
+                "App 4 5",
+                "App 4 6"
+            ],
+            "help": "",
+            "title": "In the last 7 days,</br> did you use a</br> <b>Shower</b>?"
+        },
+        "survey appliances 5": {
+            "activities": [
+                "App 5 1",
+                "App 5 2",
+                "App 5 3",
+                "App 5 4",
+                "App 5 5",
+                "App 5 6"
+            ],
+            "help": "",
+            "title": "In the last 7 days,</br> did you use a</br> <b>Vacuum Cleaner</b>?"
+        },
+        "survey bills": {
+            "activities": [
+                "Bills yes",
+                "Bills contribute",
+                "Bills no",
+                "Bills other",
+                "Blank",
+                "Blank"
+            ],
+            "help": "tap the one that fits best",
+            "title": "Do you pay the electricity bills?"
+        },
+        "survey complete": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Click Home to return",
+            "title": "You have completed the survey"
+        },
+        "survey energy": {
+            "activities": [
+                "Energy interest 1",
+                "Energy interest 2",
+                "Energy interest 3",
+                "Energy interest 4",
+                "Energy interest 5",
+                "Energy interest 6"
+            ],
+            "help": "",
+            "title": "How interested are you in energy issues?"
+        },
+        "survey gender": {
+            "activities": [
+                "female",
+                "male",
+                "survey gender other",
+                "survey gender skip",
+                "Blank",
+                "Blank"
+            ],
+            "help": "at this moment",
+            "title": "What gender are you?"
+        },
+        "survey income": {
+            "activities": [
+                "Income 1",
+                "Income 2",
+                "Income 3",
+                "Income 4",
+                "Income 5",
+                "Income 6"
+            ],
+            "help": "Before deduction of taxes and national insurance.",
+            "title": "Roughly, what is your annual income?"
+        },
+        "survey occupation": {
+            "activities": [
+                "Occupation student",
+                "Occupation employed",
+                "Occupation self employed",
+                "Occupation unpaid work",
+                "Occupation unemployed",
+                "Occupation other"
+            ],
+            "help": "tap the one that fits best",
+            "title": "What is your occupation?"
+        },
+        "survey root": {
+            "activities": [
+                "Blank",
+                "Agree",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "",
+            "title": "My anonymised entries will be used for research"
+        },
+        "survey working home": {
+            "activities": [
+                "Working home 1",
+                "Working home 2",
+                "Working home 3",
+                "Working home 4",
+                "Working home 5",
+                "Working home 6"
+            ],
+            "help": "tap the one that fits best",
+            "title": "How often do you work from home?"
+        },
+        "survey working hours": {
+            "activities": [
+                "Working hours 1",
+                "Working hours 2",
+                "Working hours 3",
+                "Working hours 4",
+                "Working hours 5",
+                "Working hours 6"
+            ],
+            "help": "These are the hours from all your occupations combined (if you have more than one)",
+            "title": "How many hours do you work per week?"
+        },
+        "survey working regularity": {
+            "activities": [
+                "Working hours change 1",
+                "Working hours change 2",
+                "Working hours change 3",
+                "Working hours change 4",
+                "Blank",
+                "Blank"
+            ],
+            "help": "tap the one that fits best",
+            "title": "Are these hours always the same?"
+        },
+        "time cooking": {
+            "activities": [
+                "Time cooking 1",
+                "Time cooking 2",
+                "Time cooking 3",
+                "Time cooking 4",
+                "Time cooking 5",
+                "Time cooking 6"
+            ],
+            "help": "",
+            "title": "On a typical weekday, how much time do you spend </br> <b>Cooking</b>"
+        },
+        "time exercise": {
+            "activities": [
+                "Time exercise 1",
+                "Time exercise 2",
+                "Time exercise 3",
+                "Time exercise 4",
+                "Time exercise 5",
+                "Time exercise 6"
+            ],
+            "help": "",
+            "title": "On a typical weekday, how much time do you spend </br> <b>Exercising</b>"
+        },
+        "time mobile": {
+            "activities": [
+                "Time mobile 1",
+                "Time mobile 2",
+                "Time mobile 3",
+                "Time mobile 4",
+                "Time mobile 5",
+                "Time mobile 6"
+            ],
+            "help": "",
+            "title": "On a typical weekday, how much time do you spend on</br> <b>Mobile Devices</b> (in total)"
+        },
+        "time screens": {
+            "activities": [
+                "Time screens 1",
+                "Time screens 2",
+                "Time screens 3",
+                "Time screens 4",
+                "Time screens 5",
+                "Time screens 6"
+            ],
+            "help": "TV, tablet...",
+            "title": "On a typical weekday, how much time do you spend on</br> <b>Screens</b> (any device)"
+        },
+        "to do": [
+            "getting ready > ironing",
+            "what if manually brushing teeth",
+            "travel purpose - depend on mode (eg dog walking not by bike)",
+            "coold food appliiances",
+            "Survey questions 'on average'",
+            "review skip"
+        ],
+        "travel": {
+            "activities": [
+                "Travel car",
+                "Travel public",
+                "Travel foot",
+                "Travel bike",
+                "Travel purpose exercise",
+                "Travel other"
+            ],
+            "help": "at this moment",
+            "title": "Travel"
+        },
+        "travel purpose": {
+            "activities": [
+                "Travel purpose commute",
+                "Travel purpose children",
+                "Walking the dog",
+                "Travel purpose shopping",
+                "Travel purpose leisure",
+                "Travel purpose 2"
+            ],
+            "help": "Why did you do this journey?",
+            "title": "Purpose of travel:"
+        },
+        "travel purpose bike": {
+            "activities": [
+                "Travel purpose children",
+                "Travel purpose shop service",
+                "Travel purpose leisure",
+                "Walking the dog",
+                "Travel purpose work",
+                "Travel purpose other"
+            ],
+            "help": "",
+            "title": "Cycling to/from/for"
+        },
+        "travel purpose car": {
+            "activities": [
+                "Travel purpose work",
+                "Travel purpose children",
+                "Travel purpose shop service",
+                "Travel purpose leisure",
+                "Travel purpose friend",
+                "Travel purpose other"
+            ],
+            "help": "",
+            "title": "Driving to/from/for"
+        },
+        "travel purpose children": {
+            "activities": [
+                "Travel purpose children school",
+                "Travel purpose children sport",
+                "Travel purpose children social",
+                "Travel purpose children other",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Why did you do this journey?",
+            "title": "Take child to/from"
+        },
+        "travel purpose foot": {
+            "activities": [
+                "Travel purpose children",
+                "Travel purpose shop service",
+                "Travel purpose leisure",
+                "Walking the dog",
+                "Travel purpose work",
+                "Travel purpose other"
+            ],
+            "help": "",
+            "title": "Walking to/from/for"
+        },
+        "travel purpose public": {
+            "activities": [
+                "Travel purpose work",
+                "Travel purpose children",
+                "Travel purpose shop service",
+                "Travel purpose leisure",
+                "Travel purpose friend",
+                "Travel purpose other"
+            ],
+            "help": "",
+            "title": "Travelling to/from/for"
+        },
+        "work": {
+            "activities": [
+                "Household upkeep",
+                "Main job",
+                "Volunteer work and meetings",
+                "Study",
+                "Working time in second job",
+                "Unspecified activities related to employment"
+            ],
+            "help": "type of work",
+            "title": "Working"
+        },
+        "work house": {
+            "activities": [
+                "Cutlery handling",
+                "Work house food",
+                "Laundry",
+                "Cleaning house",
+                "Work house clear up",
+                "Work house other"
+            ],
+            "help": "",
+            "title": "House work"
+        },
+        "work house clean": {
+            "activities": [
+                "Cleaning dusting",
+                "Cleaning vacuum",
+                "Cleaning floors",
+                "Disposal of Waste",
+                "Cleaning yard",
+                "Cleaning other"
+            ],
+            "help": "at this moment",
+            "title": "Cleaning"
+        },
+        "work job": {
+            "activities": [
+                "Work job other",
+                "Appliances Computer",
+                "Appliances Tools",
+                "Appliances Machinery",
+                "Work job manual",
+                "Work job break"
+            ],
+            "help": "Press SKIP if not",
+            "title": "Using any of these?"
+        },
+        "work job break": {
+            "activities": [
+                "Work job other",
+                "Food drink hot",
+                "Food eat snack",
+                "Food eat hot",
+                "Food eat cold",
+                "Socialising"
+            ],
+            "help": "",
+            "title": "Break from work"
+        },
+        "xx edit activity": {
+            "activities": [
+                "Repeat activity now",
+                "Repeat activity recently",
+                "Edit activity time",
+                "Edit activity title",
+                "More activity",
+                "Delete activity"
+            ],
+            "help": "done by index.js",
+            "title": "done by index.js"
+        },
+        "xxxactivity root 1": {
+            "activities": [
+                "Care",
+                "Work",
+                "Personal",
+                "Food",
+                "travelling",
+                "more recent"
+            ],
+            "help": "at this moment",
+            "title": "What are you doing?"
+        }
+    }
+}

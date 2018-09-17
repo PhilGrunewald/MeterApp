@@ -1,0 +1,249 @@
+{
+    "age_group1": {
+        "q": "Under 8"
+    },
+    "age_group2": {
+        "q": "Age 8 - 18"
+    },
+    "age_group3": {
+        "q": "Age 19 - 34"
+    },
+    "age_group4": {
+        "q": "Age 35 - 50"
+    },
+    "age_group5": {
+        "q": "Age 51 - 70"
+    },
+    "age_group6": {
+        "q": "Over 70"
+    },
+    "appliance1": {
+        "q": "Dehumidifyer (number of)"
+    },
+    "appliance2": {
+        "q": "Air conditioner (number of)"
+    },
+    "appliance3": {
+        "q": "Portable heaters (number of)"
+    },
+    "appliance4": {
+        "q": "Night storage heaters (number of)"
+    },
+    "appliance5": {
+        "q": "Power shower (number of)"
+    },
+    "appliance6": {
+        "q": "TV/Computer screens (number of)"
+    },
+    "appliance7": {
+        "q": "Not asked"
+    },
+    "appliance8": {
+        "q": "Not asked"
+    },
+    "appliance_b1": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Washing machine"
+    },
+    "appliance_b10": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Solar thermal"
+    },
+    "appliance_b11": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Electric car"
+    },
+    "appliance_b2": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Tumble dryer"
+    },
+    "appliance_b3": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Washer dryer"
+    },
+    "appliance_b4": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Under floor heating"
+    },
+    "appliance_b5": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Gas boiler"
+    },
+    "appliance_b6": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Heat pump"
+    },
+    "appliance_b7": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Electric hob"
+    },
+    "appliance_b8": {
+        "0": "No",
+        "1": "Yes",
+        "q": "Electricity display"
+    },
+    "appliance_b9": {
+        "0": "No",
+        "1": "Yes",
+        "q": "PV panels"
+    },
+    "appliance_bo": {
+        "q": "Your appliances.  How about these things? Click anything you have and use.  (Other) "
+    },
+    "bill_affordable": {
+        "1": "Not affordable, I struggle to pay",
+        "2": "Somewhat affordable , I must budget",
+        "3": "Affordable, I can pay",
+        "4": "Very affordable, I can pay easily",
+        "q": "How affordable do you find your electricity?.  Select the statement which best describes the affordability of your electricity.  "
+    },
+    "bill_monthly": {
+        "0": "Annual figure",
+        "1": "Monthly figure",
+        "q": "Switch to monthly amounts if you prefer"
+    },
+    "bill_range": {
+        "0": "N/A",
+        "1": "300/ 25",
+        "2": "400/ 33",
+        "3": "550/ 46",
+        "4": "700/ 58",
+        "5": "850/ 71",
+        "6": "850/ 71",
+        "q": "Your electricity bill. How much do you spend on electricity per year/month?"
+    },
+    "bill_uncertain": {
+        "0": "N/A",
+        "1": "Not sure",
+        "q": "Not sure (about the bill amount)"
+    },
+    "date_choice": {
+        "q": "Which day would suit you for this trial?.  Apologies if these dates are a long way in the future. We had a lot of registrations already.  Don\\'t worry whether this is a \\'typical\\' day for you. "
+    },
+    "house_type": {
+        "1": "Flat apartment",
+        "2": "Detached house",
+        "3": "Semi-detached house",
+        "4": "Terraced house",
+        "5": "Bungalow house",
+        "6": "Other",
+        "q": "Your home. What type of house do you live in? "
+    },
+    "inc_monthly": {
+        "0": "Annual figure",
+        "1": "Monthly figure",
+        "q": "Switch to monthly amounts if you prefer"
+    },
+    "income": {
+        "1": "up to 15,000 / 1,000",
+        "2": "up to 25,000 / 1,500",
+        "3": "up to 35,000 / 2,000",
+        "4": "up to 50,000 / 3,000",
+        "5": "up to 70,000 / 4,000",
+        "6": "Over 70,000 / 4,000",
+        "q": "Income. What is your household income? . "
+    },
+    "own": {
+        "1": "Own, With or without a mortgage",
+        "2": "Rent, Social landlord",
+        "3": "Rent, Private landlord",
+        "q": "Your property. Do you own or rent your property? "
+    },
+    "p6pm": {
+        "0": "Nobody",
+        "1": "1 person",
+        "2": "2 people",
+        "3": "3 people",
+        "4": "4 people",
+        "5": "5 or more",
+        "q": "Who\\'s at home?. On a typical weekday, how many people would be at home at 6pm?  "
+    },
+    "page_number": {
+        "0": "Not started",
+        "17": "p17 Completed",
+        "18": "p18 Completed",
+        "19": "p10 Completed",
+        "q": "At which page did completion stop?"
+    },
+    "people": {
+        "0": "N/A",
+        "1": "1, just me",
+        "2": "2 people",
+        "3": "3 people",
+        "4": "4 people",
+        "5": "5 people",
+        "6": "6 or more",
+        "q": " How many people live at this address? "
+    },
+    "pet1": {
+        "q": "Dog"
+    },
+    "pet2": {
+        "q": "Cat"
+    },
+    "pet3": {
+        "q": "Fish"
+    },
+    "pet4": {
+        "q": "Other pet"
+    },
+    "provider": {
+        "bg": "British Gas",
+        "coop": "The co-operative",
+        "eco": "Ecotricity",
+        "edf": "EDF",
+        "eon": "e-On",
+        "good": "Good Energy",
+        "npower": "nPower",
+        "oth": "Other",
+        "q": "Your electricity provider. Who provides your electricity? ",
+        "sp": "Scottish Power",
+        "sse": "SSE"
+    },
+    "quality": {
+        "0": "none",
+        "1": "OK"
+    },
+    "rooms": {
+        "1": "1 room",
+        "2": "2 rooms",
+        "3": "3 rooms",
+        "4": "4 rooms",
+        "5": "5 rooms",
+        "6": "6 or more",
+        "q": "Rooms. How many rooms does your home have? Not counting kitchen, landing, hallways and bathroom(s).  "
+    },
+    "status": {
+        "-1": "-1 Date never used (changed by user)",
+        "0" : "0 Survey incomplete",
+        "1" : "1 No date selected",
+        "10": "10 Data Error",
+        "11": "11 No data returned",
+        "2" : "2 Date selected",
+        "3" : "3 Await confirm",
+        "31": "31 Await new date",
+        "4" : "4 Confirmed participation",
+        "5" : "5 Kit issued",
+        "6" : "6 Data processed",
+        "7" : "7 Received graph",
+        "8" : "8 Made annotations"
+    },
+    "tariff": {
+        "1": "Standard",
+        "2": "Green",
+        "3": "Economy 7",
+        "4": "Economy 10",
+        "5": "Don\\'t know",
+        "6": "Other",
+        "q": "Your tariff. Which of these best describes your electricity tariff? Just pick one.  "
+    }
+}

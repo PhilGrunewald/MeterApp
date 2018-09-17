@@ -136,6 +136,7 @@ var app = {
     app.back_btn_pers = $('#personalise_back');
     app.addressList = $('#address_list');
     app.register_screen = $('#register_screen');
+    app.contact_screen = $('#contact_screen');
     app.disabled_list_option = $('#disabled_list_option');
 
     app.iframe_register = $('#iframe_register');
@@ -186,6 +187,7 @@ var app = {
     app.statusCheck();
     setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
     app.checkIfConsent(); //Shows consent screen if they havent agreed
+    //app.contactInfoScreen();
 },
 
 initClock: function(thisClock) {
@@ -1057,6 +1059,7 @@ personaliseClick: function() { //Goes to the screen with the postcode input
   } // "null" ^ because we don't need to execute any function after wards
   app.appScreen.hide();
   app.addressList.hide();
+  app.contact_screen.hide();
   app.personaliseScreen.show();
   app.postcodeInput.show();
   app.btnSubmit.attr("onclick","app.submitPostcode()");
@@ -1069,6 +1072,7 @@ personaliseClick: function() { //Goes to the screen with the postcode input
 returnToMainScreen: function() {
   console.log("returning");
   app.appScreen.show();
+  app.contact_screen.hide();
   app.personaliseScreen.hide();
   app.register_screen.hide();
   app.statusCheck();
@@ -1101,7 +1105,8 @@ submitAddress: function() {
   if (app.addressList.val() == "None of the above") {
     console.log("None of the above houses");
     localStorage.setItem("address", "ignore");
-    app.registerNewHousehold("http://energy-use.org/app");
+    //app.registerNewHousehold("http://energy-use.org/app");
+    app.contactInfoScreen();//Shows email and name inputs
 
     //app.registerNewHousehold("https://nutellaplant.000webhostapp.com/hhqTestFile.php?sc=I7DpvDupHx&pg=0&id=10940");
   } else if (app.addressList.val() == null){
@@ -1203,6 +1208,7 @@ getDate: function() {
 
 registerNewHousehold: function(registerURL) {
   console.log("Register new hh");
+    app.contact_screen.hide();
   app.appScreen.hide();
   app.personaliseScreen.hide();
   app.register_screen.show();
@@ -1216,20 +1222,31 @@ registerNewHousehold: function(registerURL) {
 
 continueRegistration: function() {
   //var1.hostname is now just the "www.energy-use.org"
+  console.log("Continue link: " + localStorage.getItem('continue_registration_link'));
   if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == "" || localStorage.getItem('continue_registration_link')=="http://energy-use.org/app/hhq.php"){
-    continueRegistrationLink = "http://energy-use.org/app";
+    continueRegistrationLink = "http://energy-use.org/";
+    console.log("Invalid Link");
   } else {
     continueRegistrationLink = localStorage.getItem('continue_registration_link');
     var var1 = document.createElement ('a');
     var1.href = continueRegistrationLink;
-    if (var1.hostname != "energy-use.org") { //A method of making sure the domain of the url is energy-use.org
-      continueRegistrationLink = "http://energy-use.org/app";
+    console.log(var1.hostname);
+    if (var1.hostname != "www.energy-use.org") { //A method of making sure the domain of the url is energy-use.org
+      continueRegistrationLink = "http://energy-use.org";
+      console.log("Not correct host");
     }
     console.log(continueRegistrationLink);
   }
   //If URL is not set or not on the energy-use.org domain, reset it.
-  console.log(continueRegistrationLink);
+  console.log("Using link: " + continueRegistrationLink);
   app.registerNewHousehold(continueRegistrationLink);
+},
+
+contactInfoScreen: function() {
+  app.appScreen.hide();
+  app.personaliseScreen.hide();
+  app.register_screen.hide();
+  app.contact_screen.show();
 },
 
 checkIfConsent: function() {

@@ -1,0 +1,193 @@
+{
+    "Age_range": {
+        "0": "Null",
+        "1": "8 - 18",
+        "2": "19 - 34",
+        "3": "35 - 50",
+        "4": "51 - 70",
+        "5": "Over 70",
+        "6": "Skip",
+        "None": "Null",
+        "q": "What age group are you?"
+    },
+    "BillContributer": {
+        "0": "Null",
+        "1": "Yes, I do",
+        "2": "I contribute",
+        "3": "I don\\'t",
+        "4": "Other / Skip",
+        "None": "Null",
+        "q": "Do you pay the electricity bills?"
+    },
+    "EnergyInterest": {
+        "0": "Null",
+        "1": "Very Interested",
+        "2": "Interested",
+        "3": "Somewhat",
+        "4": "Not very much",
+        "5": "Not at all",
+        "6": "Skip",
+        "None": "Null",
+        "q": "How interested are you in energy issues?"
+    },
+    "Gender": {
+        "0": "Skip",
+        "1": "Female",
+        "2": "Male",
+        "3": "Other",
+        "None": "Null",
+        "q": "What gender are you?"
+    },
+    "Income": {
+        "0": "Null",
+        "1": "GBP 0 -  GBP 10,000",
+        "2": "up to  GBP 20,000",
+        "3": "up to  GBP 30,000",
+        "4": "up to  GBP 45,000",
+        "5": "Over GBP 45,000",
+        "6": "Skip",
+        "None": "Null",
+        "q": "Roughly, what is your annual income?"
+    },
+    "Occupation": {
+        "0": "Null",
+        "1": "Student",
+        "2": "Employed",
+        "3": "Self employed",
+        "4": "Volunteer \/ unpaid work",
+        "5": "Unemployed \/ retired",
+        "6": "Other \/ Skip",
+        "None": "Null",
+        "q": "What is your occupation?"
+    },
+    "TimeCooking": {
+        "0": "Null",
+        "1": "None",
+        "2": "10min or less",
+        "3": "30min or less",
+        "4": "1h or less",
+        "5": "3h or less",
+        "6": "Over 3h",
+        "None": "Null",
+        "q": "On a typical weekday, how much time do you spend    Cooking "
+    },
+    "TimeExercise": {
+        "0": "Null",
+        "1": "None",
+        "2": "10min or less",
+        "3": "30min or less",
+        "4": "1h or less",
+        "5": "3h or less",
+        "6": "Over 3h",
+        "None": "Null",
+        "q": "On a typical weekday, how much time do you spend    Exercising "
+    },
+    "TimeMobile": {
+        "0": "Null",
+        "1": "None",
+        "2": "10min or less",
+        "3": "30min or less",
+        "4": "1h or less",
+        "5": "2h or less",
+        "6": "Over 2h",
+        "None": "Null",
+        "q": "On a typical weekday, how much time do you spend on   Mobile Devices  (in total)"
+    },
+    "TimeScreens": {
+        "0": "Null",
+        "1": "None",
+        "2": "30 min or less",
+        "3": "1 hour or less",
+        "4": "2 hours or less",
+        "5": "3 hours or less",
+        "6": "Over 3 hours",
+        "None": "Null",
+        "q": "On a typical weekday, how much time do you spend on   Screens  (any device)"
+    },
+    "UseDishwasher": {
+        "0": "Null",
+        "1": "I didn\\'t",
+        "2": "Once",
+        "3": "Twice",
+        "4": "3 - 4 times",
+        "5": "5 - 7 times",
+        "6": "8 or more",
+        "None": "Null",
+        "q": "In the last 7 days,  did  you personally  use a   Dishwasher ?"
+    },
+    "UseShower": {
+        "0": "Null",
+        "1": "I didn\\'t",
+        "2": "Once",
+        "3": "Twice",
+        "4": "3 - 4 times",
+        "5": "5 - 7 times",
+        "6": "8 or more",
+        "None": "Null",
+        "q": "In the last 7 days,  did you use a   Shower ?"
+    },
+    "UseTumbleDryer": {
+        "0": "Null",
+        "1": "I didn\\'t",
+        "2": "Once",
+        "3": "Twice",
+        "4": "3 - 4 times",
+        "5": "5 - 7 times",
+        "6": "8 or more",
+        "None": "Null",
+        "q": "In the last 7 days,  did  you personally  use a   Tumble Dryer ?"
+    },
+    "UseVacuumCleaner": {
+        "0": "Null",
+        "1": "I didn\\'t",
+        "2": "Once",
+        "3": "Twice",
+        "4": "3 - 4 times",
+        "5": "5 - 7 times",
+        "6": "8 or more",
+        "None": "Null",
+        "q": "In the last 7 days,  did you use a   Vacuum Cleaner ?"
+    },
+    "UseWashingMachine": {
+        "0": "Null",
+        "1": "I didn\\'t",
+        "2": "Once",
+        "3": "Twice",
+        "4": "3 - 4 times",
+        "5": "5 - 7 times",
+        "6": "8 or more",
+        "None": "Null",
+        "q": "In the last 7 days,  did  you personally  use a   Washing Machine ?"
+    },
+    "WorkHome": {
+        "0": "Null",
+        "1": "Never",
+        "2": "Rarely",
+        "3": "Sometimes",
+        "4": "Often",
+        "5": "Always",
+        "6": "Skip",
+        "None": "Null",
+        "q": "How often do you work from home?"
+    },
+    "WorkRegularity": {
+        "0": "Null",
+        "1": "Always the same",
+        "2": "Variable to suit work",
+        "3": "Flexible to suit me",
+        "4": "Skip",
+        "None": "Null",
+        "q": "Are these hours always the same?"
+    },
+    "WorkingHours": {
+        "0": "Null",
+        "1": "None",
+        "2": "1 - 15",
+        "3": "16 - 30",
+        "4": "31 - 45",
+        "5": "Over 45",
+        "6": "Skip",
+        "None": "Null",
+        "q": "How many hours do you work per week?"
+    }
+}

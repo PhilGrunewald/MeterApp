@@ -217,6 +217,29 @@ The data you provide with this app is used for research.
             </div>
          </div>
       </div>
+
+      <div hidden class="personalise_screen" id="contact_screen">
+        <div id="contact_help_text" class="help_text" stle="font-size:10px">
+          Enter your contact information
+        </div>
+        <div id="contact_info_section">
+          <input id="contact_name" class="contact_input" type="text" placeholder="Name" style="">
+          <input id="contact_email" class="contact_input" type="text" placeholder="Email" style="">
+          <br><br><br>
+          <button type="submit" class="btn_submit" id="contact_info_submit" onclick="submitContactInfo()">Submit</button>
+        </div>
+        <br>
+        <div class="footer_postcode">
+           <div class="footer_postcode_content">
+             <br>
+              <button type="button" id="contact_back" class="btn_return" onclick="app.personaliseClick()">Do this later</button>
+              <button type="button" class="btn_link" onclick="navigator.app.loadUrl('http://energy-use.org/about.php', { openExternal:true });">Learn more</button>
+              <!--Above will cause error in browser but not on Android-->
+              <br>
+              <br>
+           </div>
+        </div>
+      </div>
       <!-- personalise-screen ^ -->
       <div hidden class="register_screen" id="register_screen">
       <iframe id="iframe_register" width="100%" height="90%" frameborder="0"></iframe>
