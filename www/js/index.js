@@ -19,6 +19,7 @@
 
 // Storage keys // PG 17 Mar 2016: I think these values are not assigned - for SURVEY_STATUS I did the assignment in "OnDeviceReady"
 var meterURL = "http://www.energy-use.org/app/"
+var meterHost =  "http://www.energy-use.org"
 
 var CURR_ACTIVITY = "current_activity";
 var CURR_ACTIVITY_ID = "0";  // the time use code AND category as csv
@@ -1223,16 +1224,16 @@ registerNewHousehold: function(registerURL) {
 continueRegistration: function() {
   //var1.hostname is now just the "www.energy-use.org"
   console.log("Continue link: " + localStorage.getItem('continue_registration_link'));
-  if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == "" || localStorage.getItem('continue_registration_link')=="http://energy-use.org/app/hhq.php"){
-    continueRegistrationLink = "http://energy-use.org/";
+  if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == "" || localStorage.getItem('continue_registration_link')== meterURL + "hhq.php"){
+    continueRegistrationLink = meterURL;
     console.log("Invalid Link");
   } else {
     continueRegistrationLink = localStorage.getItem('continue_registration_link');
     var var1 = document.createElement ('a');
     var1.href = continueRegistrationLink;
     console.log(var1.hostname);
-    if (var1.hostname != "www.energy-use.org") { //A method of making sure the domain of the url is energy-use.org
-      continueRegistrationLink = "http://energy-use.org";
+    if (var1.hostname != meterHost) { //A method of making sure the domain of the url is energy-use.org
+      continueRegistrationLink = meterURL;
       console.log("Not correct host");
     }
     console.log(continueRegistrationLink);
