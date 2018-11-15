@@ -90,7 +90,7 @@ ampm {
 }
 
 .help-caption {
-  color: #f00;
+  color: #060;
   font-style: italic;
   font-family: serif;
 }
@@ -291,7 +291,7 @@ h1 {
   display: none;
   font-size: 90%;
   /*color: #060;*/
-  color: #f00;
+  color: #060;
   font-style: italic;
   font-family: serif;
 }

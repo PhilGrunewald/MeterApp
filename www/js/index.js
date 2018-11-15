@@ -630,7 +630,7 @@ goBack: function() {
 showProgressList: function() {
   var activityList = utils.getList(ACTIVITY_LIST) || []
   var actCount = Object.keys(activityList).length;
-  app.title.html("You have recorded</br>" + actCount + " entries")
+  app.title.html(app.label.titleProgress1 + actCount + app.label.titleProgress2);
   if (actCount > 5) {
     $("img#stars2").attr("src","img/stars_on.png");
   }
