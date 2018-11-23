@@ -157,19 +157,16 @@ function checkForAddress(address) { //Checks whether address is in our database
 		data: {address:address, postcode:localStorage.getItem("postcode")},
 		success: function(response) {
 			if (response.split("#")[0]=="Success") {
+                // household already exists
 				console.log("Got household id: " + response.split("#")[1]);
 				localStorage.setItem('household_id', response.split("#")[1]);
 				localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
 				app.returnToMainScreen();
+                // XXX Message that you are already registered. [Request to update HH data > we email you]
 			} else if (response.split("#")[0]=="0 results") {
+                // no such household yet > sign up form
 				console.log("0 results");
-				//var idContact = response.split("#")[1];
-				//console.log("Created new contact: " + idContact);
-				//localStorage.setItem('contact_id', idContact);
-
-				//app.registerNewHousehold(meterURL, address, localStorage.getItem("postcode"));
 				app.contactInfoScreen(); //Shows name and email inputs
-                // https://nutellaplant.000webhostapp.com/contactRegister.html");//meterURL);
 			} else {
 				alert("Please try again later");
 				app.returnToMainScreen();

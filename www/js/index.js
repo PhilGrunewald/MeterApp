@@ -1109,7 +1109,6 @@ submitAddress: function() {
     //app.registerNewHousehold("http://energy-use.org/app");
     app.contactInfoScreen();//Shows email and name inputs
 
-    //app.registerNewHousehold("https://nutellaplant.000webhostapp.com/hhqTestFile.php?sc=I7DpvDupHx&pg=0&id=10940");
   } else if (app.addressList.val() == null){
     //do nothing
     console.log("nothing");
