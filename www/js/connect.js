@@ -292,21 +292,8 @@ function connectionManager() {
 		} else if (localStorage.getItem('dateChoice') == "" || localStorage.getItem('dateChoice') == null ) {
 			//Request dates from server
         // Have a date...
-		} else if (localStorage.getItem('notifyRemindStart') == "" || localStorage.getItem('notifyRemindStart') == null) {//If reminder hasn't been set
-		  var isNotPermission = checkNotPermission();
-			if (isNotPermission) {
-				var date = localStorage.getItem('dateChoice').split("-");
-				var notificationID = getRandomInt(100000);
-                // yr mth day hour min id title message
-				createNotification(date[0],date[1] - 1,date[2] - 1, 20, 0, notificationID, "METER Particpation", "Remember to record your activites tomrrow");
-				localStorage.setItem('notifyRemindStart', notificationID);
-				//storing the ID allows us to modify it if needed in the future
-			} else if (!requestNotPermission()){
-				//permission has been refused; must be granted manually via settings
-				//alert("Please enable notification permission");
-			}
-		}
-		if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
+		} 
+        if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
 			//If there is at least one error to upload
 			// uploadErrorMessages();
 		}
