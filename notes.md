@@ -1,6 +1,26 @@
 Upload to Google Play
 =====================
 
+
+Build
+-----
+
+Key generation
+- see pw file under aMeter App for details
+keytool -genkey -v -keystore aMeterAndroid.keystore -alias aMeterKey -keyalg RSA -keysize 2048 -validity 10000
+
+In Cordova Project
+(~/Sites/uk.joymeter.Activities)
+cordova build android --release -- --keystore=aMeterAndroid.keystore --storePassword='XXX' --alias=aMeterKey --password='XXX'
+
+Rename the file from 
+/Users/phil/Sites/uk.joymeter.Activities/platforms/android/app/build/outputs/apk/release/app-release.apk
+to
+uk.joymeter.Activities.apk
+
+Upload
+------
+
 Play console:
 https://play.google.com/apps/publish/
 
@@ -8,18 +28,6 @@ Click "aMeter"
 Left: select "Release Management" > App releases
 
 
-
-Build
------
-
-Key generation
-- see pw file under aMeter App
-
-
-
-In Cordova Project
-(~/Sites/uk.joymeter.Activities)
-cordova build android --release -- --keystore=aMeterAndroid.keystore --storePassword='XXX' --alias=aMeterKey --password='XXX'
 
 
 Cordova issues

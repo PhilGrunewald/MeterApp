@@ -32,8 +32,8 @@
             "cordova-plugin-console": {},
             "cordova-plugin-device": {},
             "cordova-plugin-file": {},
-            "cordova-plugin-local-notification": {},
-            "cordova-plugin-splashscreen": {}
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-local-notification": {}
         },
         "platforms": [
             "browser",
