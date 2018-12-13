@@ -1,7 +1,4 @@
-// var meterURL = "http://www.energy-use.org/app/"
-// var getDateURL = meterURL +  "date.php";
 var getMetaID = meterURL +  "getMetaID.php";
-// var getAddresses = "https://nutellaplant.000webhostapp.com/addressAPI.php";
 var getAddresses =  meterURL +  "getAddresses.php";
 var checkForHouseID = meterURL +  "checkAddress.php";
 var linkHouseholdURL = meterURL +  "linkHousehold.php";
@@ -10,7 +7,6 @@ var insertActivity = meterURL +  "insertActivity.php";
 var insertError = meterURL +  "insertError.php";
 var insertContactDetails = meterURL + "insertContactDetails.php";
 
-var appVersion = "1.0.3";
 
 setInterval(connectionManager, 10000); //Begin connecting to server on intervals , in ms (default 10s)
 
@@ -23,13 +19,6 @@ window.onerror = function(message, source, lineNumber) {
 	return false; //true would catch the error
 };
 
-
-//setInterval(createNotification, 5000);
-
-//document.addEventListener('deviceready', createNotification(12,12), false);
-
-//document.addEventListener('DOMContentLoaded', connectionManager, false); // initial upload at start of app (in case of brief returns to the app)
-//Strange error thrown...
 
 function uploadActivities() {
 	var activitiesToUploadCopy = localStorage.getItem('activitiesToUpload');
