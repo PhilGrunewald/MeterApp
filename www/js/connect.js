@@ -149,7 +149,8 @@ function checkForAddress(address) { //Checks whether address is in our database
                 // household already exists
 				console.log("Got household id: " + response.split("#")[1]);
 				localStorage.setItem('household_id', response.split("#")[1]);
-				localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
+			    localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
+			    // localStorage.setItem('householdStatus', "NOTLINKED"); // tells connection manager that linking needs to be done
 				app.returnToMainScreen();
                 // XXX Message that you are already registered. [Request to update HH data > we email you]
 			} else if (response.split("#")[0]=="0 results") {
@@ -186,13 +187,15 @@ function linkHousehold() {
 				localStorage.setItem('householdStatus', "LINKED"); //so we can determine that it has successfully linked
 				app.statusCheck();
 			} else {
-				localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
+			    localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
+				// localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
 				console.log("MySQL connection error" + response);
 			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
 			console.log("Check server connection (to php): " + textStatus);
-			localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
+			localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
+			// localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
 			//alert("Check internet connectivity");
 		}
 	});
@@ -273,9 +276,8 @@ function connectionManager() {
 			surveyUpload(); //called if survey is complete but has not been uploaded up and we already have an ID
 		}
 
-		if(localStorage.getItem('householdStatus') == "NOTLINKED") {
-			//This means we have got a hhid but havent linked to it yet
-			//Unlikely scenario where they lose connection after having received an HouseholdID and so fail to link
+		if(localStorage.getItem('household_id') != null && localStorage.getItem('householdStatus') == null) {
+			// This means we have got a hhid but havent linked to it yet
 			linkHousehold();
 			console.log("Linking household");
 		} else if (localStorage.getItem('dateChoice') == "" || localStorage.getItem('dateChoice') == null ) {

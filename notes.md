@@ -51,3 +51,17 @@ cordova platform add android
     Skipping 'cordova-plugin-local-notification' for android
 
 
+
+
+Sign up steps (31 Dec 2018)
+===========================
+
+Manual configuration
+--------------------
+
+- Navigate to "Now" > "Home" > "Customise"
+- enter new HH id in format: h12345
+- assigns household_id = 12345
+- deletes the current metaID to generate a new one (with WiFi)       index.js: submitOther()
+- links new HH to MetaID in Meta table                               connect.js: requestNextID()
+

@@ -1032,9 +1032,25 @@ submitEdit: function() {
   app.navigateTo("home")
 },
 submitOther: function() {
-  var prev_activity = $("input#free-text").val();
   $("div#other-specify").hide();
-  app.navigateTo("other people", prev_activity)
+  var prev_activity = $("input#free-text").val();
+    // 31 Dec 2018 - Phil
+    // here we allow custom hh configuration
+    // hhID can be entered in the format:
+    //     h1234
+    // 
+    hhID = parseInt(prev_activity.split("h")[1]);
+    if (typeof(hhID) == "number") {
+        localStorage.removeItem('metaID');          // get new metaID
+		localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+		localStorage.setItem('household_id', hhID);
+		localStorage.setItem('registrationStatus', 'complete');
+        app.navigateTo("home", "ignore"); // ignore stops creation of new entry
+        app.title.html("HH ID set to " + hhID);
+    }
+    else {
+        app.navigateTo("other people", prev_activity)
+    }
 },
 
 toggleCaption: function() {

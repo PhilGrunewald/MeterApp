@@ -18,6 +18,7 @@ init: function() {
 			console.log("got main dir",dir);
 			// the existence of folder METER is assumed
 			$.getJSON("/sdcard/METER/config.json", function(config) {
+			// 31 Dec 2018 $.getJSON("/sdcard/METER/config.json", function(config) {
                 // if a config file exists locally (this is one of our devices) use this one
                 console.log("X4");
 				localStorage.setItem('metaID', config.id);
