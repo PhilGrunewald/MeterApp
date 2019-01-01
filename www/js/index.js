@@ -13,7 +13,6 @@ var CURR_ACTIVITY = "current_activity";
 var CURR_ACTIVITY_ID = "0";  // the time use code AND category as csv
 
 var ACTIVITY_DATETIME = "same";  // default - meaning activity time = reported time
-var ACTIVITY_MANUAL_DATE = "none";  // default - if entering manual 'past time' screen promt will ask for it to be set input#input-date
 
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
@@ -78,10 +77,10 @@ var app = {
       $.getJSON('json/screens.json', function(screen_data) {
         console.log("loading screens.json");
         app.screens = screen_data.screens;
-        log.init( function() {
-          app.showActivityList();
-          console.log("X3");
-        });
+        // 1Jan log.init( function() {
+        //   app.showActivityList();
+        //   console.log("X3");
+        // });
       });
     });
   },
@@ -90,7 +89,6 @@ var app = {
     $("div#change-id").hide(); 	// replace by making the div default 'hide'
     $("div#change-date").hide(); 	// replace by making the div default 'hide'
     utils.save(ACTIVITY_DATETIME, "same");
-    utils.save(ACTIVITY_MANUAL_DATE, "none");
     app.actionButtons    = $('.btn-activity');
     app.activity_list_div= $('#activity-list');
     app.activityAddPane  = $('#activity_add_pane');
@@ -438,7 +436,7 @@ navigateTo: function(screen_id, prev_activity) {
     else if (app.activities[prev_activity].ID > SURVEY_MIN && app.activities[prev_activity].ID < SURVEY_MAX) {
       // save the survey screen_id, such that we can return here via screen_id = 'survey'
       utils.save(SURVEY_STATUS, screen_id);
-      log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);
+      // log.writeSurvey(app.activities[prev_activity].title, app.activities[prev_activity].value);
 
       var newSurveyInput = app.activities[prev_activity].title + "," + app.activities[prev_activity].value;
       if (localStorage.getItem("surveyAnswers")==null){ //Otherwise there is a "null" value at start
@@ -656,7 +654,7 @@ showActivityList: function() {
   var nowTime = new Date().toISOString().slice(11, 16);
   var nowDT   = nowDate + " " + nowTime;
   console.log("showActivityList: " + nowDT);
-  var startDT = log.start + " 16:50";
+  var startDT = "2000-01-01 16:50";
 
   $("div#progress_list_pane").hide();
   app.choicesPane.hide();
@@ -666,7 +664,8 @@ showActivityList: function() {
   app.title.attr("onclick", "");
   console.log("nowDT: " + nowDT + " and startDT: " +startDT);
   if (nowDT < startDT) {
-    var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date(log.start).getDay()];
+    var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date("2000-01-01").getDay()];
+      // XXX insert proper date above!!!
     if (utils.get(SURVEY_STATUS) != "survey complete") {
       app.title.html("Please record activties from <b>" + day + " at 5pm</b>. Tap here to complete the survey.");
       //app.title.attr("onclick", "app.navigateTo('survey root')");
@@ -791,7 +790,7 @@ addActivityToList: function() {
   activityList = utils.getList(ACTIVITY_LIST) || {};
   activityList[actID] = {
     "key"		: utils.get(CURR_ACTIVITY),
-    "Meta_idMeta": log.id,
+    "Meta_idMeta": localStorage.getItem('metaID'),
     "dt_activity": utils.getDateTimeStr(dt_act),
     "dt_recorded": utils.getDateTimeStr(dt_recorded),
     "location"  : utils.get(CURR_LOCATION),
