@@ -1,0 +1,51 @@
+{
+    "locale": "en-GB",
+    "AtTheMoment": " at the moment",
+    "actListLabel": "Start with the Survey above",
+    "day0": "Sunday",
+    "day1": "Monday",
+    "day2": "Tuesday",
+    "day3": "Wednesday",
+    "day4": "Thursday",
+    "day5": "Friday",
+    "day6": "Saturday",
+    "hours": "12",
+    "lblBack": "Back",
+    "lblDate": "Find a date...",
+    "lblDone": "Done",
+    "lblHome": "Home",
+    "lblNext": "Next...",
+    "lblPersonalise": "Personalise",
+    "lblPersonaliseFinish": "Complete...",
+    "lblSurvey": "Survey",
+    "lblWait": "Study: ",
+    "btnOther": "Done",
+    "now": "Now",
+    "progress1": "Survey done",
+    "progress2": "5 activities",
+    "progress3": "10 activities",
+    "progress4": "15 activities",
+    "progress5": "25 activities",
+    "recently": "Recently",
+    "time": {
+        "after": {
+            "post": "",
+            "pre": "in "
+        },
+        "before": {
+            "post": " ago",
+            "pre": ""
+        },
+        "comment": "German: vor 10min    English: 10min ago"
+    },
+    "title": "Welcome",
+    "titleDate": "Pick a <a onclick='app.getDate()'>date</a> to take part in the study",
+    "titleDay1": "Please record your activities until tomorrow at 9pm",
+    "titlePersonalise": " <a onclick='app.personaliseClick()'>Personalise</a> to take part in the study",
+    "titlePersonaliseFinish": " <a onclick='app.continueRegistration()'>Complete personalisation</a> to take part in the study",
+    "titleProgress1": "You recorded ",
+    "titleProgress2": " activities",
+    "titleSurvey": "Today is your study day. Please start with a <a onclick='app.navigateTo(\"survey root\")'>quick survey</a>",
+    "titleWait1": "You will get a parcel before ",
+    "titleWait2": ". Do attach the electricity recorder once you have it"
+}

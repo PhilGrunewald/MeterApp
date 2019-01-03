@@ -65,3 +65,11 @@ Manual configuration
 - deletes the current metaID to generate a new one (with WiFi)       index.js: submitOther()
 - links new HH to MetaID in Meta table                               connect.js: requestNextID()
 
+Change date
+-----------
+
+- any HH-linked participant can request a date
+- only the registering phone is in possession of the security code - all others can only request an email to the registered email address
+- XXX when the date changes and a new idHousehold has been assigned - the app MUST relink!!
+
+

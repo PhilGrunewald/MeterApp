@@ -4,8 +4,10 @@
 * 28 Nov 2018: check hh status and date to decide status button URL
 */
 
-
-var appVersion = "1.0.3";
+if (localStorage.getItem('language') == null) {
+    localStorage.setItem('language', 'en');
+}
+var appVersion = "1.0.4";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -18,7 +20,7 @@ var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = "current_enjoyment";
 var CURR_PEOPLE = "current_people";
 var ACTIVITY_LIST = "activity_list";
-var SURVEY_STATUS = "survey root";			// stores how far they got in the survey
+var SURVEY_STATUS = "survey root";          // stores how far they got in the survey
 
 var CATEGORIES = ["care_self",
 "care_other",
@@ -31,13 +33,13 @@ var CATEGORIES = ["care_self",
 
 var TO_BE_SPECIFIED     = "other specify";
 var OTHER_SPECIFIED_ID  = 9990;
-var TIMEUSE_MAX   		= 10000;
+var TIMEUSE_MAX         = 10000;
 
-var ACTIVITY_TIME_MIN 	= 10000;	// provide time as a relative offset
-var ACTIVITY_TIME_MAX 	= 10100;
+var ACTIVITY_TIME_MIN   = 10000;    // provide time as a relative offset
+var ACTIVITY_TIME_MAX   = 10100;
 
-var ACTIVITY_SET_TIME_MIN 	= 10100; // provide time in hours and minutes
-var ACTIVITY_SET_TIME_MAX 	= 11000;
+var ACTIVITY_SET_TIME_MIN   = 10100; // provide time in hours and minutes
+var ACTIVITY_SET_TIME_MAX   = 11000;
 
 var ENJOYMENT_MIN = 20000;
 var ENJOYMENT_MAX = 20010;
@@ -50,135 +52,123 @@ var SURVEY_MAX    = 91000;
 
 var CATCHUP_INDEX = 0;
 var catchupList   = "";
-var deviceColour  = "#990000";				// to be used for background or colour marker
+var deviceColour  = "#990000";              // to be used for background or colour marker
 
 var app = {
   /** Application Constructor */
   initialize: function() {
     this.bindEvents();
   },
+
   bindEvents: function() {
     document.addEventListener('deviceready', this.onDeviceReady, false);
   },
+
   onDeviceReady: function() {
+      app.initialSetup();
+      app.loadText()
+  },
+
+  loadText: function() {
     /** Load json files before we get going
     * has to be nested to run sequentially
     * @param {js/activities.json} contains the activities
     */
-    $.getJSON('json/labels.json', function(label_data) {
-      console.log("loading labels");
-      app.label = label_data;
-      app.initialSetup();
-    }),
-
-    $.getJSON('json/activities.json', function(data) {
-      console.log("loading activities.json");
-      app.activities = data.activities;
-      $.getJSON('json/screens.json', function(screen_data) {
-        console.log("loading screens.json");
-        app.screens = screen_data.screens;
-        // 1Jan log.init( function() {
-        //   app.showActivityList();
-        //   console.log("X3");
-        // });
-      });
-    });
-  },
-
-  initialSetup: function() {
-    $("div#change-id").hide(); 	// replace by making the div default 'hide'
-    $("div#change-date").hide(); 	// replace by making the div default 'hide'
-    utils.save(ACTIVITY_DATETIME, "same");
-    app.actionButtons    = $('.btn-activity');
-    app.activity_list_div= $('#activity-list');
-    app.activityAddPane  = $('#activity_add_pane');
-    app.activityListPane = $('#activity_list_pane');
-    app.choicesPane      = $('#choices_pane');
-    app.title            = $("#title");
-    app.header			 = $("#header");
-    app.catchup		     = $('#catch-up');
-    app.now_time         = $("#now-time");
-    app.act_count        = $('#act-count');
-
-    app.helpCaption		= $(".help-caption");
-    app.progressListPane = $("div#progress_list_pane");
-    app.footerNav		 = $("div.footer-nav");
-    app.btnCaption		 = $(".btn-caption");
-
-    // app.nav_personalise = $('#nav-personalise');
-    // app.nav_survey  = $("#nav-aboutme");
-    // app.nav_status  = $("#nav-status");
-
-    app.divStatus  = $("#divStatus");
-    app.imgStatus  = $("#imgStatus");
-    app.lblStatus  = $("#lblStatus");
-
-    // app.personalise = $('#personalise');
-    app.personaliseScreen = $('#personalise_screen');
-    app.appScreen = $('#app_screen');
-    app.btnSubmit = $('#btn_submit');
-    app.postcodeInput = $('#postcode_input');
-    app.postcodeSection = $('#postcode_section');
-    app.helpText = $('#help_text');
-    app.back_btn_pers = $('#personalise_back');
-    app.addressList = $('#address_list');
-    app.register_screen = $('#register_screen');
-    app.contact_screen = $('#contact_screen');
-    app.disabled_list_option = $('#disabled_list_option');
-
-    app.iframe_register = $('#iframe_register');
-
-    app.consent = $('#consent');
-    app.navbar = $('#navbar');
+    $.getJSON('text/labels-' + localStorage.getItem('language') + '.json', function(label_data) {
+    console.log("loading labels");
+    app.label = label_data;
 
     app.title.html(app.label.title);
-    $('#actListLabel').html(app.label.actListLabel)
-    $('#lblPersonalise').html(app.label.lblPersonalise)
-    $('#lblSurvey').html(app.label.lblSurvey)
-    $('#lblBack').html(app.label.lblBack)
-    $('#lblHome').html(app.label.lblHome)
-    $('#lblNext').html(app.label.lblNext)
-    $('#lblDone').html(app.label.lblDone)
-    $('#btn-other-specify').html(app.label.btnOther)
+    $('#actListLabel').html(app.label.actListLabel);
+    $('#lblPersonalise').html(app.label.lblPersonalise);
+    $('#lblSurvey').html(app.label.lblSurvey);
+    $('#lblBack').html(app.label.lblBack);
+    $('#lblHome').html(app.label.lblHome);
+    $('#lblNext').html(app.label.lblNext);
+    $('#lblDone').html(app.label.lblDone);
+    $('#btn-other-specify').html(app.label.btnOther);
 
-    $('#progress1').html(app.label.progress1)
-    $('#progress2').html(app.label.progress2)
-    $('#progress3').html(app.label.progress3)
-    $('#progress4').html(app.label.progress4)
-    $('#progress5').html(app.label.progress5)
-
-    // The clock face behind the "Now" button
-    app.nowClock		= $('#clock-now');
-    app.initClock(app.nowClock);
-
-    // clock face (move to utils?)
-    app.recentClock		= $('#clock-recent');
-    app.initClock(app.recentClock);
-
-    // For time setting
-    app.actClock		= $('#clock-act');
-    app.actClockDiv		= $('.clock-act');
-    app.initClock(app.actClock);
-    app.actClock.hide();
-    app.actClockDiv.hide();
-    app.helpCaption.hide(); // hide help text when moving on (default off)
-
-    app.catchup.hide();
-
-    app.history          = new Array();
-    app.act_path          = new Array();
-
+    $('#progress1').html(app.label.progress1);
+    $('#progress2').html(app.label.progress2);
+    $('#progress3').html(app.label.progress3);
+    $('#progress4').html(app.label.progress4);
+    $('#progress5').html(app.label.progress5);
     app.updateNowTime();
     setInterval(function(){ app.updateNowTime(); }, 10000);
 
     app.statusCheck();
     setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
     app.checkIfConsent(); //Shows consent screen if they havent agreed
-    //app.contactInfoScreen();
+      
+    }),
+
+    $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
+      console.log('loading activities-' + localStorage.getItem('language') + '.json');
+      app.activities = data.activities;
+      $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
+        console.log('loading screens-' + localStorage.getItem('language') + '.json');
+        app.screens = screen_data.screens;
+      });
+    });
+   },
+
+  initialSetup: function() {
+    utils.save(ACTIVITY_DATETIME, "same");
+
+    app.actionButtons    = $('.btn-activity');
+    app.activity_list_div= $('#activity-list');
+    app.activityAddPane  = $('#activity_add_pane');
+    app.activityListPane = $('#activity_list_pane');
+    app.choicesPane      = $('#choices_pane');
+    app.title            = $("#title");
+    app.header           = $("#header");
+    app.catchup          = $('#catch-up');
+    app.now_time         = $("#now-time");
+    app.act_count        = $('#act-count');
+    app.helpCaption      = $(".help-caption");
+    app.progressListPane = $("div#progress_list_pane");
+    app.footerNav        = $("div.footer-nav");
+    app.btnCaption           = $(".btn-caption");
+    app.divStatus            = $("#divStatus");
+    app.imgStatus            = $("#imgStatus");
+    app.lblStatus            = $("#lblStatus");
+    app.personaliseScreen    = $('#personalise_screen');
+    app.appScreen            = $('#app_screen');
+    app.btnSubmit            = $('#btn_submit');
+    app.postcodeInput        = $('#postcode_input');
+    app.postcodeSection      = $('#postcode_section');
+    app.helpText             = $('#help_text');
+    app.back_btn_pers        = $('#personalise_back');
+    app.addressList          = $('#address_list');
+    app.register_screen      = $('#register_screen');
+    app.contact_screen       = $('#contact_screen');
+    app.disabled_list_option = $('#disabled_list_option');
+    app.iframe_register      = $('#iframe_register');
+    app.consent              = $('#consent');
+    app.navbar               = $('#navbar');
+
+    // The clock face behind the "Now" button
+    app.nowClock        = $('#clock-now');
+    app.initClock(app.nowClock);
+
+    // clock face (move to utils?);
+    app.recentClock     = $('#clock-recent');
+    app.initClock(app.recentClock);
+
+    // For time setting
+    app.actClock        = $('#clock-act');
+    app.actClockDiv     = $('.clock-act');
+    app.initClock(app.actClock);
+    app.actClock.hide();
+    app.actClockDiv.hide();
+    app.helpCaption.hide(); // hide help text when moving on (default off);
+    app.catchup.hide();
+    app.history          = new Array();
+    app.act_path         = new Array();
 },
 
 initClock: function(thisClock) {
-  var clock	= thisClock[0].getContext("2d");
+  var clock = thisClock[0].getContext("2d");
   var r = thisClock.height()/2;
   clock.translate(r,r);
 },
@@ -190,62 +180,50 @@ statusCheck: function() {
     // 2: finish personalise        registration status = 'complete'
     // 3: get date                  dateChoice
     // 4: survey                    SURVEY_STATUS
-    // 5: study (stars)
+    // 5: study (stars);
     // 6: return eMeter             date > dateChoice +1
-    //
+    
     var dateChoice = localStorage.getItem('dateChoice');
     var hh = localStorage.getItem('household_id');
-    var registrationStatus = localStorage.getItem('registrationStatus');
-    var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date(dateChoice).getDay()];
-    //var day = app.label.days[new Date(dateChoice).getDay()];
+    var sc = localStorage.getItem('sc');
 
     if (hh == null) {
         // personalise -> hhq
         app.title.html(app.label.titlePersonalise);
         app.lblStatus.html(app.label.lblPersonalise);
         app.divStatus.attr("onclick","app.personaliseClick()");
-        app.imgStatus.attr("src","img/act2_personal.png")
-    } else if (registrationStatus == null) {
-        // complete registration
-        app.title.html(app.label.titlePersonaliseFinish);
-        app.lblStatus.html(app.label.lblPersonaliseFinish);
-        app.divStatus.attr("onclick","app.continueRegistration()");
-        app.imgStatus.attr("src","img/act_others1.png")
-    } else if (dateChoice == null) {
-        // get Date
-        app.title.html(app.label.titleDate);
-        app.lblStatus.html(app.label.lblDate);
-        app.divStatus.attr("onclick","app.getDate()");
-        app.imgStatus.attr("src","img/time_forward.png")
-    } else if (new Date() < new Date(dateChoice)) {
-        // wait for big day
-        app.title.html(app.label.titleWait1 + day + dateChoice + app.label.titleWait2);
-        app.lblStatus.html(app.label.lblWait + day + dateChoice);
-        app.divStatus.attr("onclick","app.getDate()");
-        app.imgStatus.attr("src","")
-    } else if (utils.get(SURVEY_STATUS) != "survey complete") {
-        // survey
-        app.title.html(app.label.titleSurvey);
-        app.lblStatus.html(app.label.lblSurvey );
-        app.divStatus.attr("onclick","app.navigateTo('survey root')");
-        app.imgStatus.attr("src","img/AR_4.png")
-    } else if (new Date() == new Date(dateChoice)) {
+        app.imgStatus.attr("src","img/act2_personal.png");
+    } else if (sc == null) {
+        // all this phone can do is request an email, which will have the links to change date or survey details
         app.lblStatus.html("");
-        app.divStatus.attr("onclick","app.showProgressList()");
-        app.title.html(app.label.titleDay1);
         app.updateStars();
-    } else {
-        app.lblStatus.html("");
         app.divStatus.attr("onclick","app.showProgressList()");
-        app.title.html("Meter");
+        app.title.html("Tap the stars to see your progress");
+    } else {
+        // this is a master phone with the option to pick dates directly and modify HH survey
+        if (localStorage.getItem('continue_registration_link') != null && localStorage.getItem('householdSurvey') == null) {
+            // complete registration
+            app.title.html(app.label.titlePersonaliseFinish);
+            app.lblStatus.html(app.label.lblPersonaliseFinish);
+            app.divStatus.attr("onclick","app.continueRegistration()");
+            app.imgStatus.attr("src","img/act_others1.png");
+        } else if (dateChoice == null && sc != null) {
+            // get Date
+            app.title.html(app.label.titleDate);
+            app.lblStatus.html(app.label.lblDate);
+            app.divStatus.attr("onclick","app.getDate()");
+            app.imgStatus.attr("src","img/time_forward.png");
+        } else {
+            // got a date - show stars for further options
+            app.lblStatus.html("");
+            app.updateStars();
+            app.divStatus.attr("onclick","app.showProgressList()");
+            app.title.html("Tap the stars to see your progress");
+        }
     }
-    //
-    // XXX add Day + 2 return kit
-    //
 },
 
 updateStars: function() {
-
   activityList = utils.getList(ACTIVITY_LIST) || {};
   var actCount = Object.keys(activityList).length;
   if (actCount > 24) {
@@ -259,7 +237,6 @@ updateStars: function() {
   } else {
     app.imgStatus.attr("src","img/stars_1.png");
   }
-
 },
 
 updateNowTime: function() {
@@ -277,7 +254,7 @@ updateNowTime: function() {
 },
 
 drawClock: function(thisClock,hour,minute,caption,subcaption) {
-  var clock	= thisClock[0].getContext("2d");
+  var clock = thisClock[0].getContext("2d");
   var clockEdge = thisClock.height() * 0.08;
   var radius = (thisClock.height()/2) - (clockEdge /2);
 
@@ -311,7 +288,7 @@ drawClock: function(thisClock,hour,minute,caption,subcaption) {
 
 drawFace: function(ctx, radius, width) {
   ctx.beginPath();
-  // the ring (inner white, grey edge)
+  // the ring (inner white, grey edge);
   ctx.arc(0, 0 , radius, 0, 2*Math.PI);
   ctx.fillStyle = "white";
   ctx.fill();
@@ -347,7 +324,6 @@ drawBackArrow: function(ctx,radius,width) {
   ctx.lineTo(radius-12,12);
   ctx.fill();
   ctx.rotate(-2/12*Math.PI);
-
 },
 
 drawHand: function(ctx, pos, length, width) {
@@ -365,14 +341,14 @@ navigateTo: function(screen_id, prev_activity) {
   // the button pressed had 'prev_activity' as its 'title'
   // next screen has the key 'screen_id'
   app.actClock.hide();
-  // 		app.actClockDiv.hide();
+  //        app.actClockDiv.hide();
   //app.header.removeClass('alert');
   app.catchup.hide();
   app.title.show();
 
   app.history.push(screen_id);                     // for 'back' functionality
   if (prev_activity !== undefined) {
-    if (!(prev_activity in app.activities)) {    // previous activity is defined but not known (free text)
+    if (!(prev_activity in app.activities)) {    // previous activity is defined but not known (free text);
       app.activities[prev_activity] = {
         "title"   : prev_activity,
         "caption" : prev_activity,
@@ -399,7 +375,6 @@ navigateTo: function(screen_id, prev_activity) {
       // now that an activity is selected btn-done will not create a new entry
       app.footer_nav("done");
     }
-
     //
     // Is TIME setting
     //
@@ -410,8 +385,6 @@ navigateTo: function(screen_id, prev_activity) {
       var dt_activity = new Date(dt_activity.getTime() +offset).toISOString();
       utils.save(ACTIVITY_DATETIME, dt_activity);
     }
-
-
     //
     //  LOCATION
     //
@@ -444,22 +417,11 @@ navigateTo: function(screen_id, prev_activity) {
     } else {
       localStorage.setItem("surveyAnswers", localStorage.getItem("surveyAnswers") + "#" + newSurveyInput);
     }
-    if (app.activities[prev_activity].title=="TimeExercise") { // if it is final question (survey complete)
-      /* Handled by connectionManager
-      if (localStorage.getItem('metaID') == null){
-      console.log("reuquest next id");
-      requestNextID();
-    } else {
-    surveyUpload();
+    if (app.activities[prev_activity].title=="TimeExercise") { // if it is final question (survey complete);
   }
-  */
-}
 
-// var icon = "0"
-// document.getElementById("survey-status").src = "img/AR_"+icon+".png";
-$("img#survey-status").attr("src","img/AR_progress.png");
-//console.log("survey entry: " + prev_activity);
-}
+  $("img#survey-status").attr("src","img/AR_progress.png");
+  }
 } // if prev undefined
 
 //******************************
@@ -473,14 +435,14 @@ app.activityListPane.hide();
 app.progressListPane.hide();
 app.choicesPane.show();
 app.footerNav.show();
-app.helpCaption.hide(); // hide help text when moving on (default off)
-app.btnCaption.hide(); // hide help text when moving on (default off)
+app.helpCaption.hide(); // hide help text when moving on (default off);
+app.btnCaption.hide(); // hide help text when moving on (default off);
 
 console.log("Screen ID: " + screen_id);
 // app.personalise.hide();
 
 if (screen_id == "home" ) {
-  // an entry has been completed (incl. via "Done")
+  // an entry has been completed (incl. via "Done");
   if (prev_activity !== "ignore") {
     app.addActivityToList();
   }
@@ -491,7 +453,7 @@ if (screen_id == "home" ) {
 if (screen_id == "activity time relative") {
   // pressed "recently" button - relative time entry followed by "activity root"
   // unlike "adjust time" which is triggered by "edit activity"
-  var dt_ = Date.now()
+  var dt_ = Date.now();
   var dt_ = new Date(dt_).toISOString();
   utils.save(ACTIVITY_DATETIME, dt_);
   app.footer_nav("next");
@@ -534,14 +496,14 @@ if (screen_id == "survey root") {
   }
 } else
 if (screen_id == "survey complete") {
-  // app.nav_survey.hide()
+  // app.nav_survey.hide();
   app.imgStatus.attr("src","img/stars_1.png");
   // app.nav_status.show();
   app.showActivityList();
   app.choicesPane.hide();
 } else
 if (screen_id == "adjust time") {
-  console.log("Doing nothing - just so that the <else> part doesn't remove the title action")
+  console.log("Doing nothing - just so that the <else> part doesn't remove the title action");
 }
 else
 if (screen_id == "other people") {
@@ -614,9 +576,34 @@ goBack: function() {
 },
 
 showProgressList: function() {
-  var activityList = utils.getList(ACTIVITY_LIST) || []
-  var actCount = Object.keys(activityList).length;
-  app.title.html(app.label.titleProgress1 + actCount + app.label.titleProgress2);
+    // Date may have changed externally (web or other app user)
+    getHHDateChoice();
+
+    var dateChoice = localStorage.getItem('dateChoice');
+    var hhSurveyStatus = localStorage.getItem('householdSurvey');
+
+    var activityList = utils.getList(ACTIVITY_LIST) || []
+    var actCount = Object.keys(activityList).length;
+    app.title.html(app.label.titleProgress1 + actCount + app.label.titleProgress2);
+
+    if (dateChoice != null && new Date() < new Date(dateChoice)) {
+        // a future date is assigned
+        var dtChoice  = new Date(dateChoice);
+        var options = { weekday: 'short', day: 'numeric', month: 'short'};
+        $('#progress-date').html("Study " + dtChoice.toLocaleDateString(app.label.locale, options));
+        $('#progress-img-date').attr("src","img/nav_done.png");
+    } else {
+        $('#progress-date').html("Do the study");
+        $('#progress-img-date').attr("src","img/meter_go.png");
+    }
+    if (hhSurveyStatus == 'COMPLETE') {
+        $('#progress-img-hhSurvey').attr("src","img/nav_done.png");
+    }
+    
+    if (utils.get(SURVEY_STATUS) == "survey complete") {
+        $('#progress-img-indivSurvey').attr("src","img/nav_done.png");
+    }
+
   if (actCount > 5) {
     $("img#stars2").attr("src","img/stars_on.png");
   }
@@ -648,35 +635,11 @@ showActivityList: function() {
   app.statusCheck();
   app.returnToMainScreen();
 
-  // app.checkIfRegistered(); //Will show 'personalise' or 'finish registration' button or neither
-
-  var nowDate = new Date().toISOString().slice(0, 10);
-  var nowTime = new Date().toISOString().slice(11, 16);
-  var nowDT   = nowDate + " " + nowTime;
-  console.log("showActivityList: " + nowDT);
-  var startDT = "2000-01-01 16:50";
-
   $("div#progress_list_pane").hide();
   app.choicesPane.hide();
-  // app.actClock.hide();
   $("div#other-specify").hide();
 
   app.title.attr("onclick", "");
-  console.log("nowDT: " + nowDT + " and startDT: " +startDT);
-  if (nowDT < startDT) {
-    var day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][new Date("2000-01-01").getDay()];
-      // XXX insert proper date above!!!
-    if (utils.get(SURVEY_STATUS) != "survey complete") {
-      app.title.html("Please record activties from <b>" + day + " at 5pm</b>. Tap here to complete the survey.");
-      //app.title.attr("onclick", "app.navigateTo('survey root')");
-      // $('div.contents').hide();
-    } else {
-      app.title.html("That's the survey done. Please start recording activties on <b>" + day + " at 5pm</b>");
-    }
-    //app.activityAddPane.hide();
-    //app.activityListPane.hide();
-    //app.waitFor5pm = setTimeout(function(){ app.showActivityList(); }, 10000);
-  }
   console.log("hist: " + app.act_path);
   app.history = new Array();
   app.act_path = new Array();
@@ -723,14 +686,14 @@ showActivityList: function() {
   app.title.html(app.screens['home'].title);
   app.footer_nav("home");
   app.updateNowTime();
-  app.actClockDiv.hide()
+  app.actClockDiv.hide();
   app.showCatchupItem(); // overwrites app.title if catchup items exist
 },
 
 showCatchupItem: function() {
   // test for catchup items in list and display if applies
   // drop (shift) catchup items more than 8 ours old
-  if (Date(catchupList[0]) in window) { //If this variable exists (otherwise we get an error)
+  if (Date(catchupList[0]) in window) { //If this variable exists (otherwise we get an error);
     while ((new Date() - new Date(catchupList[0])) > (8*60*60*1000)) {
       catchupList.shift();
       if (!catchupList.length) {
@@ -739,7 +702,7 @@ showCatchupItem: function() {
     }
   }
 
-  // find most recent item that is in the past (starting from the back)
+  // find most recent item that is in the past (starting from the back);
   var catchupIndex = catchupList.length-1;
   while (new Date() < new Date(catchupList[catchupIndex])) {
     catchupIndex -= 1;
@@ -782,41 +745,35 @@ addActivityToList: function() {
   } else {
     dt_act = utils.get(ACTIVITY_DATETIME);
   }
-  var actID = utils.actID(dt_act)
+  var actID = utils.actID(dt_act);
 
   // trim trailing milliseconds and the trailing 'Z' upsetting mySQL datetime
   dt_act      = dt_act.substring(0,19);
   dt_recorded = dt_recorded.substring(0,19);
   activityList = utils.getList(ACTIVITY_LIST) || {};
   activityList[actID] = {
-    "key"		: utils.get(CURR_ACTIVITY),
+    "key"       : utils.get(CURR_ACTIVITY),
     "Meta_idMeta": localStorage.getItem('metaID'),
     "dt_activity": utils.getDateTimeStr(dt_act),
     "dt_recorded": utils.getDateTimeStr(dt_recorded),
     "location"  : utils.get(CURR_LOCATION),
-    "people"	: utils.get(CURR_PEOPLE),
-    "enjoyment"	: utils.get(CURR_ENJOYMENT),
-    "tuc"		: utils.get(CURR_ACTIVITY_ID).split(",")[0],
-    "category"	: utils.get(CURR_ACTIVITY_ID).split(",")[1],
-    "activity"	: utils.get(CURR_ACTIVITY_ID).split(",")[2],
-    "path"		: app.act_path.join()
+    "people"    : utils.get(CURR_PEOPLE),
+    "enjoyment" : utils.get(CURR_ENJOYMENT),
+    "tuc"       : utils.get(CURR_ACTIVITY_ID).split(",")[0],
+    "category"  : utils.get(CURR_ACTIVITY_ID).split(",")[1],
+    "activity"  : utils.get(CURR_ACTIVITY_ID).split(",")[2],
+    "path"      : app.act_path.join()
   }
   utils.saveList(ACTIVITY_LIST, activityList);
-  // log.rewriteFile(log.ActJSON, JSON.stringify(activityList)); //write to sdcard files only if on the old Alcatel phones
-  // var newActivityToUpload = '"' + actID + '":' + JSON.stringify(activityList[actID]);
   var newActivityList = activityList[actID]['dt_activity'] + "#" + activityList[actID]['dt_recorded'] + "#"  + activityList[actID]['tuc'] + "#"  + activityList[actID]['activity'] + "#" + activityList[actID]['location'] + "#" +  activityList[actID]['enjoyment'] + "#" + activityList[actID]['category'] + "#" + activityList[actID]['people'] + "#" + activityList[actID]['path'] + "#" + activityList[actID]['key'];
-  // activityList[actID]['key'] + "#" + activityList[actID]['Meta_idMeta'] + "#"
-  // JSON.stringify(activityList[actID]);
   console.log("New list: " + newActivityList);
   localStorage.setItem('activitiesToUpload', localStorage.getItem('activitiesToUpload') + ";" + newActivityList);
-
 
   // reset values
   utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
   utils.save(CURR_PEOPLE, "-1");
   app.updateStars();
 },
-
 
 removeActivity: function (uuid) {
   app.deleteAct(uuid);
@@ -831,7 +788,7 @@ deleteAct: function (actKey) {
       localStorage.setItem('activitiesToUpload', localStorage.getItem('activitiesToUpload') + ";" + newActivityList); //List of activities to upload
       delete activityList[actKey];
       // XXX this is where to add the "add to ..._act_edited.csv"
-      utils.saveList(ACTIVITY_LIST, activityList)
+      utils.saveList(ACTIVITY_LIST, activityList);
     }
   }
 },
@@ -841,7 +798,7 @@ editActivityScreen: function (actKey) {
   // instead of "next screen", onclick() points to specific functions
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var item = activityList[actKey];
-  app.title.html(utils.extractTimeStr(item.dt_activity) + ": " + item.activity)
+  app.title.html(utils.extractTimeStr(item.dt_activity) + ": " + item.activity);
   var screen_ = app.screens["edit activity"];
   for (i = 0; i < screen_.activities.length; i++) {
     var activity_id = screen_.activities[i];
@@ -1025,30 +982,38 @@ submitEdit: function() {
   var details = utils.get(CURR_ACTIVITY_ID) ;
   var detailsArray = details.split(",");  // contains tuc, category, title
   var tuc = detailsArray[0];
-  var cat = detailsArray[1];			// .category
+  var cat = detailsArray[1];            // .category
   var act = $("input#free-text").val();
   utils.save(CURR_ACTIVITY_ID, [tuc, cat, act].join());
-  app.navigateTo("home")
+  app.navigateTo("home");
 },
+
 submitOther: function() {
+  // includes special functionality to change language and link with hh (triggers new meta ID)
   $("div#other-specify").hide();
   var prev_activity = $("input#free-text").val();
     // 31 Dec 2018 - Phil
     // here we allow custom hh configuration
     // hhID can be entered in the format:
-    //     h1234
+    //     *h1234
     // 
-    hhID = parseInt(prev_activity.split("h")[1]);
-    if (typeof(hhID) == "number") {
+    hhID = prev_activity.split("*h")[1];
+    if (!isNaN(hhID)) {
+        // h was followed by nothing but a number
         localStorage.removeItem('metaID');          // get new metaID
-		localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
-		localStorage.setItem('household_id', hhID);
-		localStorage.setItem('registrationStatus', 'complete');
+        localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+        localStorage.setItem('household_id', hhID);
+        localStorage.setItem('householdSurvey', 'COMPLETE');
         app.navigateTo("home", "ignore"); // ignore stops creation of new entry
         app.title.html("HH ID set to " + hhID);
-    }
-    else {
-        app.navigateTo("other people", prev_activity)
+    } else if (prev_activity == "*en"){
+        localStorage.setItem('language','en');
+        app.loadText();
+    } else if (prev_activity == "*de"){
+        localStorage.setItem('language','de');
+        app.loadText();
+    } else {
+        app.navigateTo("other people", prev_activity);
     }
 },
 
@@ -1059,7 +1024,6 @@ toggleCaption: function() {
 
 personaliseClick: function() { //Goes to the screen with the postcode input
   if (localStorage.getItem('metaID') == null){
-    //requestNextID(); //this should only ever happen once unless no ID is returned from SQL
   } // "null" ^ because we don't need to execute any function after wards
   app.appScreen.hide();
   app.addressList.hide();
@@ -1109,7 +1073,6 @@ submitAddress: function() {
   if (app.addressList.val() == "None of the above") {
     console.log("None of the above houses");
     localStorage.setItem("address", "ignore");
-    //app.registerNewHousehold("http://energy-use.org/app");
     app.contactInfoScreen();//Shows email and name inputs
 
   } else if (app.addressList.val() == null){
@@ -1128,16 +1091,7 @@ submitAddress: function() {
     } else {
       alert("You have tried this too many times");
     }
-
-    /*localStorage.setItem('household_id', app.addressList.val()); //Useful to store it if we are unable to connect now (this is storing the Household_id)
-    if (localStorage.getItem('metaID') == null){
-    //requestNextID(linkHousehold); //We need a User ID to be able to link it to the household id
-  } else {
-  linkHousehold(); //(in upload.js)
-}
-app.returnToMainScreen();
-*/
-}
+  }
 },
 
 populateAddressList: function(array) {
@@ -1163,7 +1117,7 @@ populateAddressList: function(array) {
       address2 = "";
     }
     var town = "";
-    option.innerHTML = address1 + address2 + town; //Hnumber, street name and town (see https://getaddress.io/Documentation)
+    option.innerHTML = address1 + address2 + town; //Hnumber, street name and town (see https://getaddress.io/Documentation);
     (app.addressList).append(option);
     option.value = entry;
   });
@@ -1174,39 +1128,52 @@ populateAddressList: function(array) {
   (app.addressList).append(option);
 },
 
-// checkIfRegistered: function() { //Called onDeviceReady and when returning to main screen
-//   if (localStorage.getItem('household_id') != null) {                  // HH id present
-//     if (localStorage.getItem('registrationStatus') != null) {  // form wasn't finished
-//         console.log("Have incomplete HH id");
-//         // app.nav_personalise.show();
-//         // app.nav_personalise.html(app.label.lblPersonaliseFinish);
-//         // app.nav_personalise.attr("onclick","app.continueRegistration()");
-//         app.divStatus.html(app.label.lblPersonaliseFinish);
-//         app.divStatus.attr("onclick","app.continueRegistration()");
-//     } else {                                                        // completed HH - hide personalise
-//         console.log("Have complete HH id");
-//         app.nav_personalise.hide();
-//         // $("div#nav-aboutme").show();                         // AR activate by dateChoice
-//     }
-//   } else {
-//     console.log("No HH id");
-//     app.nav_personalise.show();  //Hide "personalise button" as they have already completed it
-//   }
-// },
 
 getDate: function() {
-  var getDateURL = meterURL +  "date.php";
-  var sc = localStorage.getItem('sc');
-  var hh = localStorage.getItem('household_id');
-  var dateURL = getDateURL + "?hh=" +hh+ "&sc=" + sc
-  console.log("Get date" + dateURL);
-  app.appScreen.hide();
-  app.personaliseScreen.hide();
-  app.register_screen.show();
-  app.iframe_register.attr('src', dateURL);
-//   app.iframe_register.ready(function(){
-//   sendMessageIframe("Getting date from app");
-//   });
+    // XXX this function needs to become a 'date request' - i.e. send me an email to pick a date
+    var sc = localStorage.getItem('sc');
+    var hh = localStorage.getItem('household_id');
+    if (sc == null) {
+        // send email
+        console.log("Slave device > email");
+        requestChangeEmail();
+    } else {
+        // date selection
+        console.log("Slave device > email");
+        var getDateURL = meterURL +  "date.php";
+        var dateURL = getDateURL + "?hh=" +hh+ "&sc=" + sc
+        console.log("Get date" + dateURL);
+        app.appScreen.hide();
+        app.personaliseScreen.hide();
+        app.register_screen.show();
+        app.iframe_register.attr('src', dateURL);
+    }
+},
+
+changeHHsurvey: function() {
+    var sc = localStorage.getItem('sc');
+    var hh = localStorage.getItem('household_id');
+    if (hh == null) {
+        // start fresh registration
+        personaliseClick();
+    } else {
+        if (sc == null) {
+            // send email
+            console.log("Slave device > email");
+            requestChangeEmail();
+        } else {
+            // continue
+            app.continueRegistration();
+        }
+    }
+},
+
+changeINDIVsurvey: function() {
+  var surveyScreen = utils.get(SURVEY_STATUS);
+    if (surveyScreen == null) {
+        surveyScreen = 'survey root';
+    }
+    app.navigateTo(surveyScreen);
 },
 
 registerNewHousehold: function(registerURL) {
@@ -1217,7 +1184,6 @@ registerNewHousehold: function(registerURL) {
   app.register_screen.show();
   app.iframe_register.attr('src', registerURL);
   app.iframe_register.load(function(){
-    console.log("Hello");
     sendMessageIframe("I am registering from the app");
     sendMessageIframe("Fill address fields#" + localStorage.getItem("address") + "#" + localStorage.getItem("postcode"));
   });
@@ -1226,23 +1192,11 @@ registerNewHousehold: function(registerURL) {
 continueRegistration: function() {
   //var1.hostname is now just the "www.energy-use.org"
   console.log("Continue link: " + localStorage.getItem('continue_registration_link'));
-  if (localStorage.getItem('continue_registration_link') == null || localStorage.getItem('continue_registration_link') == "" || localStorage.getItem('continue_registration_link')== meterURL + "hhq.php"){
-    continueRegistrationLink = meterURL;
-    console.log("Invalid Link");
-  } else {
-    continueRegistrationLink = localStorage.getItem('continue_registration_link');
-    var var1 = document.createElement ('a');
-    var1.href = continueRegistrationLink;
-    console.log(var1.hostname);
-    if (var1.hostname != meterHost) { //A method of making sure the domain of the url is energy-use.org
-      continueRegistrationLink = meterURL;
-      console.log("Not correct host");
-    }
-    console.log(continueRegistrationLink);
-  }
-  //If URL is not set or not on the energy-use.org domain, reset it.
-  console.log("Using link: " + continueRegistrationLink);
-  app.registerNewHousehold(continueRegistrationLink);
+  app.contact_screen.hide();
+  app.appScreen.hide();
+  app.personaliseScreen.hide();
+  app.register_screen.show();
+  app.iframe_register.attr('src', localStorage.getItem('continue_registration_link'));
 },
 
 contactInfoScreen: function() {
@@ -1266,8 +1220,6 @@ givenConsent: function() {
   app.appScreen.show();
   app.navbar.show();
 },
-
-
 
 };
 

@@ -49,18 +49,6 @@ The data you provide with this app is used for research.
 
       <div class="app" id="app_screen">
          <div class="main-screen">
-            <div hidden id="change-id">
-               <input type="text" id="input-id" autofocus />
-               <div class "btn-change-id">
-                  <input id="btn-submit" type="submit" onclick="app.changeID()" />
-               </div>
-            </div>
-            <div hidden id="change-date">
-               <input type="text" id="input-date" value="20160813" autofocus />
-               <div class "btn-change-id">
-                  <input id="btn-submit" type="submit" onclick="app.changeDate()" />
-               </div>
-            </div>
             <div id="header" class="header">
                <div class="clock-act">
                   <canvas id="clock-act" width="112px" height="112px"></canvas>
@@ -86,6 +74,27 @@ The data you provide with this app is used for research.
             <div class="contents">
                <div hidden id="progress_list_pane">
                   <div id="progress-list">
+                     <div class="progress-row">
+                        <div class="progress-item" onclick="app.getDate()">
+                           <img id="progress-img-date" class="imgSmall" src="img/AR_4.png">
+                           <span id="progress-date">Study date</span>
+                        </div>
+                     </div>
+
+                     <div class="progress-row">
+                        <div class="progress-item" onclick="app.changeHHsurvey()">
+                           <img id="progress-img-hhSurvey" class="imgSmall" src="img/AR_4.png">
+                           <span id="progress-hhSurvey">Household information</span>
+                        </div>
+                     </div>
+
+                     <div class="progress-row">
+                        <div class="progress-item" onclick="app.changeINDIVsurvey()">
+                           <img id="progress-img-indivSurvey" class="imgSmall" src="img/AR_4.png">
+                           <span id="progress-indivSurvey">About you</span>
+                        </div>
+                     </div>
+
                      <div class="progress-row">
                         <div class="progress-item">
                            <img id="stars1" src="img/stars_on.png">

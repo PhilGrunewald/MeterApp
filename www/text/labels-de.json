@@ -1,0 +1,51 @@
+{
+    "locale":  "de-de",
+    "AtTheMoment": " im Moment",
+    "actListLabel": "Bitte mit der Umfrage anfangen",
+    "btnOther": "Fertig",
+    "day0": "Sonntag",
+    "day1": "Montag",
+    "day2": "Dienstag",
+    "day3": "Mittwoch",
+    "day4": "Donnerstag",
+    "day5": "Freitag",
+    "day6": "Sonnabend",
+    "hours": "24",
+    "lblBack": "Zur\u00fcck",
+    "lblDate": "Teilnahme Tag...",
+    "lblDone": "Fertig",
+    "lblHome": "Home",
+    "lblNext": "Weiter...",
+    "lblPersonalise": "Personalisieren",
+    "lblPersonaliseFinish": "Weiter...",
+    "lblSurvey": "Umfrage",
+    "lblWait": "Teilnahme: ",
+    "now": "Jetzt",
+    "progress1": "Umfrage",
+    "progress2": "5 Aktivit\u00e4ten",
+    "progress3": "10 Aktivit\u00e4ten",
+    "progress4": "15 Aktivit\u00e4ten",
+    "progress5": "25 Aktivit\u00e4ten",
+    "recently": "K\u00fcrzlich",
+    "time": {
+        "after": {
+            "post": "",
+            "pre": "in "
+        },
+        "before": {
+            "post": "",
+            "pre": "vor "
+        },
+        "comment": "German: vor 10min    English: 10min ago"
+    },
+    "title": "Willkommen",
+    "titleDate": "W\u00e4hlen Sie ein <a onclick='app.getDate()'>Datum</a> f\u00fcr Ihre Studie",
+    "titleDay1": "Bitte jetzt Aktivit\u00e4ten bis morgen um 21 Uhr notieren",
+    "titlePersonalise": " <a onclick='app.personaliseClick()'>Personalisieren</a>, um an der Studie teilzunehmen",
+    "titlePersonaliseFinish": " <a onclick='app.continueRegistration()'>Weiter Personalisieren</a>, um an der Studie teilzunehmen",
+    "titleProgress1": "Sie haben ",
+    "titleProgress2": " Eintr\u00e4ge",
+    "titleSurvey": "Heute beginnt Ihre Studie. Bitte mit der <a onclick='app.navigateTo(\"survey root\")'>Umfrage</a> anfangen.",
+    "titleWait1": "Sie bekommen Ihr Paket vor ",
+    "titleWait2": ". Bitte den Stromz\u00e4hler anbringen."
+}

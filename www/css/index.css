@@ -166,8 +166,14 @@ h1 {
   height: 90px;
 }
 
+.imgSmall {
+  max-width: 100px;
+  max-height: 40px;
+}
+
 #imgStatus {
-  height: 50px;
+  max-width: 100px;
+  max-height: 40px;
 }
 
 #survey-status {
@@ -493,14 +499,14 @@ br {
 }
 
 .contact_input {
-  width: 62%;
+  width: 85%;
   height: 5%;
   margin-top: 5%;
   box-shadow: 0px 1px 2px 0px #000000;
   border-radius:4px;
   border:1px;
   font-family:Arial;
-  font-size:35px;
+  font-size:25px;
   text-decoration:none;
   text-shadow:0px 1px 0px #000000;
   size: 10;
