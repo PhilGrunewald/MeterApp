@@ -199,6 +199,8 @@ statusCheck: function() {
         app.updateStars();
         app.divStatus.attr("onclick","app.showProgressList()");
         app.title.html("Tap the stars to see your progress");
+        $("#progress-row-authorise").hide();
+
     } else {
         // this is a master phone with the option to pick dates directly and modify HH survey
         if (localStorage.getItem('continue_registration_link') != null && localStorage.getItem('householdSurvey') == null) {
@@ -381,9 +383,9 @@ navigateTo: function(screen_id, prev_activity) {
     else if (app.activities[prev_activity].ID > ACTIVITY_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_TIME_MAX) {
       var offset = app.activities[prev_activity].value * 60000;
       var dt_activity = utils.get(ACTIVITY_DATETIME);
-      dt_activity = new Date(dt_activity);
-      var dt_activity = new Date(dt_activity.getTime() +offset).toISOString();
-      utils.save(ACTIVITY_DATETIME, dt_activity);
+      var dt_activity2 = new Date(dt_activity);
+      var dt_activity3 = new Date(dt_activity2.getTime() +offset).toISOString();
+      utils.save(ACTIVITY_DATETIME, dt_activity3);
     }
     //
     //  LOCATION
@@ -762,6 +764,9 @@ addActivityToList: function() {
     dt_act = utils.get(ACTIVITY_DATETIME);
   }
   var actID = utils.actID(dt_act);
+console.log("testing actID for T: " + actID)
+  actID  = actID.replace(" ","T")
+console.log("testing 2 actID for T: " + actID)
 
   // trim trailing milliseconds and the trailing 'Z' upsetting mySQL datetime
   dt_act      = dt_act.substring(0,19);
@@ -845,7 +850,11 @@ saveActivityPropertiesLocally: function(actKey) {
   // this is where app.navigateTo("home") will create new activity from
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var thisAct = activityList[actKey];
-  utils.save(ACTIVITY_DATETIME, thisAct.dt_activity);
+console.log("testing for T: " + thisAct.dt_activity)
+  var dt  = thisAct.dt_activity.replace(" ","T")
+  utils.save(ACTIVITY_DATETIME, dt);
+console.log("2nd testing for T: " + dt)
+  // utils.save(ACTIVITY_DATETIME, thisAct.dt_activity);
   utils.save(CURR_ACTIVITY, thisAct.key);
   utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.category, thisAct.activity].join());
   utils.save(CURR_LOCATION, thisAct.location);

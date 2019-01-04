@@ -27,7 +27,19 @@ https://play.google.com/apps/publish/
 Click "aMeter"
 Left: select "Release Management" > App releases
 
+iOS
+===
 
+cordova build ios
+
+open in xCode:
+/Users/phil/Sites/uk.joymeter.Activities/platforms/ios/Activities.xcworkspace
+
+Update licence agreement:
+https://developer.apple.com/account
+
+" valid provisioning profile for this executable was not found."
+"File" > "Workspace Settings..." >  "Build System" change to "Legacy Build System"
 
 
 Cordova issues
