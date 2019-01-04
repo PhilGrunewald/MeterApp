@@ -590,6 +590,18 @@
             "help": "Number of people around you.",
             "title": "Sind andere beteiligt?"
         },
+        "name specify": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Nur für den Email Empfänger ",
+            "title": "Bitte geben Sie ihren Namen zur Autentisierung"
+        },
         "other specify": {
             "activities": [
                 "Blank",
@@ -599,8 +611,8 @@
                 "Blank",
                 "Blank"
             ],
-            "help": "Type what you want",
-            "title": "Please specify"
+            "help": "Ihre eigene Beschreibung",
+            "title": "Ihre eigene Beschreibung"
         },
         "outdoors": {
             "activities": [

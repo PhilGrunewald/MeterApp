@@ -31,7 +31,6 @@ var CATEGORIES = ["care_self",
 "work",
 "other_category"];
 
-var TO_BE_SPECIFIED     = "other specify";
 var OTHER_SPECIFIED_ID  = 9990;
 var TIMEUSE_MAX         = 10000;
 
@@ -199,10 +198,14 @@ statusCheck: function() {
         app.updateStars();
         app.divStatus.attr("onclick","app.showProgressList()");
         app.title.html("Tap the stars to see your progress");
-        $("#progress-row-authorise").hide();
-
+        $("#progress-row-date").hide();
+        $("#progress-row-hhSurvey").hide();
+        checkAuthorisation();
     } else {
-        // this is a master phone with the option to pick dates directly and modify HH survey
+        // this is a master phone or has been authorised. Option to pick dates directly and modify HH survey
+        $("#progress-row-authorise").hide();
+        $("#progress-row-date").show();
+        $("#progress-row-hhSurvey").show();
         if (localStorage.getItem('continue_registration_link') != null && localStorage.getItem('householdSurvey') == null) {
             // complete registration
             app.title.html(app.label.titlePersonaliseFinish);
@@ -477,8 +480,8 @@ if (screen_id == "activity root") {
   }
 
 } else
-if (screen_id == "other specify") {     // display text edit field
-  console.log("SHOWING");
+if (screen_id == "other specify" || screen_id == "name specify") {     // display text edit field
+  console.log("Free text screen");
   $("div#other-specify").show();
   app.footerNav.hide();
   app.choicesPane.hide();
@@ -1153,6 +1156,12 @@ populateAddressList: function(array) {
   (app.addressList).append(option);
 },
 
+authorise: function() {
+  app.title.html("Authorisation via email. Please give your name.");
+  $("input#free-text").val("");
+  $("div#btn-other-specify").attr("onclick", "requestAutorisation()");
+  app.navigateTo("name specify");
+},
 
 getDate: function() {
     // XXX this function needs to become a 'date request' - i.e. send me an email to pick a date
@@ -1161,7 +1170,7 @@ getDate: function() {
     if (sc == null) {
         // send email
         console.log("Slave device > email");
-        requestChangeEmail();
+        requestAutorisation();
     } else {
         // date selection
         console.log("Slave device > email");
@@ -1185,7 +1194,7 @@ changeHHsurvey: function() {
         if (sc == null) {
             // send email
             console.log("Slave device > email");
-            requestChangeEmail();
+            requestAutorisation();
         } else {
             // continue
             app.continueRegistration();

@@ -3,7 +3,8 @@ var getAddresses =  meterURL +  "getAddresses.php";
 var checkForHouseID = meterURL +  "checkAddress.php";
 var linkHouseholdURL = meterURL +  "linkHousehold.php";
 var getDateChoice = meterURL +  "getDateChoice.php";
-var sendChangeEmail = meterURL +  "sendChangeEmail.php";
+var requestAutorisationURL = meterURL +  "requestAutorisation.php";
+var checkAuthorisationURL = meterURL +  "checkAuthorisation.php";
 
 var insertSurvey = meterURL +  "insertSurvey.php";
 var insertActivity = meterURL +  "insertActivity.php";
@@ -223,18 +224,42 @@ function linkHousehold() {
     });
 }
 
-
-function requestChangeEmail() {
+function checkAuthorisation() {
     var request;
     request = $.ajax({ //Send request to php
-        url: sendChangeEmail,
+        url: checkAuthorisationURL,
         type: "POST",
-        data: {hhID:localStorage.getItem('household_id'), safeguard:"A_long_string_to_make_sure_we_do_not_get_bots_guessing_the_URL_and_send_annoying_emails_to_our_participants_7603q4#33"}, // send hh ID
+        data: {mID:localStorage.getItem('metaID'), serialNumber:device.uuid},
+        success: function(response) {
+            if (response.split("#")[0]=="Success") {
+                console.log("This meta ID is authorised");
+                var sc = response.split('#')[1]
+                localStorage.setItem('sc',sc); 
+                app.statusCheck();
+            } else {
+                console.log("This meta ID is not authorised");
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
+                console.log("error in checkAuthorisation");
+        }
+    });
+}
+
+
+function requestAutorisation() {
+    var request;
+    request = $.ajax({ //Send request to php
+        url: requestAutorisationURL,
+        type: "POST",
+        data: {hhID:localStorage.getItem('household_id'), mID:localStorage.getItem('metaID'), name: $("input#free-text").val(), safeguard:"A_long_string_to_make_sure_we_do_not_get_bots_guessing_the_URL_and_send_annoying_emails_to_our_participants_7603q4#33"}, // send hh ID
         success: function(response) {
             if (response.split("#")[0]=="Success") { //to confirm whether data has been inserted
                 console.log("Email sent!");
                 console.log(response);
-                app.title.html("We sent an email to your registered address.");
+                app.title.html("Autorisation requested. Please check the registered email.");
+                $("div#other-specify").hide();
+
             } else {
                 console.log("MySQL connection error" + response);
             }
