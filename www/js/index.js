@@ -75,7 +75,7 @@ var app = {
     * @param {js/activities.json} contains the activities
     */
     $.getJSON('text/labels-' + localStorage.getItem('language') + '.json', function(label_data) {
-    console.log("loading labels");
+    console.log('loading labels-' + localStorage.getItem('language') + '.json');
     app.label = label_data;
 
     app.title.html(app.label.title);
@@ -589,6 +589,7 @@ showProgressList: function() {
     if (dateChoice != null && new Date() < new Date(dateChoice)) {
         // a future date is assigned
         var dtChoice  = new Date(dateChoice);
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
         var options = { weekday: 'short', day: 'numeric', month: 'short'};
         $('#progress-date').html("Study " + dtChoice.toLocaleDateString(app.label.locale, options));
         $('#progress-img-date').attr("src","img/nav_done.png");
@@ -654,7 +655,21 @@ showActivityList: function() {
   for (i = actLength-1; i > -1; i--) {
     var key = actKeys[i];
     var item = activityList[key];
-    thisWeekday = utils.format_weekday(item.dt_activity);
+
+
+      // had to insert the T in "2000-12-31 23:59" >  "2000-12-31T23:59"
+      // otherwise date conversion isn't valid
+      var dt  = new Date(item.dt_activity.replace(" ","T"))
+      console.log("indexJS new fromatting of " + dt);
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+      var options = { hour: 'numeric', minute: '2-digit'};
+      var hhmm = dt.toLocaleString(app.label.locale, options);
+      console.log("indexJS changed to " + hhmm);
+
+      var options = { weekday: 'long', day: 'numeric', month: 'short'};
+      thisWeekday = dt.toLocaleString(app.label.locale, options);
+
+    // thisWeekday = utils.format_weekday(item.dt_activity);
     if (weekday != thisWeekday) {
       actsHTML +=
       '<div class="row activity-row">' + thisWeekday + '</div>'
@@ -669,9 +684,10 @@ showActivityList: function() {
       var icon = "Other_type"
     }
 
+    // '<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
     actsHTML +=
     '<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
-    '<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
+    '<div class="activity-time activity-item">' + hhmm + '</div>' +
     '<div class="activity-cell activity-item">' + item.activity  + '</div> ' +
     '<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+icon+'.png"></div>'+
     '<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
