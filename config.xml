@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="uk.joymeter.Activities" version="1.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Activities</name>
+<widget id="uk.joymeter.Activities" version="1.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>JoyMeter</name>
     <description>
 		An activity recorder
     </description>
@@ -31,6 +31,7 @@
     </platform>
     <platform name="ios">
         <allow-navigation href="http://www.energy-use.org/*" />
+        <icon height="1024" src="www/img/ios/icon-1024.png" width="1024" />
         <icon height="180" src="www/img/ios/icon-60@3x.png" width="180" />
         <icon height="60" src="www/img/ios/icon-60.png" width="60" />
         <icon height="120" src="www/img/ios/icon-60@2x.png" width="120" />

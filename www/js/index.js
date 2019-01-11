@@ -14,7 +14,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.0.6";
+var appVersion = "1.0.7";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -226,7 +226,7 @@ statusCheck: function() {
             app.lblStatus.html("");
             app.updateStars();
             app.divStatus.attr("onclick","app.showProgressList()");
-            app.title.html("Tap the stars to see your progress");
+            app.title.html(app.label.titleProgress);
         }
     }
 },

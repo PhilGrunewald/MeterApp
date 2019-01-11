@@ -14,7 +14,7 @@ In Cordova Project
 cordova build android --release -- --keystore=aMeterAndroid.keystore --storePassword='XXX' --alias=aMeterKey --password='XXX'
 
 Rename the file from 
-/Users/phil/Sites/uk.joymeter.Activities/platforms/android/app/build/outputs/apk/release/app-release.apk
+/Users/phil/Sites/uk.joymeter.Activities/platforms/android/app/build/outputs/apk/release/ app-release.apk
 to
 uk.joymeter.Activities.apk
 
