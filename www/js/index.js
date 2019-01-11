@@ -5,9 +5,16 @@
 */
 
 if (localStorage.getItem('language') == null) {
-    localStorage.setItem('language', 'en');
+    var localLanguage = navigator.language.split("-")[0]
+    if (localLanguage == 'de') {
+        localStorage.setItem('language', localLanguage);
+        console.log("Language is " + localLanguage + " - will use German")
+    } else {
+        localStorage.setItem('language', 'en');
+        console.log("Language is " + localLanguage + " - will use English")
+    }
 }
-var appVersion = "1.0.4";
+var appVersion = "1.0.5";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -69,10 +76,6 @@ var app = {
   },
 
   loadText: function() {
-    /** Load json files before we get going
-    * has to be nested to run sequentially
-    * @param {js/activities.json} contains the activities
-    */
     $.getJSON('text/labels-' + localStorage.getItem('language') + '.json', function(label_data) {
     console.log('loading labels-' + localStorage.getItem('language') + '.json');
     app.label = label_data;
@@ -104,10 +107,10 @@ var app = {
     $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
       console.log('loading activities-' + localStorage.getItem('language') + '.json');
       app.activities = data.activities;
-      $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
-        console.log('loading screens-' + localStorage.getItem('language') + '.json');
-        app.screens = screen_data.screens;
       });
+    $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
+      console.log('loading screens-' + localStorage.getItem('language') + '.json');
+      app.screens = screen_data.screens;
     });
    },
 
@@ -346,8 +349,7 @@ navigateTo: function(screen_id, prev_activity) {
   // the button pressed had 'prev_activity' as its 'title'
   // next screen has the key 'screen_id'
   app.actClock.hide();
-  //        app.actClockDiv.hide();
-  //app.header.removeClass('alert');
+
   app.catchup.hide();
   app.title.show();
 
@@ -385,7 +387,7 @@ navigateTo: function(screen_id, prev_activity) {
     //
     else if (app.activities[prev_activity].ID > ACTIVITY_TIME_MIN && app.activities[prev_activity].ID < ACTIVITY_TIME_MAX) {
       var offset = app.activities[prev_activity].value * 60000;
-      var dt_activity = utils.get(ACTIVITY_DATETIME);
+      var dt_activity = utils.get(ACTIVITY_DATETIME).replace(" ","T");
       var dt_activity2 = new Date(dt_activity);
       var dt_activity3 = new Date(dt_activity2.getTime() +offset).toISOString();
       utils.save(ACTIVITY_DATETIME, dt_activity3);
@@ -454,6 +456,8 @@ if (screen_id == "home" ) {
   app.header.attr("onclick", "");
   app.title.removeClass("btn-box");
   app.showActivityList();
+  // in saveActivityPropertiesLocally home was repointed here to avoid loosing item when aborting change
+  $("#nav-home").attr("onclick", "app.showActivityList()");
 } else
 if (screen_id == "activity time relative") {
   // pressed "recently" button - relative time entry followed by "activity root"
@@ -461,6 +465,7 @@ if (screen_id == "activity time relative") {
   var dt_ = Date.now();
   var dt_ = new Date(dt_).toISOString();
   utils.save(ACTIVITY_DATETIME, dt_);
+  utils.format("${rel_time}")
   app.footer_nav("next");
   app.header.attr("onclick", "app.navigateTo('activity root')");
   app.title.addClass("btn-box");
@@ -509,6 +514,7 @@ if (screen_id == "survey complete") {
 } else
 if (screen_id == "adjust time") {
   console.log("Doing nothing - just so that the <else> part doesn't remove the title action");
+  utils.format("${rel_time}")
 }
 else
 if (screen_id == "other people") {
@@ -660,21 +666,12 @@ showActivityList: function() {
   for (i = actLength-1; i > -1; i--) {
     var key = actKeys[i];
     var item = activityList[key];
-
-
-      // had to insert the T in "2000-12-31 23:59" >  "2000-12-31T23:59"
-      // otherwise date conversion isn't valid
       var dt  = new Date(item.dt_activity.replace(" ","T"))
-      console.log("indexJS new fromatting of " + dt);
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-      var options = { hour: 'numeric', minute: '2-digit'};
+      var options = { hour: 'numeric', minute: '2-digit', timeZone: 'UTC'};
       var hhmm = dt.toLocaleString(app.label.locale, options);
-      console.log("indexJS changed to " + hhmm);
-
       var options = { weekday: 'long', day: 'numeric', month: 'short'};
       thisWeekday = dt.toLocaleString(app.label.locale, options);
-
-    // thisWeekday = utils.format_weekday(item.dt_activity);
     if (weekday != thisWeekday) {
       actsHTML +=
       '<div class="row activity-row">' + thisWeekday + '</div>'
@@ -689,7 +686,6 @@ showActivityList: function() {
       var icon = "Other_type"
     }
 
-    // '<div class="activity-time activity-item">' + utils.format_dt_AMPM(item.dt_activity) + '</div>' +
     actsHTML +=
     '<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
     '<div class="activity-time activity-item">' + hhmm + '</div>' +
@@ -759,27 +755,22 @@ catchupActivity: function(catchupIndex) {
 
 addActivityToList: function() {
   // 2 Lists: local ACTIVITY_LIST and logActJSON file
-  var dt_recorded = new Date().toISOString();
+  var dt_recorded = new Date(); // .toISOString();
   var dt_act;
   if (utils.get(ACTIVITY_DATETIME) == "same") {
     dt_act = dt_recorded;
   } else {
-    dt_act = utils.get(ACTIVITY_DATETIME);
+    dt_act = new Date(utils.get(ACTIVITY_DATETIME).replace(" ","T"));
   }
-  var actID = utils.actID(dt_act);
-console.log("testing actID for T: " + actID)
-  actID  = actID.replace(" ","T")
-console.log("testing 2 actID for T: " + actID)
 
-  // trim trailing milliseconds and the trailing 'Z' upsetting mySQL datetime
-  dt_act      = dt_act.substring(0,19);
-  dt_recorded = dt_recorded.substring(0,19);
+  var actID = utils.actID(dt_act);
+
   activityList = utils.getList(ACTIVITY_LIST) || {};
   activityList[actID] = {
     "key"       : utils.get(CURR_ACTIVITY),
     "Meta_idMeta": localStorage.getItem('metaID'),
-    "dt_activity": utils.getDateTimeStr(dt_act),
-    "dt_recorded": utils.getDateTimeStr(dt_recorded),
+    "dt_activity": utils.getDateForSQL(dt_act),
+    "dt_recorded": utils.getDateForSQL(dt_recorded),
     "location"  : utils.get(CURR_LOCATION),
     "people"    : utils.get(CURR_PEOPLE),
     "enjoyment" : utils.get(CURR_ENJOYMENT),
@@ -853,16 +844,19 @@ saveActivityPropertiesLocally: function(actKey) {
   // this is where app.navigateTo("home") will create new activity from
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var thisAct = activityList[actKey];
-console.log("testing for T: " + thisAct.dt_activity)
-  var dt  = thisAct.dt_activity.replace(" ","T")
-  utils.save(ACTIVITY_DATETIME, dt);
-console.log("2nd testing for T: " + dt)
-  // utils.save(ACTIVITY_DATETIME, thisAct.dt_activity);
+  var dtAct   = new Date(actKey.substring(0,19));
+  //// var dt  = thisAct.dt_activity.replace(" ","T")
+  //// utils.save(ACTIVITY_DATETIME, dt);
+  //// console.log("2nd testing for T: " + dt)
+  /////// utils.save(ACTIVITY_DATETIME, thisAct.dt_activity);
+  utils.save(ACTIVITY_DATETIME, utils.getUTCDateForSQL(dtAct));
   utils.save(CURR_ACTIVITY, thisAct.key);
   utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.category, thisAct.activity].join());
   utils.save(CURR_LOCATION, thisAct.location);
   utils.save(CURR_PEOPLE, thisAct.people);
   utils.save(CURR_ENJOYMENT, thisAct.enjoyment);
+  // if home is pressed now the item is left as is (conventional home > app.showActivityList would have lost it)
+  $("#nav-home").attr("onclick", "app.navigateTo('home')");
 },
 
 footer_nav: function(btn) {
@@ -1026,7 +1020,6 @@ submitOther: function() {
     //     *h1234
     // 
     hhID = prev_activity.split("*h")[1];
-    console.log(:hh)
     if (!isNaN(hhID)) {
         // h was followed by nothing but a number
         localStorage.removeItem('metaID');          // get new metaID

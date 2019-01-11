@@ -48,7 +48,7 @@ var utils = {
             }
             return str.replace(intime_var, res.toTimeString().substring(0, 5))
         } else if (elems[0] == "act_time") {
-            var dt_act = utils.get(ACTIVITY_DATETIME);
+            var dt_act = utils.get(ACTIVITY_DATETIME).replace(" ","T");
             if (dt_act == "same") {
                 time_ = new Date();
             } else {
@@ -69,7 +69,8 @@ var utils = {
             // res = ISOtime.substring(11,16);
             return str.replace(intime_var, res)
         } else if (elems[0] == "rel_time") {
-            var dt_act = utils.get(ACTIVITY_DATETIME);
+            var dt_act = utils.get(ACTIVITY_DATETIME).replace(" ","T");
+            // var dt_act = utils.get(ACTIVITY_DATETIME);
             if (dt_act == "same") {
                 time_ = new Date();
             } else {
@@ -137,10 +138,21 @@ var utils = {
         return i < 10 ? '0' + i : i;
     },
 
-    getDateTimeStr: function(DateTime) {
+    getUTCDateForSQL: function(dt) {
         // produces a ISO like string without timezone
         // 2000-07-31T00:59:59 (BST) -> 2007-07-30 23:59:59
-        dt = new Date(DateTime);
+        y = dt.getFullYear();
+        m = utils.padded(dt.getUTCMonth()+1);
+        d = utils.padded(dt.getUTCDate());
+        h = utils.padded(dt.getUTCHours());
+        M = utils.padded(dt.getUTCMinutes());
+        s = utils.padded(dt.getUTCSeconds());
+        return y+'-'+m+'-'+d+' '+h+':'+M+':'+s;
+    },
+
+    getDateForSQL: function(dt) {
+        // produces a ISO like string without timezone
+        // 2000-07-31T00:59:59 (BST) -> 2007-07-30 23:59:59
         y = dt.getFullYear();
         m = utils.padded(dt.getMonth()+1);
         d = utils.padded(dt.getDate());
@@ -150,10 +162,26 @@ var utils = {
         return y+'-'+m+'-'+d+' '+h+':'+M+':'+s;
     },
 
-    actID : function(actTime) {
+    getDateTimeStr: function(DateTime) {
+        // produces a ISO like string without timezone
+        // 2000-07-31T00:59:59 (BST) -> 2007-07-30 23:59:59
+        dt = new Date(DateTime);
+        // y = dt.getFullYear();
+        // m = utils.padded(dt.getMonth()+1);
+        // d = utils.padded(dt.getDate());
+        // h = utils.padded(dt.getHours());
+        // M = utils.padded(dt.getMinutes());
+        // s = utils.padded(dt.getSeconds());
+        // return y+'-'+m+'-'+d+' '+h+':'+M+':'+s;
+        return utils.getDateForSQL(dt);
+    },
+
+    actID : function(actDT) {
         //var d = new Date().getTime();
+        actTime = actDT.toISOString();
         actTime += performance.now();   //use high-precision timer
-        return actTime.toString();
+        // ID needs the T for time zone - otherwise sorting goes funny
+        return actTime.toString().replace(" ","T");
     },
 
     uuid : function() {

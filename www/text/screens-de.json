@@ -720,7 +720,7 @@
                 "App 3 6"
             ],
             "help": "",
-            "title": ""Haben Sie in den letzten 7 Tagen einen Trockner benutzt?"
+            "title": "Haben Sie in den letzten 7 Tagen einen Trockner benutzt?"
         },
         "survey appliances 4": {
             "activities": [
@@ -732,7 +732,7 @@
                 "App 4 6"
             ],
             "help": "",
-            "title": ""Haben Sie in den letzten 7 Tagen geduscht"
+            "title": "Wie oft haben Sie in den letzten 7 Tagen geduscht"
         },
         "survey appliances 5": {
             "activities": [
@@ -744,7 +744,7 @@
                 "App 5 6"
             ],
             "help": "",
-            "title": ""Haben Sie in den letzten 7 Tagen einen Staubsauger beutzt?"
+            "title": "Haben Sie in den letzten 7 Tagen einen Staubsauger beutzt?"
         },
         "survey bills": {
             "activities": [
