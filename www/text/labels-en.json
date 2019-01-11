@@ -1,5 +1,6 @@
 {
     "locale": "en-GB",
+    "Authorise": "Authorise this mobile",
     "AtTheMoment": " at the moment",
     "actListLabel": "Start with the Survey above",
     "day0": "Sunday",
@@ -21,6 +22,8 @@
     "lblWait": "Study: ",
     "btnOther": "Done",
     "now": "Now",
+    "titleProgress": "Tap the stars to see your progress",
+    "titleAuthorise": "Authorisation via email. Please give your name.",
     "progress1": "Survey done",
     "progress2": "5 activities",
     "progress3": "10 activities",

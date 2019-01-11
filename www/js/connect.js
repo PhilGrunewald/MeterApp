@@ -25,8 +25,8 @@ window.onerror = function(message, source, lineNumber) {
 
 
 function uploadActivities() {
-    var activitiesToUploadCopy = localStorage.getItem('activitiesToUpload');
-    var activitiesToUploadArray = localStorage.getItem('activitiesToUpload').split(';');
+    var activitiesToUploadCopy = localStorage.getItem('activitiesToUpload').replace(/'/g, "\\'");
+    var activitiesToUploadArray = activitiesToUploadCopy.split(';');
     if (activitiesToUploadArray[0]=="" || activitiesToUploadArray[0]=="null"){
         activitiesToUploadArray.shift(); //removes fisrt item if it's empty or null
     }
@@ -38,7 +38,7 @@ function uploadActivities() {
         success: function(response) {
             if (response.split("#")[0]=="Success") { //to confirm whether data has been inserted
                 console.log("Succesfully uploaded!");
-                localStorage.setItem('activitiesToUpload', (localStorage.getItem("activitiesToUpload")).replace(activitiesToUploadCopy,''));
+                localStorage.setItem('activitiesToUpload', '');
                 //This removes the sent items from the current list (incase they add an activity whilst it's being sent)
             } else {
                 console.log("MySQL connection error" + response);

@@ -14,7 +14,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.0.5";
+var appVersion = "1.0.6";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -89,7 +89,7 @@ var app = {
     $('#lblNext').html(app.label.lblNext);
     $('#lblDone').html(app.label.lblDone);
     $('#btn-other-specify').html(app.label.btnOther);
-
+    $('#progress-authorise').html(app.label.Authorise)
     $('#progress1').html(app.label.progress1);
     $('#progress2').html(app.label.progress2);
     $('#progress3').html(app.label.progress3);
@@ -200,7 +200,7 @@ statusCheck: function() {
         app.lblStatus.html("");
         app.updateStars();
         app.divStatus.attr("onclick","app.showProgressList()");
-        app.title.html("Tap the stars to see your progress");
+        app.title.html(app.label.titleProgress);
         $("#progress-row-date").hide();
         $("#progress-row-hhSurvey").hide();
         checkAuthorisation();
@@ -491,6 +491,14 @@ if (screen_id == "other specify" || screen_id == "name specify") {     // displa
   app.footerNav.hide();
   app.choicesPane.hide();
 } else
+if (screen_id == "other specify household ID") {     // display text edit field
+  console.log("Get HH id from user as free text");
+  $("div#btn-other-specify").attr("onclick", "app.submitHHid()");
+  $("input#free-text").val("");
+  $("div#other-specify").show();
+  app.footerNav.hide();
+  app.choicesPane.hide();
+} else
 if (screen_id == "survey root") {
   // an entry is still in the middle of completion
   // "survey root" is where the top navigation button points to
@@ -613,19 +621,19 @@ showProgressList: function() {
     }
     
     if (utils.get(SURVEY_STATUS) == "survey complete") {
-        $('#progress-img-indivSurvey').attr("src","img/nav_done.png");
+        $('#progress-img-indivSurvey').attr("src","img/stars_on.png");
     }
 
-  if (actCount > 5) {
+  if (actCount > 4) {
     $("img#stars2").attr("src","img/stars_on.png");
   }
-  if (actCount > 10) {
+  if (actCount > 9) {
     $("img#stars3").attr("src","img/stars_on.png");
   }
-  if (actCount > 15) {
+  if (actCount > 14) {
     $("img#stars4").attr("src","img/stars_on.png");
   }
-  if (actCount > 25) {
+  if (actCount > 24) {
     $("img#stars5").attr("src","img/stars_on.png");
   }
   var progressList = $("div#progress_list_pane");
@@ -1005,15 +1013,26 @@ submitEdit: function() {
   var detailsArray = details.split(",");  // contains tuc, category, title
   var tuc = detailsArray[0];
   var cat = detailsArray[1];            // .category
-  var act = $("input#free-text").val();
+  var act = $("input#free-text").val();//.replace(/'/g, "\\'");
   utils.save(CURR_ACTIVITY_ID, [tuc, cat, act].join());
   app.navigateTo("home");
 },
 
+    submitHHid: function() {
+        // h was followed by nothing but a number
+        var hhID = $("input#free-text").val();//.replace(/'/g, "\\'");
+        localStorage.removeItem('metaID');          // get new metaID
+        localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+        localStorage.setItem('household_id', hhID);
+        localStorage.setItem('householdSurvey', 'COMPLETE');
+        app.navigateTo("home", "ignore"); // ignore stops creation of new entry
+        app.title.html("HH ID set to " + hhID);
+    },
+
 submitOther: function() {
   // includes special functionality to change language and link with hh (triggers new meta ID)
   $("div#other-specify").hide();
-  var prev_activity = $("input#free-text").val();
+  var prev_activity = $("input#free-text").val();//.replace(/'/g, "\\'");
     // 31 Dec 2018 - Phil
     // here we allow custom hh configuration
     // hhID can be entered in the format:
@@ -1045,18 +1064,20 @@ toggleCaption: function() {
 },
 
 personaliseClick: function() { //Goes to the screen with the postcode input
-  if (localStorage.getItem('metaID') == null){
-  } // "null" ^ because we don't need to execute any function after wards
-  app.appScreen.hide();
-  app.addressList.hide();
-  app.contact_screen.hide();
-  app.personaliseScreen.show();
-  app.postcodeInput.show();
-  app.btnSubmit.attr("onclick","app.submitPostcode()");
-  document.getElementById('personalise_back').innerHTML = 'Do this later';
-  app.back_btn_pers.attr("onclick","app.returnToMainScreen()");
-  app.btnSubmit.html("Submit");
-  app.helpText.html("Enter your postcode");
+  if (localStorage.getItem('language') == 'de') {
+    app.navigateTo("other specify household ID");
+  } else {
+    app.appScreen.hide();
+    app.addressList.hide();
+    app.contact_screen.hide();
+    app.personaliseScreen.show();
+    app.postcodeInput.show();
+    app.btnSubmit.attr("onclick","app.submitPostcode()");
+    document.getElementById('personalise_back').innerHTML = 'Do this later';
+    app.back_btn_pers.attr("onclick","app.returnToMainScreen()");
+    app.btnSubmit.html("Submit");
+    app.helpText.html("Enter your postcode");
+    }
 },
 
 returnToMainScreen: function() {
@@ -1151,7 +1172,7 @@ populateAddressList: function(array) {
 },
 
 authorise: function() {
-  app.title.html("Authorisation via email. Please give your name.");
+  app.title.html(app.label.titleAuthorise);
   $("input#free-text").val("");
   $("div#btn-other-specify").attr("onclick", "requestAutorisation()");
   app.navigateTo("name specify");

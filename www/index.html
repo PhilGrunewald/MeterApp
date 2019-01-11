@@ -60,16 +60,12 @@ The data you provide with this app is used for research.
                <div id="catch-up" class="btn-catchup"> at </div>
             </div>
             <div id="other-specify">
-               <input type="text" id="free-text" autofocus /> <br>
-               <div class="other-specify-nav">
-                  <div class="row">
-                     <!--
-                        Removed because the item had to be deleted before re-entry - Back resulted in it being lost
-                        <div id="btn-back" class="col btn-nav" onclick="app.goBack();">Back</div>
-                        -->
-                     <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()">Fertig</div>
-                  </div>
-               </div>
+                    <input type="text" id="free-text" autofocus /> <br>
+                    <div class="other-specify-nav">
+                       <div class="row">
+                           <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()">Fertig</div>
+                       </div>
+                    </div>
             </div>
             <div class="contents">
                <div hidden id="progress_list_pane">
@@ -98,13 +94,6 @@ The data you provide with this app is used for research.
                      <div class="progress-row">
                         <div class="progress-item" onclick="app.changeINDIVsurvey()">
                            <img id="progress-img-indivSurvey" class="imgSmall" src="img/AR_4.png">
-                           <span id="progress-indivSurvey">About you</span>
-                        </div>
-                     </div>
-
-                     <div class="progress-row">
-                        <div class="progress-item">
-                           <img id="stars1" src="img/stars_on.png">
                            <span id="progress1"></span>
                         </div>
                      </div>

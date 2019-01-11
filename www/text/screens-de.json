@@ -367,8 +367,8 @@
                 "Not at all",
                 "Skip"
             ],
-            "help": "Think how this made you feel.",
-            "title": "How much do you enjoy this?"
+            "help": "Denken Sie an was Sie grade machen",
+            "title": "Wie hat Ihnen das gefallen?"
         },
         "food": {
             "activities": [
@@ -602,6 +602,18 @@
             "help": "Nur für den Email Empfänger ",
             "title": "Bitte geben Sie ihren Namen zur Autentisierung"
         },
+        "other specify household ID": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Erst bei http://www.energy-use.org anmelden",
+            "title": "Ihre enegy-use.org Teilnehmer ID"
+        },
         "other specify": {
             "activities": [
                 "Blank",
@@ -804,7 +816,7 @@
                 "Income 6"
             ],
             "help": "Vor Abzug aller Steuern und laufenden Kosten",
-            "title": "Wie hoch ist ungeführ Ihr Brutto-Jahreseinkommen?"
+            "title": "Wie hoch ist ungefähr Ihr Brutto-Monatseinkommen?"
         },
         "survey occupation": {
             "activities": [
@@ -888,7 +900,7 @@
                 "Time exercise 6"
             ],
             "help": "",
-            "title": "Wie viel Zeit verbringen Sie an einem typischen Wochentag mit </br> <b>Exercising</b>?"
+            "title": "Wie viel Zeit verbringen Sie an einem typischen Wochentag mit </br> <b>Sport</b>?"
         },
         "time mobile": {
             "activities": [
@@ -900,7 +912,7 @@
                 "Time mobile 6"
             ],
             "help": "",
-            "title": "Wie viel benutzen Sie ihr <b>Handy</b> an einem typischen Wochentag"
+            "title": "Wie viel Zeit verbringen Sie mit ihrem <b>Handy</b> an einem typischen Wochentag"
         },
         "time screens": {
             "activities": [
@@ -912,7 +924,7 @@
                 "Time screens 6"
             ],
             "help": "TV, tablet...",
-            "title": "Wie lange verbringen Sie an <b>Bildschirmen</b> an einem typischen Wochentag"
+            "title": "Wie viel Zeit verbringen Sie vor <b>Bildschirmen</b> an einem typischen Wochentag"
         },
         "to do": [
             "getting ready > ironing",

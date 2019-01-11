@@ -1,5 +1,6 @@
 {
     "locale":  "de-de",
+    "Authorise": "Handy genehmigen",
     "AtTheMoment": " im Moment",
     "actListLabel": "Bitte mit der Umfrage anfangen",
     "btnOther": "Fertig",
@@ -21,6 +22,8 @@
     "lblSurvey": "Umfrage",
     "lblWait": "Teilnahme: ",
     "now": "Jetzt",
+    "titleProgress": "Die Sterne zeigen Ihren Fortschritt",
+    "titleAuthorise": "Autorisierung per Email. Bitte geben Sie Ihren Namen.",
     "progress1": "Umfrage",
     "progress2": "5 Aktivit\u00e4ten",
     "progress3": "10 Aktivit\u00e4ten",

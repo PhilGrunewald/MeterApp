@@ -81,9 +81,9 @@
             "ID": 4278,
             "caption": "Unterst\u00fctzung/Hilfe",
             "category": "care_other",
-            "help": "\"Begleitung eines eigenen Kindes, das nicht bei Ihnen wohnt\"",
+            "help": "Begleitung eines eigenen Kindes, das nicht bei Ihnen wohnt",
             "next": "other people",
-            "title": "\"Begleitung des eigenen Kindes, das nicht bei Ihnen wohnt\""
+            "title": "Begleitung des eigenen Kindes, das nicht bei Ihnen wohnt"
         },
         "Accompanying the child as help": {
             "ID": 4274,
@@ -478,7 +478,7 @@
             "ID": 8551,
             "caption": "Computer",
             "category": "other_category",
-            "help": "\"Laptop, Tablet, PC\"",
+            "help": "Laptop, Tablet, PC",
             "icon": "app_computer",
             "next": "other people",
             "title": "Computer"
@@ -505,7 +505,7 @@
             "ID": 8552,
             "caption": "Spiele",
             "category": "recreation",
-            "help": "\"X-Box, Nintendo ...\"",
+            "help": "X-Box, Nintendo ...",
             "icon": "app_games",
             "next": "other people",
             "title": "Computerspiele"
@@ -514,7 +514,7 @@
             "ID": 8560,
             "caption": "Gartenger\u00e4te",
             "category": "care_house",
-            "help": "\"Rasenm\u00e4her, Heckenschere usw.\"",
+            "help": "Rasenm\u00e4her, Heckenschere usw.",
             "next": "other people",
             "title": "Gartenger\u00e4te"
         },
@@ -566,7 +566,7 @@
             "ID": 8535,
             "caption": "Wasserkocher",
             "category": "food",
-            "help": "\"bef\u00fcllen, benutzen, ausgie\u00dfen\"",
+            "help": "bef\u00fcllen, benutzen, ausgie\u00dfen",
             "icon": "app_kettle",
             "next": "other people",
             "title": "Kettle"
@@ -698,7 +698,7 @@
             "ID": 8557,
             "caption": "Spielzeug",
             "category": "recreation",
-            "help": "\"ferngesteuertes Auto, elektrische Spielzeugeisenbahn...\"",
+            "help": "ferngesteuertes Auto, elektrische Spielzeugeisenbahn...",
             "icon": "app_toy",
             "next": "other people",
             "title": "Spielzeug"
@@ -734,7 +734,7 @@
             "ID": 8541,
             "caption": "Waschmaschine",
             "category": "care_house",
-            "help": "\"Laden, Entladen oder Waschmaschine l\u00e4uft\"",
+            "help": "Laden, Entladen oder Waschmaschine l\u00e4uft",
             "icon": "app_washing_machine",
             "next": "other people",
             "title": "Waschmaschine"
@@ -743,7 +743,7 @@
             "ID": 8570,
             "caption": "Badezimmer",
             "category": "care_self",
-            "help": "\"Haar, Z\u00e4hne, Sch\u00f6nheit\"",
+            "help": "Haar, Z\u00e4hne, Sch\u00f6nheit",
             "icon": "act2_bathroom",
             "next": "appliances bathroom",
             "title": "Badezimmer"
@@ -752,7 +752,7 @@
             "ID": 8540,
             "caption": "Kleidung",
             "category": "care_house",
-            "help": "\"Waschen, Trocknen, B\u00fcgeln\"",
+            "help": "Waschen, Trocknen, B\u00fcgeln",
             "icon": "act2_dress",
             "next": "appliances clothes",
             "title": "Kleidung aufbereiten"
@@ -761,7 +761,7 @@
             "ID": 8550,
             "caption": "Unterhaltung",
             "category": "recreation",
-            "help": "\"TV, Computer, Radio\"",
+            "help": "TV, Computer, Radio",
             "icon": "app_projector",
             "next": "appliances entertainment",
             "title": "Verwendung Unterhaltungsger\u00e4te"
@@ -806,7 +806,7 @@
             "ID": 8510,
             "caption": "Haus und Garten",
             "category": "care_house",
-            "help": "\"Staubsauger, Heizung, K\u00fchlschrank\"",
+            "help": "Staubsauger, Heizung, K\u00fchlschrank",
             "icon": "act2_house_garden",
             "next": "appliances household",
             "title": "Haushaltsger\u00e4te verwenden"
@@ -823,7 +823,7 @@
             "ID": 8530,
             "caption": "K\u00fcche",
             "category": "food",
-            "help": "\"Backen, kochen, vorbereiten\"",
+            "help": "Backen, kochen, vorbereiten",
             "icon": "act2_eat",
             "next": "appliances kitchen",
             "title": "K\u00fcchenvorrichtung nutzen"
@@ -900,17 +900,17 @@
             "ID": 6130,
             "caption": "Sport",
             "category": "recreation",
-            "help": "\"Radfahren, Skifahren und Skaten\"",
+            "help": "Radfahren, Skifahren und Skaten",
             "next": "other people",
-            "title": "\"Radfahren, Skifahren und Skaten\""
+            "title": "Radfahren, Skifahren und Skaten"
         },
         "Billiards pool snooker or petanque": {
             "ID": 7321,
             "caption": "Freizeit mit Computer",
             "category": "recreation",
-            "help": "\"Billard, Pool, Snooker oder Petanque\"",
+            "help": "Billard, Pool, Snooker oder Petanque",
             "next": "other people",
-            "title": "\"Billard, Pool, Snooker oder Petanque\""
+            "title": "Billard, Pool, Snooker oder Petanque"
         },
         "Bills contribute": {
             "ID": 90072,
@@ -957,9 +957,9 @@
             "ID": 5241,
             "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "category": "recreation",
-            "help": "\"Ausleihen von B\u00fcchern, H\u00f6rb\u00fcchern, CDs, DVDs etc. aus einer Bibliothek\"",
+            "help": "Ausleihen von B\u00fcchern, H\u00f6rb\u00fcchern, CDs, DVDs etc. aus einer Bibliothek",
             "next": "other people",
-            "title": "\"Ausleihen von B\u00fcchern, H\u00f6rb\u00fcchern, CDs, DVDs etc. aus einer Bibliothek\""
+            "title": "Ausleihen von B\u00fcchern, H\u00f6rb\u00fcchern, CDs, DVDs etc. aus einer Bibliothek"
         },
         "Care": {
             "ID": 3900,
@@ -1017,7 +1017,7 @@
             "ID": 3830,
             "caption": "Besch\u00e4ftigen / Spielen",
             "category": "care_other",
-            "help": "\"Lesen, spielen und reden mit dem Kind\"",
+            "help": "Lesen, spielen und reden mit dem Kind",
             "icon": "act2_with_child",
             "next": "care child engage",
             "title": "Bei dem Kind sein"
@@ -1078,7 +1078,7 @@
             "ID": 3890,
             "caption": "Betreuen",
             "category": "care_other",
-            "help": "\"Spielen, lernen, Bildschirmzeit\"",
+            "help": "Spielen, lernen, Bildschirmzeit",
             "icon": "act2_supervise",
             "next": "care child engage",
             "title": "Kinder betreuen"
@@ -1181,9 +1181,9 @@
         },
         "Care rest sleep": {
             "ID": 5311,
-            "caption": "\"Ausruhen, Schlafen\"",
+            "caption": "Ausruhen, Schlafen",
             "category": "care_self",
-            "help": "\"Schlafen, ausruhen, eine Pause machen\"",
+            "help": "Schlafen, ausruhen, eine Pause machen",
             "icon": "act2_rest",
             "next": "care rest sleep",
             "title": "Ruhe oder Schlaf"
@@ -1192,7 +1192,7 @@
             "ID": 310,
             "caption": "Sich waschen oder anziehen",
             "category": "care_self",
-            "help": "\"Dusche, Bad, Umziehen\"",
+            "help": "Dusche, Bad, Umziehen",
             "icon": "act2_wash_dress",
             "next": "care wash",
             "title": "Waschen und anziehen"
@@ -1201,7 +1201,7 @@
             "ID": 312,
             "caption": "Baden",
             "category": "care_self",
-            "help": "\"Ein Bad einlassen/ Badezeit\"",
+            "help": "Ein Bad einlassen/ Badezeit",
             "icon": "act2_bath",
             "next": "care wash bath",
             "title": "Baden"
@@ -1237,7 +1237,7 @@
             "ID": 320,
             "caption": "Bad einlassen",
             "category": "care_self",
-            "help": "\"Die Badewanne f\u00fcllen, vorbereiten\"",
+            "help": "Die Badewanne f\u00fcllen, vorbereiten",
             "icon": "act2_bath_fill",
             "next": "other people",
             "title": "Bad einlassen"
@@ -1255,7 +1255,7 @@
             "ID": 315,
             "caption": "Hygiene",
             "category": "care_self",
-            "help": "\"Z\u00e4hne putzen, Schminken, Rasieren\"",
+            "help": "Z\u00e4hne putzen, Schminken, Rasieren",
             "icon": "act2_beauty",
             "next": "care wash hygiene",
             "title": "Hygiene"
@@ -1324,7 +1324,7 @@
             "ID": 2110,
             "caption": "Lernen / Studieren",
             "category": "work",
-            "help": "\"Unterricht, Vorlesungen, \u00dcbungen \"",
+            "help": "Unterricht, Vorlesungen, \u00dcbungen ",
             "next": "other people",
             "title": "Vorlesungen und \u00dcbungen"
         },
@@ -1332,7 +1332,7 @@
             "ID": 3211,
             "caption": "Putzen / Staub wischen",
             "category": "care_house",
-            "help": "\"Wischen, Fegen\"",
+            "help": "Wischen, Fegen",
             "icon": "act2_clean",
             "next": "other people",
             "title": "Haus putzen"
@@ -1459,7 +1459,7 @@
             "ID": 3130,
             "caption": "Tisch decken / abr\u00e4umen",
             "category": "food",
-            "help": "\"Besteck, Teller, \u2026\"",
+            "help": "Besteck, Teller, \u2026",
             "icon": "act2_lay_clear_table",
             "next": "food clear",
             "title": "Tisch decken / abr\u00e4umen"
@@ -1494,7 +1494,7 @@
             "ID": 3720,
             "caption": "Internet",
             "category": "recreation",
-            "help": "\"Surfen, st\u00f6bern, suchen, \u2026\"",
+            "help": "Surfen, st\u00f6bern, suchen, \u2026",
             "icon": "act2_www",
             "next": "other people",
             "title": "Internet"
@@ -1521,7 +1521,7 @@
             "ID": 8221,
             "caption": "Freizeit",
             "category": "recreation",
-            "help": "\"YouTube, Netflix, iPlayer ...\"",
+            "help": "YouTube, Netflix, iPlayer ...",
             "icon": "app_DVD",
             "next": "other people",
             "title": "Vor dem Bildschirm"
@@ -1548,7 +1548,7 @@
             "ID": 3133,
             "caption": "Sp\u00fclmaschine",
             "category": "food",
-            "help": "\"Einr\u00e4umen, laufen lassen, ausr\u00e4umen\"",
+            "help": "Einr\u00e4umen, laufen lassen, ausr\u00e4umen",
             "icon": "app_dishwasher",
             "next": "other people",
             "title": "Geschirrsp\u00fcler"
@@ -1566,7 +1566,7 @@
             "ID": 3250,
             "caption": "M\u00fcll wegr\u00e4umen",
             "category": "care_house",
-            "help": "\"M\u00fcllentsorgung, ordnen und sortieren\"",
+            "help": "M\u00fcllentsorgung, ordnen und sortieren",
             "icon": "act2_tidy",
             "next": "other people",
             "title": "M\u00fcll wegr\u00e4umen"
@@ -1685,7 +1685,7 @@
             "ID": 3100,
             "caption": "Essen / Trinken",
             "category": "food",
-            "help": "\"Essen, Mahlzeit vorbereiten, kochen, Essen abr\u00e4umen\"",
+            "help": "Essen, Mahlzeit vorbereiten, kochen, Essen abr\u00e4umen",
             "icon": "act2_food",
             "next": "food",
             "title": "Essen / Trinken"
@@ -1694,7 +1694,7 @@
             "ID": 3131,
             "caption": "Sauber machen",
             "category": "food",
-            "help": "\"Dinge wegr\u00e4umen, Aufwaschen\"",
+            "help": "Dinge wegr\u00e4umen, Aufwaschen",
             "icon": "act2_clear_table",
             "next": "other people",
             "title": "Essen abr\u00e4umen"
@@ -1773,7 +1773,7 @@
             "ID": 3110,
             "caption": "Mahlzeit zubereiten / kochen",
             "category": "food",
-            "help": "\"Kochen, Schneiden, R\u00fchren, \u2026\"",
+            "help": "Kochen, Schneiden, R\u00fchren, \u2026",
             "icon": "act2_cook",
             "next": "food preparation",
             "title": "Essen vorbereiten"
@@ -1782,7 +1782,7 @@
             "ID": 3111,
             "caption": "Kalte Mahlzeit",
             "category": "food",
-            "help": "\"z.B. Brot, Salat, Sandwich, \u2026\"",
+            "help": "z.B. Brot, Salat, Sandwich, \u2026",
             "icon": "act2_meal_cold",
             "next": "other people",
             "title": "Kaltes Essen zubereiten"
@@ -1791,7 +1791,7 @@
             "ID": 3112,
             "caption": "Warme / Gekochte Mahlzeit",
             "category": "food",
-            "help": "\"Nutzung des Herdes, Ofen, o.\u00c4. \"",
+            "help": "Nutzung des Herdes, Ofen, o.\u00c4. ",
             "icon": "act2_meal_hot",
             "next": "appliances food preparation",
             "title": "Warme Mahlzeit zubereiten"
@@ -1851,7 +1851,7 @@
             "ID": 301,
             "caption": "Sich fertig machen",
             "category": "care_self",
-            "help": "\"Anziehen, waschen, vorbereiten, organisieren\"",
+            "help": "Anziehen, waschen, vorbereiten, organisieren",
             "icon": "act2_getting_ready",
             "next": "getting ready",
             "title": "Sich fertig machen"
@@ -2189,7 +2189,7 @@
             "ID": 3200,
             "caption": "Hausarbeit",
             "category": "care_house",
-            "help": "\"Putzen, Aufr\u00e4umen, Kochen, Einkaufen\"",
+            "help": "Putzen, Aufr\u00e4umen, Kochen, Einkaufen",
             "icon": "act2_home",
             "next": "work house",
             "title": "Haushaltsf\u00fchrung"
@@ -2229,40 +2229,40 @@
         },
         "Income 1": {
             "ID": 90080,
-            "caption": "bis zu 310.000 ",
-            "help": "Ich verdiene weniger als 310.000 pro Jahr.",
+            "caption": "bis zu €1,000 ",
+            "help": "Brutto pro Monat",
             "next": "survey appliances 1",
             "title": "Einkommen",
             "value": 1
         },
         "Income 2": {
             "ID": 90081,
-            "caption": "bis zu 320.000 ",
-            "help": "Ich verdiene bis zu 320.000 pro Jahr",
+            "caption": "bis zu €2,000 ",
+            "help": "Brutto pro Monat",
             "next": "survey appliances 1",
             "title": "Einkommen",
             "value": 2
         },
         "Income 3": {
             "ID": 90082,
-            "caption": "bis zu 330.000 ",
-            "help": "Ich verdiene bis zu 330.000 pro Jahr",
+            "caption": "bis zu €3,000 ",
+            "help": "Brutto pro Monat",
             "next": "survey appliances 1",
             "title": "Einkommen",
             "value": 3
         },
         "Income 4": {
             "ID": 90083,
-            "caption": "bis zu 345.000 ",
-            "help": "Ich verdiene bis zu 345.000 pro Jahr",
+            "caption": "bis zu €4,500 ",
+            "help": "Brutto pro Monat",
             "next": "survey appliances 1",
             "title": "Einkommen",
             "value": 4
         },
         "Income 5": {
             "ID": 90084,
-            "caption": "\u00dcber 345.000",
-            "help": "Ich verdiene \u00fcber 345.000 pro Jahr",
+            "caption": "\u00dcber €4,500",
+            "help": "Brutto pro Monat",
             "next": "survey appliances 1",
             "title": "Einkommen",
             "value": 5
@@ -2321,7 +2321,7 @@
             "ID": 3310,
             "caption": "W\u00e4sche",
             "category": "care_house",
-            "help": "\"Waschen, sortieren, sich um die W\u00e4sche k\u00fcmmern\"",
+            "help": "Waschen, sortieren, sich um die W\u00e4sche k\u00fcmmern",
             "icon": "act2_dress",
             "next": "laundry",
             "title": "W\u00e4sche"
@@ -2348,7 +2348,7 @@
             "ID": 8210,
             "caption": "Vor dem Bildschirm",
             "category": "other_category",
-            "help": "\"Fernsehen, YouTube, Film ...\"",
+            "help": "Fernsehen, YouTube, Film ...",
             "icon": "app_TV",
             "next": "leisure tv device",
             "title": "Vor dem Bildschirm"
@@ -2357,7 +2357,7 @@
             "ID": 8216,
             "caption": "Computer",
             "category": "other_category",
-            "help": "\"Laptop, Desktop-PC ...\"",
+            "help": "Laptop, Desktop-PC ...",
             "icon": "app_laptop",
             "next": "device use",
             "title": "Computer"
@@ -2420,10 +2420,10 @@
             "ID": 7000,
             "caption": "Weitere",
             "category": "recreation",
-            "help": "\"Andere Hobbies, Spiele oder Computer\"",
+            "help": "Andere Hobbies, Spiele oder Computer",
             "icon": "act2_other",
             "next": "other people",
-            "title": "\"Andere Hobbies, Spiele oder Computer\""
+            "title": "Andere Hobbies, Spiele oder Computer"
         },
         "Leisure video": {
             "ID": 8229,
@@ -2476,15 +2476,15 @@
             "ID": 5224,
             "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "category": "recreation",
-            "help": "\"Live-Musik au\u00dfer klassischen Konzerten, Oper und Musicals\"",
+            "help": "Live-Musik au\u00dfer klassischen Konzerten, Oper und Musicals",
             "next": "other people",
-            "title": "\"Live-Musik au\u00dfer klassischen Konzerten, Oper und Musicals\""
+            "title": "Live-Musik au\u00dfer klassischen Konzerten, Oper und Musicals"
         },
         "Loc garden": {
             "ID": 30019,
             "caption": "Garten",
             "category": "travel",
-            "help": "\"Gartenarbeit, Spielen, Essen\"",
+            "help": "Gartenarbeit, Spielen, Essen",
             "icon": "act2_garden",
             "next": "garden",
             "title": "Im Garten",
@@ -2523,7 +2523,7 @@
             "ID": 30018,
             "caption": "Garten/ Drau\u00dfen",
             "category": "travel",
-            "help": "\"Park, Stra\u00dfe, Sportplatz\"",
+            "help": "Park, Stra\u00dfe, Sportplatz",
             "icon": "act2_garden",
             "next": "outdoors",
             "title": "Aktivit\u00e4t im Freien",
@@ -2533,7 +2533,7 @@
             "ID": 30016,
             "caption": "\u00d6ffentlicher Ort",
             "category": "other_category",
-            "help": "\"Gesch\u00e4fte, Kirchen, \u00f6ffentliche Geb\u00e4ude\"",
+            "help": "Gesch\u00e4fte, Kirchen, \u00f6ffentliche Geb\u00e4ude",
             "icon": "act2_shop",
             "next": "outdoors public",
             "title": "Standort \u00f6ffentlicher Ort im Freien",
@@ -2543,7 +2543,7 @@
             "ID": 30014,
             "caption": "\u00d6ffentlicher Ort",
             "category": "care_self",
-            "help": "\"Gesch\u00e4fte, Kirchen, \u00f6ffentliche Geb\u00e4ude\"",
+            "help": "Gesch\u00e4fte, Kirchen, \u00f6ffentliche Geb\u00e4ude",
             "icon": "act2_shop",
             "next": "activity public",
             "title": "Standort \u00f6ffentlicher Ort",
@@ -2553,7 +2553,7 @@
             "ID": 30030,
             "caption": "Unterwegs",
             "category": "travel",
-            "help": "\"Anreise mit dem Auto, zu Fu\u00df, Bus, Zug, Fahrrad, Joggen ...\"",
+            "help": "Anreise mit dem Auto, zu Fu\u00df, Bus, Zug, Fahrrad, Joggen ...",
             "icon": "act2_travel",
             "next": "travel",
             "title": "Unterwegs",
@@ -2599,9 +2599,9 @@
             "ID": 7112,
             "caption": "Hobbies/ Freizeit",
             "category": "recreation",
-            "help": "\"Videos machen, Fotos machen oder verwandte Aktivit\u00e4ten\"",
+            "help": "Videos machen, Fotos machen oder verwandte Aktivit\u00e4ten",
             "next": "other people",
-            "title": "\"Videos machen, Fotos machen oder verwandte Aktivit\u00e4ten\""
+            "title": "Videos machen, Fotos machen oder verwandte Aktivit\u00e4ten"
         },
         "Meetings": {
             "ID": 4310,
@@ -2806,7 +2806,7 @@
         "Occupation student": {
             "ID": 90031,
             "caption": "Studierender / Sch\u00fcler",
-            "help": "\"Sie gehen in die Schule, Universit\u00e4t oder jede andere Form der unbezahlten Ausbildung\"",
+            "help": "Sie gehen in die Schule, Universit\u00e4t oder jede andere Form der unbezahlten Ausbildung",
             "next": "survey working hours",
             "title": "Beruf",
             "value": 1
@@ -2814,7 +2814,7 @@
         "Occupation unemployed": {
             "ID": 90035,
             "caption": "Arbeitslos / Ruhestand / Rente",
-            "help": "\"Sie arbeiten nicht, sind im Ruhestand oder arbeitslos\"",
+            "help": "Sie arbeiten nicht, sind im Ruhestand oder arbeitslos",
             "next": "survey energy",
             "title": "Beruf",
             "value": 5
@@ -3201,7 +3201,7 @@
             "ID": 6001,
             "caption": "Essen",
             "category": "food",
-            "help": "\"Essen im Freien, wie Restaurant oder Park\"",
+            "help": "Essen im Freien, wie Restaurant oder Park",
             "icon": "act2_eat",
             "next": "other people",
             "title": "Drau\u00dfen Essen"
@@ -3270,9 +3270,9 @@
             "ID": 7111,
             "caption": "Hobbies/Freizeit",
             "category": "recreation",
-            "help": "\"Malerei, Zeichnung oder andere grafische Kunst\"",
+            "help": "Malerei, Zeichnung oder andere grafische Kunst",
             "next": "other people",
-            "title": "\"Malerei, Zeichnung oder andere grafische Kunst\""
+            "title": "Malerei, Zeichnung oder andere grafische Kunst"
         },
         "Personal": {
             "ID": 0,
@@ -3319,17 +3319,17 @@
             "ID": 6220,
             "caption": "Sport",
             "category": "recreation",
-            "help": "\"Pfl\u00fccken von Beeren, Pilzen und Kr\u00e4utern\"",
+            "help": "Pfl\u00fccken von Beeren, Pilzen und Kr\u00e4utern",
             "next": "other people",
-            "title": "\"Pfl\u00fccken von Beeren, Pilzen und Kr\u00e4utern\""
+            "title": "Pfl\u00fccken von Beeren, Pilzen und Kr\u00e4utern"
         },
         "Plays musicals or pantomimes": {
             "ID": 5221,
             "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
             "category": "recreation",
-            "help": "\"Theaterst\u00fccke, Musicals oder Pantomime\"",
+            "help": "Theaterst\u00fccke, Musicals oder Pantomime",
             "next": "other people",
-            "title": "\"Theaterst\u00fccke, Musicals oder Pantomime\""
+            "title": "Theaterst\u00fccke, Musicals oder Pantomime"
         },
         "Pottering": {
             "ID": 3242,
@@ -3385,17 +3385,17 @@
             "ID": 4277,
             "caption": "Unterst\u00fctzung/Hilfe",
             "category": "care_other",
-            "help": "\"Lesen, Spielen und Sprechen mit ihrem eigenen Kind, das nicht bei Ihnen wohnt\"",
+            "help": "Lesen, Spielen und Sprechen mit ihrem eigenen Kind, das nicht bei Ihnen wohnt",
             "next": "other people",
-            "title": "\"Lesen, Spielen und Sprechen mit eigenen Kind, das nicht bei Ihnen wohnt\""
+            "title": "Lesen, Spielen und Sprechen mit eigenen Kind, das nicht bei Ihnen wohnt"
         },
         "Reading playing talking to the child as help": {
             "ID": 4273,
             "caption": "Unterst\u00fctzung/Hilfe",
             "category": "care_other",
-            "help": "\"Lesen, Spielen und Sprechen mit dem Kind\"",
+            "help": "Lesen, Spielen und Sprechen mit dem Kind",
             "next": "other people",
-            "title": "\"Lesen, Spielen und Sprechen mit dem Kind als Hilfe f\u00fcr andere Haushalte\""
+            "title": "Lesen, Spielen und Sprechen mit dem Kind als Hilfe f\u00fcr andere Haushalte"
         },
         "Reference to bks and other library materials within library": {
             "ID": 5242,
@@ -3475,7 +3475,7 @@
             "ID": 3614,
             "caption": "Einkaufen",
             "category": "recreation",
-            "help": "\"Einkaufen bzw. Durchforsten von Messen (Auto, Antiquit\u00e4ten, \u2026)\"",
+            "help": "Einkaufen bzw. Durchforsten von Messen (Auto, Antiquit\u00e4ten, \u2026)",
             "next": "other people",
             "title": "Einkaufen bzw. Durchforsten von Messen"
         },
@@ -3533,7 +3533,7 @@
             "ID": 8001,
             "caption": "Soziale Medien",
             "category": "recreation",
-            "help": "\"Facebook, Twitter ..\"",
+            "help": "Facebook, Twitter ..",
             "icon": "app_tablet",
             "next": "other people",
             "title": "Soziale Medien"
@@ -3584,7 +3584,7 @@
             "ID": 2190,
             "caption": "Lernen / Studieren",
             "category": "work",
-            "help": "\"Schule, Uni, weitere (Aus-)Bildung\"",
+            "help": "Schule, Uni, weitere (Aus-)Bildung",
             "icon": "act2_study",
             "next": "work job",
             "title": "Lernen / Studieren"
@@ -3608,9 +3608,9 @@
         "Teaching own non-coresident child": {
             "ID": 4276,
             "caption": "Unterst\u00fctzung/Hilfe",
-            "help": "\"Unterrichten eines eigenen Kindes, das nicht bei Ihnen wohnt\"",
+            "help": "Unterrichten eines eigenen Kindes, das nicht bei Ihnen wohnt",
             "next": "other people",
-            "title": "\"Unterrichten eines eigenen Kindes, das nicht bei Ihnen wohnt\""
+            "title": "Unterrichten eines eigenen Kindes, das nicht bei Ihnen wohnt"
         },
         "Teaching the child as help": {
             "ID": 4272,
@@ -3632,7 +3632,7 @@
             "ID": 3420,
             "caption": "Sonstige Gartenarbeit und Haustierpflege",
             "category": "care_other",
-            "help": "\"Sich um das Haustier k\u00fcmmern, ausf\u00fchren\"",
+            "help": "Sich um das Haustier k\u00fcmmern, ausf\u00fchren",
             "next": "other people",
             "title": "Sich um das Haustier k\u00fcmmern"
         },
@@ -3734,7 +3734,7 @@
         },
         "Time cooking 1": {
             "ID": 90801,
-            "caption": "keine",
+            "caption": "Gar keine",
             "help": "Ich habe nicht gekocht",
             "next": "time exercise",
             "title": "Zeit zum Kochen",
@@ -3742,7 +3742,7 @@
         },
         "Time cooking 2": {
             "ID": 90802,
-            "caption": "unter 10 Minuten",
+            "caption": "weniger als 10 Minuten",
             "help": "Zeit mit Kochen verbracht",
             "icon": "act2_cook",
             "next": "time exercise",
@@ -3751,7 +3751,7 @@
         },
         "Time cooking 3": {
             "ID": 90803,
-            "caption": "unter 30 Minuten",
+            "caption": "10-30 Minuten",
             "help": "Zeit mit Kochen verbracht",
             "icon": "act2_cook",
             "next": "time exercise",
@@ -3760,7 +3760,7 @@
         },
         "Time cooking 4": {
             "ID": 90804,
-            "caption": "unter 1 Stunde",
+            "caption": "30-60 Minuten",
             "help": "Zeit mit Kochen verbracht",
             "icon": "act2_cook",
             "next": "time exercise",
@@ -3769,7 +3769,7 @@
         },
         "Time cooking 5": {
             "ID": 90805,
-            "caption": "unter 2 Stunden",
+            "caption": "1-2 Stunden",
             "help": "Zeit mit Kochen verbracht",
             "icon": "act2_cook",
             "next": "time exercise",
@@ -3787,7 +3787,7 @@
         },
         "Time exercise 1": {
             "ID": 90901,
-            "caption": "keine",
+            "caption": "Gar keine",
             "help": "Ich habe kein Sport gemacht",
             "next": "survey complete",
             "title": "Zeit zum Sport",
@@ -3795,7 +3795,7 @@
         },
         "Time exercise 2": {
             "ID": 90902,
-            "caption": "10 min oder weniger",
+            "caption": "weniger als 10 Minuten",
             "help": "Zeit mit Sport verbracht",
             "icon": "act2_exercise",
             "next": "survey complete",
@@ -3804,7 +3804,7 @@
         },
         "Time exercise 3": {
             "ID": 90903,
-            "caption": "30 min oder weniger",
+            "caption": "10-30 Minuten",
             "help": "Zeit mit Sport verbracht",
             "icon": "act2_exercise",
             "next": "survey complete",
@@ -3813,7 +3813,7 @@
         },
         "Time exercise 4": {
             "ID": 90904,
-            "caption": "1 Stunde oder weniger",
+            "caption": "30-60 Minuten",
             "help": "Zeit mit Sport verbracht",
             "icon": "act2_exercise",
             "next": "survey complete",
@@ -3822,7 +3822,7 @@
         },
         "Time exercise 5": {
             "ID": 90905,
-            "caption": "3 Stunden oder weniger",
+            "caption": "1-3 Stunden",
             "help": "Zeit mit Sport verbracht",
             "icon": "act2_exercise",
             "next": "survey complete",
@@ -3840,7 +3840,7 @@
         },
         "Time mobile 1": {
             "ID": 90601,
-            "caption": "Keine",
+            "caption": "Gar keine",
             "help": "Ich habe kein Handy benutzt",
             "next": "time screens",
             "title": "Zeit am Handy",
@@ -3848,7 +3848,7 @@
         },
         "Time mobile 2": {
             "ID": 90602,
-            "caption": "unter 30 min",
+            "caption": "weniger als 30 Min",
             "help": "Zeit mit dem Handy verbracht",
             "icon": "app_mobile",
             "next": "time screens",
@@ -3857,7 +3857,7 @@
         },
         "Time mobile 3": {
             "ID": 90603,
-            "caption": "unter 1 Stunde",
+            "caption": "30-60 Min",
             "help": "Zeit mit dem Handy verbracht",
             "icon": "app_mobile",
             "next": "time screens",
@@ -3866,7 +3866,7 @@
         },
         "Time mobile 4": {
             "ID": 90604,
-            "caption": "unter 2 Stunden",
+            "caption": "1-2 Stunden",
             "help": "Zeit mit dem Handy verbracht",
             "icon": "app_mobile",
             "next": "time screens",
@@ -3875,7 +3875,7 @@
         },
         "Time mobile 5": {
             "ID": 90605,
-            "caption": "unter 4 Stunden",
+            "caption": "2-4 Stunden",
             "help": "Zeit mit dem Handy verbracht",
             "icon": "app_mobile",
             "next": "time screens",
@@ -3893,7 +3893,7 @@
         },
         "Time screens 1": {
             "ID": 90701,
-            "caption": "keine",
+            "caption": "Gar keine",
             "help": "Ich habe keine Zeit vor Bildschirmen verbracht",
             "next": "time cooking",
             "title": "Zeit am Bildschirm",
@@ -3901,7 +3901,7 @@
         },
         "Time screens 2": {
             "ID": 90702,
-            "caption": "unter 30 Minuten",
+            "caption": "weniger als 30 Minuten",
             "help": "Zeit vor Bildschirmen verbracht",
             "icon": "app_TV",
             "next": "time cooking",
@@ -3910,7 +3910,7 @@
         },
         "Time screens 3": {
             "ID": 90703,
-            "caption": "unter 1 Stunde",
+            "caption": "30-60 Min",
             "help": "Zeit vor Bildschirmen verbracht",
             "icon": "app_TV",
             "next": "time cooking",
@@ -3919,7 +3919,7 @@
         },
         "Time screens 4": {
             "ID": 90704,
-            "caption": "unter 2 Stunden",
+            "caption": "1-2 Stunden",
             "help": "Zeit vor Bildschirmen verbracht",
             "icon": "app_TV",
             "next": "time cooking",
@@ -3928,7 +3928,7 @@
         },
         "Time screens 5": {
             "ID": 90705,
-            "caption": "unter 4 Stunden",
+            "caption": "2-4 Stunden",
             "help": "Zeit vor Bildschirmen verbracht",
             "icon": "app_TV",
             "next": "time cooking",
@@ -3948,7 +3948,7 @@
             "ID": 3124,
             "caption": "Toaster",
             "category": "food",
-            "help": "\"F\u00fcr Toast, Brot, Br\u00f6tchen \"",
+            "help": "F\u00fcr Toast, Brot, Br\u00f6tchen ",
             "next": "other people",
             "title": "Toaster"
         },
@@ -3956,7 +3956,7 @@
             "ID": 30022,
             "caption": "Mit dem Fahrrad",
             "category": "travel",
-            "help": "\"Fahrrad, Rennrad, Tandem\"",
+            "help": "Fahrrad, Rennrad, Tandem",
             "icon": "act2_bike",
             "next": "travel purpose bike",
             "title": "Radfahren",
@@ -3966,7 +3966,7 @@
             "ID": 30023,
             "caption": "Mit dem Auto",
             "category": "travel",
-            "help": "\"Auto, Van, Motorrad\"",
+            "help": "Auto, Van, Motorrad",
             "icon": "act2_car",
             "next": "travel purpose car",
             "title": "Fahren",
@@ -3990,9 +3990,9 @@
         },
         "Travel exercise": {
             "ID": 9610,
-            "caption": "Training/Bewegung",
+            "caption": "Training/ Bewegung",
             "category": "care_self",
-            "help": "\"Laufen, Radfahren, Schwimmen ...\"",
+            "help": "Laufen, Radfahren, Schwimmen ...",
             "next": "travel purpose",
             "title": "Sport"
         },
@@ -4000,7 +4000,7 @@
             "ID": 30021,
             "caption": "Zu Fu\u00df",
             "category": "travel",
-            "help": "\"Wandern, Spazieren, Walking\"",
+            "help": "Wandern, Spazieren, Walking",
             "icon": "act2_walk",
             "next": "travel purpose foot",
             "title": "Spazieren",
@@ -4028,7 +4028,7 @@
             "ID": 30024,
             "caption": "\u00d6ffentliche Verkehrsmittel",
             "category": "travel",
-            "help": "\"Bus, Zug, Flugzeug, Boot\"",
+            "help": "Bus, Zug, Flugzeug, Boot",
             "icon": "act2_public_transport",
             "next": "travel purpose public",
             "title": "\u00d6ffentlicher Verkehr",
@@ -4046,7 +4046,7 @@
             "ID": 9230,
             "caption": "Kinder",
             "category": "care_other",
-            "help": "\"Zur Schule, zum Sport oder zu sozialen T\u00e4tigkeiten\"",
+            "help": "Zur Schule, zum Sport oder zu sozialen T\u00e4tigkeiten",
             "icon": "act2_children",
             "next": "travel purpose children",
             "title": "Reiset\u00e4tigkeit mit Kindern"
@@ -4099,18 +4099,18 @@
             "ID": 9520,
             "caption": "Unterhaltung",
             "category": "recreation",
-            "help": "\"Kinobesuch, Theater ...\"",
+            "help": "Kinobesuch, Theater ...",
             "next": "other people",
             "title": "Reiset\u00e4tigekeit (Kino/Theater)"
         },
         "Travel purpose exercise": {
             "ID": 9610,
-            "caption": "Training/Bewegung",
+            "caption": "Training/ Bewegung",
             "category": "care_self",
             "help": "Gesundheit und Fitness",
             "icon": "act2_exercise",
             "next": "other people",
-            "title": "Training/Bewegung"
+            "title": "Training/ Bewegung"
         },
         "Travel purpose friend": {
             "ID": 9500,
@@ -4125,7 +4125,7 @@
             "ID": 9310,
             "caption": "Haushalt",
             "category": "care_house",
-            "help": "\"Zum Baumarkt, Klempner ...\"",
+            "help": "Zum Baumarkt, Klempner ...",
             "next": "other people",
             "title": "Unterwegs zu Haushaltszwecken"
         },
@@ -4136,7 +4136,7 @@
             "help": "um Spa\u00df zu haben",
             "icon": "act2_leisure",
             "next": "other people",
-            "title": "Reiset\u00e4tigkeit (Freizeit)"
+            "title": "Unterwegs (Freizeit)"
         },
         "Travel purpose other": {
             "ID": 9000,
@@ -4149,12 +4149,12 @@
         },
         "Travel purpose shop service": {
             "ID": 9310,
-            "caption": "Einkauf(en)/Dienstleistungen",
+            "caption": "Einkauf(en)/ Dienstleistungen",
             "category": "care_house",
             "help": "Lebensmittel oder andere Waren",
             "icon": "act2_shop",
             "next": "other people",
-            "title": "Zum Einkaufen fahren"
+            "title": "Einkaufen"
         },
         "Travel purpose shopping": {
             "ID": 9360,
@@ -4177,7 +4177,7 @@
             "ID": 9110,
             "caption": "Arbeit",
             "category": "work",
-            "help": "\"Dienstreise, Hin-, R\u00fcckweg Arbeit\"",
+            "help": "Dienstreise, Hin-, R\u00fcckweg Arbeit",
             "icon": "act2_work",
             "next": "other people",
             "title": "Weg zur Arbeit"
@@ -4210,9 +4210,9 @@
             "ID": 9720,
             "caption": "Reiset\u00e4tigkeiten",
             "category": "recreation",
-            "help": "\"Reiset\u00e4tigkeit (Hobbies, kein Gl\u00fccksspiel)\"",
+            "help": "Reiset\u00e4tigkeit (Hobbies, kein Gl\u00fccksspiel)",
             "next": "other people",
-            "title": "\"Reiset\u00e4tigkeit (Hobbies, kein Gl\u00fccksspiel)\""
+            "title": "Reiset\u00e4tigkeit (Hobbies, kein Gl\u00fccksspiel)"
         },
         "Travel related to hunting & fishing": {
             "ID": 9620,
@@ -4669,9 +4669,9 @@
             "ID": 5295,
             "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
             "category": "recreation",
-            "help": "\"Besuch eines Stadtparks, Spielplatzes oder bestimmten Spielgel\u00e4ndes\"",
+            "help": "Besuch eines Stadtparks, Spielplatzes oder bestimmten Spielgel\u00e4ndes",
             "next": "other people",
-            "title": "\"Besuch eines Stadtparks, Spielplatzes oder bestimmten Spielgel\u00e4ndes\""
+            "title": "Besuch eines Stadtparks, Spielplatzes oder bestimmten Spielgel\u00e4ndes"
         },
         "Visiting and receiving visitors": {
             "ID": 5120,
@@ -4720,7 +4720,7 @@
             "ID": 3313,
             "caption": "W\u00e4sche aufh\u00e4ngen",
             "category": "care_house",
-            "help": "\"Auf einer Leine, Gestell oder Heizk\u00f6rper\"",
+            "help": "Auf einer Leine, Gestell oder Heizk\u00f6rper",
             "icon": "act2_dry_line",
             "next": "other people",
             "title": "W\u00e4sche aufh\u00e4ngen"
@@ -4729,7 +4729,7 @@
             "ID": 3314,
             "caption": "(W\u00e4sche)Trockner",
             "category": "care_house",
-            "help": "\"Bef\u00fcllen, laufen lassen, ausr\u00e4umen\"",
+            "help": "Bef\u00fcllen, laufen lassen, ausr\u00e4umen",
             "icon": "app_tumble_dryer",
             "next": "other people",
             "title": "Trockner nutzen"
@@ -4738,7 +4738,7 @@
             "ID": 3311,
             "caption": "Waschmaschine",
             "category": "care_house",
-            "help": "\"Einr\u00e4umen, laufen lassen, ausr\u00e4umen\"",
+            "help": "Einr\u00e4umen, laufen lassen, ausr\u00e4umen",
             "icon": "app_washing_machine",
             "next": "other people",
             "title": "Waschmaschine"
@@ -4747,7 +4747,7 @@
             "ID": 3312,
             "caption": "Sortieren",
             "category": "care_house",
-            "help": "\"Sammeln, wegr\u00e4umen\"",
+            "help": "Sammeln, wegr\u00e4umen",
             "icon": "act2_clothes_sort",
             "next": "other people",
             "title": "W\u00e4schesortierung"
@@ -4788,15 +4788,15 @@
             "ID": 3531,
             "caption": "Bau- und Reperaturarbeiten",
             "category": "care_house",
-            "help": "\"Holz, Metall, Skulptur und Keramik\"",
+            "help": "Holz, Metall, Skulptur und Keramik",
             "next": "other people",
-            "title": "\"Holz, Metall, Skulptur und Keramik\""
+            "title": "Holz, Metall, Skulptur und Keramik"
         },
         "Work": {
             "ID": 1100,
             "caption": "Hausarbeit",
             "category": "work",
-            "help": "\"Hausarbeit, Heimarbeit, Job, Ehrenamt\"",
+            "help": "Hausarbeit, Heimarbeit, Job, Ehrenamt",
             "icon": "act2_work",
             "next": "work",
             "title": "Unbezahlte Arbeit"
@@ -4813,7 +4813,7 @@
             "ID": 3240,
             "caption": "Aufr\u00e4umen / Einrichten ",
             "category": "care_house",
-            "help": "\"Aufr\u00e4umen, sortieren, einrichten\"",
+            "help": "Aufr\u00e4umen, sortieren, einrichten",
             "icon": "act2_arrange",
             "next": "other people",
             "title": "Sachen einrichten "
@@ -4822,7 +4822,7 @@
             "ID": 3190,
             "caption": "Mahlzeit vorbereiten",
             "category": "food",
-            "help": "\"Kochen, Schneiden, Essen vorbereiten\"",
+            "help": "Kochen, Schneiden, Essen vorbereiten",
             "icon": "act2_cook",
             "next": "food preparation",
             "title": "Essen vorbereiten"
@@ -4849,7 +4849,7 @@
             "ID": 1120,
             "caption": "Pause",
             "category": "care_self",
-            "help": "\"Kaffeepause, Mittagessen, Plaudern,\u2026\"",
+            "help": "Kaffeepause, Mittagessen, Plaudern,\u2026",
             "icon": "act2_hot_drink",
             "next": "work job break",
             "title": "Arbeitspause"
@@ -4981,7 +4981,7 @@
         "Working hours change 2": {
             "ID": 90052,
             "caption": "Gleitzeit",
-            "help": "\"Sie haben Standardstunden, aber sie k\u00f6nnen variieren\"",
+            "help": "Sie haben Standardstunden, aber sie k\u00f6nnen variieren",
             "next": "survey working home",
             "title": "Regelm\u00e4\u00dfig Arbeitszeit",
             "value": 2
@@ -5041,7 +5041,7 @@
         "help": {
             "ID": 10000,
             "caption": "Hilfe",
-            "help": "\"Erfahren Sie, wie Sie diese App nutzen k\u00f6nnen\"",
+            "help": "Erfahren Sie, wie Sie diese App nutzen k\u00f6nnen",
             "next": "help",
             "title": "Wurzel: Hilfe"
         },
@@ -5058,7 +5058,7 @@
             "ID": 0,
             "caption": "Mehr / Letzte Aktivit\u00e4ten",
             "category": "care_self",
-            "help": "\"Waschen, anziehen, ausruhen, sich um Kind/Freunde/Verwandten k\u00fcmmern\"",
+            "help": "Waschen, anziehen, ausruhen, sich um Kind/Freunde/Verwandten k\u00fcmmern",
             "next": "care",
             "title": "Schnellzugriff"
         },
