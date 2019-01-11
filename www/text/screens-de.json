@@ -214,7 +214,7 @@
                 "Care other"
             ],
             "help": "",
-            "title": "Unternehmunng mit..."
+            "title": "Unternehmung mit..."
         },
         "care activities": {
             "activities": [
@@ -611,8 +611,8 @@
                 "Blank",
                 "Blank"
             ],
-            "help": "Ihre eigene Beschreibung",
-            "title": "Ihre eigene Beschreibung"
+            "help": "Sie sind völlig frei in Ihrer Eingabe",
+            "title": "Bitte konkretisieren Sie"
         },
         "outdoors": {
             "activities": [
@@ -623,8 +623,8 @@
                 "Nature",
                 "Loc other location"
             ],
-            "help": "at this moment",
-            "title": "Outdoors"
+            "help": "Gerade jetzt",
+            "title": "Draußen"
         },
         "outdoors appliances": {
             "activities": [
@@ -635,8 +635,8 @@
                 "Blank",
                 "Appliances Outdoors other"
             ],
-            "help": "please specify",
-            "title": "Outdoors appliances"
+            "help": "Bitten konkretisieren Sie",
+            "title": "Outdoor-Aktivitäten"
         },
         "outdoors food": {
             "activities": [
@@ -647,8 +647,8 @@
                 "Blank",
                 "Outdoor food other"
             ],
-            "help": "please specify",
-            "title": "Outdoors food..."
+            "help": "Bitten konkretisieren Sie",
+            "title": "Essen gehen"
         },
         "outdoors public": {
             "activities": [
@@ -659,8 +659,8 @@
                 "Exercise",
                 "Outdoors other"
             ],
-            "help": "in this outdoor public place",
-            "title": "Your activity"
+            "help": "An diesem Öffentlichen Ort",
+            "title": "Ihre Aktivität"
         },
         "personal": {
             "activities": [
@@ -671,8 +671,8 @@
                 "Leisure TV",
                 "Care personal other"
             ],
-            "help": "take a pick",
-            "title": "Personal activity"
+            "help": "Wählen Sie aus",
+            "title": "Persönliche Aktivität"
         },
         "survey age": {
             "activities": [
@@ -683,8 +683,8 @@
                 "Age 5",
                 "Age 6"
             ],
-            "help": "tap the button your age falls into",
-            "title": "What age group are you?"
+            "help": "Wählen Sie ihr momentanes Alter aus",
+            "title": "Zu welcher Altersgruppe gehären Sie?"
         },
         "survey appliances 1": {
             "activities": [
@@ -696,7 +696,7 @@
                 "App 1 6"
             ],
             "help": "",
-            "title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Dishwasher</b>?"
+            "title": "Haben Sie in den letzten 7 Tagen eine Spülmaschen benutzt?"
         },
         "survey appliances 2": {
             "activities": [
@@ -708,7 +708,7 @@
                 "App 2 6"
             ],
             "help": "",
-            "title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Washing Machine</b>?"
+            "title": "Haben Sie in den letzten 7 Tagen eine Waschmaschine benutzt?"
         },
         "survey appliances 3": {
             "activities": [
@@ -720,7 +720,7 @@
                 "App 3 6"
             ],
             "help": "",
-            "title": "In the last 7 days,</br> did <i>you personally</i> use a</br> <b>Tumble Dryer</b>?"
+            "title": ""Haben Sie in den letzten 7 Tagen einen Trockner benutzt?"
         },
         "survey appliances 4": {
             "activities": [
@@ -732,7 +732,7 @@
                 "App 4 6"
             ],
             "help": "",
-            "title": "In the last 7 days,</br> did you use a</br> <b>Shower</b>?"
+            "title": ""Haben Sie in den letzten 7 Tagen geduscht"
         },
         "survey appliances 5": {
             "activities": [
@@ -744,7 +744,7 @@
                 "App 5 6"
             ],
             "help": "",
-            "title": "In the last 7 days,</br> did you use a</br> <b>Vacuum Cleaner</b>?"
+            "title": ""Haben Sie in den letzten 7 Tagen einen Staubsauger beutzt?"
         },
         "survey bills": {
             "activities": [
@@ -755,7 +755,7 @@
                 "Blank",
                 "Blank"
             ],
-            "help": "tap the one that fits best",
+            "help": "Wählen Sie das aus, was für Sie am ehesten zutrifft",
             "title": "Bezahlen Sie die Stromrechning selbts?"
         },
         "survey complete": {
@@ -767,8 +767,8 @@
                 "Blank",
                 "Blank"
             ],
-            "help": "Click Home to return",
-            "title": "You have completed the survey"
+            "help": "Wählen Sie den Home-Bildschirm aus, um zurück zu gelangen",
+            "title": "Sie haben den Fragebogen vollständig ausgefüllt"
         },
         "survey energy": {
             "activities": [
@@ -780,7 +780,7 @@
                 "Energy interest 6"
             ],
             "help": "",
-            "title": "How interested are you in energy issues?"
+            "title": "Wie interessiert sind Sie in Fragen des Energieverbrauches?"
         },
         "survey gender": {
             "activities": [
@@ -791,8 +791,8 @@
                 "Blank",
                 "Blank"
             ],
-            "help": "at this moment",
-            "title": "What gender are you?"
+            "help": "",
+            "title": "Ihr Geschlecht?"
         },
         "survey income": {
             "activities": [
@@ -803,8 +803,8 @@
                 "Income 5",
                 "Income 6"
             ],
-            "help": "Before deduction of taxes and national insurance.",
-            "title": "Roughly, what is your annual income?"
+            "help": "Vor Abzug aller Steuern und laufenden Kosten",
+            "title": "Wie hoch ist ungeführ Ihr Brutto-Jahreseinkommen?"
         },
         "survey occupation": {
             "activities": [
@@ -815,8 +815,8 @@
                 "Occupation unemployed",
                 "Occupation other"
             ],
-            "help": "tap the one that fits best",
-            "title": "What is your occupation?"
+            "help": "Wählen Sie das aus, was am besten zutrifft",
+            "title": "Welchen Beruf üben Sie momentan aus?"
         },
         "survey root": {
             "activities": [
@@ -828,7 +828,7 @@
                 "Blank"
             ],
             "help": "",
-            "title": "My anonymised entries will be used for research"
+            "title": "Meine Daten werden vollständig anonymisiert für Forschungszecke verwendet"
         },
         "survey working home": {
             "activities": [
@@ -839,8 +839,8 @@
                 "Working home 5",
                 "Working home 6"
             ],
-            "help": "tap the one that fits best",
-            "title": "How often do you work from home?"
+            "help": "Wählen Sie das aus, was am ehesten zutrifft",
+            "title": "Wie oft arbeiten Sie von zuhause aus"
         },
         "survey working hours": {
             "activities": [
@@ -851,8 +851,8 @@
                 "Working hours 5",
                 "Working hours 6"
             ],
-            "help": "These are the hours from all your occupations combined (if you have more than one)",
-            "title": "How many hours do you work per week?"
+            "help": "Wenn Sie mehr als einen Job haben, addieren Sie die Arbeitsstunden der Tätigkeiten",
+            "title": "Wie viele Stunden arbeiten Sie pro Woche?"
         },
         "survey working regularity": {
             "activities": [
@@ -863,7 +863,7 @@
                 "Blank",
                 "Blank"
             ],
-            "help": "tap the one that fits best",
+            "help": "Wählen Sie das aus, was am besten zutrifft",
             "title": "Sind diese Zeiten immer gleich?"
         },
         "time cooking": {
@@ -888,7 +888,7 @@
                 "Time exercise 6"
             ],
             "help": "",
-            "title": "On a typical weekday, how much time do you spend </br> <b>Exercising</b>"
+            "title": "Wie viel Zeit verbringen Sie an einem typischen Wochentag mit </br> <b>Exercising</b>?"
         },
         "time mobile": {
             "activities": [
@@ -931,8 +931,8 @@
                 "Travel purpose exercise",
                 "Travel other"
             ],
-            "help": "at this moment",
-            "title": "Travel"
+            "help": "Gerade jetzt",
+            "title": "Unterwegs"
         },
         "travel purpose": {
             "activities": [
@@ -943,8 +943,8 @@
                 "Travel purpose leisure",
                 "Travel purpose 2"
             ],
-            "help": "Why did you do this journey?",
-            "title": "Purpose of travel:"
+            "help": "",
+            "title": "Wofür sind Sie unterwegs?"
         },
         "travel purpose bike": {
             "activities": [
@@ -956,7 +956,7 @@
                 "Travel purpose other"
             ],
             "help": "",
-            "title": "Cycling to/from/for"
+            "title": "Grund der Fahrt"
         },
         "travel purpose car": {
             "activities": [
@@ -968,7 +968,7 @@
                 "Travel purpose other"
             ],
             "help": "",
-            "title": "Driving to/from/for"
+            "title": "Grund der Fahrt"
         },
         "travel purpose children": {
             "activities": [
@@ -979,8 +979,8 @@
                 "Blank",
                 "Blank"
             ],
-            "help": "Why did you do this journey?",
-            "title": "Take child to/from"
+            "help": "Aus welchem Grund haben Sie diese Fahrt angetreten",
+            "title": "Die Kinder / das Kind wohin bringen?"
         },
         "travel purpose foot": {
             "activities": [
@@ -992,7 +992,7 @@
                 "Travel purpose other"
             ],
             "help": "",
-            "title": "Walking to/from/for"
+            "title": "Grund des Laufens"
         },
         "travel purpose public": {
             "activities": [
@@ -1004,7 +1004,7 @@
                 "Travel purpose other"
             ],
             "help": "",
-            "title": "Travelling to/from/for"
+            "title": "Grund der Fahrt"
         },
         "work": {
             "activities": [
@@ -1015,8 +1015,8 @@
                 "Working time in second job",
                 "Unspecified activities related to employment"
             ],
-            "help": "type of work",
-            "title": "Working"
+            "help": "Was für eine Arbeit",
+            "title": "Arbeit"
         },
         "work house": {
             "activities": [
@@ -1028,7 +1028,7 @@
                 "Work house other"
             ],
             "help": "",
-            "title": "House work"
+            "title": "Hausarbeit"
         },
         "work house clean": {
             "activities": [
@@ -1039,8 +1039,8 @@
                 "Cleaning yard",
                 "Cleaning other"
             ],
-            "help": "at this moment",
-            "title": "Cleaning"
+            "help": "Gerade jetzt",
+            "title": "Aufräumen"
         },
         "work job": {
             "activities": [
@@ -1051,7 +1051,7 @@
                 "Work job manual",
                 "Work job other"
             ],
-            "help": "Press SKIP if not",
+            "help": "Überspringen Sie falls nichts dergleichen zutrifft",
             "title": "Arbeit mit..."
         },
         "work job break": {
@@ -1064,7 +1064,7 @@
                 "Socialising"
             ],
             "help": "",
-            "title": "Break from work"
+            "title": "Pause von der Arbeit"
         },
         "xx edit activity": {
             "activities": [
@@ -1087,8 +1087,8 @@
                 "travelling",
                 "more recent"
             ],
-            "help": "at this moment",
-            "title": "What are you doing?"
+            "help": "Gerade jetzt",
+            "title": "Was machen Sie gerade?"
         }
     }
 }

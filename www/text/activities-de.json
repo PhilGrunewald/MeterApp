@@ -450,7 +450,7 @@
         },
         "Appliances": {
             "ID": 8500,
-            "caption": "Ger\u00e4te/Haushaltsger\u00e4te",
+            "caption": "Ger\u00e4te/ Haushaltsger\u00e4te",
             "help": "Elektroger\u00e4te",
             "icon": "act2_appliance",
             "next": "appliances",
@@ -461,7 +461,7 @@
             "ID": 8537,
             "caption": "Brotbackautomat",
             "category": "food",
-            "help": "Brotbackautomat l\u00e4uft/wird benutzt",
+            "help": "Brotbackautomat l\u00e4uft/ wird benutzt",
             "next": "other people",
             "title": "Bread maker"
         },
@@ -487,7 +487,7 @@
             "ID": 8536,
             "caption": "Sp\u00fclmaschine",
             "category": "care_house",
-            "help": "Geschirrsp\u00fcler l\u00e4uft/wird benutzt",
+            "help": "Geschirrsp\u00fcler l\u00e4uft/ wird benutzt",
             "icon": "app_dishwasher",
             "next": "other people",
             "title": "Dishwasher"
@@ -531,13 +531,13 @@
             "ID": 8562,
             "caption": "Heckenschere",
             "category": "care_house",
-            "help": "Heckenschere l\u00e4uft/wird benutzt",
+            "help": "Heckenschere l\u00e4uft/ wird benutzt",
             "next": "other people",
             "title": "Heckenschere"
         },
         "Appliances Hob": {
             "ID": 8532,
-            "caption": "Herd/Herdplatte",
+            "caption": "Herd/ Herdplatte",
             "category": "food",
             "help": "zum Kochen",
             "icon": "app_hob",
@@ -609,7 +609,7 @@
             "ID": 8533,
             "caption": "Mirkowelle",
             "category": "food",
-            "help": "Mikrowelle l\u00e4uft/wird benutzt",
+            "help": "Mikrowelle l\u00e4uft/ wird benutzt",
             "icon": "app_microwave",
             "next": "other people",
             "title": "Mikrowelle"
@@ -660,7 +660,7 @@
         },
         "Appliances Sewing machine": {
             "ID": 8544,
-            "caption": "N\u00e4hen/N\u00e4harbeit",
+            "caption": "N\u00e4hen/ N\u00e4harbeit",
             "category": "care_house",
             "help": "",
             "icon": "app_sewing",
@@ -671,7 +671,7 @@
             "ID": 8553,
             "caption": "TV",
             "category": "recreation",
-            "help": "Fernseher l\u00e4uft/wird benutzt",
+            "help": "Fernseher l\u00e4uft/ wird benutzt",
             "icon": "app_TV",
             "next": "other people",
             "title": "Fernseher"
@@ -680,14 +680,14 @@
             "ID": 8534,
             "caption": "Toaster",
             "category": "food",
-            "help": "Toaster ist an/wird benutzt",
+            "help": "Toaster ist an/ wird benutzt",
             "icon": "app_toaster",
             "next": "other people",
             "title": "Toaster"
         },
         "Appliances Tools": {
             "ID": 8515,
-            "caption": "Werkzeuge/Instrumente/Ger\u00e4te",
+            "caption": "Werkzeuge/ Ger\u00e4te",
             "category": "care_house",
             "help": "Elektroger\u00e4t oder Elektrospielzeug (z.B.Ferngesteuertes Auto ...)",
             "icon": "app_power_tool",
@@ -714,9 +714,9 @@
         },
         "Appliances Washer dryer": {
             "ID": 8543,
-            "caption": "Waschmaschine mit Trockenfunktion",
+            "caption": "Waschmaschine mit Trockner",
             "category": "care_house",
-            "help": "Waschmaschine mit Trockenfunktion l\u00e4uft/wird benutzt",
+            "help": "Waschmaschine mit Trockenfunktion l\u00e4uft/ wird benutzt",
             "icon": "app_washer_dryer",
             "next": "other people",
             "title": "Waschmaschine mit Trockenfunktion"
@@ -768,7 +768,7 @@
         },
         "Appliances generic": {
             "ID": 8501,
-            "caption": "Ger\u00e4te/Haushaltsger\u00e4te",
+            "caption": "Ger\u00e4te/ Haushaltsger\u00e4te",
             "help": "Elektroger\u00e4te",
             "icon": "act2_appliance",
             "next": "appliances",
@@ -777,7 +777,7 @@
         },
         "Appliances hair curler": {
             "ID": 8575,
-            "caption": "Lockenstab/Gl\u00e4tteisen",
+            "caption": "Lockenstab/ Gl\u00e4tteisen",
             "category": "care_self",
             "help": "",
             "icon": "app_hair_curler",
@@ -866,7 +866,7 @@
         },
         "Art exhibitions and museums": {
             "ID": 5230,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "category": "recreation",
             "help": "Kunstausstellungen und Museen",
             "next": "other people",
@@ -955,7 +955,7 @@
         },
         "Borrowing from a library": {
             "ID": 5241,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "category": "recreation",
             "help": "\"Ausleihen von B\u00fcchern, H\u00f6rb\u00fcchern, CDs, DVDs etc. aus einer Bibliothek\"",
             "next": "other people",
@@ -1172,7 +1172,7 @@
         },
         "Care rest": {
             "ID": 5310,
-            "caption": "Ausruhen/Ruhephase",
+            "caption": "Ausruhen",
             "category": "care_self",
             "help": "Eine Pause machen",
             "icon": "act2_leisure",
@@ -1201,7 +1201,7 @@
             "ID": 312,
             "caption": "Baden",
             "category": "care_self",
-            "help": "\"Ein Bad einlassen/nehmen, jemand anderen baden\"",
+            "help": "\"Ein Bad einlassen/ Badezeit\"",
             "icon": "act2_bath",
             "next": "care wash bath",
             "title": "Baden"
@@ -1314,7 +1314,7 @@
         },
         "Cinema": {
             "ID": 5210,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "category": "recreation",
             "help": "Kino",
             "next": "other people",
@@ -1392,7 +1392,7 @@
         },
         "Collecting": {
             "ID": 7160,
-            "caption": "Hobbies/Freizeit",
+            "caption": "Hobbies/ Freizeit",
             "category": "recreation",
             "help": "Sammeln",
             "next": "other people",
@@ -1441,7 +1441,7 @@
         },
         "Concerts or other performances of classical music": {
             "ID": 5223,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/Freizeit",
             "category": "recreation",
             "help": "Konzerte oder andere Auff\u00fchrungen der klassischen Musik",
             "next": "other people",
@@ -1449,7 +1449,7 @@
         },
         "Construction and repairs as help to other households": {
             "ID": 4240,
-            "caption": "Unterst\u00fctzung/Hilfe",
+            "caption": "Unterst\u00fctzung/ Hilfe",
             "category": "care_other",
             "help": "Hilfe f\u00fcr andere Haushalte bei Bau und Reparaturen",
             "next": "other people",
@@ -1466,7 +1466,7 @@
         },
         "Dance performances": {
             "ID": 5225,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "category": "recreation",
             "help": "Tanzauff\u00fchrungen",
             "next": "other people",
@@ -1510,7 +1510,7 @@
         },
         "Device Shopping": {
             "ID": 3721,
-            "caption": "Einkauf/Eink\u00e4ufe",
+            "caption": "Einkauf/ Eink\u00e4ufe",
             "category": "care_house",
             "help": "Nach Dingen suchen / Sachen kaufen",
             "icon": "act2_shopping",
@@ -1658,7 +1658,7 @@
         },
         "Exercise": {
             "ID": 6100,
-            "caption": "Training/Bewegung",
+            "caption": "Training/ Bewegung",
             "category": "care_self",
             "help": "Sport / k\u00f6rperliche Aktivit\u00e4t",
             "icon": "act2_exercise",
@@ -1703,7 +1703,7 @@
             "ID": 215,
             "caption": "Trinken",
             "category": "food",
-            "help": "Alkoholisch und/oder nicht-alkoholisch",
+            "help": "(Nicht) Alkoholisch",
             "next": "other people",
             "title": "Trinken"
         },
@@ -1747,14 +1747,14 @@
             "ID": 213,
             "caption": "Snack / Zwischenmahlzeit",
             "category": "food",
-            "help": "Eine schnelle Mahlzeit/ Snack/Imbiss",
+            "help": "Eine schnelle Mahlzeit/ Snack/ Imbiss",
             "icon": "act2_snack",
             "next": "other people",
             "title": "Snack"
         },
         "Food management as help to other households": {
             "ID": 4210,
-            "caption": "Unterst\u00fctzung/Hilfe",
+            "caption": "Unterst\u00fctzung/ Hilfe",
             "category": "food",
             "help": "Essenszubereitung f\u00fcr andere Haushalte",
             "next": "other people",
@@ -1832,7 +1832,7 @@
         },
         "Gardening and pet care as help to other households": {
             "ID": 4230,
-            "caption": "Unterst\u00fctzung/Hilfe",
+            "caption": "Unterst\u00fctzung/ Hilfe",
             "category": "care_other",
             "help": "Unterst\u00fctzung anderer Haushalte bei Gartenarbeit oder Tierpflege",
             "next": "other people",
@@ -1875,7 +1875,7 @@
         },
         "Help to other households in employment and farming": {
             "ID": 4260,
-            "caption": "Unterst\u00fctzung/Hilfe",
+            "caption": "Unterst\u00fctzung/ Hilfe",
             "category": "care_other",
             "help": "Unterst\u00fctzung anderer Haushalte in der Landwirtschaft",
             "next": "other people",
@@ -2196,7 +2196,7 @@
         },
         "Household upkeep as help to other households": {
             "ID": 4220,
-            "caption": "Unterst\u00fctzung/Hilfe",
+            "caption": "Unterst\u00fctzung/ Hilfe",
             "category": "care_other",
             "help": "Haushaltshilfe f\u00fcr andere Haushalte",
             "next": "other people",
@@ -2435,7 +2435,7 @@
         },
         "Listening to music in a library": {
             "ID": 5246,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "help": "Musik h\u00f6ren in einer Bibliothek",
             "next": "other people",
             "title": "Musik h\u00f6ren in einer Bibliothek"
@@ -2466,7 +2466,7 @@
         },
         "Literary arts": {
             "ID": 7130,
-            "caption": "Hobbies/Freizeit",
+            "caption": "Hobbies/ Freizeit",
             "category": "recreation",
             "help": "Literatur",
             "next": "other people",
@@ -2474,7 +2474,7 @@
         },
         "Live music other than classical concerts opera and musicals": {
             "ID": 5224,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/ Freizeit",
             "category": "recreation",
             "help": "\"Live-Musik au\u00dfer klassischen Konzerten, Oper und Musicals\"",
             "next": "other people",
@@ -2521,7 +2521,7 @@
         },
         "Loc outdoors": {
             "ID": 30018,
-            "caption": "Garten/Drau\u00dfen",
+            "caption": "Garten/ Drau\u00dfen",
             "category": "travel",
             "help": "\"Park, Stra\u00dfe, Sportplatz\"",
             "icon": "act2_garden",
@@ -2597,7 +2597,7 @@
         },
         "Making videos taking photos or related activities": {
             "ID": 7112,
-            "caption": "Hobbies/Freizeit",
+            "caption": "Hobbies/ Freizeit",
             "category": "recreation",
             "help": "\"Videos machen, Fotos machen oder verwandte Aktivit\u00e4ten\"",
             "next": "other people",
@@ -2607,7 +2607,7 @@
             "ID": 4310,
             "caption": "Kontakte pflegen",
             "category": "recreation",
-            "help": "Treffen/Veranstaltungen",
+            "help": "Treffen/ Veranstaltungen",
             "icon": "act2_friends",
             "next": "other people",
             "title": "Treffen"
@@ -2829,7 +2829,7 @@
         },
         "Opera operetta or light opera": {
             "ID": 5222,
-            "caption": "Unterhaltung/Vergn\u00fcgen/Freizeit",
+            "caption": "Unterhaltung/ Vergn\u00fcgen/Freizeit",
             "category": "recreation",
             "help": "Oper oder Operette",
             "next": "other people",
@@ -2924,7 +2924,7 @@
         },
         "Other specified arts": {
             "ID": 7140,
-            "caption": "Hobbies/Freizeit",
+            "caption": "Hobbies/ Freizeit",
             "category": "recreation",
             "help": "Andere Kunstarten",
             "next": "other people",
@@ -2940,7 +2940,7 @@
         },
         "Other specified childcare as help": {
             "ID": 4279,
-            "caption": "Unterst\u00fctzung/Hilfe",
+            "caption": "Unterst\u00fctzung/ Hilfe",
             "category": "care_other",
             "help": "Andere Arten der Kinderbetreuung als Hilfe f\u00fcr andere Haushalte",
             "next": "other people",

@@ -1026,6 +1026,7 @@ submitOther: function() {
     //     *h1234
     // 
     hhID = prev_activity.split("*h")[1];
+    console.log(:hh)
     if (!isNaN(hhID)) {
         // h was followed by nothing but a number
         localStorage.removeItem('metaID');          // get new metaID
