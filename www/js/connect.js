@@ -207,7 +207,7 @@ function linkHousehold() {
                 console.log("Succesfully uploaded!");
                 console.log(response);
                 localStorage.setItem('householdStatus', "LINKED"); //so we can determine that it has successfully linked
-                localStorage.setItem('householdSurvey', "COMPLETE"); // we don't actually know this - benefit of the doubt...
+                // localStorage.setItem('householdSurvey', "COMPLETE"); // we don't actually know this - benefit of the doubt...
                 app.statusCheck();
             } else {
                 localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done

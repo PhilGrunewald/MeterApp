@@ -1,7 +1,5 @@
 /*
 * Meter Activity App
-* Todo: 
-* 28 Nov 2018: check hh status and date to decide status button URL
 */
 
 if (localStorage.getItem('language') == null) {
@@ -81,6 +79,9 @@ var app = {
     app.label = label_data;
 
     app.title.html(app.label.title);
+    $('#consentLabel').html(app.label.consentLabel);
+    $('#dataPolicyButton').html(app.label.dataPolicyButton);
+    $('#consentButton').html(app.label.consentButton);
     $('#actListLabel').html(app.label.actListLabel);
     $('#lblPersonalise').html(app.label.lblPersonalise);
     $('#lblSurvey').html(app.label.lblSurvey);
@@ -97,11 +98,11 @@ var app = {
     $('#progress5').html(app.label.progress5);
     app.updateNowTime();
     setInterval(function(){ app.updateNowTime(); }, 10000);
+        // 10 second clock update
 
     app.statusCheck();
     setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
-    app.checkIfConsent(); //Shows consent screen if they havent agreed
-      
+        // 3 hour update (needed for real idlers ?)
     }),
 
     $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
@@ -140,12 +141,13 @@ var app = {
     app.postcodeInput        = $('#postcode_input');
     app.postcodeSection      = $('#postcode_section');
     app.helpText             = $('#help_text');
-    app.back_btn_pers        = $('#personalise_back');
+    // app.back_btn_pers        = $('#personalise_back');
     app.addressList          = $('#address_list');
     app.register_screen      = $('#register_screen');
     app.contact_screen       = $('#contact_screen');
     app.disabled_list_option = $('#disabled_list_option');
     app.iframe_register      = $('#iframe_register');
+    app.iframe_consent      = $('#iframe_consent');
     app.consent              = $('#consent');
     app.navbar               = $('#navbar');
 
@@ -188,13 +190,20 @@ statusCheck: function() {
     var dateChoice = localStorage.getItem('dateChoice');
     var hh = localStorage.getItem('household_id');
     var sc = localStorage.getItem('sc');
+    var consented = localStorage.getItem("consent")
 
-    if (hh == null) {
+  if (consented == null) {
+    app.divStatus.attr("onclick","");
+    app.lblStatus.html("");
+    app.consent.show();
+    app.appScreen.hide();
+  } else if (hh == null) {
         // personalise -> hhq
         app.title.html(app.label.titlePersonalise);
-        app.lblStatus.html(app.label.lblPersonalise);
+        // app.lblStatus.html(app.label.lblPersonalise); // overfilled
+        app.lblStatus.html("");
         app.divStatus.attr("onclick","app.personaliseClick()");
-        app.imgStatus.attr("src","img/act2_personal.png");
+        app.imgStatus.attr("src","img/AR_4.png");
     } else if (sc == null) {
         // all this phone can do is request an email, which will have the links to change date or survey details
         app.lblStatus.html("");
@@ -1073,10 +1082,10 @@ personaliseClick: function() { //Goes to the screen with the postcode input
     app.personaliseScreen.show();
     app.postcodeInput.show();
     app.btnSubmit.attr("onclick","app.submitPostcode()");
-    document.getElementById('personalise_back').innerHTML = 'Do this later';
-    app.back_btn_pers.attr("onclick","app.returnToMainScreen()");
+    // document.getElementById('personalise_back').innerHTML = 'Do this later'; > Use Home
+    // app.back_btn_pers.attr("onclick","app.returnToMainScreen()");
     app.btnSubmit.html("Submit");
-    app.helpText.html("Enter your postcode");
+    // app.helpText.html("Enter your postcode");
     }
 },
 
@@ -1101,8 +1110,8 @@ submitPostcode: function() {
     app.postcodeInput.hide();
     console.log("hello " + postcodeValue);
     app.btnSubmit.attr("onclick","app.submitAddress()");
-    app.back_btn_pers.attr("onclick","app.personaliseClick()");
-    document.getElementById('personalise_back').innerHTML = 'Do this later';
+    // app.back_btn_pers.attr("onclick","app.personaliseClick()");
+    // document.getElementById('personalise_back').innerHTML = 'Do this later';
     requestAddresses(postcodeValue);
     localStorage.setItem("postcode", postcodeValue);
     (app.addressList).empty(); //Clear list incase this isn't first time
@@ -1255,19 +1264,24 @@ contactInfoScreen: function() {
   app.contact_screen.show();
 },
 
-checkIfConsent: function() {
-  if (localStorage.getItem("consent")==null) {
-    app.consent.show();
-    app.appScreen.hide();
-    app.navbar.hide();
-  }
+showPolicy: function() {
+  $("#consentLabel").html("");
+  $("#dataPolicyButton").hide();
+  app.iframe_consent.attr('src', app.label.dataPolicyURL);
+  app.iframe_consent.load(function(){
+    sendMessageIframe("App requested data policy");
+  });
+  app.consent.height("90%"); // for some reason the screen reduced to 50% or less
+  $("#consent_frame").height("90%"); // for some reason the screen reduced to 50% or less
+  $("#iframe_consent").height("90%"); // for some reason the screen reduced to 50% or less
 },
+
 
 givenConsent: function() {
   localStorage.setItem("consent", 1);
   app.consent.hide();
   app.appScreen.show();
-  app.navbar.show();
+  app.statusCheck();
 },
 
 };

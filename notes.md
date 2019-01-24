@@ -33,7 +33,7 @@ iOS
 cordova build ios
 
 open in xCode:
-/Users/phil/Sites/uk.joymeter.Activities/platforms/ios/Activities.xcworkspace
+/Users/phil/Sites/uk.joymeter.Activities/platforms/ios/JoyMeter.xcworkspace
 
 Update licence agreement:
 https://developer.apple.com/account
