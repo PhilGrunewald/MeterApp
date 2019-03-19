@@ -70,7 +70,7 @@ var app = {
 
   onDeviceReady: function() {
       app.initialSetup();
-      app.loadText()
+      app.loadText();
   },
 
   loadText: function() {
@@ -112,6 +112,7 @@ var app = {
     $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
       console.log('loading screens-' + localStorage.getItem('language') + '.json');
       app.screens = screen_data.screens;
+      app.showActivityList();   // to show already reported activities at startup
     });
    },
 
@@ -147,7 +148,8 @@ var app = {
     app.contact_screen       = $('#contact_screen');
     app.disabled_list_option = $('#disabled_list_option');
     app.iframe_register      = $('#iframe_register');
-    app.iframe_consent      = $('#iframe_consent');
+    app.iframe_consent       = $('#iframe_consent');
+    app.iframe_enjoyment     = $('#iframe_enjoyment');
     app.consent              = $('#consent');
     app.navbar               = $('#navbar');
 
@@ -213,6 +215,11 @@ statusCheck: function() {
         $("#progress-row-date").hide();
         $("#progress-row-hhSurvey").hide();
         checkAuthorisation();
+        if (localStorage.getItem('Online') == "true") {
+            $("#progress-row-authorise").show();
+        } else {
+            $("#progress-row-authorise").hide();
+        }
     } else {
         // this is a master phone or has been authorised. Option to pick dates directly and modify HH survey
         $("#progress-row-authorise").hide();
@@ -633,8 +640,17 @@ showProgressList: function() {
         $('#progress-img-indivSurvey').attr("src","img/stars_on.png");
     }
 
-  if (actCount > 4) {
+  if (actCount > 4 && localStorage.getItem('Online')) {
     $("img#stars2").attr("src","img/stars_on.png");
+    var idMeta = localStorage.getItem('metaID');
+    var enjoymentURL = app.label.enjoymentURL + idMeta;
+    app.iframe_enjoyment.show(); 
+    app.iframe_enjoyment.attr('src', enjoymentURL);
+    app.iframe_enjoyment.load(function(){
+        sendMessageIframe("App requested enjoyment");
+    });
+  } else {
+    app.iframe_enjoyment.hide(); 
   }
   if (actCount > 9) {
     $("img#stars3").attr("src","img/stars_on.png");
@@ -1052,8 +1068,11 @@ submitOther: function() {
         // h was followed by nothing but a number
         localStorage.removeItem('metaID');          // get new metaID
         localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+        utils.saveList(ACTIVITY_LIST, {});          // DELETE all activities from device
         localStorage.setItem('household_id', hhID);
         localStorage.setItem('householdSurvey', 'COMPLETE');
+        utils.save(SURVEY_STATUS, "survey root");   // reset individual survey
+        app.imgStatus.attr("src","img/AR_4.png");
         app.navigateTo("home", "ignore"); // ignore stops creation of new entry
         app.title.html("HH ID set to " + hhID);
     } else if (prev_activity == "*en"){

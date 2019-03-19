@@ -1,3 +1,4 @@
+var checkServerURL = meterURL + "checkServer.php";
 var getMetaID = meterURL +  "getMetaID.php";
 var getAddresses =  meterURL +  "getAddresses.php";
 var checkForHouseID = meterURL +  "checkAddress.php";
@@ -46,6 +47,7 @@ function uploadActivities() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
+            localStorage.setItem('Online', false);
             //alert("Check internet connectivity");
         }
     });
@@ -76,6 +78,7 @@ function requestMetaID(functionToExecuteNext){
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
+            localStorage.setItem('Online', false);
             if (localStorage.getItem("consent")==null) {
             }/* else { //Dont want to alert if they are still on consent screen
                 alert("Please check your internet connection");
@@ -128,6 +131,7 @@ function requestAddresses(postcode){ //Requesting from API (or really our PHP wh
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             app.personaliseClick();
             console.log("Check server connection (to php): " + textStatus);
+            localStorage.setItem('Online', false);
             alert("Please check your internet connection");
         }
     });
@@ -166,6 +170,7 @@ function checkForAddress(address) { //Checks whether address is in our database
             console.log(errorThrown);
             console.log(textStatus);
 
+            localStorage.setItem('Online', false);
             alert("Please check your internet connection");
         }
     });
@@ -191,6 +196,7 @@ function getHHDateChoice() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
+            localStorage.setItem('Online', false);
         }
     });
 }
@@ -218,6 +224,7 @@ function linkHousehold() {
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
             localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
+            localStorage.setItem('Online', false);
             // localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
             //alert("Check internet connectivity");
         }
@@ -241,7 +248,8 @@ function checkAuthorisation() {
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
-                console.log("error in checkAuthorisation");
+            console.log("error in checkAuthorisation");
+            localStorage.setItem('Online', false);
         }
     });
 }
@@ -266,6 +274,7 @@ function requestAutorisation() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
+            localStorage.setItem('Online', false);
         }
     });
 }
@@ -287,6 +296,7 @@ function surveyUpload() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
+            localStorage.setItem('Online', false);
             //alert("Check internet connectivity");
         }
     });
@@ -316,11 +326,34 @@ function submitContactInfo() {
                 //window.location.href = meterURL + response.split('#')[0];
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
-                console.log("Check server connection (to php): " + textStatus);
-                alert("Please check your internet connection and try again later");
-                console.log(XMLHttpRequest);
-                console.log(textStatus);
-                console.log(errorThrown);
+            console.log("Check server connection (to php): " + textStatus);
+            alert("Please check your internet connection and try again later");
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+            console.log(errorThrown);
+            localStorage.setItem('Online', false);
+        }
+    });
+}
+
+function checkServer() {
+    // assume the worst - no internet
+    var request;
+    request = $.ajax({ //Send request to php
+        url: checkServerURL,
+        type: "POST",
+        data: {}, //send survey array
+        success: function(response) {
+            console.log("Server check: " + response);
+            if (response == "Success") {
+                localStorage.setItem('Online', true);
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+            console.log(errorThrown);
+            localStorage.setItem('Online', false);
         }
     });
 }
@@ -330,34 +363,42 @@ function connectionManager() {
     // called from timer
     // gets Meta_ID, uploads activities, uploads survey
     //
-    if (localStorage.getItem('metaID') == null){
-        console.log("no meta");
-        requestMetaID();
+    checkServer();
+   
+    if (localStorage.getItem('Online') == "true"){
+        console.log("Online");
+
+        if (localStorage.getItem('metaID') == null){
+            console.log("no meta");
+            requestMetaID();
+        } else {
+            if (localStorage.getItem('activitiesToUpload') != "" && localStorage.getItem('activitiesToUpload') != null) {
+                console.log("Uploading Activities");
+                uploadActivities(); //Called if there are items to upload
+            }
+            if (localStorage.getItem('surveyUploaded') != 1 && localStorage.getItem('survey root') == 'survey complete') {
+                console.log("Uploading Survey");
+                surveyUpload(); //called if survey is complete but has not been uploaded up and we already have an ID
+            }
+
+            if(localStorage.getItem('household_id') != null && localStorage.getItem('householdStatus') == null) {
+                // This means we have got a hhid but havent linked to it yet
+                linkHousehold();
+                console.log("Linking household");
+            } 
+            
+            if (localStorage.getItem('household_id') != null && localStorage.getItem('dateChoice') == null ) {
+                //Request date from Household table
+                getHHDateChoice();
+            } 
+
+            if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
+                //If there is at least one error to upload
+                // uploadErrorMessages();
+            }
+        }
     } else {
-        if (localStorage.getItem('activitiesToUpload') != "" && localStorage.getItem('activitiesToUpload') != null) {
-            console.log("Uploading Activities");
-            uploadActivities(); //Called if there are items to upload
-        }
-        if (localStorage.getItem('surveyUploaded') != 1 && localStorage.getItem('survey root') == 'survey complete') {
-            console.log("Uploading Survey");
-            surveyUpload(); //called if survey is complete but has not been uploaded up and we already have an ID
-        }
-
-        if(localStorage.getItem('household_id') != null && localStorage.getItem('householdStatus') == null) {
-            // This means we have got a hhid but havent linked to it yet
-            linkHousehold();
-            console.log("Linking household");
-        } 
-        
-        if (localStorage.getItem('household_id') != null && localStorage.getItem('dateChoice') == null ) {
-            //Request date from Household table
-            getHHDateChoice();
-        } 
-
-        if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
-            //If there is at least one error to upload
-            // uploadErrorMessages();
-        }
+        console.log("Offline");
     }
 }
 
@@ -460,6 +501,7 @@ function uploadErrorMessages(){ //This sends errors to the SQL database
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
+            localStorage.setItem('Online', false);
         }
     });
 }
