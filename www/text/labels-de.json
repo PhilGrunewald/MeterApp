@@ -17,6 +17,12 @@
     "day5": "Freitag",
     "day6": "Sonnabend",
     "hours": "24",
+    "help": {
+        "btnNow": "Start here to say what you do now",
+        "btnRecent": "For activities in the past use this button",
+        "actList": "Below you will find your activities. Scroll down and tap on them to make changes or add detail.",
+        "postcode": "Enter your postcode to take part in the study",
+        "contactDetails": "Please tell us how we can contact you"},
     "lblBack": "Zur\u00fcck",
     "lblDate": "Teilnahme Tag...",
     "lblDone": "Fertig",

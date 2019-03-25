@@ -107,17 +107,17 @@
                   <div class="btn-addnew container">
                      <div class="row">
                         <div id="btn-now" class="col" onclick="app.navigateTo('activity root')">
-                           <div class="help-caption">Start here to say what you do now</div>
+                           <div class="help-caption" id="help-btn-now">Start here to say what you do now</div>
                            <canvas id="clock-now" width="120" height="120" class=""></canvas>
                         </div>
                         <div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">
-                           <div class="help-caption">For activities in the past use this button</div>
+                           <div class="help-caption" id="help-btn-recent">For activities in the past use this button</div>
                            <canvas id="clock-recent" width="120" height="120" class="" onclick="app.navigateTo('activity time relative')">
                            </canvas>
                         </div>
                      </div>
                   </div>
-                  <div class="help-caption">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
+                  <div class="help-caption" id="help-act-list">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
                </div>
                <div id="activity_list_pane">
                   <div id="activity-list">
@@ -176,7 +176,7 @@
       </div>
       <!-- main-screen ^ -->
       <div hidden id="personalise_screen" class="personalise_screen">
-         <div id="help_text" class="help_text">
+         <div id="help-post-code" class="help_text">
             Enter your postcode to take part in the study
          </div>
          <div id="postcode_section">
@@ -200,7 +200,7 @@
       </div>
 
       <div hidden class="personalise_screen" id="contact_screen">
-        <div id="contact_help_text" class="help_text" stle="font-size:10px">
+        <div id="help-contact-details" class="help_text" stle="font-size:10px">
           Please tell us how we can contact you
         </div>
         <div id="contact_info_section">

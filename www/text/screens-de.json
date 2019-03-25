@@ -190,7 +190,7 @@
                 "Appliances Household other"
             ],
             "help": "",
-            "title": "House and garden"
+            "title": "Haus und Garten"
         },
         "appliances kitchen": {
             "activities": [
@@ -202,7 +202,7 @@
                 "Appliances Kitchen other"
             ],
             "help": "",
-            "title": "Kitchen"
+            "title": "Küche"
         },
         "care": {
             "activities": [
@@ -284,7 +284,7 @@
                 "Care personal other"
             ],
             "help": "",
-            "title": "Time for you"
+            "title": "Zeit für mich"
         },
         "care rest sleep": {
             "activities": [
@@ -296,7 +296,7 @@
                 "other"
             ],
             "help": "",
-            "title": "Rest / sleep"
+            "title": "Ausruhen, Schlafen"
         },
         "care wash": {
             "activities": [
@@ -308,7 +308,7 @@
                 "Care wash other"
             ],
             "help": "at this moment",
-            "title": "Wash or dress"
+            "title": "Sich waschen oder anziehen"
         },
         "care wash bath": {
             "activities": [
@@ -332,7 +332,7 @@
                 "Appliances hygiene none"
             ],
             "help": "",
-            "title": "Used any of these?"
+            "title": "Haben Sie eines dieser Geräte genutzt?"
         },
         "device use": {
             "activities": [
@@ -344,7 +344,7 @@
                 "Device Videos"
             ],
             "help": "",
-            "title": "On a device"
+            "title": "Mit dem Gerät"
         },
         "edit activity": {
             "activities": [
@@ -380,7 +380,7 @@
                 "Food drink hot"
             ],
             "help": "",
-            "title": "Food"
+            "title": "Essen / Trinken"
         },
         "food clear": {
             "activities": [
@@ -392,7 +392,7 @@
                 "Dishes other"
             ],
             "help": "",
-            "title": "Laying or clearing table"
+            "title": "Tisch decken / abräumen"
         },
         "food eat": {
             "activities": [
@@ -404,7 +404,7 @@
                 "Other specify"
             ],
             "help": "",
-            "title": "Eating"
+            "title": "Essen"
         },
         "food preparation": {
             "activities": [
@@ -416,7 +416,7 @@
                 "Food other"
             ],
             "help": "",
-            "title": "Prepare meal"
+            "title": "Mahlzeit zubereiten / kochen"
         },
         "garden": {
             "activities": [
@@ -428,7 +428,7 @@
                 "Outdoors other"
             ],
             "help": "what is happening",
-            "title": "In the garden"
+            "title": "Im Garten"
         },
         "getting ready": {
             "activities": [
@@ -440,7 +440,7 @@
                 "Getting ready other"
             ],
             "help": "",
-            "title": "Getting ready"
+            "title": "Sich fertig machen"
         },
         "home": {
             "help": "",
@@ -516,7 +516,7 @@
                 "Unspecified making and care for textiles"
             ],
             "help": "at this moment",
-            "title": "Laundry"
+            "title": "Wäsche"
         },
         "leisure tv device": {
             "activities": [
@@ -528,7 +528,7 @@
                 "Appliances Games console"
             ],
             "help": "The type of device",
-            "title": "Screen time"
+            "title": "Bildschirmzeit"
         },
         "minutes": {
             "activities": [
@@ -564,7 +564,7 @@
                 "Outdoors other"
             ],
             "help": "",
-            "title": "In nature"
+            "title": "In der Natur"
         },
         "other": {
             "activities": [
@@ -696,7 +696,7 @@
                 "Age 6"
             ],
             "help": "Wählen Sie ihr momentanes Alter aus",
-            "title": "Zu welcher Altersgruppe gehären Sie?"
+            "title": "Zu welcher Altersgruppe gehören Sie?"
         },
         "survey appliances 1": {
             "activities": [
@@ -768,7 +768,7 @@
                 "Blank"
             ],
             "help": "Wählen Sie das aus, was für Sie am ehesten zutrifft",
-            "title": "Bezahlen Sie die Stromrechning selbts?"
+            "title": "Bezahlen Sie die Stromrechnung selbst?"
         },
         "survey complete": {
             "activities": [

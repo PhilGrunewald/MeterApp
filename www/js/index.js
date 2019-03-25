@@ -12,7 +12,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.0.8";
+var appVersion = "1.0.9";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -96,11 +96,18 @@ var app = {
     $('#progress3').html(app.label.progress3);
     $('#progress4').html(app.label.progress4);
     $('#progress5').html(app.label.progress5);
+
+    $('#help-btn-now').html(app.label.help.btnNow);
+    $('#help-btn-recent').html(app.label.help.btnRecent);
+    $('#help-act-list').html(app.label.help.actList);
+    $('#help-post-code').html(app.label.help.postcode);
+    $('#help-contact-details').html(app.label.help.contactDetails);
+
     app.updateNowTime();
     setInterval(function(){ app.updateNowTime(); }, 10000);
         // 10 second clock update
 
-    app.statusCheck();
+    // app.statusCheck();
     setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
         // 3 hour update (needed for real idlers ?)
     }),
@@ -108,11 +115,11 @@ var app = {
     $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
       console.log('loading activities-' + localStorage.getItem('language') + '.json');
       app.activities = data.activities;
+      app.showActivityList();   // to show already reported activities at startup
       });
     $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
       console.log('loading screens-' + localStorage.getItem('language') + '.json');
       app.screens = screen_data.screens;
-      app.showActivityList();   // to show already reported activities at startup
     });
    },
 
@@ -1104,7 +1111,6 @@ personaliseClick: function() { //Goes to the screen with the postcode input
     // document.getElementById('personalise_back').innerHTML = 'Do this later'; > Use Home
     // app.back_btn_pers.attr("onclick","app.returnToMainScreen()");
     app.btnSubmit.html("Submit");
-    // app.helpText.html("Enter your postcode");
     }
 },
 

@@ -537,12 +537,12 @@
         },
         "Appliances Hob": {
             "ID": 8532,
-            "caption": "Herd/ Herdplatte",
+            "caption": "Herd / Herdplatte",
             "category": "food",
             "help": "zum Kochen",
             "icon": "app_hob",
             "next": "other people",
-            "title": "Cook on hob"
+            "title": "Herd / Herdplatte"
         },
         "Appliances Household other": {
             "ID": 8519,
@@ -569,7 +569,7 @@
             "help": "bef\u00fcllen, benutzen, ausgie\u00dfen",
             "icon": "app_kettle",
             "next": "other people",
-            "title": "Kettle"
+            "title": "Wasserkocher"
         },
         "Appliances Kitchen other": {
             "ID": 8539,
