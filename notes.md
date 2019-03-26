@@ -19,6 +19,10 @@ Rename the file from
 to
 uk.joymeter.Activities.apk
 
+mv /Users/phil/Sites/uk.joymeter.Activities/platforms/android/app/build/outputs/apk/release/uk.joymeter.Activities.apk /Users/phil/Sites/uk.joymeter.Activities/platforms/android/app/build/outputs/apk/release/uk.joymeter.Activities.old
+
+mv /Users/phil/Sites/uk.joymeter.Activities/platforms/android/app/build/outputs/apk/release/app-release.apk /Users/phil/Sites/uk.joymeter.Activities/platforms/android/app/build/outputs/apk/release/uk.joymeter.Activities.apk
+
 Upload
 ------
 

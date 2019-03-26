@@ -708,7 +708,8 @@ showActivityList: function() {
     var item = activityList[key];
       var dt  = new Date(item.dt_activity.replace(" ","T"))
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-      var options = { hour: 'numeric', minute: '2-digit', timeZone: 'UTC'};
+      // var options = { hour: 'numeric', minute: '2-digit', timeZone: 'UTC'};
+      var options = { hour: 'numeric', minute: '2-digit' };
       var hhmm = dt.toLocaleString(app.label.locale, options);
       var options = { weekday: 'long', day: 'numeric', month: 'short'};
       thisWeekday = dt.toLocaleString(app.label.locale, options);
