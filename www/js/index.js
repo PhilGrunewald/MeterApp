@@ -107,7 +107,6 @@ var app = {
     setInterval(function(){ app.updateNowTime(); }, 10000);
         // 10 second clock update
 
-    // app.statusCheck();
     setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
         // 3 hour update (needed for real idlers ?)
     }),
@@ -246,6 +245,7 @@ statusCheck: function() {
             app.imgStatus.attr("src","img/time_forward.png");
         } else {
             // got a date - show stars for further options
+            // XXX check dateChoice is in the future - else NULL
             app.lblStatus.html("");
             app.updateStars();
             app.divStatus.attr("onclick","app.showProgressList()");
@@ -727,14 +727,23 @@ showActivityList: function() {
       var icon = "Other_type"
     }
 
+    if (activity.category == 'study' || activity.category == 'intervention') {
+    actsHTML +=
+    '<div class="activity-row ' + activity.category + '">' +
+    '<div class="study-item">' + activity.title + hhmm + '</div> ' +
+    '</div>';
+
+      }
+      else {
     actsHTML +=
     '<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
     '<div class="activity-time activity-item">' + hhmm + '</div>' +
-    '<div class="activity-cell activity-item">' + item.activity  + '</div> ' +
+    '<div class="activity-item">' + item.activity  + '</div> ' +
     '<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+icon+'.png"></div>'+
     '<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
     '<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enjoyment+'.png"></div>'+
     '</div>';
+      }
   }
   app.act_count.show();
   app.activity_list_div.html(actsHTML);
@@ -831,10 +840,12 @@ addActivityToList: function() {
   app.updateStars();
 },
 
+
 removeActivity: function (uuid) {
   app.deleteAct(uuid);
   app.showActivityList();
 },
+
 
 deleteAct: function (actKey) {
   if (actKey) {
@@ -848,6 +859,7 @@ deleteAct: function (actKey) {
     }
   }
 },
+
 
 editActivityScreen: function (actKey) {
   // this is a special case of "navigateTo":
@@ -1076,9 +1088,12 @@ submitOther: function() {
         // h was followed by nothing but a number
         localStorage.removeItem('metaID');          // get new metaID
         localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+        localStorage.removeItem('intervention'); // to be rechecked 
+        localStorage.removeItem('sc'); // to be rechecked 
         utils.saveList(ACTIVITY_LIST, {});          // DELETE all activities from device
         localStorage.setItem('household_id', hhID);
         localStorage.setItem('householdSurvey', 'COMPLETE');
+        localStorage.setItem('pass', 'AuthorisedByVitueOfBeingOneOfOurDevices');
         utils.save(SURVEY_STATUS, "survey root");   // reset individual survey
         app.imgStatus.attr("src","img/AR_4.png");
         app.navigateTo("home", "ignore"); // ignore stops creation of new entry

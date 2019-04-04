@@ -3,6 +3,7 @@ meter_ini.*
 www/js/*.txt
 www/img/.DS_Store
 platforms
+node_modules
 plugins/**
 MeterApp.komodoproject
 *.swp

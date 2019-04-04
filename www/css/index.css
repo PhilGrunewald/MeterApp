@@ -322,19 +322,20 @@ div.activity-row {
   margin: 2px 0;
 }
 
-div.activity-item {
-  display: table-cell;
-  /* text-align: left; */
-  /* background: #ededed; */
+div.study-item {
   vertical-align: middle;
   border-bottom: 2px white solid;
   width: 100%;
 }
 
-div.activity-cell {
-  /* border-bottom: 2px white solid; */
-  /* vertical-align: middle; */
+
+div.activity-item {
+  display: table-cell;
+  vertical-align: middle;
+  border-bottom: 2px white solid;
+  width: 100%;
 }
+
 div.activity-time {
   width:	30%;
   /* border-bottom: 2px white solid; */
@@ -591,7 +592,12 @@ br {
 /**
 * CATEGORIES
 */
-
+.intervention {
+  background-color: #f00;
+}
+.study {
+  background-color: #0f0;
+}
 .care_self {
   background-color: #cec;
 }

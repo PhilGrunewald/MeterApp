@@ -177,7 +177,6 @@ var utils = {
     },
 
     actID : function(actDT) {
-        //var d = new Date().getTime();
         actTime = actDT.toISOString();
         actTime += performance.now();   //use high-precision timer
         // ID needs the T for time zone - otherwise sorting goes funny

@@ -8,6 +8,34 @@
         "back button when EDIT change time": "hide"
     },
     "activities": {
+        "study": {
+            "title": "Studie beginnt um ",
+            "ID": 12000,
+            "help": "Jetzt Strom sparen",
+            "icon": "logo1",
+            "category": "study"
+        },
+        "study end": {
+            "ID": 12001,
+            "title": "Studie beendet um ",
+            "help": "",
+            "icon": "AR_0",
+            "category": "study"
+        },
+        "intervention": {
+            "title": "Strom sparen, bitte, ab ",
+            "ID": 12002,
+            "help": "",
+            "icon": "logo",
+            "category": "intervention"
+        },
+        "intervention end": {
+            "title": "Normaler verbrauch von ",
+            "ID": 12002,
+            "help": "",
+            "icon": "logo1",
+            "category": "study"
+        },
         "+15min": {
             "ID": 10005,
             "caption": "15 min</br><small>${act_time + 15}</small>",
@@ -164,7 +192,7 @@
             "icon": "act2_skip",
             "next": "survey occupation",
             "title": "Altersspanne",
-            "value": 6
+            "value": 0
         },
         "Agree": {
             "ID": 99999,
@@ -935,7 +963,7 @@
             "icon": "act2_skip",
             "next": "survey income",
             "title": "Verantwortlich f\u00fcr die Rechnung",
-            "value": 4
+            "value": 0
         },
         "Bills yes": {
             "ID": 90071,
@@ -1654,7 +1682,7 @@
             "icon": "act2_skip",
             "next": "survey bills",
             "title": "Energieinteresse",
-            "value": 6
+            "value": 0
         },
         "Exercise": {
             "ID": 6100,
@@ -2274,7 +2302,7 @@
             "icon": "act2_skip",
             "next": "survey appliances 1",
             "title": "Einkommen",
-            "value": 6
+            "value": 0
         },
         "Indoor pairs or doubles games": {
             "ID": 6141,
@@ -2793,7 +2821,7 @@
             "icon": "act2_skip",
             "next": "survey working hours",
             "title": "Beruf",
-            "value": 6
+            "value": 0
         },
         "Occupation self employed": {
             "ID": 90033,
@@ -4919,7 +4947,7 @@
             "icon": "act2_skip",
             "next": "survey energy",
             "title": "Zuhause arbeiten",
-            "value": 6
+            "value": 0
         },
         "Working hours 1": {
             "ID": 90041,
@@ -4968,7 +4996,7 @@
             "icon": "act2_skip",
             "next": "survey working regularity",
             "title": "Arbeitszeit",
-            "value": 6
+            "value": 0
         },
         "Working hours change 1": {
             "ID": 90051,
@@ -5001,7 +5029,7 @@
             "icon": "act2_skip",
             "next": "survey working home",
             "title": "Regelm\u00e4\u00dfig Arbeitszeit",
-            "value": 4
+            "value": 0
         },
         "Working time in second job": {
             "ID": 1210,
