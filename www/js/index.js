@@ -707,6 +707,11 @@ showActivityList: function() {
     var key = actKeys[i];
     var item = activityList[key];
       var dt  = new Date(item.dt_activity.replace(" ","T"))
+      // var dt  = new Date(item.dt_activity)
+      dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
+
+
+      
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
       // var options = { hour: 'numeric', minute: '2-digit', timeZone: 'UTC'};
       var options = { hour: 'numeric', minute: '2-digit' };
@@ -728,10 +733,7 @@ showActivityList: function() {
     }
 
     if (activity.category == 'study' || activity.category == 'intervention') {
-    actsHTML +=
-    '<div class="activity-row ' + activity.category + '">' +
-    '<div class="study-item">' + activity.title + hhmm + '</div> ' +
-    '</div>';
+    actsHTML +='<div class="activity-row '+activity.category+'"><div class="study-item">' + activity.title + hhmm + '</div></div>';
 
       }
       else {
