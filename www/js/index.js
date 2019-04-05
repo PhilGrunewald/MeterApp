@@ -709,8 +709,6 @@ showActivityList: function() {
       var dt  = new Date(item.dt_activity.replace(" ","T"))
       // var dt  = new Date(item.dt_activity)
       dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
-
-
       
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
       // var options = { hour: 'numeric', minute: '2-digit', timeZone: 'UTC'};

@@ -151,7 +151,7 @@ function checkForAddress(address) { //Checks whether address is in our database
                 // household already exists
                 console.log("Got household id: " + response.split("#")[1]);
                 localStorage.setItem('household_id', response.split("#")[1]);
-                localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
+                localStorage.removeItem('householdStatus'); // to trigger linking
                 app.returnToMainScreen();
                 app.title.html("Welcome - your household is registered.");
                 // XXX Request to update HH data > we email you]
@@ -195,21 +195,12 @@ function checkHHIntervention() {
                     d.setDate(d.getDate() + 1);      // intervention on Day 2
                     d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                     var itvID = utils.actID(d).substring(0,19);
-
                     localStorage.setItem('intervention',itvID);
                     var activityList = utils.getList(ACTIVITY_LIST);
-                    var actIntStart = {'Meta_idMeta': "0", 
-                                  //'activity': "2h demand reduction from ",
-                                  //'category': 'intervention',
-                                  // 'dt_recorded': d,
-                                  'dt_activity': d, 
-                                  'key': 'intervention',
-                                  // "location"  : '0',
-                                  // "people"    : '0',
-                                  // "enjoyment" : '0',
-                                  // "tuc"       : '12000',
-                                  // "path"      : ''
-                                 };
+                    var actIntStart = {
+                                       'dt_activity': utils.getDateForSQL(d), 
+                                       'key': 'intervention',
+                                      };
                     activityList[itvID] = actIntStart;
                     utils.saveList(ACTIVITY_LIST, activityList);
 
@@ -237,24 +228,14 @@ function checkDateChoiceExpired() {
     d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
     d.setDate(d.getDate() + 1);      // end on Day 2 at 9pm
     var today = new Date();
-
     if (today > d) {
         localStorage.removeItem('dateChoice');
-
         var studyEndID = utils.actID(d).substring(0,19);
         var activityList = utils.getList(ACTIVITY_LIST);
-        var actStudyEnd = {'Meta_idMeta': "0", 
-                      //'activity': "Study completed ",
-        //               'category': 'study',
-                      'dt_recorded': d,
-                      'dt_activity': d, 
-                      'key': 'study end',
-        //                           "location"  : '0',
-        //                           "people"    : '0',
-        //                           "enjoyment" : '0',
-        //                           "tuc"       : '12000',
-        //                           "path"      : ''
-                     };
+        var actStudyEnd = {
+                           'dt_activity': utils.getDateForSQL(d), 
+                           'key': 'study end',
+                          };
         activityList[studyEndID] = actStudyEnd;
         utils.saveList(ACTIVITY_LIST, activityList);
         console.log("Study completed");
@@ -262,6 +243,25 @@ function checkDateChoiceExpired() {
     }
 }
 
+function checkInterventionExpired() {
+    var dt = localStorage.getItem('intervention');
+    var d = new Date(dt); // at 9pm
+    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+    d.setTime(d.getTime() + 2*60*1000);      // +2 hours end on Day 2 at 9pm
+    var now = new Date();
+    if (now > d) {
+        localStorage.removeItem('intervention');
+        var interventionEndID = utils.actID(d).substring(0,19);
+        var activityList = utils.getList(ACTIVITY_LIST);
+        var interventionEnd = { 'dt_activity': utils.getDateForSQL(d), 
+                           'key': 'intervention end',
+                          };
+        activityList[interventionEndID] = interventionEnd;
+        utils.saveList(ACTIVITY_LIST, activityList);
+        console.log("intervention over");
+        app.statusCheck();
+    }
+}
 
 function getHHDateChoice() {
     var request;
@@ -285,18 +285,9 @@ function getHHDateChoice() {
                                 // study date changed / is new
                                 localStorage.setItem('studyID',studyID);
                                 var activityList = utils.getList(ACTIVITY_LIST);
-                                var actStudyStart = {'Meta_idMeta': "0", 
-                                              // 'activity': "Study begins at ",
-                                              // 'dt_recorded': d,
-                                              'dt_activity': d, 
-                                              'key': 'study'
-                                              // 'category': 'study',
-                                              // "location"  : '0',
-                                              // "people"    : '0',
-                                              // "enjoyment" : '0',
-                                              // "tuc"       : '12000',
-                                              // "path"      : ''
-                                             };
+                                var actStudyStart = { 'dt_activity': utils.getDateForSQL(d), 
+                                                     'key': 'study'
+                                                    };
                                 activityList[studyID] = actStudyStart;
                                 utils.saveList(ACTIVITY_LIST, activityList);
 
@@ -524,6 +515,9 @@ function connectionManager() {
     // date check can be done offline as well
     if (localStorage.getItem('dateChoice') != null) {
         checkDateChoiceExpired();
+    } 
+    if (localStorage.getItem('intervention') != null) {
+        checkInterventionExpired();
     } 
 }
 
