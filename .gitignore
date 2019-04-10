@@ -7,3 +7,6 @@ node_modules
 plugins/**
 MeterApp.komodoproject
 *.swp
+*.fla
+.gradle*
+aMeterAndroid.keystore
