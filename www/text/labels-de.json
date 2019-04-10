@@ -20,11 +20,11 @@
     "day6": "Sonnabend",
     "hours": "24",
     "help": {
-        "btnNow": "Start here to say what you do now",
-        "btnRecent": "For activities in the past use this button",
-        "actList": "Below you will find your activities. Scroll down and tap on them to make changes or add detail.",
-        "postcode": "Enter your postcode to take part in the study",
-        "contactDetails": "Please tell us how we can contact you"},
+        "btnNow": "Hier sagen was Sie jetzt machen",
+        "btnRecent": "Oder hier um die Zeit selbst zu bestimmen",
+        "actList": "Hier unten werden alle berichteten Aktivitäten aufgelisted. Drücken Sie auf diese, um Änderungen vorzunehmen.",
+        "postcode": "Postleitzahl",
+        "contactDetails": "Wie können wir Sie erreichen?"},
     "lblBack": "Zur\u00fcck",
     "lblDate": "Teilnahme Tag",
     "lblPickDate": "Teilnahme Tag wählen",
@@ -63,6 +63,6 @@
     "titleProgress1": "Sie haben ",
     "titleProgress2": " Eintr\u00e4ge",
     "titleSurvey": "Heute beginnt Ihre Studie. Bitte mit der <a onclick='app.navigateTo(\"survey root\")'>Umfrage</a> anfangen.",
-    "titleWait1": "Sie bekommen Ihr Paket vor ",
+    "titleWait1": "Sie bekommen Ihr Paket in K\u00fcrze ",
     "titleWait2": ". Bitte den Stromz\u00e4hler anbringen."
 }
