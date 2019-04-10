@@ -156,6 +156,8 @@ var app = {
     app.iframe_register      = $('#iframe_register');
     app.iframe_consent       = $('#iframe_consent');
     app.iframe_enjoyment     = $('#iframe_enjoyment');
+    app.iframe_profile     = $('#iframe_profile');
+    app.iframe_help     = $('#iframe_help');
     app.consent              = $('#consent');
     app.navbar               = $('#navbar');
 
@@ -205,53 +207,87 @@ statusCheck: function() {
     app.lblStatus.html("");
     app.consent.show();
     app.appScreen.hide();
-  } else if (hh == null) {
+  } else {
+    app.lblStatus.html("Menu");
+    app.divStatus.attr("onclick","app.personaliseClick()");
+    app.divStatus.attr("onclick", "app.navigateTo('menu')");
+    app.imgStatus.show();
+  }
+
+  if (localStorage.getItem("survey root") == 'survey complete') {
+    app.activities['IndividualSurvey']['icon'] = "act2_personal"; // remove the AR icon
+  }
+    
+    if (hh == null) {
         // personalise -> hhq
         app.title.html(app.label.titlePersonalise);
-        // app.lblStatus.html(app.label.lblPersonalise); // overfilled
-        app.lblStatus.html("");
-        app.divStatus.attr("onclick","app.personaliseClick()");
-        app.imgStatus.attr("src","img/AR_4.png");
-    } else if (sc == null) {
-        // all this phone can do is request an email, which will have the links to change date or survey details
-        app.lblStatus.html("");
-        app.updateStars();
-        app.divStatus.attr("onclick","app.showProgressList()");
-        app.title.html(app.label.titleProgress);
-        $("#progress-row-date").hide();
-        $("#progress-row-hhSurvey").hide();
-        checkAuthorisation();
-        if (localStorage.getItem('Online') == "true") {
-            $("#progress-row-authorise").show();
-        } else {
-            $("#progress-row-authorise").hide();
-        }
+        app.screens['menu']['activities'][1] = "Register";
     } else {
-        // this is a master phone or has been authorised. Option to pick dates directly and modify HH survey
-        $("#progress-row-authorise").hide();
-        $("#progress-row-date").show();
-        $("#progress-row-hhSurvey").show();
-        if (localStorage.getItem('continue_registration_link') != null && localStorage.getItem('householdSurvey') == null) {
-            // complete registration
-            app.title.html(app.label.titlePersonaliseFinish);
-            app.lblStatus.html(app.label.lblPersonaliseFinish);
-            app.divStatus.attr("onclick","app.continueRegistration()");
-            app.imgStatus.attr("src","img/act_others1.png");
-        } else if (dateChoice == null && sc != null) {
-            // get Date
-            app.title.html(app.label.titleDate);
-            app.lblStatus.html(app.label.lblDate);
-            app.divStatus.attr("onclick","app.getDate()");
-            app.imgStatus.attr("src","img/time_forward.png");
+        if (sc == null) {
+            app.screens['menu']['activities'][1] = "Authorise";
+            app.activities['ElectricityProfile']['next'] = "app.authorise()";
         } else {
-            // got a date - show stars for further options
-            // XXX check dateChoice is in the future - else NULL
-            app.lblStatus.html("");
-            app.updateStars();
-            app.divStatus.attr("onclick","app.showProgressList()");
-            app.title.html(app.label.titleProgress);
+            app.screens['menu']['activities'][1] = "HouseholdSurvey";
+            app.screens['menu']['activities'][4] = "StudyDate";
+
+            if (dateChoice != null) {
+                // show date in menu
+                var dtChoice  = new Date(dateChoice);
+                var options = { day: 'numeric', month: 'short'};
+                var dtString = dtChoice.toLocaleDateString(app.label.locale, options);
+                app.activities['StudyDate']['caption'] = app.label.lblDate + dtString;
+            } else {
+                app.activities['StudyDate']['caption'] = app.lable.lblPickDate;
+            }
         }
     }
+
+        // app.lblStatus.html("");
+        // app.divStatus.attr("onclick","app.personaliseClick()");
+        // app.imgStatus.attr("src","img/AR_4.png");
+        // app.imgStatus.show();
+
+        // all this phone can do is request an email, which will have the links to change date or survey details
+        // app.lblStatus.html("");
+        // app.updateStars();
+        // // app.divStatus.attr("onclick","app.showProgressList()");
+        // app.title.html(app.label.titleProgress);
+        // $("#progress-row-date").hide();
+        // $("#progress-row-hhSurvey").hide();
+        // checkAuthorisation();
+        // if (localStorage.getItem('Online') == "true") {
+        //     $("#progress-row-authorise").show();
+        // } else {
+        //     $("#progress-row-authorise").hide();
+        // }
+//     } else {
+//         // this is a master phone or has been authorised. Option to pick dates directly and modify HH survey
+//         $("#progress-row-authorise").hide();
+//         $("#progress-row-date").show();
+//         $("#progress-row-hhSurvey").show();
+//         if (localStorage.getItem('continue_registration_link') != null && localStorage.getItem('householdSurvey') == null) {
+//             // complete registration
+//             app.title.html(app.label.titlePersonaliseFinish);
+//             app.lblStatus.html(app.label.lblPersonaliseFinish);
+//             //app.divStatus.attr("onclick","app.continueRegistration()");
+//             app.imgStatus.attr("src","img/act_others1.png");
+//             app.imgStatus.show();
+//         } else if (dateChoice == null && sc != null) {
+//             // get Date
+//             app.title.html(app.label.titleDate);
+//             app.lblStatus.html(app.label.lblDate);
+//             // app.divStatus.attr("onclick","app.getDate()");
+//             app.imgStatus.hide();
+//             // app.imgStatus.attr("src","img/time_forward.png");
+//         } else {
+//             // got a date - show stars for further options
+//             // XXX check dateChoice is in the future - else NULL
+//             app.lblStatus.html("");
+//             app.updateStars();
+//             // app.divStatus.attr("onclick","app.showProgressList()");
+//             app.title.html(app.label.titleProgress);
+//         }
+//     }
 },
 
 updateStars: function() {
@@ -268,6 +304,7 @@ updateStars: function() {
   } else {
     app.imgStatus.attr("src","img/stars_1.png");
   }
+  app.imgStatus.show();
 },
 
 updateNowTime: function() {
@@ -462,7 +499,10 @@ navigateTo: function(screen_id, prev_activity) {
 
 app.activityAddPane.hide();
 app.activityListPane.hide();
-app.progressListPane.hide();
+
+
+app.iframe_enjoyment.hide(); 
+
 app.choicesPane.show();
 app.footerNav.show();
 app.helpCaption.hide(); // hide help text when moving on (default off);
@@ -470,6 +510,13 @@ app.btnCaption.hide(); // hide help text when moving on (default off);
 
 console.log("Screen ID: " + screen_id);
 // app.personalise.hide();
+
+
+if (screen_id == "menu" ) {
+    app.divStatus.attr("onclick", "app.showActivityList()");
+} else {
+    app.divStatus.attr("onclick", "app.navigateTo('menu')");
+}
 
 if (screen_id == "home" ) {
   // an entry has been completed (incl. via "Done");
@@ -538,10 +585,12 @@ if (screen_id == "survey root") {
 } else
 if (screen_id == "survey complete") {
   // app.nav_survey.hide();
-  app.imgStatus.attr("src","img/stars_1.png");
+    app.activities['IndividualSurvey']['icon'] = "act2_personal"; // remove the AR icon
+   // app.imgStatus.attr("src","img/stars_1.png");
+  // app.imgStatus.show();
   // app.nav_status.show();
   app.showActivityList();
-  app.choicesPane.hide();
+  // app.choicesPane.hide();
 } else
 if (screen_id == "adjust time") {
   console.log("Doing nothing - just so that the <else> part doesn't remove the title action");
@@ -587,7 +636,11 @@ if (screen_id !== "home") {
       btn_caption.html(utils.format(activity.help));
       //button.addClass(activity.category || "other_category");
       button.addClass(activity.category);
-      button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
+      if (activity.category == 'function') {
+        button.attr("onclick", activity.next);
+      } else {
+        button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
+      }
     }
     if (activity.ID == -1) {
       document.getElementById(buttonNo).style.backgroundImage = "";
@@ -656,9 +709,20 @@ showProgressList: function() {
     app.iframe_enjoyment.load(function(){
         sendMessageIframe("App requested enjoyment");
     });
+  } 
+
+if (localStorage.getItem('Online')) {
+    var idMeta = localStorage.getItem('metaID');
+    var profileURL = app.label.profileURL + idMeta;
+    app.iframe_profile.show(); 
+    app.iframe_profile.attr('src', profileURL);
+    app.iframe_profile.load(function(){
+        sendMessageIframe("App requested profile");
+    });
   } else {
-    app.iframe_enjoyment.hide(); 
+    app.iframe_profile.hide(); 
   }
+
   if (actCount > 9) {
     $("img#stars3").attr("src","img/stars_on.png");
   }
@@ -1067,8 +1131,10 @@ submitEdit: function() {
         // h was followed by nothing but a number
         var hhID = $("input#free-text").val();//.replace(/'/g, "\\'");
         localStorage.removeItem('metaID');          // get new metaID
-        localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
         localStorage.setItem('household_id', hhID);
+        localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+        linkHousehold(hhID);
+
         localStorage.setItem('householdSurvey', 'COMPLETE');
         app.navigateTo("home", "ignore"); // ignore stops creation of new entry
         app.title.html("HH ID set to " + hhID);
@@ -1088,6 +1154,7 @@ submitOther: function() {
         // h was followed by nothing but a number
         localStorage.removeItem('metaID');          // get new metaID
         localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+        linkHousehold(hhID);
         localStorage.removeItem('intervention'); // to be rechecked 
         localStorage.removeItem('sc'); // to be rechecked 
         utils.saveList(ACTIVITY_LIST, {});          // DELETE all activities from device
@@ -1096,6 +1163,7 @@ submitOther: function() {
         localStorage.setItem('pass', 'AuthorisedByVitueOfBeingOneOfOurDevices');
         utils.save(SURVEY_STATUS, "survey root");   // reset individual survey
         app.imgStatus.attr("src","img/AR_4.png");
+        app.imgStatus.show();
         app.navigateTo("home", "ignore"); // ignore stops creation of new entry
         app.title.html("HH ID set to " + hhID);
     } else if (prev_activity == "*en"){
@@ -1131,11 +1199,15 @@ personaliseClick: function() { //Goes to the screen with the postcode input
 },
 
 returnToMainScreen: function() {
+  // reset what is visible
   console.log("returning");
   app.appScreen.show();
   app.contact_screen.hide();
   app.personaliseScreen.hide();
   app.register_screen.hide();
+  app.iframe_enjoyment.hide();
+  app.iframe_profile.hide();
+  app.iframe_help.hide();
   app.statusCheck();
 },
 
@@ -1290,12 +1362,19 @@ registerNewHousehold: function(registerURL) {
 
 continueRegistration: function() {
   //var1.hostname is now just the "www.energy-use.org"
-  console.log("Continue link: " + localStorage.getItem('continue_registration_link'));
+    if (localStorage.getItem('continue_registration_link') == null) {
+        var sc = localStorage.getItem('sc');
+        var hID = localStorage.getItem('household_id');
+        var url = meterURL + "hhq.php?sc="+sc+"&pg=0&id="+hID;
+    } else {
+        var url = localStorage.getItem('continue_registration_link');
+    }
+  console.log("Continue link: " + url);
   app.contact_screen.hide();
   app.appScreen.hide();
   app.personaliseScreen.hide();
   app.register_screen.show();
-  app.iframe_register.attr('src', localStorage.getItem('continue_registration_link'));
+  app.iframe_register.attr('src', url);
 },
 
 contactInfoScreen: function() {
@@ -1317,6 +1396,59 @@ showPolicy: function() {
   $("#iframe_consent").height("90%"); // for some reason the screen reduced to 50% or less
 },
 
+showHelp: function() {
+  if (localStorage.getItem('Online') == 'true') {
+    var idMeta = localStorage.getItem('metaID');
+    var helpURL = app.label.helpURL;
+    app.title.html("Help"); 
+    app.choicesPane.hide();
+    app.iframe_help.show(); 
+    app.iframe_help.attr('src', helpURL);
+    app.iframe_help.load(function(){
+        sendMessageIframe("App requested help");
+    });
+  } 
+    else
+    {
+   app.title.html("Please connect to the internet to see your profile"); 
+    }
+},
+
+showProfile: function() {
+  if (localStorage.getItem('Online') == 'true') {
+    var idMeta = localStorage.getItem('metaID');
+    var profileURL = app.label.profileURL + idMeta;
+    app.title.html("Your electricity use"); 
+    app.choicesPane.hide();
+    app.iframe_profile.show(); 
+    app.iframe_profile.attr('src', profileURL);
+    app.iframe_profile.load(function(){
+        sendMessageIframe("App requested profile");
+    });
+  } 
+    else
+    {
+   app.title.html("Please connect to the internet to see your profile"); 
+    }
+},
+
+showEnjoyment: function() {
+  if (localStorage.getItem('Online') == 'true') {
+    var idMeta = localStorage.getItem('metaID');
+    var enjoymentURL = app.label.enjoymentURL + idMeta;
+    app.title.html("Your activities (coloured by enjoyment)"); 
+    app.choicesPane.hide();
+    app.iframe_enjoyment.show(); 
+    app.iframe_enjoyment.attr('src', enjoymentURL);
+    app.iframe_enjoyment.load(function(){
+        sendMessageIframe("App requested enjoyment");
+    });
+  } 
+    else
+    {
+   app.title.html("Please connect to the internet to see your activities"); 
+    }
+},
 
 givenConsent: function() {
   localStorage.setItem("consent", 1);

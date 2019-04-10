@@ -8,6 +8,84 @@
         "back button when EDIT change time": "hide"
     },
     "activities": {
+        "IndividualSurvey": {
+            "title": "About you",
+            "caption": "About you",
+            "ID": 13001,
+            "help": "Personal survey",
+            "next": "survey root",
+            "icon": "act2_personalAR"
+        },
+        "Register": {
+            "title": "Register",
+            "caption": "Register",
+            "ID": 13002,
+            "help": "Household survey",
+            "category": "function",
+            "next": "app.personaliseClick()",
+            "icon": "act2_homeAR"
+        },
+        "Authorise": {
+            "title": "Authorise",
+            "caption": "Authorise",
+            "ID": 13002,
+            "help": "Confimation via email",
+            "category": "function",
+            "next": "app.authorise()",
+            "icon": "act2_authorise"
+        },
+        "HouseholdSurvey": {
+            "title": "Your Home",
+            "caption": "Your Home",
+            "ID": 13002,
+            "help": "Household survey",
+            "category": "function",
+            "next": "app.changeHHsurvey()",
+            "icon": "act2_home"
+        },
+        "EnjoymentPixel": {
+            "title": "Activities",
+            "caption": "Activities",
+            "ID": 13003,
+            "help": "What you reported",
+            "category": "function",
+            "next": "app.showEnjoyment()",
+            "icon": "enjoy_5"
+        },
+        "ElectricityProfile": {
+            "title": "Profile",
+            "caption": "Profile",
+            "ID": 13004,
+            "help": "Electricity use",
+            "category": "function",
+            "next": "app.showProfile()",
+            "icon": "act2_profile"
+        },
+        "StudyDate": {
+            "title": "Date",
+            "caption": "Date",
+            "ID": 13005,
+            "help": "Pick a study date",
+            "category": "function",
+            "next": "app.getDate()",
+            "icon": "calendar"
+        },
+        "Help": {
+            "title": "Help",
+            "caption": "Help",
+            "ID": 13006,
+            "help": "Explanations",
+            "category": "function",
+            "next": "app.showHelp()",
+            "icon": "loc_7"
+        },
+        "xhelp": {
+            "ID": 10000,
+            "caption": "Help",
+            "help": "Learn how to use this app",
+            "next": "help",
+            "title": "root: help"
+        },
         "study": {
             "title": "Study begins at ",
             "ID": 12000,
@@ -5066,13 +5144,6 @@
             "next": "survey age",
             "title": "Gender",
             "value": 1
-        },
-        "help": {
-            "ID": 10000,
-            "caption": "Help",
-            "help": "Learn how to use this app",
-            "next": "help",
-            "title": "root: help"
         },
         "male": {
             "ID": 90012,

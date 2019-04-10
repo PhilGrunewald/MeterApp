@@ -151,10 +151,12 @@ function checkForAddress(address) { //Checks whether address is in our database
                 // household already exists
                 console.log("Got household id: " + response.split("#")[1]);
                 localStorage.setItem('household_id', response.split("#")[1]);
-                localStorage.removeItem('householdStatus'); // to trigger linking
+                // Change menu
+                app.screens['menu']['activities'][1] = "Authorise";
+                // Trigger linking
+                linkHousehold();
+                // go home
                 app.returnToMainScreen();
-                app.title.html("Welcome - your household is registered.");
-                // XXX Request to update HH data > we email you]
             } else if (response.split("#")[0]=="0 results") {
                 // no such household yet > sign up form
                 console.log("0 results");
@@ -312,12 +314,13 @@ function getHHDateChoice() {
 }
 
 
-function linkHousehold() {
+function linkHousehold(hhID) {
     var request;
     request = $.ajax({ //Send request to php
         url: linkHouseholdURL,
         type: "POST",
-        data: {household_id:localStorage.getItem('household_id'), metaID:localStorage.getItem('metaID')}, //send array of items
+        data: {household_id:hhID, metaID:localStorage.getItem('metaID')}, //send array of items
+        //data: {household_id:localStorage.getItem('household_id'), metaID:localStorage.getItem('metaID')}, //send array of items
         success: function(response) {
             if (response.split("#")[0]=="Success") { //to confirm whether data has been inserted
                 console.log("Succesfully uploaded!");
@@ -446,25 +449,36 @@ function submitContactInfo() {
     });
 }
 
-function checkServer() {
+function online() {
     // assume the worst - no internet
+    console.log("15");
     var request;
     request = $.ajax({ //Send request to php
         url: checkServerURL,
         type: "POST",
-        data: {}, //send survey array
         success: function(response) {
             if (response == "Success") {
-                localStorage.setItem('Online', true);
+                console.log("16");
+                o = true;
+            }
+            else {
+                console.log("17");
+                o = false;
             }
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
-            console.log(XMLHttpRequest);
-            console.log(textStatus);
-            console.log(errorThrown);
-            localStorage.setItem('Online', false);
+        error: function() {
+                o = false;
         }
     });
+    return o;
+}
+
+function checkServer() {
+    if (online()) {
+       localStorage.setItem('Online', true);
+    } else {
+       localStorage.removeItem('Online');
+    }
 }
 
 function connectionManager() {
@@ -489,7 +503,7 @@ function connectionManager() {
 
             if(localStorage.getItem('household_id') != null && localStorage.getItem('householdStatus') == null) {
                 // This means we have got a hhid but havent linked to it yet
-                linkHousehold();
+                linkHousehold(localStorage.getItem('household_id'));
                 console.log("Linking household");
             } 
             
@@ -503,9 +517,14 @@ function connectionManager() {
                 checkHHIntervention();
             } 
 
+            // Is device authorised?
+            if (localStorage.getItem('household_id') != null && localStorage.getItem('sc') == null) {
+                checkAuthorisation();
+            }
+
             if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
                 //If there is at least one error to upload
-                // uploadErrorMessages();
+                uploadErrorMessages();
                 console.log("there are errors...");
             }
         }

@@ -8,6 +8,77 @@
         "back button when EDIT change time": "hide"
     },
     "activities": {
+        "IndividualSurvey": {
+            "title": "Ihre Details",
+            "caption": "Ihre Details",
+            "ID": 13001,
+            "help": "Persöniche Daten",
+            "next": "survey root",
+            "icon": "act2_personalAR"
+        },
+        "Register": {
+            "title": "Registrieren",
+            "caption": "Registrieren",
+            "ID": 13002,
+            "help": "Haushaltsumfrage",
+            "category": "function",
+            "next": "app.personaliseClick()",
+            "icon": "act2_homeAR"
+        },
+        "Authorise": {
+            "title": "Autorisieren",
+            "caption": "Autorisieren",
+            "ID": 13002,
+            "help": "Bestätigungsemail",
+            "category": "function",
+            "next": "app.authorise()",
+            "icon": "act2_authorise"
+        },
+        "HouseholdSurvey": {
+            "title": "Ihr Haushalt",
+            "caption": "Ihr Haushalt",
+            "ID": 13002,
+            "help": "Haushaltsumfrage",
+            "category": "function",
+            "next": "app.changeHHsurvey()",
+            "icon": "act2_home"
+        },
+        "EnjoymentPixel": {
+            "title": "Activitäten",
+            "caption": "Activitäten",
+            "ID": 13003,
+            "help": "Was sie eingetragen haben",
+            "category": "function",
+            "next": "app.showEnjoyment()",
+            "icon": "enjoy_5"
+        },
+        "ElectricityProfile": {
+            "title": "Verbrauchsprofil",
+            "caption": "Verbrauchsprofil",
+            "ID": 13004,
+            "help": "Stromverbrauchsdaten",
+            "category": "function",
+            "next": "app.showProfile()",
+            "icon": "act2_profile"
+        },
+        "StudyDate": {
+            "title": "Datum",
+            "caption": "Datum",
+            "ID": 13005,
+            "help": "Wählen Sie ein Datum",
+            "category": "function",
+            "next": "app.getDate()",
+            "icon": "calendar"
+        },
+        "Help": {
+            "title": "Hilfe",
+            "caption": "Hilfe",
+            "ID": 13006,
+            "help": "Animierte Beispiele",
+            "category": "function",
+            "next": "app.showHelp()",
+            "icon": "loc_7"
+        },
         "study": {
             "title": "Studie beginnt um ",
             "ID": 12000,

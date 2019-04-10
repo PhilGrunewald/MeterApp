@@ -12,6 +12,18 @@
             "help": "How long ago or the time",
             "title": "When was this?"
         },
+        "menu": {
+            "activities": [
+                "IndividualSurvey",
+                "Register",
+                "EnjoymentPixel",
+                "ElectricityProfile",
+                "StudyDate",
+                "Help"
+            ],
+            "help": "at this moment",
+            "title": "Main menu"
+        },
         "activity home": {
             "activities": [
                 "Personal",
