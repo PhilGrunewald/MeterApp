@@ -34,6 +34,15 @@
             "next": "app.authorise()",
             "icon": "act2_authorise"
         },
+        "AuthoriseWait": {
+            "title": "Autorisierungsemail wiederholen",
+            "caption": "Autorisierungsemail wiederholen",
+            "ID": 13002,
+            "help": "Bestätigungsemail",
+            "category": "function",
+            "next": "app.authorise()",
+            "icon": "act2_authorise"
+        },
         "HouseholdSurvey": {
             "title": "Ihr Haushalt",
             "caption": "Ihr Haushalt",

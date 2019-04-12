@@ -34,6 +34,15 @@
             "next": "app.authorise()",
             "icon": "act2_authorise"
         },
+        "AuthoriseWait": {
+            "title": "Repeat request",
+            "caption": "Repeat request",
+            "ID": 13002,
+            "help": "Bestätigungsemail",
+            "category": "function",
+            "next": "app.authorise()",
+            "icon": "act2_authorise"
+        },
         "HouseholdSurvey": {
             "title": "Your Home",
             "caption": "Your Home",

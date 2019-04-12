@@ -130,7 +130,7 @@ var app = {
     app.header           = $("#header");
     app.catchup          = $('#catch-up');
     app.now_time         = $("#now-time");
-    app.act_count        = $('#act-count');
+    // app.act_count        = $('#act-count');
     app.helpCaption      = $(".help-caption");
     app.progressListPane = $("div#progress_list_pane");
     app.footerNav        = $("div.footer-nav");
@@ -196,20 +196,7 @@ statusCheck: function() {
     var dateChoice = localStorage.getItem('dateChoice');
     var hh = localStorage.getItem('household_id');
     var sc = localStorage.getItem('sc');
-    var consented = localStorage.getItem("consent")
-
-  if (consented == null) {
-    app.divStatus.attr("onclick","");
-    app.lblStatus.html("");
-    app.consent.show();
-    app.appScreen.hide();
-  } else {
-    app.consent.hide();
-    app.lblStatus.html("Menu");
-    // app.divStatus.attr("onclick","app.personaliseClick()");
-    app.divStatus.attr("onclick", "app.navigateTo('menu')");
-    app.imgStatus.hide();
-  }
+    var waitForAuthorisation = localStorage.getItem('AwaitAuthorisation');
 
   if (localStorage.getItem("survey root") == 'survey complete') {
     app.activities['IndividualSurvey']['icon'] = "act2_personal"; // remove the AR icon
@@ -221,8 +208,12 @@ statusCheck: function() {
         app.screens['menu']['activities'][1] = "Register";
     } else {
         if (sc == null) {
-            app.screens['menu']['activities'][1] = "Authorise";
-            app.activities['ElectricityProfile']['next'] = "app.authorise()";
+            if (waitForAuthorisation != null) {
+
+            } else {
+                app.screens['menu']['activities'][1] = "AuthoriseWait";
+                app.activities['ElectricityProfile']['next'] = "app.authorise()";
+            }
         } else {
             app.screens['menu']['activities'][1] = "HouseholdSurvey";
             app.screens['menu']['activities'][4] = "StudyDate";
@@ -238,53 +229,6 @@ statusCheck: function() {
             }
         }
     }
-
-        // app.lblStatus.html("");
-        // app.divStatus.attr("onclick","app.personaliseClick()");
-        // app.imgStatus.attr("src","img/AR_4.png");
-        // app.imgStatus.show();
-
-        // all this phone can do is request an email, which will have the links to change date or survey details
-        // app.lblStatus.html("");
-        // app.updateStars();
-        // // app.divStatus.attr("onclick","app.showProgressList()");
-        // app.title.html(app.label.titleProgress);
-        // $("#progress-row-date").hide();
-        // $("#progress-row-hhSurvey").hide();
-        // checkAuthorisation();
-        // if (localStorage.getItem('Online') == "true") {
-        //     $("#progress-row-authorise").show();
-        // } else {
-        //     $("#progress-row-authorise").hide();
-        // }
-//     } else {
-//         // this is a master phone or has been authorised. Option to pick dates directly and modify HH survey
-//         $("#progress-row-authorise").hide();
-//         $("#progress-row-date").show();
-//         $("#progress-row-hhSurvey").show();
-//         if (localStorage.getItem('continue_registration_link') != null && localStorage.getItem('householdSurvey') == null) {
-//             // complete registration
-//             app.title.html(app.label.titlePersonaliseFinish);
-//             app.lblStatus.html(app.label.lblPersonaliseFinish);
-//             //app.divStatus.attr("onclick","app.continueRegistration()");
-//             app.imgStatus.attr("src","img/act_others1.png");
-//             app.imgStatus.show();
-//         } else if (dateChoice == null && sc != null) {
-//             // get Date
-//             app.title.html(app.label.titleDate);
-//             app.lblStatus.html(app.label.lblDate);
-//             // app.divStatus.attr("onclick","app.getDate()");
-//             app.imgStatus.hide();
-//             // app.imgStatus.attr("src","img/time_forward.png");
-//         } else {
-//             // got a date - show stars for further options
-//             // XXX check dateChoice is in the future - else NULL
-//             app.lblStatus.html("");
-//             app.updateStars();
-//             // app.divStatus.attr("onclick","app.showProgressList()");
-//             app.title.html(app.label.titleProgress);
-//         }
-//     }
 },
 
 updateStars: function() {
@@ -512,10 +456,8 @@ console.log("Screen ID: " + screen_id);
 if (screen_id == "menu" ) {
     app.lblStatus.html("Home");
     app.divStatus.attr("onclick", "app.showActivityList()");
-} else {
-    app.divStatus.attr("onclick", "app.navigateTo('menu')");
-}
 
+}
 if (screen_id == "home" ) {
   // an entry has been completed (incl. via "Done");
   if (prev_activity !== "ignore") {
@@ -669,6 +611,7 @@ goBack: function() {
 },
 
 showProgressList: function() {
+    // XXX no longer used - could go on menu:Date during the study day
     // Date may have changed externally (web or other app user)
     getHHDateChoice();
 
@@ -698,16 +641,6 @@ showProgressList: function() {
         $('#progress-img-indivSurvey').attr("src","img/stars_on.png");
     }
 
-  if (actCount > 4 && localStorage.getItem('Online')) {
-    $("img#stars2").attr("src","img/stars_on.png");
-    var idMeta = localStorage.getItem('metaID');
-    var enjoymentURL = app.label.enjoymentURL + idMeta;
-    app.iframe_enjoyment.show(); 
-    app.iframe_enjoyment.attr('src', enjoymentURL);
-    app.iframe_enjoyment.load(function(){
-        sendMessageIframe("App requested enjoyment");
-    });
-  } 
 
 if (localStorage.getItem('Online')) {
     var idMeta = localStorage.getItem('metaID');
@@ -721,6 +654,9 @@ if (localStorage.getItem('Online')) {
     app.iframe_profile.hide(); 
   }
 
+  if (actCount > 4 && localStorage.getItem('Online')) {
+    $("img#stars2").attr("src","img/stars_on.png");
+  } 
   if (actCount > 9) {
     $("img#stars3").attr("src","img/stars_on.png");
   }
@@ -745,16 +681,9 @@ showActivityList: function() {
   // used as a proxy for 'being home'
   // thus populate the title and do some of the hiding
 
-  console.log("Checking if registered...");
+  app.title.html(app.screens['home'].title);
   app.statusCheck();
   app.returnToMainScreen();
-
-  $("div#progress_list_pane").hide();
-  app.choicesPane.hide();
-  $("div#other-specify").hide();
-
-  app.title.attr("onclick", "");
-  console.log("hist: " + app.act_path);
   app.history = new Array();
   app.act_path = new Array();
   var activityList = utils.getList(ACTIVITY_LIST) || []
@@ -768,23 +697,20 @@ showActivityList: function() {
   for (i = actLength-1; i > -1; i--) {
     var key = actKeys[i];
     var item = activityList[key];
-      var dt  = new Date(item.dt_activity.replace(" ","T"))
-      // var dt  = new Date(item.dt_activity)
-      dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
-      
-      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-      // var options = { hour: 'numeric', minute: '2-digit', timeZone: 'UTC'};
-      var options = { hour: 'numeric', minute: '2-digit' };
-      var hhmm = dt.toLocaleString(app.label.locale, options);
-      var options = { weekday: 'long', day: 'numeric', month: 'short'};
-      thisWeekday = dt.toLocaleString(app.label.locale, options);
+    var dt  = new Date(item.dt_activity.replace(" ","T"))
+    dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+    var options = { hour: 'numeric', minute: '2-digit' };
+    var hhmm = dt.toLocaleString(app.label.locale, options);
+    var options = { weekday: 'long', day: 'numeric', month: 'short'};
+    thisWeekday = dt.toLocaleString(app.label.locale, options);
     if (weekday != thisWeekday) {
       actsHTML +=
       '<div class="row activity-row">' + thisWeekday + '</div>'
     }
     weekday = thisWeekday;
     var activity    = app.activities[item.key];
-    // safety catch - somehow some people managed to store entries with a 'custom key', which is not in the list
+    // safety catch -  if 'custom key' is not in the list
     if (activity !== undefined) {
       var icon = activity.icon;
     }
@@ -792,11 +718,10 @@ showActivityList: function() {
       var icon = "Other_type"
     }
 
+    // special case for our own labels (Study starts/ends; Intervention starts/ends)
     if (activity.category == 'study' || activity.category == 'intervention') {
-    actsHTML +='<div class="activity-row '+activity.category+'"><div class="study-item">' + activity.title + hhmm + '</div></div>';
-
-      }
-      else {
+        actsHTML +='<div class="activity-row '+activity.category+'"><div class="study-item">' + activity.title + hhmm + '</div></div>';
+    } else {
     actsHTML +=
     '<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
     '<div class="activity-time activity-item">' + hhmm + '</div>' +
@@ -807,16 +732,12 @@ showActivityList: function() {
     '</div>';
       }
   }
-  app.act_count.show();
+  // app.act_count.show();
   app.activity_list_div.html(actsHTML);
   $('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
-  app.activityAddPane.show();
-  app.activityListPane.show();
-  app.title.html(app.screens['home'].title);
-  app.footer_nav("home");
   app.updateNowTime();
   app.actClockDiv.hide();
-  app.showCatchupItem(); // overwrites app.title if catchup items exist
+  // app.showCatchupItem(); // overwrites app.title if catchup items exist
 },
 
 showCatchupItem: function() {
@@ -1148,7 +1069,19 @@ submitOther: function() {
     //     *h1234
     // 
     hhID = prev_activity.split("*h")[1];
-    if (!isNaN(hhID)) {
+    if (prev_activity == "*h"){
+        app.title.html("HH ID: " + localStorage.getItem('household_id'));
+    } else if (prev_activity == "*m"){
+        app.title.html("Meta ID: " + localStorage.getItem('metaID'));
+    } else if (prev_activity == "*v"){
+        app.title.html("Version: " + appVersion);
+    } else if (prev_activity == "*en"){
+        localStorage.setItem('language','en');
+        app.loadText();
+    } else if (prev_activity == "*de"){
+        localStorage.setItem('language','de');
+        app.loadText();
+    } else if (!isNaN(hhID)) {
         // h was followed by nothing but a number
         localStorage.removeItem('metaID');          // get new metaID
         localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
@@ -1160,16 +1093,18 @@ submitOther: function() {
         localStorage.setItem('householdSurvey', 'COMPLETE');
         localStorage.setItem('pass', 'AuthorisedByVitueOfBeingOneOfOurDevices');
         utils.save(SURVEY_STATUS, "survey root");   // reset individual survey
-        // app.imgStatus.attr("src","img/AR_4.png");
-        // app.imgStatus.show();
+
+        // our devices have no internet access...
+        app.screens['menu']['activities'][1] = "Blank";  // no access to HHQ
+        app.screens['menu']['activities'][2] = "Blank";  // no Activity pixels
+        app.screens['menu']['activities'][3] = "Blank";  // no profile
+
+        localStorage.setItem('AwaitAuthorisation', true);
+        app.imgStatus.hide();
+
         app.navigateTo("home", "ignore"); // ignore stops creation of new entry
         app.title.html("HH ID set to " + hhID);
-    } else if (prev_activity == "*en"){
-        localStorage.setItem('language','en');
-        app.loadText();
-    } else if (prev_activity == "*de"){
-        localStorage.setItem('language','de');
-        app.loadText();
+
     } else {
         app.navigateTo("other people", prev_activity);
     }
@@ -1190,24 +1125,44 @@ personaliseClick: function() { //Goes to the screen with the postcode input
     app.personaliseScreen.show();
     app.postcodeInput.show();
     app.btnSubmit.attr("onclick","app.submitPostcode()");
-    // document.getElementById('personalise_back').innerHTML = 'Do this later'; > Use Home
-    // app.back_btn_pers.attr("onclick","app.returnToMainScreen()");
     app.btnSubmit.html("Submit");
     }
 },
 
 returnToMainScreen: function() {
-  // reset what is visible
-  console.log("returning");
-  app.appScreen.show();
-  app.contact_screen.hide();
-  app.personaliseScreen.hide();
-  app.register_screen.hide();
-  app.iframe_enjoyment.hide();
-  app.iframe_profile.hide();
-  app.iframe_help.hide();
-  $("div#other-specify").hide();
-  app.statusCheck();
+  // restore what is shown and what is hidden on home screen
+  if (localStorage.getItem("consent") == null) {
+    app.divStatus.attr("onclick","");
+    app.lblStatus.html("");
+    app.consent.show();
+    app.appScreen.hide();
+  } else {
+    app.consent.hide();
+
+  // Hide / remove
+    $("div#progress_list_pane").hide();
+    app.choicesPane.hide();
+    $("div#other-specify").hide();
+    app.title.attr("onclick", "");
+    app.imgStatus.hide();
+    app.contact_screen.hide();
+    app.personaliseScreen.hide();
+    app.register_screen.hide();
+    app.iframe_enjoyment.hide();
+    app.iframe_profile.hide();
+    app.iframe_help.hide();
+    $("div#other-specify").hide();
+    
+  // Show
+    app.lblStatus.html("Menu");
+    app.divStatus.attr("onclick", "app.navigateTo('menu')");
+    app.appScreen.show();
+    app.header.show(); 
+    app.activityAddPane.show();
+    app.activityListPane.show();
+    app.footer_nav("home");
+    console.log("Home settings applied");
+  }
 },
 
 submitPostcode: function() {
@@ -1419,7 +1374,7 @@ showProfile: function() {
   if (localStorage.getItem('Online') == 'true') {
     var idMeta = localStorage.getItem('metaID');
     var profileURL = app.label.profileURL + idMeta;
-    app.title.html("Your electricity use"); 
+    app.header.hide(); 
     app.choicesPane.hide();
     app.iframe_profile.show(); 
     app.iframe_profile.attr('src', profileURL);
@@ -1432,10 +1387,15 @@ showProfile: function() {
 },
 
 showEnjoyment: function() {
-  if (localStorage.getItem('Online') == 'true') {
+  var activityList = utils.getList(ACTIVITY_LIST) || []
+  var actCount = Object.keys(activityList).length;
+  if (actCount == 0) {
+    app.title.html(app.label.noActivities);
+  }
+  else if (localStorage.getItem('Online') != null) {
     var idMeta = localStorage.getItem('metaID');
     var enjoymentURL = app.label.enjoymentURL + idMeta;
-    app.title.html("Your activities (coloured by enjoyment)"); 
+    app.header.hide(); 
     app.choicesPane.hide();
     app.iframe_enjoyment.show(); 
     app.iframe_enjoyment.attr('src', enjoymentURL);

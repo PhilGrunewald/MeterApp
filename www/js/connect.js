@@ -149,6 +149,7 @@ function checkForAddress(address) { //Checks whether address is in our database
                 // Trigger linking
                 linkHousehold();
                 // go home
+                app.title.html(app.label.addressLinked);
                 app.returnToMainScreen();
             } else if (response.split("#")[0]=="0 results") {
                 // no such household yet > sign up form
@@ -268,7 +269,7 @@ function getHHDateChoice() {
                 if (dateChoice != '2000-01-01') {         // default, i.e. no date chosen
                     var d = new Date(dateChoice); 
                     var today = new Date();
-                    if (d < today) {
+                    if (d > today) {
                         localStorage.setItem('dateChoice',dateChoice);
                         var d = new Date(dateChoice + 'T17:00:00'); // at 5pm
                         d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
@@ -285,7 +286,6 @@ function getHHDateChoice() {
                                 utils.saveList(ACTIVITY_LIST, activityList);
 
                                 console.log("Study date is set!");
-                                app.statusCheck();
                         }
                     } else {
                         // date is past
@@ -295,6 +295,7 @@ function getHHDateChoice() {
                     // no date was chosen
                     localStorage.removeItem('dateChoice'); // will keep checking
                 }
+            app.statusCheck();
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
@@ -310,25 +311,19 @@ function linkHousehold(hhID) {
         url: linkHouseholdURL,
         type: "POST",
         data: {household_id:hhID, metaID:localStorage.getItem('metaID')}, //send array of items
-        //data: {household_id:localStorage.getItem('household_id'), metaID:localStorage.getItem('metaID')}, //send array of items
         success: function(response) {
             if (response.split("#")[0]=="Success") { //to confirm whether data has been inserted
                 console.log("Succesfully uploaded!");
                 console.log(response);
-                localStorage.setItem('householdStatus', "LINKED"); //so we can determine that it has successfully linked
-                // localStorage.setItem('householdSurvey', "COMPLETE"); // we don't actually know this - benefit of the doubt...
+                localStorage.setItem('householdStatus', "LINKED"); // stops further attempts
                 app.statusCheck();
             } else {
-                localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
-                // localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
-                console.log("MySQL connection error" + response);
+                localStorage.removeItem('householdStatus'); // keep trying
             }
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
+        error: function(XMLHttpRequest, textStatus, errorThrown) { // for logging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
-            // localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
-            //alert("Check internet connectivity");
+            localStorage.removeItem('householdStatus'); // keep trying
         }
     });
 }
@@ -349,7 +344,7 @@ function checkAuthorisation() {
                 console.log("This meta ID is not authorised");
             }
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
+        error: function(XMLHttpRequest, textStatus, errorThrown) { // for logging
             console.log("error in checkAuthorisation");
         }
     });
@@ -369,7 +364,7 @@ function requestAutorisation() {
                 app.title.html("Autorisation requested. Please check the registered email.");
                 localStorage.setItem('AwaitAuthorisation', true);
                 $("div#other-specify").hide();
-
+                app.statusCheck();
             } else {
                 console.log("MySQL connection error" + response);
             }
@@ -397,7 +392,6 @@ function surveyUpload() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            //alert("Check internet connectivity");
         }
     });
 }
@@ -519,7 +513,7 @@ function connectionManager() {
             } 
             
             // Is device authorised?
-            if (localStorage.getItem('AwaitAuthorisation') == 'true') {
+            if (localStorage.getItem('AwaitAuthorisation') != null) {
                 checkAuthorisation();
             }
 
@@ -534,6 +528,9 @@ function connectionManager() {
     if (localStorage.getItem('intervention') != null) {
         checkInterventionExpired();
     } 
+    if (localStorage.getItem('sc') != null) {
+            localStorage.removeItem('AwaitAuthorisation'); 
+    }
 }
 
 
@@ -551,15 +548,15 @@ function receiveMessageIframe(message) {
     
     // Go Home (Nav bar)
     if (message.split("#")[0]=="Go home"){
-        app.returnToMainScreen();
         app.statusCheck();
+        app.returnToMainScreen();
     }
 
     // HH survey complete (hhq.php)
     if (message.split("#")[0]=="HH survey complete"){
-        app.returnToMainScreen();
         localStorage.setItem('householdSurvey', 'COMPLETE')
         app.statusCheck();
+        app.returnToMainScreen();
     }
 
     // Got date (date.php)
@@ -568,12 +565,11 @@ function receiveMessageIframe(message) {
         if (dateChoice != '2000-01-01') {         // default, i.e. no date chosen
             localStorage.setItem('dateChoice',dateChoice);
             console.log("Date set to this household " + dateChoice);
-            app.statusCheck();
         } else {
             localStorage.removeItem('dateChoice'); // will keep checking
         }
-        app.returnToMainScreen();
         app.statusCheck();
+        app.returnToMainScreen();
     }
 
     if (message.split("#")[0]=="Got Household ID"){
