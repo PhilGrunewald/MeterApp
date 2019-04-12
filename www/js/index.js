@@ -12,7 +12,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.0.9";
+var appVersion = "1.1.0";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -104,11 +104,8 @@ var app = {
     $('#help-contact-details').html(app.label.help.contactDetails);
 
     app.updateNowTime();
-    setInterval(function(){ app.updateNowTime(); }, 10000);
-        // 10 second clock update
+    setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
 
-    setInterval(function(){ app.statusCheck(); }, 3*60*60*1000);
-        // 3 hour update (needed for real idlers ?)
     }),
 
     $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
@@ -124,7 +121,6 @@ var app = {
 
   initialSetup: function() {
     utils.save(ACTIVITY_DATETIME, "same");
-
     app.actionButtons    = $('.btn-activity');
     app.activity_list_div= $('#activity-list');
     app.activityAddPane  = $('#activity_add_pane');
@@ -208,10 +204,11 @@ statusCheck: function() {
     app.consent.show();
     app.appScreen.hide();
   } else {
+    app.consent.hide();
     app.lblStatus.html("Menu");
-    app.divStatus.attr("onclick","app.personaliseClick()");
+    // app.divStatus.attr("onclick","app.personaliseClick()");
     app.divStatus.attr("onclick", "app.navigateTo('menu')");
-    app.imgStatus.show();
+    app.imgStatus.hide();
   }
 
   if (localStorage.getItem("survey root") == 'survey complete') {
@@ -237,7 +234,7 @@ statusCheck: function() {
                 var dtString = dtChoice.toLocaleDateString(app.label.locale, options);
                 app.activities['StudyDate']['caption'] = app.label.lblDate + dtString;
             } else {
-                app.activities['StudyDate']['caption'] = app.lable.lblPickDate;
+                app.activities['StudyDate']['caption'] = app.label.lblPickDate;
             }
         }
     }
@@ -305,6 +302,7 @@ updateStars: function() {
     app.imgStatus.attr("src","img/stars_1.png");
   }
   app.imgStatus.show();
+  app.lblStatus.html("");
 },
 
 updateNowTime: function() {
@@ -500,7 +498,6 @@ navigateTo: function(screen_id, prev_activity) {
 app.activityAddPane.hide();
 app.activityListPane.hide();
 
-
 app.iframe_enjoyment.hide(); 
 
 app.choicesPane.show();
@@ -513,6 +510,7 @@ console.log("Screen ID: " + screen_id);
 
 
 if (screen_id == "menu" ) {
+    app.lblStatus.html("Home");
     app.divStatus.attr("onclick", "app.showActivityList()");
 } else {
     app.divStatus.attr("onclick", "app.navigateTo('menu')");
@@ -1162,8 +1160,8 @@ submitOther: function() {
         localStorage.setItem('householdSurvey', 'COMPLETE');
         localStorage.setItem('pass', 'AuthorisedByVitueOfBeingOneOfOurDevices');
         utils.save(SURVEY_STATUS, "survey root");   // reset individual survey
-        app.imgStatus.attr("src","img/AR_4.png");
-        app.imgStatus.show();
+        // app.imgStatus.attr("src","img/AR_4.png");
+        // app.imgStatus.show();
         app.navigateTo("home", "ignore"); // ignore stops creation of new entry
         app.title.html("HH ID set to " + hhID);
     } else if (prev_activity == "*en"){
@@ -1208,6 +1206,7 @@ returnToMainScreen: function() {
   app.iframe_enjoyment.hide();
   app.iframe_profile.hide();
   app.iframe_help.hide();
+  $("div#other-specify").hide();
   app.statusCheck();
 },
 
@@ -1294,10 +1293,14 @@ populateAddressList: function(array) {
 },
 
 authorise: function() {
-  app.title.html(app.label.titleAuthorise);
-  $("input#free-text").val("");
-  $("div#btn-other-specify").attr("onclick", "requestAutorisation()");
-  app.navigateTo("name specify");
+  if (localStorage.getItem('Online') == "true"){
+    app.title.html(app.label.titleAuthorise);
+    $("input#free-text").val("");
+    $("div#btn-other-specify").attr("onclick", "requestAutorisation()");
+    app.navigateTo("name specify");
+  } else {
+    app.title.html(app.label.noInternet);
+  }
 },
 
 getDate: function() {
@@ -1310,7 +1313,7 @@ getDate: function() {
         requestAutorisation();
     } else {
         // date selection
-        console.log("Slave device > email");
+        console.log("Authorised device > date.php");
         var getDateURL = meterURL +  "date.php";
         var dateURL = getDateURL + "?hh=" +hh+ "&sc=" + sc
         console.log("Get date" + dateURL);
@@ -1407,11 +1410,9 @@ showHelp: function() {
     app.iframe_help.load(function(){
         sendMessageIframe("App requested help");
     });
-  } 
-    else
-    {
-   app.title.html("Please connect to the internet to see your profile"); 
-    }
+  } else {
+    app.title.html(app.label.noInternet);
+  }
 },
 
 showProfile: function() {
@@ -1425,11 +1426,9 @@ showProfile: function() {
     app.iframe_profile.load(function(){
         sendMessageIframe("App requested profile");
     });
-  } 
-    else
-    {
-   app.title.html("Please connect to the internet to see your profile"); 
-    }
+  } else {
+    app.title.html(app.label.noInternet);
+  }
 },
 
 showEnjoyment: function() {
@@ -1443,11 +1442,9 @@ showEnjoyment: function() {
     app.iframe_enjoyment.load(function(){
         sendMessageIframe("App requested enjoyment");
     });
-  } 
-    else
-    {
-   app.title.html("Please connect to the internet to see your activities"); 
-    }
+  } else {
+    app.title.html(app.label.noInternet);
+  }
 },
 
 givenConsent: function() {

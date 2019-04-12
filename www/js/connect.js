@@ -15,6 +15,7 @@ var insertContactDetails = meterURL + "insertContactDetails.php";
 
 
 setInterval(connectionManager, 10000); //Begin connecting to server on intervals , in ms (default 10s)
+setInterval(hourlyChecks, 60*60*1000); // less frequently needed checks (1 hour)
 
 window.onerror = function(message, source, lineNumber) {
     //This doesn't trigger on every error (unreliable)
@@ -48,8 +49,6 @@ function uploadActivities() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
-            //alert("Check internet connectivity");
         }
     });
 }
@@ -79,11 +78,6 @@ function requestMetaID(functionToExecuteNext){
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
-            if (localStorage.getItem("consent")==null) {
-            }/* else { //Dont want to alert if they are still on consent screen
-                alert("Please check your internet connection");
-            }*/
         }
     });
 }
@@ -132,7 +126,6 @@ function requestAddresses(postcode){ //Requesting from API (or really our PHP wh
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             app.personaliseClick();
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
             alert("Please check your internet connection");
         }
     });
@@ -173,7 +166,6 @@ function checkForAddress(address) { //Checks whether address is in our database
             console.log(errorThrown);
             console.log(textStatus);
 
-            localStorage.setItem('Online', false);
             alert("Please check your internet connection");
         }
     });
@@ -218,7 +210,6 @@ function checkHHIntervention() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
         }
     });
 }
@@ -308,7 +299,6 @@ function getHHDateChoice() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
         }
     });
 }
@@ -337,7 +327,6 @@ function linkHousehold(hhID) {
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
             localStorage.removeItem('householdStatus'); // tells connection manager that linking needs to be done
-            localStorage.setItem('Online', false);
             // localStorage.setItem('householdStatus', "NOTLINKED"); //so we can determine that it has successfully linked
             //alert("Check internet connectivity");
         }
@@ -362,7 +351,6 @@ function checkAuthorisation() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("error in checkAuthorisation");
-            localStorage.setItem('Online', false);
         }
     });
 }
@@ -379,6 +367,7 @@ function requestAutorisation() {
                 console.log("Email sent!");
                 console.log(response);
                 app.title.html("Autorisation requested. Please check the registered email.");
+                localStorage.setItem('AwaitAuthorisation', true);
                 $("div#other-specify").hide();
 
             } else {
@@ -387,7 +376,6 @@ function requestAutorisation() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
         }
     });
 }
@@ -409,7 +397,6 @@ function surveyUpload() {
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
             //alert("Check internet connectivity");
         }
     });
@@ -444,33 +431,30 @@ function submitContactInfo() {
             console.log(XMLHttpRequest);
             console.log(textStatus);
             console.log(errorThrown);
-            localStorage.setItem('Online', false);
         }
     });
 }
 
 function online() {
     // assume the worst - no internet
-    console.log("15");
+    var isOnline;
+    isOnline = true;
     var request;
-    request = $.ajax({ //Send request to php
+    request = $.ajax({ //Send request tisOnlinephp
         url: checkServerURL,
         type: "POST",
         success: function(response) {
             if (response == "Success") {
-                console.log("16");
-                o = true;
-            }
-            else {
-                console.log("17");
-                o = false;
+                // isOnline = true;
+                console.log("Online");
             }
         },
         error: function() {
-                o = false;
+            console.log("failed to check Onlineness");
+            isOnline = false;
         }
     });
-    return o;
+    return isOnline;
 }
 
 function checkServer() {
@@ -479,6 +463,33 @@ function checkServer() {
     } else {
        localStorage.removeItem('Online');
     }
+}
+
+function hourlyChecks() {
+
+    if (localStorage.getItem('Online') == "true"){
+            // Has a participation date been set?
+            if (localStorage.getItem('household_id') != null && localStorage.getItem('dateChoice') == null) {
+                getHHDateChoice();
+            } 
+
+            // Does this date come with an intervention?
+            if (localStorage.getItem('dateChoice') != null && localStorage.getItem('intervention') == null) {
+                checkHHIntervention();
+            } 
+
+            // Is device authorised?
+            if (localStorage.getItem('household_id') != null && localStorage.getItem('sc') == null) {
+                checkAuthorisation();
+            }
+
+            if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
+                //If there is at least one error to upload
+                uploadErrorMessages();
+                console.log("there are errors...");
+            }
+    }
+    app.statusCheck();
 }
 
 function connectionManager() {
@@ -507,26 +518,11 @@ function connectionManager() {
                 console.log("Linking household");
             } 
             
-            // Has a participation date been set?
-            if (localStorage.getItem('household_id') != null && localStorage.getItem('dateChoice') == null) {
-                getHHDateChoice();
-            } 
-
-            // Does this date come with an intervention?
-            if (localStorage.getItem('dateChoice') != null && localStorage.getItem('intervention') == null) {
-                checkHHIntervention();
-            } 
-
             // Is device authorised?
-            if (localStorage.getItem('household_id') != null && localStorage.getItem('sc') == null) {
+            if (localStorage.getItem('AwaitAuthorisation') == 'true') {
                 checkAuthorisation();
             }
 
-            if (localStorage.getItem("errorsToUpload")!=null && localStorage.getItem("errorsToUpload")!="") {
-                //If there is at least one error to upload
-                uploadErrorMessages();
-                console.log("there are errors...");
-            }
         }
     } else {
         console.log("Offline");
@@ -639,7 +635,6 @@ function uploadErrorMessages(){ //This sends errors to the SQL database
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
             console.log("Check server connection (to php): " + textStatus);
-            localStorage.setItem('Online', false);
         }
     });
 }
