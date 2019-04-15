@@ -231,9 +231,10 @@ statusCheck: function() {
     }
 },
 
-updateStars: function() {
-  activityList = utils.getList(ACTIVITY_LIST) || {};
-  var actCount = Object.keys(activityList).length;
+showStars: function() {
+  // activityList = utils.getList(ACTIVITY_LIST) || {};
+  // var actCount = Object.keys(activityList).length;
+  var actCount = localStorage.getItem('ActivityCount');
   if (actCount > 24) {
     app.imgStatus.attr("src","img/stars_5.png");
   } else if (actCount > 14) {
@@ -242,8 +243,10 @@ updateStars: function() {
     app.imgStatus.attr("src","img/stars_3.png");
   } else if (actCount > 4) {
     app.imgStatus.attr("src","img/stars_2.png");
-  } else {
+  } else if (actCount > 0) {
     app.imgStatus.attr("src","img/stars_1.png");
+  } else {
+    app.imgStatus.attr("src","img/stars_0.png");
   }
   app.imgStatus.show();
   app.lblStatus.html("");
@@ -351,7 +354,6 @@ navigateTo: function(screen_id, prev_activity) {
   // the button pressed had 'prev_activity' as its 'title'
   // next screen has the key 'screen_id'
   app.actClock.hide();
-
   app.catchup.hide();
   app.title.show();
 
@@ -444,18 +446,18 @@ console.log("Screen ID: " + screen_id);
 
 
 if (screen_id == "menu" ) {
+    app.imgStatus.hide();
     app.lblStatus.html("Home");
     app.divStatus.attr("onclick", "app.showActivityList()");
 
 }
 if (screen_id == "home" ) {
   // an entry has been completed (incl. via "Done");
-  if (prev_activity !== "ignore") {
-    app.addActivityToList();
-  }
+  app.addActivityToList();
   app.header.attr("onclick", "");
   app.title.removeClass("btn-box");
   app.showActivityList();
+  app.showStars();
   // in saveActivityPropertiesLocally home was repointed here to avoid loosing item when aborting change
   $("#nav-home").attr("onclick", "app.showActivityList()");
 } else
@@ -701,8 +703,6 @@ showActivityList: function() {
     weekday = thisWeekday;
     var activity    = app.activities[item.key];
 
-    console.log(activity);
-
     // special case for our own labels (Study starts/ends; Intervention starts/ends)
     if (activity.category == 'study' || activity.category == 'intervention') {
         actsHTML +='<div class="activity-row '+activity.category+'"><div class="study-item">' + activity.title + hhmm + '</div></div>';
@@ -805,7 +805,13 @@ addActivityToList: function() {
   // reset values
   utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
   utils.save(CURR_PEOPLE, "-1");
-  app.updateStars();
+
+  actCount = localStorage.getItem('ActivityCount');
+  if (actCount != null) {
+      localStorage.setItem('ActivityCount', parseInt(actCount) + 1)
+  } else {
+      localStorage.setItem('ActivityCount', 1)
+  }
 },
 
 
@@ -990,7 +996,7 @@ endActivity: function(actKey) {
     tuc_cat_title = tuc_cat_title.substring(0, tuc_cat_title.length - endStr.length);
     utils.save(CURR_ACTIVITY_ID,tuc_cat_title);
     app.deleteAct(actKey);
-    app.navigateTo("home"); // ignore stops creation of new entry
+    app.navigateTo("home"); 
   } else {
     // add end
     tuc_cat_title = tuc_cat_title + endStr;
@@ -1014,7 +1020,7 @@ deleteActivity: function(actKey) {
   app.act_path.push(app.activities['Delete activity'].ID);
   // set local variables as copy of this activity, then overwrite time
   app.deleteAct(actKey);
-  app.navigateTo("home", "ignore"); // ignore stops creation of new entry
+  app.showActivityList();
 },
 
 
@@ -1030,18 +1036,18 @@ submitEdit: function() {
   app.navigateTo("home");
 },
 
-    submitHHid: function() {
-        // h was followed by nothing but a number
-        var hhID = $("input#free-text").val();//.replace(/'/g, "\\'");
-        localStorage.removeItem('metaID');          // get new metaID
-        localStorage.setItem('household_id', hhID);
-        localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
-        linkHousehold(hhID);
+submitHHid: function() {
+    // h was followed by nothing but a number
+    var hhID = $("input#free-text").val();//.replace(/'/g, "\\'");
+    localStorage.removeItem('metaID');          // get new metaID
+    localStorage.setItem('household_id', hhID);
+    localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
+    linkHousehold(hhID);
 
-        localStorage.setItem('householdSurvey', 'COMPLETE');
-        app.navigateTo("home", "ignore"); // ignore stops creation of new entry
-        app.title.html("HH ID set to " + hhID);
-    },
+    localStorage.setItem('householdSurvey', 'COMPLETE');
+    app.returnToMainScreen();
+    app.title.html("HH ID set to " + hhID);
+},
 
 submitOther: function() {
   // includes special functionality to change language and link with hh (triggers new meta ID)
@@ -1086,7 +1092,7 @@ submitOther: function() {
         localStorage.setItem('AwaitAuthorisation', true);
         app.imgStatus.hide();
 
-        app.navigateTo("home", "ignore"); // ignore stops creation of new entry
+        app.returnToMainScreen();
         app.title.html("HH ID set to " + hhID);
 
     } else {

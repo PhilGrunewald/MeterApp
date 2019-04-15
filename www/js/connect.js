@@ -188,7 +188,7 @@ function checkHHIntervention() {
                 if (intervention > 0) { 
                     var d = new Date(date + 'T17:00:00'); // at 5pm
                     d.setDate(d.getDate() + 1);      // intervention on Day 2
-                    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+                    // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                     var itvID = utils.actID(d).substring(0,19);
                     localStorage.setItem('intervention',itvID);
                     var activityList = utils.getList(ACTIVITY_LIST);
@@ -219,7 +219,7 @@ function checkHHIntervention() {
 function checkDateChoiceExpired() {
     var dateChoice = localStorage.getItem('dateChoice');
     var d = new Date(dateChoice + 'T21:00:00'); // at 9pm
-    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+    // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
     d.setDate(d.getDate() + 1);      // end on Day 2 at 9pm
     var today = new Date();
     if (today > d) {
@@ -232,6 +232,7 @@ function checkDateChoiceExpired() {
                           };
         activityList[studyEndID] = actStudyEnd;
         utils.saveList(ACTIVITY_LIST, activityList);
+        localStorage.removeItem('StudyRunning');
         console.log("Study completed");
         app.statusCheck();
     }
@@ -239,8 +240,8 @@ function checkDateChoiceExpired() {
 
 function checkInterventionExpired() {
     var dt = localStorage.getItem('intervention');
-    var d = new Date(dt); // at 9pm
-    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+    var d = new Date(dt); 
+    // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
     d.setTime(d.getTime() + 2*60*1000);      // +2 hours end on Day 2 at 9pm
     var now = new Date();
     if (now > d) {
@@ -267,12 +268,10 @@ function getHHDateChoice() {
             if (response.split("#")[0]=="Got date") { //to confirm whether data has been inserted
                 var dateChoice = response.split("#")[1];
                 if (dateChoice != '2000-01-01') {         // default, i.e. no date chosen
-                    var d = new Date(dateChoice); 
-                    var today = new Date();
-                    if (d > today) {
+                    var now = new Date();
+                    var d = new Date(dateChoice + 'T17:00:00'); // at 5pm
+                    if (d > now) {
                         localStorage.setItem('dateChoice',dateChoice);
-                        var d = new Date(dateChoice + 'T17:00:00'); // at 5pm
-                        // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                         var studyID = utils.actID(d).substring(0,19);
 
                         if (studyID != localStorage.setItem('studyID',studyID)) {
@@ -289,7 +288,11 @@ function getHHDateChoice() {
                         }
                     } else {
                         // date is past
-                        console.log("Study date is outdated");
+                        if (localStorage.getItem('StudyRunning') == null) {
+                             localStorage.setItem('ActivityCount',0);
+                             localStorage.setItem('StudyRunning',true);
+                             console.log("Study is live");
+                        } 
                     }
                 } else {
                     // no date was chosen
