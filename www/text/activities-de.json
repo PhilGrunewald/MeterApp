@@ -2697,7 +2697,7 @@
         "Main other": {
             "ID": 9990,
             "caption": "Anpassen",
-            "category": "care_other",
+            "category": "other_category",
             "help": "Sag es in deinen eigenen Worten",
             "icon": "Other_type",
             "next": "other specify",
@@ -3274,6 +3274,7 @@
             "ID": 9990,
             "caption": "Weitere\u2026",
             "help": "Sag es in deinen eigenen Worten",
+            "category": "other_category",
             "icon": "Other_type",
             "next": "other specify",
             "title": "Anpassung (Benutzerdefinition)"

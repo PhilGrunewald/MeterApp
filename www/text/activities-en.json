@@ -2705,7 +2705,7 @@
         "Main other": {
             "ID": 9990,
             "caption": "Customise",
-            "category": "care_other",
+            "category": "other_category",
             "help": "Say in your own words",
             "icon": "Other_type",
             "next": "other specify",
@@ -3282,6 +3282,7 @@
             "ID": 9990,
             "caption": "Other...",
             "help": "Say in your own words",
+            "category": "other_category",
             "icon": "Other_type",
             "next": "other specify",
             "title": "Custom definition"

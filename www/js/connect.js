@@ -272,7 +272,7 @@ function getHHDateChoice() {
                     if (d > today) {
                         localStorage.setItem('dateChoice',dateChoice);
                         var d = new Date(dateChoice + 'T17:00:00'); // at 5pm
-                        d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+                        // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                         var studyID = utils.actID(d).substring(0,19);
 
                         if (studyID != localStorage.setItem('studyID',studyID)) {
