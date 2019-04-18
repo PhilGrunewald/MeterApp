@@ -10,3 +10,4 @@ MeterApp.komodoproject
 *.fla
 .gradle*
 aMeterAndroid.keystore
+notes.md
