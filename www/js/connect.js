@@ -39,12 +39,13 @@ function uploadActivities() {
         type: "POST",
         data: {dataArray:activitiesToUploadArray, metaID:localStorage.getItem('metaID')}, //send array of items
         success: function(response) {
-            if (response.split("#")[0]=="Success") { //to confirm whether data has been inserted
+            if (response.split("#")[0]=="Success") { 
+                // Warning: multi-activity upload (such as after a long time offline) only checks for the first "#Success', whereas the return string could be '#Success#Success#error#Success'
                 console.log("Succesfully uploaded!");
                 localStorage.setItem('activitiesToUpload', '');
                 //This removes the sent items from the current list (incase they add an activity whilst it's being sent)
             } else {
-                console.log("MySQL connection error" + response);
+                console.log("Response from " + insertActivity +":" + response);
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
