@@ -5,6 +5,7 @@
     "actListLabel": "Bitte mit der Umfrage anfangen",
     "addressLinked": "Danke.<br>Sie sind dabei.",
     "btnOther": "Fertig",
+    "btnCustomSave": "Speichern",
     "consentLabel": "<h2>Willkommen bei JoyMeter</h2> Teil einer Energieforschungsstudie der Uni M\u00fcnster und Oxford. Anonymisierte Daten werden zu Forschungszwecken benutzt.",
     "enjoymentURL": "http://energy-use.org/app/enjoyment.php?mID=",
     "profileURL": "http://energy-use.org/app/profile.php?mID=",
