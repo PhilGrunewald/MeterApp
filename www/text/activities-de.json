@@ -2696,7 +2696,7 @@
         },
         "Main other": {
             "ID": 9990,
-            "caption": "Anpassen",
+            "caption": "Selbst beschreiben",
             "category": "other_category",
             "help": "Sag es in deinen eigenen Worten",
             "icon": "Other_type",
@@ -5173,11 +5173,66 @@
         },
         "other": {
             "ID": 9991,
-            "caption": "Weitere",
-            "help": "Keine weitere Bestimmung der Zeitnutzung",
+            "caption": "Other",
+            "category": "skip",
+            "help": "Unspecified time use",
             "icon": "act2_skip",
             "next": "other people",
-            "title": "Keine weitere Bestimmung der Zeitnutzung"
+            "title": "Unspecified time use"
+        },
+        "C1": {
+            "ID": 9991,
+            "caption": "Frei",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "C1"
+        },
+        "C2": {
+            "ID": 9992,
+            "caption": "Frei",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "C2"
+        },
+        "C3": {
+            "ID": 9993,
+            "caption": "Frei",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "C3"
+        },
+        "C4": {
+            "ID": 9994,
+            "caption": "Frei",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "C4"
+        },
+        "C5": {
+            "ID": 9995,
+            "caption": "Frei",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "C5"
+        },
+        "custom skip": {
+            "ID": 9996,
+            "caption": "Weiter",
+            "help": "Nicht speichern",
+            "category": "custom",
+            "icon": "act2_skip",
+            "next": "other people",
+            "title": "Custom XXX"
         },
         "survey": {
             "ID": 90000,

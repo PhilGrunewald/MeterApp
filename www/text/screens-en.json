@@ -24,6 +24,30 @@
             "help": "at this moment",
             "title": "Main menu"
         },
+        "custom activities": {
+            "activities": [
+                "C1",
+                "C2",
+                "C3",
+                "C4",
+                "C5",
+                "custom skip"
+            ],
+            "help": "Where you can pick it up from.",
+            "title": "Redefine..."
+        },
+        "custom list": {
+            "activities": [
+                "C1",
+                "C2",
+                "C3",
+                "C4",
+                "C5",
+                "Main other"
+            ],
+            "help": "Create your own",
+            "title": "Select your own"
+        },
         "activity home": {
             "activities": [
                 "Personal",
@@ -31,8 +55,9 @@
                 "Work",
                 "Food",
                 "Get home",
-                "Main other"
+                "Custom list"
             ],
+            "taken out": "Main other",
             "help": "at this moment",
             "title": "Your activity"
         },
@@ -43,8 +68,9 @@
                 "Work",
                 "Food",
                 "Appliances",
-                "Main other"
+                "Custom list"
             ],
+            "taken out": "Main other",
             "help": "at this moment",
             "title": "Your activity"
         },
@@ -55,8 +81,9 @@
                 "Work",
                 "Food",
                 "Shopping and services",
-                "Main other"
+                "Custom list"
             ],
+            "taken out": "Main other",
             "help": "in a public place",
             "title": "Your activity"
         },
@@ -69,6 +96,7 @@
                 "Loc travelling",
                 "Loc other location"
             ],
+            "taken out": "Custom list",
             "help": "Your location.",
             "title": "Where are you at ${act_time}?"
         },
@@ -81,6 +109,7 @@
                 "Loc travelling",
                 "Loc other location"
             ],
+            "taken out": "Custom list",
             "help": "Your location.",
             "title": "Where are you at ${act_time}?"
         },
@@ -578,7 +607,7 @@
             "help": "",
             "title": "In nature"
         },
-        "other": {
+        "xxxother": {
             "activities": [
                 "Personal",
                 "Food",
@@ -633,8 +662,9 @@
                 "Loc travelling",
                 "Loc work",
                 "Nature",
-                "Loc other location"
+                "Custom list"
             ],
+            "taken out": "Loc other location",
             "help": "at this moment",
             "title": "Outdoors"
         },
@@ -941,8 +971,9 @@
                 "Travel foot",
                 "Travel bike",
                 "Travel purpose exercise",
-                "Travel other"
+                "Custom list"
             ],
+            "taken out": "Travel other",
             "help": "at this moment",
             "title": "Travel"
         },
@@ -1025,8 +1056,9 @@
                 "Volunteer work and meetings",
                 "Study",
                 "Working time in second job",
-                "Unspecified activities related to employment"
+                "Custom list"
             ],
+            "taken out":        "Unspecified activities related to employment",
             "help": "type of work",
             "title": "Working"
         },

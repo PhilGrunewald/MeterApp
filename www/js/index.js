@@ -90,6 +90,7 @@ var app = {
     $('#lblNext').html(app.label.lblNext);
     $('#lblDone').html(app.label.lblDone);
     $('#btn-other-specify').html(app.label.btnOther);
+    $('#btnCustomSave').html(app.label.btnCustomSave);
     $('#progress-authorise').html(app.label.Authorise)
     $('#progress1').html(app.label.progress1);
     $('#progress2').html(app.label.progress2);
@@ -111,6 +112,17 @@ var app = {
     $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
       console.log('loading activities-' + localStorage.getItem('language') + '.json');
       app.activities = data.activities;
+      if (localStorage.getItem("customActivities") != null) {
+          // custom activities have been assigned
+          // these overwrite the default activities
+          cActs = JSON.parse(localStorage.getItem("customActivities"));
+          for (act in cActs) {
+              cAct = cActs[act];
+              for (item in cAct) {
+                app.activities[act][item] = cActs[act][item];
+              }
+          }
+      }
       app.showActivityList();   // to show already reported activities at startup
       });
     $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
@@ -358,11 +370,32 @@ navigateTo: function(screen_id, prev_activity) {
   app.title.show();
 
   app.history.push(screen_id);                     // for 'back' functionality
+
   if (prev_activity !== undefined) {
     if (!(prev_activity in app.activities)) {    // previous activity is defined but not known (free text);
         title = prev_activity;
         prev_activity = "Other specify";
     } else {
+        if ((app.activities[prev_activity].category == "custom") && (localStorage.getItem("customCaption") != null)) {
+            // saveActivity was requested
+            // redefince this activity
+            app.activities[prev_activity].caption = localStorage.getItem("customCaption");
+            app.activities[prev_activity].title = localStorage.getItem("customCaption");
+
+            if (localStorage.getItem("customActivities") != null) {
+                var customJSON = JSON.parse(localStorage.getItem("customActivities"));
+            } else {
+                var customJSON = {};
+            }
+            customJSON[prev_activity] = {
+                "caption": localStorage.getItem("customCaption"), 
+                "title": localStorage.getItem("customCaption"),
+                "icon": "act2_customised"
+            };
+            app.activities[prev_activity].icon = "act2_customised";
+            localStorage.setItem("customActivities", JSON.stringify(customJSON));
+            localStorage.removeItem("customCaption");
+        }
         title = app.activities[prev_activity].title;
     }
     tuc = app.activities[prev_activity].ID;
@@ -376,11 +409,14 @@ navigateTo: function(screen_id, prev_activity) {
     //
     //******************************
 
+
     
     // Is Time Use activity entry
     if (tuc < TIMEUSE_MAX) {
-      utils.save(CURR_ACTIVITY, prev_activity);
-      utils.save(CURR_ACTIVITY_ID, [tuc,category,title].join()); // 
+        if (app.activities[prev_activity].category != "skip") {
+            utils.save(CURR_ACTIVITY, prev_activity);
+            utils.save(CURR_ACTIVITY_ID, [tuc,category,title].join()); // 
+        }
       app.footer_nav("done");
     }
     
@@ -1049,6 +1085,13 @@ submitHHid: function() {
     app.title.html("HH ID set to " + hhID);
 },
 
+saveActivity: function(key) {
+  $("div#other-specify").hide();
+  localStorage.setItem("customCaption", $("input#free-text").val());
+  var prev_activity = $("input#free-text").val();
+  app.navigateTo("custom activities", prev_activity);
+},
+
 submitOther: function() {
   // includes special functionality to change language and link with hh (triggers new meta ID)
   $("div#other-specify").hide();
@@ -1077,6 +1120,7 @@ submitOther: function() {
         localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
         linkHousehold(hhID);
         localStorage.removeItem('intervention'); // to be rechecked 
+        localStorage.removeItem('customActivities'); // these are personal
         localStorage.removeItem('sc'); // to be rechecked 
         utils.saveList(ACTIVITY_LIST, {});          // DELETE all activities from device
         localStorage.setItem('household_id', hhID);

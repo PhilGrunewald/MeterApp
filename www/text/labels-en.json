@@ -5,6 +5,7 @@
     "actListLabel": "Start with the Survey above",
     "addressLinked": "Thank you.<br> You are good to go.",
     "btnOther": "Done",
+    "btnCustomSave": "Save",
     "consentLabel": "<h2>Welcome to JoyMeter</h2> part of the University of Oxford Meter Study on UK electricity use. The anonymous data you provide will be used for research.",
     "enjoymentURL": "http://energy-use.org/app/enjoyment.php?mID=",
     "profileURL": "http://energy-use.org/app/profile.php?mID=",

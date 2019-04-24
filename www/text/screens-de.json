@@ -24,6 +24,30 @@
             "help": "at this moment",
             "title": "Main menu"
         },
+        "custom activities": {
+            "activities": [
+                "C1",
+                "C2",
+                "C3",
+                "C4",
+                "C5",
+                "custom skip"
+            ],
+            "help": "Wo soll dies gespeichert werden?",
+            "title": "Überschreiben auf ..."
+        },
+        "custom list": {
+            "activities": [
+                "C1",
+                "C2",
+                "C3",
+                "C4",
+                "C5",
+                "Main other"
+            ],
+            "help": "Selbst angepaßt",
+            "title": "Personalisiert:"
+        },
         "activity home": {
             "activities": [
                 "Personal",
@@ -31,8 +55,9 @@
                 "Work",
                 "Food",
                 "Get home",
-                "Main other"
+                "Custom list"
             ],
+            "taken out": "Main other",
             "help": "in diesem Moment",
             "title": "Ihre Aktivit\u00e4t"
         },
@@ -43,8 +68,9 @@
                 "Work",
                 "Food",
                 "Appliances",
-                "Main other"
+                "Custom list"
             ],
+            "taken out": "Main other",
             "help": "in diesem Moment",
             "title": "Ihre Aktivit\u00e4t"
         },
@@ -55,8 +81,9 @@
                 "Work",
                 "Food",
                 "Shopping and services",
-                "Main other"
+                "Custom list"
             ],
+            "taken out": "Main other",
             "help": "Ausserhalb",
             "title": "Ihre Aktivit\u00e4t"
         },
@@ -69,6 +96,7 @@
                 "Loc travelling",
                 "Loc other location"
             ],
+            "taken out": "Custom list",
             "help": "Ihr Ort",
             "title": "Wo sind Sie um ${act_time}?"
         },
@@ -81,6 +109,7 @@
                 "Loc travelling",
                 "Loc other location"
             ],
+            "taken out": "Custom list",
             "help": "Ihr Ort",
             "title": "Wo sind Sie um ${act_time}?"
         },
@@ -645,8 +674,9 @@
                 "Loc travelling",
                 "Loc work",
                 "Nature",
-                "Loc other location"
+                "Custom list"
             ],
+            "taken out": "Loc other location",
             "help": "Gerade jetzt",
             "title": "Draußen"
         },
@@ -1037,8 +1067,9 @@
                 "Volunteer work and meetings",
                 "Study",
                 "Working time in second job",
-                "Unspecified activities related to employment"
+                "Custom list"
             ],
+            "taken out":        "Unspecified activities related to employment",
             "help": "Was für eine Arbeit",
             "title": "Arbeit"
         },
