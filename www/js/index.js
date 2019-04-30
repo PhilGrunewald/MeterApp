@@ -12,7 +12,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.1.1";
+var appVersion = "1.1.2";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -123,7 +123,8 @@ var app = {
               }
           }
       }
-      app.showActivityList();   // to show already reported activities at startup
+      app.showActivityList();   // to update from records
+      app.returnToMainScreen(); // to refresh what is shown and hidden
       });
     $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
       console.log('loading screens-' + localStorage.getItem('language') + '.json');
@@ -225,20 +226,34 @@ statusCheck: function() {
             } else {
                 app.screens['menu']['activities'][1] = "AuthoriseWait";
                 app.activities['ElectricityProfile']['next'] = "app.authorise()";
+                app.activities['StudyDate']['next'] = "app.authorise();";
             }
         } else {
-            app.screens['menu']['activities'][1] = "HouseholdSurvey";
-            app.screens['menu']['activities'][4] = "StudyDate";
-
-            if (dateChoice != null) {
-                // show date in menu
-                var dtChoice  = new Date(dateChoice);
-                var options = { day: 'numeric', month: 'short'};
-                var dtString = dtChoice.toLocaleDateString(app.label.locale, options);
-                app.activities['StudyDate']['caption'] = app.label.lblDate + dtString;
+            if (localStorage.getItem('pass') == null) {
+                // authorised - but not by us
+                app.screens['menu']['activities'][1] = "HouseholdSurvey";
+                app.screens['menu']['activities'][4] = "StudyDate";
+                app.activities['ElectricityProfile']['next'] = "app.showProfile()";
+                app.activities['StudyDate']['next'] = "app.getDate();";
             } else {
-                app.activities['StudyDate']['caption'] = app.label.lblPickDate;
+                // one of our devices
+                app.screens['menu']['activities'][1] = "Blank";  // no access to HHQ
+                app.screens['menu']['activities'][2] = "Blank";  // no Activity pixels
+                app.screens['menu']['activities'][3] = "Blank";  // no profile
+                app.screens['menu']['activities'][5] = "Blank";  // no help
+                app.activities['StudyDate']['next'] = "";
             }
+        }
+
+        // date choice can be shown (but not changed) without authorisation
+        if (dateChoice != null) {
+            // show date in menu
+            var dtChoice  = new Date(dateChoice);
+            var options = { day: 'numeric', month: 'short'};
+            var dtString = dtChoice.toLocaleDateString(app.label.locale, options);
+            app.activities['StudyDate']['caption'] = app.label.lblDate + dtString;
+        } else {
+            app.activities['StudyDate']['caption'] = app.label.lblPickDate;
         }
     }
 },
@@ -515,7 +530,6 @@ if (screen_id == "activity root") {
   app.actClockDiv.hide();
   app.header.attr("onclick", "");
   app.title.removeClass("btn-box");
-  $("div#btn-other-specify").attr("onclick", "app.submitOther()");
   // SPECIAL CASE for 'getting home'
   // if last location was not home, go to screen 'activity root away', which will have an option to 'arrive home'
   if (utils.get(CURR_LOCATION) != 1) {
@@ -523,19 +537,27 @@ if (screen_id == "activity root") {
   }
 
 } else
-if (screen_id == "other specify" || screen_id == "name specify") {     // display text edit field
+if (screen_id == "other specify" || screen_id == "name specify" || screen_id == "other specify household ID") {     // display text edit field
   console.log("Free text screen");
   $("div#other-specify").show();
   app.footerNav.hide();
   app.choicesPane.hide();
-} else
-if (screen_id == "other specify household ID") {     // display text edit field
-  console.log("Get HH id from user as free text");
-  $("div#btn-other-specify").attr("onclick", "app.submitHHid()");
-  $("input#free-text").val("");
-  $("div#other-specify").show();
-  app.footerNav.hide();
-  app.choicesPane.hide();
+    if (screen_id == "name specify") {
+        // requesting authorisation (no Save option)
+        $("input#free-text").val("");
+        $("div#btn-other-specify").html(app.label.requestAuthorisation);
+        $("div#btnCustomSave").hide();
+    } else if (screen_id == "other specify household ID"){
+        // specifying a HH id (no save)
+        $("div#btn-other-specify").attr("onclick", "app.submitHHid()");
+        $("input#free-text").val("");
+        $("div#other-specify").show();
+    } else {
+        // standard custom entry with save option
+        $('#btn-other-specify').html(app.label.btnOther);
+        $("div#btn-other-specify").attr("onclick", "app.submitOther()");
+        $("div#btnCustomSave").show();
+    }
 } else
 if (screen_id == "survey root") {
   // an entry is still in the middle of completion
@@ -726,7 +748,7 @@ showActivityList: function() {
     var key = actKeys[i];
     var item = activityList[key];
     var dt  = new Date(item.dt_activity.replace(" ","T"))
-    // dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
+    dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
     var options = { hour: 'numeric', minute: '2-digit' };
     var hhmm = dt.toLocaleString(app.label.locale, options);
@@ -1073,8 +1095,8 @@ submitEdit: function() {
 },
 
 submitHHid: function() {
-    // h was followed by nothing but a number
-    var hhID = $("input#free-text").val();//.replace(/'/g, "\\'");
+    // Special submission case for non UK participants via HH id
+    var hhID = $("input#free-text").val();
     localStorage.removeItem('metaID');          // get new metaID
     localStorage.setItem('household_id', hhID);
     localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
@@ -1127,15 +1149,17 @@ submitOther: function() {
         localStorage.setItem('householdSurvey', 'COMPLETE');
         localStorage.setItem('pass', 'AuthorisedByVitueOfBeingOneOfOurDevices');
         utils.save(SURVEY_STATUS, "survey root");   // reset individual survey
-
+        $("input#free-text").val("");               // hide value from next entry
         // our devices have no internet access...
         app.screens['menu']['activities'][1] = "Blank";  // no access to HHQ
         app.screens['menu']['activities'][2] = "Blank";  // no Activity pixels
         app.screens['menu']['activities'][3] = "Blank";  // no profile
+        app.screens['menu']['activities'][5] = "Blank";  // no help
 
         localStorage.setItem('AwaitAuthorisation', true);
         app.imgStatus.hide();
 
+        app.loadText();
         app.returnToMainScreen();
         app.title.html("HH ID set to " + hhID);
 
@@ -1165,15 +1189,21 @@ personaliseClick: function() { //Goes to the screen with the postcode input
 
 returnToMainScreen: function() {
   // restore what is shown and what is hidden on home screen
+  hourlyChecks();
   if (localStorage.getItem("consent") == null) {
-    app.divStatus.attr("onclick","");
-    app.lblStatus.html("");
-    app.consent.show();
-    app.appScreen.hide();
-  } else {
-    app.consent.hide();
+    app.divStatus.attr("onclick","app.returnToMainScreen()");
+    app.lblStatus.html(app.label.consent);
 
+    $('#consentLabel').html(app.label.consentLabel);
+    $("#dataPolicyButton").show();
+    app.consent.show();
+    $("#consent_frame").hide(); 
+    app.iframe_consent.hide();
+    app.appScreen.hide();
+
+  } else {
   // Hide / remove
+    app.consent.hide();
     $("div#progress_list_pane").hide();
     app.choicesPane.hide();
     $("div#other-specify").hide();
@@ -1196,6 +1226,8 @@ returnToMainScreen: function() {
     app.activityListPane.show();
     app.footer_nav("home");
     console.log("Home settings applied");
+
+
   }
 },
 
@@ -1383,8 +1415,11 @@ showPolicy: function() {
   app.iframe_consent.load(function(){
     sendMessageIframe("App requested data policy");
   });
+  app.consent.show();
   app.consent.height("90%"); // for some reason the screen reduced to 50% or less
+  $("#consent_frame").show(); 
   $("#consent_frame").height("90%"); // for some reason the screen reduced to 50% or less
+  $("#iframe_consent").show();
   $("#iframe_consent").height("90%"); // for some reason the screen reduced to 50% or less
 },
 
@@ -1408,6 +1443,7 @@ showProfile: function() {
   if (localStorage.getItem('Online') == 'true') {
     var idMeta = localStorage.getItem('metaID');
     var profileURL = app.label.profileURL + idMeta;
+    console.log("URL:" + profileURL);
     app.header.hide(); 
     app.choicesPane.hide();
     app.iframe_profile.show(); 
@@ -1445,7 +1481,7 @@ givenConsent: function() {
   localStorage.setItem("consent", 1);
   app.consent.hide();
   app.appScreen.show();
-  app.statusCheck();
+  app.showActivityList();
 },
 
 };
