@@ -177,12 +177,11 @@ function checkForAddress(address) { //Checks whether address is in our database
 function checkHHIntervention() {
     var request;
     var date = localStorage.getItem('dateChoice');
-    var sc   = localStorage.getItem('sc');
     var hhID = localStorage.getItem('household_id');
     request = $.ajax({ //Send request to php
         url: getIntervention,
         type: "POST",
-        data: {hhID:hhID,date:date,sc:sc},
+        data: {hhID:hhID,date:date},
         success: function(response) {
             if (response.split("#")[0]=="Got intervention") {
                 var intervention = response.split("#")[1];
@@ -192,7 +191,7 @@ function checkHHIntervention() {
                     d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                     var itvID = utils.actID(d).substring(0,19);
                     localStorage.setItem('intervention',itvID);
-                    var activityList = utils.getList(ACTIVITY_LIST);
+                    var activityList = utils.getList(ACTIVITY_LIST) || {};
                     var actIntStart = {
                                        'dt_activity': utils.getDateForSQL(d), 
                                        'key': 'intervention',
@@ -226,7 +225,7 @@ function checkDateChoiceExpired() {
     if (today > d) {
         localStorage.removeItem('dateChoice');
         var studyEndID = utils.actID(d).substring(0,19);
-        var activityList = utils.getList(ACTIVITY_LIST);
+        var activityList = utils.getList(ACTIVITY_LIST) || {};
         var actStudyEnd = {
                            'dt_activity': utils.getDateForSQL(d), 
                            'key': 'study end',
@@ -248,7 +247,7 @@ function checkInterventionExpired() {
     if (now > d) {
         localStorage.removeItem('intervention');
         var interventionEndID = utils.actID(d).substring(0,19);
-        var activityList = utils.getList(ACTIVITY_LIST);
+        var activityList = utils.getList(ACTIVITY_LIST) || {};
         var interventionEnd = { 'dt_activity': utils.getDateForSQL(d), 
                            'key': 'intervention end',
                           };
@@ -277,16 +276,16 @@ function getHHDateChoice() {
                         var studyID = utils.actID(d).substring(0,19);
 
                         if (studyID != localStorage.setItem('studyID',studyID)) {
-                                // study date changed / is new
-                                localStorage.setItem('studyID',studyID);
-                                var activityList = utils.getList(ACTIVITY_LIST);
-                                var actStudyStart = { 'dt_activity': utils.getDateForSQL(d), 
-                                                     'key': 'study'
-                                                    };
-                                activityList[studyID] = actStudyStart;
-                                utils.saveList(ACTIVITY_LIST, activityList);
+                            // study date changed / is new
+                            localStorage.setItem('studyID',studyID);
+                            var activityList = utils.getList(ACTIVITY_LIST) || {};
+                            var actStudyStart = { 'dt_activity': utils.getDateForSQL(d), 
+                                                 'key': 'study'
+                                                };
+                            activityList[studyID] = actStudyStart;
+                            utils.saveList(ACTIVITY_LIST, activityList);
 
-                                console.log("Study date is set!");
+                            console.log("Study date is set!");
                         }
                     } else {
                         // date is past

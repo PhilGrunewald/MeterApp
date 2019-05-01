@@ -12,7 +12,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.1.2";
+var appVersion = "1.1.3";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -221,8 +221,10 @@ statusCheck: function() {
         app.screens['menu']['activities'][1] = "Register";
     } else {
         if (sc == null) {
-            if (waitForAuthorisation != null) {
-
+            if (waitForAuthorisation == null) {
+                app.screens['menu']['activities'][1] = "Authorise";
+                app.activities['ElectricityProfile']['next'] = "app.authorise()";
+                app.activities['StudyDate']['next'] = "app.authorise();";
             } else {
                 app.screens['menu']['activities'][1] = "AuthoriseWait";
                 app.activities['ElectricityProfile']['next'] = "app.authorise()";
