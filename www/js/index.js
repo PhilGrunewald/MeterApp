@@ -12,7 +12,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.1.3";
+var appVersion = "1.1.993";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -440,7 +440,7 @@ navigateTo: function(screen_id, prev_activity) {
     // Is TIME setting
     else if (tuc > ACTIVITY_TIME_MIN && tuc < ACTIVITY_TIME_MAX) {
       var offset = app.activities[prev_activity].value * 60000;
-      var dt_activity = utils.get(ACTIVITY_DATETIME).replace(" ","T");
+      var dt_activity = utils.get(ACTIVITY_DATETIME);// .replace(" ","T");
       var dt_activity2 = new Date(dt_activity);
       var dt_activity3 = new Date(dt_activity2.getTime() +offset).toISOString();
       utils.save(ACTIVITY_DATETIME, dt_activity3);
@@ -749,8 +749,9 @@ showActivityList: function() {
   for (i = actLength-1; i > -1; i--) {
     var key = actKeys[i];
     var item = activityList[key];
-    var dt  = new Date(item.dt_activity.replace(" ","T"))
-    dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
+    var dt  = new Date(item.dt_activity)
+    // var dt  = new Date(item.dt_activity.replace(" ","T"))
+    // dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
     var options = { hour: 'numeric', minute: '2-digit' };
     var hhmm = dt.toLocaleString(app.label.locale, options);
@@ -782,53 +783,8 @@ showActivityList: function() {
   $('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
   app.updateNowTime();
   app.actClockDiv.hide();
-  // app.showCatchupItem(); // overwrites app.title if catchup items exist
 },
 
-showCatchupItem: function() {
-  // test for catchup items in list and display if applies
-  // drop (shift) catchup items more than 8 ours old
-  if (Date(catchupList[0]) in window) { //If this variable exists (otherwise we get an error);
-    while ((new Date() - new Date(catchupList[0])) > (8*60*60*1000)) {
-      catchupList.shift();
-      if (!catchupList.length) {
-        break;
-      }
-    }
-  }
-
-  // find most recent item that is in the past (starting from the back);
-  var catchupIndex = catchupList.length-1;
-  while (new Date() < new Date(catchupList[catchupIndex])) {
-    catchupIndex -= 1;
-    if (catchupIndex < 0) { break;}
-  }
-
-  // show specific time in title
-  if (catchupIndex > -1) {
-    var hh= parseInt(catchupList[catchupIndex].slice(11,13));
-    var mm= parseInt(catchupList[catchupIndex].slice(14,16));
-    var strTime = utils.formatAMPM(hh,mm);
-    app.catchup.html(" at "+ strTime +"? <img src=\"img/AR_"+ (parseInt(catchupIndex)+1) +".png\">");
-    app.catchup.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
-    app.catchup.show();
-    app.title.attr("onclick", "app.catchupActivity('"+catchupIndex+"')");
-  } else {
-    app.title.html(app.screens['home'].title);
-    app.actClock.hide();
-    app.catchup.hide();
-    app.title.show();
-  }
-},
-
-
-catchupActivity: function(catchupIndex) {
-  // takes the 'catchupTime' before navigate to activity selection
-  var catchupTime = catchupList[catchupIndex];
-  utils.save(ACTIVITY_DATETIME, catchupTime);
-  catchupList.splice(catchupIndex,1); // remove this catchup request
-  app.navigateTo('activity root');
-},
 
 
 addActivityToList: function() {
@@ -838,7 +794,7 @@ addActivityToList: function() {
   if (utils.get(ACTIVITY_DATETIME) == "same") {
     dt_act = dt_recorded;
   } else {
-    dt_act = new Date(utils.get(ACTIVITY_DATETIME).replace(" ","T"));
+    dt_act = new Date(utils.get(ACTIVITY_DATETIME));// .replace(" ","T"));
   }
 
   var actID = utils.actID(dt_act);
@@ -900,7 +856,11 @@ editActivityScreen: function (actKey) {
   // instead of "next screen", onclick() points to specific functions
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var item = activityList[actKey];
-  app.title.html(utils.extractTimeStr(item.dt_activity) + ": " + item.activity);
+  var hh = new Date(item.dt_activity).getHours();
+  var mm = new Date(item.dt_activity).getMinutes();
+  mm = mm < 10 ? '0'+mm : mm;
+  app.title.html(hh + ":" + mm + ": " + item.activity);
+
   var screen_ = app.screens["edit activity"];
   for (i = 0; i < screen_.activities.length; i++) {
     var activity_id = screen_.activities[i];
@@ -932,10 +892,11 @@ saveActivityPropertiesLocally: function(actKey) {
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var thisAct = activityList[actKey];
   // var dtAct   = new Date(actKey.substring(0,19));
-  var dtAct   = new Date(thisAct.dt_activity.replace(" ","T"));
-  dtAct.setTime( dtAct.getTime() - dtAct.getTimezoneOffset()*60*1000 );
+  var dtAct   = new Date(thisAct.dt_activity);
+  // var dtAct   = new Date(thisAct.dt_activity.replace(" ","T"));
+  // dtAct.setTime( dtAct.getTime() - dtAct.getTimezoneOffset()*60*1000 );
 
-  utils.save(ACTIVITY_DATETIME, utils.getUTCDateForSQL(dtAct));
+  utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(dtAct));
   utils.save(CURR_ACTIVITY, thisAct.key);
   utils.save(CURR_ACTIVITY_ID, [thisAct.tuc, thisAct.category, thisAct.activity].join());
   utils.save(CURR_LOCATION, thisAct.location);

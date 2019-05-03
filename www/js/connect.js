@@ -186,9 +186,9 @@ function checkHHIntervention() {
             if (response.split("#")[0]=="Got intervention") {
                 var intervention = response.split("#")[1];
                 if (intervention > 0) { 
-                    var d = new Date(date + 'T17:00:00'); // at 5pm
+                    var d = new Date(date + ' 17:00:00'); // at 5pm
                     d.setDate(d.getDate() + 1);      // intervention on Day 2
-                    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+                    // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                     var itvID = utils.actID(d).substring(0,19);
                     localStorage.setItem('intervention',itvID);
                     var activityList = utils.getList(ACTIVITY_LIST) || {};
@@ -269,8 +269,8 @@ function getHHDateChoice() {
                 var dateChoice = response.split("#")[1];
                 if (dateChoice != '2000-01-01') {         // default, i.e. no date chosen
                     var now = new Date();
-                    var d = new Date(dateChoice + 'T17:00:00'); // at 5pm
-                    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+                    var d = new Date(dateChoice + ' 17:00:00'); // at 5pm
+                    // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                     if (d > now) {
                         localStorage.setItem('dateChoice',dateChoice);
                         var studyID = utils.actID(d).substring(0,19);
