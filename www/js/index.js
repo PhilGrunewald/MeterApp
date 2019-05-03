@@ -12,7 +12,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.1.993";
+var appVersion = "1.1.4";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -439,11 +439,10 @@ navigateTo: function(screen_id, prev_activity) {
     
     // Is TIME setting
     else if (tuc > ACTIVITY_TIME_MIN && tuc < ACTIVITY_TIME_MAX) {
-      var offset = app.activities[prev_activity].value * 60000;
-      var dt_activity = utils.get(ACTIVITY_DATETIME);// .replace(" ","T");
-      var dt_activity2 = new Date(dt_activity);
-      var dt_activity3 = new Date(dt_activity2.getTime() +offset).toISOString();
-      utils.save(ACTIVITY_DATETIME, dt_activity3);
+      var offset = app.activities[prev_activity].value;
+      var dt_activity = utils.getDate(utils.get(ACTIVITY_DATETIME));
+      dt_activity.setMinutes(dt_activity.getMinutes() + offset);
+      utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(dt_activity));
     }
     
     //  LOCATION
@@ -517,9 +516,9 @@ if (screen_id == "home" ) {
 if (screen_id == "activity time relative") {
   // pressed "recently" button - relative time entry followed by "activity root"
   // unlike "adjust time" which is triggered by "edit activity"
-  var dt_ = Date.now();
-  var dt_ = new Date(dt_).toISOString();
-  utils.save(ACTIVITY_DATETIME, dt_);
+  // XXX 3 May 2019 : var dt_ = Date.now();
+  var dt_ = new Date();//.toISOString();
+  utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(dt_));
   utils.format("${rel_time}")
   app.footer_nav("next");
   app.header.attr("onclick", "app.navigateTo('activity root')");
@@ -749,7 +748,7 @@ showActivityList: function() {
   for (i = actLength-1; i > -1; i--) {
     var key = actKeys[i];
     var item = activityList[key];
-    var dt  = new Date(item.dt_activity)
+    var dt  = utils.getDate(item.dt_activity)
     // var dt  = new Date(item.dt_activity.replace(" ","T"))
     // dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
@@ -794,7 +793,7 @@ addActivityToList: function() {
   if (utils.get(ACTIVITY_DATETIME) == "same") {
     dt_act = dt_recorded;
   } else {
-    dt_act = new Date(utils.get(ACTIVITY_DATETIME));// .replace(" ","T"));
+    dt_act = utils.getDate(utils.get(ACTIVITY_DATETIME));// .replace(" ","T"));
   }
 
   var actID = utils.actID(dt_act);
@@ -856,8 +855,8 @@ editActivityScreen: function (actKey) {
   // instead of "next screen", onclick() points to specific functions
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var item = activityList[actKey];
-  var hh = new Date(item.dt_activity).getHours();
-  var mm = new Date(item.dt_activity).getMinutes();
+  var hh = utils.getDate(item.dt_activity).getHours();
+  var mm = utils.getDate(item.dt_activity).getMinutes();
   mm = mm < 10 ? '0'+mm : mm;
   app.title.html(hh + ":" + mm + ": " + item.activity);
 
@@ -892,7 +891,7 @@ saveActivityPropertiesLocally: function(actKey) {
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var thisAct = activityList[actKey];
   // var dtAct   = new Date(actKey.substring(0,19));
-  var dtAct   = new Date(thisAct.dt_activity);
+  var dtAct   = utils.getDate(thisAct.dt_activity);
   // var dtAct   = new Date(thisAct.dt_activity.replace(" ","T"));
   // dtAct.setTime( dtAct.getTime() - dtAct.getTimezoneOffset()*60*1000 );
 
@@ -920,8 +919,8 @@ repeatActivityNow: function(actKey) {
   // XXX no longer used
   // set local variables as copy of this activity, then overwrite time
   app.saveActivityPropertiesLocally(actKey);
-  var thisTime = new Date().toISOString();
-  utils.save(ACTIVITY_DATETIME, thisTime);
+  var thisTime = new Date();//.toISOString();
+  utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(thisTime));
   app.act_path.push(app.activities['Repeat activity now'].ID);
   app.navigateTo("home");
 },
@@ -948,8 +947,8 @@ repeatActivityRecently: function(actKey) {
   app.act_path.push(app.activities['Repeat activity recently'].ID);
 
   // default is 'now'
-  var thisTime = new Date().toISOString();
-  utils.save(ACTIVITY_DATETIME, thisTime);
+  var thisTime = new Date();//.toISOString();
+  utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(thisTime));
   app.footer_nav("done");
   app.header.attr("onclick", "app.navigateTo('other people')");
   app.title.addClass("btn-box");
@@ -1024,8 +1023,8 @@ endActivity: function(actKey) {
     utils.save(CURR_ACTIVITY_ID,tuc_cat_title);
 
     // set recording time
-    var thisTime = new Date().toISOString();
-    utils.save(ACTIVITY_DATETIME, thisTime);
+    var thisTime = new Date();//.toISOString();
+    utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(thisTime));
 
     // get time when it ended
     app.footer_nav("done");

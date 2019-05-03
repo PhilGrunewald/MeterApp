@@ -139,11 +139,11 @@
         },
         "activity time relative": {
             "activities": [
-                "-10min",
+                "-5min",
                 "+5min",
-                "-30min",
-                "+15min",
-                "-120min",
+                "-20min",
+                "+20min",
+                "-60min",
                 "+60min"
             ],
             "help": "Press DONE when time is right",
@@ -151,11 +151,11 @@
         },
         "adjust time": {
             "activities": [
-                "-10min",
+                "-5min",
                 "+5min",
-                "-30min",
-                "+15min",
-                "-120min",
+                "-20min",
+                "+20min",
+                "-60min",
                 "+60min"
             ],
             "help": "Press DONE when time is right",

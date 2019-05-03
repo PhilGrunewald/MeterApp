@@ -132,6 +132,15 @@
             "title": "activity time",
             "value": 15
         },
+        "+20min": {
+            "ID": 10005,
+            "caption": "20 min</br><small>${act_time + 20}</small>",
+            "help": "20 min later",
+            "icon": "time_forward",
+            "next": "adjust time",
+            "title": "activity time",
+            "value": 20
+        },
         "+5min": {
             "ID": 10004,
             "caption": "5 min</br><small>${act_time + 5}</small>",
@@ -150,6 +159,15 @@
             "title": "activity time",
             "value": 60
         },
+        "-5min": {
+            "ID": 10001,
+            "caption": "5 min</br><small>${act_time - 5}</small>",
+            "help": "5 min earlier",
+            "icon": "time_back",
+            "next": "adjust time",
+            "title": "activity time",
+            "value": -5
+        },
         "-10min": {
             "ID": 10001,
             "caption": "10 min</br><small>${act_time - 10}</small>",
@@ -158,6 +176,24 @@
             "next": "adjust time",
             "title": "activity time",
             "value": -10
+        },
+        "-20min": {
+            "ID": 10002,
+            "caption": "20 min</br><small>${act_time - 20}</small>",
+            "help": "20 min earlier",
+            "icon": "time_back",
+            "next": "adjust time",
+            "title": "activity time",
+            "value": -20
+        },
+        "-60min": {
+            "ID": 10003,
+            "caption": "1 h</br><small>${act_time - 60}</small>",
+            "help": "1 hour earlier",
+            "icon": "time_back",
+            "next": "adjust time",
+            "title": "activity time",
+            "value": -60
         },
         "-120min": {
             "ID": 10003,

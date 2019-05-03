@@ -186,7 +186,7 @@ function checkHHIntervention() {
             if (response.split("#")[0]=="Got intervention") {
                 var intervention = response.split("#")[1];
                 if (intervention > 0) { 
-                    var d = new Date(date + ' 17:00:00'); // at 5pm
+                    var d = utils.getDate(date + ' 17:00:00'); // at 5pm
                     d.setDate(d.getDate() + 1);      // intervention on Day 2
                     // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                     var itvID = utils.actID(d).substring(0,19);
@@ -217,9 +217,9 @@ function checkHHIntervention() {
 
 
 function checkDateChoiceExpired() {
-    var dateChoice = localStorage.getItem('dateChoice');
-    var d = new Date(dateChoice + 'T21:00:00'); // at 9pm
-    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+    var d = utils.getDate(localStorage.getItem('dateChoice') + " 21:00:00");
+
+    // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
     d.setDate(d.getDate() + 1);      // end on Day 2 at 9pm
     var today = new Date();
     if (today > d) {
@@ -240,8 +240,8 @@ function checkDateChoiceExpired() {
 
 function checkInterventionExpired() {
     var dt = localStorage.getItem('intervention');
-    var d = new Date(dt); 
-    d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+    var d = utils.getDate(dt); 
+    // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
     d.setTime(d.getTime() + 2*60*1000);      // +2 hours end on Day 2 at 9pm
     var now = new Date();
     if (now > d) {
@@ -269,7 +269,7 @@ function getHHDateChoice() {
                 var dateChoice = response.split("#")[1];
                 if (dateChoice != '2000-01-01') {         // default, i.e. no date chosen
                     var now = new Date();
-                    var d = new Date(dateChoice + ' 17:00:00'); // at 5pm
+                    var d = utils.getDate(dateChoice + ' 17:00:00'); // at 5pm
                     // d.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
                     if (d > now) {
                         localStorage.setItem('dateChoice',dateChoice);

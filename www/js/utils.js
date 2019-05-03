@@ -52,7 +52,7 @@ var utils = {
             if (dt_act == "same") {
                 dt = new Date();
             } else {
-                dt = new Date(dt_act);
+                dt = utils.getDate(dt_act);
             }
 
             if (elems[1] == "-"){
@@ -73,7 +73,7 @@ var utils = {
             if (dt_act == "same") {
                 time_ = new Date();
             } else {
-                time_ = new Date(dt_act);
+                time_ = utils.getDate(dt_act);
             }
 
             var nowTime  = new Date().getTime();
@@ -92,25 +92,23 @@ var utils = {
                 postStr = app.label.time.before.post;
                 minDiff *= -1;
             }
-            // minDiff = Math.round(minDiff/5)*5;
+
             if (minDiff > 59) {
-                hourStr = parseInt(minDiff/60) + " h ";
-            }
-            if (minDiff % 60 != 0) {
-                minStr = minDiff % 60 + " min" ;
+                // 1:23 ago
+                hourStr = parseInt(minDiff/60) + ":";
+                minStr = minDiff % 60;
+                minStr = (minStr<10?'0':'') + minStr;
+            } else {
+                // 23 min ago
+                minStr = minDiff + " min" ;
             }
 
             var hour = time_.getHours();
             var min  = time_.getMinutes();
-            // min = Math.round(min/5)*5;
             if (min == 60) {
                 min = 0;
                 hour += 1;
             }
-            // if (app.label.hours == "12") {
-            //     hour = hour % 12;
-            //     hour = hour ? hour : 12; // the hour '0' should be '12'
-            // }
             minPad = min < 10 ? '0'+min : min;
 
             if (parseInt(minDiff) == 0) {
@@ -147,6 +145,17 @@ var utils = {
         M = utils.padded(dt.getMinutes());
         s = utils.padded(dt.getSeconds());
         return y+'-'+m+'-'+d+' '+h+':'+M+':'+s;
+    },
+
+    getDate: function(dt_str) {
+        // receives "2000-12-31 11:59:02"
+        // returns datetime object where dt.getHours() is 11
+        console.log("get date for " + dt_str);
+        var datetime = dt_str.split(" ");
+        var date = datetime[0].split("-");
+        var time = datetime[1].split(":");
+        var dt = new Date(date[0],date[1]-1,date[2],time[0],time[1],time[2]);
+        return dt;
     },
 
 
