@@ -12,7 +12,7 @@ if (localStorage.getItem('language') == null) {
         console.log("Language is " + localLanguage + " - will use English")
     }
 }
-var appVersion = "1.1.4";
+var appVersion = "1.1.5";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 

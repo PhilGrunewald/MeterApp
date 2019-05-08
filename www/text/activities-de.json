@@ -5216,6 +5216,15 @@
             "next": "other people",
             "title": "Unspecified time use"
         },
+        "Custom list": {
+            "ID": 9990,
+            "caption": "Selbst beschreiben",
+            "category": "other_category",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "custom list",
+            "title": "Selbst bestimmt"
+        },
         "C1": {
             "ID": 9991,
             "caption": "Frei",
