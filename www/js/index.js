@@ -8,11 +8,16 @@ if (localStorage.getItem('language') == null) {
         localStorage.setItem('language', localLanguage);
         console.log("Language is " + localLanguage + " - will use German")
     } else {
+        if (navigator.language.split("-")[1] == 'US') {
+            localStorage.setItem('language', 'us');
+            console.log("Language is " + localLanguage + " - will use U.S. English")
+        } else {
         localStorage.setItem('language', 'en');
         console.log("Language is " + localLanguage + " - will use English")
+        }
     }
 }
-var appVersion = "1.1.5";
+var appVersion = "1.1.6";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -67,6 +72,8 @@ var app = {
   bindEvents: function() {
     document.addEventListener('deviceready', this.onDeviceReady, false);
   },
+
+
 
   onDeviceReady: function() {
       app.initialSetup();

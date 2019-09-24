@@ -434,7 +434,7 @@
         "App 3 1": {
             "ID": 90301,
             "caption": "I didn't",
-            "help": "use a tumble dryer",
+            "help": "use a clothes dryer",
             "next": "survey appliances 4",
             "title": "UseTumbleDryer",
             "value": 1
@@ -442,7 +442,7 @@
         "App 3 2": {
             "ID": 90302,
             "caption": "Once",
-            "help": "used a tumble dryer",
+            "help": "used a clothes dryer",
             "icon": "app_tumble_dryer",
             "next": "survey appliances 4",
             "title": "UseTumbleDryer",
@@ -451,7 +451,7 @@
         "App 3 3": {
             "ID": 90303,
             "caption": "Twice",
-            "help": "used a tumble dryer",
+            "help": "used a clothes dryer",
             "icon": "app_tumble_dryer",
             "next": "survey appliances 4",
             "title": "UseTumbleDryer",
@@ -478,7 +478,7 @@
         "App 3 6": {
             "ID": 90306,
             "caption": "8<br>or more",
-            "help": "I used a tumble dryer over eight times",
+            "help": "I used a clothes dryer over eight times",
             "icon": "app_tumble_dryer",
             "next": "survey appliances 4",
             "title": "UseTumbleDryer",
@@ -689,12 +689,12 @@
         },
         "Appliances Hob": {
             "ID": 8532,
-            "caption": "Hob",
+            "caption": "Stovetop",
             "category": "food",
             "help": "for cooking",
             "icon": "app_hob",
             "next": "other people",
-            "title": "Cook on hob"
+            "title": "Cook on stovetop"
         },
         "Appliances Household other": {
             "ID": 8519,
@@ -768,11 +768,11 @@
         },
         "Appliances Mower": {
             "ID": 8561,
-            "caption": "Mower",
+            "caption": "Lawnmower",
             "category": "care_house",
             "help": "it is running or you use it",
             "next": "other people",
-            "title": "Mower"
+            "title": "Lawnower"
         },
         "Appliances Outdoors other": {
             "ID": 8599,
@@ -857,12 +857,12 @@
         },
         "Appliances Tumble dryer": {
             "ID": 8542,
-            "caption": "Tumble dryer",
+            "caption": "Clothes dryer",
             "category": "care_house",
             "help": "it is running or you use it",
             "icon": "app_tumble_dryer",
             "next": "other people",
-            "title": "Tumble dryer"
+            "title": "Clothes dryer"
         },
         "Appliances Washer dryer": {
             "ID": 8543,
@@ -1432,9 +1432,9 @@
         },
         "Care wash sink": {
             "ID": 313,
-            "caption": "Sink or flannel",
+            "caption": "Sink or washcloth",
             "category": "care_self",
-            "help": "Washing by a sink or with a flannel",
+            "help": "Washing by a sink or with a towel",
             "icon": "act2_sink",
             "next": "other people",
             "title": "Wash"
@@ -1609,12 +1609,12 @@
         },
         "Cutlery handling": {
             "ID": 3130,
-            "caption": "Lay or clear",
+            "caption": "Set or clear",
             "category": "food",
             "help": "cutlery, plates...",
             "icon": "act2_lay_clear_table",
             "next": "food clear",
-            "title": "Lay or clear table"
+            "title": "Set or clear table"
         },
         "Dance performances": {
             "ID": 5225,
@@ -1709,10 +1709,10 @@
             "ID": 3136,
             "caption": "Other",
             "category": "food",
-            "help": "General laying or clearing",
+            "help": "General set or clearing",
             "icon": "act2_other",
             "next": "other people",
-            "title": "Lay or clear table"
+            "title": "Set or clear table"
         },
         "Disposal of Waste": {
             "ID": 3250,
@@ -2480,12 +2480,12 @@
         },
         "Lay table": {
             "ID": 3135,
-            "caption": "Lay table",
+            "caption": "Set table",
             "category": "food",
             "help": "get things ready",
             "icon": "act2_lay_table",
             "next": "other people",
-            "title": "Lay table"
+            "title": "Set table"
         },
         "Leisure": {
             "ID": 5000,
@@ -2740,8 +2740,8 @@
         },
         "Main other": {
             "ID": 9990,
-            "caption": "Create new",
-            "category": "other_category",
+            "caption": "Customise",
+            "category": "care_other",
             "help": "Say in your own words",
             "icon": "Other_type",
             "next": "other specify",
@@ -3486,12 +3486,12 @@
         },
         "Pottering": {
             "ID": 3242,
-            "caption": "Pottering",
+            "caption": "Wasting time",
             "category": "care_self",
             "help": "This and that...",
             "icon": "act2_pottering",
             "next": "other people",
-            "title": "Pottering"
+            "title": "Wasting time"
         },
         "Preserving": {
             "ID": 3140,
@@ -4153,7 +4153,7 @@
             "ID": 30021,
             "caption": "By foot",
             "category": "travel",
-            "help": "Walking, ambling, pottering",
+            "help": "Walking, ambling, wandering",
             "icon": "act2_walk",
             "next": "travel purpose foot",
             "title": "Walking",
@@ -4880,12 +4880,12 @@
         },
         "Washing dry machine": {
             "ID": 3314,
-            "caption": "Tumble dryer",
+            "caption": "Clothes dryer",
             "category": "care_house",
             "help": "Loading, running, unloading",
             "icon": "app_tumble_dryer",
             "next": "other people",
-            "title": "Using tumble dryer"
+            "title": "Using clothes dryer"
         },
         "Washing machine": {
             "ID": 3311,
