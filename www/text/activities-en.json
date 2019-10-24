@@ -5217,6 +5217,69 @@
             "next": "other people",
             "title": "Unspecified time use"
         },
+        "Custom list": {
+            "ID": 9990,
+            "caption": "My custom list",
+            "category": "other_category",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "custom list",
+            "title": "Custom"
+        },
+        "C1": {
+            "ID": 9991,
+            "caption": "Unassigned",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to rename"
+        },
+        "C2": {
+            "ID": 9992,
+            "caption": "Unassigned",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to rename"
+        },
+        "C3": {
+            "ID": 9993,
+            "caption": "Unassigned",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to rename"
+        },
+        "C4": {
+            "ID": 9994,
+            "caption": "Unassigned",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to rename"
+        },
+        "C5": {
+            "ID": 9995,
+            "caption": "Unassigned",
+            "category": "custom",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to rename"
+        },
+        "custom skip": {
+            "ID": 9996,
+            "caption": "Skip",
+            "help": "Don't save",
+            "category": "custom",
+            "icon": "act2_skip",
+            "next": "other people",
+            "title": "Custom XXX"
+        },
         "survey": {
             "ID": 90000,
             "caption": "Complete the survey",
