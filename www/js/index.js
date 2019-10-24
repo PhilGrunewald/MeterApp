@@ -17,7 +17,7 @@ if (localStorage.getItem('language') == null) {
         }
     }
 }
-var appVersion = "1.1.7";
+var appVersion = "1.1.8";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
