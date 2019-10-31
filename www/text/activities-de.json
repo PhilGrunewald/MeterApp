@@ -22,17 +22,17 @@
             "ID": 13002,
             "help": "Haushaltsumfrage",
             "category": "function",
-            "next": "app.personaliseClick()",
+            "next": "app.registerName()",
             "icon": "act2_homeAR"
         },
         "Authorise": {
-            "title": "Autorisieren",
-            "caption": "Autorisieren",
+            "title": "Registrieren",
+            "caption": "Registrieren",
             "ID": 13002,
-            "help": "Bestätigungsemail",
+            "help": "Haushaltsumfrage",
             "category": "function",
-            "next": "app.authorise()",
-            "icon": "act2_authorise"
+            "next": "app.registerName()",
+            "icon": "act2_home"
         },
         "AuthoriseWait": {
             "title": "Autorisierungsemail wiederholen",
@@ -724,20 +724,31 @@
             "next": "other specify",
             "title": "Custom"
         },
-        "Appliances Lights off": {
+        "Appliances Lights": {
+            "ID": 8518,
+            "caption": "Licht",
+            "category": "other_category",
+            "help": "Licht an/aus",
+            "next": "appliances lights",
+            "icon": "app_led",
+            "title": "Licht"
+        },
+        "Appliances Lights Off": {
             "ID": 8517,
             "caption": "Lichter ausgeschaltet",
             "category": "other_category",
             "help": "(Einige) Lampen ausschalten",
             "next": "other people",
+            "icon": "app_bulb",
             "title": "Lichter ausschalten"
         },
-        "Appliances Lights on": {
+        "Appliances Lights On": {
             "ID": 8518,
             "caption": "Lichter ausgeschaltet",
             "category": "other_category",
             "help": "(Einige) Lampen einschalten",
             "next": "other people",
+            "icon": "app_led",
             "title": "Lichter einschalten"
         },
         "Appliances Machinery": {

@@ -643,6 +643,30 @@
             "help": "We do not store your name",
             "title": "Please give your name for authentication"
         },
+        "other specify name": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Can be a nickname",
+            "title": "Your name"
+        },
+        "other specify household ID": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "You get this from energy-use.org",
+            "title": "Your ID"
+        },
         "other specify": {
             "activities": [
                 "Blank",

@@ -643,6 +643,18 @@
             "help": "Nur für den Email Empfänger ",
             "title": "Bitte geben Sie ihren Namen zur Autentisierung"
         },
+        "other specify name": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Oder Spitzname",
+            "title": "Ihr Name"
+        },
         "other specify household ID": {
             "activities": [
                 "Blank",

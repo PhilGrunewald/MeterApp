@@ -226,13 +226,26 @@
                 "Appliances vacuum",
                 "Appliances heater",
                 "Appliances Tools",
-                "Appliances Garden tools",
+                "Appliances Lights",
                 "Appliances Toys",
                 "Appliances Household other"
             ],
             "help": "",
             "title": "House and garden"
         },
+        "appliances lights": {
+            "activities": [
+                "Appliances Lights On",
+                "Appliances Lights Off",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "",
+            "title": "Lights"
+        },
+
         "appliances kitchen": {
             "activities": [
                 "Appliances Dish washer",
@@ -642,6 +655,30 @@
             ],
             "help": "We do not store your name",
             "title": "Please give your name for authentication"
+        },
+        "other specify name": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "Can be a nickname",
+            "title": "Your name"
+        },
+        "other specify household ID": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "You get this from Oregon State Uni",
+            "title": "Your ID"
         },
         "other specify": {
             "activities": [

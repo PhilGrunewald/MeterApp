@@ -314,7 +314,7 @@ function linkHousehold(hhID) {
     request = $.ajax({ //Send request to php
         url: linkHouseholdURL,
         type: "POST",
-        data: {household_id:hhID, metaID:localStorage.getItem('metaID')}, //send array of items
+        data: {household_id:hhID, metaID:localStorage.getItem('metaID'), name:localStorage.getItem('name')}, //send array of items
         success: function(response) {
             if (response.split("#")[0]=="Success") { //to confirm whether data has been inserted
                 console.log("Succesfully uploaded!");

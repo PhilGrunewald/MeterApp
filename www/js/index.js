@@ -17,7 +17,7 @@ if (localStorage.getItem('language') == null) {
         }
     }
 }
-var appVersion = "1.1.8";
+var appVersion = "1.1.9";
 var meterURL = "http://www.energy-use.org/app/"
 var meterHost =  "http://www.energy-use.org"
 
@@ -543,23 +543,27 @@ if (screen_id == "activity root") {
   if (utils.get(CURR_LOCATION) != 1) {
     screen_id = "activity root away";
   }
-
 } else
-if (screen_id == "other specify" || screen_id == "name specify" || screen_id == "other specify household ID") {     // display text edit field
+if (screen_id == "other specify" || screen_id == "other specify name" || screen_id == "name specify" || screen_id == "other specify household ID") {     // display text edit field
   console.log("Free text screen");
-  $("div#other-specify").show();
   app.footerNav.hide();
   app.choicesPane.hide();
+  $("div#other-specify").show();
     if (screen_id == "name specify") {
         // requesting authorisation (no Save option)
         $("input#free-text").val("");
-        $("div#btn-other-specify").html(app.label.requestAuthorisation);
         $("div#btnCustomSave").hide();
+        $("div#btn-other-specify").html(app.label.requestAuthorisation);
+    } else if (screen_id == "other specify name"){
+        // specifying a name prior to HH id
+        $("input#free-text").val(localStorage.getItem('name'));
+        $("div#btnCustomSave").hide();
+        $("div#btn-other-specify").attr("onclick", "app.saveName()");
     } else if (screen_id == "other specify household ID"){
         // specifying a HH id (no save)
-        $("div#btn-other-specify").attr("onclick", "app.submitHHid()");
         $("input#free-text").val("");
-        $("div#other-specify").show();
+        $("div#btnCustomSave").hide();
+        $("div#btn-other-specify").attr("onclick", "app.submitHHid()");
     } else {
         // standard custom entry with save option
         $('#btn-other-specify').html(app.label.btnOther);
@@ -1142,10 +1146,11 @@ toggleCaption: function() {
   app.helpCaption.toggle();
 },
 
-personaliseClick: function() { //Goes to the screen with the postcode input
-  if (localStorage.getItem('language') == 'de') {
-    app.navigateTo("other specify household ID");
-  } else {
+
+registerPostcode: function() { //Goes to the screen with the postcode input
+  // if (localStorage.getItem('language') == 'de') {
+  //   app.navigateTo("other specify household ID");
+  // } else {
     app.appScreen.hide();
     app.addressList.hide();
     app.contact_screen.hide();
@@ -1153,7 +1158,17 @@ personaliseClick: function() { //Goes to the screen with the postcode input
     app.postcodeInput.show();
     app.btnSubmit.attr("onclick","app.submitPostcode()");
     app.btnSubmit.html("Submit");
-    }
+  //   }
+},
+
+registerName: function() {
+// provide a name followed my HH id (skips the HH survey)
+    app.navigateTo("other specify name");
+},
+
+saveName: function() {
+    localStorage.setItem('name', $("input#free-text").val());
+    app.navigateTo("other specify household ID");
 },
 
 returnToMainScreen: function() {
@@ -1319,7 +1334,7 @@ changeHHsurvey: function() {
     var hh = localStorage.getItem('household_id');
     if (hh == null) {
         // start fresh registration
-        personaliseClick();
+        registerPostcode();
     } else {
         if (sc == null) {
             // send email

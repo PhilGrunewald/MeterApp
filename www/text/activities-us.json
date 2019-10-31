@@ -9,30 +9,30 @@
     },
     "activities": {
         "IndividualSurvey": {
-            "title": "About you",
-            "caption": "About you",
+            "title": "",
+            "caption": "",
             "ID": 13001,
-            "help": "Personal survey",
-            "next": "survey root",
-            "icon": "act2_personalAR"
+            "help": "",
+            "next": "",
+            "icon": ""
         },
         "Register": {
             "title": "Register",
             "caption": "Register",
             "ID": 13002,
-            "help": "Household survey",
+            "help": "Name and ID",
             "category": "function",
-            "next": "app.personaliseClick()",
+            "next": "app.registerName()",
             "icon": "act2_homeAR"
         },
         "Authorise": {
-            "title": "Authorise",
-            "caption": "Authorise",
+            "title": "Register",
+            "caption": "Register",
             "ID": 13002,
-            "help": "Confimation via email",
+            "help": "Name and ID",
             "category": "function",
-            "next": "app.authorise()",
-            "icon": "act2_authorise"
+            "next": "app.registerName()",
+            "icon": "act2_home"
         },
         "AuthoriseWait": {
             "title": "Repeat request",
@@ -71,13 +71,13 @@
             "icon": "act2_profile"
         },
         "StudyDate": {
-            "title": "Date",
-            "caption": "Date",
+            "title": "",
+            "caption": "",
             "ID": 13005,
-            "help": "Pick a study date",
-            "category": "function",
-            "next": "app.getDate()",
-            "icon": "calendar"
+            "help": "",
+            "category": "",
+            "next": "",
+            "icon": ""
         },
         "Help": {
             "title": "Help",
@@ -732,20 +732,31 @@
             "next": "other specify",
             "title": "Custom"
         },
-        "Appliances Lights off": {
+        "Appliances Lights": {
+            "ID": 8518,
+            "caption": "Lights",
+            "category": "other_category",
+            "help": "Switching some light(s) on/off",
+            "next": "appliances lights",
+            "icon": "app_led",
+            "title": "Lights"
+        },
+        "Appliances Lights Off": {
             "ID": 8517,
             "caption": "Lights off",
             "category": "other_category",
             "help": "Switching some light(s) off",
             "next": "other people",
+            "icon": "app_bulb",
             "title": "Lights off"
         },
-        "Appliances Lights on": {
+        "Appliances Lights On": {
             "ID": 8518,
             "caption": "Lights on",
             "category": "other_category",
             "help": "Switching some light(s) on",
             "next": "other people",
+            "icon": "app_led",
             "title": "Lights on"
         },
         "Appliances Machinery": {

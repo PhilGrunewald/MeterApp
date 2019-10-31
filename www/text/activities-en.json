@@ -22,7 +22,7 @@
             "ID": 13002,
             "help": "Household survey",
             "category": "function",
-            "next": "app.personaliseClick()",
+            "next": "app.registerPostcode()",
             "icon": "act2_homeAR"
         },
         "Authorise": {
@@ -732,20 +732,31 @@
             "next": "other specify",
             "title": "Custom"
         },
-        "Appliances Lights off": {
+        "Appliances Lights": {
+            "ID": 8518,
+            "caption": "Lights",
+            "category": "other_category",
+            "help": "Switching some light(s) on/off",
+            "next": "appliances lights",
+            "icon": "app_led",
+            "title": "Lights"
+        },
+        "Appliances Lights Off": {
             "ID": 8517,
             "caption": "Lights off",
             "category": "other_category",
             "help": "Switching some light(s) off",
             "next": "other people",
+            "icon": "app_bulb",
             "title": "Lights off"
         },
-        "Appliances Lights on": {
+        "Appliances Lights On": {
             "ID": 8518,
             "caption": "Lights on",
             "category": "other_category",
             "help": "Switching some light(s) on",
             "next": "other people",
+            "icon": "app_led",
             "title": "Lights on"
         },
         "Appliances Machinery": {
