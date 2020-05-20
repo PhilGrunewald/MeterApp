@@ -17,9 +17,9 @@ if (localStorage.getItem('language') == null) {
         }
     }
 }
-var appVersion = "1.1.9";
-var meterURL = "http://www.energy-use.org/app/"
-var meterHost =  "http://www.energy-use.org"
+var appVersion = "1.1.10";
+var meterURL = "https://www.energy-use.org/app/"
+var meterHost =  "https://www.energy-use.org"
 
 var CURR_ACTIVITY = "current_activity";
 var CURR_ACTIVITY_ID = "0";  // the time use code AND category as csv
