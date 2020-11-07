@@ -230,13 +230,42 @@
 
   <div class="consent" id="consent">
     <br>
-    <div id="consentLabel"></div>
+    <!-- 
     <div class="consent_frame" id="consent_frame">
       <iframe id="iframe_consent" frameborder="0"></iframe>
     </div>
+    -->
+    <div id="consentLabel"></div>
     <button type="button" id="dataPolicyButton" class="btn-secondary" onclick="app.showPolicy()">xxx Read the data policy</button>
     <button type="button" id="consentButton" class="btn_link btn-lg" onclick="app.givenConsent();">xxx</button>
     <br>
+    <div class= "consent_frame" id="consentDetail">
+			<h1>Data policy</h1>
+			<h3>You own the data</h3>
+<p>All data submitted via the app is anonymous and stored securely. It is used for research purposes only.</p>
+			<p>If you are over 18 and submit electricity load data, we store this securely as well. These data may seem innocuous, but they can contain a lot of personal information, such as when and for how long you were at home. In combination with the activity information even more personal insights are possible. We therefore treat these data as <b>personal</b> and <b>sensitive</b>.  </p>
+			<p>It is important to us that you remain in charge of the data. If for any reason you become uncomfortable about us holding information from you, you are entitled to ask us to remove the data - no questions asked.</p>
+
+			<h3>Your consent</h3>
+			<p>You owning the data also means that we will not share data without your consent.</p>
+			<p>By taking part in this study you consent to your data being used for research purposes. For any additional use, we will ask your consent first.</p>
+
+			<h3>How we use your data</h3>
+			<p>There are different levels of access we would grant:</p>
+			<ul>
+				<li><b>Your name and address: </b>These will not be shared under any circumstances. We may identify your region based on your post code, but not beyond street level.</li>
+				<li><b>Your survey information: </b>These will only be used for research and will only be made accessible to selected researchers. Wider access is only available in aggregated or fragmented form. That means your information is combined with others, such that your individual data cannot be recognised. </li>
+				<li><b>Your activity information: </b>Selected researchers will have access to these data. We may publish examples of unidentifiable subsets of activity data.</li>
+				<li><b>Your load profile:</b> We treat your electricity data with the same level of sensitivity as your activity data. </li>
+			</ul>
+
+			<h3>How we store your data</h3>
+			<p>All of the data we collect, is stored on a secure server within a relational SQL database. Your name and address are stored separately from your survey information and your electricity readings. The only thing that links these data is an ID number we generate for you. </p>
+            <br> <br> <br> <br> <br> <br>
+    <button type="button" id="consentButton2" class="btn_link btn-lg" onclick="app.givenConsent();">OK</button>
+            <br> <br> <br> <br> <br> <br>
+            <br> <br> <br> <br> <br> <br>
+    </div>
   </div>
       <!-- consent-screen ^ -->
 

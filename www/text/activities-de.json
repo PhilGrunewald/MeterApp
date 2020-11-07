@@ -52,6 +52,14 @@
             "next": "app.changeHHsurvey()",
             "icon": "act2_home"
         },
+        "EmailMyData": {
+            "title": "Activities",
+            "caption": "Email Daten",
+            "ID": 13002,
+            "help": "Daten per email erhalten",
+            "next": "email specify",
+            "icon": "enjoy_5"
+        },
         "EnjoymentPixel": {
             "title": "Activitäten",
             "caption": "Activitäten",

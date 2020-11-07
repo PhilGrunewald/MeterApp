@@ -109,9 +109,13 @@ ampm {
   overflow-y: scroll;
 }
 
-.consent_frame {
+.consent {
+  height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.consent_frame {
 }
 
 .other-specify-nav {

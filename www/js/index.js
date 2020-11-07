@@ -17,7 +17,7 @@ if (localStorage.getItem('language') == null) {
         }
     }
 }
-var appVersion = "1.1.11";
+var appVersion = "1.1.12";
 var meterURL = "https://www.energy-use.org/app/"
 var meterHost =  "https://www.energy-use.org"
 
@@ -86,6 +86,7 @@ var app = {
     app.label = label_data;
 
     app.title.html(app.label.title);
+    $("#consentDetail").hide();
     $('#consentLabel').html(app.label.consentLabel);
     $('#dataPolicyButton').html(app.label.dataPolicyButton);
     $('#consentButton').html(app.label.consentButton);
@@ -176,6 +177,7 @@ var app = {
     app.iframe_help     = $('#iframe_help');
     app.consent              = $('#consent');
     app.navbar               = $('#navbar');
+
 
     // The clock face behind the "Now" button
     app.nowClock        = $('#clock-now');
@@ -544,7 +546,7 @@ if (screen_id == "activity root") {
     screen_id = "activity root away";
   }
 } else
-if (screen_id == "other specify" || screen_id == "other specify name" || screen_id == "name specify" || screen_id == "other specify household ID") {     // display text edit field
+if (screen_id == "other specify" || screen_id == "email specify" || screen_id == "other specify name" || screen_id == "name specify" || screen_id == "other specify household ID") {     // display text edit field
   console.log("Free text screen");
   app.footerNav.hide();
   app.choicesPane.hide();
@@ -554,6 +556,12 @@ if (screen_id == "other specify" || screen_id == "other specify name" || screen_
         $("input#free-text").val("");
         $("div#btnCustomSave").hide();
         $("div#btn-other-specify").html(app.label.requestAuthorisation);
+    } else if (screen_id == "email specify"){
+        // give email address to send data
+        $("input#free-text").val("");
+        $("div#btnCustomSave").hide();
+        $("div#btn-other-specify").attr("onclick", "app.emailData()");
+        $("div#btn-other-specify").html("Email");
     } else if (screen_id == "other specify name"){
         // specifying a name prior to HH id
         $("input#free-text").val(localStorage.getItem('name'));
@@ -1125,7 +1133,7 @@ submitOther: function() {
         $("input#free-text").val("");               // hide value from next entry
         // our devices have no internet access...
         app.screens['menu']['activities'][1] = "Blank";  // no access to HHQ
-        app.screens['menu']['activities'][2] = "Blank";  // no Activity pixels
+        app.screens['menu']['activities'][2] = "EmailMyData";  // no Activity pixels
         app.screens['menu']['activities'][3] = "Blank";  // no profile
         app.screens['menu']['activities'][5] = "Blank";  // no help
 
@@ -1177,12 +1185,9 @@ returnToMainScreen: function() {
   if (localStorage.getItem("consent") == null) {
     app.divStatus.attr("onclick","app.returnToMainScreen()");
     app.lblStatus.html(app.label.consent);
-
     $('#consentLabel').html(app.label.consentLabel);
     $("#dataPolicyButton").show();
     app.consent.show();
-    $("#consent_frame").hide(); 
-    app.iframe_consent.hide();
     app.appScreen.hide();
 
   } else {
@@ -1297,6 +1302,17 @@ populateAddressList: function(array) {
   (app.addressList).append(option);
 },
 
+emailData: function() {
+  if (localStorage.getItem('Online') == "true"){
+    requestEmailData();
+    app.title.html(app.label.titleEmailData);
+    app.navigateTo("home");
+    $("input#free-text").val("");
+  } else {
+    app.title.html(app.label.noInternet);
+  }
+},
+
 authorise: function() {
   if (localStorage.getItem('Online') == "true"){
     app.title.html(app.label.titleAuthorise);
@@ -1393,18 +1409,9 @@ contactInfoScreen: function() {
 },
 
 showPolicy: function() {
-  $("#consentLabel").html("");
+  $("#consentDetail").show();
   $("#dataPolicyButton").hide();
-  app.iframe_consent.attr('src', app.label.dataPolicyURL);
-  app.iframe_consent.load(function(){
-    sendMessageIframe("App requested data policy");
-  });
   app.consent.show();
-  app.consent.height("90%"); // for some reason the screen reduced to 50% or less
-  $("#consent_frame").show(); 
-  $("#consent_frame").height("90%"); // for some reason the screen reduced to 50% or less
-  $("#iframe_consent").show();
-  $("#iframe_consent").height("90%"); // for some reason the screen reduced to 50% or less
 },
 
 showHelp: function() {

@@ -62,6 +62,7 @@
     "title": "Welcome",
     "titleProgress": "Tap the stars to see your progress",
     "titleAuthorise": "Authorisation via email. Please give your name.",
+    "titleEmailData": "Your data has been emailed",
     "titleAuthorised": "You've been authorised. See Menu for extra options",
     "titleDate": "Pick a <a onclick='app.getDate()'>date</a> to take part in the study",
     "titleDay1": "Please record your activities until tomorrow at 9pm",

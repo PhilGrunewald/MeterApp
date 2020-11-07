@@ -62,6 +62,7 @@
     "title": "Willkommen",
     "titleProgress": "Die Sterne zeigen Ihren Fortschritt",
     "titleAuthorise": "Authorisierung per Email. Bitte geben Sie Ihren Namen.",
+    "titleEmailData": "Email gesendet",
     "titleAuthorised": "Sie wurden Autorisiert. Unter Menu haben Sie jetzt extra optionen.",
     "titleDate": "W\u00e4hlen Sie ein <a onclick='app.getDate()'>Datum</a> f\u00fcr Ihre Studie",
     "titleDay1": "Bitte jetzt Ihre Aktivit\u00e4ten bis morgen um 21 Uhr notieren",

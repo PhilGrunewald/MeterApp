@@ -6,6 +6,7 @@ var linkHouseholdURL = meterURL +  "linkHousehold.php";
 var getDateChoice = meterURL +  "getDateChoice.php";
 var getIntervention = meterURL +  "getIntervention.php";
 var requestAutorisationURL = meterURL +  "requestAutorisation.php";
+var requestDataURL = meterURL +  "requestData.php";
 var checkAuthorisationURL = meterURL +  "checkAuthorisation.php";
 
 var insertSurvey = meterURL +  "insertSurvey.php";
@@ -355,6 +356,29 @@ function checkAuthorisation() {
     });
 }
 
+function requestEmailData() {
+    var request;
+    request = $.ajax({ //Send request to php
+        url: requestDataURL,
+        type: "POST",
+        data: {hhID:localStorage.getItem('household_id'), mID:localStorage.getItem('metaID'), email: $("input#free-text").val(), safeguard:"A_long_string_to_make_sure_we_do_not_get_bots_guessing_the_URL_and_send_annoying_emails_to_our_participants_7603q4#33"}, // send hh ID
+        success: function(response) {
+            if (response.split("#")[0]=="Success") { //to confirm whether data has been inserted
+                console.log("Email sent!");
+                console.log(response);
+                app.title.html("You data has been emailed to you.");
+                // localStorage.setItem('AwaitAuthorisation', true);
+                $("div#other-specify").hide();
+                // app.statusCheck();
+            } else {
+                console.log("MySQL connection error" + response);
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
+            console.log("Check server connection (to php): " + textStatus);
+        }
+    });
+}
 
 function requestAutorisation() {
     var request;

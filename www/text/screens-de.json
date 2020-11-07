@@ -16,7 +16,7 @@
             "activities": [
                 "IndividualSurvey",
                 "Register",
-                "EnjoymentPixel",
+                "EmailMyData",
                 "ElectricityProfile",
                 "StudyDate",
                 "Help"
@@ -630,6 +630,18 @@
             ],
             "help": "Number of people around you.",
             "title": "Sind andere beteiligt?"
+        },
+        "email specify": {
+            "activities": [
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank",
+                "Blank"
+            ],
+            "help": "An welche Adresse?",
+            "title": "Email senden an:"
         },
         "name specify": {
             "activities": [

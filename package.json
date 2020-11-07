@@ -1,7 +1,7 @@
 {
     "name": "activities",
     "displayName": "Activities",
-    "version": "1.0.0",
+    "version": "1.1.12",
     "description": "Activity recorder for the Meter study - http://www.energy-use.org",
     "main": "index.js",
     "scripts": {
@@ -34,8 +34,8 @@
         },
         "platforms": [
             "browser",
-            "android",
-            "ios"
+            "ios",
+            "android"
         ]
     }
 }
