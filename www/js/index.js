@@ -73,8 +73,6 @@ var app = {
     document.addEventListener('deviceready', this.onDeviceReady, false);
   },
 
-
-
   onDeviceReady: function() {
       app.initialSetup();
       app.loadText();
