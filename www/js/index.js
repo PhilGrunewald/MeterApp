@@ -165,14 +165,15 @@ var app = {
     app.helpText             = $('#help_text');
     // app.back_btn_pers        = $('#personalise_back');
     app.addressList          = $('#address_list');
-    app.register_screen      = $('#register_screen');
+    //app.register_screen      = $('#register_screen');
     app.contact_screen       = $('#contact_screen');
     app.disabled_list_option = $('#disabled_list_option');
-    app.iframe_register      = $('#iframe_register');
-    app.iframe_consent       = $('#iframe_consent');
-    app.iframe_enjoyment     = $('#iframe_enjoyment');
-    app.iframe_profile     = $('#iframe_profile');
-    app.iframe_help     = $('#iframe_help');
+    app.server  = $('#server'); // iframe displaying server side php
+    //app.iframe_register      = $('#iframe_register');
+    //app.iframe_consent       = $('#iframe_consent');
+    //app.iframe_enjoyment     = $('#iframe_enjoyment');
+    //app.iframe_profile     = $('#iframe_profile');
+    //app.iframe_help     = $('#iframe_help');
     app.consent              = $('#consent');
     app.navbar               = $('#navbar');
 
@@ -253,6 +254,9 @@ statusCheck: function() {
                 app.activities['StudyDate']['next'] = "";
             }
         }
+        
+        // XXX testing
+        app.screens['menu']['activities'][1] = "HouseholdSurvey";
 
         // date choice can be shown (but not changed) without authorisation
         if (dateChoice != null) {
@@ -493,7 +497,7 @@ navigateTo: function(screen_id, prev_activity) {
 app.activityAddPane.hide();
 app.activityListPane.hide();
 
-app.iframe_enjoyment.hide(); 
+app.server.hide(); 
 
 app.choicesPane.show();
 app.footerNav.show();
@@ -713,13 +717,13 @@ showProgressList: function() {
 if (localStorage.getItem('Online')) {
     var idMeta = localStorage.getItem('metaID');
     var profileURL = app.label.profileURL + idMeta;
-    app.iframe_profile.show(); 
-    app.iframe_profile.attr('src', profileURL);
-    app.iframe_profile.load(function(){
+    app.server.show(); 
+    app.server.attr('src', profileURL);
+    app.server.load(function(){
         sendMessageIframe("App requested profile");
     });
   } else {
-    app.iframe_profile.hide(); 
+    app.server.hide(); 
   }
 
   if (actCount > 4 && localStorage.getItem('Online')) {
@@ -1198,10 +1202,8 @@ returnToMainScreen: function() {
     app.imgStatus.hide();
     app.contact_screen.hide();
     app.personaliseScreen.hide();
-    app.register_screen.hide();
-    app.iframe_enjoyment.hide();
-    app.iframe_profile.hide();
-    app.iframe_help.hide();
+    //app.register_screen.hide();
+    app.server.hide();
     $("div#other-specify").hide();
     
   // Show
@@ -1338,8 +1340,8 @@ getDate: function() {
         console.log("Get date" + dateURL);
         app.appScreen.hide();
         app.personaliseScreen.hide();
-        app.register_screen.show();
-        app.iframe_register.attr('src', dateURL);
+        app.server.show();
+        app.server.attr('src', dateURL);
     }
 },
 
@@ -1374,9 +1376,9 @@ registerNewHousehold: function(registerURL) {
     app.contact_screen.hide();
   app.appScreen.hide();
   app.personaliseScreen.hide();
-  app.register_screen.show();
-  app.iframe_register.attr('src', registerURL);
-  app.iframe_register.load(function(){
+  app.server.show();
+  app.server.attr('src', registerURL);
+  app.server.load(function(){
     sendMessageIframe("I am registering from the app");
     sendMessageIframe("Fill address fields#" + localStorage.getItem("address") + "#" + localStorage.getItem("postcode"));
   });
@@ -1387,7 +1389,8 @@ continueRegistration: function() {
     if (localStorage.getItem('continue_registration_link') == null) {
         var sc = localStorage.getItem('sc');
         var hID = localStorage.getItem('household_id');
-        var url = meterURL + "hhq.php?sc="+sc+"&pg=0&id="+hID;
+        //var url = meterURL + "hhq.php?sc="+sc+"&pg=0&id="+hID;
+        var url = meterURL + "hhq/0.php?sc="+sc+"&id="+hID;
     } else {
         var url = localStorage.getItem('continue_registration_link');
     }
@@ -1395,14 +1398,14 @@ continueRegistration: function() {
   app.contact_screen.hide();
   app.appScreen.hide();
   app.personaliseScreen.hide();
-  app.register_screen.show();
-  app.iframe_register.attr('src', url);
+  app.server.show();
+  app.server.attr('src', url);
 },
 
 contactInfoScreen: function() {
   app.appScreen.hide();
   app.personaliseScreen.hide();
-  app.register_screen.hide();
+  app.server.hide();
   app.contact_screen.show();
 },
 
@@ -1418,9 +1421,9 @@ showHelp: function() {
     var helpURL = app.label.helpURL;
     app.title.html("Help"); 
     app.choicesPane.hide();
-    app.iframe_help.show(); 
-    app.iframe_help.attr('src', helpURL);
-    app.iframe_help.load(function(){
+    app.server.show(); 
+    app.server.attr('src', helpURL);
+    app.server.load(function(){
         sendMessageIframe("App requested help");
     });
   } else {
@@ -1435,9 +1438,9 @@ showProfile: function() {
     console.log("URL:" + profileURL);
     app.header.hide(); 
     app.choicesPane.hide();
-    app.iframe_profile.show(); 
-    app.iframe_profile.attr('src', profileURL);
-    app.iframe_profile.load(function(){
+    app.server.show(); 
+    app.server.attr('src', profileURL);
+    app.server.load(function(){
         sendMessageIframe("App requested profile");
     });
   } else {
@@ -1456,9 +1459,9 @@ showEnjoyment: function() {
     var enjoymentURL = app.label.enjoymentURL + idMeta;
     app.header.hide(); 
     app.choicesPane.hide();
-    app.iframe_enjoyment.show(); 
-    app.iframe_enjoyment.attr('src', enjoymentURL);
-    app.iframe_enjoyment.load(function(){
+    app.server.show(); 
+    app.server.attr('src', enjoymentURL);
+    app.server.load(function(){
         sendMessageIframe("App requested enjoyment");
     });
   } else {

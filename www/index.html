@@ -22,36 +22,29 @@
      </div>
   </div>
 
-      <div class="app" id="app_screen">
+  <iframe id="server" width="100%" height="90%" frameborder="0"></iframe>
+  <div class="app" id="app_screen">
 
-<iframe hidden id="iframe_main" width="100%" height="100%" frameborder="0"></iframe>
-
-<iframe hidden id="iframe_help" width="100%" height="100%" frameborder="0"></iframe>
-<iframe hidden id="iframe_enjoyment" width="100%" height="100%" frameborder="0"></iframe>
-<iframe hidden id="iframe_profile" width="100%" height="100%" frameborder="0"></iframe>
-
-
-
-         <div class="main-screen">
-            <div id="header" class="header">
-               <div class="clock-act">
-                  <canvas id="clock-act" width="112px" height="112px"></canvas>
-               </div>
-               <!--
-                  -->
-               <div id="title">Welcome</div>
-               <br></br>
-               <div id="catch-up" class="btn-catchup"> at </div>
-            </div>
-            <div id="other-specify">
-                    <input type="text" id="free-text" autofocus /> <br>
-                    <div class="other-specify-nav">
-                       <div class="row">
-                           <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()"></div>
-                           <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
-                       </div>
-                    </div>
-            </div>
+     <div class="main-screen">
+        <div id="header" class="header">
+           <div class="clock-act">
+              <canvas id="clock-act" width="112px" height="112px"></canvas>
+           </div>
+           <!--
+              -->
+           <div id="title">Welcome</div>
+           <br></br>
+           <div id="catch-up" class="btn-catchup"> at </div>
+        </div>
+        <div id="other-specify">
+                <input type="text" id="free-text" autofocus /> <br>
+                <div class="other-specify-nav">
+                   <div class="row">
+                       <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()"></div>
+                       <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
+                   </div>
+                </div>
+        </div>
 
             <div class="contents">
                <div hidden id="progress_list_pane">
@@ -224,18 +217,8 @@
       </div>
       <!-- personalise-screen ^ -->
 
-      <div hidden class="register_screen" id="register_screen">
-      <iframe id="iframe_register" width="100%" height="90%" frameborder="0"></iframe>
-      </div>
-      <!-- register-screen ^ -->
-
   <div class="consent" id="consent">
     <br>
-    <!-- 
-    <div class="consent_frame" id="consent_frame">
-      <iframe id="iframe_consent" frameborder="0"></iframe>
-    </div>
-    -->
     <div id="consentLabel"></div>
     <button type="button" id="dataPolicyButton" class="btn-secondary" onclick="app.showPolicy()">xxx Read the data policy</button>
     <button type="button" id="consentButton" class="btn_link btn-lg" onclick="app.givenConsent();">xxx</button>
@@ -269,8 +252,6 @@
     </div>
   </div>
       <!-- consent-screen ^ -->
-
-
 
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/jquery-2.2.1.js"></script>

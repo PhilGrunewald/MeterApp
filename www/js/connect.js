@@ -565,7 +565,7 @@ function connectionManager() {
 
 //Communication between iframe
 function sendMessageIframe (message) {
-    document.getElementById("iframe_register").contentWindow.postMessage(message, '*'); //send to iframe
+    document.getElementById("server").contentWindow.postMessage(message, '*'); //send to iframe
 }
 
 window.addEventListener('message', function(e) { //This called whenever the iframe sends a message
