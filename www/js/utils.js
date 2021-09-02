@@ -116,10 +116,10 @@ var utils = {
             } else {
                 res = preStr + hourStr + minStr + postStr;
             }
-            app.drawClock(app.actClock,hour,min,"",hour+":"+minPad);
+            clock.drawClock(clock.actClock,hour,min,"",hour+":"+minPad);
 
-            app.actClockDiv.show();
-            app.actClock.show();
+            clock.actClockDiv.show();
+            clock.actClock.show();
             return str.replace(intime_var, res)
         }
         else    {
