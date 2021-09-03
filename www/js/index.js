@@ -122,13 +122,19 @@ var app = {
               }
           }
       }
-      app.showActivityList();   // to update from records
-      app.returnToMainScreen(); // to refresh what is shown and hidden
-      });
-    $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
-      console.log('loading screens-' + localStorage.getItem('language') + '.json');
-      app.screens = screen_data.screens;
-    });
+    // XXX 3 Sep 2021
+      // app.showActivityList();   // to update from records
+      // app.returnToMainScreen(); // to refresh what is shown and hidden
+      }).then(
+        $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
+          console.log('loading screens-' + localStorage.getItem('language') + '.json');
+          app.screens = screen_data.screens;
+      })).then(
+          function(){
+            console.log("Load menu");
+            app.navigateTo("menu")
+          }
+        )
    },
 
   initialSetup: function() {
