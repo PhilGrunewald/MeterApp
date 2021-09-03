@@ -14,15 +14,29 @@
         },
         "menu": {
             "activities": [
+                "Now",
+                "Recent",
                 "IndividualSurvey",
                 "Register",
                 "EmailMyData",
                 "ElectricityProfile",
-                "StudyDate",
-                "Help"
+                "Help",
+                "StudyDate"
             ],
             "help": "at this moment",
             "title": "Main menu"
+        },
+        "user": {
+            "activities": [
+                "EmailMyData",
+                "ElectricityProfile",
+                "IndividualSurvey",
+                "Register",
+                "Blank",
+                "Blank"
+            ],
+            "help": "at this moment",
+            "title": "Manage your user profile"
         },
         "custom activities": {
             "activities": [

@@ -8,13 +8,31 @@
         "back button when EDIT change time": "hide"
     },
     "activities": {
+        "Now": {
+            "ID": 1,
+            "caption": "Now",
+            "category": "care_other",
+            "help": "Record current activity",
+            "icon": "act3_act",
+            "next": "activity home",
+            "title": "location home"
+        },
+        "Recent": {
+            "ID": 2,
+            "caption": "Recent",
+            "category": "care_other",
+            "help": "Record recent activity",
+            "icon": "act3_act_recent",
+            "next": "activity time relative",
+            "title": "location home"
+        },
         "IndividualSurvey": {
             "title": "About you",
             "caption": "About you",
             "ID": 13001,
             "help": "Personal survey",
             "next": "survey root",
-            "icon": "act2_personalAR"
+            "icon": "act3_user_red"
         },
         "Register": {
             "title": "Register",
@@ -23,7 +41,7 @@
             "help": "Household survey",
             "category": "function",
             "next": "app.registerPostcode()",
-            "icon": "act2_homeAR"
+            "icon": "act3_home_red"
         },
         "Authorise": {
             "title": "Authorise",
@@ -133,6 +151,7 @@
         },
         "+15min": {
             "ID": 10005,
+            "category": "time",
             "caption": "15 min</br><small>${act_time + 15}</small>",
             "help": "15 min later",
             "icon": "time_forward",
@@ -142,6 +161,7 @@
         },
         "+20min": {
             "ID": 10005,
+            "category": "time",
             "caption": "20 min</br><small>${act_time + 20}</small>",
             "help": "20 min later",
             "icon": "time_forward",
@@ -151,6 +171,7 @@
         },
         "+5min": {
             "ID": 10004,
+            "category": "time",
             "caption": "5 min</br><small>${act_time + 5}</small>",
             "help": "5 min later",
             "icon": "time_forward",
@@ -160,6 +181,7 @@
         },
         "+60min": {
             "ID": 10006,
+            "category": "time",
             "caption": "1 h</br><small>${act_time + 60}</small>",
             "help": "1 hours later",
             "icon": "time_forward",
@@ -169,6 +191,7 @@
         },
         "-5min": {
             "ID": 10001,
+            "category": "time",
             "caption": "5 min</br><small>${act_time - 5}</small>",
             "help": "5 min earlier",
             "icon": "time_back",
@@ -178,6 +201,7 @@
         },
         "-10min": {
             "ID": 10001,
+            "category": "time",
             "caption": "10 min</br><small>${act_time - 10}</small>",
             "help": "10 min earlier",
             "icon": "time_back",
@@ -187,6 +211,7 @@
         },
         "-20min": {
             "ID": 10002,
+            "category": "time",
             "caption": "20 min</br><small>${act_time - 20}</small>",
             "help": "20 min earlier",
             "icon": "time_back",
@@ -196,6 +221,7 @@
         },
         "-60min": {
             "ID": 10003,
+            "category": "time",
             "caption": "1 h</br><small>${act_time - 60}</small>",
             "help": "1 hour earlier",
             "icon": "time_back",
@@ -205,6 +231,7 @@
         },
         "-120min": {
             "ID": 10003,
+            "category": "time",
             "caption": "2 h</br><small>${act_time - 120}</small>",
             "help": "2 hours earlier",
             "icon": "time_back",
@@ -214,6 +241,7 @@
         },
         "-30min": {
             "ID": 10002,
+            "category": "time",
             "caption": "30 min</br><small>${act_time - 30}</small>",
             "help": "30 min earlier",
             "icon": "time_back",
@@ -1119,7 +1147,7 @@
         "Blank": {
             "ID": -1,
             "caption": "",
-            "category": "other",
+            "category": "blank",
             "help": "",
             "next": "",
             "title": ""
@@ -2654,7 +2682,7 @@
         "Loc garden": {
             "ID": 30019,
             "caption": "Garden",
-            "category": "travel",
+            "category": "location",
             "help": "Gardening, playing, eating",
             "icon": "act2_garden",
             "next": "garden",
@@ -2664,7 +2692,7 @@
         "Loc got home": {
             "ID": 30011,
             "caption": "Home",
-            "category": "care_self",
+            "category": "location",
             "help": "Arrive home",
             "icon": "act2_home",
             "next": "activity home",
@@ -2674,7 +2702,7 @@
         "Loc home": {
             "ID": 30011,
             "caption": "Home",
-            "category": "care_self",
+            "category": "location",
             "help": "In your home",
             "icon": "act2_home",
             "next": "activity main",
@@ -2683,6 +2711,7 @@
         },
         "Loc other location": {
             "ID": 30010,
+            "category": "location",
             "caption": "Elsewhere",
             "help": "None of the above",
             "icon": "Loc_other",
@@ -2692,8 +2721,8 @@
         },
         "Loc outdoors": {
             "ID": 30018,
+            "category": "location",
             "caption": "Garden / Outdoors",
-            "category": "travel",
             "help": "Park, road, sports field",
             "icon": "act2_garden",
             "next": "outdoors",
@@ -2702,8 +2731,8 @@
         },
         "Loc outdoors public": {
             "ID": 30016,
+            "category": "location",
             "caption": "Public place",
-            "category": "other_category",
             "help": "Shop, church, public building",
             "icon": "act2_shop",
             "next": "outdoors public",
@@ -2712,8 +2741,8 @@
         },
         "Loc public": {
             "ID": 30014,
+            "category": "location",
             "caption": "Public place",
-            "category": "care_self",
             "help": "Shop, church, public building",
             "icon": "act2_shop",
             "next": "activity public",
@@ -2722,8 +2751,8 @@
         },
         "Loc travelling": {
             "ID": 30030,
+            "category": "location",
             "caption": "Travel",
-            "category": "travel",
             "help": "Travel by car, foot, bus, train, bike, jogging...",
             "icon": "act2_travel",
             "next": "travel",
@@ -2732,8 +2761,8 @@
         },
         "Loc work": {
             "ID": 30013,
+            "category": "location",
             "caption": "Work",
-            "category": "work",
             "help": "At work place or school",
             "icon": "act2_workplace",
             "next": "work",
@@ -2908,6 +2937,7 @@
         },
         "Neutral": {
             "ID": 20004,
+            "category": "enjoyment",
             "caption": "So so",
             "help": "I enjoyed this time somewhat",
             "icon": "enjoy_3",
@@ -2933,6 +2963,7 @@
         },
         "Not at all": {
             "ID": 20002,
+            "category": "enjoyment",
             "caption": "Not at all",
             "help": "I enjoyed this time not at all",
             "icon": "enjoy_1",
@@ -2942,6 +2973,7 @@
         },
         "Not very much": {
             "ID": 20003,
+            "category": "enjoyment",
             "caption": "Not much",
             "help": "I enjoyed this time not very much.",
             "icon": "enjoy_2",
@@ -3025,6 +3057,7 @@
         },
         "Other people 1": {
             "ID": 40001,
+            "category": "people",
             "caption": "No one",
             "help": "people",
             "icon": "act2_others0",
@@ -3034,6 +3067,7 @@
         },
         "Other people 2": {
             "ID": 40002,
+            "category": "people",
             "caption": "1",
             "help": "people",
             "icon": "act2_others1",
@@ -3043,6 +3077,7 @@
         },
         "Other people 3": {
             "ID": 40003,
+            "category": "people",
             "caption": "2",
             "help": "people",
             "icon": "act2_others2",
@@ -3052,6 +3087,7 @@
         },
         "Other people 4": {
             "ID": 40004,
+            "category": "people",
             "caption": "3",
             "help": "people",
             "icon": "act2_others3",
@@ -3061,6 +3097,7 @@
         },
         "Other people 5": {
             "ID": 40005,
+            "category": "people",
             "caption": "4",
             "help": "people",
             "icon": "act2_others4",
@@ -3070,6 +3107,7 @@
         },
         "Other people 6": {
             "ID": 40006,
+            "category": "people",
             "caption": "More",
             "help": "More than 4",
             "icon": "act2_others5",
@@ -3678,11 +3716,13 @@
         },
         "Skip": {
             "ID": 20001,
+            "category": "enjoyment",
             "caption": "Skip",
             "help": "Don't want to say",
             "icon": "act2_skip",
             "next": "home",
-            "title": "enjoyment skip"
+            "title": "enjoyment skip",
+            "value": 0
         },
         "Skype or other video call": {
             "ID": 7251,
@@ -3737,6 +3777,7 @@
         },
         "Somewhat": {
             "ID": 20005,
+            "category": "enjoyment",
             "caption": "Somewhat",
             "help": "I enjoyed this time",
             "icon": "enjoy_4",
@@ -4798,6 +4839,7 @@
         },
         "Very much": {
             "ID": 20006,
+            "category": "enjoyment",
             "caption": "Very much",
             "help": "I enjoyed this time very much.",
             "icon": "enjoy_5",
@@ -5184,16 +5226,6 @@
             "next": "work job",
             "title": "Other work"
         },
-        "XXX Repeat activity now": {
-            "ID": 11000,
-            "caption": "Again now",
-            "category": "other_category",
-            "comment": "XXX DISUSED",
-            "help": "I do this again right now",
-            "icon": "edit_again_now",
-            "next": "app.repeatActivityNow",
-            "title": "Repeat now"
-        },
         "activities": {
             "ID": 10000,
             "caption": "Add activity",
@@ -5322,197 +5354,6 @@
             "next": "survey age",
             "title": "Gender",
             "value": 0
-        },
-        "xOther specified help to an adult member of another household": {
-            "ID": 4289,
-            "caption": "Asistance/Help",
-            "category": "care_other",
-            "help": "Other specified help to an adult member of another household",
-            "next": "other people",
-            "title": "Other specified help to an adult member of another household"
-        },
-        "xxOther specified activities related to employment": {
-            "ID": 1399,
-            "caption": "Work",
-            "category": "work",
-            "help": "Other specified activities related to employment",
-            "next": "other people",
-            "title": "Other specified activities related to employment"
-        },
-        "xxxBanking and bill paying via the internet": {
-            "ID": 3727,
-            "caption": "Activities with internet use",
-            "category": "care_house",
-            "help": "Banking and bill paying via the internet",
-            "next": "other people",
-            "title": "Banking and bill paying via the internet"
-        },
-        "xxxCare others company": {
-            "ID": 3914,
-            "caption": "Accompanying",
-            "category": "care_other",
-            "help": "Being there for them",
-            "next": "other people",
-            "title": "Accompanying an adult household member"
-        },
-        "xxxCare others other": {
-            "ID": 3919,
-            "caption": "Other",
-            "category": "care_other",
-            "help": "form of care",
-            "icon": "act2_other",
-            "next": "other people",
-            "title": "Other specified help to an adult household member"
-        },
-        "xxxHandicraft and producing textiles": {
-            "ID": 3330,
-            "caption": "House keeping",
-            "category": "care_house",
-            "help": "Handicraft and producing textiles",
-            "next": "other people",
-            "title": "Handicraft and producing textiles"
-        },
-        "xxxHeating and water": {
-            "ID": 3230,
-            "caption": "House keeping",
-            "category": "care_house",
-            "help": "Heating and water",
-            "next": "other people",
-            "title": "Heating and water"
-        },
-        "xxxHousehold management not using the internet": {
-            "ID": 3710,
-            "caption": "Activities with internet use",
-            "category": "care_house",
-            "help": "Household management not using the internet",
-            "next": "other people",
-            "title": "Household management not using the internet"
-        },
-        "xxxOther household upkeep": {
-            "ID": 3290,
-            "caption": "House keeping",
-            "category": "care_house",
-            "help": "Other household upkeep",
-            "next": "other people",
-            "title": "Other household upkeep"
-        },
-        "xxxOther specified household management using the internet": {
-            "ID": 3729,
-            "caption": "Activities with internet use",
-            "category": "care_house",
-            "help": "Other specified household management using the internet",
-            "next": "other people",
-            "title": "Other specified household management using the internet"
-        },
-        "xxxOther specified making and care for textiles": {
-            "ID": 3390,
-            "caption": "House keeping",
-            "category": "care_house",
-            "help": "Other specified making and care for textiles",
-            "next": "other people",
-            "title": "Other specified making and care for textiles"
-        },
-        "xxxOther specified personal care": {
-            "ID": 390,
-            "caption": "Personal care",
-            "category": "care_self",
-            "help": "Other specified personal care",
-            "next": "other people",
-            "title": "Personal care"
-        },
-        "xxxShopping for&ordring clothing via the internet": {
-            "ID": 3723,
-            "caption": "Activities with internet use",
-            "help": "Shopping for&ordring clothing via the internet",
-            "next": "other people",
-            "title": "Shopping for&ordring clothing via the internet"
-        },
-        "xxxShopping for&ordring entertainment via the internet": {
-            "ID": 3726,
-            "caption": "Activities with internet use",
-            "category": "recreation",
-            "help": "Shopping for&ordring entertainment via the internet",
-            "next": "other people",
-            "title": "Shopping for&ordring entertainment via the internet"
-        },
-        "xxxShopping for&ordring food via the internet": {
-            "ID": 3722,
-            "caption": "Activities with internet use",
-            "category": "food",
-            "help": "Shopping for&ordring food via the internet",
-            "next": "other people",
-            "title": "Shopping for&ordring food via the internet"
-        },
-        "xxxShopping for&ordring gds&srv related to acc via internet": {
-            "ID": 3724,
-            "caption": "Activities with internet use",
-            "category": "recreation",
-            "help": "Shopping for&ordring gds&srv related to acc via internet",
-            "next": "other people",
-            "title": "Shopping for&ordring gds&srv related to acc via internet"
-        },
-        "xxxShopping for&ordring mass media via the internet": {
-            "ID": 3725,
-            "caption": "Activities with internet use",
-            "category": "recreation",
-            "help": "Shopping for&ordring mass media via the internet",
-            "next": "other people",
-            "title": "Shopping for&ordring mass media via the internet"
-        },
-        "xxxUnspecified Sleep": {
-            "ID": 10,
-            "caption": "Rest or sleep",
-            "category": "care_self",
-            "help": "Unspecified Sleep",
-            "next": "care rest sleep",
-            "title": "Sleep or rest"
-        },
-        "xxxWhoKnowsShouldProbablyCheck": {
-            "ID": 3713,
-            "category": "other_category"
-        },
-        "xxxat friends": {
-            "ID": 30014,
-            "caption": "At a friend's",
-            "help": "At a friends or other peoples house",
-            "next": "other people",
-            "title": "location friends"
-        },
-        "xxxat home": {
-            "ID": 30011,
-            "caption": "At home",
-            "help": "In or around your home / garden",
-            "next": "other people",
-            "title": "location home"
-        },
-        "xxxat work": {
-            "ID": 30013,
-            "caption": "At work",
-            "help": "I am at my place of work or school",
-            "next": "other people",
-            "title": "location work"
-        },
-        "xxxother location": {
-            "ID": 30010,
-            "caption": "Somewhere else",
-            "help": "None of the above",
-            "next": "other people",
-            "title": "location other"
-        },
-        "xxxoutdoors": {
-            "ID": 30018,
-            "caption": "Outdoors",
-            "help": "Park, road, public places, sports field",
-            "next": "other people",
-            "title": "location outdoors"
-        },
-        "xxxtravelling": {
-            "ID": 30030,
-            "caption": "Travelling",
-            "category": "travel",
-            "help": "By car, foot, bus, train, bike, jogging...",
-            "next": "travel",
-            "title": "Location travelling"
         }
     }
 }

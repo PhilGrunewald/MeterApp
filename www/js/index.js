@@ -19,45 +19,23 @@ if (localStorage.getItem('language') == null) {
 }
 var appVersion = "1.1.12";
 var meterURL = "https://www.energy-use.org/app/"
-var meterHost =  "https://www.energy-use.org"
 
 var CURR_ACTIVITY = "current_activity";
 var CURR_ACTIVITY_ID = "0";  // the time use code AND category as csv
-
 var ACTIVITY_DATETIME = "same";  // default - meaning activity time = reported time
-
 var CURR_LOCATION = "current_location";
-var CURR_ENJOYMENT = "current_enjoyment";
-var CURR_PEOPLE = "current_people";
+var CURR_ENJOYMENT = 0;
+var CURR_PEOPLE = "-1";
 var ACTIVITY_LIST = "activity_list";
 var SURVEY_STATUS = "survey root";          // stores how far they got in the survey
 
-var CATEGORIES = ["care_self", "care_other", "care_house", "recreation", "travel", "food", "work", "other_category"];
+var CATEGORIES = ["care_self", "care_other", "care_house", "recreation", "travel", "food", "work", "other_category", "blank","location", "people", "enjoyment"];
 
-var OTHER_SPECIFIED_ID  = 9990;
-var TIMEUSE_MAX         = 10000;
-
-var ACTIVITY_TIME_MIN   = 10000;    // provide time as a relative offset
-var ACTIVITY_TIME_MAX   = 10100;
-
-var ACTIVITY_SET_TIME_MIN   = 10100; // provide time in hours and minutes
-var ACTIVITY_SET_TIME_MAX   = 11000;
-
-var ENJOYMENT_MIN = 20000;
-var ENJOYMENT_MAX = 20010;
-var LOCATION_MIN  = 30000;
-var LOCATION_MAX  = 30031;
-var PEOPLE_MIN    = 40000;
-var PEOPLE_MAX    = 40010;
+var TIMEUSE_MAX   = 10000;
 var SURVEY_MIN    = 90000;
 var SURVEY_MAX    = 91000;
 
-var CATCHUP_INDEX = 0;
-var catchupList   = "";
-var deviceColour  = "#990000";              // to be used for background or colour marker
-
 var app = {
-  /** Application Constructor */
   initialize: function() {
     this.bindEvents();
   },
@@ -75,12 +53,7 @@ var app = {
     $.getJSON('text/labels-' + localStorage.getItem('language') + '.json', function(label_data) {
     console.log('loading labels-' + localStorage.getItem('language') + '.json');
     app.label = label_data;
-
-    app.title.html(app.label.title);
-    $("#consentDetail").hide();
-    $('#consentLabel').html(app.label.consentLabel);
     $('#dataPolicyButton').html(app.label.dataPolicyButton);
-    $('#consentButton').html(app.label.consentButton);
     $('#actListLabel').html(app.label.actListLabel);
     $('#lblPersonalise').html(app.label.lblPersonalise);
     $('#lblSurvey').html(app.label.lblSurvey);
@@ -91,21 +64,13 @@ var app = {
     $('#btn-other-specify').html(app.label.btnOther);
     $('#btnCustomSave').html(app.label.btnCustomSave);
     $('#progress-authorise').html(app.label.Authorise)
-    $('#progress1').html(app.label.progress1);
-    $('#progress2').html(app.label.progress2);
-    $('#progress3').html(app.label.progress3);
-    $('#progress4').html(app.label.progress4);
-    $('#progress5').html(app.label.progress5);
-
     $('#help-btn-now').html(app.label.help.btnNow);
     $('#help-btn-recent').html(app.label.help.btnRecent);
     $('#help-act-list').html(app.label.help.actList);
     $('#help-post-code').html(app.label.help.postcode);
     $('#help-contact-details').html(app.label.help.contactDetails);
-
     app.updateNowTime();
     setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
-
     }),
 
     $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
@@ -122,17 +87,18 @@ var app = {
               }
           }
       }
-    // XXX 3 Sep 2021
-      // app.showActivityList();   // to update from records
-      // app.returnToMainScreen(); // to refresh what is shown and hidden
       }).then(
         $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
-          console.log('loading screens-' + localStorage.getItem('language') + '.json');
           app.screens = screen_data.screens;
       })).then(
-          function(){
-            console.log("Load menu");
-            app.navigateTo("menu")
+          function(){ 
+            if (localStorage.getItem("consent") == 1) {
+              app.navigateTo("menu") 
+            } else {
+                app.navbar.hide();
+                app.server.attr('src', 'https://www.energy-use.org/app/consent.php');
+                app.server.show(); 
+            }
           }
         )
    },
@@ -146,34 +112,21 @@ var app = {
     app.choicesPane      = $('#choices_pane');
     app.title            = $("#title");
     app.header           = $("#header");
-    app.catchup          = $('#catch-up');
     app.now_time         = $("#now-time");
-    // app.act_count        = $('#act-count');
     app.helpCaption      = $(".help-caption");
-    app.progressListPane = $("div#progress_list_pane");
     app.footerNav        = $("div.footer-nav");
     app.btnCaption           = $(".btn-caption");
-    app.divStatus            = $("#divStatus");
     app.imgStatus            = $("#imgStatus");
-    app.lblStatus            = $("#lblStatus");
     app.personaliseScreen    = $('#personalise_screen');
     app.appScreen            = $('#app_screen');
     app.btnSubmit            = $('#btn_submit');
     app.postcodeInput        = $('#postcode_input');
     app.postcodeSection      = $('#postcode_section');
     app.helpText             = $('#help_text');
-    // app.back_btn_pers        = $('#personalise_back');
     app.addressList          = $('#address_list');
-    //app.register_screen      = $('#register_screen');
     app.contact_screen       = $('#contact_screen');
     app.disabled_list_option = $('#disabled_list_option');
-    app.server  = $('#server'); // iframe displaying server side php
-    //app.iframe_register      = $('#iframe_register');
-    //app.iframe_consent       = $('#iframe_consent');
-    //app.iframe_enjoyment     = $('#iframe_enjoyment');
-    //app.iframe_profile     = $('#iframe_profile');
-    //app.iframe_help     = $('#iframe_help');
-    app.consent              = $('#consent');
+    app.server               = $('#server'); // iframe displaying server side php
     app.navbar               = $('#navbar');
 
 
@@ -193,7 +146,6 @@ var app = {
     clock.actClockDiv.hide();
 
     app.helpCaption.hide(); // hide help text when moving on (default off);
-    app.catchup.hide();
     app.history          = new Array();
     app.act_path         = new Array();
 },
@@ -213,77 +165,88 @@ statusCheck: function() {
     var sc = localStorage.getItem('sc');
     var waitForAuthorisation = localStorage.getItem('AwaitAuthorisation');
 
+  // Individual Survey
   if (localStorage.getItem("survey root") == 'survey complete') {
-    app.activities['IndividualSurvey']['icon'] = "act2_personal"; // remove the AR icon
+    app.activities['IndividualSurvey']['icon'] = "act3_user_green";
+  }
+
+  if (localStorage.getItem("householdSurvey") == 'COMPLETE') {
+    app.activities['Register']['icon'] = "act3_home_green";
+    if (localStorage.getItem("survey root") == 'survey complete') {
+        app.imgStatus.attr("src","img/act3_user_green.png");
+    }
   }
     
-    if (hh == null) {
-        // personalise -> hhq
-        app.title.html(app.label.titlePersonalise);
-        app.screens['menu']['activities'][1] = "Register";
-    } else {
-        if (sc == null) {
-            if (waitForAuthorisation == null) {
-                app.screens['menu']['activities'][1] = "Authorise";
-                app.activities['ElectricityProfile']['next'] = "app.authorise()";
-                app.activities['StudyDate']['next'] = "app.authorise();";
-            } else {
-                app.screens['menu']['activities'][1] = "AuthoriseWait";
-                app.activities['ElectricityProfile']['next'] = "app.authorise()";
-                app.activities['StudyDate']['next'] = "app.authorise();";
-            }
-        } else {
-            if (localStorage.getItem('pass') == null) {
-                // authorised - but not by us
-                app.screens['menu']['activities'][1] = "HouseholdSurvey";
-                app.screens['menu']['activities'][4] = "StudyDate";
-                app.activities['ElectricityProfile']['next'] = "app.showProfile()";
-                app.activities['StudyDate']['next'] = "app.getDate();";
-            } else {
-                // one of our devices
-                app.screens['menu']['activities'][1] = "Blank";  // no access to HHQ
-                app.screens['menu']['activities'][2] = "Blank";  // no Activity pixels
-                app.screens['menu']['activities'][3] = "Blank";  // no profile
-                app.screens['menu']['activities'][5] = "Blank";  // no help
-                app.activities['StudyDate']['next'] = "";
-            }
-        }
-        
-        // XXX testing
-        app.screens['menu']['activities'][1] = "HouseholdSurvey";
+  //  if (hh == null) {
+  //      // personalise -> hhq
+  //      app.title.html(app.label.titlePersonalise);
+  //      app.screens['menu']['activities'][1] = "Register";
+  //  } else {
+  //      if (sc == null) {
+  //          if (waitForAuthorisation == null) {
+  //              app.screens['menu']['activities'][1] = "Authorise";
+  //              app.activities['ElectricityProfile']['next'] = "app.authorise()";
+  //              app.activities['StudyDate']['next'] = "app.authorise();";
+  //          } else {
+  //              app.screens['menu']['activities'][1] = "AuthoriseWait";
+  //              app.activities['ElectricityProfile']['next'] = "app.authorise()";
+  //              app.activities['StudyDate']['next'] = "app.authorise();";
+  //          }
+  //      } else {
+  //          if (localStorage.getItem('pass') == null) {
+  //              // authorised - but not by us
+  //              app.screens['menu']['activities'][1] = "HouseholdSurvey";
+  //              app.screens['menu']['activities'][4] = "StudyDate";
+  //              app.activities['ElectricityProfile']['next'] = "app.showProfile()";
+  //              app.activities['StudyDate']['next'] = "app.getDate();";
+  //          } else {
+  //              // one of our devices
+  //              app.screens['menu']['activities'][1] = "Blank";  // no access to HHQ
+  //              app.screens['menu']['activities'][2] = "Blank";  // no Activity pixels
+  //              app.screens['menu']['activities'][3] = "Blank";  // no profile
+  //              app.screens['menu']['activities'][5] = "Blank";  // no help
+  //              app.activities['StudyDate']['next'] = "";
+  //          }
+  //      }
+  //      
+  //      // XXX testing
+  //      app.screens['menu']['activities'][1] = "HouseholdSurvey";
 
-        // date choice can be shown (but not changed) without authorisation
-        if (dateChoice != null) {
-            // show date in menu
-            var dtChoice  = new Date(dateChoice);
-            var options = { day: 'numeric', month: 'short'};
-            var dtString = dtChoice.toLocaleDateString(app.label.locale, options);
-            app.activities['StudyDate']['caption'] = app.label.lblDate + dtString;
-        } else {
-            app.activities['StudyDate']['caption'] = app.label.lblPickDate;
-        }
-    }
+  //      // date choice can be shown (but not changed) without authorisation
+  //      if (dateChoice != null) {
+  //          // show date in menu
+  //          var dtChoice  = new Date(dateChoice);
+  //          var options = { day: 'numeric', month: 'short'};
+  //          var dtString = dtChoice.toLocaleDateString(app.label.locale, options);
+  //          app.activities['StudyDate']['caption'] = app.label.lblDate + dtString;
+  //      } else {
+  //          app.activities['StudyDate']['caption'] = app.label.lblPickDate;
+  //      }
+  //  }
 },
 
 showStars: function() {
   // activityList = utils.getList(ACTIVITY_LIST) || {};
   // var actCount = Object.keys(activityList).length;
   var actCount = localStorage.getItem('ActivityCount');
-  if (actCount > 24) {
-    app.imgStatus.attr("src","img/stars_5.png");
-  } else if (actCount > 14) {
-    app.imgStatus.attr("src","img/stars_4.png");
-  } else if (actCount > 9) {
-    app.imgStatus.attr("src","img/stars_3.png");
-  } else if (actCount > 4) {
-    app.imgStatus.attr("src","img/stars_2.png");
-  } else if (actCount > 0) {
-    app.imgStatus.attr("src","img/stars_1.png");
-  } else {
-    app.imgStatus.attr("src","img/stars_0.png");
+  if (actCount > 4) {
+    app.imgStatus.attr("src","img/act3_user_star.png");
   }
-  app.imgStatus.show();
-  app.lblStatus.html("");
+
+  //if (actCount > 24) {
+  //  app.imgStatus.attr("src","img/stars_5.png");
+  //} else if (actCount > 14) {
+  //  app.imgStatus.attr("src","img/stars_4.png");
+  //} else if (actCount > 9) {
+  //  app.imgStatus.attr("src","img/stars_3.png");
+  //} else if (actCount > 4) {
+  //  app.imgStatus.attr("src","img/stars_2.png");
+  //} else if (actCount > 0) {
+  //  app.imgStatus.attr("src","img/stars_1.png");
+  //} else {
+  //  app.imgStatus.attr("src","img/stars_0.png");
+  //}
+  //app.imgStatus.show();
 },
 
 updateNowTime: function() {
@@ -306,7 +269,6 @@ navigateTo: function(screen_id, prev_activity) {
   // the button pressed had 'prev_activity' as its 'title'
   // next screen has the key 'screen_id'
   clock.actClock.hide();
-  app.catchup.hide();
   app.title.show();
 
   app.history.push(screen_id);                     // for 'back' functionality
@@ -349,9 +311,7 @@ navigateTo: function(screen_id, prev_activity) {
     //
     //******************************
 
-
-    
-    // Is Time Use activity entry
+    // Time Use activity entry
     if (tuc < TIMEUSE_MAX) {
         if (app.activities[prev_activity].category != "skip") {
             utils.save(CURR_ACTIVITY, prev_activity);
@@ -359,29 +319,16 @@ navigateTo: function(screen_id, prev_activity) {
         }
       app.footer_nav("done");
     }
-    
-    // Is TIME setting
-    else if (tuc > ACTIVITY_TIME_MIN && tuc < ACTIVITY_TIME_MAX) {
+    // TIME setting
+    else if (category == 'time') {
       var offset = app.activities[prev_activity].value;
       var dt_activity = utils.getDate(utils.get(ACTIVITY_DATETIME));
       dt_activity.setMinutes(dt_activity.getMinutes() + offset);
       utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(dt_activity));
     }
-    
-    //  LOCATION
-    else if (tuc > LOCATION_MIN && tuc < LOCATION_MAX) {
-      utils.save(CURR_LOCATION, app.activities[prev_activity].value);
-    }
-    
-    // PEOPLE
-    else if (tuc > PEOPLE_MIN && tuc < PEOPLE_MAX) {
-      utils.save(CURR_PEOPLE, app.activities[prev_activity].value);
-    }
-    
-    // ENJOYMENT
-    else if (tuc > ENJOYMENT_MIN && tuc < ENJOYMENT_MAX) {
-      utils.save(CURR_ENJOYMENT, app.activities[prev_activity].value);
-    }
+    else if (category == 'location') { utils.save(CURR_LOCATION, app.activities[prev_activity].value); }
+    else if (category == 'people') { utils.save(CURR_PEOPLE, app.activities[prev_activity].value); }
+    else if (category == 'enjoyment') { utils.save(CURR_ENJOYMENT, app.activities[prev_activity].value); }
     
     // SURVEY
     else if (tuc > SURVEY_MIN && tuc < SURVEY_MAX) {
@@ -421,10 +368,10 @@ console.log("Screen ID: " + screen_id);
 
 
 if (screen_id == "menu" ) {
-    app.imgStatus.hide();
-    app.lblStatus.html("Home");
-    app.divStatus.attr("onclick", "app.showActivityList()");
-
+    app.footerNav.hide()
+}
+if (screen_id == "user" ) {
+    app.footerNav.hide()
 }
 if (screen_id == "home" ) {
   // an entry has been completed (incl. via "Done");
@@ -451,7 +398,7 @@ if (screen_id == "activity root") {
   // btn-next is only for "activity time relative" actions
   // it points to "activity root", thus turning itself back to "Done" here
   app.footer_nav("f");
-  app.actClockDiv.hide();
+  clock.actClockDiv.hide();
   app.header.attr("onclick", "");
   app.title.removeClass("btn-box");
   // SPECIAL CASE for 'getting home'
@@ -510,9 +457,7 @@ if (screen_id == "survey root") {
 if (screen_id == "survey complete") {
   // app.nav_survey.hide();
     app.activities['IndividualSurvey']['icon'] = "act2_personal"; // remove the AR icon
-   // app.imgStatus.attr("src","img/stars_1.png");
-  // app.imgStatus.show();
-  // app.nav_status.show();
+  app.imgStatus.attr("src","img/act3_user_green.png");
   app.showActivityList();
   // app.choicesPane.hide();
 } else
@@ -523,7 +468,7 @@ if (screen_id == "adjust time") {
 else
 if (screen_id == "other people") {
   // bit of a special case - for "edit repeat" going straight to 'other people'
-  app.actClockDiv.hide();
+  clock.actClockDiv.hide();
   app.header.attr("onclick", "");
   app.title.removeClass("btn-box");
 }
@@ -547,7 +492,7 @@ if (screen_id !== "home") {
     });
     var btn_title   = button.find(".btn-title");
     var btn_caption = button.find(".btn-caption");
-    var btn_button  = button.find(".btn-activity");
+    // var btn_button  = button.find(".btn-activity");
     var number = i+1;
     var buttonNo    = "button"+ number;
 
@@ -650,12 +595,6 @@ if (localStorage.getItem('Online')) {
   if (actCount > 24) {
     $("img#stars5").attr("src","img/stars_on.png");
   }
-  var progressList = $("div#progress_list_pane");
-  if (progressList.is(':visible')) {
-    progressList.hide();
-  } else {
-    progressList.show();
-  }
   $('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
 },
 
@@ -710,7 +649,6 @@ showActivityList: function() {
     '</div>';
       }
   }
-  // app.act_count.show();
   app.activity_list_div.html(actsHTML);
   $('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
   app.updateNowTime();
@@ -752,6 +690,7 @@ addActivityToList: function() {
 
   // reset values
   utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
+  utils.save(CURR_ENJOYMENT, 0);
   utils.save(CURR_PEOPLE, "-1");
 
   actCount = localStorage.getItem('ActivityCount');
@@ -803,7 +742,7 @@ editActivityScreen: function (actKey) {
     });
     var btn_title   = button.find(".btn-title");
     var btn_caption = button.find(".btn-caption");
-    var btn_button  = button.find(".btn-activity");
+    // var btn_button  = button.find(".btn-activity");
     var number = i+1;
     var buttonNo    = "button"+ number;
     document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
@@ -812,7 +751,7 @@ editActivityScreen: function (actKey) {
     button.addClass(activity.category);
     button.attr("onclick", activity.next + "('"+ actKey + "')");
   }
-  app.actClockDiv.hide();
+  clock.actClockDiv.hide();
   app.activityAddPane.hide();
   app.activityListPane.hide();
   app.choicesPane.show();
@@ -823,10 +762,7 @@ saveActivityPropertiesLocally: function(actKey) {
   // this is where app.navigateTo("home") will create new activity from
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var thisAct = activityList[actKey];
-  // var dtAct   = new Date(actKey.substring(0,19));
   var dtAct   = utils.getDate(thisAct.dt_activity);
-  // var dtAct   = new Date(thisAct.dt_activity.replace(" ","T"));
-  // dtAct.setTime( dtAct.getTime() - dtAct.getTimezoneOffset()*60*1000 );
 
   utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(dtAct));
   utils.save(CURR_ACTIVITY, thisAct.key);
@@ -847,17 +783,6 @@ footer_nav: function(btn) {
   $("#btn-back").attr("onclick", "app.goBack();");
 },
 
-// Edit btn XXX
-repeatActivityNow: function(actKey) {
-  // XXX no longer used
-  // set local variables as copy of this activity, then overwrite time
-  app.saveActivityPropertiesLocally(actKey);
-  var thisTime = new Date();//.toISOString();
-  utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(thisTime));
-  app.act_path.push(app.activities['Repeat activity now'].ID);
-  app.navigateTo("home");
-},
-
 // Edit btn 1 - I did More
 moreActivity: function(actKey) {
   app.act_path.push(app.activities['More activity'].ID);
@@ -872,7 +797,6 @@ moreActivity: function(actKey) {
 repeatActivityRecently: function(actKey) {
   // create a new instance as a copy of this activity and then allow to adjust the time
   app.saveActivityPropertiesLocally(actKey);
-  //
   // get the original path and append this button ID
   var activityList = utils.getList(ACTIVITY_LIST) || {};
   var thisAct = activityList[actKey];
@@ -1033,6 +957,7 @@ submitOther: function() {
         app.loadText();
     } else if (!isNaN(hhID)) {
         // h was followed by nothing but a number
+        // create a new hhID
         localStorage.removeItem('metaID');          // get new metaID
         localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
         linkHousehold(hhID);
@@ -1052,7 +977,7 @@ submitOther: function() {
         app.screens['menu']['activities'][5] = "Blank";  // no help
 
         localStorage.setItem('AwaitAuthorisation', true);
-        app.imgStatus.hide();
+        // app.imgStatus.hide();
 
         app.loadText();
         app.returnToMainScreen();
@@ -1095,41 +1020,22 @@ saveName: function() {
 
 returnToMainScreen: function() {
   // restore what is shown and what is hidden on home screen
-  hourlyChecks();
-  if (localStorage.getItem("consent") == null) {
-    app.divStatus.attr("onclick","app.returnToMainScreen()");
-    app.lblStatus.html(app.label.consent);
-    $('#consentLabel').html(app.label.consentLabel);
-    $("#dataPolicyButton").show();
-    app.consent.show();
-    app.appScreen.hide();
-
-  } else {
-  // Hide / remove
-    app.consent.hide();
-    $("div#progress_list_pane").hide();
+    hourlyChecks();
     app.choicesPane.hide();
     $("div#other-specify").hide();
     app.title.attr("onclick", "");
-    app.imgStatus.hide();
+    // app.imgStatus.hide();
     app.contact_screen.hide();
     app.personaliseScreen.hide();
     //app.register_screen.hide();
     app.server.hide();
     $("div#other-specify").hide();
-    
-  // Show
-    app.lblStatus.html("Menu");
-    app.divStatus.attr("onclick", "app.navigateTo('menu')");
     app.appScreen.show();
     app.header.show(); 
     app.activityAddPane.show();
     app.activityListPane.show();
     app.footer_nav("home");
     console.log("Home settings applied");
-
-
-  }
 },
 
 submitPostcode: function() {
@@ -1321,12 +1227,6 @@ contactInfoScreen: function() {
   app.contact_screen.show();
 },
 
-showPolicy: function() {
-  $("#consentDetail").show();
-  $("#dataPolicyButton").hide();
-  app.consent.show();
-},
-
 showHelp: function() {
   if (localStorage.getItem('Online') == 'true') {
     var idMeta = localStorage.getItem('metaID');
@@ -1379,13 +1279,6 @@ showEnjoyment: function() {
   } else {
     app.title.html(app.label.noInternet);
   }
-},
-
-givenConsent: function() {
-  localStorage.setItem("consent", 1);
-  app.consent.hide();
-  app.appScreen.show();
-  app.showActivityList();
 },
 
 };

@@ -574,7 +574,11 @@ window.addEventListener('message', function(e) { //This called whenever the ifra
 
 function receiveMessageIframe(message) {
     console.log("Received message from iframe: " + message);
-    
+    if (message.split("#")[0]=="CONSENT"){
+        localStorage.setItem('consent', 1)
+        app.navbar.show();
+        app.navigateTo("menu");
+    }
     // Go Home (Nav bar)
     if (message.split("#")[0]=="Go home"){
         app.statusCheck();

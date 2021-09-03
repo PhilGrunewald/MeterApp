@@ -9,258 +9,155 @@
    </head>
 <body>
   <div class="navbar" id="navbar">
-     <!-- the 3 buttons on the top: HOME | SURVEY | HELP -->
+     <!-- the 4 buttons on the top: MENU | ACT | USER | HELP -->
      <div class="row">
-        <div id="nav-home" class="col-25" onclick="app.showActivityList();"><img src="img/Loc_home.png" height="25px"></div>
-
-        <div id="divStatus" class="col-50" onclick="app.showProgressList();">
-             <img id="imgStatus">
-             <div id="lblStatus"> </div>
-        </div>
-
-        <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();">?</div>
+        <div id="nav-menu" class="col-25" onclick="app.navigateTo('menu');"><img src="img/act3_menu.png" height="50px"></div>
+        <div id="nav-home" class="col-25" onclick="app.showActivityList();"><img src="img/act3_act.png" height="50px"></div>
+        <div id="nav-user" class="col-25" onclick="app.navigateTo('user');"><img id="imgStatus" src="img/act3_user_red.png" height="50px"></div>
+        <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();"><img id="imgStatus" src="img/act3_help.png" height="50px"></div>
      </div>
   </div>
 
   <iframe id="server" width="100%" height="90%" frameborder="0"></iframe>
   <div class="app" id="app_screen">
-
-     <div class="main-screen">
-        <div id="header" class="header">
-           <div class="clock-act">
-              <canvas id="clock-act" width="112px" height="112px"></canvas>
-           </div>
-           <!--
-              -->
-           <div id="title">Welcome</div>
-           <br></br>
-           <div id="catch-up" class="btn-catchup"> at </div>
-        </div>
-        <div id="other-specify">
-                <input type="text" id="free-text" autofocus /> <br>
-                <div class="other-specify-nav">
-                   <div class="row">
-                       <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()"></div>
-                       <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
-                   </div>
-                </div>
-        </div>
-
-            <div class="contents">
-               <div hidden id="progress_list_pane">
-                  <div id="progress-list">
-                     <div class="progress-row" id="progress-row-authorise">
-                        <div class="progress-item" onclick="app.authorise()">
-                           <img id="progress-img-authorise" class="imgSmall" src="img/AR_4.png">
-                           <span id="progress-authorise">Authorise</span>
-                        </div>
-                     </div>
-
-                     <div class="progress-row" id="progress-row-date">
-                        <div class="progress-item" onclick="app.getDate()">
-                           <img id="progress-img-date" class="imgSmall" src="img/AR_4.png">
-                           <span id="progress-date">Study date</span>
-                        </div>
-                     </div>
-
-                     <div class="progress-row" id="progress-row-hhSurvey">
-                        <div class="progress-item" onclick="app.changeHHsurvey()">
-                           <img id="progress-img-hhSurvey" class="imgSmall" src="img/AR_4.png">
-                           <span id="progress-hhSurvey">Household information</span>
-                        </div>
-                     </div>
-
-                     <div class="progress-row">
-                        <div class="progress-item" onclick="app.changeINDIVsurvey()">
-                           <img id="progress-img-indivSurvey" class="imgSmall" src="img/AR_4.png">
-                           <span id="progress1"></span>
-                        </div>
-                     </div>
-                     <div class="progress-row">
-                        <div class="progress-item">
-                           <img id="stars2" src="img/stars_off.png">
-                           <span id="progress2">5</span>
-                        </div>
-                     </div>
-                     <div class="progress-row">
-                        <div class="progress-item">
-                           <img id="stars3" src="img/stars_off.png">
-                           <span id="progress3">10</span>
-                        </div>
-                     </div>
-                     <div class="progress-row">
-                        <div class="progress-item">
-                           <img id="stars4" src="img/stars_off.png">
-                           <span id="progress4">15</span>
-                        </div>
-                     </div>
-                     <div class="progress-row">
-                        <div class="progress-item">
-                           <img id="stars5" src="img/stars_off.png">
-                           <span id="progress5">25</span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div id="activity_add_pane">
-                  <div class="btn-addnew container">
-                     <div class="row">
-                        <div id="btn-now" class="col" onclick="app.navigateTo('activity root')">
-                           <div class="help-caption" id="help-btn-now">Start here to say what you do now</div>
-                           <canvas id="clock-now" width="120" height="120" class=""></canvas>
-                        </div>
-                        <div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">
-                           <div class="help-caption" id="help-btn-recent">For activities in the past use this button</div>
-                           <canvas id="clock-recent" width="120" height="120" class="" onclick="app.navigateTo('activity time relative')">
-                           </canvas>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="help-caption" id="help-act-list">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
-               </div>
-               <div id="activity_list_pane">
-                  <div id="activity-list">
-                     <div class="row activity-row">
-                        <div class="activity-cell btn-terminate"></div>
-                        <div id="actListLabel" class="activity-cell activity-item"><i>No activity yet</i></div>
-                        <div class="activity-cell btn-time"></div>
-                     </div>
-                  </div>
-                  </br><br>
-               </div>
-               <div id="choices_pane">
-                  <div class="choices">
-                     <div class="row">
-                        <div id="button1" class="btn-activity col">
-                           <div id="title1" class="btn-title">&lt;title&gt;</div>
-                           <div id="caption1" class="btn-caption">&lt;caption&gt;</div>
-                        </div>
-                        <div id="button2" class="btn-activity col">
-                           <div id="title2" class="btn-title">&lt;title&gt;</div>
-                           <div id="caption2" class="btn-caption">&lt;caption&gt;</div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div id="button3" class="btn-activity col">
-                           <div id="title3" class="btn-title">&lt;title&gt;</div>
-                           <div id="caption3" class="btn-caption">&lt;caption&gt;</div>
-                        </div>
-                        <div id="button4" class="btn-activity col">
-                           <div id="title4" class="btn-title">&lt;title&gt;</div>
-                           <div id="caption4" class="btn-caption">&lt;caption&gt;</div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div id="button5" class="btn-activity col">
-                           <div id="title5" class="btn-title">&lt;title&gt;</div>
-                           <div id="caption5" class="btn-caption">&lt;caption&gt;</div>
-                        </div>
-                        <div id="button6" class="btn-activity col">
-                           <div id="title6" class="btn-title">&lt;title&gt;</div>
-                           <div id="caption6" class="btn-caption">&lt;caption&gt;</div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="footer-nav">
-                     <div class="row">
-                        <div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
-                        <div id="btn-done" class="col col-footer" onclick="app.navigateTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
-                        <div id="btn-home" class="col col-footer" onclick="app.returnToMainScreen()"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
-                        <div id="btn-next" class="col col-footer" onclick="app.navigateTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- main-screen ^ -->
-      <div hidden id="personalise_screen" class="personalise_screen">
-         <div id="help-post-code" class="help_text">
-            Enter your postcode to take part in the study
-         </div>
-         <div id="postcode_section">
-         <input id="postcode_input" class="postcode_input" type="text" placeholder="postcode">
-         <select hidden id="address_list" size="3" class="address_list">
-             <!-- This is where the addresses are inserted-->
-         </select>
-         <br></br>
-         <button type="submit" class="btn_submit" id="btn_submit" onclick="app.submitPostcode()">Submit</button>
+    <div id="header" class="header">
+       <div class="clock-act">
+          <canvas id="clock-act" width="112px" height="112px"></canvas>
        </div>
-         <br></br>
-         <div class="footer_postcode">
-                <div class="footer_postcode_content">
-                <!-- 
-                    <a href="http://energy-use.org/about.php">Learn more</a>  // - >> help button
-                  <br>
-                  <button type="button" id="personalise_back" class="btn_return" onclick="">Do this later</button>  - >> home button
-                -->
-                </div>
-         </div>
-      </div>
-
-      <div hidden class="personalise_screen" id="contact_screen">
-        <div id="help-contact-details" class="help_text" stle="font-size:10px">
-          Please tell us how we can contact you
-        </div>
-        <div id="contact_info_section">
-          <input id="contact_name" class="contact_input" type="text" placeholder="Name (optional)" style="">
-          <input id="contact_email" class="contact_input" type="text" placeholder="Email (required)" style="">
-          <br><br><br>
-          <button type="submit" class="btn_submit" id="contact_info_submit" onclick="submitContactInfo()">Submit</button>
-        </div>
-        <br>
-        <div class="footer_postcode">
-           <div class="footer_postcode_content">
-             <br>
+       <div id="title"></div>
+       <br></br>
+    </div>
+    <div id="other-specify">
+        <input type="text" id="free-text" autofocus /> <br>
+        <div class="other-specify-nav">
+           <div class="row">
+               <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()"></div>
+               <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
            </div>
         </div>
-      </div>
-      <!-- personalise-screen ^ -->
+    </div>
 
-  <div class="consent" id="consent">
+        <div class="contents">
+           <div id="activity_add_pane">
+              <div class="btn-addnew container">
+                 <div class="row">
+                    <div id="btn-now" class="col" onclick="app.navigateTo('activity root')">
+                       <div class="help-caption" id="help-btn-now">Start here to say what you do now</div>
+                       <canvas id="clock-now" width="120" height="120" class=""></canvas>
+                    </div>
+                    <div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">
+                       <div class="help-caption" id="help-btn-recent">For activities in the past use this button</div>
+                       <canvas id="clock-recent" width="120" height="120" class="" onclick="app.navigateTo('activity time relative')">
+                       </canvas>
+                    </div>
+                 </div>
+              </div>
+              <div class="help-caption" id="help-act-list">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
+           </div>
+           <div id="activity_list_pane">
+              <div id="activity-list">
+                 <div class="row activity-row">
+                    <div class="activity-cell btn-terminate"></div>
+                    <div id="actListLabel" class="activity-cell activity-item"><i>No activity yet</i></div>
+                    <div class="activity-cell btn-time"></div>
+                 </div>
+              </div>
+              </br><br>
+           </div>
+           <div id="choices_pane">
+              <div class="choices">
+                 <div class="row">
+                    <div id="button1" class="btn-activity col">
+                       <div id="title1" class="btn-title">&lt;title&gt;</div>
+                       <div id="caption1" class="btn-caption">&lt;caption&gt;</div>
+                    </div>
+                    <div id="button2" class="btn-activity col">
+                       <div id="title2" class="btn-title">&lt;title&gt;</div>
+                       <div id="caption2" class="btn-caption">&lt;caption&gt;</div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div id="button3" class="btn-activity col">
+                       <div id="title3" class="btn-title">&lt;title&gt;</div>
+                       <div id="caption3" class="btn-caption">&lt;caption&gt;</div>
+                    </div>
+                    <div id="button4" class="btn-activity col">
+                       <div id="title4" class="btn-title">&lt;title&gt;</div>
+                       <div id="caption4" class="btn-caption">&lt;caption&gt;</div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div id="button5" class="btn-activity col">
+                       <div id="title5" class="btn-title">&lt;title&gt;</div>
+                       <div id="caption5" class="btn-caption">&lt;caption&gt;</div>
+                    </div>
+                    <div id="button6" class="btn-activity col">
+                       <div id="title6" class="btn-title">&lt;title&gt;</div>
+                       <div id="caption6" class="btn-caption">&lt;caption&gt;</div>
+                    </div>
+                 </div>
+              </div>
+
+              <div class="footer-nav">
+                 <div class="row">
+                    <div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
+                    <div id="btn-done" class="col col-footer" onclick="app.navigateTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
+                    <div id="btn-home" class="col col-footer" onclick="app.returnToMainScreen()"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
+                    <div id="btn-next" class="col col-footer" onclick="app.navigateTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+
+  <div hidden id="personalise_screen" class="personalise_screen">
+     <div id="help-post-code" class="help_text">
+        Enter your postcode to take part in the study
+     </div>
+     <div id="postcode_section">
+     <input id="postcode_input" class="postcode_input" type="text" placeholder="postcode">
+     <select hidden id="address_list" size="3" class="address_list">
+         <!-- This is where the addresses are inserted-->
+     </select>
+     <br></br>
+     <button type="submit" class="btn_submit" id="btn_submit" onclick="app.submitPostcode()">Submit</button>
+   </div>
+     <br></br>
+     <div class="footer_postcode">
+            <div class="footer_postcode_content">
+            <!-- 
+                <a href="http://energy-use.org/about.php">Learn more</a>  // - >> help button
+              <br>
+              <button type="button" id="personalise_back" class="btn_return" onclick="">Do this later</button>  - >> home button
+            -->
+            </div>
+     </div>
+  </div>
+
+  <div hidden class="personalise_screen" id="contact_screen">
+    <div id="help-contact-details" class="help_text" stle="font-size:10px">
+      Please tell us how we can contact you
+    </div>
+    <div id="contact_info_section">
+      <input id="contact_name" class="contact_input" type="text" placeholder="Name (optional)" style="">
+      <input id="contact_email" class="contact_input" type="text" placeholder="Email (required)" style="">
+      <br><br><br>
+      <button type="submit" class="btn_submit" id="contact_info_submit" onclick="submitContactInfo()">Submit</button>
+    </div>
     <br>
-    <div id="consentLabel"></div>
-    <button type="button" id="dataPolicyButton" class="btn-secondary" onclick="app.showPolicy()">xxx Read the data policy</button>
-    <button type="button" id="consentButton" class="btn_link btn-lg" onclick="app.givenConsent();">xxx</button>
-    <br>
-    <div class= "consent_frame" id="consentDetail">
-			<h1>Data policy</h1>
-			<h3>You own the data</h3>
-<p>All data submitted via the app is anonymous and stored securely. It is used for research purposes only.</p>
-			<p>If you are over 18 and submit electricity load data, we store this securely as well. These data may seem innocuous, but they can contain a lot of personal information, such as when and for how long you were at home. In combination with the activity information even more personal insights are possible. We therefore treat these data as <b>personal</b> and <b>sensitive</b>.  </p>
-			<p>It is important to us that you remain in charge of the data. If for any reason you become uncomfortable about us holding information from you, you are entitled to ask us to remove the data - no questions asked.</p>
-
-			<h3>Your consent</h3>
-			<p>You owning the data also means that we will not share data without your consent.</p>
-			<p>By taking part in this study you consent to your data being used for research purposes. For any additional use, we will ask your consent first.</p>
-
-			<h3>How we use your data</h3>
-			<p>There are different levels of access we would grant:</p>
-			<ul>
-				<li><b>Your name and address: </b>These will not be shared under any circumstances. We may identify your region based on your post code, but not beyond street level.</li>
-				<li><b>Your survey information: </b>These will only be used for research and will only be made accessible to selected researchers. Wider access is only available in aggregated or fragmented form. That means your information is combined with others, such that your individual data cannot be recognised. </li>
-				<li><b>Your activity information: </b>Selected researchers will have access to these data. We may publish examples of unidentifiable subsets of activity data.</li>
-				<li><b>Your load profile:</b> We treat your electricity data with the same level of sensitivity as your activity data. </li>
-			</ul>
-
-			<h3>How we store your data</h3>
-			<p>All of the data we collect, is stored on a secure server within a relational SQL database. Your name and address are stored separately from your survey information and your electricity readings. The only thing that links these data is an ID number we generate for you. </p>
-            <br> <br> <br> <br> <br> <br>
-    <button type="button" id="consentButton2" class="btn_link btn-lg" onclick="app.givenConsent();">OK</button>
-            <br> <br> <br> <br> <br> <br>
-            <br> <br> <br> <br> <br> <br>
+    <div class="footer_postcode">
+       <div class="footer_postcode_content">
+         <br>
+       </div>
     </div>
   </div>
-      <!-- consent-screen ^ -->
 
-      <script type="text/javascript" src="cordova.js"></script>
-      <script type="text/javascript" src="js/jquery-2.2.1.js"></script>
-
-      <script type="text/javascript" src="js/clock.js"></script>
-      <script type="text/javascript" src="js/utils.js"></script>
-      <script type="text/javascript" src="js/index.js"></script>
-      <script type="text/javascript" src="js/connect.js"></script>
-
-      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
-   </body>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-2.2.1.js"></script>
+<script type="text/javascript" src="js/clock.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/connect.js"></script>
+</body>
 </html>
