@@ -3060,7 +3060,7 @@
             "category": "people",
             "caption": "No one",
             "help": "people",
-            "icon": "act2_others0",
+            "icon": "act3_people_0",
             "next": "enjoyment",
             "title": "No one",
             "value": 0
@@ -3070,7 +3070,7 @@
             "category": "people",
             "caption": "1",
             "help": "people",
-            "icon": "act2_others1",
+            "icon": "act3_people_1",
             "next": "enjoyment",
             "title": "1 other",
             "value": 1
@@ -3080,7 +3080,7 @@
             "category": "people",
             "caption": "2",
             "help": "people",
-            "icon": "act2_others2",
+            "icon": "act3_people_2",
             "next": "enjoyment",
             "title": "2 other",
             "value": 2
@@ -3090,7 +3090,7 @@
             "category": "people",
             "caption": "3",
             "help": "people",
-            "icon": "act2_others3",
+            "icon": "act3_people_3",
             "next": "enjoyment",
             "title": "3 other",
             "value": 3
@@ -3100,7 +3100,7 @@
             "category": "people",
             "caption": "4",
             "help": "people",
-            "icon": "act2_others4",
+            "icon": "act3_people_4",
             "next": "enjoyment",
             "title": "4 other",
             "value": 4
@@ -3110,7 +3110,7 @@
             "category": "people",
             "caption": "More",
             "help": "More than 4",
-            "icon": "act2_others5",
+            "icon": "act3_people_5",
             "next": "enjoyment",
             "title": "more than 4 others",
             "value": 5
