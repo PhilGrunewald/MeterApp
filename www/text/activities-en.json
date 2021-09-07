@@ -7,7 +7,6 @@
         "Skip 'hot or cold meal'": "add",
         "back button when EDIT change time": "hide"
     },
-    "activities": {
         "Now": {
             "ID": 1,
             "caption": "Now",
@@ -5355,5 +5354,4 @@
             "title": "Gender",
             "value": 0
         }
-    }
 }

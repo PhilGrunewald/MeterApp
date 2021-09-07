@@ -17,11 +17,12 @@ if (localStorage.getItem('language') == null) {
         }
     }
 }
+
 var appVersion = "1.1.12";
 var meterURL = "https://www.energy-use.org/app/"
 
 var CURR_ACTIVITY = "current_activity";
-var CURR_ACTIVITY_ID = "0";  // the time use code AND category as csv
+var CURR_ACTIVITY_ID = "current_activity_ID";  // the time use code AND category as csv
 var ACTIVITY_DATETIME = "same";  // default - meaning activity time = reported time
 var CURR_LOCATION = "current_location";
 var CURR_ENJOYMENT = 0;
@@ -49,58 +50,58 @@ var app = {
       app.loadText();
   },
 
-  loadText: function() {
-    $.getJSON('text/labels-' + localStorage.getItem('language') + '.json', function(label_data) {
-    console.log('loading labels-' + localStorage.getItem('language') + '.json');
-    app.label = label_data;
-    $('#dataPolicyButton').html(app.label.dataPolicyButton);
-    $('#actListLabel').html(app.label.actListLabel);
-    $('#lblPersonalise').html(app.label.lblPersonalise);
-    $('#lblSurvey').html(app.label.lblSurvey);
-    $('#lblBack').html(app.label.lblBack);
-    $('#lblHome').html(app.label.lblHome);
-    $('#lblNext').html(app.label.lblNext);
-    $('#lblDone').html(app.label.lblDone);
-    $('#btn-other-specify').html(app.label.btnOther);
-    $('#btnCustomSave').html(app.label.btnCustomSave);
-    $('#progress-authorise').html(app.label.Authorise)
-    $('#help-btn-now').html(app.label.help.btnNow);
-    $('#help-btn-recent').html(app.label.help.btnRecent);
-    $('#help-act-list').html(app.label.help.actList);
-    $('#help-post-code').html(app.label.help.postcode);
-    $('#help-contact-details').html(app.label.help.contactDetails);
-    app.updateNowTime();
-    setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
-    }),
+  loadJSON: async function(fileName,language) {
+      const response = await fetch(`text/${fileName}-${language}.json`)
+      return await response.json();
+  },
 
-    $.getJSON('text/activities-' + localStorage.getItem('language') + '.json', function(data) {
-      console.log('loading activities-' + localStorage.getItem('language') + '.json');
-      app.activities = data.activities;
-      if (localStorage.getItem("customActivities") != null) {
-          // custom activities have been assigned
-          // these overwrite the default activities
-          cActs = JSON.parse(localStorage.getItem("customActivities"));
-          for (act in cActs) {
-              cAct = cActs[act];
-              for (item in cAct) {
-                app.activities[act][item] = cActs[act][item];
-              }
-          }
-      }
-      }).then(
-        $.getJSON('text/screens-' + localStorage.getItem('language') + '.json', function(screen_data) {
-          app.screens = screen_data.screens;
-      })).then(
-          function(){ 
-            if (localStorage.getItem("consent") == 1) {
-              app.navigateTo("menu") 
-            } else {
-                app.navbar.hide();
-                app.server.attr('src', 'https://www.energy-use.org/app/consent.php');
-                app.server.show(); 
+  loadText: async function() {
+    const language = localStorage.getItem('language');
+
+    [app.label, app.activities, app.screens] = await Promise.all([
+        app.loadJSON('labels',language),
+        app.loadJSON('activities',language),
+        app.loadJSON('screens',language)
+        ]); // .then(values => { console.log("VALUES XX", values); });
+
+    if (localStorage.getItem("customActivities") != null) {
+        // custom activities have been assigned
+        // these overwrite the default activities
+        cActs = JSON.parse(localStorage.getItem("customActivities"));
+        for (act in cActs) {
+            cAct = cActs[act];
+            for (item in cAct) {
+              app.activities[act][item] = cActs[act][item];
             }
-          }
-        )
+        }
+    }
+    if (localStorage.getItem("consent") == 1) {
+      app.navigateTo("menu") 
+    } else {
+        app.navbar.hide();
+        app.server.attr('src', 'https://www.energy-use.org/app/consent.php');
+        app.server.show(); 
+    }
+
+        $('#dataPolicyButton').html(app.label.dataPolicyButton);
+        $('#actListLabel').html(app.label.actListLabel);
+        $('#lblPersonalise').html(app.label.lblPersonalise);
+        $('#lblSurvey').html(app.label.lblSurvey);
+        $('#lblBack').html(app.label.lblBack);
+        $('#lblHome').html(app.label.lblHome);
+        $('#lblNext').html(app.label.lblNext);
+        $('#lblDone').html(app.label.lblDone);
+        $('#btn-other-specify').html(app.label.btnOther);
+        $('#progress-authorise').html(app.label.Authorise)
+        $('#help-btn-now').html(app.label.help.btnNow);
+        $('#help-btn-recent').html(app.label.help.btnRecent);
+        $('#help-act-list').html(app.label.help.actList);
+        $('#help-post-code').html(app.label.help.postcode);
+        $('#help-contact-details').html(app.label.help.contactDetails);
+        app.updateNowTime();
+        setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
+    //            }
+    //          )
    },
 
   initialSetup: function() {
@@ -266,11 +267,11 @@ updateNowTime: function() {
 
 
 navigateTo: function(screen_id, prev_activity) {
+    console.log("Navigating", screen_id);
   // the button pressed had 'prev_activity' as its 'title'
   // next screen has the key 'screen_id'
   clock.actClock.hide();
   app.title.show();
-
   app.history.push(screen_id);                     // for 'back' functionality
 
   if (prev_activity !== undefined) {
@@ -345,179 +346,178 @@ navigateTo: function(screen_id, prev_activity) {
 
   $("img#survey-status").attr("src","img/AR_progress.png");
   }
-} // if prev undefined
+  } // if prev undefined
 
-//******************************
-//
-// SCREEN ID SPECIFIC ACTIONS
-//
-//******************************
+    //******************************
+    //
+    // SCREEN ID SPECIFIC ACTIONS
+    //
+    //******************************
 
-app.activityAddPane.hide();
-app.activityListPane.hide();
+    app.activityAddPane.hide();
+    app.activityListPane.hide();
 
-app.server.hide(); 
+    app.server.hide(); 
 
-app.choicesPane.show();
-app.footerNav.show();
-app.helpCaption.hide(); // hide help text when moving on (default off);
-app.btnCaption.hide(); // hide help text when moving on (default off);
+    app.choicesPane.show();
+    app.footerNav.show();
+    app.helpCaption.hide(); // hide help text when moving on (default off);
+    app.btnCaption.hide(); // hide help text when moving on (default off);
 
-console.log("Screen ID: " + screen_id);
-// app.personalise.hide();
+    console.log("Screen ID: " + screen_id);
 
-
-if (screen_id == "menu" ) {
-    app.footerNav.hide()
-}
-if (screen_id == "user" ) {
-    app.footerNav.hide()
-}
-if (screen_id == "home" ) {
-  // an entry has been completed (incl. via "Done");
-  app.addActivityToList();
-  app.header.attr("onclick", "");
-  app.title.removeClass("btn-box");
-  app.showActivityList();
-  app.showStars();
-  // in saveActivityPropertiesLocally home was repointed here to avoid loosing item when aborting change
-  $("#nav-home").attr("onclick", "app.showActivityList()");
-} else
-if (screen_id == "activity time relative") {
-  // pressed "recently" button - relative time entry followed by "activity root"
-  // unlike "adjust time" which is triggered by "edit activity"
-  // XXX 3 May 2019 : var dt_ = Date.now();
-  var dt_ = new Date();//.toISOString();
-  utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(dt_));
-  utils.format("${rel_time}")
-  app.footer_nav("next");
-  app.header.attr("onclick", "app.navigateTo('activity root')");
-  app.title.addClass("btn-box");
-} else
-if (screen_id == "activity root") {
-  // btn-next is only for "activity time relative" actions
-  // it points to "activity root", thus turning itself back to "Done" here
-  app.footer_nav("f");
-  clock.actClockDiv.hide();
-  app.header.attr("onclick", "");
-  app.title.removeClass("btn-box");
-  // SPECIAL CASE for 'getting home'
-  // if last location was not home, go to screen 'activity root away', which will have an option to 'arrive home'
-  if (utils.get(CURR_LOCATION) != 1) {
-    screen_id = "activity root away";
-  }
-} else
-if (screen_id == "other specify" || screen_id == "email specify" || screen_id == "other specify name" || screen_id == "name specify" || screen_id == "other specify household ID") {     // display text edit field
-  console.log("Free text screen");
-  app.footerNav.hide();
-  app.choicesPane.hide();
-  $("div#other-specify").show();
-    if (screen_id == "name specify") {
-        // requesting authorisation (no Save option)
-        $("input#free-text").val("");
-        $("div#btnCustomSave").hide();
-        $("div#btn-other-specify").html(app.label.requestAuthorisation);
-    } else if (screen_id == "email specify"){
-        // give email address to send data
-        $("input#free-text").val("");
-        $("div#btnCustomSave").hide();
-        $("div#btn-other-specify").attr("onclick", "app.emailData()");
-        $("div#btn-other-specify").html("Email");
-    } else if (screen_id == "other specify name"){
-        // specifying a name prior to HH id
-        $("input#free-text").val(localStorage.getItem('name'));
-        $("div#btnCustomSave").hide();
-        $("div#btn-other-specify").attr("onclick", "app.saveName()");
-    } else if (screen_id == "other specify household ID"){
-        // specifying a HH id (no save)
-        $("input#free-text").val("");
-        $("div#btnCustomSave").hide();
-        $("div#btn-other-specify").attr("onclick", "app.submitHHid()");
-    } else {
-        // standard custom entry with save option
-        $('#btn-other-specify').html(app.label.btnOther);
-        $("div#btn-other-specify").attr("onclick", "app.submitOther()");
-        $("div#btnCustomSave").show();
+    if (screen_id == "menu" ) {
+        app.footerNav.hide()
     }
-} else
-if (screen_id == "survey root") {
-  // an entry is still in the middle of completion
-  // "survey root" is where the top navigation button points to
-  // here it gets redirected to the latest survey screen
-  // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
-  screen_id = utils.get(SURVEY_STATUS);
-  // clearTimeout(app.waitFor5pm);
-  $('div.contents').show();
-  app.footer_nav("home");
+    if (screen_id == "user" ) {
+        app.footerNav.hide()
+    }
+    if (screen_id == "home" ) {
+      // an entry has been completed (incl. via "Done");
+      app.addActivityToList();
+      app.header.attr("onclick", "");
+      app.title.removeClass("btn-box");
+      app.showActivityList();
+      app.showStars();
+      // in saveActivityPropertiesLocally home was repointed here to avoid loosing item when aborting change
+      $("#nav-home").attr("onclick", "app.showActivityList()");
+    } else
+    if (screen_id == "activity time relative") {
+      // pressed "recently" button - relative time entry followed by "activity root"
+      // unlike "adjust time" which is triggered by "edit activity"
+      // XXX 3 May 2019 : var dt_ = Date.now();
+      var dt_ = new Date();//.toISOString();
+      utils.save(ACTIVITY_DATETIME, utils.getDateForSQL(dt_));
+      utils.format("${rel_time}")
+      app.footer_nav("next");
+      app.header.attr("onclick", "app.navigateTo('activity root')");
+      app.title.addClass("btn-box");
+    } else
+    if (screen_id == "activity root") {
+      // btn-next is only for "activity time relative" actions
+      // it points to "activity root", thus turning itself back to "Done" here
+      app.footer_nav("f");
+      clock.actClockDiv.hide();
+      app.header.attr("onclick", "");
+      app.title.removeClass("btn-box");
+      // SPECIAL CASE for 'getting home'
+      // if last location was not home, go to screen 'activity root away', which will have an option to 'arrive home'
+      if (utils.get(CURR_LOCATION) != 1) {
+        screen_id = "activity root away";
+      }
+    } else
+    if (screen_id == "other specify" || screen_id == "email specify" || screen_id == "other specify name" || screen_id == "name specify" || screen_id == "other specify household ID") {     // display text edit field
+      console.log("Free text screen");
+      app.footerNav.hide();
+      app.choicesPane.hide();
+      $("div#other-specify").show();
+        if (screen_id == "name specify") {
+            // requesting authorisation (no Save option)
+            $("input#free-text").val("");
+            $("div#btnCustomSave").hide();
+            $("div#btn-other-specify").html(app.label.requestAuthorisation);
+        } else if (screen_id == "email specify"){
+            // give email address to send data
+            $("input#free-text").val("");
+            $("div#btnCustomSave").hide();
+            $("div#btn-other-specify").attr("onclick", "app.emailData()");
+            $("div#btn-other-specify").html("Email");
+        } else if (screen_id == "other specify name"){
+            // specifying a name prior to HH id
+            $("input#free-text").val(localStorage.getItem('name'));
+            $("div#btnCustomSave").hide();
+            $("div#btn-other-specify").attr("onclick", "app.saveName()");
+        } else if (screen_id == "other specify household ID"){
+            // specifying a HH id (no save)
+            $("input#free-text").val("");
+            $("div#btnCustomSave").hide();
+            $("div#btn-other-specify").attr("onclick", "app.submitHHid()");
+        } else {
+            // standard custom entry with save option
+            $('#btn-other-specify').html(app.label.btnOther);
+            $("div#btn-other-specify").attr("onclick", "app.submitOther()");
+            $("div#btnCustomSave").html(app.label.btnCustomSave);
+            $("div#btnCustomSave").show();
+        }
+    } else
+    if (screen_id == "survey root") {
+      // an entry is still in the middle of completion
+      // "survey root" is where the top navigation button points to
+      // here it gets redirected to the latest survey screen
+      // SURVEY_STATUS is 'survey root' by default and gets updated with every survey screen
+      screen_id = utils.get(SURVEY_STATUS);
+      // clearTimeout(app.waitFor5pm);
+      $('div.contents').show();
+      app.footer_nav("home");
 
-  if (screen_id === null) {  // in case SURVEY_STATUS was not set
-    screen_id = "survey root";
-  }
-} else
-if (screen_id == "survey complete") {
-  // app.nav_survey.hide();
-    app.activities['IndividualSurvey']['icon'] = "act2_personal"; // remove the AR icon
-  app.imgStatus.attr("src","img/act3_user_green.png");
-  app.showActivityList();
-  // app.choicesPane.hide();
-} else
-if (screen_id == "adjust time") {
-  console.log("Doing nothing - just so that the <else> part doesn't remove the title action");
-  utils.format("${rel_time}")
-}
-else
-if (screen_id == "other people") {
-  // bit of a special case - for "edit repeat" going straight to 'other people'
-  clock.actClockDiv.hide();
-  app.header.attr("onclick", "");
-  app.title.removeClass("btn-box");
-}
-else {
-  app.header.attr("onclick", "");
-  app.title.removeClass("btn-box");
-}
+      if (screen_id === null) {  // in case SURVEY_STATUS was not set
+        screen_id = "survey root";
+      }
+    } else
+    if (screen_id == "survey complete") {
+      // app.nav_survey.hide();
+        app.activities['IndividualSurvey']['icon'] = "act2_personal"; // remove the AR icon
+      app.imgStatus.attr("src","img/act3_user_green.png");
+      app.showActivityList();
+      // app.choicesPane.hide();
+    } else
+    if (screen_id == "adjust time") {
+      console.log("Doing nothing - just so that the <else> part doesn't remove the title action");
+      utils.format("${rel_time}")
+    }
+    else
+    if (screen_id == "other people") {
+      // bit of a special case - for "edit repeat" going straight to 'other people'
+      clock.actClockDiv.hide();
+      app.header.attr("onclick", "");
+      app.title.removeClass("btn-box");
+    }
+    else {
+      app.header.attr("onclick", "");
+      app.title.removeClass("btn-box");
+    }
 
-//******************************
-//      Buttons
-//******************************
-var screen_ = app.screens[screen_id];
-app.title.html(utils.format(screen_.title));
-if (screen_id !== "home") {
-  for (i = 0; i < screen_.activities.length; i++) {
-    var activity_id = screen_.activities[i];
-    var activity    = app.activities[activity_id];
-    var button      = $(app.actionButtons[i]);
-    CATEGORIES.forEach(function (cat) {
-      button.removeClass(cat);
-    });
-    var btn_title   = button.find(".btn-title");
-    var btn_caption = button.find(".btn-caption");
-    // var btn_button  = button.find(".btn-activity");
-    var number = i+1;
-    var buttonNo    = "button"+ number;
+    //******************************
+    //      Buttons
+    //******************************
+    var screen_ = app.screens[screen_id];
+    app.title.html(utils.format(screen_.title));
+    if (screen_id !== "home") {
+      for (i = 0; i < screen_.activities.length; i++) {
+        var activity_id = screen_.activities[i];
+        var activity    = app.activities[activity_id];
+        var button      = $(app.actionButtons[i]);
+        CATEGORIES.forEach(function (cat) {
+          button.removeClass(cat);
+        });
+        var btn_title   = button.find(".btn-title");
+        var btn_caption = button.find(".btn-caption");
+        // var btn_button  = button.find(".btn-activity");
+        var number = i+1;
+        var buttonNo    = "button"+ number;
 
-    if (activity === undefined) {
-      btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
-      button.attr("onclick", "");
-    } else {
-      document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
-      btn_title.html(utils.format(activity.caption));
-      btn_caption.html(utils.format(activity.help));
-      //button.addClass(activity.category || "other_category");
-      button.addClass(activity.category);
-      if (activity.category == 'function') {
-        button.attr("onclick", activity.next);
-      } else {
-        button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
+        if (activity === undefined) {
+          btn_title.html("&lt;"+activity_id + "&gt;<br>undefined");
+          button.attr("onclick", "");
+        } else {
+          document.getElementById(buttonNo).style.backgroundImage = "url('img/"+activity.icon+".png')";
+          btn_title.html(utils.format(activity.caption));
+          btn_caption.html(utils.format(activity.help));
+          //button.addClass(activity.category || "other_category");
+          button.addClass(activity.category);
+          if (activity.category == 'function') {
+            button.attr("onclick", activity.next);
+          } else {
+            button.attr("onclick", "app.navigateTo('"+activity.next+"', '"+activity_id+"')");
+          }
+        }
+        if (activity.ID == -1) {
+          document.getElementById(buttonNo).style.backgroundImage = "";
+          button.addClass("other_category");
+          button.attr("onclick", "");
+        }
       }
     }
-    if (activity.ID == -1) {
-      document.getElementById(buttonNo).style.backgroundImage = "";
-      button.addClass("other_category");
-      button.attr("onclick", "");
-    }
-  }
-}
 },
 
 goBack: function() {
@@ -539,65 +539,6 @@ goBack: function() {
   }
 },
 
-showProgressList: function() {
-    // XXX no longer used - could go on menu:Date during the study day
-    // Date may have changed externally (web or other app user)
-    getHHDateChoice();
-
-    var dateChoice = localStorage.getItem('dateChoice');
-    var hhSurveyStatus = localStorage.getItem('householdSurvey');
-
-    var activityList = utils.getList(ACTIVITY_LIST) || []
-    var actCount = Object.keys(activityList).length;
-    app.title.html(app.label.titleProgress1 + actCount + app.label.titleProgress2);
-
-    if (dateChoice != null && new Date() < new Date(dateChoice)) {
-        // a future date is assigned
-        var dtChoice  = new Date(dateChoice);
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-        var options = { weekday: 'short', day: 'numeric', month: 'short'};
-        $('#progress-date').html("Study " + dtChoice.toLocaleDateString(app.label.locale, options));
-        $('#progress-img-date').attr("src","img/nav_done.png");
-    } else {
-        $('#progress-date').html("Do the study");
-        $('#progress-img-date').attr("src","img/meter_go.png");
-    }
-    if (hhSurveyStatus == 'COMPLETE') {
-        $('#progress-img-hhSurvey').attr("src","img/nav_done.png");
-    }
-    
-    if (utils.get(SURVEY_STATUS) == "survey complete") {
-        $('#progress-img-indivSurvey').attr("src","img/stars_on.png");
-    }
-
-
-if (localStorage.getItem('Online')) {
-    var idMeta = localStorage.getItem('metaID');
-    var profileURL = app.label.profileURL + idMeta;
-    app.server.show(); 
-    app.server.attr('src', profileURL);
-    app.server.load(function(){
-        sendMessageIframe("App requested profile");
-    });
-  } else {
-    app.server.hide(); 
-  }
-
-  if (actCount > 4 && localStorage.getItem('Online')) {
-    $("img#stars2").attr("src","img/stars_on.png");
-  } 
-  if (actCount > 9) {
-    $("img#stars3").attr("src","img/stars_on.png");
-  }
-  if (actCount > 14) {
-    $("img#stars4").attr("src","img/stars_on.png");
-  }
-  if (actCount > 24) {
-    $("img#stars5").attr("src","img/stars_on.png");
-  }
-  $('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
-},
-
 
 showActivityList: function() {
   // only used on home screen
@@ -609,7 +550,7 @@ showActivityList: function() {
   app.returnToMainScreen();
   app.history = new Array();
   app.act_path = new Array();
-  var activityList = utils.getList(ACTIVITY_LIST) || []
+      var activityList = utils.getList(ACTIVITY_LIST) || []
   var actsHTML = "";
 
   var actKeys = Object.keys(activityList);
@@ -668,7 +609,6 @@ addActivityToList: function() {
   }
 
   var actID = utils.actID(dt_act);
-
   activityList = utils.getList(ACTIVITY_LIST) || {};
   activityList[actID] = {
     "key"       : utils.get(CURR_ACTIVITY),
