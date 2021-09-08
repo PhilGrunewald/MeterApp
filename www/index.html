@@ -1,157 +1,89 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta name="format-detection" content="telephone=no">
-      <meta name="msapplication-tap-highlight" content="no">
-      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-      <link rel="stylesheet" type="text/css" href="css/index.css">
-      <title>JoyMeter</title>
-   </head>
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>JoyMeter</title>
+</head>
 <body>
-  <div class="navbar" id="navbar">
-     <!-- the 4 buttons on the top: MENU | ACT | USER | HELP -->
-     <div class="row">
-        <div id="nav-menu" class="col-25" onclick="app.navigateTo('menu');"><img src="img/act3_menu.png" height="50px"></div>
-        <div id="nav-home" class="col-25" onclick="app.showActivityList();"><img src="img/act3_act.png" height="50px"></div>
-        <div id="nav-user" class="col-25" onclick="app.navigateTo('user');"><img id="imgStatus" src="img/act3_user_red.png" height="50px"></div>
-        <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();"><img id="imgStatus" src="img/act3_help.png" height="50px"></div>
-     </div>
+<div id="navbar">
+ <!-- the 4 buttons on the top: MENU | ACT | USER | HELP -->
+ <div class="row">
+    <div id="nav-menu" class="col-25" onclick="app.moveTo('menu');"><img src="img/act3_menu.png" height="50px"></div>
+    <div id="nav-home" class="col-25" onclick="app.moveTo('homeAbort');"><img src="img/act3_act.png" height="50px"></div>
+    <div id="nav-user" class="col-25" onclick="app.moveTo('user');"><img id="imgStatus" src="img/act3_user_red.png" height="50px"></div>
+    <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();"><img id="imgStatus" src="img/act3_help.png" height="50px"></div>
+ </div>
+</div> <!-- navbar -->
+
+<iframe id="server" frameborder="0"></iframe>
+
+<div id="header">
+   <div class="clock-act"> <canvas id="clock-act" width="112px" height="112px"></canvas> </div>
+   <div id="title"></div>
+   <br></br>
+</div> <!-- header -->
+
+<div id="clocks">
+  <div class="btn-row">
+    <div id="btn-now" class="col-50" onclick="app.moveFromTo('Now','activity root')">
+      <div class="help-caption" id="help-btn-now">Start here to say what you do now</div>
+      <canvas id="clock-now" width="140px" height="140px"></canvas>
+    </div>
+    <div id="btn-recent" class="col-50" onclick="app.moveFromTo('Recent','activity time relative')">
+      <div class="help-caption" id="help-btn-recent">For activities in the past use this button</div>
+      <canvas id="clock-recent" width="140px" height="140px"> </canvas>
+    </div>
+  </div> <!-- row -->
+</div> <!-- clocks -->
+
+<div id="list">
+  <div class="help-caption" id="help-act-list">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
+  <div id="activity-list">
+    <div class="row activity-row">
+      <div class="activity-cell btn-terminate"></div>
+      <div id="actListLabel" class="activity-cell activity-item"><i>No activity yet</i></div>
+      <div class="activity-cell btn-time"></div>
+    </div>
   </div>
+  </br><br>
+</div> <!-- list -->
 
-  <iframe id="server" width="100%" height="90%" frameborder="0"></iframe>
-  <div class="app" id="app_screen">
-    <div id="header" class="header">
-       <div class="clock-act">
-          <canvas id="clock-act" width="112px" height="112px"></canvas>
-       </div>
-       <div id="title"></div>
-       <br></br>
+<div id="other-specify">
+  <input type="text" id="free-text" autofocus /> <br>
+  <div class="other-specify-nav">
+    <div class="row">
+      <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()"></div>
+      <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
     </div>
-    <div id="other-specify">
-        <input type="text" id="free-text" autofocus /> <br>
-        <div class="other-specify-nav">
-           <div class="row">
-               <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()"></div>
-               <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
-           </div>
-        </div>
-    </div>
+  </div>
+</div> <!-- other-specify -->
 
-        <div class="contents">
-           <div id="activity_add_pane">
-              <div class="btn-addnew container">
-                 <div class="row">
-                    <div id="btn-now" class="col" onclick="app.navigateTo('activity root')">
-                       <div class="help-caption" id="help-btn-now">Start here to say what you do now</div>
-                       <canvas id="clock-now" width="120" height="120" class=""></canvas>
-                    </div>
-                    <div id="btn-recent" class="col" onclick="app.navigateTo('activity time relative')">
-                       <div class="help-caption" id="help-btn-recent">For activities in the past use this button</div>
-                       <canvas id="clock-recent" width="120" height="120" class="" onclick="app.navigateTo('activity time relative')">
-                       </canvas>
-                    </div>
-                 </div>
-              </div>
-              <div class="help-caption" id="help-act-list">Below you will find your activities. Scroll down and tap on them to make changes or add detail.</div>
-           </div>
-           <div id="activity_list_pane">
-              <div id="activity-list">
-                 <div class="row activity-row">
-                    <div class="activity-cell btn-terminate"></div>
-                    <div id="actListLabel" class="activity-cell activity-item"><i>No activity yet</i></div>
-                    <div class="activity-cell btn-time"></div>
-                 </div>
-              </div>
-              </br><br>
-           </div>
-           <div id="choices_pane">
-              <div class="choices">
-                 <div class="row">
-                    <div id="button1" class="btn-activity col">
-                       <div id="title1" class="btn-title">&lt;title&gt;</div>
-                       <div id="caption1" class="btn-caption">&lt;caption&gt;</div>
-                    </div>
-                    <div id="button2" class="btn-activity col">
-                       <div id="title2" class="btn-title">&lt;title&gt;</div>
-                       <div id="caption2" class="btn-caption">&lt;caption&gt;</div>
-                    </div>
-                 </div>
-                 <div class="row">
-                    <div id="button3" class="btn-activity col">
-                       <div id="title3" class="btn-title">&lt;title&gt;</div>
-                       <div id="caption3" class="btn-caption">&lt;caption&gt;</div>
-                    </div>
-                    <div id="button4" class="btn-activity col">
-                       <div id="title4" class="btn-title">&lt;title&gt;</div>
-                       <div id="caption4" class="btn-caption">&lt;caption&gt;</div>
-                    </div>
-                 </div>
-                 <div class="row">
-                    <div id="button5" class="btn-activity col">
-                       <div id="title5" class="btn-title">&lt;title&gt;</div>
-                       <div id="caption5" class="btn-caption">&lt;caption&gt;</div>
-                    </div>
-                    <div id="button6" class="btn-activity col">
-                       <div id="title6" class="btn-title">&lt;title&gt;</div>
-                       <div id="caption6" class="btn-caption">&lt;caption&gt;</div>
-                    </div>
-                 </div>
-              </div>
+<div id="buttons">
+  <div class="btn-row"> 
+    <div id="button1" class="btn-activity col"> <div id="title1" class="btn-title"></div> <div id="caption1" class="btn-caption"></div> </div>
+    <div id="button2" class="btn-activity col"> <div id="title2" class="btn-title"></div> <div id="caption2" class="btn-caption"></div> </div>
+  </div>
+  <div class="btn-row">
+    <div id="button3" class="btn-activity col"> <div id="title3" class="btn-title"></div> <div id="caption3" class="btn-caption"></div> </div>
+    <div id="button4" class="btn-activity col"> <div id="title4" class="btn-title"></div> <div id="caption4" class="btn-caption"></div> </div>
+  </div>
+  <div class="btn-row">
+    <div id="button5" class="btn-activity col"> <div id="title5" class="btn-title"></div> <div id="caption5" class="btn-caption"></div> </div>
+    <div id="button6" class="btn-activity col"> <div id="title6" class="btn-title"></div> <div id="caption6" class="btn-caption"></div> </div>
+  </div>
+</div> <!-- buttons -->
 
-              <div class="footer-nav">
-                 <div class="row">
-                    <div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
-                    <div id="btn-done" class="col col-footer" onclick="app.navigateTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
-                    <div id="btn-home" class="col col-footer" onclick="app.returnToMainScreen()"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
-                    <div id="btn-next" class="col col-footer" onclick="app.navigateTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
-                 </div>
-              </div>
-           </div>
-        </div>
-     </div>
-
-
-  <div hidden id="personalise_screen" class="personalise_screen">
-     <div id="help-post-code" class="help_text">
-        Enter your postcode to take part in the study
-     </div>
-     <div id="postcode_section">
-     <input id="postcode_input" class="postcode_input" type="text" placeholder="postcode">
-     <select hidden id="address_list" size="3" class="address_list">
-         <!-- This is where the addresses are inserted-->
-     </select>
-     <br></br>
-     <button type="submit" class="btn_submit" id="btn_submit" onclick="app.submitPostcode()">Submit</button>
+<div id="footer" class="footer-nav">
+   <div class="row">
+      <div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
+      <div id="btn-done" class="col col-footer" onclick="app.moveTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
+      <div id="btn-home" class="col col-footer" onclick="app.moveTo('homeAbort')"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
+      <div id="btn-next" class="col col-footer" onclick="app.moveTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
    </div>
-     <br></br>
-     <div class="footer_postcode">
-            <div class="footer_postcode_content">
-            <!-- 
-                <a href="http://energy-use.org/about.php">Learn more</a>  // - >> help button
-              <br>
-              <button type="button" id="personalise_back" class="btn_return" onclick="">Do this later</button>  - >> home button
-            -->
-            </div>
-     </div>
-  </div>
-
-  <div hidden class="personalise_screen" id="contact_screen">
-    <div id="help-contact-details" class="help_text" stle="font-size:10px">
-      Please tell us how we can contact you
-    </div>
-    <div id="contact_info_section">
-      <input id="contact_name" class="contact_input" type="text" placeholder="Name (optional)" style="">
-      <input id="contact_email" class="contact_input" type="text" placeholder="Email (required)" style="">
-      <br><br><br>
-      <button type="submit" class="btn_submit" id="contact_info_submit" onclick="submitContactInfo()">Submit</button>
-    </div>
-    <br>
-    <div class="footer_postcode">
-       <div class="footer_postcode_content">
-         <br>
-       </div>
-    </div>
-  </div>
+</div> <!-- footer -->
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/jquery-2.2.1.js"></script>

@@ -25,7 +25,7 @@ var CURR_ACTIVITY = "current_activity";
 var CURR_ACTIVITY_ID = "current_activity_ID";  // the time use code AND category as csv
 var ACTIVITY_DATETIME = "same";  // default - meaning activity time = reported time
 var CURR_LOCATION = "current_location";
-var CURR_ENJOYMENT = 0;
+var CURR_ENJOYMENT = "current_enjoyment";
 var CURR_PEOPLE = "-1";
 var ACTIVITY_LIST = "activity_list";
 var SURVEY_STATUS = "survey root";          // stores how far they got in the survey
@@ -50,9 +50,14 @@ var app = {
       app.loadText();
   },
 
-  loadJSON: async function(fileName,language) {
-      const response = await fetch(`text/${fileName}-${language}.json`)
-      return await response.json();
+  loadJSON: async function(jsonName,language) {
+    if (localStorage.getItem(jsonName) == null) {
+      const response = await fetch(`text/${jsonName}-${language}.json`)
+      // XXX const response = await fetch(`https://www.energy-use.org/app/json/${jsonName}.json`)
+      const json     = await response.json();
+      localStorage.setItem(jsonName, JSON.stringify(json));
+    }
+   return JSON.parse(localStorage.getItem(jsonName));
   },
 
   loadText: async function() {
@@ -65,18 +70,24 @@ var app = {
         ]); // .then(values => { console.log("VALUES XX", values); });
 
     if (localStorage.getItem("customActivities") != null) {
-        // custom activities have been assigned
-        // these overwrite the default activities
+        // custom activities have been assigned - these overwrite the default activities
         cActs = JSON.parse(localStorage.getItem("customActivities"));
         for (act in cActs) {
             cAct = cActs[act];
-            for (item in cAct) {
-              app.activities[act][item] = cActs[act][item];
-            }
+            for (item in cAct) { app.activities[act][item] = cActs[act][item]; }
         }
     }
+
+    // does a local record of activities exist?
+    if (localStorage.getItem("acts") == null) {
+        localStorage.setItem("acts", JSON.stringify({}));
+        localStorage.setItem('key', 0);
+    }
+
+    // CONSENT?
     if (localStorage.getItem("consent") == 1) {
-      app.navigateTo("menu") 
+      // XXX app.navigateTo("menu") 
+      app.moveTo("menu");
     } else {
         app.navbar.hide();
         app.server.attr('src', 'https://www.energy-use.org/app/consent.php');
@@ -100,22 +111,20 @@ var app = {
         $('#help-contact-details').html(app.label.help.contactDetails);
         app.updateNowTime();
         setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
-    //            }
-    //          )
    },
 
   initialSetup: function() {
     utils.save(ACTIVITY_DATETIME, "same");
-    app.actionButtons    = $('.btn-activity');
-    app.activity_list_div= $('#activity-list');
-    app.activityAddPane  = $('#activity_add_pane');
-    app.activityListPane = $('#activity_list_pane');
-    app.choicesPane      = $('#choices_pane');
-    app.title            = $("#title");
-    app.header           = $("#header");
-    app.now_time         = $("#now-time");
-    app.helpCaption      = $(".help-caption");
-    app.footerNav        = $("div.footer-nav");
+    app.actionButtons        = $('.btn-activity');
+    app.activity_list_div    = $('#activity-list');
+    app.activityAddPane      = $('#activity_add_pane');
+    app.activityListPane     = $('#activity_list_pane');
+    app.choicesPane          = $('#choices_pane');
+    app.title                = $("#title");
+    app.header               = $("#header");
+    app.now_time             = $("#now-time");
+    app.helpCaption          = $(".help-caption");
+    app.footerNav            = $("div.footer-nav");
     app.btnCaption           = $(".btn-caption");
     app.imgStatus            = $("#imgStatus");
     app.personaliseScreen    = $('#personalise_screen');
@@ -177,94 +186,164 @@ statusCheck: function() {
         app.imgStatus.attr("src","img/act3_user_green.png");
     }
   }
-    
-  //  if (hh == null) {
-  //      // personalise -> hhq
-  //      app.title.html(app.label.titlePersonalise);
-  //      app.screens['menu']['activities'][1] = "Register";
-  //  } else {
-  //      if (sc == null) {
-  //          if (waitForAuthorisation == null) {
-  //              app.screens['menu']['activities'][1] = "Authorise";
-  //              app.activities['ElectricityProfile']['next'] = "app.authorise()";
-  //              app.activities['StudyDate']['next'] = "app.authorise();";
-  //          } else {
-  //              app.screens['menu']['activities'][1] = "AuthoriseWait";
-  //              app.activities['ElectricityProfile']['next'] = "app.authorise()";
-  //              app.activities['StudyDate']['next'] = "app.authorise();";
-  //          }
-  //      } else {
-  //          if (localStorage.getItem('pass') == null) {
-  //              // authorised - but not by us
-  //              app.screens['menu']['activities'][1] = "HouseholdSurvey";
-  //              app.screens['menu']['activities'][4] = "StudyDate";
-  //              app.activities['ElectricityProfile']['next'] = "app.showProfile()";
-  //              app.activities['StudyDate']['next'] = "app.getDate();";
-  //          } else {
-  //              // one of our devices
-  //              app.screens['menu']['activities'][1] = "Blank";  // no access to HHQ
-  //              app.screens['menu']['activities'][2] = "Blank";  // no Activity pixels
-  //              app.screens['menu']['activities'][3] = "Blank";  // no profile
-  //              app.screens['menu']['activities'][5] = "Blank";  // no help
-  //              app.activities['StudyDate']['next'] = "";
-  //          }
-  //      }
-  //      
-  //      // XXX testing
-  //      app.screens['menu']['activities'][1] = "HouseholdSurvey";
-
-  //      // date choice can be shown (but not changed) without authorisation
-  //      if (dateChoice != null) {
-  //          // show date in menu
-  //          var dtChoice  = new Date(dateChoice);
-  //          var options = { day: 'numeric', month: 'short'};
-  //          var dtString = dtChoice.toLocaleDateString(app.label.locale, options);
-  //          app.activities['StudyDate']['caption'] = app.label.lblDate + dtString;
-  //      } else {
-  //          app.activities['StudyDate']['caption'] = app.label.lblPickDate;
-  //      }
-  //  }
 },
 
 showStars: function() {
-  // activityList = utils.getList(ACTIVITY_LIST) || {};
-  // var actCount = Object.keys(activityList).length;
-  var actCount = localStorage.getItem('ActivityCount');
-  if (actCount > 4) {
-    app.imgStatus.attr("src","img/act3_user_star.png");
-  }
-
-  //if (actCount > 24) {
-  //  app.imgStatus.attr("src","img/stars_5.png");
-  //} else if (actCount > 14) {
-  //  app.imgStatus.attr("src","img/stars_4.png");
-  //} else if (actCount > 9) {
-  //  app.imgStatus.attr("src","img/stars_3.png");
-  //} else if (actCount > 4) {
-  //  app.imgStatus.attr("src","img/stars_2.png");
-  //} else if (actCount > 0) {
-  //  app.imgStatus.attr("src","img/stars_1.png");
-  //} else {
-  //  app.imgStatus.attr("src","img/stars_0.png");
-  //}
-  //app.imgStatus.show();
+    // activityList = utils.getList(ACTIVITY_LIST) || {};
+    // var actCount = Object.keys(activityList).length;
+    var actCount = localStorage.getItem('ActivityCount');
+    if (actCount > 4) {
+          app.imgStatus.attr("src","img/act3_user_star.png");
+    }
+    //if (actCount > 24) {
+    //  app.imgStatus.attr("src","img/stars_5.png");
+    //} else if (actCount > 14) {
+    //  app.imgStatus.attr("src","img/stars_4.png");
+    //} else if (actCount > 9) {
+    //  app.imgStatus.attr("src","img/stars_3.png");
+    //} else if (actCount > 4) {
+    //  app.imgStatus.attr("src","img/stars_2.png");
+    //} else if (actCount > 0) {
+    //  app.imgStatus.attr("src","img/stars_1.png");
+    //} else {
+    //  app.imgStatus.attr("src","img/stars_0.png");
+    //}
+    //app.imgStatus.show();
 },
 
 updateNowTime: function() {
-  var now = new Date();
-  var hour = now.getHours();
-  var min  = now.getMinutes();
-  if (app.label.hours == "12") {
-    hour = hour % 12;
-  }
-  hour = hour ? hour : 12; // the hour '0' should be '12'
-  minutes = min < 10 ? '0'+min : min;
+    var now = new Date();
+    var hour = now.getHours();
+    var min  = now.getMinutes();
+    if (app.label.hours == "12") {
+      hour = hour % 12;
+    }
+    hour = hour ? hour : 12; // the hour '0' should be '12'
+    minutes = min < 10 ? '0'+min : min;
 
-  clock.drawClock(clock.nowClock,hour,min,app.label.now, hour + ':' + minutes);
-  clock.drawClock(clock.recentClock,hour,min, app.label.recently, "back arrow");
+    clock.drawClock(clock.nowClock,hour,min,app.label.now, hour + ':' + minutes);
+    clock.drawClock(clock.recentClock,hour,min, app.label.recently, "back arrow");
 },
 
 
+addEntry: function(key) {
+
+var ACT = {'Meta_idMeta': '', 'activity'   : '', 'tuc'        : '', 'dt_activity': '', 'dt_recorded': '', 'location'   : '', 'people'     : '', 'enjoyment'  : '', 'tuc'        : '', 'category'   : '', 'activity'   : '', 'path'       : []}
+localStorage.setItem('currentEntry', ACT)
+},
+
+moveFrom: function(from) {
+    const act = app.activities[from];
+    var   key = localStorage.getItem('key');
+    var  acts = JSON.parse(localStorage.getItem('acts'));
+    console.log("*********",act);
+    switch(act.category) {
+        case "new":
+            // high-precision time as key
+            key = performance.now().toString();
+            localStorage.setItem('key',key);
+            acts[key] = {};
+            acts[key]['dt_recorded'] = new Date();
+            acts[key]['dt_activity'] = new Date();
+            acts[key]['Meta_idMeta'] = localStorage.getItem('metaID');
+            acts[key]['path'] = [];
+            break;
+        case "time":
+            acts[key]['dt_activity'] = new Date(dt.getTime() + (60000*act.value));
+            break;
+        case "location":
+            acts[key]['location'] = act.value;
+            break;
+        case "people":
+            acts[key]['people'] = act.value;
+            break;
+        case "enjoyment":
+            acts[key]['enjoyment'] = act.value;
+            break;
+        case "skip":
+            console.log("skipping");
+            break;
+        default:
+            acts[key]['tuc']  = act.ID;
+            acts[key]['category'] = act.category;
+            app.footer_nav("done");
+    }
+    acts[key]['path'].push(act.ID)
+    localStorage.setItem('acts',JSON.stringify(acts));
+},
+
+deleteAct: function(key) {
+    var   acts = JSON.parse(localStorage.getItem('acts'));
+    delete acts[key];
+    localStorage.setItem('acts',JSON.stringify(acts));
+},
+
+moveTo: function(to) {
+    const screen = app.screens[to];
+    app.title.html(utils.format(screen.title));
+    console.log(`move to ${to}`);
+    switch(to) {
+        case "homeAbort":
+            app.deleteAct(localStorage.getItem('key')); // bin current entry
+            $('#server').hide();
+            $('#header').show();
+            $('#clocks').show();
+            $('#list').show();
+            $('#other-specify').hide();
+            $('#buttons').hide();
+            $('#footer').hide();
+            break;
+        case "home":
+            $('#server').hide();
+            $('#header').show();
+            $('#clocks').show();
+            $('#list').show();
+            $('#other-specify').hide();
+            $('#buttons').hide();
+            $('#footer').hide();
+            break;
+        case "other specify":
+            $('#server').hide();
+            $('#header').show();
+            $('#clocks').hide();
+            $('#list').hide();
+            $('#other-specify').show();
+            $('#buttons').hide();
+            $('#footer').hide();
+            break;
+        default:
+            var btn;
+            var actKey;
+            var act;
+            for (i=0; i<6; i++) {
+                actKey = screen.activities[i];
+                act    = app.activities[actKey];
+                btn = $(`#button${i+1}`);
+                $(`#title${i+1}`).html(act.caption);
+                $(`#caption${i+1}`).html(act.help);
+                CATEGORIES.forEach(function (cat) { btn.removeClass(cat); });
+                btn.addClass(act.category);
+                document.getElementById(`button${i+1}`).style.backgroundImage = `url('img/${act.icon}.png')`;
+                if (act.category == 'function') {
+                    btn.attr("onclick", act.next);
+                } else {
+                    btn.attr("onclick", `app.moveFromTo('${actKey}','${act.next}')`);
+                }
+            $('#server').hide();
+            $('#header').show();
+            $('#clocks').hide();
+            $('#list').hide();
+            $('#other-specify').hide();
+            $('#buttons').show();
+            $('#footer').show();
+            }
+    }
+},
+
+moveFromTo: function(from, to) {
+    app.moveFrom(from);
+    app.moveTo(to);
+},
 
 navigateTo: function(screen_id, prev_activity) {
     console.log("Navigating", screen_id);
@@ -275,6 +354,10 @@ navigateTo: function(screen_id, prev_activity) {
   app.history.push(screen_id);                     // for 'back' functionality
 
   if (prev_activity !== undefined) {
+      app.moveFrom(prev_activity,screen_id);
+      app.moveTo(screen_id);
+
+
     if (!(prev_activity in app.activities)) {    // previous activity is defined but not known (free text);
         title = prev_activity;
         prev_activity = "Other specify";

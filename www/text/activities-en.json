@@ -10,7 +10,7 @@
         "Now": {
             "ID": 1,
             "caption": "Now",
-            "category": "care_other",
+            "category": "new",
             "help": "Record current activity",
             "icon": "act3_act",
             "next": "activity home",
@@ -19,7 +19,7 @@
         "Recent": {
             "ID": 2,
             "caption": "Recent",
-            "category": "care_other",
+            "category": "new",
             "help": "Record recent activity",
             "icon": "act3_act_recent",
             "next": "activity time relative",
@@ -2788,7 +2788,7 @@
         "Main other": {
             "ID": 9990,
             "caption": "Create new",
-            "category": "other_category",
+            "category": "custom",
             "help": "Say in your own words",
             "icon": "Other_type",
             "next": "other specify",

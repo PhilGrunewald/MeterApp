@@ -482,6 +482,10 @@
     "help": "",
     "title": "Getting ready"
 },
+"homeAbort": {
+    "help": "",
+    "title": "Try another activity..."
+},
 "home": {
     "help": "",
     "title": "What I did..."

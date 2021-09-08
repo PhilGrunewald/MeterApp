@@ -18,6 +18,7 @@
     <allow-intent href="geo:*" />
     <allow-navigation href="http://energy-use.org" />
     <allow-navigation href="http://energy-use.org/*" />
+    <allow-navigation href="http://www.energy-use.org/app/*" />
     <icon src="www/img/ios/icon-60.png" />
     <platform name="android">
         <preference name="AndroidPersistentFileLocation" value="Compatibility" />
