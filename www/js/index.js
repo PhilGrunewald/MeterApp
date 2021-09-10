@@ -30,7 +30,7 @@ var CURR_PEOPLE = "-1";
 var ACTIVITY_LIST = "activity_list";
 var SURVEY_STATUS = "survey root";          // stores how far they got in the survey
 
-var CATEGORIES = ["care_self", "care_other", "care_house", "recreation", "travel", "food", "work", "other_category", "blank","location", "people", "enjoyment"];
+var CATEGORIES = ["new", "function", "assign", "care_self", "care_other", "care_house", "recreation", "travel", "food", "work", "other_category", "blank","location", "people", "enjoyment"];
 
 var TIMEUSE_MAX   = 10000;
 var SURVEY_MIN    = 90000;
@@ -51,18 +51,17 @@ var app = {
   },
 
   loadJSON: async function(jsonName,language) {
-    if (localStorage.getItem(jsonName) == null) {
+    //if (localStorage.getItem(jsonName) == null) {
       const response = await fetch(`text/${jsonName}-${language}.json`)
       // XXX const response = await fetch(`https://www.energy-use.org/app/json/${jsonName}.json`)
       const json     = await response.json();
       localStorage.setItem(jsonName, JSON.stringify(json));
-    }
+    //}
    return JSON.parse(localStorage.getItem(jsonName));
   },
 
   loadText: async function() {
     const language = localStorage.getItem('language');
-
     [app.label, app.activities, app.screens] = await Promise.all([
         app.loadJSON('labels',language),
         app.loadJSON('activities',language),
@@ -225,18 +224,40 @@ updateNowTime: function() {
     clock.drawClock(clock.recentClock,hour,min, app.label.recently, "back arrow");
 },
 
+getAct: function() { // returns current activity
+    const key = localStorage.getItem('key');
+    const acts = JSON.parse(localStorage.getItem('acts'));
+    console.log(acts,key);
+    return acts[key];
+},
 
-addEntry: function(key) {
-
-var ACT = {'Meta_idMeta': '', 'activity'   : '', 'tuc'        : '', 'dt_activity': '', 'dt_recorded': '', 'location'   : '', 'people'     : '', 'enjoyment'  : '', 'tuc'        : '', 'category'   : '', 'activity'   : '', 'path'       : []}
-localStorage.setItem('currentEntry', ACT)
+formatString: function(str) {
+    if (str.startsWith('_')) {
+        const act = app.getAct();
+        var dt = new Date(act.dt_activity);
+        const min = parseInt(str.split('_')[1])
+        dt = new Date(dt.getTime() + (60000*min));
+        return `${min} min<br>${dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+    } else
+    if (str == '${rel_time}') {
+        const act = app.getAct();
+        const dt = new Date(act.dt_activity);
+        return dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    } else {
+        return str
+    }
 },
 
 moveFrom: function(from) {
     const act = app.activities[from];
     var   key = localStorage.getItem('key');
     var  acts = JSON.parse(localStorage.getItem('acts'));
-    console.log("*********",act);
+
+    console.log("FROM:", from);
+    if (from == "custom assignment") {
+    }
+
+    console.log(act.category);
     switch(act.category) {
         case "new":
             // high-precision time as key
@@ -249,6 +270,7 @@ moveFrom: function(from) {
             acts[key]['path'] = [];
             break;
         case "time":
+            var dt = new Date(acts[key]['dt_activity']);
             acts[key]['dt_activity'] = new Date(dt.getTime() + (60000*act.value));
             break;
         case "location":
@@ -260,11 +282,24 @@ moveFrom: function(from) {
         case "enjoyment":
             acts[key]['enjoyment'] = act.value;
             break;
+        case "text":
+            acts[key]['title'] = document.getElementById('freetext').value;
+            break;
+        case "assign":
+            // overwrite the activities JSON for e.g. "C1*" and "C1"
+            app.activities[from]['title']   = acts[key]['title'];
+            app.activities[from]['caption'] = acts[key]['title'];
+            app.activities[from.slice(0,-1)]['title']   = acts[key]['title'];
+            app.activities[from.slice(0,-1)]['caption'] = acts[key]['title'];
+            localStorage.setItem('activities', JSON.stringify(app.activities));
         case "skip":
             console.log("skipping");
             break;
         default:
+            acts[key]['key']  = from;
             acts[key]['tuc']  = act.ID;
+            acts[key]['title']  = act.title;
+            document.getElementById('freetext').value = act.title;
             acts[key]['category'] = act.category;
             app.footer_nav("done");
     }
@@ -272,45 +307,43 @@ moveFrom: function(from) {
     localStorage.setItem('acts',JSON.stringify(acts));
 },
 
-deleteAct: function(key) {
-    var   acts = JSON.parse(localStorage.getItem('acts'));
-    delete acts[key];
-    localStorage.setItem('acts',JSON.stringify(acts));
+defaultView: function() {
+    $('#input').hide();
+    $('#server').hide();
+    $('#clocks').hide();
+    $('#list').hide();
+
+    $('#header').show();
+    $('#buttons').show();
+    $('#row1').show();
+    $('#footer').hide();
 },
 
 moveTo: function(to) {
     const screen = app.screens[to];
-    app.title.html(utils.format(screen.title));
+    app.defaultView();
+    app.title.html(app.formatString(screen.title));
     console.log(`move to ${to}`);
     switch(to) {
         case "homeAbort":
             app.deleteAct(localStorage.getItem('key')); // bin current entry
-            $('#server').hide();
-            $('#header').show();
+            app.listActivities();
             $('#clocks').show();
             $('#list').show();
-            $('#other-specify').hide();
             $('#buttons').hide();
-            $('#footer').hide();
             break;
         case "home":
-            $('#server').hide();
-            $('#header').show();
+            app.listActivities();
             $('#clocks').show();
             $('#list').show();
-            $('#other-specify').hide();
             $('#buttons').hide();
-            $('#footer').hide();
+            localStorage.getItem('key',''); // prevent nav homeAbort to delete most recent
             break;
-        case "other specify":
-            $('#server').hide();
-            $('#header').show();
-            $('#clocks').hide();
-            $('#list').hide();
-            $('#other-specify').show();
-            $('#buttons').hide();
-            $('#footer').hide();
-            break;
+        // case "other specify":
+
+        case "freetext":
+            $('#input').show();
+            // no break!
         default:
             var btn;
             var actKey;
@@ -319,7 +352,7 @@ moveTo: function(to) {
                 actKey = screen.activities[i];
                 act    = app.activities[actKey];
                 btn = $(`#button${i+1}`);
-                $(`#title${i+1}`).html(act.caption);
+                $(`#title${i+1}`).html(app.formatString(act.caption));
                 $(`#caption${i+1}`).html(act.help);
                 CATEGORIES.forEach(function (cat) { btn.removeClass(cat); });
                 btn.addClass(act.category);
@@ -329,21 +362,26 @@ moveTo: function(to) {
                 } else {
                     btn.attr("onclick", `app.moveFromTo('${actKey}','${act.next}')`);
                 }
-            $('#server').hide();
-            $('#header').show();
-            $('#clocks').hide();
-            $('#list').hide();
-            $('#other-specify').hide();
-            $('#buttons').show();
-            $('#footer').show();
             }
+            if (to != "menu") {$('#footer').show();}
     }
 },
 
 moveFromTo: function(from, to) {
+
     app.moveFrom(from);
     app.moveTo(to);
 },
+
+deleteAct: function(key) {
+    var   acts = JSON.parse(localStorage.getItem('acts'));
+    console.log(acts);
+    delete acts[key];
+    console.log(acts);
+    localStorage.setItem('acts',JSON.stringify(acts));
+},
+
+
 
 navigateTo: function(screen_id, prev_activity) {
     console.log("Navigating", screen_id);
@@ -622,6 +660,71 @@ goBack: function() {
   }
 },
 
+changeTime: function(key) {
+    localStorage.setItem('key',key);
+    app.moveTo('adjust time');
+    document.getElementById('title').onclick = function() { app.moveTo('home') };
+    document.getElementById('foot-right').onclick = function() { app.moveTo('home') };
+    document.getElementById('foot-right-lbl').innerHTML = app.label.lblDone;
+},
+
+changeTitle: function(key) {
+    localStorage.setItem('key',key);
+    app.moveTo('other specify');
+},
+
+updateTitle: function() {
+    const key = localStorage.getItem('key');
+    var  acts = JSON.parse(localStorage.getItem('acts'));
+    console.log("ACT KEY:",acts[key]);
+    acts[key]['title'] = document.getElementById('text').value;
+    localStorage.setItem('acts',JSON.stringify(acts));
+    app.moveTo('home');
+},
+
+changeEnj: function(key) {
+    localStorage.setItem('key',key);
+    app.moveTo('enjoyment');
+    document.getElementById('foot-right').onclick = function() { app.moveTo('home') };
+    document.getElementById('foot-right-lbl').innerHTML = app.label.lblDone;
+},
+
+listActivities: function() {
+  document.getElementById('list').innerHTML = ''; // start afresh
+  var acts = JSON.parse(localStorage.getItem('acts'));
+  for (var key in acts) {
+      var act = acts[key];
+      var row = document.createElement('div');
+          row.className = `activity-row ${act.category}`;
+      var time = document.createElement('div');
+          time.className = 'activity-item activity-time';
+          time.setAttribute("onclick",`app.changeTime("${key}")`);
+          var dt = new Date(act.dt_activity);
+          time.innerHTML = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      var title = document.createElement('div');
+          title.className = 'activity-item';
+          title.setAttribute("onclick",`app.changeTitle("${key}")`);
+          title.innerHTML = act.title;
+      var divImg = document.createElement('div');
+          divImg.className = 'activity-item';
+      var actImg = document.createElement('img');
+          actImg.className = 'activity-icon';
+          actImg.src = `img/${app.activities[act.key].icon}.png`;
+      var divEnj = document.createElement('div');
+          divEnj.className = 'activity-item';
+          divEnj.setAttribute("onclick",`app.changeEnj("${key}")`);
+      var actEnj = document.createElement('img');
+          actEnj.className = 'activity-icon';
+          actEnj.src = `img/enjoy_${act.enjoyment}.png`;
+      document.getElementById('list').appendChild(row);
+      row.appendChild(time);
+      row.appendChild(title);
+      row.appendChild(divImg);
+        divImg.appendChild(actImg);
+      row.appendChild(divEnj);
+        divEnj.appendChild(actEnj);
+  }
+},
 
 showActivityList: function() {
   // only used on home screen
@@ -731,7 +834,7 @@ removeActivity: function (uuid) {
 },
 
 
-deleteAct: function (actKey) {
+XdeleteAct: function (actKey) {
   if (actKey) {
     activityList = utils.getList(ACTIVITY_LIST) || {};
     if (actKey in activityList) {

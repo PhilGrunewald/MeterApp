@@ -161,7 +161,7 @@
         "+20min": {
             "ID": 10005,
             "category": "time",
-            "caption": "20 min</br><small>${act_time + 20}</small>",
+            "caption": "_20",
             "help": "20 min later",
             "icon": "time_forward",
             "next": "adjust time",
@@ -171,7 +171,7 @@
         "+5min": {
             "ID": 10004,
             "category": "time",
-            "caption": "5 min</br><small>${act_time + 5}</small>",
+            "caption": "_5",
             "help": "5 min later",
             "icon": "time_forward",
             "next": "adjust time",
@@ -181,7 +181,7 @@
         "+60min": {
             "ID": 10006,
             "category": "time",
-            "caption": "1 h</br><small>${act_time + 60}</small>",
+            "caption": "_60",
             "help": "1 hours later",
             "icon": "time_forward",
             "next": "adjust time",
@@ -191,7 +191,7 @@
         "-5min": {
             "ID": 10001,
             "category": "time",
-            "caption": "5 min</br><small>${act_time - 5}</small>",
+            "caption": "_-5",
             "help": "5 min earlier",
             "icon": "time_back",
             "next": "adjust time",
@@ -211,7 +211,7 @@
         "-20min": {
             "ID": 10002,
             "category": "time",
-            "caption": "20 min</br><small>${act_time - 20}</small>",
+            "caption": "_-20",
             "help": "20 min earlier",
             "icon": "time_back",
             "next": "adjust time",
@@ -221,7 +221,7 @@
         "-60min": {
             "ID": 10003,
             "category": "time",
-            "caption": "1 h</br><small>${act_time - 60}</small>",
+            "caption": "_-60",
             "help": "1 hour earlier",
             "icon": "time_back",
             "next": "adjust time",
@@ -1147,6 +1147,7 @@
             "ID": -1,
             "caption": "",
             "category": "blank",
+            "icon": "blank",
             "help": "",
             "next": "",
             "title": ""
@@ -1670,6 +1671,38 @@
             "next": "other people",
             "title": "Dance performances"
         },
+
+        "Edit title save": {
+            "ID": 11001,
+            "caption": "Save<br>for reuse",
+            "category": "text",
+            "help": "Create this as a custom activity",
+            "icon": "nav_done",
+            "next": "custom assignment",
+            "title": "Saving activity"
+        },
+
+        "Edit title done": {
+            "ID": 11001,
+            "caption": "Done",
+            "category": "text",
+            "help": "Enter this description",
+            "icon": "nav_done",
+            "next": "other people",
+            "title": "Saving title"
+        },
+
+        "Delete": {
+            "ID": 11006,
+            "caption": "Discard",
+            "category": "",
+            "help": "Scrap this entry",
+            "icon": "edit_delete",
+            "next": "homeAbort",
+            "title": "Aborting"
+        },
+
+
         "Delete activity": {
             "ID": 11006,
             "caption": "Delete",
@@ -2785,6 +2818,18 @@
             "next": "work job",
             "title": "Main job"
         },
+
+
+        "Freetext": {
+            "ID": 9990,
+            "caption": "Create new",
+            "category": "freetext",
+            "help": "Say in your own words",
+            "icon": "Other_type",
+            "next": "freetext",
+            "title": "Custom"
+        },
+
         "Main other": {
             "ID": 9990,
             "caption": "Create new",
@@ -5275,6 +5320,51 @@
             "icon": "act2_custom",
             "next": "custom list",
             "title": "Custom"
+        },
+        "C1*": {
+            "ID": 9991,
+            "caption": "",
+            "category": "assign",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to assign"
+        },
+        "C2*": {
+            "ID": 9992,
+            "caption": "",
+            "category": "assign",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to assign"
+        },
+        "C3*": {
+            "ID": 9993,
+            "caption": "",
+            "category": "assign",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to assign"
+        },
+        "C4*": {
+            "ID": 9994,
+            "caption": "",
+            "category": "assign",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to assign"
+        },
+        "C5*": {
+            "ID": 9995,
+            "caption": "",
+            "category": "assign",
+            "help": "",
+            "icon": "act2_custom",
+            "next": "other people",
+            "title": "Tap to assign"
         },
         "C1": {
             "ID": 9991,

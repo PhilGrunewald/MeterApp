@@ -51,18 +51,12 @@
   </br><br>
 </div> <!-- list -->
 
-<div id="other-specify">
-  <input type="text" id="free-text" autofocus /> <br>
-  <div class="other-specify-nav">
-    <div class="row">
-      <div id="btn-other-specify" class="col btn-nav" onclick="app.submitOther()"></div>
-      <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
-    </div>
-  </div>
-</div> <!-- other-specify -->
+<div id="input">
+  <input id="freetext" class="" type="text" autofocus />
+</div> <!-- input -->
 
 <div id="buttons">
-  <div class="btn-row"> 
+  <div id="row1" class="btn-row"> 
     <div id="button1" class="btn-activity col"> <div id="title1" class="btn-title"></div> <div id="caption1" class="btn-caption"></div> </div>
     <div id="button2" class="btn-activity col"> <div id="title2" class="btn-title"></div> <div id="caption2" class="btn-caption"></div> </div>
   </div>
@@ -78,10 +72,12 @@
 
 <div id="footer" class="footer-nav">
    <div class="row">
-      <div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
-      <div id="btn-done" class="col col-footer" onclick="app.moveTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
-      <div id="btn-home" class="col col-footer" onclick="app.moveTo('homeAbort')"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
-      <div id="btn-next" class="col col-footer" onclick="app.moveTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
+      <div id="foot-left" class="col col-footer" onclick="app.goBack();">
+          <img src="img/nav_back.png" height="25px"> <span id="foot-left-lbl">Back</span>
+      </div>
+      <div id="foot-right" class="col col-footer" onclick="app.moveTo('homeAbort')">
+          <span id="foot-right-lbl">Abort</span> <img src="img/nav_home.png" height="25px">
+      </div>
    </div>
 </div> <!-- footer -->
 
@@ -93,3 +89,21 @@
 <script type="text/javascript" src="js/connect.js"></script>
 </body>
 </html>
+
+
+
+<!-- 
+      <div id="btn-back" class="col col-footer" onclick="app.goBack();"><img src="img/nav_back.png" height="25px"><span id="lblBack">Back</span></div>
+      <div id="btn-done" class="col col-footer" onclick="app.moveTo('home')"><span id="lblDone">Done</span><img src="img/nav_done.png" height="25px"></div>
+      <div id="btn-home" class="col col-footer" onclick="app.moveTo('homeAbort')"><span id="lblHome">Home</span><img src="img/nav_home.png" height="25px"></div>
+      <div id="btn-next" class="col col-footer" onclick="app.moveTo('activity root')"><span id="lblNext">Next...</span><img src="img/nav_next.png" height="25px"></div>
+<div id="other-specify">
+  <input type="text" id="free-text" autofocus /> <br>
+  <div class="other-specify-nav">
+    <div class="row">
+      <div id="btn-other-specify" class="col btn-nav" onclick="app.updateTitle()"></div>
+      <div id="btnCustomSave" class="col btn-nav" onclick="app.saveActivity()"></div>
+    </div>
+  </div>
+</div>
+-->

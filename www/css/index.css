@@ -67,6 +67,25 @@ body {
   border-collapse: separate;
   border-spacing: 10px;
 }
+.btn-row {
+  display: table-row;
+  padding: 5px 0;
+  width: 100%;
+  height: 23%;
+}
+
+#input {
+  width:    100%;
+  height:    23%;
+  position: absolute;
+}
+
+#freetext {
+  width:    90%;
+  height:   40%;
+  font-size:30px;
+}
+
 
 #footer {
   height: 8%;
@@ -158,12 +177,6 @@ body {
   height:100%;
 }
 
-.btn-row {
-  display: table-row;
-  padding: 5px 0;
-  width: 100%;
-  height: 23%;
-}
 
 .inline {
   display:inline-block;
@@ -335,6 +348,7 @@ div#other-specify {
   width: 90%;
   z-index: 1;
 }
+
 #free-text {
   height: 50px;
   line-height: 50px;
@@ -526,6 +540,9 @@ br {
 /**
 * CATEGORIES
 */
+.assign {
+  border-color: #f00;
+}
 .intervention {
   border-color: #f00;
 }
