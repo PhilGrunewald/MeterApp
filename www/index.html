@@ -12,7 +12,7 @@
  <!-- the 4 buttons on the top: MENU | ACT | USER | HELP -->
  <div class="row">
     <div id="nav-menu" class="col-25" onclick="app.moveTo('menu');"><img src="img/act3_menu.png" height="50px"></div>
-    <div id="nav-home" class="col-25" onclick="app.moveTo('homeAbort');"><img src="img/act3_act.png" height="50px"></div>
+    <div id="nav-home" class="col-25" onclick="app.moveFromTo('Delete','home');"><img src="img/act3_act.png" height="50px"></div>
     <div id="nav-user" class="col-25" onclick="app.moveTo('user');"><img id="imgStatus" src="img/act3_user_red.png" height="50px"></div>
     <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();"><img id="imgStatus" src="img/act3_help.png" height="50px"></div>
  </div>
@@ -56,7 +56,7 @@
 </div> <!-- input -->
 
 <div id="buttons">
-  <div id="row1" class="btn-row"> 
+  <div class="btn-row"> 
     <div id="button1" class="btn-activity col"> <div id="title1" class="btn-title"></div> <div id="caption1" class="btn-caption"></div> </div>
     <div id="button2" class="btn-activity col"> <div id="title2" class="btn-title"></div> <div id="caption2" class="btn-caption"></div> </div>
   </div>
@@ -75,7 +75,7 @@
       <div id="foot-left" class="col col-footer" onclick="app.goBack();">
           <img src="img/nav_back.png" height="25px"> <span id="foot-left-lbl">Back</span>
       </div>
-      <div id="foot-right" class="col col-footer" onclick="app.moveTo('homeAbort')">
+      <div id="foot-right" class="col col-footer" onclick="app.moveFromTo('Delete','home')">
           <span id="foot-right-lbl">Abort</span> <img src="img/nav_home.png" height="25px">
       </div>
    </div>

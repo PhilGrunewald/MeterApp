@@ -1,5 +1,8 @@
 {
 "v": "10 Sep 2021 8:34 am",
+"server": {
+    "title": "Loading external page"
+},
 "menu": {
     "activities": [
         "Now",
@@ -24,6 +27,7 @@
     "help": "at this moment",
     "title": "Manage your user profile"
 },
+
 "custom assignment": {
     "activities": [
         "C1*",
@@ -396,7 +400,7 @@
         "Edit title save",
         "Edit title done",
         "Delete",
-        "Blank"
+        "Edit title next"
     ],
     "help": "Define your own activity",
     "title": "Change description"
@@ -497,10 +501,6 @@
     ],
     "help": "",
     "title": "Getting ready"
-},
-"homeAbort": {
-    "help": "",
-    "title": "Try another activity..."
 },
 "home": {
     "help": "",
