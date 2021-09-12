@@ -3,6 +3,18 @@
 "server": {
     "title": "Loading external page"
 },
+"home": {
+    "activities": [
+        "Now",
+        "Recent",
+        "Blank",
+        "Blank",
+        "Blank",
+        "Blank"
+    ],
+    "help": "Your list of activities",
+    "title": "What I did..."
+},
 "menu": {
     "activities": [
         "Now",
@@ -27,19 +39,6 @@
     "help": "at this moment",
     "title": "Manage your user profile"
 },
-
-"custom assignment": {
-    "activities": [
-        "C1*",
-        "C2*",
-        "C3*",
-        "C4*",
-        "C5*",
-        "custom skip"
-    ],
-    "help": "The button you pick will be overwritten with your new activity",
-    "title": "Assign a button to your new activity..."
-},
 "custom list": {
     "activities": [
         "C1",
@@ -52,6 +51,44 @@
     ],
     "help": "Create your own",
     "title": "Select your own"
+},
+"custom assignment": {
+    "activities": [
+        "C1*",
+        "C2*",
+        "C3*",
+        "C4*",
+        "C5*",
+        "custom skip"
+    ],
+    "help": "The button you pick will be overwritten with your new activity",
+    "title": "Assign a button to your new activity..."
+},
+"activity root": {
+    "activities": [
+        "Loc home",
+        "Loc outdoors",
+        "Loc work",
+        "Loc public",
+        "Loc travelling",
+        "Loc other location"
+    ],
+    "taken out": "Custom list",
+    "help": "Your location.",
+    "title": "Where are you at ${time}?"
+},
+"activity root away": {
+    "activities": [
+        "Loc got home",
+        "Loc outdoors",
+        "Loc work",
+        "Loc public",
+        "Loc travelling",
+        "Loc other location"
+    ],
+    "taken out": "Custom list",
+    "help": "Your location.",
+    "title": "Where are you at ${time}?"
 },
 "activity home": {
     "activities": [
@@ -92,68 +129,6 @@
     "help": "in a public place",
     "title": "Your activity"
 },
-"activity root": {
-    "activities": [
-        "Loc home",
-        "Loc outdoors",
-        "Loc work",
-        "Loc public",
-        "Loc travelling",
-        "Loc other location"
-    ],
-    "taken out": "Custom list",
-    "help": "Your location.",
-    "title": "Where are you at ${act_time}?"
-},
-"activity root away": {
-    "activities": [
-        "Loc got home",
-        "Loc outdoors",
-        "Loc work",
-        "Loc public",
-        "Loc travelling",
-        "Loc other location"
-    ],
-    "taken out": "Custom list",
-    "help": "Your location.",
-    "title": "Where are you at ${act_time}?"
-},
-"activity time 2": {
-    "activities": [
-        "Time 7",
-        "Time 8",
-        "Time 9",
-        "Time 10",
-        "Time 11",
-        "Time 12"
-    ],
-    "help": "How long ago or the time",
-    "title": "When was this?"
-},
-"activity time absolute": {
-    "activities": [
-        "Hour range 1",
-        "Hour range 2",
-        "Hour range 3",
-        "Hour range 4",
-        "Hour range 5",
-        "Hour range 6"
-    ],
-    "help": "How long ago or the Hour range",
-    "title": "Choose the period"
-},
-"activity time relative": {
-    "activities": [
-        "-5min",
-        "+5min",
-        "-20min",
-        "+20min",
-        "-60min",
-        "+60min"
-    ],
-    "help": "Press DONE when time is right",
-    "title": "${rel_time}"
-},
 "adjust time": {
     "activities": [
         "-5min",
@@ -164,7 +139,7 @@
         "+60min"
     ],
     "help": "Press DONE when time is right",
-    "title": "${rel_time}"
+    "title": "Time is set to<br><b>${time}</b>"
 },
 "appliances": {
     "activities": [
@@ -399,7 +374,7 @@
         "Blank",
         "Edit title save",
         "Edit title done",
-        "Delete",
+        "Abort",
         "Edit title next"
     ],
     "help": "Define your own activity",
@@ -501,70 +476,6 @@
     ],
     "help": "",
     "title": "Getting ready"
-},
-"home": {
-    "help": "",
-    "title": "What I did..."
-},
-"hours 1": {
-    "activities": [
-        "Hours 1",
-        "Hours 2",
-        "Hours 3",
-        "Hours 4",
-        "Hours 5",
-        "Hours 6"
-    ],
-    "help": "What hour of the day?",
-    "title": "Select hour"
-},
-"hours 2": {
-    "activities": [
-        "Hours 7",
-        "Hours 8",
-        "Hours 9",
-        "Hours 10",
-        "Hours 11",
-        "Hours 12"
-    ],
-    "help": "What hour of the day?",
-    "title": "Select hour"
-},
-"hours 3": {
-    "activities": [
-        "Hours 13",
-        "Hours 14",
-        "Hours 15",
-        "Hours 16",
-        "Hours 17",
-        "Hours 18"
-    ],
-    "help": "What hour of the day?",
-    "title": "Select hour"
-},
-"hours 4": {
-    "activities": [
-        "Hours 19",
-        "Hours 20",
-        "Hours 21",
-        "Hours 22",
-        "Hours 23",
-        "Hours 24"
-    ],
-    "help": "What hour of the day?",
-    "title": "Select hour"
-},
-"hours 5": {
-    "activities": [
-        "Hours 25",
-        "Hours 26",
-        "Hours 27",
-        "Hours 28",
-        "Hours 29",
-        "Hours 30"
-    ],
-    "help": "What hour of the day?",
-    "title": "Select hour"
 },
 "laundry": {
     "activities": [

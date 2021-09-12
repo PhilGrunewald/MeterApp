@@ -12,7 +12,7 @@
  <!-- the 4 buttons on the top: MENU | ACT | USER | HELP -->
  <div class="row">
     <div id="nav-menu" class="col-25" onclick="app.moveTo('menu');"><img src="img/act3_menu.png" height="50px"></div>
-    <div id="nav-home" class="col-25" onclick="app.moveFromTo('Delete','home');"><img src="img/act3_act.png" height="50px"></div>
+    <div id="nav-home" class="col-25" onclick="app.moveTo('home');"><img src="img/act3_act.png" height="50px"></div>
     <div id="nav-user" class="col-25" onclick="app.moveTo('user');"><img id="imgStatus" src="img/act3_user_red.png" height="50px"></div>
     <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();"><img id="imgStatus" src="img/act3_help.png" height="50px"></div>
  </div>
@@ -29,12 +29,10 @@
 <div id="clocks">
   <div class="btn-row">
     <div id="btn-now" class="col-50" onclick="app.moveFromTo('Now','activity root')">
-      <div class="help-caption" id="help-btn-now">Start here to say what you do now</div>
-      <canvas id="clock-now" width="140px" height="140px"></canvas>
+      <canvas id="clock-now" width="140px" height="140px" onclick="app.moveFromTo('Now','activity root')"></canvas>
     </div>
     <div id="btn-recent" class="col-50" onclick="app.moveFromTo('Recent','activity time relative')">
-      <div class="help-caption" id="help-btn-recent">For activities in the past use this button</div>
-      <canvas id="clock-recent" width="140px" height="140px"> </canvas>
+      <canvas id="clock-recent" width="130px" height="130px"> </canvas>
     </div>
   </div> <!-- row -->
 </div> <!-- clocks -->
@@ -66,8 +64,8 @@
       <div id="foot-left" class="col col-footer" onclick="app.goBack();">
           <img src="img/nav_back.png" height="25px"> <span id="foot-left-lbl">Back</span>
       </div>
-      <div id="foot-right" class="col col-footer" onclick="app.moveFromTo('Delete','home')">
-          <span id="foot-right-lbl">Abort</span> <img src="img/nav_home.png" height="25px">
+      <div id="foot-right" class="col col-footer" onclick="app.moveTo('home')">
+          <span id="foot-right-lbl">Abort</span> <img id="foot-right-img" src="img/nav_home.png" height="25px">
       </div>
    </div>
 </div> <!-- footer -->

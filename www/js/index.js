@@ -19,7 +19,7 @@ onDeviceReady: function() {
 },
 
 loadJSON: async function(jsonName,language) {
-    if (localStorage.getItem(jsonName) == null) {
+    if (localStorage.getItem(jsonName) != null) {
         const response = await fetch(`text/${jsonName}-${language}.json`)
         // XXX const response = await fetch(`${meterURL}/json/${jsonName}.json`)
         const json     = await response.json();
@@ -45,14 +45,14 @@ loadText: async function() {
         app.loadJSON('screens',language)
         ]);
 
-    if (localStorage.getItem("customActivities") != null) {
-        // custom activities have been assigned - these overwrite the default activities
-        cActs = JSON.parse(localStorage.getItem("customActivities"));
-        for (act in cActs) {
-            cAct = cActs[act];
-            for (item in cAct) { app.activities[act][item] = cActs[act][item]; }
-        }
-    }
+    //if (localStorage.getItem("customActivities") != null) {
+    //    // custom activities have been assigned - these overwrite the default activities
+    //    cActs = JSON.parse(localStorage.getItem("customActivities"));
+    //    for (act in cActs) {
+    //        cAct = cActs[act];
+    //        for (item in cAct) { app.activities[act][item] = cActs[act][item]; }
+    //    }
+    //}
 
     // does a local record of activities exist?
     if (localStorage.getItem("acts") == null) {
@@ -114,7 +114,6 @@ updateNowTime: function() {
 getAct: function() { // returns current activity
     const key = localStorage.getItem('key');
     const acts = JSON.parse(localStorage.getItem('acts'));
-    console.log(acts,key);
     return acts[key];
 },
 
@@ -124,29 +123,32 @@ formatString: function(str) {
         var dt = new Date(act.dt_activity);
         const min = parseInt(str.split('_')[1])
         dt = new Date(dt.getTime() + (60000*min));
-        return `${min} min<br>${dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-    } else
-    if (str == '${rel_time}') {
+        str = `${min} min<br>${dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+    }
+    if (str.includes('${time}')) {
+        console.log("TIME:",str);
         const act = app.getAct();
         const dt = new Date(act.dt_activity);
-        return dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    } else {
-        return str
+        str = str.replace('${time}', dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
     }
+    return str
 },
 
-moveFrom: function(from) {
+newKey: async function(acts,key,dt) {
+    return acts;
+},
+moveFrom: async function(from) {
     const act = app.activities[from];
     var   key = localStorage.getItem('key');
     var  acts = JSON.parse(localStorage.getItem('acts'));
-
     console.log("move from: ",act.category);
     switch(act.category) {
         case "abort":
-            app.deleteAct(key); // bin current entry
+            delete acts[key]
+            key = '';
+            localStorage.setItem('key',key);
             break;
         case "new":
-            // high-precision time as key
             localStorage.setItem('index', parseInt(localStorage.getItem('index'))+1);
             key = `${Number(new Date())}_${localStorage.getItem('index')}`;
             localStorage.setItem('key',key);
@@ -155,16 +157,17 @@ moveFrom: function(from) {
             acts[key]['dt_activity'] = new Date();
             acts[key]['Meta_idMeta'] = localStorage.getItem('metaID');
             acts[key]['path'] = [];
+            app.setFooter('next');
             break;
         case "time":
-            var dt = new Date(acts[key]['dt_activity']);
+            var actVals = acts[key];
+            var dt = new Date(actVals['dt_activity']);
             dt = new Date(dt.getTime() + (60000*act.value));
-            acts[key]['dt_activity'] = dt;
-            var newKey = `${Number(dt)}_${localStorage.getItem('index')}`;
-            acts[newKey] = acts[key];
-            app.deleteAct(key);
-            key = newKey;
-            localStorage.setItem('key',key);
+            const newKey = `${Number(dt)}_${localStorage.getItem('index')}`;
+            localStorage.setItem('key',newKey);
+            actVals['dt_activity'] = dt;
+            acts[newKey] = actVals;
+            delete acts[key]
             break;
         case "location":
             acts[key]['location'] = act.value;
@@ -196,11 +199,91 @@ moveFrom: function(from) {
             acts[key]['key']  = from;
             acts[key]['tuc']  = act.ID;
             acts[key]['title']  = act.title;
-            document.getElementById('freetext').value = act.title;
             acts[key]['category'] = act.category;
+            document.getElementById('freetext').value = act.title;
+            app.setFooter('done');
     }
     if (key in acts) {acts[key]['path'].push(act.ID)}; // 'if' for server use (key could be '')
     localStorage.setItem('acts',JSON.stringify(acts));
+    console.log(acts);
+},
+
+moveTo: function(to) {
+    console.log(`move to ${to}`);
+    const screen = app.screens[to];
+    $('#title').html(app.formatString(screen.title));
+    app.history.push(to);        // for 'back'
+    app.defaultView();
+    if (to == "server") {
+        $('#server').show();
+        $('#header').hide();
+    } else {
+        var btn;
+        var actKey;
+        var act;
+        for (i=0; i<6; i++) {
+            actKey = screen.activities[i];
+            act    = app.activities[actKey];
+            btn = $(`#button${i+1}`);
+            $(`#title${i+1}`).html(app.formatString(act.caption));
+            $(`#caption${i+1}`).html(act.help);
+            document.getElementById(`button${i+1}`).className = `btn-activity col ${act.category}`;
+            document.getElementById(`button${i+1}`).style.backgroundImage = `url('img/${act.icon}.png')`;
+            if (act.category == 'function') {
+                btn.attr("onclick", act.next);
+            } else {
+                btn.attr("onclick", `app.moveFromTo('${actKey}','${act.next}')`);
+            }
+        }
+        $('#buttons').hide();
+        $('#buttons').show();
+    }
+    switch(to) {
+        case "home":
+            app.setNav('nav-home');
+            app.listActivities();
+            app.history = new Array();
+            $('#list').show();
+            $('#footer').hide();
+            break;
+        case "user":
+            app.setNav('nav-user');
+            break;
+        case "menu":
+            app.setNav('nav-menu');
+            $('#footer').hide();
+            break;
+        case "help":
+            app.setNav('nav-help');
+            break;
+        case "freetext":
+            $('#input').show();
+    }
+},
+
+moveFromTo: function(from, to) {
+    document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideIn';
+    app.moveFrom(from);
+    app.moveTo(to);
+},
+
+setFooter: function(setting) {
+    switch(setting) {
+        case 'next':
+            document.getElementById('foot-right-lbl').innerHTML = app.label.lblNext;
+            document.getElementById('foot-right-img').src = 'img/nav_next.png';
+            document.getElementById('foot-right').setAttribute("onclick", "app.moveTo('activity root')");
+            break;
+        case 'done':
+            document.getElementById('foot-right-lbl').innerHTML = app.label.lblDone;
+            document.getElementById('foot-right-img').src = 'img/nav_done.png';
+            document.getElementById('foot-right').setAttribute("onclick", "app.moveTo('home')");
+            break;
+        case 'abort':
+            document.getElementById('foot-right-lbl').innerHTML = app.label.lblAbort;
+            document.getElementById('foot-right-img').src = 'img/edit_delete.png';
+            document.getElementById('foot-right').setAttribute("onclick", "app.moveTo('home')");
+    }
 },
 
 defaultView: function() {
@@ -209,94 +292,29 @@ defaultView: function() {
     $('#clocks').hide();
     $('#list').hide();
     $('#header').show();
-    $('#buttons').show();
-    $('#footer').hide();
+    $('#buttons').hide();
+    $('#footer').show();
 },
 
-moveTo: function(to) {
-    const screen = app.screens[to];
-    app.defaultView();
-    $('#title').html(app.formatString(screen.title));
-    app.history.push(to);        // for 'back' functionality
-    console.log(`move to ${to}`);
-    switch(to) {
-        case "home":
-            app.listActivities();
-            app.history = new Array();
-            $('#clocks').show();
-            $('#list').show();
-            $('#buttons').hide();
-            localStorage.getItem('key',''); // prevent nav homeAbort to delete most recent
-            break;
-        // case "other specify":
-        case "server":
-            $('#server').show();
-            $('#header').hide();
-            $('#buttons').hide();
-            break;
-        case "freetext":
-            $('#input').show();
-            // no break!
-        default:
-            var btn;
-            var actKey;
-            var act;
-            for (i=0; i<6; i++) {
-                actKey = screen.activities[i];
-                act    = app.activities[actKey];
-                btn = $(`#button${i+1}`);
-                $(`#title${i+1}`).html(app.formatString(act.caption));
-                $(`#caption${i+1}`).html(act.help);
-                //CATEGORIES.forEach(function (cat) { btn.removeClass(cat); });
-                //btn.addClass(act.category);
-                document.getElementById(`button${i+1}`).className = `btn-activity col ${act.category}`;
-                document.getElementById(`button${i+1}`).style.backgroundImage = `url('img/${act.icon}.png')`;
-                if (act.category == 'function') {
-                    btn.attr("onclick", act.next);
-                } else {
-                    btn.attr("onclick", `app.moveFromTo('${actKey}','${act.next}')`);
-                }
-            }
-            if (to != "menu") {$('#footer').show();}
-    }
-},
-
-moveFromTo: function(from, to) {
-    app.moveFrom(from);
-    app.moveTo(to);
+setNav: function(on) {
+    document.getElementById('nav-menu').style.background = '#eee';
+    document.getElementById('nav-home').style.background = '#eee';
+    document.getElementById('nav-user').style.background = '#eee';
+    document.getElementById('nav-help').style.background = '#eee';
+    document.getElementById(on).style.background = '#ded';
 },
 
 deleteAct: async function(key) {
     var acts = JSON.parse(localStorage.getItem('acts'));
     await delete acts[key];
-    localStorage.setItem('acts',JSON.stringify(acts));
-},
-
-goBack: function() {
-  $("div#other-specify").hide();
-  app.act_path.push(app.activities['Back'].ID);                     // for to keep a record 'how people got to final activity
-  curr = app.history.pop();
-  prev = app.history.pop();
-
-  if (prev === undefined) {
-    app.showActivityList();
-  } else {
-    //app.navigateTo(prev,prev);
-    app.navigateTo(prev);
-    console.log("Back to: " + prev);
-    if (prev == "adjust time") {
-      app.footer_nav("next");
-    }
-    // XXX undo potential time offsets
-  }
+    await localStorage.setItem('acts',JSON.stringify(acts));
 },
 
 changeTime: function(key) {
     localStorage.setItem('key',key);
+    app.setFooter('done');
     app.moveTo('adjust time');
     document.getElementById('title').onclick = function() { app.moveTo('home') };
-    document.getElementById('foot-right').onclick = function() { app.moveTo('home') };
-    document.getElementById('foot-right-lbl').innerHTML = app.label.lblDone;
 },
 
 changeTitle: function(key) {
@@ -318,48 +336,70 @@ updateTitle: function() {
 changeEnj: function(key) {
     localStorage.setItem('key',key);
     app.moveTo('enjoyment');
-    document.getElementById('foot-right').onclick = function() { app.moveTo('home') };
-    document.getElementById('foot-right-lbl').innerHTML = app.label.lblDone;
+    app.setFooter('done');
 },
 
 listActivities: function() {
   document.getElementById('list').innerHTML = ''; // start afresh
+  const options = { weekday: 'long', day: 'numeric', month: 'short'};
   var acts = JSON.parse(localStorage.getItem('acts'));
   var keys = Object.keys(acts).sort().reverse();
+  var weekday = '';
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-      console.log("KEY:", key);
-  // for (var key in acts) {
-      var act = acts[key];
-      var row = document.createElement('div');
-          row.className = `activity-row ${act.category}`;
-      var time = document.createElement('div');
-          time.className = 'activity-item activity-time';
-          time.setAttribute("onclick",`app.changeTime("${key}")`);
+    var act = acts[key];
+    if ('tuc' in act) {
           var dt = new Date(act.dt_activity);
-          time.innerHTML = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-      var title = document.createElement('div');
-          title.className = 'activity-item';
-          title.setAttribute("onclick",`app.changeTitle("${key}")`);
-          title.innerHTML = act.title;
-      var divImg = document.createElement('div');
-          divImg.className = 'activity-item';
-      var actImg = document.createElement('img');
-          actImg.className = 'activity-icon';
-          //actImg.src = `img/${app.activities[act.key].icon}.png`;
-      var divEnj = document.createElement('div');
-          divEnj.className = 'activity-item';
-          divEnj.setAttribute("onclick",`app.changeEnj("${key}")`);
-      var actEnj = document.createElement('img');
-          actEnj.className = 'activity-icon';
-          actEnj.src = `img/enjoy_${act.enjoyment}.png`;
-      document.getElementById('list').appendChild(row);
-      row.appendChild(time);
-      row.appendChild(title);
-      row.appendChild(divImg);
-        divImg.appendChild(actImg);
-      row.appendChild(divEnj);
-        divEnj.appendChild(actEnj);
+          thisWeekday = dt.toLocaleString(app.label.locale, options);
+          if (weekday != thisWeekday) { // add date row
+          var row = document.createElement('div');
+              row.className = 'activity-row date';
+              row.innerHTML = thisWeekday;
+              document.getElementById('list').appendChild(row);
+              weekday = thisWeekday;
+          }
+          var row = document.createElement('div');
+              row.className = `activity-row ${act.category}`;
+          var time = document.createElement('div');
+              time.className = 'activity-item activity-time';
+              time.setAttribute("onclick",`app.changeTime("${key}")`);
+              time.innerHTML = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+          var title = document.createElement('div');
+              title.className = 'activity-item';
+              title.setAttribute("onclick",`app.changeTitle("${key}")`);
+              title.innerHTML = act.title;
+          var divImg = document.createElement('div');
+              divImg.className = 'activity-item';
+          var actImg = document.createElement('img');
+              actImg.className = 'activity-icon';
+              //actImg.src = `img/${app.activities[act.key].icon}.png`;
+          var divEnj = document.createElement('div');
+              divEnj.className = 'activity-item';
+              divEnj.setAttribute("onclick",`app.changeEnj("${key}")`);
+          var actEnj = document.createElement('img');
+              actEnj.className = 'activity-icon';
+              actEnj.src = `img/enjoy_${act.enjoyment}.png`;
+          document.getElementById('list').appendChild(row);
+          row.appendChild(time);
+          row.appendChild(title);
+          row.appendChild(divImg);
+            divImg.appendChild(actImg);
+          row.appendChild(divEnj);
+            divEnj.appendChild(actEnj);
+      } else {
+          app.deleteAct(key);
+      }
+  }
+},
+
+goBack: function() {
+  app.history.pop(); // remove current
+  const prev = app.history.pop();
+  document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideBack';
+  if (prev === undefined) {
+      app.moveTo("home");
+  } else {
+      app.moveTo(prev);
   }
 },
 
