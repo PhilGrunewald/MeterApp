@@ -19,9 +19,9 @@ onDeviceReady: function() {
 },
 
 loadJSON: async function(jsonName,language) {
-    if (localStorage.getItem(jsonName) != null) {
+    if (localStorage.getItem(jsonName) == null) {
         const response = await fetch(`text/${jsonName}-${language}.json`)
-        // XXX const response = await fetch(`${meterURL}/json/${jsonName}.json`)
+        //const response = await fetch(`${meterURL}json/${jsonName}.json`)
         const json     = await response.json();
         localStorage.setItem(jsonName, JSON.stringify(json));
     }
@@ -56,43 +56,41 @@ loadText: async function() {
 
     // does a local record of activities exist?
     if (localStorage.getItem("acts") == null) {
-        localStorage.setItem("acts", JSON.stringify({}));
-        localStorage.setItem('key', 0);
-        localStorage.setItem('index', 0);
+        localStorage.setItem("acts", JSON.stringify({})); // JSON to store activities
+        localStorage.setItem('key', 0);                   // activity key currently being modified
+        localStorage.setItem('index', 0);                 // incremental for unique keys
     }
 
     // CONSENT?
     if (localStorage.getItem("consent") == 1) {
         app.moveTo("menu");
     } else {
-        $('#navbar').hide();
-        $('#server').attr('src', 'https://www.energy-use.org/app/consent.php');
-        $('#server').show(); 
+        app.defaultView();
+        document.getElementById('navbar').style.display = 'none';
+        document.getElementById('footer').style.display = 'none';
+        document.getElementById('server').style.display = '';
+        document.getElementById('server').setAttibute('src', 'https://www.energy-use.org/app/consent.php');
     }
-
-    $('#actListLabel').html(app.label.actListLabel);
-    $('#lblBack').html(app.label.lblBack);
-    $('#lblHome').html(app.label.lblHome);
-    $('#lblNext').html(app.label.lblNext);
-    $('#lblDone').html(app.label.lblDone);
-    setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
+//    setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
    },
 
   initialSetup: function() {
     // The clock face behind the "Now" button
-    clock.nowClock        = $('#clock-now');
-    clock.initClock(clock.nowClock);
+    //clock.nowClock        = document.getElementById('clock-now');
+    //clock.initClock(clock.nowClock);
 
-    // clock face (move to utils?);
-    clock.recentClock     = $('#clock-recent');
-    clock.initClock(clock.recentClock);
+    //// clock face (move to utils?);
+    //clock.recentClock     = document.getElementById('clock-recent');
+    //clock.initClock(clock.recentClock);
 
-    // For time setting
-    clock.actClock        = $('#clock-act');
-    clock.actClockDiv     = $('.clock-act');
-    clock.initClock(clock.actClock);
-    clock.actClock.hide();
-    clock.actClockDiv.hide();
+    //// For time setting
+    //clock.actClock        = document.getElementById('clock-act');
+    //clock.actClockDiv     = document.querySelectorAll('.clock-act');
+    //clock.initClock(clock.actClock);
+    // clock.actClock.style.display = 'none';
+    // document.getElementById('clock-act').style.display = 'none';
+
+    // clock.actClockDiv.style.display = 'none';
     app.history          = new Array();
     app.act_path         = new Array();
 },
@@ -107,8 +105,8 @@ updateNowTime: function() {
     hour = hour ? hour : 12; // the hour '0' should be '12'
     minutes = min < 10 ? '0'+min : min;
 
-    clock.drawClock(clock.nowClock,hour,min,app.label.now, hour + ':' + minutes);
-    clock.drawClock(clock.recentClock,hour,min, app.label.recently, "back arrow");
+    // clock.drawClock(clock.nowClock,hour,min,app.label.now, hour + ':' + minutes);
+    // clock.drawClock(clock.recentClock,hour,min, app.label.recently, "back arrow");
 },
 
 getAct: function() { // returns current activity
@@ -192,7 +190,7 @@ moveFrom: async function(from) {
             console.log("skipping");
             break;
         case "server":
-            $('#server').attr('src',`${meterURL}${act.url}`);
+            document.getElementById('server').setAttribute('src',`${meterURL}${act.url}`);
             console.log(`server: ${act.url}`);
             break;
         default:
@@ -211,12 +209,12 @@ moveFrom: async function(from) {
 moveTo: function(to) {
     console.log(`move to ${to}`);
     const screen = app.screens[to];
-    $('#title').html(app.formatString(screen.title));
+    document.getElementById('title').innterHTML = app.formatString(screen.title);
     app.history.push(to);        // for 'back'
     app.defaultView();
     if (to == "server") {
-        $('#server').show();
-        $('#header').hide();
+        document.getElementById('server').style.display = '';
+        document.getElementById('header').style.display = 'none';
     } else {
         var btn;
         var actKey;
@@ -224,40 +222,40 @@ moveTo: function(to) {
         for (i=0; i<6; i++) {
             actKey = screen.activities[i];
             act    = app.activities[actKey];
-            btn = $(`#button${i+1}`);
-            $(`#title${i+1}`).html(app.formatString(act.caption));
-            $(`#caption${i+1}`).html(act.help);
+            btn = document.getElementById(`button${i+1}`);
+            document.getElementById(`title${i+1}`).innerHTML = app.formatString(act.caption);
+            document.getElementById(`caption${i+1}`).innerHTML = act.help;
             document.getElementById(`button${i+1}`).className = `btn-activity col ${act.category}`;
             document.getElementById(`button${i+1}`).style.backgroundImage = `url('img/${act.icon}.png')`;
             if (act.category == 'function') {
-                btn.attr("onclick", act.next);
+                btn.setAttribute("onclick", act.next);
             } else {
-                btn.attr("onclick", `app.moveFromTo('${actKey}','${act.next}')`);
+                btn.setAttribute("onclick", `app.moveFromTo('${actKey}','${act.next}')`);
             }
         }
-        $('#buttons').hide();
-        $('#buttons').show();
+        document.getElementById('buttons').style.display = 'none';
+        document.getElementById('buttons').style.display = '';
     }
     switch(to) {
         case "home":
             app.setNav('nav-home');
             app.listActivities();
             app.history = new Array();
-            $('#list').show();
-            $('#footer').hide();
+            document.getElementById('list').style.display = '';
+            document.getElementById('footer').style.display = 'none';
             break;
         case "user":
             app.setNav('nav-user');
             break;
         case "menu":
             app.setNav('nav-menu');
-            $('#footer').hide();
+            document.getElementById('footer').style.display = 'none';
             break;
         case "help":
             app.setNav('nav-help');
             break;
         case "freetext":
-            $('#input').show();
+            document.getElementById('input').style.display = '';
     }
 },
 
@@ -287,13 +285,13 @@ setFooter: function(setting) {
 },
 
 defaultView: function() {
-    $('#input').hide();
-    $('#server').hide();
-    $('#clocks').hide();
-    $('#list').hide();
-    $('#header').show();
-    $('#buttons').hide();
-    $('#footer').show();
+    document.getElementById('header').style.display = '';
+    document.getElementById('input').style.display = 'none';
+    document.getElementById('server').style.display = 'none';
+    document.getElementById('clocks').style.display = 'none';
+    document.getElementById('list').style.display = 'none';
+    document.getElementById('buttons').style.display = 'none';
+    document.getElementById('footer').style.display = '';
 },
 
 setNav: function(on) {
@@ -406,7 +404,7 @@ goBack: function() {
 
 submitHHid: function() {
     // Special submission case for non UK participants via HH id
-    var hhID = $("input#free-text").val();
+    var hhID = document.getElementById("input#free-text").val();
     localStorage.removeItem('metaID');          // get new metaID
     localStorage.setItem('household_id', hhID);
     localStorage.removeItem('householdStatus'); // for connection manager "not linked yet"
@@ -429,7 +427,7 @@ emailData: function() {
     requestEmailData();
     app.title.html(app.label.titleEmailData);
     app.navigateTo("home");
-    $("input#free-text").val("");
+    //$("input#free-text").val("");
   } else {
     app.title.html(app.label.noInternet);
   }
@@ -440,9 +438,9 @@ showHelp: function() {
     var idMeta = localStorage.getItem('metaID');
     var helpURL = app.label.helpURL;
     app.title.html("Help"); 
-    app.choicesPane.hide();
-    app.server.show(); 
-    app.server.attr('src', helpURL);
+    app.choicesPane.style.display = 'none';
+    app.server.style.display = ''; 
+    app.server.setAttibute('src', helpURL);
     app.server.load(function(){
         sendMessageIframe("App requested help");
     });
@@ -456,10 +454,10 @@ showProfile: function() {
     var idMeta = localStorage.getItem('metaID');
     var profileURL = app.label.profileURL + idMeta;
     console.log("URL:" + profileURL);
-    app.header.hide(); 
-    app.choicesPane.hide();
-    app.server.show(); 
-    app.server.attr('src', profileURL);
+    app.header.style.display = 'none'; 
+    app.choicesPane.style.display = 'none';
+    app.server.style.display = ''; 
+    app.server.setAttibute('src', profileURL);
     app.server.load(function(){
         sendMessageIframe("App requested profile");
     });
@@ -477,10 +475,10 @@ showEnjoyment: function() {
   else if (localStorage.getItem('Online') != null) {
     var idMeta = localStorage.getItem('metaID');
     var enjoymentURL = app.label.enjoymentURL + idMeta;
-    app.header.hide(); 
-    app.choicesPane.hide();
-    app.server.show(); 
-    app.server.attr('src', enjoymentURL);
+    app.header.style.display = 'none'; 
+    app.choicesPane.style.display = 'none';
+    app.server.style.display = ''; 
+    app.server.setAttibute('src', enjoymentURL);
     app.server.load(function(){
         sendMessageIframe("App requested enjoyment");
     });
@@ -543,7 +541,7 @@ showStars: function() {
     //} else {
     //  app.imgStatus.attr("src","img/stars_0.png");
     //}
-    //app.imgStatus.show();
+    //app.imgStatus.style.display = '';
 },
 showActivityList: function() {
   // only used on home screen
@@ -598,7 +596,7 @@ showActivityList: function() {
   app.activity_list_div.html(actsHTML);
   $('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
   app.updateNowTime();
-  clock.actClockDiv.hide();
+  clock.actClockDiv.style.display = 'none';
 },
 
 

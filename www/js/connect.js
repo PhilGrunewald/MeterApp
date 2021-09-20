@@ -27,11 +27,56 @@ window.onerror = function(message, source, lineNumber) {
     return false; //true would catch the error
 };
 
+function au() {
+    const allActs = JSON.parse(localStorage.getItem('acts'));
+    const acts = Object.keys(allActs).filter(x => !acts[x].uploaded);
+    for (key in acts) {
+        const act = acts[key]);
+        fetch(`${meterURL}uploadActs.php`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', },
+          body: {key: key, cols: Object.keys(act), values: Object.values(act), sc: localStorage.getItem('sc')},
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          acts[key].uploaded = true;
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        })
+    }
+    return Object.keys(acts).filter(x => !acts[x].uploaded);
+}
+
+function uploadActs() {
+    // 14 Sep 2021 new upload function with fetch
+    localStorage.setItem('sc','123')
+    let   acts = JSON.parse(localStorage.getItem('acts'));
+    const keysToUpload = Object.keys(acts).filter(x => !acts[x].uploaded);
+    console.log(keysToUpload);
+    const data = keysToUpload.map(key => 
+        fetch(`${meterURL}uploadActs.php`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', },
+          body: {activity: JSON.stringify(acts[key]), sc: localStorage.getItem('sc')},
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+          acts[key].uploaded = true;
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        })
+    );
+    //localStorage.setItem('acts',JSON.strigify(acts));
+}
 
 function uploadActivities() {
     var activitiesToUploadCopy = localStorage.getItem('activitiesToUpload').replace(/'/g, "\\'");
     var activitiesToUploadArray = activitiesToUploadCopy.split(';');
-    if (activitiesToUploadArray[0]=="" || activitiesToUploadArray[0]=="null"){
+    if (activitiesToUploadArray[0]=="" || activitiesToUploadArray[0]==null){
         activitiesToUploadArray.shift(); //removes fisrt item if it's empty or null
     }
     var request;
@@ -576,8 +621,7 @@ function receiveMessageIframe(message) {
     console.log("Received message from iframe: " + message);
     if (message.split("#")[0]=="CONSENT"){
         localStorage.setItem('consent', 1)
-        app.navbar.show();
-        app.navigateTo("menu");
+        app.moveTo("menu");
     }
     // Go Home (Nav bar)
     if (message.split("#")[0]=="Go home"){
