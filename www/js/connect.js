@@ -15,8 +15,8 @@ var insertError = meterURL +  "insertError.php";
 var insertContactDetails = meterURL + "insertContactDetails.php";
 
 
-setInterval(connectionManager, 10000); //Begin connecting to server on intervals , in ms (default 10s)
-setInterval(hourlyChecks, 60*60*1000); // less frequently needed checks (1 hour)
+// setInterval(connectionManager, 10000); //Begin connecting to server on intervals , in ms (default 10s)
+// setInterval(hourlyChecks, 60*60*1000); // less frequently needed checks (1 hour)
 
 window.onerror = function(message, source, lineNumber) {
     //This doesn't trigger on every error (unreliable)
@@ -27,86 +27,57 @@ window.onerror = function(message, source, lineNumber) {
     return false; //true would catch the error
 };
 
-function au() {
-    const allActs = JSON.parse(localStorage.getItem('acts'));
-    const acts = Object.keys(allActs).filter(x => !acts[x].uploaded);
-    for (key in acts) {
-        const act = acts[key]);
-        fetch(`${meterURL}uploadActs.php`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', },
-          body: {key: key, cols: Object.keys(act), values: Object.values(act), sc: localStorage.getItem('sc')},
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Success:', data);
-          acts[key].uploaded = true;
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        })
-    }
-    return Object.keys(acts).filter(x => !acts[x].uploaded);
-}
 
 function uploadActs() {
     // 14 Sep 2021 new upload function with fetch
-    localStorage.setItem('sc','123')
+    if (localStorage.getItem('metaID') == null) { getUserID(); }
+
     let   acts = JSON.parse(localStorage.getItem('acts'));
     const keysToUpload = Object.keys(acts).filter(x => !acts[x].uploaded);
-    console.log(keysToUpload);
-    const data = keysToUpload.map(key => 
-        fetch(`${meterURL}uploadActs.php`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', },
-          body: {activity: JSON.stringify(acts[key]), sc: localStorage.getItem('sc')},
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Success:', data);
-          acts[key].uploaded = true;
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        })
-    );
-    //localStorage.setItem('acts',JSON.strigify(acts));
-}
-
-function uploadActivities() {
-    var activitiesToUploadCopy = localStorage.getItem('activitiesToUpload').replace(/'/g, "\\'");
-    var activitiesToUploadArray = activitiesToUploadCopy.split(';');
-    if (activitiesToUploadArray[0]=="" || activitiesToUploadArray[0]==null){
-        activitiesToUploadArray.shift(); //removes fisrt item if it's empty or null
+    keysToUpload.map(key => {
+       var act = acts[key];
+       act['path'] = act.path.toString();
+       const payload = {
+             cols:   Object.keys(act),
+             values: Object.values(act),
+             metaID: localStorage.getItem('metaID'),
+             sc:     localStorage.getItem('sc')
+             };
+       const requestOptions = {
+           method:  'POST',
+           //mode:    'no-cors',
+           headers: {"Content-Type":  "application/json"},
+           body:    JSON.stringify(payload)
+       };
+       fetch(`${meterURL}uploadActs.php`, requestOptions)
+           .then(response => response.json())
+           .then(result => {
+               console.log(result);
+               if (result.message == 'success') {
+                   acts[key].uploaded = true;
+                   localStorage.setItem('acts',JSON.stringify(acts));
+               }
+           })
+           .catch(error => console.log('error', error));
     }
-    var request;
-    request = $.ajax({ //Send request to php
-        url: insertActivity,
-        type: "POST",
-        data: {dataArray:activitiesToUploadArray, metaID:localStorage.getItem('metaID')}, //send array of items
-        success: function(response) {
-            if (response.split("#")[0]=="Success") { 
-                // Warning: multi-activity upload (such as after a long time offline) only checks for the first "#Success', whereas the return string could be '#Success#Success#error#Success'
-                console.log("Succesfully uploaded!");
-                localStorage.setItem('activitiesToUpload', '');
-                //This removes the sent items from the current list (incase they add an activity whilst it's being sent)
-            } else {
-                console.log("Response from " + insertActivity +":" + response);
-            }
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { //not using these variables but could be useful for debugging
-            console.log("Check server connection (to php): " + textStatus);
-        }
-    });
+    );
 }
 
-/*
-Normal added activities are sent with actviity key + details
-Deleted activities are uploaded with key but empty details and a "DELETED" string
-(Edited activites are handled by the above two as they are first deleted then added again as normal under a different key)
-
-Exceptions that are handled: no wifi connection, no connection to php host, php host fails to insert data
-*/
+async function getUserID() {
+   const requestOptions = {
+       method:  'POST',
+       headers: {"Content-Type":  "application/json"}
+   };
+   await fetch(`${meterURL}getUserID.php`, requestOptions)
+       .then(response => response.json())
+       .then(result => {
+           if (result.message == 'success') {
+               localStorage.setItem('sc',result.sc);
+               localStorage.setItem('metaID',result.metaID);
+           }
+       })
+       .catch(error => console.log('error', error));
+}
 
 function requestMetaID(functionToExecuteNext){
     console.log("Requesting next ID");

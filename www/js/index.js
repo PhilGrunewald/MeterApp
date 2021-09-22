@@ -2,7 +2,8 @@
 * Meter Activity App
 */
 var appVersion = "1.1.12";
-var meterURL = "https://www.energy-use.org/app/"
+// var meterURL = "https://www.energy-use.org/app/"
+var meterURL = "http://localhost:8000/app/"
 
 var app = {
   initialize: function() {
@@ -14,7 +15,6 @@ var app = {
   },
 
 onDeviceReady: function() {
-  app.initialSetup();
   app.loadText();
 },
 
@@ -29,6 +29,8 @@ loadJSON: async function(jsonName,language) {
 },
 
 loadText: async function() {
+    if (localStorage.getItem('metaID') == null) { getUserID(); }
+
     var language = navigator.language.split("-")[0]
     switch(language) {
       case 'de':
@@ -71,43 +73,7 @@ loadText: async function() {
         document.getElementById('server').style.display = '';
         document.getElementById('server').setAttibute('src', 'https://www.energy-use.org/app/consent.php');
     }
-//    setInterval(function(){ app.updateNowTime(); }, 10000); // 10 second clock update
    },
-
-  initialSetup: function() {
-    // The clock face behind the "Now" button
-    //clock.nowClock        = document.getElementById('clock-now');
-    //clock.initClock(clock.nowClock);
-
-    //// clock face (move to utils?);
-    //clock.recentClock     = document.getElementById('clock-recent');
-    //clock.initClock(clock.recentClock);
-
-    //// For time setting
-    //clock.actClock        = document.getElementById('clock-act');
-    //clock.actClockDiv     = document.querySelectorAll('.clock-act');
-    //clock.initClock(clock.actClock);
-    // clock.actClock.style.display = 'none';
-    // document.getElementById('clock-act').style.display = 'none';
-
-    // clock.actClockDiv.style.display = 'none';
-    app.history          = new Array();
-    app.act_path         = new Array();
-},
-
-updateNowTime: function() {
-    var now = new Date();
-    var hour = now.getHours();
-    var min  = now.getMinutes();
-    if (app.label.hours == "12") {
-      hour = hour % 12;
-    }
-    hour = hour ? hour : 12; // the hour '0' should be '12'
-    minutes = min < 10 ? '0'+min : min;
-
-    // clock.drawClock(clock.nowClock,hour,min,app.label.now, hour + ':' + minutes);
-    // clock.drawClock(clock.recentClock,hour,min, app.label.recently, "back arrow");
-},
 
 getAct: function() { // returns current activity
     const key = localStorage.getItem('key');
@@ -132,10 +98,7 @@ formatString: function(str) {
     return str
 },
 
-newKey: async function(acts,key,dt) {
-    return acts;
-},
-moveFrom: async function(from) {
+moveFrom: function(from) {
     const act = app.activities[from];
     var   key = localStorage.getItem('key');
     var  acts = JSON.parse(localStorage.getItem('acts'));
@@ -154,7 +117,7 @@ moveFrom: async function(from) {
             acts[key]['dt_recorded'] = new Date();
             acts[key]['dt_activity'] = new Date();
             acts[key]['Meta_idMeta'] = localStorage.getItem('metaID');
-            acts[key]['path'] = [];
+            acts[key]['path'] = act.ID;
             app.setFooter('next');
             break;
         case "time":
@@ -177,14 +140,14 @@ moveFrom: async function(from) {
             acts[key]['enjoyment'] = act.value;
             break;
         case "text":
-            acts[key]['title'] = document.getElementById('freetext').value;
+            acts[key]['activity'] = document.getElementById('freetext').value;
             break;
         case "assign":
             // overwrite the activities JSON for e.g. "C1*" and "C1"
-            app.activities[from]['title']   = acts[key]['title'];
-            app.activities[from]['caption'] = acts[key]['title'];
-            app.activities[from.slice(0,-1)]['title']   = acts[key]['title'];
-            app.activities[from.slice(0,-1)]['caption'] = acts[key]['title'];
+            app.activities[from]['title']   = acts[key]['activity'];
+            app.activities[from]['caption'] = acts[key]['activity'];
+            app.activities[from.slice(0,-1)]['title']   = acts[key]['activity'];
+            app.activities[from.slice(0,-1)]['caption'] = acts[key]['activity'];
             localStorage.setItem('activities', JSON.stringify(app.activities));
         case "skip":
             console.log("skipping");
@@ -196,26 +159,25 @@ moveFrom: async function(from) {
         default:
             acts[key]['key']  = from;
             acts[key]['tuc']  = act.ID;
-            acts[key]['title']  = act.title;
+            acts[key]['activity']  = act.title;
             acts[key]['category'] = act.category;
             document.getElementById('freetext').value = act.title;
             app.setFooter('done');
     }
-    if (key in acts) {acts[key]['path'].push(act.ID)}; // 'if' for server use (key could be '')
+    if (key in acts) {acts[key]['path'] += `,${act.ID}`}; // 'if' for server use (key could be '')
     localStorage.setItem('acts',JSON.stringify(acts));
-    console.log(acts);
 },
 
 moveTo: function(to) {
     console.log(`move to ${to}`);
     const screen = app.screens[to];
-    document.getElementById('title').innterHTML = app.formatString(screen.title);
-    app.history.push(to);        // for 'back'
     app.defaultView();
     if (to == "server") {
         document.getElementById('server').style.display = '';
         document.getElementById('header').style.display = 'none';
     } else {
+        console.log(screen.title);
+        document.getElementById('title').innterHTML = app.formatString(screen.title);
         var btn;
         var actKey;
         var act;
@@ -238,16 +200,18 @@ moveTo: function(to) {
     }
     switch(to) {
         case "home":
-            app.setNav('nav-home');
+            uploadActs();
             app.listActivities();
             app.history = new Array();
             document.getElementById('list').style.display = '';
             document.getElementById('footer').style.display = 'none';
+            app.setNav('nav-home');
             break;
         case "user":
             app.setNav('nav-user');
             break;
         case "menu":
+            app.history = new Array();
             app.setNav('nav-menu');
             document.getElementById('footer').style.display = 'none';
             break;
@@ -257,6 +221,7 @@ moveTo: function(to) {
         case "freetext":
             document.getElementById('input').style.display = '';
     }
+    app.history.push(to);        // for 'back'
 },
 
 moveFromTo: function(from, to) {
@@ -318,7 +283,7 @@ changeTime: function(key) {
 changeTitle: function(key) {
     localStorage.setItem('key',key);
     var  acts = JSON.parse(localStorage.getItem('acts'));
-    document.getElementById('freetext').value = acts[key]['title'];
+    document.getElementById('freetext').value = acts[key]['activity'];
     app.moveTo('freetext');
 },
 
@@ -326,7 +291,7 @@ updateTitle: function() {
     const key = localStorage.getItem('key');
     var  acts = JSON.parse(localStorage.getItem('acts'));
     console.log("ACT KEY:",acts[key]);
-    acts[key]['title'] = document.getElementById('text').value;
+    acts[key]['activity'] = document.getElementById('text').value;
     localStorage.setItem('acts',JSON.stringify(acts));
     app.moveTo('home');
 },
@@ -338,67 +303,56 @@ changeEnj: function(key) {
 },
 
 listActivities: function() {
-  document.getElementById('list').innerHTML = ''; // start afresh
-  const options = { weekday: 'long', day: 'numeric', month: 'short'};
-  var acts = JSON.parse(localStorage.getItem('acts'));
-  var keys = Object.keys(acts).sort().reverse();
-  var weekday = '';
-  for (var i = 0; i < keys.length; i++) {
-    var key = keys[i];
-    var act = acts[key];
-    if ('tuc' in act) {
-          var dt = new Date(act.dt_activity);
-          thisWeekday = dt.toLocaleString(app.label.locale, options);
-          if (weekday != thisWeekday) { // add date row
-          var row = document.createElement('div');
-              row.className = 'activity-row date';
-              row.innerHTML = thisWeekday;
-              document.getElementById('list').appendChild(row);
-              weekday = thisWeekday;
-          }
-          var row = document.createElement('div');
-              row.className = `activity-row ${act.category}`;
-          var time = document.createElement('div');
-              time.className = 'activity-item activity-time';
-              time.setAttribute("onclick",`app.changeTime("${key}")`);
-              time.innerHTML = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-          var title = document.createElement('div');
-              title.className = 'activity-item';
-              title.setAttribute("onclick",`app.changeTitle("${key}")`);
-              title.innerHTML = act.title;
-          var divImg = document.createElement('div');
-              divImg.className = 'activity-item';
-          var actImg = document.createElement('img');
-              actImg.className = 'activity-icon';
-              //actImg.src = `img/${app.activities[act.key].icon}.png`;
-          var divEnj = document.createElement('div');
-              divEnj.className = 'activity-item';
-              divEnj.setAttribute("onclick",`app.changeEnj("${key}")`);
-          var actEnj = document.createElement('img');
-              actEnj.className = 'activity-icon';
-              actEnj.src = `img/enjoy_${act.enjoyment}.png`;
-          document.getElementById('list').appendChild(row);
-          row.appendChild(time);
-          row.appendChild(title);
-          row.appendChild(divImg);
+    document.getElementById('list').innerHTML = ''; // start afresh
+    const options = { weekday: 'long', day: 'numeric', month: 'short'};
+    var acts = JSON.parse(localStorage.getItem('acts'));
+    var keys = Object.keys(acts).sort().reverse();
+    var weekday = '';
+    for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var act = acts[key];
+        if ('tuc' in act) {
+            var dt = new Date(act.dt_activity);
+            thisWeekday = dt.toLocaleString(app.label.locale, options);
+            if (weekday != thisWeekday) { // add date row
+                var row = document.createElement('div');
+                row.className = 'activity-row date';
+                row.innerHTML = thisWeekday;
+                document.getElementById('list').appendChild(row);
+                weekday = thisWeekday;
+            }
+            var row = document.createElement('div');
+            row.className = `activity-row ${act.category}`;
+            var time = document.createElement('div');
+            time.className = 'activity-item activity-time';
+            time.setAttribute("onclick",`app.changeTime("${key}")`);
+            time.innerHTML = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            var title = document.createElement('div');
+            title.className = 'activity-item';
+            title.setAttribute("onclick",`app.changeTitle("${key}")`);
+            title.innerHTML = act.activity;
+            var divImg = document.createElement('div');
+            divImg.className = 'activity-item';
+            var actImg = document.createElement('img');
+            actImg.className = 'activity-icon';
+            //actImg.src = `img/${app.activities[act.key].icon}.png`;
+            var divEnj = document.createElement('div');
+            divEnj.className = 'activity-item';
+            divEnj.setAttribute("onclick",`app.changeEnj("${key}")`);
+            var actEnj = document.createElement('img');
+            actEnj.className = 'activity-icon';
+            actEnj.src = `img/enjoy_${act.enjoyment}.png`;
+            document.getElementById('list').appendChild(row);
+            row.appendChild(time);
+            row.appendChild(title);
+            row.appendChild(divImg);
             divImg.appendChild(actImg);
-          row.appendChild(divEnj);
+            row.appendChild(divEnj);
             divEnj.appendChild(actEnj);
-      } else {
-          app.deleteAct(key);
-      }
-  }
-},
-
-goBack: function() {
-  app.history.pop(); // remove current
-  const prev = app.history.pop();
-  document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideBack';
-  if (prev === undefined) {
-      app.moveTo("home");
-  } else {
-      app.moveTo(prev);
-  }
+        } else {
+            app.deleteAct(key);
+        }
+    }
 },
 
 
@@ -490,157 +444,3 @@ showEnjoyment: function() {
 };
 
 app.initialize();
-
-
-/*
-
-statusCheck: function() {
-    // steps are                    condition
-    // 1: personalise               hh id
-    // 2: finish personalise        registration status = 'complete'
-    // 3: get date                  dateChoice
-    // 4: survey                    SURVEY_STATUS
-    // 5: study (stars);
-    // 6: return eMeter             date > dateChoice +1
-    
-    var dateChoice = localStorage.getItem('dateChoice');
-    var hh = localStorage.getItem('household_id');
-    var sc = localStorage.getItem('sc');
-    var waitForAuthorisation = localStorage.getItem('AwaitAuthorisation');
-
-  // Individual Survey
-  if (localStorage.getItem("survey root") == 'survey complete') {
-    app.activities['IndividualSurvey']['icon'] = "act3_user_green";
-  }
-
-  if (localStorage.getItem("householdSurvey") == 'COMPLETE') {
-    app.activities['Register']['icon'] = "act3_home_green";
-    if (localStorage.getItem("survey root") == 'survey complete') {
-        app.imgStatus.attr("src","img/act3_user_green.png");
-    }
-  }
-},
-
-showStars: function() {
-    // activityList = utils.getList(ACTIVITY_LIST) || {};
-    // var actCount = Object.keys(activityList).length;
-    var actCount = localStorage.getItem('ActivityCount');
-    if (actCount > 4) {
-          app.imgStatus.attr("src","img/act3_user_star.png");
-    }
-    //if (actCount > 24) {
-    //  app.imgStatus.attr("src","img/stars_5.png");
-    //} else if (actCount > 14) {
-    //  app.imgStatus.attr("src","img/stars_4.png");
-    //} else if (actCount > 9) {
-    //  app.imgStatus.attr("src","img/stars_3.png");
-    //} else if (actCount > 4) {
-    //  app.imgStatus.attr("src","img/stars_2.png");
-    //} else if (actCount > 0) {
-    //  app.imgStatus.attr("src","img/stars_1.png");
-    //} else {
-    //  app.imgStatus.attr("src","img/stars_0.png");
-    //}
-    //app.imgStatus.style.display = '';
-},
-showActivityList: function() {
-  // only used on home screen
-  // used as a proxy for 'being home'
-  // thus populate the title and do some of the hiding
-
-  app.title.html(app.screens['home'].title);
-  app.statusCheck();
-  app.returnToMainScreen();
-  app.history = new Array();
-  app.act_path = new Array();
-      var activityList = utils.getList(ACTIVITY_LIST) || []
-  var actsHTML = "";
-
-  var actKeys = Object.keys(activityList);
-  var actLength =Object.keys(activityList).length;
-  actKeys.sort();
-
-  var weekday = '';
-  for (i = actLength-1; i > -1; i--) {
-    var key = actKeys[i];
-    var item = activityList[key];
-    var dt  = utils.getDate(item.dt_activity)
-    // var dt  = new Date(item.dt_activity.replace(" ","T"))
-    // dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-    var options = { hour: 'numeric', minute: '2-digit' };
-    var hhmm = dt.toLocaleString(app.label.locale, options);
-    var options = { weekday: 'long', day: 'numeric', month: 'short'};
-    thisWeekday = dt.toLocaleString(app.label.locale, options);
-    if (weekday != thisWeekday) {
-      actsHTML +=
-      '<div class="row activity-row">' + thisWeekday + '</div>'
-    }
-    weekday = thisWeekday;
-    var activity    = app.activities[item.key];
-
-    // special case for our own labels (Study starts/ends; Intervention starts/ends)
-    if (activity.category == 'study' || activity.category == 'intervention') {
-        actsHTML +='<div class="activity-row '+activity.category+'"><div class="study-item">' + activity.title + hhmm + '</div></div>';
-    } else {
-    actsHTML +=
-    '<div class="activity-row ' + item.category + '" onClick="app.editActivityScreen(\'' + key + '\')">' +
-    '<div class="activity-time activity-item">' + hhmm + '</div>' +
-    '<div class="activity-item">' + item.activity  + '</div> ' +
-    '<div class="activity-icon activity-item"><img class="activity-icon" src="img/'+activity.icon+'.png"></div>'+
-    '<div class="activity-icon activity-item"><img class="activity-icon" src="img/loc_'+item.location+'.png"></div>'+
-    '<div class="activity-icon activity-item"><img class="activity-icon" src="img/enjoy_'+item.enjoyment+'.png"></div>'+
-    '</div>';
-      }
-  }
-  app.activity_list_div.html(actsHTML);
-  $('div.contents').animate({ scrollTop: 0 }, 'slow'); // only needed when using the home button on the home screen after having scrolled down
-  app.updateNowTime();
-  clock.actClockDiv.style.display = 'none';
-},
-
-
-
-addActivityToList: function() {
-  // 2 Lists: local ACTIVITY_LIST and logActJSON file
-  var dt_recorded = new Date(); // .toISOString();
-  var dt_act;
-  if (utils.get(ACTIVITY_DATETIME) == "same") {
-    dt_act = dt_recorded;
-  } else {
-    dt_act = utils.getDate(utils.get(ACTIVITY_DATETIME));// .replace(" ","T"));
-  }
-
-  var actID = utils.actID(dt_act);
-  activityList = utils.getList(ACTIVITY_LIST) || {};
-  activityList[actID] = {
-    "key"       : utils.get(CURR_ACTIVITY),
-    "Meta_idMeta": localStorage.getItem('metaID'),
-    "dt_activity": utils.getDateForSQL(dt_act),
-    "dt_recorded": utils.getDateForSQL(dt_recorded),
-    "location"  : utils.get(CURR_LOCATION),
-    "people"    : utils.get(CURR_PEOPLE),
-    "enjoyment" : utils.get(CURR_ENJOYMENT),
-    "tuc"       : utils.get(CURR_ACTIVITY_ID).split(",")[0],
-    "category"  : utils.get(CURR_ACTIVITY_ID).split(",")[1],
-    "activity"  : utils.get(CURR_ACTIVITY_ID).split(",")[2],
-    "path"      : app.act_path.join()
-  }
-  utils.saveList(ACTIVITY_LIST, activityList);
-  var newActivityList = activityList[actID]['dt_activity'] + "#" + activityList[actID]['dt_recorded'] + "#"  + activityList[actID]['tuc'] + "#"  + activityList[actID]['activity'] + "#" + activityList[actID]['location'] + "#" +  activityList[actID]['enjoyment'] + "#" + activityList[actID]['category'] + "#" + activityList[actID]['people'] + "#" + activityList[actID]['path'] + "#" + activityList[actID]['key'];
-  console.log("New list: " + newActivityList);
-  localStorage.setItem('activitiesToUpload', localStorage.getItem('activitiesToUpload') + ";" + newActivityList);
-
-  // reset values
-  utils.save(ACTIVITY_DATETIME, "same"); // reset to assume 'now' entry
-  utils.save(CURR_ENJOYMENT, 0);
-  utils.save(CURR_PEOPLE, "-1");
-
-  actCount = localStorage.getItem('ActivityCount');
-  if (actCount != null) {
-      localStorage.setItem('ActivityCount', parseInt(actCount) + 1)
-  } else {
-      localStorage.setItem('ActivityCount', 1)
-  }
-},
-*/
