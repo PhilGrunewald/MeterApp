@@ -14,11 +14,9 @@
     <div id="nav-menu" class="col-25" onclick="app.moveTo('menu');"><img src="img/act3_menu.png" height="50px"></div>
     <div id="nav-home" class="col-25" onclick="app.moveTo('home');"><img src="img/act3_act.png" height="50px"></div>
     <div id="nav-user" class="col-25" onclick="app.moveTo('user');"><img id="imgStatus" src="img/act3_user_red.png" height="50px"></div>
-    <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleCaption();"><img id="imgStatus" src="img/act3_help.png" height="50px"></div>
+    <div id="nav-help" class="col-25" style="font-size:25px" onclick="app.toggleHelp();"><img id="imgStatus" src="img/act3_help.png" height="50px"></div>
  </div>
 </div> <!-- navbar -->
-
-<iframe id="server" frameborder="0"></iframe>
 
 <div id="header">
     <!-- 
@@ -27,6 +25,8 @@
    <div id="title"></div>
    <br></br>
 </div> <!-- header -->
+
+<iframe id="server" frameborder="0"></iframe>
 
 <div id="clocks">
   <div class="btn-row">
@@ -48,16 +48,16 @@
 
 <div id="buttons">
   <div class="btn-row"> 
-    <div id="button1" class="btn-activity col"> <div id="title1" class="btn-title"></div> <div id="caption1" class="btn-caption"></div> </div>
-    <div id="button2" class="btn-activity col"> <div id="title2" class="btn-title"></div> <div id="caption2" class="btn-caption"></div> </div>
+    <div id="button1" class="btn-activity col"> <div id="title1" class="btn-title"></div> <div id="help1" class="no-help help"></div> </div>
+    <div id="button2" class="btn-activity col"> <div id="title2" class="btn-title"></div> <div id="help2" class="no-help help"></div> </div>
   </div>
   <div class="btn-row">
-    <div id="button3" class="btn-activity col"> <div id="title3" class="btn-title"></div> <div id="caption3" class="btn-caption"></div> </div>
-    <div id="button4" class="btn-activity col"> <div id="title4" class="btn-title"></div> <div id="caption4" class="btn-caption"></div> </div>
+    <div id="button3" class="btn-activity col"> <div id="title3" class="btn-title"></div> <div id="help3" class="no-help help"></div> </div>
+    <div id="button4" class="btn-activity col"> <div id="title4" class="btn-title"></div> <div id="help4" class="no-help help"></div> </div>
   </div>
   <div class="btn-row">
-    <div id="button5" class="btn-activity col"> <div id="title5" class="btn-title"></div> <div id="caption5" class="btn-caption"></div> </div>
-    <div id="button6" class="btn-activity col"> <div id="title6" class="btn-title"></div> <div id="caption6" class="btn-caption"></div> </div>
+    <div id="button5" class="btn-activity col"> <div id="title5" class="btn-title"></div> <div id="help5" class="no-help help"></div> </div>
+    <div id="button6" class="btn-activity col"> <div id="title6" class="btn-title"></div> <div id="help6" class="no-help help"></div> </div>
   </div>
 </div> <!-- buttons -->
 
@@ -72,10 +72,6 @@
    </div>
 </div> <!-- footer -->
 
-<script type="text/javascript" src="cordova.js"></script>
-<!-- 
-<script type="text/javascript" src="js/clock.js"></script>
--->
 <script type="text/javascript" src="js/utils.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/connect.js"></script>

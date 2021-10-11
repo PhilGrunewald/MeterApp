@@ -7,6 +7,16 @@
     "Skip 'hot or cold meal'": "add",
     "back button when EDIT change time": "hide"
 },
+"Consent": {
+    "ID": 0,
+    "title": "Consent",
+    "caption": "",
+    "category": "server",
+    "help": "Permission to use your data",
+    "next": "server",
+    "url": "consent.php",
+    "icon": "act3_user_red"
+},
 "Now": {
     "ID": 1,
     "caption": "Now",
@@ -96,8 +106,9 @@
     "caption": "Profile",
     "ID": 13004,
     "help": "Electricity use",
-    "category": "function",
-    "next": "app.showProfile()",
+    "category": "server",
+    "url": "graphs/graph.php",
+    "next": "server",
     "icon": "act2_profile"
 },
 "StudyDate": {

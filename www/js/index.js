@@ -2,26 +2,29 @@
 * Meter Activity App
 */
 var appVersion = "1.1.12";
-// var meterURL = "https://www.energy-use.org/app/"
-var meterURL = "http://localhost:8000/app/"
-
+var meterURL = "https://www.energy-use.org/app/";
+// var meterURL = "http://localhost:8000/app/"
+var meterURL = "http://localhost/energy-use.org/public_html/app/";
 var app = {
   initialize: function() {
     this.bindEvents();
   },
 
   bindEvents: function() {
-    document.addEventListener('deviceready', this.onDeviceReady, false);
+    if (typeof cordova === 'undefined') {
+        document.addEventListener('DOMContentLoaded', this.onDeviceReady, false);
+    } else {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    }
   },
 
-onDeviceReady: function() {
-  app.loadText();
+onDeviceReady: async function() {
+  app.loadText()
 },
 
 loadJSON: async function(jsonName,language) {
     if (localStorage.getItem(jsonName) == null) {
         const response = await fetch(`text/${jsonName}-${language}.json`)
-        //const response = await fetch(`${meterURL}json/${jsonName}.json`)
         const json     = await response.json();
         localStorage.setItem(jsonName, JSON.stringify(json));
     }
@@ -46,6 +49,7 @@ loadText: async function() {
         app.loadJSON('activities',language),
         app.loadJSON('screens',language)
         ]);
+    console.log("APP.label:",app.label,document.getElementById('server'));
 
     //if (localStorage.getItem("customActivities") != null) {
     //    // custom activities have been assigned - these overwrite the default activities
@@ -68,11 +72,12 @@ loadText: async function() {
         app.moveTo("menu");
     } else {
         app.defaultView();
+        app.history = new Array();
+        app.moveFromTo("Consent","server");
         document.getElementById('navbar').style.display = 'none';
         document.getElementById('footer').style.display = 'none';
-        document.getElementById('server').style.display = '';
-        document.getElementById('server').setAttibute('src', 'https://www.energy-use.org/app/consent.php');
     }
+
    },
 
 getAct: function() { // returns current activity
@@ -176,8 +181,7 @@ moveTo: function(to) {
         document.getElementById('server').style.display = '';
         document.getElementById('header').style.display = 'none';
     } else {
-        console.log(screen.title);
-        document.getElementById('title').innterHTML = app.formatString(screen.title);
+        document.getElementById('title').innerHTML = app.formatString(screen.title);
         var btn;
         var actKey;
         var act;
@@ -186,7 +190,7 @@ moveTo: function(to) {
             act    = app.activities[actKey];
             btn = document.getElementById(`button${i+1}`);
             document.getElementById(`title${i+1}`).innerHTML = app.formatString(act.caption);
-            document.getElementById(`caption${i+1}`).innerHTML = act.help;
+            document.getElementById(`help${i+1}`).innerHTML = act.help;
             document.getElementById(`button${i+1}`).className = `btn-activity col ${act.category}`;
             document.getElementById(`button${i+1}`).style.backgroundImage = `url('img/${act.icon}.png')`;
             if (act.category == 'function') {
@@ -195,8 +199,11 @@ moveTo: function(to) {
                 btn.setAttribute("onclick", `app.moveFromTo('${actKey}','${act.next}')`);
             }
         }
-        document.getElementById('buttons').style.display = 'none';
         document.getElementById('buttons').style.display = '';
+     document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideIn';
+        document.getElementById('buttons').classList.toggle('x');
+     document.getElementById('buttons').style.animation = '';
+     document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideIn';
     }
     switch(to) {
         case "home":
@@ -215,9 +222,6 @@ moveTo: function(to) {
             app.setNav('nav-menu');
             document.getElementById('footer').style.display = 'none';
             break;
-        case "help":
-            app.setNav('nav-help');
-            break;
         case "freetext":
             document.getElementById('input').style.display = '';
     }
@@ -225,7 +229,7 @@ moveTo: function(to) {
 },
 
 moveFromTo: function(from, to) {
-    document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideIn';
+    // document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideIn';
     app.moveFrom(from);
     app.moveTo(to);
 },
@@ -250,6 +254,7 @@ setFooter: function(setting) {
 },
 
 defaultView: function() {
+    document.getElementById('navbar').style.display = '';
     document.getElementById('header').style.display = '';
     document.getElementById('input').style.display = 'none';
     document.getElementById('server').style.display = 'none';
@@ -257,13 +262,14 @@ defaultView: function() {
     document.getElementById('list').style.display = 'none';
     document.getElementById('buttons').style.display = 'none';
     document.getElementById('footer').style.display = '';
+    [...document.querySelectorAll('.help')].map(e=>{console.log(e);e.classList.add('no-help')});
+    document.getElementById('nav-help').classList.remove('on');
 },
 
 setNav: function(on) {
     document.getElementById('nav-menu').style.background = '#eee';
     document.getElementById('nav-home').style.background = '#eee';
     document.getElementById('nav-user').style.background = '#eee';
-    document.getElementById('nav-help').style.background = '#eee';
     document.getElementById(on).style.background = '#ded';
 },
 
@@ -355,6 +361,16 @@ listActivities: function() {
     }
 },
 
+goBack: function() {
+  app.history.pop(); // remove current
+  const prev = app.history.pop();
+  document.getElementById('buttons').style.animation = '0.5s ease-out 0s 1 slideBack';
+  if (prev === undefined) {
+      app.moveTo("home");
+  } else {
+      app.moveTo(prev);
+  }
+},
 
 submitHHid: function() {
     // Special submission case for non UK participants via HH id
@@ -370,9 +386,9 @@ submitHHid: function() {
 },
 
 
-toggleCaption: function() {
-  app.btnCaption.toggle();
-  app.helpCaption.toggle();
+toggleHelp: function() {
+    [...document.querySelectorAll('.help')].map(e=>{console.log(e);e.classList.toggle('no-help')});
+    document.getElementById('nav-help').classList.toggle('on');
 },
 
 
@@ -403,7 +419,7 @@ showHelp: function() {
   }
 },
 
-showProfile: function() {
+XshowProfile: function() {
   if (localStorage.getItem('Online') == 'true') {
     var idMeta = localStorage.getItem('metaID');
     var profileURL = app.label.profileURL + idMeta;

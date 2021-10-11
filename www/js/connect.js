@@ -30,8 +30,6 @@ window.onerror = function(message, source, lineNumber) {
 
 function uploadActs() {
     // 14 Sep 2021 new upload function with fetch
-    if (localStorage.getItem('metaID') == null) { getUserID(); }
-
     let   acts = JSON.parse(localStorage.getItem('acts'));
     const keysToUpload = Object.keys(acts).filter(x => !acts[x].uploaded);
     keysToUpload.map(key => {
@@ -63,12 +61,12 @@ function uploadActs() {
     );
 }
 
-async function getUserID() {
+function getUserID() {
    const requestOptions = {
        method:  'POST',
        headers: {"Content-Type":  "application/json"}
    };
-   await fetch(`${meterURL}getUserID.php`, requestOptions)
+   fetch(`${meterURL}getUserID.php`, requestOptions)
        .then(response => response.json())
        .then(result => {
            if (result.message == 'success') {
@@ -85,7 +83,7 @@ function requestMetaID(functionToExecuteNext){
     request = $.ajax({
         url: getMetaID,
         type: "POST",
-        data: {deviceType:device.platform + ", " + device.cordova + ", " + device.model + ", " + device.version +  ", " + device.manufacturer + ", " + device.serial, deviceUUID:device.uuid},
+        data: {deviceType:device.platform + ", " + device.model + ", " + device.version +  ", " + device.manufacturer + ", " + device.serial, deviceUUID:device.uuid},
         success: function(response) {
             if (response.split("#")[0]=="Success") {
                 console.log("Got id: " + response.split("#")[1]);
@@ -656,7 +654,7 @@ function receiveMessageIframe(message) {
 function uploadErrorMessages(){ //This sends errors to the SQL database
     var errorsToUploadCopy = localStorage.getItem("errorsToUpload");
     console.log("Uploading the errors!");
-    var deviceInfo = device.platform + ", " + device.cordova + ", " + device.model + ", " + device.version +  ", " + device.manufacturer + ", " + device.serial +  ", " + device.uuid;
+    var deviceInfo = device.platform + ", " + device.model + ", " + device.version +  ", " + device.manufacturer + ", " + device.serial +  ", " + device.uuid;
     var metaID = localStorage.getItem("metaID");
     var errorInfoArray = localStorage.getItem("errorsToUpload").split(";"); //array of {errorMessage,lineNumber}
     if (errorInfoArray[0]== "" || errorInfoArray[0]== "null"){
